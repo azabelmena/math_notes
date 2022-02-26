@@ -1,0 +1,89 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Continuous Functions.}
+
+\begin{definition}
+    Let $X$ and  $Y$ be metric spaces and let  $p \in E \subseteq X$, and  $f:E \rightarrow Y$ be a 
+    function. We say that $f$ is \textbf{continuous} at $p$ if for every  $\epsilon>0$, there is a 
+    $\delta>0$ such that  $d_Y(f(x),f(p))<\epsilon$ whenever $0<d_X(x,p)<\delta$. If  $f$ is continuous 
+    at every point in  $X$, we say that  $f$ is \textbf{continuous on $X$}.
+\end{definition}
+
+\begin{theorem}\label{5.2.1}
+    If $E \subseteq X$ a metric space, and if  $f$ is a function defined on $X$,  and  $p \in E$ 
+    is a limit point, then  $f$ is continuous if and only if  $\lim{f(x)}=f(p)$ as  $x \rightarrow p$.
+\end{theorem}
+
+\begin{theorem}\label{5.2.2}
+    Suppose $X$, $Y$, and  $Z$ are metric spaces, and that  $f:E \rightarrow Y$,  $g:Y \rightarrow Z$, are 
+    functions  (with $E \subseteq X$) such that $f$ is continuous at  $p$ and  $g$ is 
+    continuous at  $f(p)$. Then  $g \circ f$ is continuous at  $p$.
+\end{theorem}
+\begin{proof}
+    For every $\epsilon>0$, we have  $\delta_1,\delta_2>0$ such that $d_Y(f(x),f(p))<\epsilon$, when 
+    $0<d_X(x,p)<\delta_1$, and  $d_Z(g(y),g(f(p)))<\epsilon$ whenever  $d_Y(y,f(p))<\delta_2$. Then 
+    choose  $\delta=\min\{\delta_1,\delta_2\}$,a nd we see that  $d_Z(g(f(x)),g(f(p)))<\epsilon$ whenever 
+    $0<d_X(x,p)<\delta$.
+\end{proof}
+
+\begin{theorem}\label{5.2.3}
+    A mapping $f$ of a metric space  $X$ into a metric space  $Y$ is continuous if and 
+    only if  for every open set $V \subseteq Y$,  $f^{-1}(V)$ is open in  $X$.
+\end{theorem}
+\begin{proof}
+    Let $f$ be continuous on  $X$, and let  $V$ be open in  $Y$. For  $p \in X$, $f(p) \in V$, 
+    and since  $V$ is open, there is an  $\epsilon>0$ such that  $y \in V$ when $d_Y(y,f(p))<\epsilon$. 
+    Since  $f$ is continuous, there is a  $\delta>0$ such that  $d_Y(f(x),f(p))<\epsilon$, whenever 
+    $0<d_x(x,p)<\delta$. Thus  $f^{-1}(V)$ is open in  $X$.
+
+    Conversly, suppose that $f^{-1}(V)$ is open in  $X$ for  $V$ open in  $Y$. Let  
+    $p \in X$ and  $\epsilon>0$, and let  $V=\{y \in Y: d_Y(y,f(p))<\epsilon\}$;  $V$ is open in  $Y$, 
+    so  $f^{-1}(V)$ is open in  $X$, thus there is a  $\delta>0$ such that $x \in f^{-1}(V)$ when 
+    $0<d_X(x,p)<\delta)$, then $f(x) \in V$, so $d_Y(f(x),f(p))<\epsilon$ ; therefore, $f$ is continuous 
+    at  $p$.
+\end{proof}
+
+\begin{corollary}
+    A mapping $f$ from  $X$ into  $Y$ is continuous if and only if  $f^{-1}(C)$ is closed 
+    in $X$, whenever  $C$ is closed in  $Y$.
+\end{corollary}
+\begin{proof}
+    This is the converse of the previous theorem.		
+\end{proof}
+
+\begin{theorem}\label{5.2.4}
+    Let $f,g:X \rightarrow \C$ be continuous complex valued functions defined on a 
+    metric space  $X$, then $f+g$, $fg$, and $\frac{f}{g}$ are continuous.
+\end{theorem}
+\begin{proof}
+    This follows from theorem \ref{5.1.2} and the sequential criterion.
+\end{proof}
+
+\begin{theorem}\label{5.2.5}
+    Let $f_1, \dots, f_k$ be realvalued functions defined on a metric space $X$, and define 
+    $f:X \rightarrow \R^k$ by  $f(x)=(f_1(x), \dots, f_k(x))$ for all $x \in X$. Then $f$ is continuous 
+    if and only if  $f_i$ is continuous for  $11 \leq i \leq k$. Moreover, if  $g:X \rightarrow \R^k$ and 
+     $f$ are continuous, then so is  $f+g$ and  $fg$.
+\end{theorem}
+\begin{proof}
+    Notice that $|f_i(x)-f_i(y)| \leq ||f(x)-f(y)||=\sqrt{\sum{|f_i(x)-f_i(y)|^2}}$	for 
+    $1 \leq i \leq k$. If follows then that  $f$ is contiuous if and only  $f_i$ is. Moreover, 
+    if  $g:X \rightarrow \R^k$  is also contiuous, then by the previous theorem, so is $f+g$ and  $fg$.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Let $x \in \R^k$, define the functions  $\phi_i:\R^k \rightarrow \R$ by 
+            $\phi_i(x)=x_i$ for all  $1 \leq i \leq k$, then  $\phi_i$ is contiuous on  $\R^k$ 
+
+        \item The monomials  $x_1^{n_1}x_2^{n_2} \dots x_k^{n_k}$, with $n_i \in \Z^+$ for 
+             $1 \leq i \leq k$ are contiuous on  $\R^k$. So are all constant ultiples, thus the 
+             polynomial  $\sum{c_{n_1, \dots, n_k}}x_1^{n_1}x_2^{n_2} \dots x_k^{n_k}$ is also 
+             continuous on $\R^k$.
+
+         \item We have  $||||x||-||y|||| \leq ||x-y||$ for all  $x,y \in \R^k$, thus the 
+             mapping  $x \rightarrow ||x||$ is contiuous on $\R^k.$
+    \end{enumerate}		
+\end{example}

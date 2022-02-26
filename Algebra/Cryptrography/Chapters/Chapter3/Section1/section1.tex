@@ -1,0 +1,89 @@
+%--------------------------------------------------------------------------------
+%	SECTION 1.1
+%--------------------------------------------------------------------------------
+
+\section{Linear Transformations.}
+
+When we studied vector spaces, we introduced the definition of a ``vector space
+homomorphism'', or (better know as) a linear transformation. It would be
+interesting to study the space of such linear transformations. Let $V$ be a
+vector space over a field  $F$ and consider the space $\Hom{(V,V)}$ of all linear
+transformations from $V$ into itself. It was shown that $\Hom{(V,V)}$ forms a
+vector space over $F$. This was done with the property of linearity. Now for
+$T_1,T_2 \in \Hom{((V,V))}$, consider $T_2 \circ T_1(v)$ for $v \in V$. Now let
+$\alpha, \beta \in F$ and  $u, v \in V$. Then:
+    \begin{align*}
+        T_2 \circ T_1(\alpha v+\beta u) &= T_2(T_1(\alpha v+\beta u)) \\
+                           &= T_2(\alpha T_1(v)+\beta T_1(u)) \\
+                           & = \alpha T_2(T_1(v))+\beta T_2(T_1(u)) \\
+                           &= \alpha T_2 \circ T_1(v)+\beta T_2 \circ T_1(u) \\
+    \end{align*}
+This makes $T_2 \circ T_1$ a linear transformation, so $T_2 \circ T_1 \in
+\Hom{(V,V)}$. We can speculate on some properties of $T_2 \circ T_1$.
+
+\begin{lemma}\label{3.1.1}
+    Let $V$ be a vector space and  $T_1, T_2, T_3 \in \Hom{(V,V)}$, and consider 
+    the composition in $\Hom{(V,V)}$. The following hold:
+        \begin{enumerate}
+            \item[(1)] $T_3 \circ (T_1+T_2)=T_3 \circ T_1+T_3 \circ T_2$.
+
+            \item[(2)] $(T_1+T_2) \circ T_3=T_1 \circ T_3+T_2 \circ T_3$.
+
+            \item[(3)] $(T_3 \circ T_2) \circ T_1=T_3 \circ (T_2 \circ T_1)$.
+
+            \item[(4)] $\alpha(T_2 \circ T_1)=T_2 \circ (\alpha T_1)= 
+                (\alpha T_2) \circ T_1$.
+        \end{enumerate}
+\end{lemma}
+
+The follwong are some well known examples of linear transformations.
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] For any vector space $V$, the  \textbf{zero} transform
+            $0:V \rightarrow V$ defined by $0:\alpha \rightarrow 0$ is a linear
+            transformation.
+
+        \item[(2)] Let $F$ be a field and let $V=F[x]$. Take the map  $D:F[x]     
+            \rightarrow F[x]$ by taking $f \rightarrow f'$ where $f'$ is the 
+            derivative of the polynomial $f$. That is if  $f(x)=c_0+c_1x+\dots+
+            c_nx^n$, then $Df(x)=c_1+2c_2x+\dots+nc_nx^{n-1}$. The map $D$ is a 
+            linear  transformation called the \textbf{differentiation}
+            transform.
+
+        \item[(3)] Let $A$ be an  $m \times n$ matrix over a field  $F$ and let  
+            $T$ be defined by  $T(X)=AX$. Then $T$ is a linear transformation 
+            from  $F^{n \times 1}$ into $F^{m \times 1}$. The map $U:\alpha 
+            \rightarrow \alpha A$ is also a linear transformation from $F^n 
+            \rightarrow F^m$.
+
+        \item[(4)] Let $P$ and $Q$ be $m \times m$ and $n \times n$ matrices
+            over $F$ Define the map $T:F^{m \times n} \rightarrow F^{m \time n}$
+            by $T:A \rightarrow PAQ$. Notice that for $x,y \in F$ that
+            $T(xA+yB)=P(xA+yB)Q=xPAQ+yPBQ=xT(A)+yT(B)$ so $T$ is a linear
+            transformation.
+
+        \item[(6)] Let $V=C(\R)$ the space of all continuous funtions from $\R$
+            to  $\R$. Define the map  $T:\R \rightarrow \R$ by
+            $Tf(x)=\int_{0}^{x}{f \ dt}$. By the properties of integration from 
+            real analysis, it is easy to see that $T$ is a linear 
+            transformation. This linearity if a fundamental property of the
+            integral. Moreover, we can see that $Tf$ is continuous and has a
+            continuous first derivative.
+    \end{enumerate}
+\end{example} 
+
+We should notice lemma \ref{3.1.1} makes $\Hom{(V,V)}$ into an associative ring.
+We can also see there is an identity $I \in \Hom{(V,V)}$, so $\Hom{(V,V)}$ is an
+associative ring with unit. We also notice that for any $T$,  $\alpha T=T \circ
+(\alpha I)=(\alpha I) \circ T$, so $\alpha I$ commutes with every linear
+transformation in the space. This motivates the following definition. 
+
+\begin{definition}
+    We call an associative ring $A$ an  \textbf{algebra} over a field $F$ if
+    $A$ is a vector space over  $F$ such that for al  $a,b \in A$ and  $\alpha
+    \in F$,  $\alpha(ab)=(\alpha a)b=a(\alpha b)$.
+\end{definition}
+
+So what property $(4)$ of lemma \ref{3.1.1} does is make $\Hom{(V,V)}$ into an
+algebra.

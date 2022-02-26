@@ -1,0 +1,133 @@
+\section{Characteristic Roots.}
+\label{section2}
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector space over a field  $F$, and let  $T$
+    be a linear transformation on  $V$. We an element  $\lambda \in F$ an
+    \textbf{Eignevalue}, or \textbf{characteristic root} of $T$ if
+    $\lambda1-T=\lamda-T$ is singular.
+\end{definition}
+
+\begin{theorem}\label{3.2.1}
+    Let $V$ be a finite dimensional vector space over a field  $F$, and let  $T$
+    be a linear transformation on  $V$. Then  $\lambda \in F$ is an Eigenvalue
+    of $T$ if, and only if  $T(v)=\lambda v$, for some $v \neq 0 \in V$.
+\end{theorem}
+\begin{proof}
+    If $\lambda$ is is an Eigenvalue, then $\lembda-T$ is singular, and hence
+    there is some  $v \in V$ for which  $\lambda-T(v)=\lambda v-T(v)=0$. On the
+    otherhad, if $T(v)=\lambda v$ for some $v \neq 0 \in V$, then $\lambda
+    v-T(v)=0$ which makes $\lambda-T$ singular.
+\end{proof}
+
+\begin{lemma}\label{3.2.2}
+    If $\lambda \in F$  is an Eigenvalue for a linear transformation on a vector
+    space over a field $F$, then for any $q \in F[x]$, $q(\lambda)$ is an
+    Eigenvalue of $q(T)$.
+\end{lemma}
+\begin{proof}
+    Let $\lambda \in F$ be an Eigenvalue, then there is a $v \neq 0 \in V$ for
+    which  $T(v)=\lambda v$, by the above theorem. Then
+    $T^2(v)=T(T(v))=\lambda(\lambda v)=\lambda^2v$. By induction, we can show
+    that $T^n(v)=\lambda^nv$ for $n \in \Z^+$. Now let
+    $q(x)=\alpha_0x^m+\dots+\alpha_{m-1}x+\alpha_m$ with $\alpha_i \in F$. Then
+    we get :
+        \begin{align*}
+            q(T(v)) &=  \alpha_0T^m(v)+\dots+\alpha_{m-1}T(v)+\alpha_m \\
+                    &=  \alpha_0\lambda^mv+\dots+\alpha_{m-1}\lambda v+\alpha_m \\
+                    &=  (\alpha_0\lambda^m+\dots+\alpha_{m-1}\lambda+\alpha_m)v \\
+        \end{align*}
+
+        So we have $q(T(v))=q(T)(v)=q(\lambda)v$
+\end{proof}
+
+\begin{theorem}\label{3.2.3}
+    Let $V$ be a vector space over a field  $F$ and let  $T$ be a linear
+    transformation on  $V$ If  $\lambda \in F$ is an Eigenvalue of  $T$, then
+    $\lambda$ is a root of the minimal polynomial for  $T$. In particular, there
+    are finitely many Eigenvalues of  $T$ in  $F$.
+\end{theorem}
+\begin{proof}
+    Let $p \in F[x]$ be the minimal polynomial for $T$. By the above lemma, we
+    have that if  $\lambda \in F$ is an Eigenvalue, then  $p(\lambda)$ is an
+    Eigenvalue for $p(T)$; that is $p(T(v))=p(\lambda)v$ for some $v \neq 0 \in
+    V$. We also have that $p(T)=0$, therefore  we have that
+    $p(T(v))=p(\lambda)v=0$, and since $v \neq 0$, it must be that
+    $p(\lambda)=0$. Therefore $\lambda$ is a root of $p$. Moreover, since there
+    are atmost $\deg{p}$ roots of $p$, there must be at most  $\deg{p}$
+    Eigenvalues for $T$.
+\end{proof}
+\begin{remark} 
+    Since $\dim{V}=n$ for some $n$, notice that  $\deg{p} \leq n^2$, thus there
+    are atmost $n^2$ Eigenvalues for $T$.
+\end{remark}
+\begin{remark} 
+    Also notice that since $\lambda$ is a root of a given polynomial, then it
+    makes sense to also call it the characteristic  \textbf{root} of the linear
+    transformation $T$. We may use these terms interchangibly.
+\end{remark}
+
+\begin{lemma}\label{3.2.4}
+    If $S$ and  $T$ are linear transformations on a vector space $V$ over a
+    field  $F$, and $S$ is invertible, then $T$ and  $STS^{-1}$ share the same
+    minimal polynomial.
+\end{lemma}
+\begin{proof}
+    If $S$ is invertible, then $(STS^{-1})^i=ST^iS^{-1}$. Now for $q \in F[x]$,
+    we have $q(STS^{-1})=Sq(T)S^{-1}$ and if $q(T)=0$, the equality is $0$. Now
+    if  $p$ is the minimal polynomial for  $T$, then  $p(T)=0$, and we get
+    $p(STS^{-1})=Sp(T)S^{-1}=0$, making $p$ the minimal polynomial for
+    $STS^{-1}$.
+\end{proof}
+\begin{corollary}
+    $T$ and  $STS^{-1}$ share the same Eigenvalues.
+\end{corollary}
+
+\begin{definition}
+    Let $V$ be a vector space over a field  $F$ and let  $T$ be a linear
+    transformation on  $V$. We call a  $v \neq 0 \in V$ an
+    \textbf{Eigenvector}, or \textbf{characteristic vector} of $T$, belonging to
+    the Eigevalue  $\lambda \in F$ if  $T(v)=\lambda v$.
+\end{definition}
+
+It is worth noting that the above theorems and lemmas for Eigenvalues can be 
+reformulated for Eiegenvectors.
+
+\begin{theorem}\label{3.2.5}
+    Let $V$ be a vector space over a field  $F$. If $\lambda_1, \dots, \lambda_n$ 
+    are distinct Eigenvalues of a linear transformation $T$ on $V$, and if  $v_1, 
+    \dots, v_n$ are Eigenvectors for $T$ belonging to  $\lambda_1, \dots,
+    \lambda_n$, respectively, then  $\{v_1, \dots, v_n\}$ are linearly
+    independent over $F$.
+\end{theorem}
+\begin{proof}
+    If $n=1$, we are done, so suppose that  $n>1$. Let  $v_1, \dots, n_n$ be
+    linearly dependent Eigenvectors, then there are $\alpha_1, \dots, \alpha_n
+    \in F$ not all  $0$ for which  $\alpha_1v_1+\dots+\alpha_nv_n=0$. We can
+    reformulate this equation such that it is the shortest possible relation:
+        \begin{equation}
+            \beta_1v_1+\dots+\beta_jv_j=0
+        \end{equation}
+    for which $\beta_i \neq 0$, for  $1 \leq i \leq j$. Since $T(v_i)=\lambda_iv_i$,
+    we get:
+        \begin{equation}
+            \lambda_1\beta_1v_1+\dots+\lambda_j\beta_jv_j=0
+        \end{equation} 
+    Multiplying by equation $(3.2)$ and then subtracting from equation $(3.3)$ 
+    we get:
+        \begin{equation*}
+            (\lamda_2-\lambda_1)\beta_2v_2+\dots+(\lambda_j-\lambda_1)\beta_jv_j=0
+        \end{equation*}
+    Then $\lambda_i-\lambda_1 \neq 0$ for $i > 0$ and  $\beat_i \neq 0$ so we
+    have  $(\lambda_i-\lambda_1)\beat_i \neq 0$, which would give a shorter
+    relation than that of equation $(3.2)$, a contradiction!
+\end{proof}
+\begin{corollary}
+    If $T$ is a linear transformation and  $\dim{V}=n$, then $T$ has atmost  $n$
+    distinct Eigenvalues.
+\end{corollary}
+\begin{corollary}
+    If $T$ is a linear transformation $\dim{V}=n$ and $T$ has exactly  $n$
+    distinct Eigenvlues, then there is a basis of  $V$ over  $F$ consisting
+    solely of Eigenvalues.
+\end{corollary}

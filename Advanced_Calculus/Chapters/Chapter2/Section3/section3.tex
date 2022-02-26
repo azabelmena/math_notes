@@ -1,0 +1,191 @@
+%----------------------------------------------------------------------------------------
+%	SECTION X.X
+%----------------------------------------------------------------------------------------
+
+\section{The Bolzano-Weierstrass Theorem.}
+
+The squence $\{(-1)^n\}=(-1,1,-1,1,\dots)$, has the properties that it is a 
+bounded divergent sequence that contains convergent subsequences. This turns out 
+to be a special case of the ``Bolzano-Weierstrass theorem''. The rest of this 
+section is devoted to stating and proving the theorem.
+
+\begin{definition}
+    Let $\{x_n\}$ be a real valued sequence. Then:
+        \begin{enumerate}[label=(\arabic*)]
+            \item $\{x_n\}$ is \textbf{increasing} if and only if $x_i \leq 
+                x_{i+1}$; and $\{x_n\}$ is  \textbf{strictly increasing} if 
+                $x_i < x_{i+1}$ for all $i \in \N$
+
+            \item $\{x_n\}$ is \textbf{decreasing} if and only if $x_{i+1} \leq 
+                x_i$; and  $\{x_n\}$ is  \textbf{strictly decreasing} if and 
+                only if $x_{i+1}<x_i$ for all  $ui \in \N$.
+
+            \item $\{x_n\}$ is \textbf{monotone} if and only if it is either 
+                increasing or decreasing.
+        \end{enumerate}
+\end{definition}
+
+If $\{x_n\}$ is increasing, and converges to  $a$, we may write  $x_n \uparrow a$, 
+if $\{x_n\}$ is decreasing and convergent to  $a$, we may write  $x_n \downarrow 
+a$. 
+\begin{claim} 
+    \begin{enumerate}[label=(\arabic*)]
+        \item If a sequence is strictly increasing, then it is increasing.
+
+        \item If a sequence is strictly decreasing, then it is decreasing.
+
+        \item If $\{x_n\}$ is a real valued sequence, then  $\{x_n\}$ is 
+            increasing if and only if  $\{-x_n\}$ is decreasing. Similarly 
+            $\{x_n\}$ is decreasing if and only if $\{-x_n\}$ is increasing.
+    \end{enumerate}
+\end{claim}
+
+We know that all convergent sequences are bounded, however, the converse is not 
+true. However, what if we only consider monotone sequences?
+
+\begin{theorem}[The Monotone Convergence Theorem]\label{2.3.1}
+    If $\{x_n\}$ is increasing and bounded above, or decreasing and bounded 
+    below, then $\{x_n\}$ converges to a finite limit.
+\end{theorem}
+\begin{proof}
+   We show that an increasing sequence bounded above will converge to its least 
+   upperbound. Suppose $\{x_n\}$ is increasing and bounded above. By the axiom 
+   of completeness,  $\{x_n\}$ has a finite least upperbound $a$. Now for any 
+   $\epsilon>0$ there is an  $N \in \N$ such that  $a-\epsilon < x_N \leq a$. 
+   Then for any  $n \geq N$,  $\{x_n\}$ is increasing, hence  $x_n \geq x_N$, so  
+   $a- \epsilon < x_N \leq x_n \leq a$. Hene $|x_n-a|<\epsilon$. Therefore, 
+   $x_n \rightarrow a$. By a similar agrument, we get that if $\{x_n\}$ is 
+   \decreasing and bounded below, then  $x_n \rigntarrow \inf{\{x_n\}}$.
+
+   We can also by direct application of the first part, note that by the axiom 
+   of completeness, $\{-x_n\} \rightarrow -b$, and by the limit laws, we get 
+   that  $x_n \rightarrow b$, hence we get that  $\{-x_n\}$ is increasing and 
+   bounded above, hence  $-b=\sup{\{-x_n\}}$, therefore  $b=\inf{\{x_n\}}$.
+\end{proof}
+
+\begin{example}
+    If $|a|<1$, then $a^n \rightarrow 0$ as $n \rightarrow \infty$. 
+\end{example}
+\begin{solution}
+    If $\{x_n\}$ is a sequence with the limit  $\lim{|x_n|}=0$, then 
+    $\lim{x_n}=0$. Then it suffices to show that $\lim{|a|^n}=0$. We have that 
+    $|a|^n<|a|^{n-1}$, so  $\{|a^n|\}$ is decreasing, and we see that  $0$ is a 
+    lowerbound, hence by theorem $2.3.1$, $\lim{|a^n|}=L$, we must show that 
+    $L=0$. Suppose it is not $0$, then  $|a|^{n+1}=|a||a|^n$, so we consider the 
+    sequences  $\{|a|^{n+1}\}=|a|\{|a|^n\}$, then $\{|a|^{n+1}\}$ is a subsequence 
+    of  $\{|a|^n\}$. Hence we get $\lim{|a||a|^n}=|a|\lim{|a|^n}=|a|L$, hence 
+    we get that  $L=|a|L$, implying that $|a|=1$. A contradiction, so $L=0$.
+\end{solution}
+
+\begin{example}
+    If $a>0$, then  $\lim{a^{\frac{1}{n}}}=1$		
+\end{example} 
+\begin{solution}
+    We consider $3$ cases. Suppose first that  $a=1$, then  $a^\frac{1}{n}=1$ 
+    for all $n$, and hence we have the limit of a constant sequence. Now assume 
+    that  $a>1$. Then it suffices to show that  $\{a^{\frac{1}{n}}\}$ is 
+    decreasing. For any $n \in \N$,  $a^{n+1}>a^n>1$, taking the  $n$th root, 
+    we have  $(a^n)^{\frac{1}{n}}>a$, hence we have $(a^{\frac{1}{n}})^n>a$, 
+    so we get that $a^{\frac{1}{n}}>a^{\frac{1}{n+1}}$ which shows that 
+    $\{a^{\frac{1}{n}}\}$ is decreasing. Therefore $a^{\frac{1}{n}}  \geq 1$. 
+    Therefore, by theorem $2.3.1$, the limit exists aand  $\lim{a^\frac{1}{n}}=L$.
+
+    Consider then $a^\frac{1}{2n}$ and produce the appropriate subsequence. Notice 
+    then that $a^{\frac{1}{n}}=(a^\frac{1}{n})^\frac{1}{2}$ and the limit is $L$, 
+    We also see that the limit of  $(a^\frac{1}{n})\frac{1}{2}=L^\frac{1}{2}$. 
+    So we have that $L=L^\frac{1}{2}$. Therefore $L^2-L=0$, and so $L=0$ or  
+    $L=1$. However, since  $a^\frac{1}{n} \geq 1$, $L \neq 0$, so  $L=1$.
+
+    Now suppose that $0<a<1$, then we know that  $ \frac{1}{a}>1$. Thus by the 
+    previous case, we get that $\lim{\frac{1}{a}^\frac{1}{n}}=1$. Using some 
+    algebra, we get that
+        \begin{equation*}
+            \lim{a^\frac{1}{n}}=\frac{1}{\frac{1}{a^\frac{1}{n}}}=\frac{1}{1}=1
+        \end{equation*} 
+\end{solution}
+
+\begin{definition}
+    A sequence of sets $\{I_n\}_{n \in \N}$ is said to be \textbf{nested} if and 
+    only if $I_{i+1} \subseteq I_i$ for all $i \in \N$.
+\end{definition}
+
+\begin{theorem}\label{2.3.2}
+    If $\{I_n\}$ is a nested sequence of nonempty, closed, and bounded intervals 
+    then:
+        \begin{equation*}
+            E=\bigcap_{n \in \N} I_n
+        \end{equation*}
+    contains at least one point. Moreover, if the length of these intervals 
+    satisfiy  $|I_n| \rightarrow 0$ as  $n \rightarrow \infty$, then  $E$ contains 
+    exactly one point.
+\end{theorem}
+
+It is interesting to oserve some things before we being the proof. First note 
+that if $\{I_n\}$ is a sequence of nested sets, and  $E=\bigcap I_n$ for all  
+$n$, then $E=[a,b]$ for some  $a,b \in \R$. Moreover, we see that  $E \subseteq 
+\dots I_n \subseteq \dots \subseteq I_2 \subseteq I_1$, hence $E$ is a nonempty, 
+closed and bounded interval, and  $E \in \{I_n\}$. What this illustrates, is 
+that we can make  $E$ as arbitrarily small an interval we need it to be, and it 
+will always contain atleast one element. Moreover, if we construct $\{I_n\}$ 
+right, then we can make $E$ have exactly one element.
+
+\begin{proof}
+    Let $I_n=[a_n,b_n]$, and that  $\{I_n\}$ is nested. Then  $a_n \leq a_{n+1}$ 
+    and $b_{n+1} \leq b_n$. Thus  $\{a_n\}$ is increasing, and $\{b_n\}$ is 
+    decreasing, with an upperbound $b_1$ and a lowebound  $a_1$, respectively. 
+    Then we have  $a$ and  $b$ with $a_n \rightarrow a$ and  $b_n \rightarrow b$ 
+     as $n \rightarrow \infty$. Now since  $a_n<b_n$ for all  $n$, we get  
+     $a \leq b$. Therefore, $E=[a,b]$ contains at least one point. Moreover, if 
+     the length of  $|I_n| \rightarrow 0$ as  $n \rightarrow \infty$, then 
+     $b_n-a_n \rightarrow 0$, So  $b-a=0$. Therefore  $b=a$ and we get that  $E$ 
+     contains exactly one point.
+\end{proof}
+
+\begin{remark} 
+    The nested interval property does not hold if ``closure'' is omitted. The 
+    interval $I_n=(0,\frac{1}{n})$ is nested,, nonempty, and bounded, however 
+    $\bigcap I_n = \emptyset$.
+
+\end{remark}
+
+\begin{remark} 
+    The neseted interval property may not hold if the interval is not bounded. 
+    Consider the interval $I_n=[n,\infty)$, which is nested and closed, but not 
+    bounded. Then  $\bigcap I_n=\emptyset$.
+\end{remark}
+
+\begin{theorem}[The Bolzano-Weierstrass Theorem]\label{2.3.3}
+   Every bounded sequence of real numbers has a convergent subsequence. 
+\end{theorem}
+\begin{proof}
+    We begin with a general boservation. Let $\{x_n\}$ be a sequence, and let  
+    $E$ be a set. Then  $E=A \cup B$ for sets $A$ and $B$, and  $E$ contains  
+    $x_n$ for infinitely many values of  $n$; then at least one of the sets  $A$ 
+    or  $B$ contains $\{x_n\}$ for infinitely many values of $n$.
+
+     Now let  $\{x_n\}$ be a bounded sequences, choose  $a,b \in \R$ such that 
+     all  $x_n \in [a,b]$. Set $I_0=[a,b]$; now divide  $I_0$ into two subintervals 
+     $[a,\frac{1+b}{2}]$ and $[\frac{1+b}{2},b]$. Now $I_0$ contains  $x_n$ for 
+     infinitely many values of  $n$, and  $I_0=[a,\frac{1+b}{2}] \cup 
+     [\frac{1+b}{2},b]$. Then atleast one of the aformentioned intervals contains 
+     $x_n$ for infinitely many values of  $n$. Call that set  $I_1$. and we know 
+     that $|I_1|=\frac{1}{2}|I_0|=\frac{b-a}{2}$. Now divide $I_1$ equally into 
+     twon sub intervals $I_1'$ and $I_1''$, then as before, atleast one of these 
+     intervals contains $x_n$ for infinitely many values of  $n$. Call that 
+     interval  $ I_2$, and so $|I_2|=\frac{1}{2}|I_1|=\frac{b-1}{4}$. Repeating 
+     the process, we get a nested sequence of intervals $\{I_n\}$ where  $|I_n|=
+     \frac{b-a}{2^n}$ and $I_n$ is nonempty, closed, and bounded; so the 
+     intersection  $E=\bigcap I_n=\{x\}$ by theorem \ref{2.3.2}. Now we have that 
+     $I_n$ is npnempty, so we will have  $x_{n_k} \i I_n$ because  $I_n$ contains 
+     $x_n$ for infinitely many values of  $n$. Choose  $n_k<n_{k+1}$. So  
+     $\{x_{n_k}\}$ is a subsequence of  $\{x_n\}$ with  $x_{n_k} \i I_n$.
+
+     Now observe that  $x_{n_k},x \in  I_n$, so  $0 \leq |x_{n_k}-x| \leq |I_k| 
+     \leq \frac{b-a}{2^k}$ for $n_k \geq k$. Hence, by definition of the limit, 
+     when  $k \rightarrow \infty$,  $\lim{x_{n_k}}=x$, choosing  $\epsilon>
+     \frac{b-a}{2^k}$.
+\end{proof}
+
+\begin{HW} 
+    Problems $1$,  $2$,  $4$,  $5$, and  $6$ on page  $48$.
+\end{HW}

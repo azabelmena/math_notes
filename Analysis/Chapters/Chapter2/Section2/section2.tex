@@ -1,0 +1,244 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Metric Spaces}
+
+\begin{definition}
+    A set $X$, whose elements we will call \textbf{points}, is said to be a \textbf{metric space} 
+    if there exists a mapping $d:X \times X \rightarrow \R$, called a \textbf{metric} (or 
+    \textbf{distance function}) such that for  $x,y \in X$
+         \begin{enumerate}[label=(\arabic*)]
+             \item $d(x,y) \geq 0$, and $d(x,y)=0$ if and only if $x=y$.
+
+             \item $d(x,y)=d(y,x)$.
+
+             \item $d(x,y) \leq d(x,z)+d(z,y)$ (The Triangle Inequality).
+        \end{enumerate}
+\end{definition}
+
+\begin{example}
+    The absolute value, $|\cdot|$ for real numbers, the modulus  $|\cdot|$ for 
+    complex numbers, and the norm $||\cdot||$ for vectors are all metrics. They 
+    turn  $\R$,  $\C$, and  $\R^k$ into metric spaces respectively.
+\end{example} 
+
+\begin{definition}
+    An \textbf{open interval} in $\R$ (or \textbf{segment}) is a set of the form $(a,b)=\{a,b \in \R: a<x<b\}$, 
+    a \textbf{closed interval} in $\R$ is a set of the form $[a,b]=\{x \in \R: a \leq x \leq b\}$; and 
+    \textbf{half open intervals} in $\R $are sets of the form  $[a,b)=\{x \in \R: a \leq x <b\}$ and 
+    $(a,b]=\{x \in \R: a<x \leq b\}$.
+
+    If  $a_i < b_i$, for  $1 \leq i \leq k$, the set of all points  $(x_1, \dots, x_k) \in \R^k$ which 
+    satisfy the Inequalities $a_i \leq x_i \leq b_i$ is called a \textbf{k-cell} in $\R^k$. If \
+    $x \in \R^k$, and  $r>0$, we call the set  $B_r(x)=\{y \in \R^k: ||x-y||<r\}$ an 
+    \textbf{open ball} in $\R^k$,  and we call the set  $B_r[x]=\y \in \R^k: ||x-y|| \leq r\}$ a 
+    \textbf{closed ball} in $\R^k$.
+\end{definition}
+
+\begin{definition}
+    We call a set $E \subseteq \R^k$ \textbf{convex}, if whenever  $x,y \in E$,
+    $\lambda x+(1-\lambda)y \in E$ for  $0 <\lambda<1$.
+\end{definition}
+
+\begin{lemma}\label{2.2.1}
+    Open and closed balls, along with $k$-cells are convex.
+\end{lemma}
+\begin{proof}
+    Let $B_r(x)$ be an open ball; let $y,x \in B_r(x)$, and  $0<\lambda<1$. Then 
+    $||x-(\lambda y+(1-\lambda)z||=||\lambda(x-y)-(1-\lambda)(x-z)|| \leq \lambda||x-y||+(1-\lambda)||x-z||<\lambda r+(1-\lambda)r$.
+    The proof is analogous for  closed ball.
+
+    Now let  $K$ be a  $k$-cell for  $a_i<b_i$, for  $1 \leq i \leq k$, let  $x,y \in K$, 
+    then $a_i \leq x_i,y_i \leq b_i$, so  $\lambda a_i \leq \lambda x_i \leq \lambda b_i$, and $(1-\lambda)a_i \leq (1-\lambda)y_i 
+    \leq (1-\lambda)b_i$, since  $0<\lambda<1$, $a_i \leq \lamda a_i+(1-\lambda)a_i \leq \lambda x_i+(1-\lambda)y_i \leq \lambda 
+    b_i+(1-\lamda)b_i \leq b$.
+\end{proof}
+
+\begin{corollary}
+    Open and closed intervals, along with half open intervals are convex.
+\end{corollary}
+\begin{proof}
+    We just notice that open and closed intervals are open and closed balls in $\R^1=\R$, 
+    we also notice that half open intervals $[a,b)$ and  $(a,b]$ are subsets of the closed interval 
+    $[a,b]$, and hence inherit convexity.
+\end{proof}
+
+For the following definitions, let $X$ be a metric space with metric $d$.
+
+\begin{definition}
+    A  \textbf{neighborhood} of a point $x \in X$ is the set
+    $N_r(x)=\{y \in X: d(x,y)<r\}$ for some $r>0$ called the \textbf{radius} of the neighborhood. 
+    We call  $x$ a \textbf{limit point} of a set  $E \subseteq X$ if every neighborhood of  $x$ 
+    contains a point  $y \neq x$ such that  $y \in E$. If  $y \in E$, and $y$ is not 
+    a limit point, we call  $y$ an \textbf{isolated point}.
+\end{definition}
+
+\begin{definition}
+    We call a set $E \subseteq X$ \textbf{closed} if every limit point of $E$ is in $E$. A point 
+    $x \in X$ is an \textbf{interior point} of $E$ if there is a neighborhood $N$ of  $x$ such that 
+    $N \subseteq E$. We call  $E$ \textbf{open} if every point of  $E$ is an interior point of $E$.
+\end{definition}
+
+\begin{definition}
+    $E \subseteq X$ is called \textbf{prefect} if  $E$ is closed, and every point of $E$ is a limit 
+    point of $E$. We call $E$ \textbf{dense} if  every point of  $X$ is either a limit point 
+    of $E$, or a point of  $E$, or both.
+\end{definition}
+
+\begin{lemma}\label{2.2.2}
+    If $E \subseteq X$, then  $E$ is perfect in  $X$ if and only if  $\bar{E}=E$.
+\end{lemma}
+
+\begin{lemma}\label{2.2.3}
+    If $E \susbseteq X$ is dense in  $X$, then either  $E$ is perfect in $X$, or  
+    $X=E$, or both.
+\end{lemma}
+
+\begin{definition}
+    We call  $E \subseteq X$ \textbf{bounded} if there is a real number  $M>0$, and a point 
+    $y \in X$ such that $d(x,y)<M$ for all $x \in E$.
+\end{definition}
+
+\begin{theorem}\label{2.2.3}
+    Let $X$ be a metric space and  $x \in X$. Every neighborhood of  $x$ is open.
+\end{theorem}
+\begin{proof}
+    Consider the neighborhood $N_r(x)$, and  $y \in E$, there is a positive real number  
+    $h$ such that $d(x,y)=r-h$, then for $z \in X$ such that $d(y,s)<h$, we have 
+    $d(x,s) \leq d(x,y)+d(y,s)<r-h+h=r$, thus $s \in E$, so $y$ is an interior point of $E$.
+\end{proof}
+
+\begin{theorem}\label{2.2.4}
+    If $x$ is a limit point of a set  $E$, then every neighborhood of  $x$ contains infinitely many 
+    points of  $E$.
+\end{theorem}
+\begin{proof}
+    Let $N$ be a neighborhood of  $x$ contai ning only a finite number points of $E$. Let 
+    $y_1, \dots, y_n$ be points of $N \cap E$ distinct from  $x$ and let $r=\min\{d(x,y_i)\}$ 
+    for  $1 \leq i \leq n$, then  $r>0$, and the neighborhood  $N_r(x)$ contains no point  $y$ 
+    of  $E$ for which $y \neq x$, so $x$ is not a limit point; which is a contradiction.
+\end{proof}
+
+\begin{corollary}
+    A finite point set has no limit points.
+\end{corollary}
+\begin{proof}
+    By theorem \ref{2.2.4}, if $x$ is a limit point in the finite point set $E$, then 
+    evry neoghborhood of contains infinitely many points of $E$; contradicting its finiteness.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}[label=(\arabic*)]
+        \item The set of all $z \in \C$ such that $|z|<1$ is open, and bounded.
+
+        \item The set of all $z \in \C$ for which  $|z| \leq 1$ is closed, perfect, and bounded.
+
+        \item Any nonempty finite set is closed, and bounded.
+
+        \item $\Z$ is closed, but it is not open, perfect, or bounded.
+
+        \item The set  $ \frac{1}{\Z^+}$ is neither closed, nor open, it is not perfect; but it 
+            is bounded..
+
+        \item $\C$ is closed, open, and perfect, but it is not bounded.
+
+        \item The open interval in  $(a,b)$ is open (only in $\R$), and bounded.
+    \end{enumerate}		
+\end{example} 
+
+\begin{theorem}\label{2.2.5}
+    Let $X$ be a metric space, a set  $E \subseteq X$ is open if and only if  $\com{X}{E}$ is 
+    closed.
+\end{theorem}
+\begin{proof}
+    Suppose that $\com{X}{E}$ is closed, let  $x \in E$, then  $x \notin \com{X}{E}$, and $x$ is 
+    not a limit point of  $\com{X}{E}$. Thus there is a neighborhood $N$ of  $x$ such 
+    that $N \cap E=\emptyset$, thus $N \subseteq E$, and so $x$ is an interior point of  $E$.
+
+    Conversely, suppose that  $E$ is open, and let  $x$ be a limit point of  $\com{X}{E}$, 
+    then every neighborhood of of  $x$ contains a point of  $\com{X}{E}$, so  $x$ is not 
+    an interior point of  $E$, since  $E$ is open, it follows that  $x \in \com{X}{E}$, thus 
+    $\com{X}{E}$ is closed.
+\end{proof}
+
+\begin{corollary}
+    $E$ is closed if and only if  $\com{X}{E}$ is open.
+\end{corollary}
+\begin{proof}
+    This is the converse of theorem \ref{2.2.4}.		
+\end{proof}
+
+\begin{theorem}\label{2.2.6}
+    Let $X$ be a metric space. The following are true:
+        \begin{enumerate}[label=(\arabic*)]
+            \item If $\{G_{\alpha}\}$ is a collection of  open sets, then $\bigcup{G_{\alpha}}$ is open.
+
+            \item If $\{G_i\}_{i=1}^n$ is a finite collection of open sets, then  $\bigcap_{i=1}^{n}{G_i}$ is open.
+
+            \item if $\{G_{\alpha}\}$ is a collection of  closed sets, then $\bigcap{G_{\alpha}}$ is closed.
+
+            \item If $\{G_i\}_{i=1}^n$ is a finite collection of closed sets, then  $\bigcup_{i=1}^{n}{G_i}$ is closed.
+        \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Let $G=\bigcup{G_{\alpha}}$, then if $x \in G$,  $x \in G_{\alpha}$ for some $\alpha$, then 
+    $x$ is an interior point of  $G_{\alpha}$, hence an interior point of  $G$, so  $G$ is open. 
+    Now let  $G=\bigcap_{i=1}^{n}{G_i}$ For  $x \in G$, there are neighborhoods  $N_i$ of  $x$, with 
+    radii  $r_i$ such that  $N_i \subseteq G_i$ for  $1 \leq i \leq n$. Then let  $r=\min\{r_1, \dots, r_n\}$, 
+    and let $N$ be the neighborhood of  $x$ with radius  $r$, then  $N \subseteq G_i$, 
+    hence  $N \subseteq G$, so  $G$ is open.
+
+    The proofs of  $(3)$ and  $(4)$ are just the converse of the proofs of  $(1)$ and  $(2)$.
+\end{proof}
+
+\begin{definition}
+    Let $X$ be a metric space, and let  $E \subseteq X$, and let  $E'$ be the set of all 
+    limit points of $E$. We define the \textbf{closure} of $E$ to be the set $\bar{E}=E \cup E'$.
+\end{definition}
+
+\begin{theorem}\label{2.2.7}
+    If $X$ is a metric space, and  $E \subseteq X$, then the following hold
+         \begin{enumerate}[label=(\arabic*)]
+             \item $\bar{x}$ is closed.
+
+             \item $E$ is closed if and only if $E=\bar{E}$.
+
+             \item If  $F \subseteq X$ such that $E \subseteq F$, and $F$ is closed, then 
+                 $\bar{E} \subseteq F$.
+        \end{enumerate}
+\end{theorem}
+\begin{proof}
+    If $x \in X$, and  $x \notin \bar{E}$, then  $ x \notin E$, nor is it a limit point of  $E$, thus 
+    there is a neighborhood of $x$ that is disjoint from  $E$, hence  $\com{X}{\bar{E}}$ is open.
+
+    Now if  $E$ is closed, then  $E' \subseteq E$, so  $\bar{E}=E$, conversely, if $E=\bar{E}$, then 
+    clearly  $E$ is closed. Now if  F is closed and  $E \subseteq F$, then $F' \subseteq F$, and 
+    $E' \subseteq F$, therfore  $\bar{E} \subseteq F$.
+\end{proof}
+
+\begin{theorem}\label{2.2.8}
+    Let $E \susbseteq \R$ be nonempty and bnounded above, let  $y\\sup{E}$, then  $y \in \bar{E}$, 
+    hence  $y \in E$ if  $E$ is closed.
+\end{theorem}
+\begin{proof}
+    Suppose that $y \notin E$, then for every  $h>0$, there exists a point  $x \in E$ such that 
+    $y-h<x<y$, then  $y$ is a limit point of  $E$, thus  $y \in \bar{E}$.
+\end{proof}
+
+\begin{theorem}\label{2.2.8}
+    Let $Y \subseteq X$; a subset  $E$ of  $Y$ is open in  $Y$ if and only if  $E=Y \cap G$ for 
+    some open subset $G$ of $X$.
+\end{theorem}
+\begin{proof}
+    Suppose $E$ is open in  $Y$, then for each  $x \in E$, there is a $r_p>0$ such that 
+    $d(x,y)<r_p$, if  $y \in Y$, that implies that  $y \in E$; hence let  $V_x$ be the 
+    set of all  $y \in X$ such that  $d(x,y)<r_p$, and define
+        \begin{equation*}
+            G=\bigcup_{x \in E}{V_p}
+        \end{equation*}
+    Then by theorems \ref{2.2.2} and \ref{2.2.5}, $G$ is open in  $X$, and  $E \susbseteq G \cap Y$.
+    Now we also have that  $V_p \cap Y \susbseteq E$, thus  $G \cap Y \susbseteq E$, thus 
+     $E=G \cap Y$. Conversely, if  $G$ is open in  $X$, and  $E=G \cap Y$, then every  $x \in E$ has 
+     a neighborhood  $v_p \in G$, thus  $V_p \cap Y \subseteq E$, hence  $E$ is open in  $Y$.
+\end{proof}

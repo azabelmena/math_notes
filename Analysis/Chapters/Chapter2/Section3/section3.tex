@@ -1,0 +1,167 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Compact Sets}
+
+\begin{definition}
+    Let $X$ be a metric space, and let $E \subseteq X$. An \textbf{open cover} of $E$ 
+    is a collection $\{G_{\alpha}\}$ of subsets of  $X$ such that  $E \subseteq \bigcup{G_{\alpha}}$.
+    We call a collection  $\{E_{\beta}\}$ of subsets of  $X$ an \textbf{open subcover} of  $E$ 
+    if  $\{E_{\beta}\}$ is a cover of  $E$, and  $\bigcup{E_{\beta}} \subseteq \bigcup{G_{\alpha}}$. We call $E$ 
+    \textbf{compact} if every open cover of  $E$ contains a finite open subcover.
+\end{definition}
+
+\begin{lemma}\label{2.3.1}
+    Every finite set is compact.
+\end{lemma}
+\begin{proof}
+    Let $K$ be finite, and let  $\{G_{\alpha}\}$ be an open subcover of  $K$. Since 
+    $K$ is finite, there is a 1-1 mapping of  $K$ onto the set  $\{1,\dots, n\}$. Let  
+    $\{E_i\}_{i=1}^{n}$	be the finite collection of all subsets of $K$, clearly,  $\{E_i\}$ 
+    is an open cover of $K$. Moreover, if  $\bigcup{E_i} \subseteq \bigcup{G_{\alpha}}$, we are done, and 
+    if $\bigcup{G_{\alpha}} \subseteq \bigcup{E_i}$, then $\{G_i\}$ is a finite subcollection that 
+    covers  $K$, so in either case,  $K$ is compact.
+\end{proof}
+
+\begin{theorem}\label{2.3.2}
+    Let $X$ be a metric space, and let  $K \subseteq Y \subseteq X$. Then  $Y$ is compact in  $X$ 
+    if and only if  $K$ is compact in  $Y$.
+\end{theorem}
+\begin{proof}
+    Suppose $K$ is compact in  $Y$, and let  $\{G_{\alpha}\}$ be a collection of subsets of  $Y$ 
+    $X$ that cover  $K$, and let  $V_{\alpha}=Y \cap G_{\alpha}$, then  $\{V_{\alpha}\}$ is 
+    a collection of subsets of  $X$ covering  $K$, in which  $V_{\alpha} \subseteq G_{\alpha}$ for 
+    all  $\alpha$, therefore  $K$ is compact in $Y$ 
+    
+    conversely, suppose that $K$ is compact in $X$, and let  $\{V_{\alpha}\}$ be a collection 
+    of open sets in  $Y$ sucht that  $K \subseteq \bigcup{V_{\alpha}}$, by theorem \ref{2.2.8}, 
+    there is a collection $\{G_{\alpha}\}$ of open sets in  $Y$ such that  $V_{\alpha}=Y \cap G_{\alpha}$, 
+    for all  $\alpha$. Then  $K \subseteq \bigcup_{i=1}^{n}{G_{\alpha_i}}$; therefore,  $K$ is compact in  $Y$.
+\end{proof}
+
+\begin{theorem}\label{2.3.3}
+    Compact subsets of metric spaces are closed.
+\end{theorem}
+\begin{proof}
+    Let $X$ be a metric space, and let  $K$ be compact in  $X$ and let  $x \in \com{X}{K}$, 
+    if $y \in K$, let  $U$ and  $V$ be neighborhoods of  $x$ and  $y$ respectively, each of 
+    radius  $r<\frac{1}{2}d(x,y)$. Since $K$ is compact, there are finitely many points  
+    $y_1, \dots y_n$ such that $K \susbseteq\bigcup_{i_=1}^{n}{V_i}=V$, where $V_i$ is a 
+    neighborhood of  $y_i$ for  $1 \leq i \leq n$. Let  $U=\bigcap_{i=1}^{n}{U_i}$, then 
+    $V \cap W$ is empty, hence  $U \susbseteq \com{X}{V}$, therefore,  $x \in \com{X}{K}$, 
+    therefore  $K$ is closed.
+\end{proof}
+
+\begin{theorem}\label{2.3.4}
+    Closed subsets of compact sets are compact.
+\end{theorem}
+\begin{proof}
+    Let $X$ be a metric space with  $F \subseteq K \susbseteq X$, with  $F$ closed in  $X$, 
+    and $K$ compact. Let  $\{V_{\alpha}\}$ be an open cover of  $F$. If we append  $\com{X}{F}$ 
+    to  $\{V_{\alpha}\}$, we get an open cover  $\Theta$ of  $K$, and since  $K$ is compact, 
+    there is a finite subcollection  $\Phi$ which covers  $K$, so  $\Phi$ is an open cover of 
+    $F$, $\com{X}{F} \susbseteq \Phi$, then $\com{\Phi}{(\com{X}{F})}$ still covers  $F$, 
+    therfore  $F$ is compact.
+\end{proof}
+
+\begin{theorem}\label{2.3.5}
+    Let $\{K_{\alpha}\}$ be a collection of compact sets of a metric space  $X$, such that 
+    every finite subcollection of  $\{K_{\alpha}\}$ is nonempty. Then  $\bigcap{K_{\alpha}}$ is 
+    nonempty.
+\end{theorem}
+\begin{proof}
+    Fix $K_1 \subseteq \{K_{\alpha}\}$, and let $G_{\alpha}=\com{X}{K_{\alpha}}$. Suppose no point of  $K_1$ 
+    is in $\bigcap{K_{\alpha}}$, then  $\{G_{\alpha}\}$ covers  $K_1$, and since $K$ is compact, 
+    we have  $K_1 \susbseteq \bigcup_{i=1}^{n}{G_{\alpha_i}}$, for  $1 \leq i \leq n$, which 
+    implies that  $\bigcap{K_{\alpha}}$ is empty, a contradiction.
+\end{proof}
+
+\begin{corollary}
+    If $\{K_{\alpha}\}$ is a sequence of nonempty compact sets, such that  $K_{n+1} \subseteq K_n$, 
+    then  $\bigcap_{i=1}^{\infty}{K_n}$ is nonempty.
+\end{corollary}
+
+\begin{theorem}\label{2.3.6}
+    If $E$ is a infinite subset of a compact set  $K$, then  $E$ has a limit point in  $K$.
+\end{theorem}
+\begin{proof}
+    Suppose no point of $K$ is a limit point of  $E$, then for all  $x \in K$, the 
+    neighborhood  $U_x$ contains atmost one point in  $E$. Then no finite subcollection 
+    of  $\{U_x\}$ covers  $E$, which contradicts the compactness on  $K$.
+\end{proof}
+
+\begin{theorem}[The Nested Interval Theorem]\label{2.3.7}
+    if $\{I_n\}$ is a sequence of intervals in  $\R$ such that  $I_{n+1} \subseteq I_n$, then 
+    $\bigcap_{j=1}^{\infty}{I_n}$ is nonempty.
+\end{theorem}
+\begin{proof}
+    We let $I_n=[a_n,b_n]$. Letting $E$	be the set of all $a_n$, $E$ is nonempty and bounded 
+    above by  $b_1$. Letting $x=\sup{E}$, and  $m \geq n$, we have  $[a_m,b_m] \subseteq [a_n,b_n]$, 
+    thus $a_m \leq x \leq b_m$ for all $m$, thus  $x \in I_m=\bigcap_{j=i}^{n}{I_j}$
+\end{proof}
+
+\begin{theorem}\label{2.3.8}
+    Let $k \in \Z^+$, and  $\{I_n\}$ be a nonempty sequence of  $k$-cells of  $\R^k$ such 
+    that  $I_{n+1} \susbseteq I_n$. Then $\bigcap_{j=1}^{\infty}{I_n}$ is nonempty.
+\end{theorem}
+\begin{proof}
+    Let $I_n$ be the set of all points  $x \in \R^k$ such that  $a_{n,j} \leq x_j \leq b_{n,j}$, 
+    and let $I_{n,j}=[a_{n,j},b_{n,j}]$. Then for each  $1 \leq j \leq k$, by the nested 
+    interval theorem, $\bigcap_{l=1}^{\infty}{I_{l,j}}$ is nonempty, hence there are real numbers 
+    $x'_j$ such that  $a_{n,j} \leq x'_j \leq b_{n,j}$. Letting $x'=(x'_1, \dots, x'_k)$, 
+    we get that $x' \in I \susbseteq \bigcap_{l=1}^{\infty}{I_l}$
+\end{proof}
+
+\begin{theorem}\label{2.3.9}
+    Every $k$-cell is compact.
+\end{theorem}
+\begin{proof}
+    Let $I$ be a  $k$-cell, and let  $\delta=\sqrt{\sum_{j=1}^{k}a({b_j-a_j)^2}$ we get for 
+    $x,y \in I$,  $||x-y|| \leq \delta$. Now suppose there is an open cover  $\{G_{\alpha}\}$ of  $I$ 
+    for which no finite subcover is contained. Let $c_j=\frac{a_j+b_j}{2}$, then the closed 
+    intervals $[a_j,c_j]$,  $[c_j,b_j]$ determine the  $2^k$  $k$-cells  $Q_i$ such that 
+    $\bigcup{Q_i}=I$. Then atleast one  $Q_i$ cannot be covered by any finite subcollectio of 
+    $\{G_{\alpha}\}$. Subdividing  $Q_1$, we get a sequence $\{Q_n\}$ such that  $Q_{n+1} \subseteq Q_n$, 
+    $Q_n$ is not covered by any finite subcollection of  $\{G_{\alpha}\}$, and  $||x-y|| \leq 
+    \frac{\delta}{2^n}$ for $x,y \in Q_n$. Then by theorem  $2.3.8$, there is a point  $x' \in Q_n$, 
+    and for some  $\alpha$,  $x' \in G_{\alpha}$; since  $G_{\alpha}$ is open, there is an  $r>0$ 
+    for which  $||x-||<r$ implies  $y \in G_{\alpha}$. THen for  $n$ sufficiently large, we have 
+    that  $ \frac{\delta}{2^n}<r$, then we get that $Q_n \in G_{\alpha}$, which is a contradiction.
+\end{proof}
+
+\begin{theorem}[The Heine-Borel Theorem]\label{2.3.10}    
+    If $E$ is a subset of  $\R^k$, then the following are equivalent:
+         \begin{enumerate}[label=(\arabic*)]
+            \item $E$ is closed and bounded.
+
+            \item  $E$ is compact.
+
+            \item Every infinite subset of  $E$ has a limit point in  $E$.
+        \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Suppose that $E$ is closed and bounded, then  $E \subseteq I$ for some  $k$-cell $I$ 
+    in $\R^k$, and hence it is compact. By theorem \ref{2.3.4},  $E$ is compact. Now suppose that  $E$ is compact, 
+    then by theorem  \ref{2.3.6}, every infinite subset of $E$ has a limit point in $E$.
+
+    Now suppose that every infinite subset of  $E$ has a limit point in  $E$. If  $E$ is 
+    not bounded, then  $||x_n||>n$ for some $x_n \in E$ and  $n \in \Z^+$. Then the set 
+    of all such  $x_n$ is infinite, and has no limit point in  $E$, a contradiction; 
+    moreover suppose that  $E$ is not closed. Then there is a point  $x_0 \in \com{\R^k}{E}$, 
+    which is a limit point of  $E$. Then there are points  $x_n \in E$ for which  $||x_n-x_0||<\frac{1}{n}$, 
+    let $S$ be the set of all such points. Then  $S$ is infinite and has  $x_0$ as its 
+    only limit point; for if $y \neq x_0 \in \R^k$, then $ \frac{1}{2}||x_0-y|| \leq 
+    ||x_0-y||-\frac{1}{n} \leq ||x_0-y||-||x_n-x_0|| \leq ||x_n-y||$ for only some $n$. Thus 
+    by theorem  $2.2.3$,  $y$ is not a limit point of  $S$ Therefore, if every infinite 
+    subset of $E$ has a limit point in  $E$,  $E$ must be closed.
+\end{proof}
+
+\begin{theorem}[The Bolzano-Weierstrass Theorem]\label{2.2.11}
+    Every bounded infinite subset $E$ of  $\R^k$ has a limit point in  $\R^k$.
+\end{theorem}
+\begin{proof}
+    We have that $E \subseteq I$, for some  $k$-cell  $I$ in $\R^k$. Since $k$-cells 
+    are compact, by the Heine-Borel theorem,  $E$ is also compact and has a limit point 
+    in  $I$.
+\end{proof}

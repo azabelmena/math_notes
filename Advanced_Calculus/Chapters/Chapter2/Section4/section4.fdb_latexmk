@@ -1,0 +1,13 @@
+# Fdb version 3
+["pdflatex"] 1600653338 "section4.tex" "section4.pdf" "section4" 1600653338
+  "/etc/texmf/web2c/texmf.cnf" 1598309051 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1598309490 4791332 cc7d2a3f40ea68c8e6027a446c35380a ""
+  "section4.aux" 1600653338 8 a94a2480d3289e625eea47cd1b285758 ""
+  "section4.tex" 1600652638 738 b03c5c43cfa1a8d8327d0c6fc1bea347 ""
+  (generated)
+  "section4.pdf"
+  "section4.log"

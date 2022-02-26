@@ -1,0 +1,74 @@
+%----------------------------------------------------------------------------------------
+%	SECTION X.X
+%----------------------------------------------------------------------------------------
+
+\section{Limits of Least Upperbounds and Greatest Lowerbounds.}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item[(2)] Let $\{x_n\}$ be a real valued sequence. By theorem 1.3.4 we have 
+        that $\sup{x_n}=-\inf{x_n}$, so by definition, we have  $\limsup{x_n}=
+        \lim{(sup{x_k})}=\lim{(-\inf{x_k})}=-lim{(\inf{x_k})}=-\liminf{x_n}$ as 
+        $n\rightarrow \infty$ and  $for k \geq n$.
+
+    \item[(3)] Suppose that  $\limsup{x_n}<r$, then  $\limsup{x_n}$ is finite, 
+        so we get that $\{x_n\}$ is bounded above, moreover, notice that $\sup{x_k}<r$ 
+        for all  $k \geq n$, thus we get that $r$ is an upperbound for $\{x_n\}$.
+
+        Similarly, if $\limsup{x_n}>r$, then we get that  $\limsup{x_n}$ is not 
+        bounded above, but that  $\sup{x_k}$ is bounded below by  $r$ for all $k \geq n$; 
+        so we get that $\{x_n\}$ is bounded beloqw by  $r$.
+
+    \item[(4)] We first prove a lemma.
+         \begin{lemma}\label{lemma}
+             let $\{x_n\}$ and $\{y_n\}$ be real valued sequences such that $\sup{x_n}$, 
+             $\sup{y_n}$, and $\inf{x_n}$, $\inf{y_n}$ exist. Then $\sup{x_n+y_n} \leq 
+             \sup{x_n}+\sup{y_n}$ and $\inf{x_n}+\inf{y_n} \leq \inf{x_n+y_n}$.
+        \end{lemma}
+        \begin{proof}
+            Let $x=\sup{x_n}$ and $y=\sup{y_n}$. Then we have that $x \geq x_n$ 
+            and $y \geq y_n$ for all  $n$, hence, $x+y \geq x_n+y_n$, and we get 
+            that  $\sup{x_n+y_n} \leq x+ y$. By similar reasoning, we get that 
+            $\inf{x_n}+\inf{y_n} \leq \inf{x_n+y_n}$.
+        \end{proof}
+
+        \begin{enumerate}
+            \item $\liminf{x_n}+\liminf{y_n}=\lim{(\inf{x_k}+\inf{y_k})} \leq 
+                \lim{(\inf{x_k+y_k})}=\liminf{x_n+y_n} \leq \limsup{x_n}+\liminf{y_n} 
+                \leq \limsup{x_n+y_n} \leq \limsup{x_n}+\limsup{y_n}$.
+
+            \item Let $x=\lim{x_n}$ as  $n \rightarrow \infty$. Then by theorem 2.5.3, we see 
+                that  $\liminf{x_n} \leq x \leq \limsup{x_n}$, thus we have  by 
+                part $(a)$ that  $\liminf{x_n}+\liminf{y_n} \leq x+\liminf{y_n} 
+                \leq \liminf{x_n+y_n} \leq x+\liminf{y_n} \leq \limsup{x_n}+\liminf{y_n}$, 
+                thus  $\liminf{x_n+y_n}=x+\liminf{y_n}$.
+
+                Similarly, we get that  $\limsup{x_n+y_n}=x+\limsup{y_n}$.
+        \end{enumerate}
+
+    \item[(5)] Similar to part $(4)$, we have the following lemma:
+        \begin{lemma}\label{lemma}
+            Let $\{x_n\}$ and  $\{y_n\}$ be realvalued sequences,  such that 
+            $\sup{x_n}$,  $\sup{y_n}$ and  $\inf{x_n}$ and  $\inf{y_n}$ exist. 
+            Then  $\sup{x_ny_n} \leq \sup{x_n}\sup{y_n}$ and  $\inf{x_n}\inf{y_n} 
+            \leq \inf{x_ny_n}$.
+        \end{lemma}
+        \begin{proof}
+            Let $x=\sup{x_n}$ and  $y=\sup{y_n}$. Then  $x \geq x_n$ and  $y \geq y_n$, 
+            for all  $n$, thus  $xy \geq x_ny_n$, hence we get that  $\sup{x_ny_n} 
+            \leq \sup{x_n}\sup{y_n}$. By similar reasoning, we get that  
+            $\inf{x_n}\inf{y_n} \leq \inf{x_ny_n}$.
+        \end{proof}
+
+        \begin{enumerate}
+            \item $\limsup{x_ny_n}=\lim{(\sup{x_ky_k})} \leq \lim{(\sup{x_k}\sup{y_k})}=
+                \lim{(\sup{x_k})}\lim{(\sup{y_k})}=\limsup{x_n}\limsup{y_n}$.
+
+            \item  $\liminf{x_n}\liminf{y_n}=\lim{(\inf{x_k})}\lim{(\inf{y_k})}=
+                \lim{(\inf{x_k}\inf{y_k})} \leq \lim{(\inf{x_ky_k})}=\liminf{x_ny_n}$.
+        \end{enumerate}
+
+    \item[(6)] Let $x=\lim{x_n}$ as $n \rightarrow \infty$. By theorem 2.5.3m=, 
+        $x \leq \limsup{x_n}$, thus  $x\limsup{x_n} \leq \limsup{x_ny_y} \leq 
+        x\limsup{y_}$, thus  $\limsup{x_ny_n}=x\limsup{y_n}$, for  $x_n \geq 0$ 
+        and  $y_n \geq 0$.
+\end{enumerate}

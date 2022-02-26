@@ -1,0 +1,189 @@
+%----------------------------------------------------------------------------------------
+%	SECTION X.X
+%----------------------------------------------------------------------------------------
+
+\section{The Axiom of Completeness.}
+
+\begin{definition}
+  Let $E \subseteq \R$ be nonempty. The set $E$ is  \textbf{bounded above} if and only if there is an $M \in \R$ such that 
+  $a \leq M$ for all $a \in E$; we call $M$ the \textbf{upperbound}. A number $s$ is called a \textbf{supremum} or \textbf{least upperbound} 
+  of $E$ of $s$ is an upper bound, and for all other upper bounds $M$, $s \leq M$. We denote the least upper bound as $\sup{E}$.
+\end{definition}
+
+\begin{example}
+  If $E=[0,1]$ prove that $\sup{E}=1$.
+\end{example}
+\begin{proof}
+  By definition of $[0,1]$, $1$ is an upperbound. Now let $M \in E$ be an upper bound, then $x \leq M$ for all $x \in E$. Now 
+  $1 \in E$, so $1 \leq M$, so by definition, we get that $1=\sup{E}$.
+\end{proof}
+
+\begin{remark}
+  If a set has one upperbound, then it has infinitely many upper bounds.
+\end{remark}
+\begin{proof}
+  If $M_0$ is an upperbound, then for any $M>M_0$, $M$ is an upper bound.
+\end{proof}
+
+\begin{remark}
+  If a set has a least upperbound, then that least upperbound is unique.
+\end{remark}
+\begin{proof}
+  Asuume that $s_1,s_2 \in \E$ are least upperbounds. Then $s_1$ is an upperbound and so $s_2 \leq s_1$. Likewise, $s_2$ is 
+  an upperbound, so $s_1 \leq s_2$, hence it must be that $s_1=s_2$.
+\end{proof}
+
+\begin{theorem}[Approximation Property for Least Upperbounds]
+  If $E$ has a least upperbound, and $\epsilon>0$ is a positive number, then there is an element $a \in E$ such that $\sup{E}-\epsilon < a \leq \sup{E}$.
+\end{theorem}
+\begin{proof}
+  Suppose not, that is there is some $\epsilon_>0$ for all $a \in E$ for which $a$ does not lie between $\sup{E}-\epsilon_0$ 
+  and $\sup{E}$. Now $a \leq \sup{E}$, hence $a \leq \Sup{E}-\epsilon_0$, so $\sup{E}-\epsion_0$ is an upperbound of $E$. So 
+  $\sup{E} \leq \sup{E}-\epsilon_0$, implying $\epsilon_0 \leq 0$, a contradiction.
+\end{proof}
+
+Now it is not always true that for some set $E$, that $\sup{E} \in E$.
+
+\begin{remark}
+  If $E \subseteq \N$ has a least upperbound, then $\sup{E} \in E$.
+\end{remark}
+\begin{proof}
+  Let $s=\sup{E}$. By the approximation property, for $\epsilon=1$, there is an $x_0$ in $E$ such that $s-1 < x_0 \leq s$. 
+  Now if $x_0=s \in E$, then we are done.
+
+  Otherwise, we have $s-1<x<s$. Then appying the approximation property again for $\epsilon=s-x_0$, $s-\epsilon=s-s-x_0=x_0$, 
+  then there is an $x_1 \in E$ for which $x_0<x_1 \leq s$. Again if $x_1=s$ we are done. Now if $x_1<s$ we get $0<x_1-x_0<s-x_0<s-(s-1)=1$. 
+  We also know that $x_1-x_0 \geq 1$ for different integers $x_1>x_0$, a contradiction.
+\end{proof}
+
+This brings us to the axiom of completeness.
+
+\begin{postulate}[The Axiom of Completeness]
+  If $E$ is a  nonempty subset of $\R$ that is bounded above, then $E$ has a finite least upperbound.
+\end{postulate}
+
+This does not apply to $\Q$, for example, take $\pi$. We can take the set $E$ to be $E=\{3.14,3.141,43.1415, \etc\}$. 
+We see that $\pi$ is an upperbound, so is $4$; however, $\pi$ is the least upperbound. If we only consider $E \in \Q$, then 
+$E$ has upperbounds, but no least upperbound (as $\pi \notin \Q$). In essence, $\Q$ has a ``hole''; infact it has many ``holes'' 
+that is $\Q$ is not complete. But if $E \in \R$, we see that $\sup{E}=\pi$. In essence, $\R$ is complete as $\R$ has no ``holes''.
+
+\begin{theorem}[The Archimedean Principle]
+  Given positive real numbers $a$, and $b$; there is an integer $n$ such that $b<na$.
+\end{theorem}
+\begin{proof}
+  We want to build a nonempty set of integers such that it is bounded above with a largest integer. The set 
+  $E=\{k \in \Z: ka \leq b\}$ has an upper bound; hence it has a least upperbound $k_0$. Then $k_0+1 \notin E$, hence $(k_0+1)a>b$.
+\end{proof}
+
+\begin{example}
+  Let $A=\{1,\frac{1}{2},\frac{1}{4},\frac{1}{8}, \dots\}$ and $B=\{\frac{1}{2},\frac{3}{4},\frac{7}{8}, \dots\}$ Show that $\sup{A}=\sup{B}=1$.
+\end{example}
+\begin{proof}
+  First, $1$ is an upperbound for both $A$ and $B$. Now for $A$ it is clear that $1$ is the least upperbound. Now let $M$ be 
+  an upperbound for $B$ and $M<1$, so $1-M>0$ and $\frac{1}{1-M}>0$. Then by the Archimedean principle, for $\frac{1}{1-M}$ 
+  and $1$, there is an $n \in \Z$ such that $\frac{1}{1-M}<n$. Now we have that $n<2^n$; hence it follows that $1-\frac{1}{2^n}>M$. 
+  So $M$ is not an upperbound; a contradiction. Hence $\sup{B}=1$.
+\end{proof}
+
+\begin{theorem}
+  If $a,b \in \R$ such that $a<b$, then there exists a rational $q \in \Q$ such that $a<q<b$.
+\end{theorem}
+\begin{proof}
+  If $b-a>0$, we have a pari of positive numbers $1$ and $b-a$; so by the Archimedean principle, there is an $n \in \N$ such that $n(b-a)>1$.
+
+  Now suppose that $b>0$. Consider the set $E=\{k \in N: b \leq \frac{k}{n}\}$. Clearly $E \neq \emptyset$ as $1 \in E$. 
+  Then by the well ordering principle, $E$ has a least element $k_0$. Now let $m=k_0-1$ and let $q=\frac{m}{n}$. Now $m<k_0$, 
+  so $m \notin E$; now there are twon possible cases: either $m \leq 0$ or $b>\frac{m}{n}=q$, either way we have that $b>q$. 
+  And $k_0 \in \E$, so $b \leq \frac{k_0}{n}$ so $a=b-(b-a)<\frac{k_0-1}{n}=q$
+
+  Now suppose that $b \leq 0$, then $-b>0$; applying the Archimedean principle for $1$ and $b$, there is a $k \in \N$ such 
+  that $-b<(k)(1)$, thus $k+b>0$. Now if $b=0$, clearly $1+0>0$. By the first case, there is a rational $q \in \Q$ such that 
+  $a+k<q<b+k$. Subtracting $k$, we get $a<q-k<b$, which finishes the proof as $q-k \in \Q$.
+\end{proof}
+
+\begin{remark}
+  If $x>1$ and $x \notin \N$, then there is a natrual number $n \in \N$ such that $n<x<n+1$.
+\end{remark}
+\begin{proof}
+  For the pair $(x,1)$ by the Archimedean principle, there is a $k \in \N$ such that $E=\{m \in \N: x<m\}$ is nonempty. Then 
+  by the well ordering principle, there is a least element $m_0$, hence $x<m_0$, Let $n=m_0-1$, then $n \notin E$. Now either 
+  $n \leq 0$, or $n<x$. As $x \notin \N$, $x \neq n$. Now if $n \leq 0$, then $n<x<m_0=n+1$; and if $n<x$, then $n<x<m_0=n-1$.
+\end{proof}
+
+\begin{remark}
+  If $n \in \N$ is not a perfect square, then $\sqrt{n}$ is irrational.
+\end{remark}
+\begin{proof}
+  Assume that $\sqrt{n}$ is rational for a nonperfect square $n \in N$. Then $\sqrt{n}=\frac{p}{q}$ for $p,q \in \Z$. Now 
+  since $1$ is a perfect square, let $n \geq 2$. Then $\sqrt{n}>1$. Then there is an $m_0 \in \N$ such that $m_0<\sqrt{n}<m_0+1$. 
+  Consider the set $E=\{k \in \N: k\sqrt{n} \in \N\}$. Now $q\sqrt{n}=p \in \N$, so $E \neq \emptyset$. By the well ordering principle, 
+  $E$ has a least element $n_0$. Then $n_0\sqrt{n} \in \N$ and $n_0m_0 \in \N$. Now $n_0(\sqrt{n}-m_0)=x \in \N$. Now $0<\sqrt{n}-m_0<1$, 
+  then $0<x<n_0$. Now $x \notin E$, on the other hand, $x\sqrt{n}=n_0(\sqrt{n}-m_0)\sqrt{n}$, so $x \in E$; a contradiction.
+\end{proof}
+
+\begin{definition}
+  Let $E \subseteq \R$ be nonempty. The set $E$ is \textbf{bounded below} if and only if there is an $m \in \R$ such that 
+  $a \geq m$ for all $a \in E$. We call $m$ a \textbf{lowerbound} of $E$. A nuumber $t$ is called an \textbf{infimum} or a 
+  \textbf{greatest lowerbound} if and only if $t$ is a lowerbound of $E$ and $t \geq m$ for all lowerbounds $m$ of $E$. 
+  We denote the greatest lowerbound as $t=\inf{E}$.
+\end{definition}
+
+It should be worthwhile to say that the least element of a set, and it's greatest lowerbound are not the same.
+
+\begin{definition}
+  A nonempty set $E \subseeq \R$ is said to be \textbf{bounded} if it is bounded above and bounded below. That is there exist 
+  $m,M \in \R$ such that $m \leq a \leq M$ for all $a \in E$. Is $\sup{E} \in E$ then we write $\sup{E}=\max{E}$ and call it 
+  the \textbf{maximum} of $E$. If $\inf{E} \in E$, then we write $\inf{E}=\min{E}$ and call it the \textbf{minimum} of $E$.
+\end{definition}
+
+\begin{definition}
+  The \textbf{reflection} of a set $E \in \R$ is defined to be the set $-E=\{xx=-a: \text{ for some } a \in E\}$.
+\end{definition}
+
+\begin{theorem}
+  Let $E \subseteq \R$ be a nonempty set. Then $E$ has a greatest upperbound if and only if $-E$ has a greates lowerbound; 
+  in which case we have that $\inf{(-E)}=-\sup{E}$. Likewise, $E$ has a greatest lowevound if and only if $-E$ has a least 
+  upperbound, in which case $\sup{(-E)}=-\inf{E}$.
+\end{theorem}
+\begin{proof}
+  Suppose that $E$ has a least upperbound $s$, and let $t=-s$. Now we have that $-a \geq -s=t$, for all $a \in E$, so $t$ is 
+  a lowerbound of $E$. Now suppose $m$ is any lowerbound of $E$. Then $m \leq -a$ for all $a \in E$. Now, $-m \geq a$ for all 
+  $a \in E$, so $-m$ is an upperbound,; now since $s$ is the least upperbound, $s \leq -m$, hence $t=-s \geq m$
+
+  Conversely, suppose that $-E$ has a greatest lowerbound $t$; then $t leq -a$ for all $a \in E$, hence $-t \geq a$ for all 
+  $a \in E$, so $-t$ is an upperbound. Let $M$ be any upperbound of $E$, then $M \geq a$ for all $a \in E$. Then $-M \leq -a$ 
+  and $-M$ is a lowerbound. Then $-M \leq t$, hence $M \geq -t=s$, so $s$ is the least upperbound of $E$.
+\end{proof}
+
+\begin{HW}
+  Exercises $2$,$3$,$4$,$5(a)$, and $6$ on page $23$.
+\end{HW}
+
+\begin{theorem}[Monotone property]
+  Let $A \subseteq B$ be nonempty subsets of $\R$. Then:
+  \begin{enumerate}[label=(\arabic*)]
+    \item If $B$ has a least upper bound, then $\sup{A} \leq \sup{B}$.
+
+    \item If $B$ has a greatest lower bound then  $\inf{A} \geq \inf{B}$
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item We have that $A \subseteq B$, so any upper bound of $B$ is an uppper bpund pf $A$. Therefore $\sup{A}$ is an upper 
+        bound of $A$; By completeness, $\sup{A}$ exisists, and more over, $\sup{A} \leq \sup{B}$
+
+    \item Consider $-A \subseteq -B$, by part (1), we have $\sup{-A} \leq \sup{-B}$, and we also have that $\sup{-A}=-\inf{A}$ 
+        and $\sup{-B}=-\inf{B}$; thus $-\inf{A} \leq -\inf{B}$ therefore, $\inf{A} \geq \inf{B}$.
+  \end{enumerate}
+\end{proof}
+
+To consider $\sup{A}$ and $\inf{A}$, we need nonempty and bounded sets of $\R$. Now we would like to talk about the least 
+upper and greates lower bounds for any subset of $\R$; not just the bounded ones.
+
+\begin{definition}
+  An \textbf{extended real number} $x$ is real number such that either $x=\infty$ or $x=-\infty$.
+\end{definition}
+
+Now if $E$ is not bounded above, then we define the least upper bound of $E$ to be $\sup{E}=\infty$. If $E$ is not bounded 
+below we define $\inf{E}=-\infty$. Now for the empty set $\emptyset$, we define $\sup{\emptyset}=-\infty$ and $\inf{\emptyset}=\infty$. 
+It is worth considering why this phenomena occurs with the empty set.

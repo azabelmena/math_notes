@@ -1,0 +1,186 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 3.1
+%----------------------------------------------------------------------------------------
+
+\section{Two Sided Limits.}
+
+\begin{definition}
+    Let $f:A \rightarrow B$ be a function. We call $f$ a \textbf{real valued 
+    function} if $B \subseteq \R$.		
+\end{definition}
+
+It need not be that $A \subseteq \R$ for  $f$ to be a real valued function, as 
+long as  $B$ is a subset of  $\R$, then the definition is satisfied. However, it 
+is also common to take  $A \subseteq \R$  (either an interval, or one of the sets 
+$\N, \Z, \Q$ or  $\Q^*$). $\B$ necessarily, is any of those sets.
+\begin{definition}
+    Let $a \in \R$ and let $I$ be an open interval containing  $a$, and let  $f$ 
+    be a real valued function defined everywhere on $I$ except possibly at  $a$. 
+    Then $f(x)$ is said to \textbf{converge} to  $L$ as  $x \rightarrow a$ if 
+    and only if for every  $\epsilon>0$, there is a $\delta>0$  (in general 
+    depending on $\epsilon$, $f$,  $I$, and  $a$) such that: Whenever $0<|x-a|<\delta$, 
+    $|f(x)-L|< \epsilon$. We write  $\lim{f(x)}=L$ as  $x \rightarrow a$, and 
+we call  $L$ the \textbf{limit} of $f$ as  $x$ approaches  $a$.
+\end{definition}
+
+\begin{example}
+    Suppose that $f(x)=mx+b$ where  $m,b \in \R$, then  $\lim{f(x)}=f(a)$ as 
+    $x \rightarrow a$ for all $a \in \R$.	
+\end{example}
+
+\begin{example}
+    If $f(x)=x^2+x-3$, show that  $f(x) \rightarrow -1$ as  $x \rightarrow 1$.
+\end{example} 
+\begin{solution}
+    We check $f(x)-L$, to be  $x^2+x-3-(-1)=x^2+x-2=(x+2)(x-1)$, we choose  $\delta$ 
+    sufficiently small such that  $0 < \delta \leq 1$. Then  $|x-1|<\delta$, then 
+     $-1<x-1<1$, hence  $0<x<2$. Then by the triangle inequality $|x+2| \leq |x|+2
+     <2+2=4$. In order to habe  $|f(x)-L|=|x+2||x-1|<4\delta$, if  $4\delta < \epsilon$, we 
+     require $\delta=\frac{\epsilon}{4}$, hence for $\delta<\frac{1}{4}$ and $\delta<1$, 
+     we choose  $\delta=\min\{\frac{\epsilon}{4},1\}$, Then we have for $|x-1|<\delta$, 
+     we get $|f(x)-L|<4\delta<\epsilon$. Hence by definition $\lim{f(x)}=-1$ as 
+      $x \rightarrow 1$.
+\end{solution}
+
+\begin{remark} 
+    Let $a \in \R$ and let  $I$ be an openinterval containing  $a$. Let $f$ and 
+     $g$ be real valued functions defined everyewhere on  $I$ except possibly at 
+     $a$. If  $f(x)=g(x)$ for all  $x \in I \backslash \{a\}$ and  $f(x) \rightarrow a$ 
+     as  $x \rightarrow a$, then  $g$ also has a limit as  $x \rightarrow a$, 
+     and
+        \begin{equation*}
+            \lim_{x \rightarrow a}{g(x)=\lim_{x \rightarrow a}{f(x)}
+        \end{equation*} 
+\end{remark}
+\begin{proof}
+    For every $\epsilon>0$, there is a $\delta>0$ such that  $0<|x-a|<\delta$ 
+    implies that  $|f(x)-L|<\epsilon$. Now since  $|x-a|>0$,  $x \neq a$, then 
+    $f(x)=g(x)$. Thus we get that for  $0<|x-a|<\delta$, that  $|g(x)-L|<\epsilon$,
+    so by definition of the limit, we see that  $g$ has a limit, and moreover, 
+    $\lim{g}=\lim{f}$.
+\end{proof}
+ 
+What this remark says is that those two functions are equal to each other, except 
+(possibly) at $a$, however if $f$ has a limit, then  $g$ must have the same limit. 
+
+\begin{example}
+    Prove that $g(X)=\frac{x^3+x^2-x-1}{x^2-1}$	has a limit as $x$ approaches $1$.	
+\end{example}
+\begin{solution}
+    First, $g(1)$ is undefined, simplifying  $g(x)$ to  $(x+1)$ for  $x \neq \pm 1$.
+    Letting $f(x)=x+1=g(x)$, we have  $f(1) \neq g(1)$, so by the remark, we have 
+    $\lim{f}=\lim{g}=2$ as  $x \rightarrow 1$.
+\end{solution}
+
+We now set up the connection between the limit of a function and the limit of a 
+sequence. This will allow us to translate results from limits of sequences, to 
+those of functions and vice versa.
+
+\begin{theorem}[The Sequential Characterization of Limits.]\label{3.1.1}
+    Let $a \in \R$, and let $I$ be an open interval containing $a$. Let $f$ be 
+    a real valued function defined everywhere on  $I$ except possibly at  $a$. 
+    Then:
+        \begin{equation*}
+            \lim_{x \rightarrow a}{f(x)}=L
+        \end{equation*}
+        exists if and only if $f(x_n) \rightarrow L$ as $n \rightarrow \infty$ for every 
+        sequence $\{x_n\} \subseteq I \backslash \{a\}$ convergent to  $a$ as 
+        $n \rightarrow \infty$.
+\end{theorem}
+\begin{proof}
+    Suppose that $f$ has limit $L$, then by definition, for every  $\epsilon>0$ 
+    there is a  $\delta>0$ such that  $0<|x-a|<\delta$ implies  $|f(x)-L|<\epsilon$.
+    For the same $\delta$, there is an  $N \in \N$ such that for  $n \geq N$ implies 
+     $|x_n-a|<\delta$ Hence, for every  $\epsilon>0$ there is an $N$ such that for 
+     $n \geq N$,  $|x_n-a|<\delta$ implies  $|f(x_n)-L|<\epsilon$. So  $lim{f(x_n)}=L$. 
+     as $n \rightarrow \infty$.
+
+     Conversely suppose that  $f(x_n) \rightarrow L$ as  $n \rightarrow \infty$ 
+     for all sequences  $\{x_n\}$ in  $I$ converging to  $a$. We show that  $\lim{f}=L$ 
+     as  $x \rightarrow a$; for suppose to the contrary. Then there is some  $\epsilon>0$ 
+     such that for any $\delta>0$, there is some  $x_{\delta}$ for which $0<|x_{\delta}-a|<\delta$ 
+     and $|f(x_{\delta})-L| \geq \epsilon$. Choosing  $\delta=\frac{1}{n}$, denote
+     $x_{\delta}$ as  $x_n$. Then  $0<|x_n-a|<\frac{1}{n}$ implies that $\lim{x_n}=a$, 
+     but  $|f(x_n)-L| \geq \epsilon$ for all  $n \in \N$, thus  $\lim{f(x_n) \neq L}$ 
+     as  $n \rightarrow \infty$. A contradiction. Hence  $\lim{f}=L$ as  $x \rightarrow a$.
+\end{proof}
+
+What this theorem means if $x_n$ is a point of a sequence in  $I$ convergent to 
+$a$, then when $f$ is evaluated at  $x_n$, then $f$ approaches $L$. This theorem 
+gives us a way to show that some functions have no limit at certain points. We 
+can construct $2$ sequences converging to $a$, but the sequence of  $f$ values do 
+not equal $a$.
+
+\begin{example}
+    Prove that $f(x)=\sin{\frac{1}{x}}$ for $x \neq 0$ and $f(x)=0$ otherwise has 
+    no limit as  $x \rightarrow 0$.
+\end{example} 
+\begin{solution}
+    We know that $\sin{2k\pi+\frac{\pi}{2}}=1$, so let $x_n= \frac{1}{2n\pi+\frac{\pi}{2}}$, 
+    then $f(x_n)=\sin{\frac{1}{x_n}}=-1$, and $\lim{x_n}=0$ as $\rightarrow \infty$. 
+    Similarly, we have that $\sin{2k\pi-\frac{\pi}{2}}=1$, so constructing $y_n=
+    \frac{1}{2n\pi-\frac{\pi}{2}}$, then $f(y_n)=\sin{y_n}=-1$ and $\lim{y_n}=0$ 
+    as  $n \rightarrow \infty$. So, $f$ has no limit as  $x \rightarrow 0$.
+\end{solution}
+
+We define the algebra of functions.
+
+\begin{definition}
+    A vector space with \textbf{vector multiplication} defined over it is called 
+    an $\textbf{albgebra}$.
+\end{definition}
+
+\begin{theorem}\label{3.1.2}
+    Suppose that $f$ and  $g$ are real valued functions. Define  $+$ of functions 
+    to be $f+g(x)=f(x)+g(x)$, define  $\alpha f$ by $(\alpha f)(x)=\alpha f(x)$. Now 
+    define $\cdot$ by  $fg(x)=f(x)g(x)$, and finally define the inverse of $\cdot$ to 
+    be  $f/g(x)=f(x)g(x)$ for  $g(x) \neq 0$ for all  $x$. Then the space of all 
+    realvalued functions, together with these operations is an algebra.
+\end{theorem}
+
+\begin{theorem}\label{3.1.3}
+    Suppose that $a \in \R$, and  $I$ is an open interval containing  $a$, and 
+    that  $f$ and  $g$ are realvalued functions defined everywhere on $I$, except 
+    possibly at  $a$. If $f$ and $g$ converge as  $x \rightarrow a$, then so do 
+     $f+g$,  $\alpha f$ for  $\alpha \in \R$, $fg$, and  $f/g$.
+\end{theorem}
+\begin{proof}
+    We apply theorem \ref{3.1.1}, and then repeat the proof analogous to that for 
+    the sequences.
+\end{proof}
+
+\begin{theorem}[The Squeeze Theorem for Limits of Functions]\label{3.1.4}
+    Let $a \in \R$, and let  $I$ be an open interval containing  $a$, and let  
+    $f$, $g$, and  $h$ be realvlaued functions defined every where on  $I$, except 
+    possibly at  $a$. If $g(x) \leq h(x) \leq f(x)$ for all  $x \neq a \in I$, 
+    and  $\lim{f}=\lim{g}=L$ as $x \rightarrow a$, then the limit of $h$ exists, and 
+    $\lim{h}=L$ as  $x \rightarrow a$.
+\end{theorem}
+
+\begin{corollary}
+    If $|g| \leq M$ for all $x \neq a \in I$, and  $f \rightarrow 0$ as $x \rightarrow a$, 
+    then $\lim{fg}=0$ as  $x \rightarrow a$.
+\end{corollary}
+
+The proof of theorem \ref{3.1.4} and its corollary are identical to the analogous 
+proofs for sequences, with the added caveat that we are applying theorem \ref{3.1.1}.
+
+\begin{theorem}[Comparison Theorem for Limits of Functions]\label{3.1.5}
+   Suppose that $a \in \R$ and that $I$ is an open interval containing  $a$. Let 
+   $f$, and $g$ be realvalued functions defined everwhere on  $I$, except possibly 
+   at  $a$. If $f$ and  $g$ have limits as  $x \rightarrow a$ and  $f \leq g$ for all $x \in I \backslash \{a\}$, 
+   then $\lim{f} \leq \lim{g}$ as  $x \rightarrow a$.
+\end{theorem}
+
+This theorem is also a direct application of theorem \ref{3.1.1}. We can now 
+easily evaluate limits of functions with these theorems out of the way.
+
+\begin{example}
+    \begin{equation*}
+        \lim_{x \rightarrow 1}{\frac{x-1}{3x-1}}=\frac{1-1}{3+1}=\frac{0}{4}=0.
+    \end{equation*}
+\end{example} 
+
+\begin{HW} 
+    Exercises $1$,  $2$, $3$, and  $4$ on page $63$.	
+\end{HW}

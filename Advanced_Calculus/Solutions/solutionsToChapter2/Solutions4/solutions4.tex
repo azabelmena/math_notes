@@ -1,0 +1,33 @@
+%----------------------------------------------------------------------------------------
+%	SECTION X.X
+%----------------------------------------------------------------------------------------
+
+\section{Cauchy Sequences.}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item[(1)] Let $\{x_n\}$ and  $\{y_n\}$ be Cauchy sequences, we prove that 
+        $\{x_n+y_n\}$
+
+        By theorem 2.4.1, both $\{x_n\}$ abd  $\{y_n\}$ converge to points in 
+        $\R$, then by the limit laws, so does $\{x_n+y_n\}$, hence again by 
+        theorem 2.4.1,  $\{x_n+y_n\}$ is Cauchy.
+
+        Alternatively, we have by definition that for all  $\epsilon>0$, there are  $N_1, 
+        N_2 \in \N$, such that  $m,n, \geq N_1,N_2$ implies that $|x_n-x_m|<\\frac{\epsilon}{2}$, 
+        and $|y_n-y_m|<\frac{\epsilon}{2}$. Then choosing  $N=\max\{N_1,N_2\}$, we have 
+        that $|(x_n+y_n)-(x_m+y_m)| \leq |x_n-x_m|+|y_n-y_m|<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$.
+        Thus we get that $\{x_n+y_n\}$ is a Cauchy sequence.
+
+    \item[(2)] Let $\{x_n\}$ be a Cauchy sequence for  $x_n \in \N$. Then for all 
+         $\epsilon>0$, there is an  $N \in \N$ such that for  $ m,n, \geq N$, $|x_n-x_m|<\epsilon$.
+         Notice that  $|x_n-x_m|=|x_m-x_n|$, and that  $x_n \rightarrow a$ for some $a \in \R$  
+         (by theorem 2.4.1). Then $\lim{x_n}=a$, and by definition of the limit, 
+         we also have that  $lim{x_n}=x_n$ ; thus by the uniqueness of limits, 
+         $x_n=a$.
+
+     \item[(6)] Let  $S_n=\sum_{k=1}^{n} \frac{(-1)^k}{k}$, then notice that for 
+         some $m \leq n$, that  $S_n=S_{2m}+S_{2m+1}$, We see that $|S_{2m}|<1$ (for all 
+         values of $k$), and we observe that  $|S_{2m}-S_{2l}|=|S_{2m-2l}|$, hence 
+         $\{S_{2m}\}$ is Cauchy, likewise we get that  $\{S_{2m+1}\}$ iss Cauchy, thus 
+         so is  ${S_n}$, thus by theorem 2.4.1, $lim{S_n}$ exists and is finite.
+\end{enumerate}

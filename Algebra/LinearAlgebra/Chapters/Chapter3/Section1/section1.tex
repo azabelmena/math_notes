@@ -1,0 +1,282 @@
+%--------------------------------------------------------------------------------
+%	SECTION 1.1
+%--------------------------------------------------------------------------------
+
+\section{Linear Transformations.}
+
+When we studied vector spaces, we introduced the definition of a ``vector space
+homomorphism'', or (better know as) a linear transformation. It would be
+interesting to study the space of such linear transformations. Let $V$ be a
+vector space over a field  $F$ and consider the space $\Hom{(V,V)}$ of all linear
+transformations from $V$ into itself. It was shown that $\Hom{(V,V)}$ forms a
+vector space over $F$. This was done with the property of linearity. Now for
+$T_1,T_2 \in \Hom{((V,V))}$, consider $T_2 \circ T_1(v)$ for $v \in V$. Now let
+$\alpha, \beta \in F$ and  $u, v \in V$. Then:
+    \begin{align*}
+        T_2 \circ T_1(\alpha v+\beta u) &= T_2(T_1(\alpha v+\beta u)) \\
+                           &= T_2(\alpha T_1(v)+\beta T_1(u)) \\
+                           & = \alpha T_2(T_1(v))+\beta T_2(T_1(u)) \\
+                           &= \alpha T_2 \circ T_1(v)+\beta T_2 \circ T_1(u) \\
+    \end{align*}
+This makes $T_2 \circ T_1$ a linear transformation, so $T_2 \circ T_1 \in
+\Hom{(V,V)}$. We can speculate on some properties of $T_2 \circ T_1$.
+
+\begin{lemma}\label{3.1.1}
+    Let $V$ be a vector space and  $T_1, T_2, T_3 \in \Hom{(V,V)}$, and consider 
+    the composition in $\Hom{(V,V)}$. The following hold:
+        \begin{enumerate}
+            \item[(1)] $T_3 \circ (T_1+T_2)=T_3 \circ T_1+T_3 \circ T_2$.
+
+            \item[(2)] $(T_1+T_2) \circ T_3=T_1 \circ T_3+T_2 \circ T_3$.
+
+            \item[(3)] $(T_3 \circ T_2) \circ T_1=T_3 \circ (T_2 \circ T_1)$.
+
+            \item[(4)] $\alpha(T_2 \circ T_1)=T_2 \circ (\alpha T_1)= 
+                (\alpha T_2) \circ T_1$.
+        \end{enumerate}
+\end{lemma}
+
+The follwong are some well known examples of linear transformations.
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] For any vector space $V$, the  \textbf{zero} transform
+            $0:V \rightarrow V$ defined by $0:\alpha \rightarrow 0$ is a linear
+            transformation.
+
+        \item[(2)] Let $F$ be a field and let $V=F[x]$. Take the map  $D:F[x]     
+            \rightarrow F[x]$ by taking $f \rightarrow f'$ where $f'$ is the 
+            derivative of the polynomial $f$. That is if  $f(x)=c_0+c_1x+\dots+
+            c_nx^n$, then $Df(x)=c_1+2c_2x+\dots+nc_nx^{n-1}$. The map $D$ is a 
+            linear  transformation called the \textbf{differentiation}
+            transform.
+
+        \item[(3)] Let $A$ be an  $m \times n$ matrix over a field  $F$ and let  
+            $T$ be defined by  $T(X)=AX$. Then $T$ is a linear transformation 
+            from  $F^{n \times 1}$ into $F^{m \times 1}$. The map $U:\alpha 
+            \rightarrow \alpha A$ is also a linear transformation from $F^n 
+            \rightarrow F^m$.
+
+        \item[(4)] Let $P$ and $Q$ be $m \times m$ and $n \times n$ matrices
+            over $F$ Define the map $T:F^{m \times n} \rightarrow F^{m \time n}$
+            by $T:A \rightarrow PAQ$. Notice that for $x,y \in F$ that
+            $T(xA+yB)=P(xA+yB)Q=xPAQ+yPBQ=xT(A)+yT(B)$ so $T$ is a linear
+            transformation.
+
+        \item[(6)] Let $V=C(\R)$ the space of all continuous funtions from $\R$
+            to  $\R$. Define the map  $T:\R \rightarrow \R$ by
+            $Tf(x)=\int_{0}^{x}{f \ dt}$. By the properties of integration from 
+            real analysis, it is easy to see that $T$ is a linear 
+            transformation. This linearity if a fundamental property of the
+            integral. Moreover, we can see that $Tf$ is continuous and has a
+            continuous first derivative.
+    \end{enumerate}
+\end{example} 
+
+We should notice lemma \ref{3.1.1} makes $\Hom{(V,V)}$ into an associative ring.
+We can also see there is an identity $I \in \Hom{(V,V)}$, so $\Hom{(V,V)}$ is an
+associative ring with unit. We also notice that for any $T$,  $\alpha T=T \circ
+(\alpha I)=(\alpha I) \circ T$, so $\alpha I$ commutes with every linear
+transformation in the space. This motivates the following definition. 
+
+\begin{definition}
+    We call an associative ring $A$ an  \textbf{algebra} over a field $F$ if
+    $A$ is a vector space over  $F$ such that for al  $a,b \in A$ and  $\alpha
+    \in F$,  $\alpha(ab)=(\alpha a)b=a(\alpha b)$.
+\end{definition}
+
+\begin{example}
+    $\hom{(V,V)}$ is an algebra over $F$.
+\end{example} 
+
+Let us repeat the definition for a linear transformation in a more restricted
+sense.
+
+\begin{definition}
+    Let $V$ be a vector space over a field  $F$. A  \textbf{linear
+    transformation} on $V$ is an element of  $\hom{(V,V)}$.
+\end{definition}
+
+\begin{lemma}\label{3.1.2}
+    If $A$ is an algebra over a field  $F$, with unit element, then  $A$ is
+    isomprphic to  a subalgebra of  $\hom{(A,A)}$.
+\end{lemma}
+\begin{proof}
+    If $A$ is an algebra over  $F$, it is a vector space over  $F$ by
+    definition.
+    
+    Now let  $a \in A$ and define  $T_a:A \rightarrow A$ by $v \rightarrow va$,
+    for every $v \in A$. We have that  $v+u \rightarrow (v+u)a=va+ua$ and
+    $\alpha v \rightarrow (\alpha v)a = \alpha va=\alpha(va)$, which makes $T_a$
+    a linear transformation on  $A$. Notice that  $T_a$ is onto.
+
+    Now define  $\psi:A \rightarrow \hom{(A,A)}$ by $a \rightarrow T_a$ for all
+    $A \in A$. We notice that since  $T_a$ is onto, then so is  $\psi$. Now
+    notice that  $a+b \rightarrow T_{a+b}=T_a+T_b$ and $\alpha a \rightarrow
+    T_{\alpha a}=\alpha T_a$, which makes $\psi$ into a homomorphism, also
+    notice that  $ab \rightarrow T_{ab}=T_aT_b$, which makes $\psi$ a ring
+    homomorphism.
+
+    Now suppose that  $a \in \ker{\psi}$, then $\psi(a)=T_a=0$, that is for
+    every $v \in A$,  $v \rightarrow va=0$. Then $1a=a=0$, which makes
+    $\ker{\psi}=\vbrack{0}$. So $\psi$ is  $1-1$ and onto, making it an
+    isomorphism. This makes  $A \simeq \hom{(A,A)}$.
+\end{proof}
+
+\begin{lemma}\label{3.1.3}
+    Let $A$ be an algebra with unit element, over a field  $F$. Suppose that
+    $\dim_F{A}=m$, then every element of $A$ satisfies some nontrivial
+    polynomial in  $F[x]$ of $\deg \leq m$.
+\end{lemma}
+\begin{proof}
+    For $a \in A$, consider the  $m+1$ elements  $1, a ,\dots, a^m \in A$. Then
+    since  $\dim{A}=m$, the set $\{1, a ,\dots, a^m\}$ must be linearly
+    dependent; that is there are $\alpha_i \in F$, not all  $0$, for  $0 \leq i
+    \leq m$ for which  $\alpha_01+\alpha_1a+\dots+\alpha_ma^m=\alpha_0+\alpha_1a
+    +\dots+\alpha_ma^m=0$. This implies that $a$ is the root of the polynomial
+    $p(x)=\alpha_0+\alpha_1x+\dots+\alpha_mx^m \in F{x}$.
+\end{proof}
+
+\begin{theorem}\label{3.1.4}
+    If $V$ is a vector space of dimension  $n$ over a field  $F$, then for any
+    linear transformation  $T \in \hom{(V,V)}$, there exists a nontrivial
+    polynomial $q \in F[x]$ of $\deg \leq n^2$ such that $q(T)=0$.
+\end{theorem}
+\begin{proof}
+    Since $\dim{V}=n$, by theorem \ref{2.3.3} we have $\dim{\hom{(V,V)}}=n^2$.
+    The rest follows from the above lemma.
+\end{proof}
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector space, and let  $T \in \hom{(V,V)}$.
+    We call a polynomial $p \in F[x]$ a \textbf{minimal polynomial} for $T$ if
+    $p(T)=0$, and for any other polynomial $q \in F[x]$ with $q(T)=0$, then
+    $p|q$.
+\end{definition}
+
+\begin{definition}
+    We call a linear transformation $T$ on a vector space  $V$  \textbf{right
+    invertible} if there is a linear transformation $S$ on $V$ for which $ST=1$.
+    We call $T$  \textbf{left invertible} if there exists a linear
+    transformation $U$ on  $V$ with  $TU=1$. If  $T$ is both left and right
+    invertible, then we call  $T$  \textbf{invertible}, or \textbf{regular};
+    otherwise we call $T$  \textbf{singular}.
+\end{definition}
+
+\begin{example}
+    Let $F=\R$ and let $V=\R[x]$. Define linear transformations $S$ and  $T$ by
+    $S(q(x))=q'(x)$ (the first derivative of $q$) and 
+    $T(q(x))=\int_{1}^{x}{q(x) \ dx}$. 
+    Then $TS \neq 1$ but  $ST = 1$. This means that real integrals
+    on polynomials are right invertible, but not left invertible.
+\end{example} 
+
+\begin{theorem}\label{3.1.5}
+    If $V$ is a finite dimensional vector space over a field  $F$, then  $T \in
+    \hom{(V,V)}$ is invertible if, and only if the constant in the minimal
+    polynomial of  $T$ is nonzero.
+\end{theorem}
+\begin{proof}
+    Let $p(x)=\alpha_0+\alpha_1x+\dots+\alpha_kx^k$ be the minimal polynomial of
+    $\deg = k$ for  $T$. If $\alpha_0 \neq 0$, then
+    $p(T)=\alpha_kT^k+_\dots+\alpha_1T+\alpha_0$. We then get:
+        \begin{equation*}
+            1 = T(-\frac{1}{\alpha_0}\alpha_kT^{k-1}+\dots+\alpha_1).
+        \end{equation*}
+
+        Likewise, if $T$ is invertible, but  $\alpha_0 = 0$, then we have
+        $p(T)=\alpha_1T+\dots+\alpha_kT^k=(\alpha_1+\alpha_2T+\dots+\alpha_kT^{k-1})T
+        =0$. Multyplyuing by $T^{-1}$, we get $\alpha_1+\alpha_2T+\dots+
+        \alpha_kT^{k-1}=0$. So $T$ satisfies the polynomial
+        $q(x)=\alpha_1+\alpha_2x+\dots+\alpha_kx^{k-1}$ which has $\deg = k-1$.
+        This contradicts that  $p$ is the minimal polynomial.
+\end{proof}
+\begin{corollary}
+    If $T$ is invertible, then  $T^{-1}$ is a polynomial in $F[T]$.
+\end{corollary}
+\begin{corollary}
+    If $T$ is singlular, then there is an  $S \in \hom{(V,V)}$ with $TS=St=0$.
+\end{corollary}
+\begin{corollary}
+    If $T$ is right invertible, then  $T$ is invertible.
+\end{corollary}
+\begin{proof}
+    Suppose that $T$ is right invertible, but singular. Then there is an  $S$
+    with  $TS=0$. Then for some linear transformation  $U$,  $U(TS)=(UT)S=1S=S
+    \neq 0$ which is a contradiction.
+\end{proof}
+
+\begin{theorem}\label{3.1.6}
+    If $V$ is a finite dimensional vector space over a field  $F$, then  $T \in
+    \hom{(V,V)}$ is singlular if and only if there exists a $v \neq 0 \in V$
+    with $T(v)=0$. 
+\end{theorem}
+\begin{proof}
+    If $T$ is singular, then there is a linear transformation $S \neq 0$ with
+    $TS=0$. Then there is some  $w \in V$ with  $S(w) \neq 0$. Now let $v=S(w)$,
+    then $T(v)=T(S(w))=TS(w)=0(w)=0$.
+\end{proof}
+
+\begin{lemma}\label{3.2.7}
+    Let $V$ be a vector space over a field  $F$, and let  $T \in \hom{(V,V)}$,
+    then $T(V) \subseteq V$ and $T(V)=V$ if, and only if $T$ is onto.
+\end{lemma}
+
+\begin{theorem}\label{3.1.8}
+    If $V$ is a finite dimensional vector space over a field  $F$, then  $T \in
+    \hom{(V,V)}$ is invertible if, and only if $T(V)=V$.
+\end{theorem}
+\begin{proof}
+    If $T$ is invertible, then for  $v \in V$,  $T(T^{-1}(v))=v$ which makes
+    $T(V)=V$, and $T$ onto.
+
+    On the other hand, let $T(V)=V$ and suppose that $T$ is singular. Then there
+    is some  $v_1 \neq 0 \in V$ such that $T(v_1)=0$. By lemma \ref{2.2.7}, we
+    can find $v_1 ,\dots, v_n \in V$. We can see then that $T(V)$ consists of
+    the linear combinations of $w_1, \dotsm w_n$, where $w_i=T(v_i)$ for $1 \leq
+    i \leq n$. Sine  $w_1=0$ we get $\Span{\{w_2, \dots, w_n\}}=T(V)$. We get
+    then $\dim{T(V)} \leq n-1<\dim{V}$; this contradicts that $T(V)=V$.
+\end{proof}
+\begin{corollary}
+    $T$ is invertible if and only if  $\dim{T(V)}=\dim{V}$.
+\end{corollary}
+
+The above corollary motivates the definition of the ``rank'' of a linear
+transformation, which will, in turn, motivate another definition of the rank of a
+matrix.
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector space over a field  $F$. We define
+    the \textbf{rank} of a linear transformation $T:V \rightarrow V$ to be:
+        \begin{equation}
+            \rank{T}=\dim_F{V(T)}
+        \end{equation} 
+\end{definition}
+
+We add the $F$ subscript as a reminder that the rank of  $T$ is dependent on the
+field  $F$. 
+
+\begin{lemma}\label{3.1.9}
+    If $V$ is a finite dimensional vector space over a field  $F$, and  $S,T \in
+    \hom{(V,V)}$ are linear transformations, then:
+    \begin{enumerate}
+        \item[(1)] $\rank{TS} \leq \rank{T}$.
+
+        \item[(2)] $\rank{ST} \leq \rank{T}$.
+
+        \item[(3)]  $\rank{TS}=\rank{ST}=\rank{T}$ for $S$ invertible.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    We have first that $S(V) \subseteq V$, so $TS(V)=T(S(V)) \subseteq T(V)$.
+    Now let $\rank{T}=m$, then $T(V)$ has a basis of $m$ vectors  $\{w_1, \dots,
+    w_m\}$, and so $\Span{\{S(w_1), \dots, S(w_m)\}}=ST(V)=S(T(V))$ which makes
+    $\rank{ST} \leq \rank{T}$.
+    
+    Finally, if $S$ is invertible, we have that  $S(V)=V$, so
+    $TS(V)=T(S(V))=T(V)$ and $ST(V)=S(T(V))=T(V)$. The corresponding equalities
+    follow from above.
+\end{proof}
+\begin{corollary}
+    If $S$ is invertible, then  $\ranl{T}=\rank{STS^{-1}}$.
+\end{corollary}

@@ -1,0 +1,871 @@
+\section{Canonical Forms.}
+
+For this section, let $V$ be a vector space over a field  $F$ with $\dim{V}=n$.
+We begin with the following definition.
+
+\begin{definition}
+    We call two linear transformations, $T,S \in \hom{(V,V)}$ \textbf{similar}
+    if there is an invertible linear transformation $C \in \hom{(V,V)}$ for
+    which $T=C^{-1}SC$. We denote similarity by writing $T \simeq S$.
+\end{definition}
+
+\begin{lemma}\label{3.4.1}
+    The relation of similarity of linear transformations on $V$ is an
+    equivalence relation.
+\end{lemma}
+\begin{proof}
+    Let $S$ and  $T$ be linear transformations on  $V$. We note that  $T \simeq
+    T$, for take $I \in \hom{(V,V)}$, the identity transformation, then
+    $T=I^{-1}TI$.
+
+    Now, notice that if $T \simeq S$, then there is a linear transformation $C$
+    on  $V$ for which  $T = C^{-1}SC$. Then $S=CTC^{-1}=(C^{-1})^{-1}TC^{-1}$.
+
+    Finally, let $U$ be a linear transformation on $V$, and suppose that $T
+    \simeq S$ and  $S \simeq U$. Then  $T=C^{-1}SC$ and $S=B^{-1}UB$ where $C$
+    and  $B$ are linear transformations on $V$. By above,  $S=CTC^{-1}$, so we
+    get $CTC^{-1}=B^{-1}UB$, then $T=C^{-1}B^{-1}UBC=(BC)^{-1}U(BC)$. This
+    makes $T \simeq U$.
+\end{proof}
+
+\begin{definition}
+    We say two matrices $A,B \in F^{n \times n}$ are \textbf{similar}, if there
+    exists a matrix $S \in F^{n \times n}$ such that $A=S^{-1}BS$. We
+    write $A \simeq B$.
+\end{definition}
+
+\begin{lemma}\label{3.4.2}
+    The similarity of matrices is an equivalence relation.
+\end{lemma}
+\begin{proof}
+    We have that the similarity of linear transformations is an equivalence
+    relation, and since $\hom{(V,V)} \simeq F^{n \times n}$ (isomorphism), we
+    can conclude that the similarities of matrices is isomorphic to the
+    similarity of linear transformations.
+\end{proof}
+\begin{corollary}
+    $\hom{(V,V)}/\simeq_T \ \simeq F^{n \times n}/\simeq_M$. Where $\simeq_T$
+    and  $\simeq_M$ are the similarity of linear transformations and the
+    similarity of matrices respectively.
+\end{corollary}
+
+\begin{definition}
+    Consider $\hom{(V,V)}$, and let $\simeq$ be the equivalence of similar
+    linear transformations. We call the equivalence classes of
+    $\hom{(V,V)}\simeq$ \textbf{similarity classes} of $\hom{(V,V)}$. Likewise,
+    if $\simeq$ is the similarity of matrices, then the equivalence
+    classes of $F^{n \times n}$ are called \textbf{similarity classes} of
+    $F^{n \times n}$.
+\end{definition}
+
+The introduction of similarity classes leads to the problem of finding whether
+two linear transformations (or two matrices) lie in the same class, this then
+leads to the so called ``cononical forms'', which are matrices which have a
+particularly nice structure. We begin their treatment now. From now on, let us
+also make the following convention for linear transformations:
+    \begin{equation*}
+        T(W) \equiv TW.
+    \end{equation*}
+Where $W$ maybe another linear transformation, a subspace, or a vector.
+
+\begin{definition}
+    We call a subspace $W \subseteq V$  \textbf{invariant} under a linear
+    transformation $T$ on  $V$ if $TW \subseteq W$.
+\end{definition}
+
+\begin{lemma}\label{3.4.3}
+    If $W \subseteq V$ is invariant under a linear transformation $T$ on  $V$,
+    then  $T$ induces a linear transformation  $\bar{T}$ on $V/W$ defined by
+    $T:v+W \rightarrow Tv+W$, for $v \in V$. If $T$ satisfies the
+    polynomial $q \in F[x]$, then so does $\bar{T}$. If $p_1,p \in F[x]$ are
+    the minimal polynomials for $\bar{T}$ and $T$, respectively, then  $p_1|p$.
+\end{lemma}
+\begin{proof}
+    Consider $V/W$ whose elements are the cosets  $v+W$, of  $W$ in  $V$.
+    Define a map  $\bar{T}$ on $V/W$ by  $\bar{T}:v+W \rightarrow Tv+W$; notice
+    that for $\alpha, \beta \in F$, and  $u,v \in V$, $\bar{T}(\alpha u+\bet
+    v)=\alpha Tu+\beta Tv+W=\alpha\bar{T}(u+W)+\beta\bar{T}(v+w)$, so $\bar{T}$
+    is a linear transformation on $V/W$.
+
+    Now for  $v_1, v_2 \in V$, suppoe that $v_1+W=v_2+W$, then $v_1-v_2 \in W$
+    and since $TW \subseteq W$,  $T(v_1-v_2) \in W$. Thus $Tv_1+W=Tv_2+W$.
+
+    Noq if $q \in F[x]$ is satisfied by $T$, i.e.  $q(T)=0$, then notice that
+    $q(\bar{T}(v+W))=q(Tv)+W=W$, so $\bar{T}$ also satisfies $q$; in
+    particular, if  $p_0, p \in F[x]$ are the minimal polynomials of $\bar{T}$
+    and $T$, respectively, then we have  $p_0|p$.
+\end{proof}
+
+\begin{definition}
+    We call a matrix $A \in F^{n \times n}$ \textbf{triangular} if $A=(a_{ij})$
+    where $a_{ij}=0$ for all $j > i$. That is all the entries above the
+    diagonal of $A$ are  $0$.
+\end{definition}
+
+\begin{definition}
+    We call a linear transformation $T$ on  $V$  \textbf{triangular} if the
+    matrix representing $T$ is triangular. That is  $T$ is triangular if given
+    the basis  $\{v_1, \dots, n_n\}$ of $V$:
+        \begin{equation}
+            \begin{align*}
+                Tv_1    &=  t_{11}v_1       \\
+                Tv_2    &   t_{21}v_1+t_{22}v_2     \\
+                        \vdots                  \\
+                Tv_i    &=  t_{i_1}v_1+t_{i_2}v_2+\dots t_{ii}v_i    \\
+                        \vdots                  \\
+                Tv_n    &=  t_{n1}v_1+t_{n2}v_2+\dots+t_{nn}v_n     \\
+            \end{align*}
+        \end{equation}
+
+    where $T=(t_{ij})$.
+\end{definition}
+
+\begin{theorem}\label{3.4.4}
+    If $T$ is a lineaer transformation on  $V$ with its Eigenvalues in  $F$,
+    then there is a basis of $V$ in which the matrix of $T$ is trangular.
+\end{theorem}
+\begin{proof}
+    By induction on $\dim{V}$, if $\dim{V}=1$, then every linear transformation
+    on $V$ is a scalar, and we are done.
+
+    Now  suppose the theorem is true for vector spaces of  $\dim=n$, and
+    suppose that  $\dim{V}=n+1$. Let $\lambda_1 \in F$ be an Eigenvalue of $T$,
+    then ther is a  $v_1 \neq 0 \in V$ for which $Tv_1=\lambda_1v_1$. Take,
+    then $W=\{\alpha v_1: \alpha \in F\}$. Then $W$ is a subspace of  $V$ and
+    $\dim{W}=1$, thus $\dim{V/W}=(n+1)-1=n$. By lemma \ref{3.4.3}, $T$
+    ``induces'' a linear transformation on $V/W$, whose minimal polynomial
+    $p_0$ divides the minimal polynomial $p$ of  $T$. That is the roots of
+    $p_0$ are alos roots of $p$, and so the roots of  $p$ lie in  $F$, so by
+    hypothesis, there is a basis $\{\bar{v}_2, \dots, \bar{v}_{n+1}\}$ of $V/W$
+    over  $F$ such that:
+        \begin{equation*}
+            \begin{align*}
+                T\bar{v}_2  &=  \alpha_{22}\bar{v}_2    \\
+                            \vdots                  \\
+                T\bar{v}_i  &=  \alpha_{i2}\bar{v_2}+\dots+\alpha_{ii}\bar{v}_i \\
+                            \vdots              \\
+                T\bar{v}_{n+1}  &=  \alpha_{n+12}\bar{v}_2+\dots+\alpha_{n+1n+1}\bar{v}_{n+1}   \\
+            \end{align*}
+        \end{equation*}
+    Now take $v_1, \dots, v_{n+1} \in V$ and map them into $\bar{v}_2, \dots,
+    \bar{v}_{n+1}$, respectively. Then $\{v_1, \dots, v_{n+1}\}$ forms a basis
+    for $V$; moreover,  $Tv_2-\alpha_{22}v_2 \in W$, so $Tv_2-\alpha_{22}v_2$
+    is a multiple of $v_1$, similarly,
+    $Tv_i-\alpha_{1=i2}v_2-\dots-\alpha_{ii}v_i \in W$, thus the basis $\{v_1, \dots,
+    v_{n+1}\}$ provides us with a basis where all $Tv_i$ is a linear
+    combination of the  $v_i$, and its predecessors  (i.e. all $v_j$ where
+    $j<i$). Therefore the matrix of $T$ in this basis is trangular.
+\end{proof}
+
+\begin{theorem}\label{3.4.5}
+    If the matrix $A \in F^{n \times n}$ has all its Eigenvalues in $F$, then
+    there is a matrix $C \in F^{n \times n}$ similar to $A$.
+\end{theorem}
+
+\begin{definition}
+    If $T$ is a linear transformations satisfying the condition in theorem
+    \ref {3.4.4}, then we say that $T$ can be brought to  \textbf{triangular
+    form} over $F$. Similarly if  $A \in F^{n \times n}$ satisfies theorem
+    \ref{3.4.5}, then we say that $A$ can be brought to  \textbf{triangular
+    form} over $F$.
+\end{definition}
+
+\begin{theorem}\label{3.4.6}
+    If $\dim_F{V}=n$ and if $T$ is a linear transformation on $V$ which has all
+    its Eigenvalues in  $F$, then  $T$ satisfies a polynomial of $\deg=n$ over
+     $F$.
+\end{theorem}
+\begin{proof}
+    By the aboce theorem, there is a basis $\{v_1, \dots, v_n\}$ of $V$ over
+    $F$ with  $Tv_i=\alpha_{i1}v_1+\dots+\alpha_{nn}v_n$ for all $1 \leq i \leq
+    n$. Equivalently,
+    $(T-\lambda_i)v_i=\alpha_{i1}v_1+\dots+\alpha_{ii-1}v_{i-1}$. We can obtain
+    then, via computation that $(T-\lambda_1) \dots (T-\lambda_i)=0$ for all $1
+    \leq i \leq n$; in particular, the matrix  $S=(T-\lambda_1) \dots
+    (T-\lambda_n)$, satisfies $Sv_1=\dots=Sv_n=0$, so $S$ annaihilates the
+    basis  $\{v_1, \dots, v_n\}$. Therefore $S$ annihilates all of  $V$, thus
+    $S=0$. Consequently,  $T$ satisfies the following polynomial
+    $p(x)=(x-\lambda_1) \dots (x-\lambda_n)$ where $\deg{p}=n$.
+\end{proof}
+
+\begin{example}
+    Let $F=\R$ and let
+        \begin{equation*}
+            A=\begin{pmatrix}
+                    0   &   1   \\
+                    -1  &   0   \\
+              \end{pmatrix}
+        \end{equation*}
+    Then $A$ has the minimal polynomial  $x^2+1$, which means that  $A$ has no
+    Eigenvalues in $\R$, hence it cannot be brought to triangular form. However
+    if we take  $F=\C$, then  $A$ can be brought to triangular form as its
+    Eigenvalues are  $i,-i \in \C$.
+\end{example}
+
+The example above shows that not every matrix, or linear transformation has its
+Eigenvalues in the ground field $F$, and hence, not every matrix can be brought
+to triangular form. However notice that in the above example, $A$ has its Eigen
+values in  $\C=\cl{\R}$, the algebraic closure of $\R$. So it is possible that
+if a matrix $A$ does not have all of its Eigenvalues in  $F$, it may indeed
+have them in $\cl{F}$.
+
+\begin{lemma}\label{3.4.7}
+    Let $V$ be a vector space of $\dim{V}=n$ over a field $F$. Let  $F
+    \subseteq K$ be an extension of $F$, then there is a vector space $V_K$ of
+     $\dim_K{V_K}=n$ such that $V \subseteq V_K$.
+\end{lemma}
+\begin{proof}
+    If $F \subseteq K$ is any extension field, then notice that  $F^{n \times
+    n} \subseteq K^{n \times n}$, so any $n \times n$ matrix over  $F$ can be
+    considered as an  $n \times n$ matrix over  $K$. Let  $T \in F^{n \times
+    n}$ have the minimal polynomial $p \in F[x]$ over $F$. If we take $T \in
+    K^{n \times n}$, then there is a polynomial $p_0 \in K[x]$ for which $p_0$
+    is the minimal polynomial of $T$ over  $K$ ; then $p_0|p$. Therefore there
+    is a finite extension $K$ of  $F$ in where the minimal polynomial  $p$ of
+    $T$ over  $F$ has all its roots in  $K$. Therefore, $T$ has all its
+    characteristic roots in  $K$.
+\end{proof}
+\begin{corollary}
+    Let $F$ be a field and let  $T \in F^{n \times n}$. If $p \in F[x]$ is the
+    minimal polynomial of $T$ over $F$, then $T$ has all its characteristic
+    roots in  $\cl{F}$.
+\end{corollary}
+\begin{remark}
+    It should be noted that although we largely consider roots in the algebraic
+    closure, $\cl{F}$ of $F$, that lemma \ref{3.4.7} was proved for any
+    arbitrary extension field.
+\end{remark}
+
+One class of linear transformations with all their characteristic roots in $F$
+is the class of  \textbf{nilpotent} transformations, which have all their
+characteristic roots $0$. So these nilpotent transformations can aloways be
+brought to triangular form over  $F$.
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector space over a field  $F$. We call a
+    linear transformation  $T$ on  $V$ \textbf{nilpotent} if all its
+    characteristic roots are $0$.
+\end{definition}
+
+ \begin{lemma}\label{3.4.8}
+     Let $V$ be a vector space  for dimension $\dim{V}=n$ and let $V_i
+     \subseteq V$ be a subspace of dimension  $\dim{V_i}=n_i$ for $1 \leq i
+     \leq k$. If $V=V_1 \oplus \dots \oplus V_k$ and is invariant under a
+     liniear transformation $T$ on  $V$, then a basis of  $V$ can be found so
+     that the matrix of  $T$ in this basis has the form:
+
+     \begin{equation}
+         \begin{pmatrix}
+             A_1    &   0   &   \dots   &   0   \\
+             0      &   A_2 &   \dots   &   0\\
+             \vdots &   \vdots  &           &   \vdots  \\
+             0      &   0   &   \dots   &   A_k \\
+         \end{pmatrix}
+     \end{equation}
+\end{lemma}
+\begin{proof}
+    Choose the basis of $V$ such that $\{v_1^{(i)}, \dots, v_{n_i}^{(i)}\}$ is
+    a basis of $V_i$ for each  $1 \leq i \leq k$. Since $V_i$ is invariant
+    under  $T$, we have  $TV_i \subseteq V_i$, so  $Tv_j \subseteq V_i$ making
+    it a linear combinattion of the basis elements
+    $\{v_j^{(i)}\}_{j=1}^{n_i}$, and of only these. Then $T$ under this basis
+    is of the form. That each $A_j$ is the matrix of $Tv_j$, this makes the
+    matrix with all $A_j$ in the diagonal the matrix of a linear
+    transformation.
+\end{proof}
+
+\begin{lemma}\label{3.4.9}
+    If $T$ is a nilpotent transformation on an  $n$-dimensional vector space
+    $V$ over a field  $F$, then $\alpha_0+\alpha_1T+\dots+\alpha_mT^m$, with
+    $\alpha_i \in F$ for all  $1 \leq i \leq n$ is invertible if  $\alpha_0
+    \neq 0$.
+\end{lemma}
+\begin{proof}
+    If $S$ is nilpotent and  $\alpha_0 \neq 0$, then:
+    \begin{equation*}
+        (\alpha_0+S)(\frac{1}{\alpha_0}-\frac{S}{\alpha_0^2}+ \dots +
+        (-1)^r\frac{S^{r-1}}{\alpha_0^r})=1
+    \end{equation*}
+    If $S^r=0$. Now if $T^r=0$, then $S=\alpha_1T+\dots+\alpha_mT^m$,
+    and so $S^r=(\alpha_1T+\dots+\alpha_mT^m)^r=0$, by the binomial
+    theorem, which makes $\alpha+S$ invertible.
+\end{proof}
+
+Define $M_t=(m_{ij})$ the $t \times t$ matrix where:
+\begin{equation*}
+    m_{ij}=\begin{cases}
+            1,  &   \text{ if } i=j+1 \\
+            0   &   \text{everywhere else.}
+          \end{cases}
+\end{equation*}
+
+i.e. $M_t$ has all its entries  $1$ on the superdiagonal  (the diagonal above
+the diagonal of the matrix.).
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector space over a field  $F$ and let  $T$
+    be a nilpotent transformation on  $V$. We call an integer  $k \in Z^+$ the
+    \textbf{index of nilpotence} (or the \textbf{nilpotent index}) if $T^k=0$
+    but  $T^{k-1} \neq 0$; that is it is the minimum such positive integer for
+    which $T^k=0$.
+\end{definition}
+
+\begin{lemma}\label{3.4.10}
+    Let $V$ be a finite dimensional vector space with subspace  $W \subseteq
+    V$, and let  $T$ be a nilpotent transformation on  $V$. If for some $n \in
+    \Z^+$ there is a $w \in W$ such that  $T^{n-k}w=0$, where $k \inZ^+$, then
+     $w=T^kw_0$ for some $w_0 \in W$.
+\end{lemma}
+\begin{proof}
+    Since $v_1 \in V_1$, take
+    $u=\alpha_1v_1+\alpha_2Tv_2+\dots+\alpha_{k+1}Tv_{k+1}+\alpha_{n_1}Tv_{n_1}$.
+    Then, $T^{n_1-k}i=0$, however $T^{n_1-k}v, \dots, T^{n_1-1}v$ are linearly
+    indepenent over $F$, thus  $\alpha_1=\dots=\alpha_{n_1}=0$; so $u=T^ku_0
+    \in V_1$.
+\end{proof}
+
+\begin{lemma}\label{3.4.11}
+    Let $V$ be a finite dimensional vector space and let  $T$ be a  nilpotent
+    transformation on $V$. There exists a subspace  $W \subseteq V$ invariant
+    undet  $T$ such that $V=V_1 \oplus W$, for some other subspace $V_1
+    \subseteq V$.
+\end{lemma}
+\begin{proof}
+    Let $W$ be a subspace of  $V$ of largest pissible dimension such that  $V_1
+    \cap W=\vbrack{0}$ and $W$ is invariant under  $T$. Suppose then that  $V
+    \neq V_1+W$, then there is an element $z \in V$ for which  $z \notin
+    V_1+W$. Since $T^{n_1}=0$, ther is a $0 \leq k \leq n_1$ such that $T^kz
+    \in V_1+W$ byt $T^iz \notin V_1+W$, for all $i<k$. Thus  $T^kz=v+w$ where
+    $v \in V_1$ and $w \in W$, but then
+    $T^{n_1}z=T^{n_1-k}T^kz=T^{n_1-k}v+T^{n_1-k}w=0$. Since both $V_1$ and $W$
+    are invariant under $T$ we have both $T^{n_1-k}u, T^{n_1-k}w \in V_1,W$,
+    repspectively. Thus since $V_1 \cap W=\vbrack{0}$, we get that
+    $T^{n_1-k}u=-T^{n_1-k}w \in V_1 \cap W = \vbarck{0}$, thus $T^{n_1-k}u=0$.
+    By lemma \ref {3.4.10}, $u=T^ku_0$ for some $u_0 \in V_1$; therefore
+    $T^kz=u+w=T^ku_0+w$. Let $z_1=z-u_0$, then $T^kz_1=T^kz-T^ku_0=w \in W$.
+    Thus by the invariance of $W$, we have $T^mz_1 \in W$ for all $k \leq m$.
+    On the other hand,  $i<k$, and  $T^iz_1 \notin V_1+W$, for otherwise $T^iz
+    \in V_1+W$, contradicting our choice of $k$.
+
+    Low let $W_1$ be the subspace of $V$ spanned by  $W$, and  $z_1, Tz_1,
+    \dots T^{k-1}z_1$. Since $z_1 \notin W$ and $W \subseteq W_1$, $\dim{W_1}
+    \geq \dim{W}$. Moreover, since $T^kz \in W$ and by the invariance of  $W$
+    under  $T$,  $TW_1 \subseteq W_1$, making $W_1$ invariant under $T$. By the
+    maximality of $W$, there is an element of teh form
+    $w_0+\alpha_1z_1+\dots+\alpha_kT^{k-1}z_1 \neq 0$ in $V_1 \cap W$, with
+    $w_0 \in W$. Now not all $\alpha_i$ can be  $0$, otherwise  $w_0 \neq 0 \in
+    \vbrack{0}$, which cannot happen. So let $\alpha_s$ be the first nonzero
+    $\alpha$, then
+    $w_0+T^{s-1}z_1+(\alpha_s+\alpha_{s+1}T+\dots+\alpha_kT^{k-s}) \in V_1$. By
+    the above lemma, we have that
+    $\alpha_s+\alpha_{s+1}T+\dots+\alpha_kT^{k-s}$ is invertible, and its
+    inverse, $R$ is a polynomial in  $T$. Thus  $W$ and  $V_1$ are invariant
+    under $R$; however, we also have  $Rw_0+T^{s-1}z_1 \ini RV_1 \subseteq
+    V_1$, this forces $T^{s-1}z_1 \in V_1+RW$, and since $s-1<k$, this is
+    impossible. Thereofre  $V=V_1+W$, because $V_1 \cap W=\vbrack{0}$, this
+    makes $V=V_1 \oplus W$.
+\end{proof}
+
+\begin{theorem}\label{3.4.12}
+    Let $V$ be a finite dimensional vector space over a field  $F$ and let  $T$
+    be a nilpotent transformation on  $V$ with nilpotent index $n_1$. Then a
+    basis of $V$ can be found such that the matrix of  $T$ in this basis has
+    the form:
+
+    \begin{equation}
+        \begin{pmatrix}
+            M_{n_1}     &   0   & \dots &   0   \\
+            0       &   M_{n_2} &   \dots   &   0   \\
+            \vdots  &   \vdots  &   &   \vdots  \\
+            0       &   0   &   \dots   &   M_{n_r} \\
+        \end{pmatrix}
+    \end{equation}
+
+    Where $n_r \leq \dots n_2 \leq n_1$ and $\dim{V}=\sum{n_i}$.
+\end{theorem}
+\begin{proof}
+    By definition of the nilpotent index, there is a $v \in V$ for which
+    $T^{n_1-1}v \neq 0$. Now consider the vectors $Tv, \dots, T^{n_1-1}v$, and
+    let $\alpha_1v+\alpha_2Tv+\dots+\alpha_{n_1}T^{n_1-1}v=0$; and let
+    $\alpha_s$ be the first nonzeo  $\alpha$, then,
+        \begin{equation*}
+            T^{s-1}v=(\alpha_s+\alpha_{s+1}T+\dots+\alpha_{n_1}T^{n_1-s})=0
+        \end{equation*}
+    and since $\alpha_s \neq 0$, then by lemma \ref{3.4.9}, $\alpha_s+\alpha_{s+1}T+
+    \dots+\alpha_{n_1}T^{n_1-s}$ is invertible, so $T^{s-1}v=0$; however, since
+    $s<n_1$ this contradicts that $T^{n_1-s}v \neq 0$, thus no such $\alpha_s$
+    exists making  $\{Tv, \dots T^{n_1-1}v\}$ linearly indepenent over $F$.
+
+    Now let  $V_1$ be the subspace spanned by $\{v, Tv, \dots, T^ {n_1-1}v\}$ ;
+    then $V_1$ is invariant under $T$, and the linear transformation on  $V_1$
+    induced by $T$ has the matrix  $M_{n_1}$.
+
+    Now, by lemma \ref{3.4.11}, there is a subspace $W \subseteq V$ invariant
+    under  $T$, for which  $V=V_1 \oplus W$. Using the basis $\{v, Tv, \dots, T^ {n_1-
+    1}v\}$ of $V_1$, and appending any basis of $W$ to get a basis of $V$, we
+    have that the matrix of  $T$ has the form:
+        \begin{equation*}
+            \begin{pmatrix}
+                M_{n_1} &   0   \\
+                0       &   A_2 \\
+            \end{pmatrix}
+        \end{equation*}
+    by lemma \ref{3.4.8}. Here, $A_2$ is the matrx of $T_2$, the linear
+    transformation on $W$ induced by  $T$. Then $T^{n_1}=0$, $T_2^{n_2}=0$, for
+    some $n_2 \leq n_1$. Repeating the argument and taking $W=V_2 \oplus W_2$,
+    and so on, we gaet a basis of $V$ for which the matrix of  $T$ in  $V$ is
+    of the form found in equation  $(3.8)$.
+\end{proof}
+
+\begin{definition}
+    Let $V$ be a fintite dimensional vector space over a field  $F$ and let $T$
+    be a nilpotent transformation. Let  $V_i \subseteq V$ be a subspace of  $V$
+    for  $1 \leq i \leq r$ and let $\{T_i\}_{i=1}^r$ be a collection of nilpotent
+    transformations induced on $V_i$, respectively by  $T$, with indices of
+    nilpotnence $\{n_i\}_{i=1}^r$, respectivly. Then we call each $n_i$ an invariant
+    of the nilpotent transformation $T$.
+\end{definition}
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector space and let  $T$ be a nilpotent
+    transformation on $V$, we call a subspace  $M \subseteq V$ of dimension
+    $\dim{M}=m$, invariant under $T$, \textbf{cyclic} with respect to $T$ if:
+    \begin{enumerate}
+        \item[(1)] $T^mM=\vbrack{0}$, and  $T^{m-1}M \neq \vbrack{0}$.
+
+        \item[(2)] There is a $z \in M$ such that  $z, Tz, \dots, T^{m-1}z$
+            form a basis of $M$.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}\label{3.4.13}
+    Let $V$ be a finite dimensional vector space with nilpotent transformation
+     $T$. If  $M \subseteq V$ is cyclic with respect to  $T$, then
+     $\dim{T^kM}=m-k$ for all $k \leq m$.
+\end{lemma}
+\begin{proof}
+    We can get a basis of $T^kM$ by taking the image of any basis of  $M$ under
+     $T^k$. Let  $\{z, Tz, \dots, T^{m-1}z\}$ be this basis. Then we can get a
+     basis $\{T^kz, T^{k+1}z, \dots, T^{m-1}z\}$ of $M$. This basis has  $m-k$
+     elements, and so we are done.
+\end{proof}
+
+\begin{theorem}\label{3.4.14}
+    Two nilpotent transformations are similar if, and only if they have the
+    same invariants.
+\end{theorem}
+\begin{proof}
+    Let $T$ be a nilpotent transformation on  $V$, then we can find  $n_i \in
+    Z^+$ such that  $n_1 \geq n_2 \geq, \dots, n_r$ and subspaces of $V$,
+    $V_1, \dots, V_r$, cyclic with respect to $T$ and of  $\dim{V_i}=n_i$ for
+    all $1 \leq i \leq n$, such that  $V=V_1 \oplus \dots \oplus V_r$.
+
+    Suppose we can also find $m_j \in Z^+$ and  $U_j \subseteq V$ for which
+    $n_{j+1} \geq n_j$ and $\dim{U_j}=n_j$, and where $U_i$ is cyclic with
+    respect to  $T$ such that  $V=U_1 \oplus \dots \oplus U_s$. This is, of
+    course for all $1 \leq j \leq s$. Suppose as well that  $s \neq r$ and all
+     $m_j$ are distinct from  $n_i$. Then assume that  $m_j<n_i$.
+
+     Cinsider then  $T^{m_j}V$, since $V=\bigoplus{V_i}$, we have
+     $T^{m_j}V=\bigoplus{T^{m_j}V_i}$. Since $\dim{T^{m_j}V_i}=n_i-m_j$ for all
+     $i$, we get  $\dim{T^{m_j}V} \geq (n_1-m_j)+\dots+(n_i-m_j)$. On the other
+     hand, since $V=\bigoplus{U_j}$ and since $T^{m_j}U_k=\vbrack{0}$ for all
+     $k \leq j$, we have  $T^{m_j}V=\bigoplus{T^{m_j}U_k}$. Thus:
+        \begin{equation*}
+            \dim{T^{m_j}V}=(m_1-m_j)+\dots+(m_k-m_j)
+        \end{equation*}
+    so by our choice of $i,j$ and $k$, $n_i=m_j$ and  $r=s$. Thus
+        \begin{equation*}
+            \dim{T^{m_j}V}=(n_1-m_j)+\dots+(n_k-m_j)
+        \end{equation*}
+    but this contradicts our previous value. This makes the $n_i$ we chose
+    unique. Therefore, the invariants of  $T$ are also unique.
+
+    Now, by the above discussion, if two nilpotent transformations have
+    different invaraints, they cannot be similar, hence their respective
+    matrices (both of the form in equation $(3.8)$) cannot be similar either.
+
+    Conversely, if $S$ and  $T$ are two nilpotent transformations on  $V$ with
+    the same invatants. Therefore there are invariants  $\{v_1, \dots, v_n\}$
+    and $\{w_1, \dots, w_n\}$ of $V$ such that the matrix of  $S$ in the first
+    basis and the matrix of  $T$ in the second basis is equal to:
+        \begin{equation*}
+        \begin{pmatrix}
+            M_{n_1}     &   0   & \dots &   0   \\
+            0       &   M_{n_2} &   \dots   &   0   \\
+            \vdots  &   \vdots  &   &   \vdots  \\
+            0       &   0   &   \dots   &   M_{n_r} \\
+        \end{pmatrix}
+        \end{equation*}
+    Now if $A$ is the linear transformation on  $V$ defined by  $A:v_i
+    \rightarrow w_i$, then $S=A^{-1}TA$, making $T \simeq S$.
+\end{proof}
+\begin{remark}
+    If we let $p(n)$ be the number of partitions of a positive integer $n$,
+    then we notice that the invariants of  $T$ determine a partition of
+    $\dim{V}=n$. On the otherhand, any partion of $n$ determines the invariants
+    of nilpotent transformation. Thus the number of distinct similarity classes
+    of $n \times n$ nilpotent matrices is precisely $p(n)$.
+\end{remark}
+
+\begin{example}
+    Let
+    \begin{equation*}
+        T=\begin{pmatrix}
+                0   &   1   &   1   \\
+                0   &   0   &   0   \\
+                0   &   0   &   0   \\
+          \end{pmatrix} \in F^3
+    \end{equation*}
+    act on $F^3$ with the basis  $\{(1,0,0),(0,1,0),(0,0,1)\}$. Let
+    $v_1=(1,0,0), v_2=T(1,0,0), v_3=(0,0,1)$. Then in the basis $\{v_1, v_2,
+    v_3\}$, we have that the matrix of $T$ is:
+    \begin{equation*}
+        \begin{pmatrix}
+            0   &   1   &   0   \\
+            0   &   0   &   0   \\
+            0   &   0   &   0   \\
+        \end{pmatrix}
+    \end{equation*}
+    So the invariants of $T$ are $1$ and $2$. If we take:
+    \begin{equation*}
+        A=\begin{pmatrix}
+                1   &   0   &   0   \\
+                0   &   1   &   1   \\
+                0   &   0   &   1   \\
+          \end{pmatrix}
+    \end{equation*}
+    then:
+    \begin{equation*}
+        A^{-1}TA=\begin{pmatrix}
+                    0   &   1   &   0   \\
+                    0   &   0   &   0   \\
+                    0   &   0   &   0   \\
+                \end{pmatrix}
+    \end{equation*}
+\end{example}
+
+\begin{definition}
+    Let $V$ be a finite dimensional subspace over a field $F$ and let $W
+    \subseteq V$ be a subspace of $V$ invariant under a linear transformation
+    $T$ on  $V$. Let  $T_W$ be a linear transformation on $W$ be defined by
+    $T_W:w \rightarrow Tw$ for all $w \in W$. Then we say that  $T$
+    \textbf{induces} the linear transformation $T_W$ on  $W$, or that  $T_W$ is
+    the linear transformation  \textbf{induced} on $W$ by  $T$.
+\end{definition}
+
+\begin{lemma}\label{3.4.15}
+    Let $V$ be a finite dimensional vector space over a field  $F$ and let
+    $V_1$ be a subspace of $V$ invariant under a linear transformaion $T$ on
+    $V$. Let  $T_1$ be the linear transformation on $V_1$ induced by $T$. If
+    $q \in F[x]$ is a polynomial, then the linear transformation on $V_1$
+    induced by $q(T)$ is precisely $q(T_1)$; in particular, if $q(T)=0$, then
+    $1(T_1)=0$.
+\end{lemma}
+\begin{remark}
+    The last statement of this lemma means that $T_1$ satisfies any polynomial
+    satisfied by $T$.
+\end{remark}
+
+\begin{lemma}\label{3.4.16}
+    Suppose that $V=V_1 \oplus V_2$ be a finite dimensional subspace over a
+    field $F$, where $V_1, V_2 \subseteq V$ are subspaces invariant under a
+    linear transformation $T$ in  $V$. Let $T_1$ and $T_2$ be linear
+    transformations induced by $T$ on  $v_1$ and $V_2$, respectively. Then if
+    the minimal polynomials of $T_1$ and $T_2$ over $F$ are  $p_1$ and $p_2$,
+    respectively, then the minimal polynomial of $T$ over  $F$ is the least
+    common multiple  $[p_1,p_2]$.
+\end{lemma}
+\begin{proof}
+    If $p$ is the minimal polynomial of  $T$ over  $F$, then
+    $p(T_1)=p(T_2)=0$, hence $p_1|p$ and $p_2|p$. Thus $[p_1,p_2]|p$.
+
+    Now, let $q(x)=[p_1,p_2](x)$, and consider $q(T)$. For $v_1 \in V_2$, since
+    $p_1|q$ and $p_2|q$, we have $q(T)v_1=q(T_1)v_1=0$, similarly for $v_2 \in
+    V_2$, $q(T)v_2=0$. Now given any $ v \in V$, $v=v_1+v_2$ for $v_1,v_2 \in
+    V_1,V_2$, respectively. Consequently then, we have
+    $q(T)v=q(T)v_1+q(T)v_2=0$, thus $T$ satisfies  $q$.
+\end{proof}
+\begin{corollary}
+    If $V = \bigoplus_{i=1}^k{V_i}$ where  $V_i \subseteq V$ is a subspace
+    invariant under $T$, and if $T_i$ is the linear transformation induced by
+    $T$ on  $V_i$, and  $p_i$ is the minimal polynomial of  $T_i$; then the
+    minimal polynomial of  $T$ over  $F$ is the least common multiple  $[p_1,
+\dots, p_k]$.
+\end{corollary}
+
+\begin{theorem}\label{3.4.17}
+    Let $V=\bigoplus_{i=1}^k{V_i}$ be a finite dimensional vector space over a
+    field $F$ where  $V_i$ is a subspace invariant under a linear
+    transformation $T$ on  $V$, for each $1 \leq i \leq k$. Let  $T_i$ be the
+    linear transformation induced by  $T$ on  $V_i$, then the minimal
+    polynomial of  $T_i$ is of the form  $q_i^{l_i}(x)$, where $l_i \in \Z^+$.
+\end{theorem}
+\begin{proof}
+    If $k=1$, then  $V=V_1$ and $T=T_i$ and $p=q_i^1$. We are done.
+
+    Now suppose that $k>1$, and consider the polynomials  $h_i(x)=\prod_{j \neq
+    i}{q_j^{l_j}}(x)$, where $1 \leq i \leq k$. Since  $k>1$, we have $h_i \neq
+    p$, thus  $h_i(T) \neq 0$. That is, there is a $v \in V$ such that
+    $h_i(T)v=w \neq 0$; however, $q_i^{l_i}(T)w=h(T)q_i^{l_1}(T)v=p(T)v=0$,
+    thus $w \neq 0 \in V_i$ hence  $V_i \neq \vbrack{0}$. Notice then, that for
+    $v_j \in V_j$,  $j \neq i$,  $h_i(T)v_j=0$ since $p_j|h_i$.
+
+    Moreover, the polynomials  $h_i$ are all coprime, for  $1 \leq i \leq k$,
+    i.e.  $(h_1, \dots, h_k)=1$. Therefore there are polynomials $a_1, \dots,
+    a_k \in F [x]$ for which $a_1h_1+\dots+a_kh_k=1$. Thus
+    $a_1(T)h_1(T)+\dots+a_k(T)h_k(T)=1$, hence given $v \in V$,  $v=v_1=v(a_1(T)h_1(T)+
+    \dots+a_k(T)h_k(T))=a_1(T)h_1(T)v+\dots+a_k(T)h_k(T)v$. Now, we have that
+    each $a_i(T)h_i(T)v \in h_i(T)V$, so $h_i(T)V \subseteq V$; i.e.,  $h_i(T)$
+    is invariant under $T$. Therefore,  $v=v_1+\dots+v_k$ where each
+    $v_i=a_i(T)h_i(T)v$. Therefore $V=V_1+\dots+V_k$ where each $V_i=h_i(T)V$.
+\end{proof}
+
+\begin{theorem}\label{3.4.18}
+    Let $V$ be a finite dimensional vector space over a field  $F$, and let
+    $T$ be a linear transformation on  $V$. Suppose that  $p \in F[x]$ is the
+    minimal polynomial of $T$ over $F$. Then we can factor $p$ in the following
+    way:
+    \begin{equation}
+        p(x)=q_1^{l_1}(x) \dots q_k^{l_k}(x)
+    \end{equation}
+    where each of the $q_i \in F[x]$ are distinct irreducible polynomials and
+    $l_i \in \Z^+$, for all  $1 \leq i \leq k$.
+\end{theorem}
+\begin{proof}
+    If  $k=1$, we are done. Now suppose that $k>1$. Let $q_i$ be the minimal polynomial
+    for  $T_i$. Let $V_i=\{v \in V: q^{l_i}(V_i)v=0\}$, for all $1 \leq i \leq k$. We can
+    see that $V_i \subseteq V$ is a subspace of $V$. Now if  $v \in V_i$, since $q_i(T)$
+    and  $T$ commute, we have $q^{l_i}(T)Tv=Tq^{l_i}(T)v=0T=0 \in V_i$; i.e. $TV_i
+    \subseteq V_i$. This makes  $V_i$ invariant under $T$. Notice then that
+    $V=\bigoplus{V_i}$ (why?), then by theorem \ref{3.4.17} we have that
+    $p(x)=q_1(x)=q_1^{l_1}(x) \dots q_k^{l_k}(x)$.
+\end{proof}
+\begin{corollary}
+    If the distinct Eigenvalues $\lambda_1, \dots \lambda_k$ of $T$ lie in  $F$,
+    then $p(x)=(x-\lambda_1)^{l_1} \dots (x-\lambda_k)^{l_k}$.
+\end{corollary}
+\begin{remark}
+    We make the comvention that for any polynomial $q \in F[x]$, and $l \in
+    Z^+$, that $q^l(x)=q(x)^l=q(x) \dots q(x)$ $l$ times. This should not be
+    confused with the $l$-th derivative $q^{(l)}$ of $q$.
+\end{remark}
+
+\begin{definition}
+    The matrix:
+        \begin{equation}
+            \begin{pmatrix}
+                \lambda &   1   &   0   &   \dots   &   0   \\
+                0   &   \lambda &   0   &   \dots   &   0   \\
+                \vdots  &   &   &           &   \vdots  \\
+                0  &    &   &   \dots   &   \lambda \\
+            \end{pmatrix}
+        \end{equation}
+    is called the \textbf{basic Jordan block} belonging to $\lambda$.
+\end{definition}
+
+\begin{theorem}\label{3.4.19}
+    Let $V$ be a finite dimensional vector space over a field  $F$ and let  $T$
+    be a linear transformation on  $V$. If  $T$ has all its distinct
+    Eigenvalues $\lambda_1, \dots, \lambda_k \in F$, then a basis of $V$ can be
+    found in which  $T$ has a matrix of the form:
+        \begin{equation}
+            \begin{pmatrix}
+                J_1 &  &    &    \\
+                    &   J_2 &    \\
+                    &   &   \ddots  &   \\
+                    &   &   &   J_k \\
+            \end{pmatrix}
+        \end{equation}
+    where each:
+        \begin{equation}
+            J_i=\begin{pmatrix}
+                B_{i1} &  &    &    \\
+                    &   B_{i2} &    \\
+                    &   &   \ddots  &   \\
+                    &   &   &   B_{ir_i} \\
+            \end{pmatrix}
+        \end{equation}
+    and where each $B_{ij}$ are basic Jordan blocks belonging to  $\lambda_i$,
+    for each  $1 \leq j \leq r_i$.
+\end{theorem}
+\begin{proof}
+    Notice that the $m \times m$ basic Jordan block belonging to  $\lambda$ is
+    the matrix  $\lambda+M_m$.
+\end{proof}
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector space over a field  $F$, and let
+    $T$ be a linear transformation on  $V$ with a matrix $J$ of the form in
+    equation $(3.11)$, where $\dim{B_{i_1}} \geq \dim{B_i2} \geq \dots \geq
+    \dim{B_{ir_i}}$. Then we call $J$ the  \textbf{Jordan form} of $T$.
+\end{definition}
+
+\begin{lemma}\label{3.4.20}
+    Let $V$ be a finite dimensional vector space over a field  $F$. If  $T_1$
+    and $T_2$ are linear transformations on $V$, with all their distinct
+    characteristic roots in  $F$, then  $T_1 \simeq T_2$ if, and only if they
+    can be brought to the same Jordan form.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}\label{3.4.21}
+    Let $F$ be a field and let  $A \in F^{n \times n}$, and suppose that $K$ is
+    the splitting field of the minimal polynomial of  $A$ over  $F$. Then an
+    invertible matrix  $C \in ^{n \times n}$ can be found so that $C^{-1}AC$ is
+    in Jordan form.
+\end{theorem}
+
+\begin{lemma}\label{3.4.22}
+    Let $V$ be a finite dimensional vector space over a field  $F$ and let  $T$
+    be a linear transformation on  $V$. Suppose $T$ has the minimal polynomial:
+    $p(x)=\gamma_0+\gamma_1x+\dots+\gamma_{r-1}x^{r-1}+x^r$, and that $V$, as a
+    module, is cyclic relatie to $T$. Then there is a basis of $V$ over  $F$
+    such that the matrix of  $T$ in this basis has the form:
+        \begin{equation}
+            \begin{pmatrix}
+                0   &   1   &   0   &   \dots   &   0   \\
+                0   &   0   &   1   &   \dots   &   0   \\
+                \vdots  &   &   &   &   \vdots  \\
+                0   &   0   &   0   &   \dots   &   1   \\
+                -\gamma_0   & -\gamma_1 &   -\gamma_2   &   \dots   & -\gamma_{r-1}   \\
+            \end{pmatrix}
+        \end{equation}
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+    Let $F$ be a field. If  $f \in F[x]$ has the form:
+        \begin{equation}
+            f(x)=\gamma_0+\gamma_1x+\dots+\gamma_{r-1}x^{r-1}+x^r
+        \end{equation}
+    Then the $r \times r$ matrix  $Cf \in F^{r \times r}$, of the form:
+        \begin{equation}
+            Cf=\begin{pmatrix}
+                0   &   1   &   0   &   \dots   &   0   \\
+                0   &   0   &   1   &   \dots   &   0   \\
+                \vdots  &   &   &   &   \vdots  \\
+                0   &   0   &   0   &   \dots   &   1   \\
+                -\gamma_0   & -\gamma_1 &   -\gamma_2   &   \dots   & -\gamma_{r-1}   \\
+            \end{pmatrix}
+        \end{equation}
+    is called the \textbf{companion matrix} of $f$.
+\end{definition}
+\begin{remark}
+    The companion matrix can also be written as $C(f(x))$, however we write it
+    $Cf$ to denote  $C$ as a linear operator acting on  $f$; i.e. it is a
+    linear transformation on  $F[x]$.
+\end{remark}
+\begin{remark}
+    We also make note that in lemma \ref{3.4.22}, if $V$ is cyclic relative to
+     $T$, and if the minimal polynomial in $F[x]$ of $T$ is of the form found
+     in equation  $(3.14)$, then there is a basis of $V$ for which the matrix
+     of  $T$ is the companion matrix for  $p$; i.e.  $m(T)=Cp$.
+
+     Also notice that for any $f \in F[x]$ monic, $Cf$ satisfies  $f$ and has
+     $f$ as its minimal polynomial. That is  $f(Cf)=0$.
+\end{remark}
+
+\begin{theorem}\label{3.3.23}
+    Let $V$ be a finite dimensional vector space over a field  $F$, and let
+    $T$ be a linear transformation on  $V$. If  $T$ has the minimal polynomial
+     $p(x)=q^e(x)$, where $q \in F[x]$ is monic irreducible; then a basis of
+     $V$ over  $F$ can be found such that the matrix of  $T$ in this basis has
+     the form:
+        \begin{equation}
+            \begin{pmatrix}
+                Cq^{e_1} &  &    &    \\
+                    &   Cq^{e_2} &    \\
+                    &   &   \ddots  &   \\
+                    &   &   &   Cq^{e_r} \\
+            \end{pmatrix}
+        \end{equation}
+    where $e=e_1 \geq e_2 \geq \dots \geq e_r$, and $Cq^{e_i}$ is the companion
+    matrix for $q^{e_i}$ for all $1 \leq i \leq r$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+\begin{corollary}
+    If $T$ has the minimal polynomial  $p(x)=q_1^{n_1}(x) \dots q_k^{n_k}(x)$
+    over $F$, where each  $q_i$ are distinct irreducible polynomials over  $F$,
+    then there is a basis of  $V$ for which the matrix of  $T$ has the form:
+        \begin{equation}
+            \begin{pmatrix}
+                R_1 &  &    &    \\
+                    &   R_2 &    \\
+                    &   &   \ddots  &   \\
+                    &   &   &   R_k \\
+            \end{pmatrix}
+        \end{equation}
+    where
+        \begin{equation}
+            \begin{pmatrix}
+                Cq_i^{e_{i1}} &  &    &    \\
+                    &   Cq_i^{e_{i2}} &    \\
+                    &   &   \ddots  &   \\
+                    &   &   &   Cq_i^{e_{ir_i}} \\
+            \end{pmatrix}
+        \end{equation}
+    where $e_i=e_{i1} \geq e_{i2} \geq \dots \geq e_{ir_i}$.
+\end{corollary}
+
+\begin{definition}
+    Let $F$ be a field. If a matrix  $T \in F^{r \times r}$ can be brought to
+    the form of equation  $(3.17)$, then we say that it can be brough to
+    \textbf{rational form} over $F$. We call the matrix in  $(3.17)$ the
+    \textbf{rational canonical form} of $T$.
+\end{definition}
+
+\begin{definition}
+    Let $F$ be a field and let  $T \in F^{r \times r}$. We call the polynomials
+    $q_1^{e_{11}}, \dots, q_k^{e_{k1}} \in F[x]$ that make up the minimal
+    polynomial of $T$ the  \textbf{elementary divisors} of $T$.
+\end{definition}
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector sapce over a field  $F$. If
+    $\dim{V}=n$, then the \textbf{characteristic polynomial} of a linear
+    transformation $T$ on  $V$ is the product of its elementary divisors.
+\end{definition}
+\begin{remark}
+    We refer to the elementrayr divisors of a linear transformation by making
+    note that matrices are just representations of linear transformations.
+\end{remark}
+
+\begin{lemma}\label{3.4.24}
+    Let $V$ be a finite dimesnional vector space over a field $F$ and let  $T$
+    be a linear transformation on  $V$. If $p_T \in F[x]$ is the characteristic
+    polynomial of $T$, then the Eigenvalues of $T$ are roots of  $p_T$ and  $T$
+    satisfies  $p_T$; i.e.  $p_T(T)=0$. Conversly, every root of $p_T$ is an
+    Eigenvalue of  $T$; in particular the multiplicity of any root of  $p_T$
+    equals the multiplicity of that root as an Eigenvalue of $T$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}\label{3.4.25}
+    Let $V$ and  $W$ be finite dimensional vector spaces over a field  $F$, and
+    suppose that  $\psi:V \rightarrow W$ is an isomorphism of $V$ onto  $W$.
+    Let  $S$ and  $T$ be linear transforamtions on  $V$ and  $W$, respectively,
+    such that  $\psi(Sv)=T\psi(v)$, for any $v \in V$. Then  $S$ and  $T$ have
+    the same elementary divisors.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}\label{3.4.26}
+    Let $V$ be a finite dimensional vector space. If  $T$ and  $S$ are linear
+    transformations on  $V$, then  $T \simeq S$ if, and only if they have the
+    same elementary divisors.
+\end{theorem}
+\begin{proof}
+\end{proof}
+\begin{corollary}
+    Let $F$ be a field. If  $A, B \in F^{n \times n}$ such that $A \simeq B$ in
+     $L^{n \times n}$, where $K$ is an extension of  $F$, then  $A \simeq B$ in
+      $F$.
+\end{corollary}
+\begin{proof}
+\end{proof}

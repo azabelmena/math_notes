@@ -1,0 +1,101 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 3.2
+%----------------------------------------------------------------------------------------
+
+\section{One Sided Limits.}
+
+If we have a realvalued function $f(x)=\sqrt{x-1}$, we know that  $x \geq 1$, and 
+we would like to talk about  $\lim{f}$ at  $x=1$. Then we can only talk about  $x \rightarrow 1$ 
+from the righthand side of the function since because of our restriction on $x$.
+
+\begin{definition}
+     Let $a \in \R$. A realvalued function is said to \textbf{converge}	to $L$ as 
+     $x$ \textbf{approaches } $a$ \textbf{from the right} if and only if $f$ is 
+     efied on some open interval $I$ containing $a$ as a left endpoint and for 
+    every $\epsilin>0$, there is a $\delta(\epsilon)>0$ such taht $a+\delta \in I$, 
+    and $a<x<a+\delta$ implies $|f(x)-L|<\epsilon$. We then call $L$ the 
+    \textbf{righthanded limit} of  $f$ as  $x$ approaches  $a$ and denote it 
+    $\lim{f}$ as  $x \rightarrow a^+$.
+\end{definition}
+
+\begin{definition}
+     Let $a \in \R$. A realvalued function is said to \textbf{converge}	to $L$ as 
+     $x$ \textbf{approaches } $a$ \textbf{from the left} if and only if $f$ is 
+     efied on some open interval $I$ containing $a$ as a right endpoint and for 
+    every $\epsilin>0$, there is a $\delta(\epsilon)>0$ such taht $a+\delta \in I$, 
+    and $a-\delta<x<a$ implies $|f(x)-L|<\epsilon$. We then call $L$ the 
+    \textbf{lefthanded limit} of  $f$ as  $x$ approaches  $a$ and denote it 
+    $\lim{f}$ as  $x \rightarrow a^-$.
+\end{definition}
+
+In general, we may also write $\lim_{x \rightarrow a+}{f}$ and  $\lim_{x \rightarrow a-}{f}$ 
+respectively.
+
+\begin{example}
+    Let $f(x)=x+1$ for  $x \geq 0$ and  $f(x)=x-1$ for $x<0$. We see that  
+    $\lim_{x \rightarrow 0^+}{f}=\lim{x+1}=1$ and  $\lim_{x \rightarrow 0^-}{f}=
+    \lim{x-1}=-1$. Does the limit of  $f$ in general exist? Since the limit of $f$	
+    must be unique, then it may be either of these two limits, however, since the 
+    righthanded and left handed limits converge at two different values, that would 
+    imply two different limits at the same $x$, which is impossible. So in general 
+    we cannot say if  $\lim{f}$ exists as  $x \rightarrow 0$.
+\end{example} 
+
+\begin{theorem}\label{3.2.1}
+    Let $f$ be a realvalued function. Then the limit $\lim{f}$ as  $x \rightarrow a$ 
+    exists and equals  $L$ if and only if:
+        \begin{equation*}
+            \lim_{x \rightarrow a^+}{f}=\lim_{x \rightarrow a^-}{f}=L
+        \end{equation*}
+\end{theorem}
+\begin{proof}
+    Suppose that $f$ has limit  $L$ as  $x \rightarrow a$. Then for any  $\epsilon>0$, 
+    there is a $\delta>0$ such that  $0<|x-a|<\delta$ implies  $|f(x)-L|<\epsilon$. 
+    Then $a-\delta<x<a+\delta$ implies $|f(x)-L|<\epsilon$. Thus we have that 
+    $x-\delta<x<a$ and  $a<x<a+\delta$ both imply  $|f(x)-L|<\epsilon$. Hence 
+    we get that  $\lim_{x \rightarrow a^-}{f}=\lim_{x \rightarrow a^+}{f}=L$.
+
+    Conversely Suppose that  $\lim_{x \rightarrow a^-}{f}=\lim_{x \rightarrow a^+}{f}=L$. 
+    then by definition fo the left and righthanded limits we get that $a-\delta_1<x<a$ and 
+    $a<x<a+\delta_2$ imply  $|f(x)-L|<\epsilon$, thus we have that $a-\delta_1<x<a-\delta_2$, 
+    then choosing $\delta=\min\{\delta_1,\delta_2\}$, and noting that $x \neq a$, 
+    we get that  $0<|x-a|<\delta$ implies  $|f(x)-L|<\epsilon$. Thus $\lim{f}=L$ 
+    as  $x \rightarrow a$.
+\end{proof}
+
+Another thing we would like to study is the limit of a function $f$ (with domain $A$) 
+as  $x$ gets arbitrarily large, and as  $x$ gets arbitrarily small, i.e. as 
+$x \rightarrow \infty$ and  $x \rightarrow -\infty$. We say that $f \rightarrow L$ 
+as  $x \rightarrow \infty$ if and only if there  exists a $C>0$ such that 
+$(C,\infty) \subseteq A$ and $\epsilon>0$ such that tere is an $M \in \R$ 
+such that  $x>M$ implies  $|f(x)-L|<\epsilon$ ; likewise, $f \rightarrow L$ as  $x \rightarrow -\infty$ if and only if 
+there is a  $C>0$ such that  $(-\infty,C) \subseteq A$ and $\epsilon>0$ such that 
+there is an $M \in \R$ such that $x<M$ implies  $|f(x)-L|<\epsilon$. 
+
+Similarly, we 
+can go on to define ``infinite limits'' of a function $f$. We say that $f \rightarrow \infty$ as 
+$x \rightarrow a^+$ if and only if there is an open interval $I$ with left endpoint  $a$ 
+such that for any  $M>0$, there is is a $\delta>0$ such that  $a<x<a+\delta$ implies 
+$f(x)>M$. Other infinite limits can be defined similarly. We also have infinite limits 
+at infinity, for example $\lim{f}=\infty$ as  $x \rightarrow \infty$ (take $f(x)=x$). 
+What we mean by ``infinity'' is just to say that for  $x$ sufficiently large  (or small), 
+$f$ tends to  $L$  (in the case for limits at infinity), and that $f$ grows without bound 
+in either direction as  $x$ approaches some value  $a$  (for infinite limits). In 
+the case of infinite limits at infinity, then we are saying that $f$ grows without bound, 
+(in either direction), for $x$ sufficiently large (or small). The symbol $\infty$ 
+should not be taken as a literal number, but as a concept denoting something as 
+arbitrarily big, or without bound.
+
+\begin{example}
+    Show that $\lim{\frac{1}{x}}=\infty$ as $x \rightarrow 0^+$ and that $\lim{\frac{1}{x}}=
+    0$ as $x \rightarrow \infty$.
+\end{example} 
+\begin{solution}
+    For any $M>0$, we need  $ \frac{1}{x}>M$, then $x<\frac{1}{M}$, so choose 
+    $\delta=\frac{1}{M}$, then for $0<x<\delta$,  $ \frac{1}{x}>M$, so by definition, 
+    $lim{\frac{1}{x}}=\infty$ as $x \rightarrow 0^+$.
+
+    Similarly, for any  $\epsilon>0$, we need  $|\frac{1}{x}|<\epsilon$, hence 
+    $x>\frac{1}{\epsilon}$, so choose $M=\frac{1}{\epsilon}$. Then by definition, the 
+    limit follows.
+\end{solution}

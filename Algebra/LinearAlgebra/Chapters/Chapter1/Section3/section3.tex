@@ -1,0 +1,125 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Row Reduces Echelon Matrices.}
+\label{section1}
+
+We cann go even farther with row reduces matrices.
+
+\begin{definition}
+    An $m \times n$ matrix $R$ a  \textbf{row reduced echelon} matrix, or said to be in \textbf{row
+    reduced echelon form} if:
+        \begin{enumerate}
+            \item[(1)] $R$ is row reduced.
+
+            \item [(2)] Every row of $R$ with all entries  $0$ occur below every row with nonzero
+                entries.
+
+            \item [(3)] If rows $1, \dots, r$ are the nonzero rows, and if every leading nonzero
+                entry of row  $i$ occurs in column  $k_i$, then  $k_1 < \dots < k_n$.
+        \end{enumerate}
+\end{definition}
+
+\begin{lemma}\label{1.3.1}
+    If $R$ is an  $m \times n$ row reduced echelon matrix, then every entry in  $R$ is  $0$, or
+    there is an  $r \in \Z^+$ with  $1 \leq r \leq m$, and  $r$ positive integers  $k_1, \dots, k_r$
+    with $1 \leq k_i \leq n$, such that:
+        \begin{enumerate}
+            \item[(1)] $R_{ij}=0$ for $i>r$ and  $R_{ij}=0$ if $j<k_i$.
+
+            \item [(2)] $R_{ik_j}=\delta_{ij}$ for $1 \leq i,j \leq r$.
+
+            \item [(3)] $k_1<\dots<k_r$.
+        \end{enumerate}
+\end{lemma}
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] The matrix $0^{m \times n}=(0)_{ij}$ defined by having all its entries $0$ is in
+            row reduced echelon form. We call  $0^{m \times n}$ the \textbf{zero} matrix and denote
+            it $0$ when context is clear.
+
+        \item[(2)] The matrix $\begin{pmatrix}
+                                0 & 1 & -3 & 0 & \frac{1}{2} \\
+                                0 & 0 &  0 & 1 & 2 \\
+                                0 & 0 &  0 & 0 & 0 \\
+                           \end{pmatrix}$
+            is a row reduced echelon matrix.
+    \end{enumerate}
+\end{example} 
+
+\begin{theorem}\label{1.3.2}
+    Every $m \times n$ matrix over a field is row equivalent to a row reduced echelon matrix.
+\end{theorem}
+
+\begin{theorem}\label{1.3.3}
+    If $A$ is an  $m \times n$ matrix, and  $m < n$, then the homogeneous system of linear equations
+     $AX=0$ has a nontrivial solution.
+\end{theorem}
+\begin{proof}
+    By the previous theorem, take $A \rightarrow R$ where $R$ is a row reduced echelon matrix. The
+    systems  $AX=0$ and  $RX=0$ are equivalent, by theorem \ref {1.2.3}. Now if $r$ is the number of
+    nonzero rows of  $R$, then  $r \leq m$, hence  $r<n$, so let us choose some  $x_i$ not in the
+    $r$ variables  $x_{k_1}, \dots, x_{k_r}$, where $1 \leq k_i \leq n$. We can then construct a
+    solution in which $x_j=1$, hence  $RX=0$ has a non trivial solution, therefore, so does  $AX=0$.
+\end{proof}
+
+\begin{definition}
+    We define an $m \times n$ matrix over a field  $F$ to be  \textbf{square} if and only if $m=n$.
+\end{definition}
+
+\begin{theorem}\label{1.3.4}
+    If $A$ is an  $n \times n$ square matrix, then  $A$ is row equivalent to the indentity matrix
+    $I$ if and only if the system  $AX=0$ has only the trivial solution.
+\end{theorem}
+\begin{proof}
+    If $A$ is row equivalent to  $I$, then  $AX=0$ and  $IX=0$ have the same solutions, which is
+    $X=0$. Now suppose that both  $AX=0$ has only the trivial solution. Take $A \rightarrow R$ where
+    $R$ is an  $n \times n$ row reduced echelon matrix. Let  $r$ be the number of nonzero rows of
+    $R$, certainly  $RX=0$ has no nontrivial solution, so  $r \geq n$, and since  $r \leq n$, we get
+     $r=n$. By lemma \ref {1.3.1}, we have $R=I$.
+\end{proof}
+
+\begin{definition}
+    Let $AX=Y$ be a system of linear equations where  $A$ is an $m \times n$ matrix and $Y$ is an
+    $m \times 1$ matrix. We form the \textbf{augmented} matrix $A'$ by appending  $Y$ to the 
+    matrix $A$ after column  $n$. That is  $A'$ is the  $m \times n+1$ matrix where  $A'_{ij}=A_{ij}$ 
+    if $j \leq n$, and  $A'_{ij}=y_i$ for $j=n+1$. We denote  $A'=(A|Y)$.
+\end{definition}
+
+\begin{lemma}\label{1.3.5}
+    Let $AX=Y$ be a system of linear equations. Take  $A \rightarrow R$ a row reduced echelon
+    matrix, and form the system $RX=Z$. Form the augmented matrices  $A'=(A|Y)$ and $R'=(R|Z)$
+    respectively. Then the systems $A'X=0$ and  $R'X=0$ are equivalent if and only if  $AX=0$ and
+    $RX=0$ are equivalent.
+\end{lemma}
+\begin{proof}
+    Taking $A \rightarrow R$, we take $A' \rightarrow R'$ by the same sequence of elementary row
+    operations. It should then be noted that in the systems $AX=Y$ and  $RX=Z$, that  $Y \rightarrow
+    Z$.
+\end{proof}
+
+\begin{example}
+    let $F=\Q$ and  $A=\begin{pmatrix}
+                            1 & -2 & 1 \\
+                            2 &  1 & 1 \\
+                            0 & 5 & -1 \\
+                       \end{pmatrix}$ and consider the system $AX=Y$, form the augmented matrix
+    $A'=(A|Y)$, then through a sequence of elementary row operations, we take:
+        \begin{equation*}
+            A \rightarrow \begin{pmatrix}
+                1 & 0 & \frac{3}{5} & \frac{1}{5}(y_1+2y_2) \\
+                0 & 1 & \frac{1}{5} & \frac{1}{5}(y_2-2y_1) \\
+                0 & 0 & 0 & y_3-y_2-2y_1 \\
+                \end{pmatrix}
+        \end{equation*}
+    Then the system has solutions if, and only if $y_3-y_2-2y_1=0$, and such solutions have the form
+    $(x_1,x_2,c)$ where $x_1=-\frac{3}{5}c+\frac{1}{5}(y_1+2y_2)$ and
+    $x_2=\frac{1}{5}c+\frac{1}{5}(y_2-2y_1)$, where $c \in \Q$.
+\end{example}
+
+\begin{lemma}\label{1.3.6}
+    Let $F$ be a field and  $F \subseteq K$ a field extension of $F$. If the system of linear
+    equations $AX=0$ has solutions over $K$, then it has solutions over $F$.
+\end{lemma}

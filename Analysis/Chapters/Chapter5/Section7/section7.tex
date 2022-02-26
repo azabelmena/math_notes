@@ -1,0 +1,39 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Infinite Limits and Limits at Infinity.}
+
+\begin{definition}
+    For any $c \in \R$, the set of all real numbers $x$ such that  $x>c$ is called the 
+    \textbf{neighborhood of $\infty$}, and denoted $(c,\infty)$. The set of all real 
+    numbers $x$ such that  $x>c$ is called the \textbf{neighborhood of $-\infty$}, and 
+    denoted $(-\infty,c)$. 
+\end{definition}
+
+\begin{definition}
+    Let $f:E \rightarrow \R$ be a realvalued function. We say that  $f(t) \rightarrow A$ as $t \rightarrow x$, with 
+     $A$, and $x$ extended real numbers if for every neighborhood of $U$ $A$, there is a 
+     neighborhood $V$ of $x$ such that $V \cap E$ is nonempty, and $f(t) \in U$ for 
+     all $t \neq x \in V \cup E$.
+\end{definition}
+
+\begin{theorem}\label{5.7.1}
+    Let $f,g:E \rightarrow \R$ be realvalued functions such that  $f \rightarrow A$, and  $g \rightarrow B$ as 
+    $t \rightarrow x$, for extended real nuumbers $A$, $B$, and $x$. Then the following hold 
+    as $t \rightarrow x$.
+         \begin{enumerate}[label=(\arabic*)]
+             \item $f \rightarrow A'$ implies $A=A'$.
+
+             \item $f+g \rightarrow A+B$.
+
+             \item $fg \rightarrow AB$.
+
+             \item  $\frac{f}{g} \rightarrow \frac{A}{B}$.
+        \end{enumer te}
+        Provided that $(1)$, $(2)$, and  $(3)$ are not of the forms  $\infty-\infty$, 
+        0 \cdot \infty,  \frac{\infty}{\infty}, and $ \frac{A}{0}$, respectively.
+\end{theorem}
+\begin{proof}
+    This is a direct application of the sequential criterion using the appropriate definition.		
+\end{proof}

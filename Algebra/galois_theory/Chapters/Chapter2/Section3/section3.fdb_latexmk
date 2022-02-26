@@ -1,0 +1,11 @@
+# Fdb version 3
+["pdflatex"] 1599778971 "section3.tex" "section3.pdf" "section3" 1599778971
+  "/etc/texmf/web2c/texmf.cnf" 1598309051 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1598309490 4791332 cc7d2a3f40ea68c8e6027a446c35380a ""
+  "section3.aux" 1599778963 8 a94a2480d3289e625eea47cd1b285758 ""
+  "section3.tex" 1599778970 241 286279361fe2d72efa8cf023ecaafef9 ""
+  (generated)
+  "section3.pdf"
+  "section3.log"

@@ -1,0 +1,7 @@
+PWD /home/eletrico/Mathematics/Notes/Analysis/Chapters/Chapter4
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT chapter4.tex
+OUTPUT chapter4.log

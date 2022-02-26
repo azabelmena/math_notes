@@ -1,0 +1,229 @@
+\section{Matrices.}
+\label{section3}
+
+Let $V$ be a vector space of  $\dim=n$ over a field  $F$. Let  $\{v_i\}_{i=1}^n$
+be a basis of $V$. If  $T$ is a linear transformation on $V$, then since  $T: V
+\rightarrow V$, $T(v_i) \in V$ for all $i$. We can then represent this as a
+linear combination of the basis elements:
+    \begin{equation*}
+        \begin{align*}
+            T(v_1)  &=  \alpha_{11}v_1+\dots+\alpha_{1n}v_n \\
+            T(v_2)  &=  \alpha_{21}v_1+\dots+\alpha_{2n}v_n \\
+                    \vdots                  \\
+            T(v_n)  &=  \alpha_{n1}v_1+\dots+\alpha_{nn}v_n \\
+        \end{align*}
+    \end{equation*}
+So we can determine $T$ on any vector by knowing its action on a given basis.
+This then gives a nice way to represent a linear transformation as the entries
+of a matrix.
+
+\begin{definition}
+    Let $V$ be a vector spac e over a field $F$ with  $\dim_F{V}=1$, and let
+    $\{v_i\}_{i=1}^n$ be a basis of $V$. If  $T$ is a linear transformation on
+    $V$, then the  \textbf{matrix} of $T$ in  $\{v_i\}$ is the $n \times n$
+    matrix
+        \begin{equation}
+            m(T) = (\alpha_ij))
+        \end{equation} 
+        where $T(v_i)=\sum_j{\alpha_ij}v_j$ and $\alpha_{ij} \in F$ for $1 \leq
+        i,j \leq n$.
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] Let $F$ be a field and let $V=P_n[x]$, and let $D$ be defined
+            by  $D:f \rightarrow f'$ where $f'$ is the first derivative of  $f$.
+            Now  $D$ is the differentiation transform, so it is a linear
+            transformation. Now given the basis  $\{x^i\}_{i=1}^{n-1}$ of
+            $F_n[x]$, we get:
+
+                \begin{equation*}
+                    \begin{align*}
+                        D(1)    &=  0\cdot 1+\dots+0x^{n-1} \\
+                        D(x)    &=  1 \cdot 1+\dots+0x^{n-1} \\
+                                \vdots              \\
+                        D(x^i)  &=  0 \cdot 1 + \dots ix^{i-1}+\dots+0x^{n-1} \\
+                                \vdots                          \\
+                        D(x^{{n-1}}) &=     0 \cdot
+                        1+\dots+(n-1)x^{n-2}+\dots+0x^{n-1} \\
+                    \end{align*}
+                \end{equation*}
+            then by definition, the matrix for $D$ is:
+                \begin{equation*}
+                    \begin{pmatrix} 
+                        0   &   0   & \dots &   0   &   0   \\
+                        1   &   0   & \dots &   0   &   0   \\
+                        0   &   2   & \dots &   0   &   0   \\
+                        \vdots & \vdots & \vdots & \vdots & \vdots \\
+                        0   &   0   & \dots &   n-1   &   0   \\
+                    \end{pmatrix}
+                \end{equation*}
+
+            Now if we are given the basis $\{1+x^i\}_{i=1}^n$ we get by similar
+            reasoning:
+                \begin{equation*}
+                    \begin{pmatrix} 
+                        0   &   0   &   0   & \dots &   0   &   0   \\
+                        1   &   0   &   0   & \dots &   0   &   0   \\
+                        -2  &   2   &   0   & \dots &   0   &   0   \\
+                        -3  &   0   &   3   & \dots &   0   &   0   \\
+                        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+                        -(n-1)   &   0   &   0   & \dots &   n-1   &   0   \\
+                    \end{pmatrix}
+                \end{equation*}
+            So the matrix of the linear transformation depends on the choice of
+            basis. One should keep in mind that these two matrices represent the
+            same transformation $D$.
+
+        \item[(2)] If $F$ is a field and  $V$ is a vector space of  $\dim{V}=n$,
+            and if $T$ is a linenar transformation with  $n$ distinct
+            eigenvalues  $\lambda_1, \dotsm \lambda_n$, then by the corollaryto
+            theorem \ref{3.2.5} $T$ has the matrix:
+                \begin{equation}
+                    \begin{pmatrix} 
+                        \lambda_1   &   0   & \dots  &   0   \\
+                        0     &   \lambda_2   & \dots  &   0   \\
+                        \vdots & \vdots & \vdots & \vdots \\
+                        0     &  0   & \dots  &   \lambda_n   \\
+                    \end{pmatrix}
+                \end{equation} 
+    \end{enumerate}
+\end{example} 
+
+\begin{lemma}\label{3.3.1}
+    Let $V$ be a vector space of $\dim=n$ over a field  $F$ and let
+    $m(\hom{(V,V)})$ be the set of all matrices of linear trasnformations on $V$ 
+    over $F$. Then  $m(\hom{(V,V)})$ is a subspace of $F^{n \times n}$.
+\end{lemma}
+\begin{proof}
+    For any linear transformation $T$ on  $V$,  $m(T)$ has entries in $F$.
+\end{proof}
+
+\begin{theorem}\label{3.3.2}
+    Let $V$ be a vector space over a field  $F$ with  $\dim{V}=n$. Then the
+    space of all matrices of linear transformations on $V$ over  $F$ is an
+    algebra over  $F$.
+\end{theorem}
+\begin{proof}
+    Let $m(\hom{(,V,V)})$ be the space of all linear transformations on $V$. By
+    the above lemma, it is a vector space. Now let  $\{v_1, \dots, v_n\}$ be a
+    basis for $V$, and let $m(T)=(t_{ij})$, $m(S)=s_{ij}$ be matrices of the
+    linear transformations $T$ and  $S$. Then $T(v_i)=\sum_j{t_{ij}v_j}$, and
+    $S(v_i)=\sum_j{s_{ij}v_j}$. Notice that for $v_i \in V$, we have
+    $TS(v_i)=\sum_k{t_{kj}{\sum_j{s_{ij}v_j}}}=\sum_j{(\sum_k{t_{ik}s_{kj}})v_j}$
+    So we get $m(TS)=(a_{ij})$ where $a_{ij}=\sum_k{t_{ik}s_{kj}}$. That is
+    $m(TS)=m(T)m(S)$. Then it is a straightforward computation to check, for
+    $\alpha \in F$, that  $\alpha m(TS)=\alpha m(T)m(S)=(\alpha
+    m(T))m(S)=m(T)(\alpha m(S))$. This makes $m(\hom{(V,V)})$ into an algbera
+    over $F$.
+\end{proof}
+\begin{corollary}
+    $m(\hom{(V,V)})$ is an associative Algebra.
+\end{corollary}
+
+\begin{lemma}\label{3.3.3}
+    Let $V$ be a vector space over a field  $F$ with  $\dim{V}=n$. Then the
+    algebra of all matrices linear transformations on $V$ is equal to  $F^{n
+    \times n}$ the space of all $n \times n$ matrices.
+\end{lemma}
+\begin{proof}
+    Let $m(\hom{(V,V)}$ be the algebra of all matrices of linear transformations
+    on $V$. We have shown in lemma \ref {3.3.1} that $m(\hom{(V,V)}) \subseteq
+    F^{n \times n}$. Now, let $\{v_i\}_{i=1}^n$ be a basis of $V$ over  $F$, and
+    let  $(a_{ij}) \in F^{n \times n}$. Construct the a map $T:V \rightarrow V$
+    by $T:v_i \rightarrow \sum_j{a_{ij}v_j}$. Then $T$ is a linear
+    transformation on  $V$, and by definition we get  $m(T)=(a{ij})$. Thus 
+    $F^{n \times n} \subseteq m(\hom{(V,V)})$
+\end{proof}
+\begin{corollary}
+    $F^{n \times n}$ is an associative algebra.
+\end{corollary}
+\begin{remark} 
+    We will now just denote the space of matrices of linear transformations by
+    $F^{n \times n}$.
+\end{remark}
+
+\begin{theorem}\label{3.3.4}
+    Let $V$ be a vector space over a field  $F$ with  $\dim_F{V}=n$, then $F^{n
+    \times n} \simeq \hom{(V,V)}$.
+\end{theorem}
+\begin{proof}
+    Given the map $\phi:T \rightarrow m(T)$ where $m(T)$ is the matrix of the
+    linear transformation $T$ on $V$. By definition, since we can find a
+    corresponding matrix associated with a given linear transformation, we get
+    that $\phi$ is onto. Moreover, we have that  $\phi(TS)=\phi(T)\phi(S)$ and
+    $\phi(T+S)=\phi(T)+\phi(S)$, which makes $\phi$ into a homomorphism. Now,
+    notice that if  $T \in \ker{\phi}$, then $m(T)=0$ the $n \times n$  $0$
+    matrix. Then necesarrily, we must have that  $T=0$, for if  $T \neq 0$, then
+    for some basis  $\{v_i\}_{i=1}^n$ of $V$, there is some  $v_i$ for which
+    $T(v_i)=\sum{t_{ij}v_j} \neq 0$, making $t_{ij} \neq 0$ for atleast one
+    $t_{ij}$, for $1 \leq i,j \leq n$. So we get that  $\ker{\phi}=\vbracks{0}$,
+    and so we have established an isomorphism.
+\end{proof}
+\begin{remark} 
+    What this theorem tells us is that we can represent linear transformations
+    on a given vector space as matrices over the ground field. This will allow
+    us to prove results about linear transformations using matrices and vice
+    versa.
+\end{remark}
+
+\begin{theorem}\label{3.3.5}
+    Let $V$ be a vector space over a field $F$ with  $\dim_F{V}=n$, and let $T$
+    be a linear transformation on $V$. Let $\{v_i\}_{i=1}^n$ and
+    $\{w_i\}_{i=1}^n$ be bases on $V$, and  $m_{\{v_i\}}(T)$ the matrix of $T$ 
+    under the first basis and $m_{\{w_i\}(T)}$ the matrix of $T$ under the
+    second basis. Then there is an  $n \times n$ matrix  $C \in F^{n \times n}$
+    with $m_{\{w_i\}}(T)=C^{-1}m_{\{v_i\}}(T)C$. In particular,
+    $C=m_{\{v_i\}}(S)$ for some linear transformation $S$ on  $V$.
+\end{theorem}
+\begin{proof}
+    Let $m_{\{v_i\}}(T)=(a_{ij})$ and $m_{\{w_i\}}(T)=(b_{ij})$ Then
+    $T(v_i)=\sum{a_{ij}v_j}$ and $T(w_i)=\sum{b_{ij}v_j}$. Let $S$ be a linear
+    transformation on  $V$ defined by  $S:v_i \rightarrow w_i$. Since $\{v_i\}$
+    and $\{w_i\}$ are bases, $S$ is onto, hence by theorem \ref {3.1.8} $S$ is
+    invertible.
+
+    Notice then, that  $TS(v_i)=\sum{b_{ij}S(v_j)}=S(\sum{b_{ij}v_j})$, thus
+    $S^{-1}TS=\sum{b_{ij}v_j}$. Then we get that
+    $m_{\{v_i\}}(S^{-1}TS)=(b_{ij})=m_{\{w_i\}}(T)$. Moreover, notice that
+    $m_{\{v_i\}}(S^{-1}ST)=m_{\{v_i\}}(S)^{-1}m_{\{v_i\}}(T)m_{\{v_i\}}(S)$;
+    which completes the proof.
+\end{proof}
+
+\begin{example}
+    Let $F$ be a field and $V=P_4[x]$ and consider the bases $\{x_i\}_{i=0}^3$ and
+    $\{1+x^i\}_{i=0}^3$. Then for the differential transformation $D:f
+    \rightarrow f'$ we get:
+        \begin{equation*}
+                \begin{pmatrix} 
+                    0   &   0   &   0   &   0   \\
+                    1   &   0   &   0   &   0   \\
+                    -2  &   2   &   0   &   0   \\
+                    -3  &   0   &   3   &   0   \\
+                \end{pmatrix}   &=
+                \begin{pmatrix} 
+                    1   &   0   &   0   &   0   \\
+                    -1  &   1   &   0   &   0   \\
+                    -1  &   0   &   1   &   0   \\
+                    -1  &   0   &   0   &   1   \\
+                \end{pmatrix}
+                \begin{pmatrix}
+                    0   &   0   &   0   &   0   \\
+                    1   &   0   &   0   &   0   \\
+                    0   &   2   &   0   &   0   \\
+                    0   &   0   &   3   &   0   \\
+                \end{pmatrix}
+                \begin{pmatrix} 
+                    1   &   0   &   0   &   0   \\
+                    1   &   1   &   0   &   0   \\
+                    1   &   0   &   1   &   0   \\
+                    1   &   0   &   0   &   1   \\
+                \end{pmatrix}                   \\
+
+                \begin{align*}
+                    m_{\{1+x^i\}}(D)    &=  C^{-1}m_{\{x^i\}}(D)C \\
+                    m_{\{1+x^i\}}(D)    &=  m_{\{x^i\}}(S)^{-1}m_{\{x^i\}}
+                    (D)m_{\{x^i\}}(S) \\
+                \end{align*}
+        \end{equation*}
+\end{example} 

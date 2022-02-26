@@ -1,0 +1,248 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Matrix Multiplication.}
+\label{section1}
+
+\begin{definition}
+    Let $A$ and  $B$ be  $m \times n$ and  $n \times p$ matrices over a field  $F$. 
+    We define the \textbf{product} of $A$ and  $B$ to be the binary operations  $\ast:F^{m \times n}
+    \times F^{n \times p} \rightarrow F^{m \times p}$ where $\ast:(A,B) \rightarrow AB$ and $AB$ is the  $m \times p$ matrix
+    whose $ij$^{th} entry is defined to be
+        \begin{equation}
+            (AB)_{ij}=\sum_{r=1}^n{A_{ir}B_{rj}}
+        \end{equation}
+\end{definition}
+
+\begin{example}
+0   Consider the following matrices over $\Q$.		
+        \begin{enumerate}
+            \item[(1)] $\begin{pmatrix}
+                         1 & 0 \\
+                        -3 & 1 
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                         5 & -1 & 2 \\
+                        15 &  4 & 8 \\  
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                        5 & -1 & 2 \\
+                        0 &  7 & 2 \\
+                    \end{pmatrix}$
+
+            \item[(2)] $\begin{pmatrix}
+                         1 & 0 \\
+                        -2 & 3 \\
+                         5 & 4 \\
+                         0 &1 \\
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        0 & 6 &  1 \\
+                        3 & 8 & -2 \\  
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                         0 & 6 & 1 \\
+                         9 & 12 &  4 \\
+                        12 & 62 & -3 \\
+                         3 &  8 & -2 \\
+                    \end{pmatrix}$
+
+            \item[(3)] $\begin{pmatrix}
+                         2 & 1 \\
+                         5 & 3 \\
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        1 \\
+                        3 \\  
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                          8 \\
+                         29 \\
+                    \end{pmatrix}$
+
+            \item[(4)] $\begin{pmatrix}
+                         -1 \\
+                          3 \\
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                          2 & 4 \\
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                         -2 & -4 \\
+                          6 & 12 \\
+                    \end{pmatrix}$
+
+            \item[(5)] $\begin{pmatrix}
+                          2 & 4 \\
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                         -1 \\
+                          3 \\
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                          12 \\
+                    \end{pmatrix}$
+        \end{enumerate}
+\end{example} 
+
+It should be noted that matrix multiplication is not commutative. It can be shown that the field
+$F^{m \time p}$ (taking certain liberties) under the operation $\ast$ forms a group. it also tunrs
+out that matrix multiplication gives consistency to the abbreviation of the system of linear
+equation $AX=Y$.
+
+\begin{example}
+    Let $A=\begin{pmatrix}
+            A_{11} & \dots & A_{1n} \\
+                  & \vdots &    \\
+          A_{m_1} & \dots & A_{mn} \\
+           \end{pmatrix}$,
+    $X=\begin{pmatrix}
+            x_1 \\
+                    \vdots    \\
+            x_n \\
+       \end{pmatrix}$ and 
+    $Y=\begin{pmatrix}
+            y_1 \\
+                \vdots    \\
+            Y_m \\
+       \end{pmatrix}$
+    We get then:
+        \begin{equation*}
+            \begin{pmatrix}
+                A_{11} & \dots & A_{1n} \\
+                      & \vdots &    \\
+               A_{m1} & \dots & A_{mn} \\
+            \end{pmatrix}
+            \begin{pmatrix}
+                x_1 \\
+                \vdots    \\
+                x_n \\
+            \end{pmatrix}=
+            \begin{pmatrix}
+                A_{11}x_1+\dots+A_{1n}x_n \\
+                    \vdots    \\
+                A_{m_1}x_1+\dots+A_{mn}x_n \\
+            \end{pmatrix}=
+            \begin{pmatrix}
+                y_1 \\
+                \vdots    \\
+                y_m \\
+            \end{pmatrix}
+        \end{equation*}
+
+    which gives the system
+        \begin{equation*}
+            \begin{align*}
+                A_{11}x_1+\dots+A_{1n}x_n &= y_1 \\
+                    \vdots    \\
+                A_{m_1}x_1+\dots+A_{mn}x_n &= y_m \\
+            \end{align*}
+        \end{equation*}
+\end{example}   
+
+\begin{theorem}\label{3.4.1}
+    Matrix multiplication is associative.
+\end{theorem}
+\begin{proof}
+    Let $A$ be an  $m \times n$ matrix,  $B$ an $n \times p$ matix, and  $C$ a $p \times q$ matrix.
+    Then:
+        \begin{equation*}
+            \begin{align*}
+                (A(BC))_{ij} &= \sum_{r}{A_{ir}(B_{rj}C_{rj})} \\
+                            &= \sum_{r}{A_{rj}}\sum_{s}{B_{rj}C_{rj}} \\
+                            &= \sum_{r}{\sum_{s}{A_{rj}B_{rj}C_{rj}}} \\
+                            &= \sum_{s}{\sum_{r}{A_{rj}B_{rj}C_{rj}}} \\
+                            &= \sum{A_{ij}B_{rj}}\sum{C_{rj}} \\
+                            &= ((AB)C)_{ij} \\
+            \end{align*}
+        \end{equation*}
+\end{proof}
+
+\begin{definition}
+    Let $A$ be an  $n \times n$ square matrix. We define the \textbf{square} of $A$ to be the  $n
+    \times n$ matrix  $A^2=AA$. Similarly we define the \textbf{cube} of $A$ as the  $n \times n$
+    matrix  $A^3=AA^2=A^2A=AAA$. We can define the \textbf{$n^{th}$ power} of $A$ recursively as:
+        \begin{enumerate}
+            \item[(1)] $A^0=A$.
+
+            \item[(2)] $A^{n+1}=AA^n=A^nA$.
+        \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    We call an $m \times m$ matrix an \textbf{elementary} matrix if it can be obtained from the $m
+    \times m$ identity matrix via a single elementary row operation.
+\end{definition}
+
+\begin{example}
+    There are only $5$  $2 \times 2$ elementary matrices. They are: 
+    $\begin{pmatrix}
+        0 & 1 \\
+        1 & 0 \\
+    \end{pmatrix}$,
+    $\begin{pmatrix}
+        0 & c \\
+        1 & 0 \\
+    \end{pmatrix}$,
+     $\begin{pmatrix}
+        0 & 1 \\
+        c & 0 \\
+    \end{pmatrix}$,
+    $\begin{pmatrix}
+        c & 0 \\
+        0 & 1 \\
+    \end{pmatrix}$,
+    $\begin{pmatrix}
+        1 & 0 \\
+        0 & c \\
+    \end{pmatrix}$
+    where $c \neq 0 \in F$ in the latter two.
+\end{example} 
+
+\begin{theorem}\label{1.3.2}
+    Let $e$ be an elementary row operation and let  $E$ be the  $m \times m$ elementary matrix
+    corresponding to $e$, that is $E=e(I)$. Then for every $m \times n$ matrix  $A$,  $e(A)=EA$.
+\end{theorem}
+\begin{proof}
+    Suppose that $e$ is of type (2), and suppose $r \neq s$. Then  
+        \begin{equation*}
+            E=\begin{cases}
+                \delta_{ik}, \text{ if } i \neq r \\
+                \delta_{rk}+c\delta_{sk}, \text{ if } i = r \\
+               \end{cases}
+        \end{equation*}
+    where $c \in F$. Then  $(EA)_{ij}=\sum{E_{ik}A_{kj}} = \begin{cases}
+                                            A_{ik}, \text{ if } i \neq r \\
+                                            A_{rk}+cA_{sj} \text{ if } i=r
+                                       \end{cases}$.
+
+    If $e$ is of type (1), then it is necessarily a special case in where $\delta_{rk}=0$
+    whenever $i=r$ above. Now if  $e$ is of type  (3), then we have
+        \begin{equation*}
+            E=\begin{cases}
+                \delta_{ik}, \text{ if } i \neq r \\
+                \delta_{sj}, \text{ if } i = r \\
+               \end{cases}
+        \end{equation*}
+        then we get $(EA)_{ij}=\sum{E_{ik}A_{kj}} = \begin{cases}
+                                            A_{ik}, \text{ if } i \neq r \\
+                                            A_{rk}+cA_{sj} \text{ if } i=r
+                                       \end{cases}$.
+\end{proof}
+\begin{corollary}
+    Let $A$ and  $B$ be  $m \times n$ matrices, respectively, over a field  $F$. Then  $B$ is row
+    equivalent to $A$ if, and only if  $B=PA$, where  $P=E_s \dots E_2E_1$ is an $m \times m$ matrix
+    and, where $E_i$ is an elementary matrix for  $1 \leq i \leq s$.
+\end{corollary}
+\begin{proof}
+    Let $E_i$ be an elementary matrix of any type for  $1 \leq i \leq s$. Suppose that  $B=PA$. Then
+    $B=(E_ss \dots E_2E_1)A$. By definition, $E_1A$ implies that $A \rightarrow_{e_1} E_1A$, so we
+    get $A \rightarrow_{e_1} \dots \rightarrow_{e_s \dots e_1e_2} PA=B$ making $B$ row equivalent to
+     $A$.
+
+     Conversely, if  $B$ is row equivalent to  $A$, then  $A \rightarrow_{e_1} \dots
+     \rightarrow_{e_s \dots e_1e_2} PA=B$ via a sequence $\{e_i\}_{i=1}^s$ of elementary row
+     operations, and where $P$ is some $m \times m$ matrix. Take $E_i=e_i(i)$, and we see that
+     $P=E_s \dots E_2E_1$, hence $B=(E_s \dots E_2E_1)A$.
+\end{proof}

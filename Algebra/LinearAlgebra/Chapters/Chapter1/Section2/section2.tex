@@ -1,0 +1,248 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Matrices and Elementary Row Operations.}
+\label{section1}
+
+Working with systems of linear equations can be difficult or tedious. One thing to note is when
+taking linear combinations of equations in a given system, what we're really working with are with
+the coefficients of the system. We can then abbreviate the following system:
+    \begin{equation}\tag{1}
+        \begin{align}
+            A_{11}x_1+\dots+A_{1n}x_n &= y_1 \\
+                    \vdots \\
+            A_{m1}x_1+\dots+A_{mn}x_n &= y_m \\
+        \end{align}  
+    \end{equation} 
+as an equation $AX=Y$, where:
+    \begin{equation}\tag{2}
+        A=\begin{pmatrix}
+            A_{11} & \dots & A_{1n} \\
+                  & \vdots & \\
+            A_{m1 & \dots & A_{mn}\\
+          \end{pmatrix}
+    \end{equation} 
+where $X=\begin{pmatrix} x_1 \\ \vdots \\ x_n\end{pmatrix}$ and $Y=\begin{pmatrix} y_1 \\ \vdots \\
+x_m\end{pmatrix}$. We call $A$, $X$, and  $Y$ are called ``matrices''. We can define a matrix more
+formally as follows.
+
+\begin{definition}
+    Given a system of $m$ linear equations in  $n$ variables of the form  (1), we define an $m
+    \times n$  \textbf{matrix} over a field $F$ as a map $A:(i,j) \rightarrow A_{ij}$, where $A_{ij}
+    \in F$ for $1 \leq i \leq m$ and  $1 \leq j \leq n$. We call the
+    image $A(i,i)=A_{ij}$ an \textbf{entry} of the matrix and we call $i$ a  \textbf{row} of the
+    matrix, and $j$ a  \textbf{column} of the matrix. Here, $m$ is the number of rows of a matrix,
+    and  $n$ is the number of columns of a matrix. We denote the space of all  $m \times n$ matrices
+    over a given field  $F$ as  $F^{m \times n}$.
+\end{definition}
+
+This brings us to a method of formulating analogs to taking linear combinations on systems of linear
+equations; this will allow us to study systems of linear equations using matrices.
+
+\begin{definition}
+    Let $AX=Y$ be a system of linear equations where  $A$ is an  $m \times n$ matrix of
+    coefficients,  $X$ is an  $n \times 1$ matrix of variables, and  $Y$ is an  $m \times 1$ matrix.
+    We defin an  \textbf{elementary row operation} on the system to be a map $e:F^{m \times n}
+    \rightarrow F^{m \times n}$ by taking $e:A \rightarrow e(A)$. We define $3$ elementary row
+    operations as:
+        \begin{enumerate}
+            \item[(1)] $e(A)_{ij}=A_{ij}$ if $i \neq r$, and  $e(A)_{ij}=cA_{ij}$ for some $c \in
+                F$.
+
+            \item [(2)] $e(A)_{ij})=A_{ij}$ if $i \neq r$ and  $e(A)_{ij}=A_{rj}+cA_{sj}$, where $r
+                \neq s$.
+
+            \item  $e(A)_{ij}$ if  $i \neq r$, and $e(A)_{ij}=A_{sj}$, where $r \neq s$.
+        \end{enumerate}
+\end{definition}
+
+These operations are multiplication by a ``scalar'' in $F$, the addition of the  $c \in F$ times row
+ $s$ to row  $r$, and a swap of rows  $r$ and  $s$. 
+
+\begin{theorem}\label{1.2.1}
+     To each type of elementary row operation of type $(1), (2),$ and $(3)$, $e$, there is an
+     elementary row operation  $e'$, of the same type as  $e$ such that  $e'(e(A))=e(e'(A))=A$ for
+     any $m \times n$ matrix  $A \in F^{m \times n}$.
+\end{theorem}
+\begin{proof}
+     Let $e$ be an elementary row operation of type $(1)$. If $i \neq r$, we are done, define
+     $e'=e$.  Otherwise, we have $e(A)_{ij}=cA_{ij}$ for some $c \in F$. Define then,
+     $e'(A)_{ij}=c^{-1}A_{ij}$. Then $e'(e(A_{ij}))=A_{ij}$ and $e(e'(A_{ij}))=A_{ij}$.
+
+     Now let $e$ be of type  $(3)$. If $i \neq r$, we are done. Otherwise, $e(A)_{rj}=A_{sj}$.
+     Define then $e'(A)_{sj}=A_{rj}$. Then $e'(e(A)_{rj})=e(e'(A)_{sj})=A_{rj}$.
+
+     Now let $e$ be of type  $(2)$; again if $i \neq r$, we are done. We have
+     $e(A)_{ij}=A_{ij}+cA_{rj}$ for some $c \in F$. Define  $e'(A)_{ij}=A_ij+(-c)A_{rj}$. Then by
+     similar reasoning above, $e(e'(A))=e'(e(A))=A$.
+\end{proof}
+
+\begin{remark}
+     What this theorem says is that for any given elementary row operation $e$ of any given type,
+     its inverse $e^{-1}$ is also an elementary row operation of the same type. This also implies
+     that elementary row operations of types $(1)-(3)$ are $1-1$ from  $F^{m \times n}$ onto itself;
+     which can be verfied easily.
+\end{remark}
+
+\begin{definition}
+     If $A$ and  $B$ are  $m \times n$ matrices over a field $F$, we call  $B$  \textbf{row
+     equivalent} to $A$ if there exists a finite sequence of elementary row operations
+     $\{e_i\}_{i=1}^k$ such that $A \rightarrow e_1(A)=A_1 \rightarrow \dots \rightarrow
+     e_k(A_{k-1})=A_k = B$.
+\end{definition}
+
+\begin{lemma}\label{1.2.2}
+    Row equivalence defines an equivalence relation.
+\end{lemma}
+\begin{proof}
+    Clearly $A$ is row equivalent to itself just take  $e_1(A)_{ij}=1 \cdot A_{ij}=A_{ij}$. Now if a
+    matrix $B$ is row equivalent to  $A$ via the sequence  $\{e_i\}$ of row operations, then taking
+    the sequence of row operations $\{e_i^{-1}\}$ from $B$ back to  $A$ shows that  $A$ is row
+    equivalent to  $A$. Now for matrices $C$,  $B$, and  $A$: if  $C$ is row equivalent to  $B$  via
+    $\{e_i\}$ and $B$ is row equivalent to  $A$ via the sequence  $\{e'_j\}_{j=1}^l$, then $C$ can
+    be taken onto  $A$ via the sequence of row operations  $\{e_h\}_{h=1}^j=\{e_i\} \cup \{e'_j\}$,
+    where $e_h=e_i$ for  $h <= i$ and $e_h=e'_j$ for  $i < h <= j$. So  $C$ is row equivalent to
+    $A$.
+\end{proof}
+
+\begin{theorem}\label{1.2.3}
+    If $A$ and  $B$ are row equivalent  $m \times n$ matrices, the homogeneous systems  $AX=0$ and
+    $BX=0$ have exactly the same solutions.
+\end{theorem}
+\begin{proof}
+    Take $A=A_0 \rightarrow \dots \rightarrow A_k=B$ by a sequence $\{e_i\}_{i=1}^k$ of row
+    operations were $e_i(A)=A_i$. Consider the systems $A_iX=0$ and  $A_{i+1}X=0$. By theorem
+    \ref{1.1.1}, each equation in $A_iX=0$ is a linear combination of equations in $A_{i+1}X=0$,
+    hence they have equivalent solutions. Hence so do $AX=0$ and  $BX=0$.
+\end{proof}
+\begin{remark}
+    This means that if two matrices are in the same equivalence class, with respect to row
+    equivalence, then any two systems defined by those matrices, respectively have the same solution
+    set. This makes to computation of solutions for systems of equations much easier.
+\end{remark}
+
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] Let $F = \Q$. and $A=\begin{pmatrix}
+                            2 & -1 & 3 & 2 \\
+                            1 & 4 & 0 & -1 \\
+                            2 & 6 & 1 & 5 \\
+                         \end{pmatrix}$.
+    take the following sequence of row operations:
+        \begin{align*}
+            \begin{pmatrix}
+                2 & -1 & 3 & 2 \\
+                1 & 4 & 0 & -1 \\
+                2 & 6 & 1 & 5 \\
+            \end{pmatrix}
+            \rightarrow_2
+            \begin{pmatrix}
+                0 & -9 & 3 & 4 \\
+                1 & 4 & 0 & -1 \\
+                2 & 6 & 1 & 5 \\
+            \end{pmatrix}
+            \rightarrow_2
+            \begin{pmatrix}
+                0 & -9 & 3 & 4 \\
+                1 & 4 & 0 & -1 \\
+                0 & 6 & 1 & 7 \\
+            \end{pmatrix}
+            \rightarrow_1 \\
+            \begin{pmatrix}
+                0 & -9 & 3 & 4 \\
+                1 & 4 & 0 & -1 \\
+                0 & 6 & \frac{1}{2} & -\frac{7}{2} \\
+            \end{pmatrix}
+            \rightarrow_2
+            \begin{pmatrix}
+                0 & -9 & 3 & 4 \\
+                1 & 0 & -2 & 13 \\
+                0 & 6 & \frac{1}{2} & -\frac{7}{2} \\
+            \end{pmatrix}
+            \rightarrow_2
+            \begin{pmatrix}
+                0 & 0 & \frac{15}{2} & \frac{55}{2} \\
+                1 & 0 & -2 & 13 \\
+                0 & 6 & \frac{1}{2} & -\frac{7}{2} \\
+            \end{pmatrix}
+            \rightarrow_1 \\
+            \begin{pmatrix}
+                0 & 0 & 1 & -\frac{11}{3} \\
+                1 & 0 & -2 & 13 \\
+                0 & 6 & \frac{1}{2} & -\frac{7}{2} \\
+            \end{pmatrix}
+            \rightarrow_2
+            \begin{pmatrix}
+                0 & 0 & 1 & -\frac{11}{3} \\
+                1 & 0 & 0 & \frac{17}{3} \\
+                0 & 6 & \frac{1}{2} & -\frac{7}{2} \\
+            \end{pmatrix}
+            \rightarrow_2
+            \begin{pmatrix}
+                0 & 0 & 1 & -\frac{11}{3} \\
+                1 & 0 & 0 & \frac{17}{3} \\
+                0 & 1 & 0 & \frac{5}{3} \\
+            \end{pmatrix}
+        \end{align*}
+    So the system $AX=0$ has the same solution as the system  $BX=0$, where
+    $B=\begin{pmatrix}
+            0 & 0 & 1 & -\frac{11}{3} \\
+            1 & 0 & 0 & \frac{17}{3} \\
+            0 & 1 & 0 & \frac{5}{3} \\
+        \end{pmatrix}$, so $AX=0$ has as solutions all  $4$-tuples of the form
+        $(-\frac{17}{3}c,\frac{5}{3}, \frac{11}{3}c, c)$.		
+
+    \item[(2)] Let $F=\C$ and consider  $A=\begin{pmatrix} -1 & i \\ -i & 3 \\ 1 & 2\end{pmatrix}$.
+        Take:
+            \begin{align*}
+                A \rightarrow_2 \begin{pmatrix} 0 & 2+i \\ 0 & 3+i2 \\ 1 & 2\end{pmatrix} \rightarrow_1
+                \begin{pmatrix} 0 & 1 \\ 0 & 3+i2 \\ 1 & 2\end{pmatrix} \rightarrow
+                \begin{pmatrix} 0 & 1 \\ 0 & 0 \\ 1 & 0\end{pmatrix} \\
+            \end{align*}
+        Thus $AX=0$ is equivalent to the system of equations:
+            \begin{align*}
+                x_1 &= 0 \\
+                x_2 &= 0 \\
+            \end{align*}
+            So $AX=0$ has all triples of the form  $(0,c,0)$ as its solutions.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    We call an $m \time n$ matrix \textbf{row reduced} if the following hold:
+        \begin{enumerate}
+            \item[(1)] The first nonzero entry in each row of $R$ is  $1$.		
+
+            \item[(2)] Each column of $R$ containing a nonzero leading entry of each row has all its
+                other entries  $0$.
+        \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Define the matrix $I_{n \times n}$, over an arbitrary field $F$ by
+        \begin{equation}
+            T_{ij}=\delta_{ij}=\begin{cases}
+                            1, \text{ } i = j \\
+                            0, \text{ }, i \neq j \\
+                        \end{cases}
+        \end{equation}
+    $I$ is a row reduced matrix. We call  $I$ the  $n \times n$  \textbf{Identity matrix} over $F$,
+    and we call  $\delta_{ij}$ the \textbf{Kronecker delta} function.
+\end{example} 
+
+\begin{theorem}\label{1.2.4}
+    Every $m \times n$ matrix over a field  $F$ is row equivalent to a row reduced matrix.
+\end{theorem}
+\begin{proof}
+    Let $A$ be an  $m \time n$ matrix over  $F$. If every entry in the row  $A_{1i}=0$, for all $1
+    \leq i \leq n$, we satisfy  $(1)$, else if $k \in \Z^+$ is the smallest pssible integer for
+    which  $A_{1j} \neq 0$, multiply row $1$ by  $A_{1k}^{-1}$ and we get $(1)$ for row $1$. Now for
+    row  $i \geq 2$, add  $-A_{ik}$ times row $1$ to row  $i$ and we get  $2$ for column  $k$.
+    Continuing along this method, we get a row reduced matrix.
+\end{proof}
+\begin{remark}
+    We also have by row equivalence and theorem \ref{1.2.3}, we get the result. The proof above, is
+    more illustrative, however.
+\end{remark}

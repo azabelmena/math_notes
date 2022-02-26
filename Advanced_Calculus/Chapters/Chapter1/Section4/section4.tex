@@ -1,0 +1,269 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 4.4
+%----------------------------------------------------------------------------------------
+
+\section{Functions, Countability, and The Algebra of Sets.}
+
+\begin{definition}
+   Given a mapping $f:E \rightarrow \R$, we call $f$ a \textbf{real valued function} of a \textbf{real variable}. If we are 
+   given $f:\R^n \rightarrow \R$ we call the mapping a  real valued \textbf{multivariable fucntion}. If we are given 
+   $f:\R^m \rightarrow \R^m$, we call it a \textbf{vector valued} multivariable function.
+\end{definition}
+
+We are interested in a whole slew of functions; the trigonometric functions: $\sin$, $\cos$, $\tan$, $\cot$, $\sec$, and 
+$\csc$. Other functions of interest are the natural logarithmic function, and exponential function: $\log$ and $e^x$, as 
+well as arbitrary power functions $x^{\alpha}$. We can define the power function to be $x^{\alpha}=e^{\alpha \log{x}}$; 
+where $x>0$ and $\alpha \in \R$.
+
+The derivitives of these functions carry over, and will be examined with more scrutiny later on.
+
+\begin{definition}
+  A mapping $f:X \rightarrow Y$ is called \textbf{1-1} if and only if for $x_1,x_2 \in X$, $f(x_1)=f(x_2)$ implies that 
+  $x_1=x_2$. $f$ is called \textbf{pnto} if for every $y \in Y$, there exists an $x \in X$ such that $y=f(x)$.
+\end{definition}
+
+\begin{example}
+  $f(x)=x^2$ is 1-1 on the interval $[0,\infty)$, but it is not 1-1 on $(0,\infty)$.
+\end{example}
+
+\begin{theorem}
+  Let $X$, and $Y$ and let $f:X \rightarrow Y$ be a mapping. The $f$ is 1-1 from $X$ onto $X$ if there is a unique mapping 
+  $g:Y \rightarrow X$ that satisfies: $f(g(y))=y$ and $g(f(x))=x$.
+\end{theorem}
+\begin{proof}
+  Suppose that $f$ is 1-1 and onto. Then for each $y \in Y$, choose the unique $x \in X$ such that $f(x)=y$. We define $
+  g(y)=x$, Then it is clear to see that $g$ takes $Y$ onto $X$, and $g$ is also 1-1. Then $g(y)=g(f(x))=x$ and $f(x)=f(g(y))=y$.
+
+  Conversely, suppose that there exists a mapping $g:Y \rightarrow X$ satisfying the $g(y)=g(f(x))=x$ and $f(x)=f(g(y))=y$. 
+  Now let $x_1,x_2 \in X$ and let $f(x_1)=f(x_2)$. Then $x_1=g(f(x_1))=g(f(x_2))=x_2$; so $f$ is 1-1. For any $y \in Y$, 
+  let $x=g(y)$, then $f(x)=f(g(y))=y$; thus $f$ is onto.
+
+  Now suppose ther is another mapping $h:Y \rightarrow X$satisfying the conditions that $g$ satisfies. Let $y \in Y$ and 
+  choose $x \in X$ such that $f(x)=y$. Then $h(yh(f(x))=x=g(f(x))=g(y)$; then it must be that $g=h$.
+\end{proof}
+
+\begin{definition}
+  if $f:X \rightarrow Y$ is 1-1 and onto, we say that $f$ has a \textbf{inverse mapping} and denote it $f^{-1}$.
+\end{definition}
+
+If $f:E \rightarrow \R$ is a real valued function, then the pair $(x,f(x))$ is on the graph of $f$; $(f^{-1}(y),y)$ is also 
+on the graph of $f$. However the pair $(y,f^{-1}(y))$ is on the graph of $f^{-1}$. The graphs of $f$ and $f^{-1}$ are 
+symmetric with respect to the line $y=x$.
+
+\begin{remark}
+  If $f$ is defferentiable on an open interval $I$ and $f'(x) \neq 0$ for all $x \in I$.
+\end{remark}
+
+This remark is a sufficient, but not a necessary condition. The concept of ``differentiability'' must also be discussed. We 
+can prove this remark with the ``mean value theorem'' which will be discussed later.
+
+\begin{example}
+  Prove that $f(x)=e^x-e^{-x}$ is 1-1 and find $f^{-1}$.
+\end{example}
+\begin{proof}
+  By the chain rule, we have $f'(x)=e^x+e^{-x}>0$ fr all $x \in \R$. Now let $y=e^x-e^{-x}$, then $e^xy=e^{2x}-1$, by 
+  the quadratic formula we get:
+    \begin{equation*}
+      e^x=\frac{y}{2}+\frac{\sqrt{y^2+4}}{2}
+    \end{equation*}
+  So taking the natural logarithm:
+    \begin{equation*}
+      y = \loq{\frac{x}{2}+\frac{\sqrt{x^2}+4}{2}} = f^{-1}(x)
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    A set $E$ is  \textbf{finite} if and only if $e=\emptysey$ or there is a 1-1 mapping $f$ between $\{\1, \dots, n\}$ onto 
+    $E$. $E$ is said to be \textbf{countable} if and only if there is a 1-1 mapping from $\N$ onto $E$. $E$ is said to be 
+    \textbf{at most countable} if and only if $E$ is either finite or countable. $E$ is said to be \textbf{uncountable} if 
+    and only if $E$ is neither finite, nor countable.
+\end{definition}
+
+To show a set to be countable, we need a 1-1 mapping from $\N$ onto $E$. For example, let $2\N=\{2,4,6,8, \dots\}$, and 
+defining $f(n)=2n$, then $f:\N \rightarrow2\N$ is 1-1 and onto. Therefore the set $2\N$ is countable. We know that if a set 
+$B$ is finite, then any proper subset $A$ of $B$ has strictly less numbeer of elements.
+
+\begin{definition}
+  A set $B$ is an \textbf{infinite} set if and only if there is a proper subset $A$ so that $A$ and $B$ have the same number 
+  of elements.
+\end{definition}
+
+Now all countable sets are infinite, but not all infinite sets are countable.
+
+\begin{theorem}[Cantor's Diagonalization Argument]
+  The open interval $(0,1)$ is uncountable.
+\end{theorem}
+\begin{proof}
+  Suppose that the interval $(0,1)$ is countable; then by definintion, there exists a mapping $f:\N \rightarrow (0,1)$ that 
+  is 1-1 and onto. Then this mapping exhausts all the elements of $(0,1)$. We wish to construct an element $xin (0,1)$ such 
+  that $x \neq f(n)$ for all $n \in \N$. For each $f(n)$ we have:
+    \begin{equation*}
+      f(n)=0.\alpha_{n_1}\alpha_{n_2}\dots
+    \end{equation*}
+  This expansion may not be unique, consider $0.1=0.0999\dots$. We require that the decimal expansion does not terminate in 
+  $9$'s. Then $f(n)$ and $0.\alpha_{n_1}\alpha_{n_2}\dots$ are 1-1:
+  \begin{align}
+    f(1) &= 0.\alpha_{11}\alpha_{12}\alpha_{13}\alpha_{14}\dots \\
+    f(2) &= 0.\alpha_{21}\alpha_{22}\alpha_{23}\alpha_{24}\dots \\
+    f(3) &= 0.\alpha_{31}\alpha_{32}\alpha_{33}\alpha_{34}\dots \\
+    f(4) &= 0.\alpha_{41}\alpha_{42}\alpha_{43}\alpha_{44}\dots \\
+        \vdots
+  \end{align}
+So we get an infinite matrix; an all $\alpha_{ij}$ are digits in $\{0,1, \dots, 9\}$, and none of them terminate in $9$'s. 
+Now let $x=0.\beta_{1}\beta_{1}\beta_{1}\dots$ with:
+\begin{equation*}
+  \beta_k=\begin{cases}
+    \alpha_{kk}+1 \text{ if } \alpha_{kk} \leq 5 \\
+    \alpha_{kk}-1 \text{ if } \alpha_{kk} > 5 \\
+\end{cases}
+\end{equation*}
+By this construction, we have that $\beta_1 \neq \alpha_{11}$, $\beta_2 \neq \alpha_{22}$, $dots$, $\beta_n \neq \alpha_{nn}$; 
+so $x \neq f(n)$ for all $n \in \N$ and where $x \in (0,1)$. This is a contradiction of the fact that we assumed $f$ to be 
+onto. Therefore $(0,1)$ is uncountable.
+\end{proof}
+
+Now we want to study the countability of the sets $\Z$, $\Q$, and $\R$. We sstudy some general properties first:
+
+\begin{lemma}
+  A nonempty set $E$ is at most countable if and only if there is a mapping $g:\N \rightarrow E$ that is onto.
+\end{lemma}
+\begin{proof}
+  Assume that $E$ is at most countable, then by definition, we are done. If $E$ is finite, by definition there is an 
+  $n \in \N$ and a 1-1 mapping $f$ taking $\{1, \dots, n\}$ onto $E$. Now define:
+  \begin{equation*}
+    g(j)=\begin{cases}
+      f(j) \text{ if } j \leq n \\
+      f(1) \text{ if } j>n \\
+  \end{cases}
+  \end{equation*}
+Then $g$ takes $\N$ onto $E$.
+
+Conversely, suppose that $g$ takes $\N$ onto $E$, we need to construct a 1-1 $f$ from $\N$ or a subset of $\N$ onto $E$. 
+Let $k_1=1$ and $E_!=\{k \in \N: g(k) \neq g(k_1)\}$. Now if $E=\emptyset$, we are done. Else, by the well ordering 
+principle, there is a least element $k_2$ and define $E_2=\{k \in \N: g(k) \neq g(k_1), \text{ and } g(k) \neq g(k_2)\}$. 
+Now we have that $k_2>k_1$ and $k_2 \geq 2$. If $E_2=\emptyset$ then $E=\{g(k_1),g(k_2)\}$ is finite and we are done. 
+Now if $E_2 \neq \emptyset$, then we continue along eoth our methpd until we exhaust all possible set until we reach 
+$E_n=\emptyset$ for some $n$.
+
+If this process ever terminates, then $E=\{g(k_1), \dots, g(k_n)\}$ and is finite; now if it never terminates, then we have 
+a sequence $k_1<k_2<k_2,\dots$, and so $k_{j+1}$ is the least element of $E_j$ and $k_j \geq j$. We define $f(j)=g(k_j)$ and 
+we show that $f$ is 1-1. For $j<l$ we have $k_j<k_l$, so $k_j \leq k_{l-1}$; by  construction, $g(k_l) \in E_{l-1}$, 
+so $g(k_l) \neq g(k_j)$, f is 1-1. Now for any $x \in E$ there is an $n \in \N$ such that $x=g(n)$, and there is an $l$ 
+such that $x=g(n)=g(k_l)$; and so $E=\bigcup_{l=1}^{\infty}$, and so $f$ is onto. Therefore, $E$ is countable.
+\end{proof}
+
+\begin{theorem}
+    Suppose that $A$ and $B$ are sets and that $A \subseteq B$ and $B$ is at most countable. Then $A$ is at most countable.
+    Likewise if $ A \subseteq B$ and $A$ is uncountable, then  $B$ is uncountable; in particular, $\R$ is uncountable.
+\end{theorem}
+\begin{proof}
+    If $B$ is at most countable, then there is a function $g:\N rightarrow B$. If $A$ is empty, we are done. If  $A$ is not 
+    empty, then choose an element $a_0 \in A$ and define $f:\N \rightarrow A$ such that  $f(n)=g(n)$ if  $h(n) \in A$, and 
+    $f(n)=a_0$ if $g(n) \notin A$. Therefore,  $f$ is onto, and  $A$ is atmost countable.
+
+    Assume that $B$ is atmost countable, then by the above, since  $A \subseteq B$, $A$ is also atmost countable. This is a 
+    contradiction by assumption, thus,  $B$ must also be uncoutable.
+
+    Now, since the set  $(0,1)$ is uncountable, and  $(0,1) \subseteq \R$, then by the above  $\R$ is uncountable.
+\end{proof}
+
+\begin{theorem}
+    Let $A_1,A_2, \dots$ be atmost countable sets, then:
+    \begin{enumerate}[label=(\arabic*)]
+        \item  $$A_1 \time A_2$ is atmost countable.
+
+        \item If $E = \bigcup_{j \in \N} A_j$,  then  $E$ is atmost countable.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    $A_1$ and $A_2$ are atmost countable, then there exist onto functions $\phi_1:\N \rightarrow A_1$, and $\phi:\N \rightarrow A_2$,
+    (more over we notice that since $A_n$ is also atmost countable, then there exists an onto function $\phi_n:\N \rightarrow A_n$).
+
+    Now define  $f: \N \times \N A_1 \times A_2$ by $f(n,m)=(\phi_1(m),\phi_2(n))$, clearly  $f_$ is onto, now if we can 
+    define another onto function $g:\N \rightarrow \N \times \N$, then the compostion $f \circ g: \N \rightarrow A_1 \times A_2$ 
+    is also onto; now $g(1)=(1,1)$,  $g(2)=(2,1)$,  $g(3)=(1,2)$,  $g(4=(3,1)$, $\dots$, by observing the behaviour f  $g$ 
+    as $g$ moves through  $\N$, we can deduce a formula. Assume that  $g(j)$ lies on the  $n$-th line, so  $g(1)=(1,n+1)$,
+    $g(2)=(2,n-1)$,  $g(3)=(3, n-2)$, and so on. Thus we deduce that for $l \in \N$ that $g(j)=(l,n+1-1)$. Now what is the 
+    relation between $j$ and  $n$? We have  $j>1+2+3+ \dots +(n-1)=\frac{n(n-1)}{2}$. Now $j \geq 1$, so  $j+1 \geq 2$, hence 
+    $\frac{j+1}{2} \geq 1$, to $\frac{f(f+1)}{2} \geq j$. Now let $E=\{k \i \N: j \leq \frac{k(k+1)}{2}\}$ which is nonempty, 
+    hence $E$ has a least element $n$. so  $j \leq \frac{n(n+1}{2}$ Thus $l=j-\frac{n(n-1)}{2}$, therefore 
+    $j=l+\frac{n(n+1)}{2}$. 
+
+    Now we have for arbitrary $j \in \N$ that  $A_j$ is countable, thus there is an onto function  $\phi_j:\N \rightarrow A_j$. 
+    Define  $f: \N \times n \rightarrow \bigcup_{j \in \N} A_j$ by $f(m,n)=\phi_{n}(m)$, then  $f$ is also onto. Therefor  
+    $\bigcup_{j \in \N} A_j$ is atmost countable.
+\end{proof}
+
+\begin{remark} 
+    We have $\Z=\N \cup -\N$ is countable, and  $\Q=\bigcup_{n \in \N} \{\frac{p}{n}: n \in \Z\}$ is also countable. Now 
+    $\R$ is uncountable, if  $\Q^*$ is also countable, then we get  $\Q^* \cup \Q = \R$ is countable, contradicting the 
+    uncountability of  $\R$, hence  $\Q^*$ must also be uncountable.
+\end{remark}
+
+\begin{definition}
+ A collection of sets $\Ec$ is said to be \textb{indexed} by a set $A$ if and only if there is a function  $F$ from  $A$ onto 
+ $\Ec$. We call $A$ the \textbf{index set} of $\Ec$. We may write $\Ec=\{E_{\alpha}\}_{\alpha \in A}$.
+\end{definition}
+
+\begin{definition}
+    Let $\{E_{\alpha}\}_{\alpha \in A}=\Ec$ be a collection of sets. Then:
+    \begin{enumerate}[label=(\arabic*)]
+        \item $\bigcup E_{\alpha \in A} = \{x: x \in E_{\alpha} \text{ for some } \alpha \in A\}$
+
+        \item $\bigcap E_{\alpha \in A} = \{x: x \in E_{\alpha} \text{ for all } \alpha \in A\}$
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[DeMorgan's Law]
+    Let $\Xc$ be a set  and let  $\{E_{\alpha}\}_{\alpha \in A}$ be a collection of subsets of  $\Xc$. For each  $E \subseteq \Xc$ 
+
+    then:
+     \begin{align}
+         (\bigcup E_{\alpha})^{C} &= \bigcap E_{\alpha}^{C} \\
+
+         (\bigcap E_{\alpha})^{C} &= \bigcup E_{\alpha}^{C} \\
+
+    \end{align}
+    where $E^{C}=\Xc \backslash E$.
+\end{theorem}
+
+\begin{definition}
+    Let $X$ and  $Y$ be sets and let $f: X \rightarrow Y$ be function. Then the \textbf{image} of $X$ under  $f$ is the set 
+    $f(X)=\{f(x): x \in X\}$. The \textbf{inverse image} is the set $f^{-1}(E)=\{x \in X: y=f(x) \text{ for some } y \in E\}.
+\end{definition}
+
+For the inverse image, we do not require that the mapping  $f$ be  $1-1$ as we require it for the existence of $f^{-1}$. Now 
+let  $X, Y$ be sets and let  $f{X \rightarrow Y$. If  $\{E_{\alpha}\}_{\alpha \in A}$ for some index set  $A$ then:
+    \begin{equation}
+        f(\bigcup_{\alpha \in A} E_\alpha) = \bigcup_{\alpha} f(E_\alpha)
+    \end{equation}
+and
+    \begin{equation}
+        f(\bigcap_{\alpha \in A} E_\alpha) &= \bigcap_{\alpha} f(E_\alpha) \\
+    \end{equation} 
+Now if $B$ and $C$ are subsets of $X$, then:
+    \begin{equation}
+        f(B) \backslash f(C) \subseteq f(B \backslash C)		
+    \end{equation} 
+and if $B,C \subseteq Y$ then:
+     \begin{equation}
+        f^{-1}(B \backslash C)=f{-1}(B) \backslash f^{-1}(C)
+     \end{equation} 
+and if $\{E_{\alpha}\}_{\alpha \in A}$ then:
+    \begin{equation}
+        f^{-1}(\bigcup_{\alpha \in A} E_\alpha) = \bigcup_{\alpha} f^{-1}(E_\alpha)
+    \end{equation}
+and
+    \begin{equation}
+        f^{-1}(\bigcap_{\alpha \in A} E_\alpha) &= \bigcap_{\alpha} f^{-1}(E_\alpha) \\
+    \end{equation} 
+    Finally, if $E \subseteq f(X)$, then  $f(f^{-1}(E))=E$, but if  $E \subseteq X$, then  $E \subseteq f^{-1}(f(E))$. 
+We accept these properties witout proof as they can be demonstrated trough elementary se theory.
+
+Now to illustrate an example of these properties, t $f:\R \rightarrow \R$ be defined by $x \rightarrow x^2$, let  $E_1=\{1\}$ and $E=\{-1\}$. Then $E_1 \cap E_2 =\emptyset$ 
+, then  $f(E_1 \cap E_2)=\e,emptyset$; but  $f(E_1)=\{1\}$ and  $f(E_2)=\{1\}$, hence  $f(E_1) \cap f(E_2)=\{1\}$. It is 
+intersting to note that if $f$ is  $1-1$, then all the relations estabku=ished above are equalities.
+
+\begin{HW} 
+    Exercises $6$,  $9$,  $10$, and  $11$ on page  $33$ of the book.	
+\end{HW}

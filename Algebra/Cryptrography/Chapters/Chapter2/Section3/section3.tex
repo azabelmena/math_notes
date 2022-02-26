@@ -1,0 +1,100 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Spurious Keys.}
+\label{section1}
+
+The goal of cryptanalysis is to recover the key from a sufficiently large enough
+body of ciphertext. Supposing that an adversary launches a cyrptanalytic attack,
+we make the following definition.
+
+\begin{definition}
+    In a cryptanalytic attex, we call incorrectly determined, but possible keys
+     \textbf{spurious keys}.
+\end{definition}
+
+\begin{example}
+    Suppose an adversary obtaines the ciphertext \lstinline{WNAJW} and
+    determines a shift cipher has been used. Then there are two possible keys,
+    $F=5$ giving the plaintext \lstinline {river} and $W=22$ giving the
+    plaintext \lstinline{arena}. However, only one of these keys is the correct
+    key, and the other is spurious.
+\end{example}
+
+\begin{definition}
+    Let $(\Pc,\Cc,\Kc)$ be a cryptosystem. We define $H(K,C)$ to be the
+    \textbf{key equivocation} wich measures the uncertainty of the key $K$ given
+    a ciphertext $C$.
+\end{definition}
+
+\begin{theorem}\label{2.3.1}
+    Let $(\Pc,\Cc,\Kc)$ be a cryptosystem with cipher $(e,d)$, then
+    $H(K|C)=H(K)+H(P)-H(C)$.
+\end{theorem}
+\begin{proof}
+    Notice that $H(K,P,C)=H(C|K,P)+H(K,P)$. Now $K$ and $P$ uniquely determine
+    $C$, given $y=e(x)$; so $H(C|K,P)=0$. So $H(K,P,C)=H(K,P)=H(K)+H(P)$ (since
+    $K$ and  $P$ are independent).
+
+    Similarly, $C$ and $K$ uniquely determine  $P$, since  $x=d(y)$, so
+    $H(P|K,C)=0$, and $H(K,P,C)=H(K,C)=H(K)+H(K|C)$. Now, rearranging terms and
+    substituting, we get $H(K|C)=H(K)+H(P)-H(C)$.
+\end{proof}
+
+\begin{example}
+    Again, considering example $(2.1)$, $H(K|C)$ is about $1.5+0.81-1.85=0.46$
+    bits of uncertainty. Computing with conditional entropy, we compute the
+    probability matrix  $(P(K=K_i|y=j))$ for $1 \leq i \leq 3$ and  $1 \leq j
+    \leq 4$ to obtain:
+    \begin{equation*}
+        \begin{pmatrix}
+            1           &       0           &           0           \\
+            \frac{6}{7} & \frac{1}{7}       &           0           \\
+            0           & \frac{3}{4}       &       \frac{1}{4}     \\
+            0           &           0       &           1           \\
+        \end{pmatrix}
+    \end{equation*}
+    then $H(K)=0.46$
+\end{example}
+
+\begin{definition}
+    Let $L$ be a natural language and  $P^n$ the random variable with
+    probability distribution all  $n$-grams of plaintext. We define the
+    \textbf{entropy} of $L$ to be:
+    \begin{equation}
+        H_L=\lim_{n \rightarrow \infty}{\frac{H(P^n)}{n}}
+    \end{equation}
+    and the \textbf{redundancy} of $L$ to be:
+    \begin{equation}
+        R_L=1-\frac{H_L}{\log{|\Pc|}}
+    \end{equation}
+    Where $\Pc$ is the plaintex space.
+\end{definition}
+
+\begin{theorem}\label{2.3.2}
+    Let $(\Pc,\Cc,\Kc)$ be a cryptosystem with $|\Cc|=|\Pc|$ and keys chose
+    equiprobably. Let  $L$ be the underlying natural language, then given a
+    string of ciphertext of length  $n$, with  $n$ sufficiently large, the
+    expected number of spurious keys s:
+    \begin{equation}
+        \bar{s}_n \geq \frac{|\Kc|}{|\Pc|^{nR_L}}
+    \end{equation}
+\end{theorem}
+\begin{remark}
+    $\bar{s}_n \rightarrow 0$ exponentially quickly as $n \rightarrow \infty$.
+\end{remark}
+
+\begin{definition}
+    The \textbf{unicity distance}, $n_0$, of a cryptosystem is define to be the
+    value of $n$ for which  $\bar{s}_n \rightarrow 0$. I.e. it is the average
+    ammount of ciphertext an adversary needs to uniquely determine the correct
+    key, given enough time and resources.
+\end{definition}
+
+\begin{lemma}\label{2.3.3}
+    As $n \rightarrow \infty$,
+    \begin{equation}
+        n_0=\frac{\log{|\Kc|}}{R_L\log{|\Pc|}}
+    \end{equation}
+\end{lemma}
