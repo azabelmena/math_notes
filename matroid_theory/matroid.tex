@@ -1,0 +1,57 @@
+\documentclass[12pt]{book}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,graphicx,mathtools,tikz,hyperref}
+
+\usetikzlibrary{positioning}
+\input{Library/Fonts/BlackboardBold.tex}
+\input{Library/Fonts/MathCalligraphy.tex}
+\newcommand{\ita}[1]{\textit{#1}}
+\newcommand{\com}[2]{#1\backslash#2}
+\newcommand{\oneton}{\{1,2,3,...,n\}}
+\newcommand\idea[1]{\begin{gather*}#1\end{gather*}}
+\newcommand\ef{\ita{f} }
+\newcommand\eff{\ita{f}}
+\newcommand\proofs[1]{\begin{proof}#1\end{proof}}
+\newcommand\inv[1]{#1^{-1}}
+\newcommand\setb[1]{\{#1\}}
+\newcommand\en{\ita{n }}
+\newcommand{\vbrack}[1]{\langle #1\rangle}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\rank}{rank}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{example}{Example}[chapter]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{claim}{Claim}
+\newtheorem*{note}{Note}
+ \date{}
+
+
+\title{Matroid Theory}
+\author{Alec Zabel-Mena \\ Text - Oxley, James . Matroid Theory}
+
+\begin{document}
+
+\maketitle
+
+\input{Chapters/Chapter1/chapter1.tex}
+
+\nocite{*}
+
+\bibliography{references.bib}
+\bibliographystyle{ieeetr}
+
+\end{document}

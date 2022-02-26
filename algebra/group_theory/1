@@ -1,0 +1,8 @@
+@book{dummit-foote,
+    title = {Abstract Algebra},
+    author = {Dummit, David S. and Foote, Richard M.},
+    isbn = {0-471-43334-9},
+    series = {Encyclopedia of Mathematics and its Applications},
+    year = {2004},
+    publisher = {John WIley & Sons, Inc.}
+}
