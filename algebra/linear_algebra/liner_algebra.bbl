@@ -1,10 +1,11 @@
 \begin{thebibliography}{1}
 
 \bibitem{herstein}
-I.~Herstine, {\em Topics in Algebra}.
-\newblock Blaisdell Publishing Company.
+I.~N. Herstein, {\em Topics in algebra}.
+\newblock New York: Wiley, 1975.
 
-\bibitem{hoffman-kunze}
-K.~Hoffman and R.~Kunze, {\em Linear Algebra}.
+\bibitem{hoffman}
+K.~Hoffman and R.~Kunze, {\em Linear algebra}.
+\newblock Englewood Cliffs, NJ: Prentice-Hall, 1971.
 
 \end{thebibliography}

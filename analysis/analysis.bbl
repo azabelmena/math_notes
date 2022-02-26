@@ -1,8 +1,11 @@
 \begin{thebibliography}{1}
 
 \bibitem{wade}
-W.~R. Wade.
-\newblock {\em An Introduction to Analysis}.
-\newblock International Edition. Pearson Education, Inc., 2004.
+W.~R. Wade, {\em An introduction to analysis}.
+\newblock Upper Saddle River, NJ: Pearson Education, 2004.
+
+\bibitem{rudin}
+W.~Rudin, {\em Principles of mathematical analysis}.
+\newblock New York: McGraw-Hill, 1976.
 
 \end{thebibliography}
