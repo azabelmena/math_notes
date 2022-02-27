@@ -2,12 +2,12 @@
 %	SECTION 1.1
 %----------------------------------------------------------------------------------------
 
-\section{Invertible Matrices.}
+\section{Discrete Memoryless Channels.}
 \label{section1}
 
 \begin{definition}
     Let $A$ be an  $n \times n$ square matrix over a field  $F$. We call an $n \times n$ matrix  $B$
-    a  \textbf{left inverse} of $A$ if  $BA=I$, we call  $B$ a \textbf{right inverse} if $AB=I$. We    
+    a  \textbf{left inverse} of $A$ if  $BA=I$, we call  $B$ a \textbf{right inverse} if $AB=I$. We
     call  $B$ the  \textbf{inverse} of $A$ if it is both a left and right inverse, and we say $A$ is
     invertible. We denote the inverse of  $A$ as  $A^{-1}$.
 \end{definition}
@@ -27,11 +27,11 @@ We can now state a fundamental property of all $n \times n$ matrices.
 \begin{corollary}
     Let $A$ and  $B$ be  $n \times n$ matrices. Then:
     \begin{enumerate}
-        \item[(1)] If $A$ is invertible, then so is  $A^{-1}$, and $(A^{-1})^{-1}=A$.		
+        \item[(1)] If $A$ is invertible, then so is  $A^{-1}$, and $(A^{-1})^{-1}=A$.
 
         \item[(2)] If $A$ and $B$ are invertible, then so is $AB$, and
             $(AB)^{-1}=B^{-1}A^{-1}$.
-    \end{enumerate}		
+    \end{enumerate}
 \end{corollary}
 \begin{proof}
     This follows from group theory.
@@ -95,8 +95,8 @@ We can now state a fundamental property of all $n \times n$ matrices.
                      1 & 0 \\
                      0 & c^{-1} \\
             \end{pmatrix}$
-    \end{enumerate}		
-\end{example} 
+    \end{enumerate}
+\end{example}
 
 \begin{theorem}\label{1.5.4}
     If $A$ is an  $n \times n$ matrix, the following are equivalent:
@@ -109,10 +109,10 @@ We can now state a fundamental property of all $n \times n$ matrices.
         \end{enumerate}
 \end{theorem}
 \begin{proof}
-    Suppose that $A$ is invertible. Let $R$ be a row reduced echelon matrix, row equivalent to  
-    $A$. Then  $R=E_k \dots E_2E_1A$. By the corolloray to theorem \ref{1.5.3}, we have $E_i$ is 
-    invertible for each $1 \leq i \leq k$. Then  $A=E_1^{-1}E_2^{-1} \dots E_k^{-1}R$. So  $A$ 
-    is invertible if and only if  $R$ is invertible. Since $R$ is square, it is invertible if 
+    Suppose that $A$ is invertible. Let $R$ be a row reduced echelon matrix, row equivalent to
+    $A$. Then  $R=E_k \dots E_2E_1A$. By the corolloray to theorem \ref{1.5.3}, we have $E_i$ is
+    invertible for each $1 \leq i \leq k$. Then  $A=E_1^{-1}E_2^{-1} \dots E_k^{-1}R$. So  $A$
+    is invertible if and only if  $R$ is invertible. Since $R$ is square, it is invertible if
     and only if  $R=I$. Thus by hypothesis, $A=E_1^{-1}E_2^{-1} \dots E_k^{-1}$. This also implies
     that $A$ is row equivalent to  $I$.
 
@@ -194,8 +194,8 @@ We can now state a fundamental property of all $n \times n$ matrices.
                 0 & 1 & \frac{1}{7}(y_1-2y_2) \\
             \end{pmatrix}
         \end{align*}
-    We get that $A$ is invertible and that $A=\begin{pmatrix} \frac{3}{7} & \frac{1}{7} 
-    \\ -\frac{1}{7} & \frac{2}{7} \\ \end{pmatrix}$. 
+    We get that $A$ is invertible and that $A=\begin{pmatrix} \frac{3}{7} & \frac{1}{7}
+    \\ -\frac{1}{7} & \frac{2}{7} \\ \end{pmatrix}$.
 \end{example}
 
 This example showds us that we can find the inverse of any invertible matrix $A$ by forming the
