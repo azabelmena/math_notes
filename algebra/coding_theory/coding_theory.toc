@@ -1,0 +1,2 @@
+\contentsline {chapter}{\numberline {1}Linear Codes.}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Definitions, Generator, and Check Matrices.}{5}{section.1.1}%

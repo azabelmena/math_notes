@@ -1,7 +1,11 @@
 \begin{thebibliography}{1}
 
-\bibitem{dummit2004abstract}
+\bibitem{dummit}
 D.~Dummit, {\em Abstract algebra}.
 \newblock Hoboken, NJ: John Wiley \& Sons, Inc, 2004.
+
+\bibitem{herstein}
+I.~N. Herstein, {\em Topics in algebra}.
+\newblock New York: Wiley, 1975.
 
 \end{thebibliography}
