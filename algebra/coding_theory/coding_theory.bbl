@@ -1,13 +1,17 @@
 \begin{thebibliography}{1}
 
-\bibitem{welsh-codes}
-D.~J. Welsh, {\em Codes and cryptography}.
-\newblock Oxford Oxfordshire New York: Clarendon Press Oxford University Press,
-  1988.
+\bibitem{mceliece}
+R.~McEliece, {\em The theory of information and coding}.
+\newblock Cambridge: Cambridge University Press, 2001.
 
 \bibitem{herstein}
 I.~N. Herstein, {\em Topics in algebra}.
 \newblock New York: Wiley, 1975.
+
+\bibitem{welsh-codes}
+D.~J. Welsh, {\em Codes and cryptography}.
+\newblock Oxford Oxfordshire New York: Clarendon Press Oxford University Press,
+  1988.
 
 \bibitem{hoffman-kunze}
 K.~Hoffman and R.~Kunze, {\em Linear algebra}.
@@ -20,9 +24,5 @@ J.~Lint, {\em Introduction to coding theory}.
 \bibitem{justesen-hoholdt}
 J.~Justesen and T.~Høholdt, {\em A course in error-correcting codes}.
 \newblock Zürich, Switzerland: European Mathematical Society, 2017.
-
-\bibitem{mceliece}
-R.~McEliece, {\em The theory of information and coding}.
-\newblock Cambridge: Cambridge University Press, 2001.
 
 \end{thebibliography}

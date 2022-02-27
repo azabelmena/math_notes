@@ -4,3 +4,157 @@
 
 \section{Definitions, Generator, and Check Matrices.}
 \label{section1}
+
+\begin{definition}
+    Wed define an  \textbf{$(n,k)$-linear code)} over a field $F$ to be a
+    $k$-dimensional subspace $\Cc$ of the  $n$-dimensional vector space  $F^n$
+    over  $F$.
+\end{definition}
+\begin{remark}
+    We shall be focusing exclusively on the finit fields $\F_p$ where  $p=2,3$.
+    Then in this case, we can consider the vector spaces to be extension fields
+    of  $\F_p$. We shall prove theorems and lemmas however, for general fields,
+    unless specified.
+\end{remark}
+
+\begin{definition}
+    Let $\Cc$ be an  $(n,k)$-linear codeover a field $F$. We we call a $k \times
+    n$matrix $G$ a  \textbf{generator matrix} for $\Cc$ if its row space is $\Cc$.
+\end{definition}
+
+\begin{example}\cite{mceliece}
+    \begin{enumerate}
+        \item[(1)] A $(5,1)$-linear code, $\Cc_1$, over $\F_2$ with generator
+            matrix:
+            \begin{equation*}
+                G_1=\begin{pmatrix}
+                        1   &   1    &   1   &   1   &   1   \\
+                    \end{pmatrix}
+            \end{equation*}
+            It contains the codewords $00000$ and $(11111)$; and has rate
+            $\frac{1}{5}$. We call $\Cc_1$ the \textbf{binary repitition code}.
+
+        \item[(2)] The $(5,3)$-code $\Cc_2$ with generator matrix:
+            \begin{equation*}
+                G_2=\begin{pmatrix}
+                        1   &   1   &   1   &   0   &   0   \\
+                        0   &   0   &   1   &   1   &   0   \\
+                        1   &   1   &   1   &   1   &   1   \\
+                    \end{pmatrix}
+            \end{equation*}
+            $\Cc_2$ has rate $\frac{3}{5}$.
+
+        \item[(3)] The \textbf{$(7,4)$-Hamming Code}, $\Cc_3$ over $\F_2$ with
+            generator matrix:
+            \begin{equation*}
+                G_3=\begin{pmatrix}
+                        1   &   0   &   0   &   0   &   0   &   1   &   1   \\
+                        0   &   1   &   0   &   0   &   1   &   0   &   1   \\
+                        0   &   0   &   1   &   0   &   1   &   1   &   0   \\
+                        0   &   0   &   0   &   1   &   1   &   1   &   1   \\
+                    \end{pmatrix}
+            \end{equation*}
+            The $(7,4)$-Hamming code has rate $\frac{4}{7}$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{1.1.1}
+    If $\Cc$ is an  $(n,k)$-code over a field $F$, and if  $G$ is a generator
+    matrix for  $\Cc$, then so is any matrix row-equivalent to  $G$.
+\end{lemma}
+\begin{proof}
+    Let $A$ be an  $k \times n$ matrix row-equivalent to $G$. Then, take  $A
+    \rightarrow G$ via the sequence of elementary matrices $\{E_i\}_{i=1}^m$.
+    That is, $G=E_m \dots E_2E_2A$. Then for any $v \in F^n$. we can take $Av
+    \rightarrow Gv$ via this same sequence; that is  $Gv=E_m \dots E_2E_1Av$.
+    Thus, $A$ generates the same set of vectors as  $G$, and hence has the same
+    row space.
+\end{proof}
+\begin{remark}
+    Thus, using this lemma, one would ideally like to find a generator matrix in
+    Row-Reduced-Echelon form, for ease of computation.
+\end{remark}
+
+\begin{definition}
+    If $\Cc$ is an  $(n,k)$-code over a field $F$, we define a  \textbf{check}
+    for $\Cc$ to be the equation:
+    \begin{equation}
+        a_1x_1+\dots+a_nx_n=0
+    \end{equation}
+    satisfied for all $x \in \Cc$. We define the \textbf{dual code} of $\Cc$ to
+    be the orthogonal complement
+    \begin{equation}
+        \Cc^{\perp}=\{a \in F^n : \vbrack{a,x}=0\}
+    \end{equation}
+    Where $\vbrack{a,x}$ is the inner product of $a$ and  $x$.
+\end{definition}
+
+\begin{proof}
+    If $\Cc$ is an  $(n,k)-code$, then $\Cc^\perp$ is an  $(n,n-k)$-linear code.
+\end{proof}
+\begin{proof}
+    We have by a result from \cite{herstein} (theorem $4.I$), that $F^n=\Cc
+    \oplus \Cc^\perp$, ($\oplus$ the direct sum). Then
+    $\dim{F^n}=\dim{\Cc}+\dim{\Cc^\perp}$. Therefore, $\dim{\Cc^\perp}=n-k$.
+\end{proof}
+
+\begin{definition}
+    Let $\Cc$ be an $(n,k)$-linear code over a field $F$. We define a
+    \textbf{check} matrix for $\Cc$ the be an $n \times (n-k)$ matrix $H$ such
+    that  $Hx^T=0$.
+\end{definition}
+
+\begin{lemma}\label{1.1.2}
+    If $H$ is a check matrix for the $(n,k)$-code $\Cc$, then $H$ is a generator
+    matrix for the dual code  $\Cc^\perp$.
+\end{lemma}
+\begin{proof}
+    For any $x=(x_1, \dots, x_n) \in \Cc$, we have that $Hx^T=0$, by definition.
+    Thus, for any row $a=(a_1, \dots, a_n)$ of $H$. That is,
+    $a_1x_1+\dots+a_nx_n=\vbrack{a,x}=0$, making $a \in \Cc^\perp$. Since $a$
+    is an arbitrary row of $H$, this holds for every row of  $H$. Thus the row
+    space of $H$ is equal to $\Cc^\perp$.
+\end{proof}
+
+\begin{lemma}\label{1.1.3}
+    Let $\Cc$ be an  $(n,k)$-code over a field $F$, and let  $G$ be a generator
+    matrix for the code. If  $G$ has the form  $G=(I_{k \times k}|A)$, then the
+    check matrix for $\Cc$, corresponding to $G$ has the form
+    \begin{equation}
+        H=(-A^T|I_{(n-k) \times (n-k)})
+    \end{equation}
+\end{lemma}
+
+\begin{example}\cite{mceliece}
+    Consider the generator matrices for the codes in example $1.1$, then:
+    \begin{enumerate}
+        \item[(1)] $H_1=\begin{pmatrix}
+                    1 & 1 & 0 & 0 & 0 \\
+                    1 & 0 & 1 & 0 & 0 \\
+                    1 & 0 & 0 & 1 & 0 \\
+                    1 & 0 & 0 & 0 & 1 \\
+                  \end{pmatrix}$
+
+        \item[(2)] $H_2=\begin{pmatrix}
+                    1 & 1 & 0 & 0 & 0 \\
+                    1 & 0 & 1 & 1 & 1 \\
+                  \end{pmatrix}$
+
+        \item[(3)] $H_3=\begin{pmatrix}
+                    0 & 1 & 1 & 1 & 1 & 0 & 0 \\
+                    1 & 0 & 1 & 1 & 0 & 1 & 0 \\
+                    1 & 1 & 0 & 1 & 0 & 0 & 1 \\
+                  \end{pmatrix}$
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{1.1.4}
+    Let $\Cc$ be an  $(n,k)$-code over a field $F$. Then there is a unique
+    $k \times n$ Row-Reduced-Echelon matrix $G$ such that  $x \in \Cc$ if, and
+    only if $x$ is in the row space of $G$. Likewise, there exists an $(n-k)
+    \times n$ matrix $H$ such that  $x \in \Cc$ if, and only if $Hx^T=0$.
+\end{theorem}
+\begin{corollary}
+    If $\Cc$ is used on a memoryless channel, then  $G=(I_{k \times k}|A)$ and
+    $H=(-A^T|I_{(n-k) \times (n-k)})$.
+\end{corollary}
