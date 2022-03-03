@@ -4,3 +4,106 @@
 
 \section{Syndrome Decoding.}
 \label{section1}
+
+\begin{definition}
+    Let $\Cc$ be an $(n,k)$-code over a field $F$. For $x \in \Cc$, and $y \in
+    F^n$ we call  $z=y-x$ an \textbf{error pattern}. If $z_i \neq 0$, we say
+    that the  $i$-th component of  $x$ has \textbf{error}. If $H$ is a check
+    matrix, we call  $s=Hy^T$ the  \textbf{syndrome} of the vector $y=x+z$.
+\end{definition}
+
+\begin{lemma}\label{2.2.1}
+    If $H$ is a check matrix for an  $(n,k)$-code $\Cc$ over a field $F$, and
+    $x \in \Cc$, with error pattern  $y=x+z$ for $z \in F^n$, then $Hy^T=Hz^T$.
+\end{lemma}
+\begin{proof}
+    We have $Hy^T=H(x+z)^T=H(x^T+z^T)=Hx^T+Hz^T=Hz^T$, since $x \in \Cc$.
+\end{proof}
+\begin{corollary}
+    $x$ has error if, and only if  $s \neq 0$.
+\end{corollary}
+
+\begin{definition}
+    Let $\Cc$ be an  $(n,k)$-code over a field $F$, with check matrix  $H$. Let
+     $z \in F^n$ such that  $y=x+z$. We define the set of all solutions to the
+     syndrome  $Hz^T=s$ to be a  \textbf{coset} of the code $\Cc$.
+\end{definition}
+
+\begin{lemma}\label{2.2.2}
+    Every coset of an $(n,k)$-code $\Cc$ has the form  $\Cc_0=\Cc+z_0$.
+\end{lemma}
+\begin{proof}
+    Let $\Cc_0$ be a coset for the code $\Cc$, given by  $z_0 \in F^n$. We have
+    that for any $x \in \Cc$,  $x+z_0 \in \Cc_0$, since $H(x+z_0)^T=Hz_0^T=s$;
+    that is, $x+z_0$ is also a solution to the syndrome. Now, if $y$ is a
+    solution to the syndrome $Hz_0^T=s$, then $y=x+z_0$ for some $x \in \Cc$, so
+     $y \in \Cc+z_0$.
+\end{proof}
+
+\begin{definition}
+    We define a \textbf{$q$-ary symmetric channel} ($q$SC) to be a DMC with
+    $A_X=A_Y=\F_q$, taking  $X \rightarrow Y=X+Z$ with $Z$ a random vector with
+    independently distributed components and  $P(Z=0)=1-(q-1)\epsilon$ and
+    $P(Z=z)=\epsilon$ whenever $z \neq 0$.
+\end{definition}
+
+\begin{definition}
+    Let $\Cc$ be an  $(n,k)$-code. Then \textbf{Hamming weight} of a codeword $x
+    \in \Cc$ is the number of nonzero components of  $x$. That is:
+    \begin{equation}
+        w_H(x)=|\{x_i : x_ \neq 0\}|
+    \end{equation}
+\end{definition}
+
+\begin{example}
+    Let $X \rightarrow Y=X+Z$ over a $q$SC. Then for  $z \in n\F_q^n$,
+    $P(Z=z)=(1-(q-1)\epsilon)^{n-w_H(z)}\epsilon^{w_H(z)}$ If $\epsilon \leq
+    \frac{1}{q}$, then $P(Z=z)$ is decreasing with respect to $w_H(z)$.
+\end{example}
+
+\begin{definition}
+    Let $\Cc$ be an $(n,k)$-code with check matrix $H$. We define the
+    \textbf{standard matrix} for $\Cc$ to be the  $(n-1) \times (k+n)$ matrix
+    whoes rows are the cosets of $\Cc$ The vector of least weight in each row is
+    called the  \textbf{coset leader}.
+\end{definition}
+
+\begin{example}
+    Consider the $(5,3)$-code of example $2.1$ with check matrix
+    \begin{equation*}
+        H=\begin{pmatrix}
+                1 & 1 & 0 & 0 & 0 \\
+                1 & 0 & 1 & 1 & 1 \\
+          \end{pmatrix}
+    \end{equation*}
+    $H$ has the syndromes  $00$,  $01$,  $10$, and  $11$; so we calculate the
+    standard matrix for  $H$ to be:
+    \begin{equation*}
+        \begin{pmatrix}
+            00000 & 00011 & 00101 & 00110 & 11001 & 11010 & 11100 & 11111 \\
+            00100 & 00111 & 00001 & 00010 & 11101 & 11110 & 11000 & 11011 \\
+            01000 & 01011 & 01101 & 01110 & 10001 & 10010 & 10100 & 10111 \\
+            10000 & 10011 & 10101 & 10110 & 01001 & 01010 & 01100 & 01111 \\
+        \end{pmatrix}
+    \end{equation*}
+\end{example}
+
+This brings us to an algorithm for syndrom decoding with the cosets of linear
+codes.
+
+\begin{algorithm}[Syndrome Decoding for a $q$SC.]
+    Given an $(n,k)$-linear code over a field $F$ and check matrix $H$.
+    Assume that $x$ is transmitted over a  $q$SC, and is recieved as  $y$.
+    \begin{enumerate}
+        \item[(1)] Compute the syndrome $s=Hy^T$
+
+        \item[(2)] Find a minimum weight vector in the coset of $s$, label it
+            $z_0$.
+
+        \item[(3)] Return $\hat{x}=y-z_0$.
+    \end{enumerate}
+\end{algorithm}
+\begin{remark}
+    If $n$ and $k$ are both small, we can go about step  $(2)$ using a standard
+    matrix, implemented as a lookup table.
+\end{remark}
