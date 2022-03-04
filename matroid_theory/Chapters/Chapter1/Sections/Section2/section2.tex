@@ -110,3 +110,21 @@ We now come to our next equivalent definition of a matroid.
     \end{enumerate}
     We call $\Bc$ the collection of \textbf{bases} of the matroid.
 \end{definition}
+
+The independence, base, and circuit axioms constitute the three main equivalent
+ways of definining a matroid. We can denote these definitions as $(\Ic)$, $(\Bc)$,
+and $(\Cc)$. Now, by theorems \ref{1.1.3} and  \ref{1.2.3}, we have that $(\Ic)$
+is equivalent to  $(Bc)$ and $(\Cc)$. Moreover, we make the following
+observation: notice that $(\Bc)$ implies $(\Ic)$, and $(\Ic)$ implies $(\Cc)$.
+Thus, by transitivity of implication, $(\Bc)$ implies $(\Cc)$. Conversely, we
+have that $(\Cc)$ implies $(\Ic)$, which implies $(\Bc)$. So by transitivity
+again, we get that $(\Cc)$ implies $(\Bc)$. Therefore $(\Bc)$ and $(\Cc)$ are
+equivalent definitions of a matroid. Collecting our definitions into a
+digraph, whose edge set is given by implication, we get the following figure
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{Figures/Chapter1/equiv_def_1.eps}
+    \caption{The implication digraph of $(\Ic)$, $(\Bc)$, and $(\Cc)$.}
+    \label{fig_1.3}
+\end{figure}
