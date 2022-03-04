@@ -3,3 +3,110 @@
 %----------------------------------------------------------------------------------------
 
 \section{The Base Axioms.}
+
+\begin{definition}
+    We call a maximally independent set of a matroid $M$ a \textbf{basis} of
+    $M$.  We denote the collection of all bases of  $M$ to be  $\Bc$.
+\end{definition}
+
+\begin{lemma}\label{1.2.1}
+    For any two bases $B_1$ and $B_2$ of a matroid, we have $|B_1|=|B_2|$.
+\end{lemma}
+\begin{proof}
+    Suppose not, that $|B_1|<|B_2|$. Then, since $B_1,B_2 \in \Ic$, by
+    augmentation, we can choose  $e \in \com{B_2}{B_1}$ such that $B_1 \cup e
+    \in \Ic$. But $B_1$ is maximal, a contradiction! Terefore, $|B_1| \geq
+    |B_2|$. Similarly, we get $|B_2| \geq |B_1|$.
+\end{proof}
+
+\begin{lemma}[The Base Axioms]\label{1.2.2}
+    The collection $\Bc$ of bases of a matroid has the following properties:
+    \begin{enumerate}
+        \item[(B1)] $\Bc \neq \emptyset$.
+
+        \item [(B2)] If $B_1,B_2 \in \Bc$, and $x \in \com{B_1}{B_2}$, then
+            there exists $y \in \com{B_2}{B_1}$ such that $(\com{B_1}{x}) \cup y
+            \in \Bc$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    For (B1), if $\Bc=\emptyset$, then necesarrily,  $\Ic=\emptyset$, which
+    cannot happen by (I1).
+
+    Now, notice that both $\com{{B_1}}{x}$ and $B_2$ are independent, and that
+    $|\com{B_1}{x}|<|B_2|$ by lemma \ref{1.2.1}. Therefore, by augmentation,
+    take $y \in \com{B_2}{(\com{B_1}{x})}$, that is, $y \in \com{B_2}{B_1}$,
+    such that $(\com{B_1}{x}) \cup y \in \Ic$. Then there is a basis $B' \in
+    \Bc$ such that  $(\com{B_1}{x}) \cup y \subseteq B'$. Now, notice that
+    $|(\com{B_1}{x}) \cup y|=|B_2|=|B'|$, thus $(\com{B_1}{x}) \cup y=B'$,
+    makinng $(\com{B_1}{x}) \cup y \in \Bc$ a basis.
+\end{proof}
+
+With this lemma, we have proved that the independence axioms imply the base
+axiom. We now show that the base axioms imply independence.
+
+\begin{theorem}\label{1.2.3}
+    Let $E$ be a finite set and  $\Bc \subseteq 2^E$ a collection of subsets of
+    $E$ satisfying (B1) and (B2). let $\Ic=\{I \subseteq E : I \subseteq B,
+    \text{ where } B \in \Bc\}$. Then $\Ic$ induces a matroid on  $E$.
+\end{theorem}
+\begin{proof}
+    If  $\Bc \neq \emptyset$, then we have at least  $\emptyset \in \Ic$.
+    Moreover, if $I_1 \in \Ic$, then $I_1 \subseteq B$, for some $B \in \Bc$.
+    Then if  $I_2 \subseteq I_1$, $I_2 \subseteq B$ so that $I_2 \in \Ic$.
+
+    Now suppose that $B_1,B_2 \in \Bc$ with $|B_1|>|B_2|$, such that
+    $|\com{B_1}{B_2}|$ is minimal. Notice that $\com{B_1}{B_2} \neq \emptyset$,
+    so choose $x \in \com{B_1}{B_2}$. Then by (B2), there exists a $y \in
+    \com{B_2}{B_1}$ such that $(\com{B_1}{x}) \cup y \in \Bc$. Notice then that
+    $|(\com{B_1}{x}) \cup y|=|B_1|>|B_2|$, so $|(\com{(\com{B_1}{x}) \cup
+    y}{B_2})|<|\com{B_1}{B_2}|$ which contradicts minimality. So we have
+    $|B_1|=|B_2|$.
+
+    Now suppose that the augmentation axiom, (I3), fails. Then for $I_1,I_2 \in
+    \Ic$ with $|I_1|<|I_2|$, there is an $e \in \com{I_2}{I_1}$ such that $I_1
+    \cup e \notin \Ic$. Now, by definition, there exists $B_1,B_2 \in \Bc$ with
+    $I_1 \subseteq B_1$ and $I_2 \subseteq B_2$. Choose, then, $B_2$ such that
+    $|\com{B_2}{(B_1 \cup I_2)}|$ is minimal. Then
+    $\com{I_2}{B_1}=\com{I_2}{I_1}$. Now, supposing that $\com{B_2}{(B_1 \cup
+    I_2)} \neq \emptyset$, choose $x \in \com{B_2}{(B_1 \cup I_2)}$. Then by
+    (B2), there exists a $y \in \com{B_1}{B_2}$ such that $(\com{B_2}{x}) \cup y
+    \in \Bc$; but then $\com{((\com{B_2}{x}) \cup y)}{(B_1 \cup
+    I_2)}<|\com{B_2}{(B_1 \cup I_2)}|$, which contradicts minimality. So
+    $\com{B_2}{(B_1 \cup I_2)}=\emptyset$, and so
+    $\com{B_2}{B_1}=\com{I_2}{B_1}$; that is:
+    \begin{equation*}
+        \com{B_2}{B_1}=\com{I_2}{I_1}
+    \end{equation*}
+
+    Now suppose that $\com{B_1}{(B_2 \cup I_1)} \neq \emptyset$. Then cor $x \in
+    \com{B_1}{B_2 \cup I_1}$, there exists $y \in \com{B_2}{B_1}$ such that
+    $(\com{B_1}{x}) \cup y \in \Bc$. Now, we have $I_1 \cup y \subseteq
+    (\com{B_1}{x}) \cup y$, putting $I_1 \cup e \in \Ic$. Since $y \in
+    \com{B_2}{B_1}$, we have $y \in \com{I_2}{I_1}$, which contradicts the
+    hypothesis. So $\com{B_1}{(B_2 \cup I_1)}=\emptyset$. Thus,
+    $\com{B_1}{B_2}=\com{I_1}{B_2}$. It follows then that $\com{B_1}{B_2}
+    \subseteq \com{I_2}{I_1}$. Now, $|B_1|=|B_2|$, so
+    $|\com{B_1}{B_2}|=|\com{B_2}{B_1}|$, thus
+    $|\com{I_1}{I_2}|=|\com{I_2}{I_1}|$, so that $|I_1| \geq |I_2|$. but
+    $|I_1|<|I_2|$, a contradiction. Therefore, (I3) must be satisfied, making
+    $(E,\Ic)$ into a matroid.
+\end{proof}
+\begin{corollary}
+    The matroid on $E$ induced by  $\Ic$ has  $\Bc$ as its collection of bases.
+\end{corollary}
+
+We now come to our next equivalent definition of a matroid.
+
+\begin{definition}
+    A \textbf{matroid} on a finite set $E$ is a pair $(E,\Bc)$, where $\Bc
+    \subseteq 2^E$, such that:
+    \begin{enumerate}
+        \item[(B1)] $\Bc \neq \emptyset$.
+
+        \item [(B2)] If $B_1,B_2 \in \Bc$, and $x \in \com{B_1}{B_2}$, then
+            there exists $y \in \com{B_2}{B_1}$ such that $(\com{B_1}{x}) \cup y
+            \in \Bc$.
+    \end{enumerate}
+    We call $\Bc$ the collection of \textbf{bases} of the matroid.
+\end{definition}
