@@ -21,12 +21,9 @@
     \textbf{augmentation} axioms, respectively.
 \end{definition}
 
-\begin{definition}
-    Let $M=(E,\Ic)$ be a matroid. A subset of $E$ that is not independent, i.e.
-    $X \subseteq E$ with  $X \notin \Ic$ is called a \textbf{dependent set}.
-\end{definition}
+We provide some equivalent definitions withing independent sets.
 
-\begin{example}
+\begin{example}\label{1.1}
     Let $E$ be a finite set. Then $M=(E,\Ic)$ is a matroid if, and only if:
     \begin{enumerate}
         \item[(1)] $\Ic \neq \emptyset$.
@@ -45,16 +42,41 @@
     $\emtyset$, since  $\Ic \subseteq 2^E$. (I2) is also given by (2).
 
     Now, if $I_1, I_2 \in \Ic$ such that $|I_2|=|I_1|+1$, then $|I_1|<|I_2|$,
-    and it follows from there that (3) implies (I_3).
+    and it follows from there that (3) implies (I3).
 
     This gives us an equivalent way to define the matroid $M$, still using
     independent sets, but with different rules.
 \end{example}
 
+\begin{example}\label{1.2}
+    A finite set $E$ together with a collection  $\Ic \subseteq 2^E$ is a
+    matroid if, and only if the following hold:
+    \begin{enumerate}
+        \item[(1)] $\emptyset \in \Ic$.
+
+        \item [(2)] Inheritance holds; i.e. if $I \in \Ic$ and  $J \subseteq I$,
+            then  $J \in \Ic$.
+
+        \item[(3)] If $X \subseteq E$, and  $I_1,I_2 \in \Ic$ are maximal such
+            that $I_1,I_2 \subseteq X$ (that is, $I_1$ and $I_2$ are maximal
+            sets of the collection $\{I \in \Ic : I \subseteq X\}$), then
+            $|I_1|=|I_2|$.
+
+            It is rather simple to prove (1) and (2), so the nontrivial work
+            goes to showing that property (3) and (I3) are equivalent to each
+            other.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $M=(E,\Ic)$ be a matroid. A subset of $E$ that is not independent, i.e.
+    $X \subseteq E$ with  $X \notin \Ic$ is called a \textbf{dependent set}.
+\end{definition}
+
 the following example shows why Whitney gave the name ``matroid'' to these
 structures.
 
-\begin{example}
+\begin{example}\label{1.3}
     \begin{enumerate}
         \item[(1)] Consider an $m \times n$ matrix  $A \in F^{m \times n}$,
             where $F$ is a field. Define $E$ to  be the set of all column labels
@@ -107,6 +129,43 @@ structures.
     Since matroids are a pair of a ground set $E$ and a subset of $2^E$ we can
     usually just specify the matroid by $E$ and take the collection of
     independent sets (or another collection) to be imposed.
+\end{remark}
+
+\begin{lemma}\label{1.1.1}
+    Let $E$ be a subset of a vector space  $V$, and let  $\Ic$ be the collection
+    of all linearly independent subsets of  $E$. Then  $E$, together with  $\Ic$
+    forms a matroid.
+\end{lemma}
+\begin{proof}
+    The proof of example \ref{1.3}(1) can be repeated. In fact, notice that an $m
+    \times n$ matrix is just a collection of  $n$ vectors of length  $m$ in
+    $F^m$. We now prove this for arbitrary vector spaces.
+
+    $\emptyset$ is trivially linearly independent, so  $\emptyset \in \Ic$;
+    moreover, if  $I_1$ is a set of linearly independnet vectors, and $I_2
+    \subseteq I_1$, then $I_2$ is also linearly independent; so inheritance
+    holds.
+
+    Now, let $I_1=\{v_1, \dots, v_m\}$, and $I_2=\{u_1, \dots, u_n\}$ be
+    linearly independent sets of vectors with $n<m$. Then  $|I_2|<|I_1|$, with
+    $u_i=v_i$ possibly equal for some  $1 \leq i \leq n$. Then, there exists some
+    $v_j \in \com{I_1}{I_2}$ distinct from all other $u_i$. Now, suppose that
+    $I_2 \cup v_j$ is linearly dependent. Then  we have
+    \begin{equation*}
+        \alpha_1u_1+\dots+\alpha_nu_n+\alpha v_j = 0
+    \end{equation*}
+    which implies that $\alpha \neq 0$. So we get:
+    \begin{equation*}
+        v_j=\inv{\alpha}\alpha_1u_1+\dots+\inv{\alpha}\alpha_nu_n
+    \end{equation*}
+    This puts $v_j \in \Span{I_2}$, thus $\com{I_1}{I_2} \subseteq \Span{I_2}$,
+    thus $(\com{I_1}{I_2}) \cup I_2=I_1 \subseteq \Span{I_2}$. This makes
+    $|I_1|<|I_2|$; but $|I_2|<|I_1|$, a contradiction. Therefore $I_2 \cup v_j$
+    must be linearly independent. This makes $E$ into a matroid.
+\end{proof}
+\begin{remark}
+    Most notably, if $V$ is a vector space, then  $V$ together with the
+    collection of all linearly independent subsets forms a matroid.
 \end{remark}
 
 \begin{definition}
@@ -295,6 +354,32 @@ We can now provide an alternative definition.
     \end{enumerate}
 \end{example}
 
+\begin{example}\label{1.5}
+    Let
+    \begin{equation*}
+        A=\begin{pmatrix}
+            1 & 0 & 0 & 1 & 1 & 0 \\
+            0 & 1 & 0 & 1 & 0 & 1 \\
+            0 & 0 & 1 & 0 & 1 & 1 \\
+          \end{pmatrix}
+    \end{equation*}
+    and let $M_2(A)$ and $M_3(A)$ be the matroids on $A$ over  $\F_2$ and
+    $\F_3$, respectively. We can list the set of circuits of $M_2(A)$ to be:
+    \begin{align*}
+        \{1,2,4\} && \{1,3,5\} && \{2,3,6\} && \{ 4,5,6\} \\
+                  && \{1,4,3,6\} && \{1,5,2,6\} && \{2,4,3,5\} \\
+    \end{align*}
+    while the set of circuits of $M_3(A)$ is:
+    \begin{align*}
+        \{1,2,4\} && \{1,3,5\} && \{2,3,6\} \\
+        \{1,4,3,6\} && \{1,5,2,6\} && \{2,4,3,5\} \\
+    \end{align*}
+    So we can clearly see that the circuits of $M_2(A)$ and $M_3(A)$ are not the
+    same. In fact, $ M_2(A)$ ia grpahic while $ M_3(A)$ is not. We also see that
+    $M_2(A)$ is $\F_3$-representable, taking $A'=2A$, while $M_3(A)$ is not
+    $\F_2$ -representable.
+\end{example}
+
 The above example leads us to define what we mean by a matroid isomorphism. We
 present some definitions.
 
@@ -374,3 +459,54 @@ imposing a collection of independent sets/circuits.
      $M$  \textbf{trivial} if it contains only one element. We call a matroid
      \textbf{simple} if it cntains no loops, nor parallel elements.
 \end{definition}
+
+\begin{example}\label{1.7}
+    Let $A \in F^{m \times n}$ is an $m \times n$ matrix, and consider the
+    vector matroid o $A$ whose independent sets are linearly independent
+    columns. Since any single nonzero column of  $A$ is linearly independent, we
+    have the only loop in the matroid on  $A$ is the zero-column
+    $(0 \dots 0)^T$. Likewise, the parellel elements of the matroid on $A$ are
+    simply the linearly dependent pairs of columns.
+\end{example}
+
+\begin{theorem}[The Strong Circuit Elimination Axiom.]\label{1.1.5}
+    Let $M$ be a matroid with collection of circuits  $\Cc$. If  $C_1, C_2
+    \subseteq \Cc$ are distinct, such that $e \in C_1 \cap C_2$, and $f \in
+    \com{C_1}{C_2}$ then there exists a circuit $C \in \Cc$ such that  $f \in C
+    \subseteq \com{C_1 \cup C_2}{e}$.
+\end{theorem}
+
+We now introduce one last example of a matroid for this section.
+
+\begin{definition}
+    Let $G$ be a set with bi-parition  $(X,Y)$. We defiine a \textbf{matching}
+    from elements of $X$ to subsets of  $Y$ to simply be a map
+    $\mu:X \rightarrow 2^Y$. We then say that a subset $U \subseteq Y$ can be
+    \textbf{matched} to $X$ if there exists a matching  $\mu:X \rightarrow U$.
+\end{definition}
+
+\begin{lemma}\label{1.1.6}
+    Let $G$ be a bipartite graph, with bi-partition  $(X,Y)$. Let $\Ic$ be the
+    collection of all subsets of  $Y$ that can be matched with elements of  $X$.
+    Then $M=(Y, \Ic)$ forms a matroid.
+\end{lemma}
+\begin{proof}
+    Notce that $\emptyset \in \Ic$, and can be matched to elements of  $X$ with
+    no matching. Likewise, if $I_1$ is a subset of $Y$ that can be matched to
+    elements of  $X$, then there is a matching  $\mu:X \rightarrow I_1$. Now if
+    $I_2 \subseteq I_1$, then $I_2$ can also be matched to elements of $X$ by
+    restricting the image of $\mu$, i.e. taking  $\mu:X \rightarrow I_2$.
+
+    Now, let $I_1, I_2 \in \Ic$. That is, they can be matched to elements of $X$
+    via the matchings  $\mu:X \rightarrow I_1$ and $\eta:X \rightarrow I_2$. Now,
+    suppose that $|I_1|<|I_2|$ Then, taking $e \in \com{I_2}{I_1}$, form the
+    matching $\lambda:X \rightarrow I_1 \cup e$ by the rule
+    $\lambda(I_1)=\mu(I_1)$ and $\lambda(e)=\nu(e)$. Then $I_1 \cup e$ can be
+    matched to $X$ via  $\lmabda$. Thus  $I_1 \cup e \in \Ic$, making $(Y,\Ic)$
+    a matroid.
+\end{proof}
+\begin{remark}
+    Notice that we can make $G$ into a bi-partite graph by taking the set of
+    edges to be all matchings from the set  $X$ to subsets of  $Y$. Matroids of
+    this type are called ``transversal'' and will be studied later.
+\end{remark}
