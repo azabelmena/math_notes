@@ -21,9 +21,18 @@
     \textbf{augmentation} axioms, respectively.
 \end{definition}
 
-We provide some equivalent definitions withing independent sets.
+\begin{example}\lable{1.1}
+        The emptyset $\emptyset$ together with $2^\emptyset=\{\emptyset\}$ forms
+        a matroid called the \textbf{empty matroid} and the collection $2^E$ on an
+        nonempty set $E$ induces a matroid called the \textbf{trivial matroid}.
+        It is easy to see why these two are matroids; since one encompasses only
+        the empty set, and the other all subsets, these two matroids are not
+        very interesting.
+\end{example}
 
-\begin{example}\label{1.1}
+We provide some equivalent definitions with independent sets.
+
+\begin{example}\label{1.2}
     Let $E$ be a finite set. Then $M=(E,\Ic)$ is a matroid if, and only if:
     \begin{enumerate}
         \item[(1)] $\Ic \neq \emptyset$.
@@ -48,7 +57,7 @@ We provide some equivalent definitions withing independent sets.
     independent sets, but with different rules.
 \end{example}
 
-\begin{example}\label{1.2}
+\begin{example}\label{1.3}
     A finite set $E$ together with a collection  $\Ic \subseteq 2^E$ is a
     matroid if, and only if the following hold:
     \begin{enumerate}
@@ -76,7 +85,7 @@ We provide some equivalent definitions withing independent sets.
 the following example shows why Whitney gave the name ``matroid'' to these
 structures.
 
-\begin{example}\label{1.3}
+\begin{example}\label{1.4}
     \begin{enumerate}
         \item[(1)] Consider an $m \times n$ matrix  $A \in F^{m \times n}$,
             where $F$ is a field. Define $E$ to  be the set of all column labels
@@ -183,7 +192,7 @@ structures.
 This definition will also provide us with an alternative definition for a
 matroid.
 
-\begin{lemma}[The Circuit Axioms.]\label{1.1.1}
+\begin{lemma}[The Circuit Axioms.]\label{1.1.2}
     The collection $\Cc$ of circuits of a matroid satisfy the following:
     \begin{enumerate}
         \item[(C1)] $\emptyset \notin \Cc$.
@@ -224,7 +233,7 @@ matroid.
     the following theorem, and its corollary.
 \end{remark}
 
-\begin{theorem}\label{1.1.2}
+\begin{theorem}\label{1.1.3}
     Let $E$ be a finite set having  $\Cc \subseteq 2^E$ satisfying (C1)-(C3).
     Let $\Ic$ be the collection of all subsets of $E$ which don't contain
     elements of  $\Cc$; i.e.
@@ -301,7 +310,7 @@ We can now provide an alternative definition.
     We call the propery (C3) the \textbf{weak circuit elimination axiom}.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{1.5}
     \begin{enumerate}
         \item[(1)] Let $G$ be a graph with vertex set $V$ and edge set  $E$. Let
             $\Cc$ be the collection of edge-set defined cycles of  $G$  (i.e.
@@ -354,7 +363,7 @@ We can now provide an alternative definition.
     \end{enumerate}
 \end{example}
 
-\begin{example}\label{1.5}
+\begin{example}\label{1.6}
     Let
     \begin{equation*}
         A=\begin{pmatrix}
@@ -405,7 +414,7 @@ present some definitions.
     matroid a \textbf{$F$-representation}.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{1.7}
     \begin{enumerate}
         \item[(1)] The matroid on the $2 \times 5$ matrix $\R$ of example
             $1.1(2)$ is $\R$-representable. It is also $\F_2$-representable.
@@ -420,7 +429,7 @@ present some definitions.
     \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{1.1.3}
+\begin{lemma}\label{1.1.4}
     Let $M_1$ and $M_2$ be matroids with ground sets $E_1$ and $E_2$. If $M_1
     \simeq M_2$ via the map $\psi$, then $C \subseteq E_1$ is a circuit of $M_1$
     if, and only if $\psi(C) \subseteq E_2$ is a circuit of $M_2$.

@@ -110,17 +110,89 @@ We now come to our next equivalent definition of a matroid.
     \end{enumerate}
     We call $\Bc$ the collection of \textbf{bases} of the matroid.
 \end{definition}
+\begin{corollary}
+    For any $B \in \Bc$ and $e \in \com{E}{B}$, $B \cup e$ contains a unique
+    circuit  $C(e,B)$ which contains $e$.
+\end{corollary}
+\begin{proof}
+    This follows immediately from the analogous corollary to theorem
+    \ref{1.1.3}.
+\end{proof}
 
-The independence, base, and circuit axioms constitute the three main equivalent
-ways of definining a matroid. We can denote these definitions as $(\Ic)$, $(\Bc)$,
-and $(\Cc)$. Now, by theorems \ref{1.1.3} and  \ref{1.2.3}, we have that $(\Ic)$
-is equivalent to  $(Bc)$ and $(\Cc)$. Moreover, we make the following
-observation: notice that $(\Bc)$ implies $(\Ic)$, and $(\Ic)$ implies $(\Cc)$.
-Thus, by transitivity of implication, $(\Bc)$ implies $(\Cc)$. Conversely, we
-have that $(\Cc)$ implies $(\Ic)$, which implies $(\Bc)$. So by transitivity
-again, we get that $(\Cc)$ implies $(\Bc)$. Therefore $(\Bc)$ and $(\Cc)$ are
-equivalent definitions of a matroid. Collecting our definitions into a
-digraph, whose edge set is given by implication, we get the following figure
+\begin{definition}
+    Let $M$ be a matroid with ground set $E$ and collection of bases $\Bc$. For
+    $e \in \com{E}{B}$, we define the \textbf{fundamental circuit} of $e$ with
+    respect to  $B$ to be the circuit $C(e,B)$ with the property that $e \in
+    C(e,B) \subseteq B$.
+\end{definition}
+
+\begin{lemma}\label{1.2.4}
+    Every circuit of a matroid is the fundamental circuit of some element with
+    respect to some basis.
+\end{lemma}
+
+
+
+\begin{example}\lable{1.9}
+    \begin{enumerate}
+        \item[(1)] let $m,n \in \Z^+$ with  $m \leq n$. Let  $E$ be an
+            $n$-element set, and  $\Bc$ the collection of all  $m$-element
+            subsets of  $E$. Then  $\Bc$ is the collection of bases for a
+            matroid on  $E$.
+
+            Notice that since  $|E|=n$, and  $m \leq n$, then there exists at
+            least on  $m$-element subset of $E$, so that $\Bc \neq \emptyset$.
+            Now, let $B_1,B_2 \in \Bc$ be distinct with $|B_1|=|B_2|=m$. Then
+            for $x \in \com{B_1}{B_2}$, notice that $|\com{B_1}{x}|=m-1$. Thus,
+            choose $y \in \com{B_2}{B_1}$ (which exists), then $|(\com{B_1}{x})
+            \cup y|=m$, making $\com{B_1}{x} \cup y \in \Bc$. Then $(E,\Bc)$
+            forms a matroid which we call the \textbf{uniform matroid} of rank
+            $m$ on an $n$-element set. We denote the uniform matroid by
+            $U_{m,n}$.
+
+        \item[(2)] In the uniform matroid, $U_{m,n}$, we have the collection of
+            independent sets is given by:
+            \begin{equation*}
+                \Ic=\{X \subset E : |X| \leq m\}
+            \end{equation*}
+            and the collection of circuits is given by $\Cc=\emptyset$ if
+            $m=n$, or
+            \begin{equation*}
+                \Cc=\{X \subseteq E : |X|=m+1\}.
+            \end{equation*}
+            if $m<n$.
+
+        \item[(3)] If $m=0$, then the only independent sets of  $U_{0,n}$ are
+            emptysets, i.e. $\Ic=\Bc=\{\emptyset\}$. This makes all $n$-elements
+            of the ground set loops. Likewise, if  $m=1$, then the only
+            independent sets of  $U_{1,n}$ are singletons, hence $U_{1,m}$
+            consists of $n$ parallel elements. If  $m \geq 2$, then $U_{m,n}$ is
+            simple.
+
+        \item[(4)] $U_{n,n}$ has no circuits, since by above, $\Cc=\emptyset$,
+            and $U_{0,0}=\emptyset$ the empty matroid.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    We call a matroid $M$  \textbf{free} if its collection of circuits is empty.
+\end{definition}
+
+To finish the section, we make the following observation. The independence,
+base, and circuit axioms constitute the three main equivalent ways of definining
+a matroid. We can denote these definitions as $(\Ic)$, $(\Bc)$, and $(\Cc)$.
+Now, by theorems \ref{1.1.3} and  \ref{1.2.3}, we have that $(\Ic)$ is
+equivalent to  $(\Bc)$ and $(\Cc)$. Moreover, notice that $(\Bc)$ implies
+$(\Ic)$, and $(\Ic)$ implies $(\Cc)$. Thus, by transitivity of implication,
+$(\Bc)$ implies $(\Cc)$. Conversely, we have that $(\Cc)$ implies $(\Ic)$, which
+implies $(\Bc)$. So by transitivity again, we get that $(\Cc)$ implies $(\Bc)$.
+Therefore $(\Bc)$ and $(\Cc)$ are equivalent definitions of a matroid. Collecting
+our definitions into a digraph, whose edge set is given by implication,
+we get the following figure:
+\begin{remark}
+    That is, two vertices $a,b$ in the digraph form an edge  $(a,b)$ if $a$
+    implies  $b$.
+\end{remark}
 
 \begin{figure}[h]
     \centering
