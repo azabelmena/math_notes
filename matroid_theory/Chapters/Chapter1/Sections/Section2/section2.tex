@@ -133,7 +133,7 @@ We now come to our next equivalent definition of a matroid.
 
 
 
-\begin{example}\lable{1.9}
+\begin{example}\label{1.9}
     \begin{enumerate}
         \item[(1)] let $m,n \in \Z^+$ with  $m \leq n$. Let  $E$ be an
             $n$-element set, and  $\Bc$ the collection of all  $m$-element
@@ -177,6 +177,82 @@ We now come to our next equivalent definition of a matroid.
 \begin{definition}
     We call a matroid $M$  \textbf{free} if its collection of circuits is empty.
 \end{definition}
+
+\begin{example}\label{1.10}
+    \begin{enumerate}
+        \item[(1)] Let $E$ be a nonempty set and  $(E_1, \dots, E_r)$ be a
+            partition $\pi$ of  $E$ into nonempty subsets. Let  $\Bc$ be the
+            collection of all suubsets of  $E$ containing exactly one element of
+             $E_i$ for each  $1 \leq i \leq r$. Then $\Bc$ is the collection of
+             bases of a matroid on $E$ called the \textbf{partition matroid},
+             $M_\pi$.
+
+         \item [(2)] $M_\pi$ has as its collection of independent sets, bases,
+             and circuits given by:
+             \begin{align*}
+                 \Ic &= \{X \subseteq E : |X \cap E_i| \leq 1, \text{ for all }
+                 1 \leq i \leq r\} \\
+                 \Bc &= \{X \subseteq E : |X \cap E_i|=1, \text{ for all }
+                 1 \leq i \leq r\} \\
+                 \Cc &= \{\{a,b\} \subseteq E : \{a,b\} \subseteq E_i, \text{
+                 for all } 1 \leq i \leq r\} \\
+             \end{align*}
+
+         \item[(3)] If $|E_i|=1$ for all  $i$, then  $M_\pi \simeq U_{r,r}$. In
+             general. we also have that $M_\pi$ is graphic, as it is isomorphic
+             to the cycle matroid of a vertex-disjoint union of graphs $G_1,
+             \dots, G_r$ where $G_i$ consists of  $2$ vertices joined by $|E_i|$
+             distinct edges.
+    \end{enumerate}
+\end{example}
+
+\begin{example}\label{1.11}
+    \begin{enumerate}
+        \item[(1)] Let $G$ be a graph. Then a subset $X \subseteq E$ of edges
+            of $G$ is independent if, and only if they from a forest of the
+            graph $G$. Then $X$ is a basis if  $X$ is a forest such that for
+            $e \in \com{E}{X}$, $X \cup e$ contains a cycle. That is, $X$ forms
+            a spanning tree in all connected components of  $G$. If  $G$ is
+            connected, then $X$ is a spanning tree. Likewise, it can be shown
+            that spanning trees are bases, so that we have that  $X$ is the
+            basis of matroid on a graph $G$ if, and onlt if it forms spanning
+            trees across all connected components of $G$.
+
+        \item [(2)] Let $A$ be an $m \times n$ matrix over a field $F$. Then the
+            columns of  $A$ span a subspace  $W$ of dimension  $r$. We also see
+            that independent sets of columns of $A$ are linearly independent.
+            Thus, if we have a subset of columns of $A$, linearly independent,
+            also spanning the subspace $W$, they form a basis of  $W$. That is,
+            a set $B$ of columns of  $A$ forms a basis for  $W$ if, and only if
+             $B$ is linearly independent, and $|B|=r$; so that $B$ is a set of
+             basis vectors for the subspace $W$.
+
+         \item[(3)] If $A=\begin{pmatrix}
+                        1 & 0 & 1 & 1 \\
+                        0 & 1 & 1 & 2 \\
+                      \end{pmatrix}$
+                is a $2 \times 4$ matrix over $\F_3$, then $\dim{W}=2$, and so
+                the bases are all $2$ element subsets of linearly independnet
+                columns. Thus  $M(A) \simeq U_{2,4}$.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{1.2.5}
+    Let $M$ be a graphic matroid. Then $M$ is isomorphic to the cycle matroid of
+    some connected graph $G$.
+\end{theorem}
+\begin{proof}
+    Let $M$ be a matroid, and dentoe the cycle matroid of any graph $G$ by
+    $M(G)$. Then $M \simeq M(H)$ for some graph $H$. If  $H$ is connected, we
+    are done.
+
+    Now suppose that  $H$ is not connected. Consider then the connected
+    components  $H_1, \dots, H_n$ of $H$. Choose a vertex  $v_i \in H_i$ and
+    form the graph  $G$ with vertices  $v_1, \dots, v_n$ all labeled as one
+    vertex. Then the edge set $E(H)=E(G)$ the edge set of $G$; moreover, $X
+    \subseteq E(G)$ is a cycle if, and only if it is a cycle in $E(H)$. Thus we
+    have $M \simeq M(H)$.
+\end{proof}
 
 To finish the section, we make the following observation. The independence,
 base, and circuit axioms constitute the three main equivalent ways of definining
