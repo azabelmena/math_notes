@@ -126,12 +126,22 @@ We now come to our next equivalent definition of a matroid.
     C(e,B) \subseteq B$.
 \end{definition}
 
-\begin{lemma}\label{1.2.4}
+\begin{lemma}[Fundamental Circuit Theorem.]\label{1.2.4}
     Every circuit of a matroid is the fundamental circuit of some element with
     respect to some basis.
 \end{lemma}
-
-
+\begin{proof}
+    Let $C$ be a circuit of some matroid $M$, and choose $e \in C$. Then choose
+    some basis $B$ of  $M$ in which  $e \in \com{E}{B}$ ($E$ the ground set of
+    $M$). Then by the corollary to theorem \ref{1.2.3}, we have that there is a
+    circuit $C(e,B)$ such that $e \in C(e,B) \subseteq B \cup e$. We then have
+    that $e \in C \subseteq B \cup e$, and that  $e \in C \cap C(e,B)$. Then by
+    weak circuit elimination, there is a circuit $C' \subseteq \com{(C \cup
+    C(e,B))}{e}$. Then $C' \subseteq \com{C}{e}$ and $C' \subseteq
+    \com{C(e,B)}{e}$. That is $C' \cup e \subseteq C$ and  $C' \cup e \subseteq
+    C(e,B)$. Thus, either $C \subseteq C(e,B)$ or $C(e,B) \subseteq C$; in
+    either case we get $C=C(e,B)$.
+\end{proof}
 
 \begin{example}\label{1.9}
     \begin{enumerate}
