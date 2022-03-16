@@ -39,7 +39,7 @@ We can immediately define a special fiber for any homomorphisms.
 \end{proof}
 
 \begin{lemma}\label{3.1.2}
-    Let $G$ and  $H$ be groups and let  $\phi:G \rightarrow H$ be a hmomorphism
+    Let $G$ and  $H$ be groups and let  $\phi:G \rightarrow H$ be a homomorphism
     of $G$ into  $H$. Then $\ker{\phi} \leq G$, and $\phi(G) \leq H$.
 \end{lemma}
 \begin{proof}
@@ -73,10 +73,11 @@ This motivates the following results.
      Moreover, we have that $\inv{\phi}(H)$ satisfies associativity because of
      the associativity of  $H$.
 
-     Notice, then that  $\inv{\phi}(e)$ is the identity, as
-     $\phi(gg_e)=\phi(g)\phi(g_e)=ae=a=ea=\phi(g_e)\phi(g)=\phi(g_eg)$, where $g
-     \in \inv{\phi}(a)$ and $g_e \in \inv{\phi}(e)$. Similarly, we find that
-     $\inv{\phi}(\inv{a})$ is the inverse of $\inv{\phi}(a)$ of $\inv{\phi}(H)$.
+     Notice, then that  $\inv{\phi}(e)$ is the identity, as, for $g_e \in
+     \inv{\phi}(e)$, $\phi(gg_e)=\phi(g)\phi(g_e)=ae=a=ea=\phi(g_e)\phi(g)=
+     \phi(g_eg)$, where $g \in \inv{\phi}(a)$ and $g_e \in \inv{\phi}(e)$.
+     Similarly, we find that $\inv{\phi}(\inv{a})$ is the inverse of $\inv{\phi}(a)$
+     of $\inv{\phi}(H)$.
 \end{proof}
 
 \begin{definition}
@@ -112,7 +113,7 @@ This motivates the following results.
     kernel $K$. Then for any  $g \in G$,  $gK=Kg$.
 \end{lemma}
 \begin{proof}
-    By the previous lemma \ref{3.1.4}, if $a \n gK$ then  $a \in \inv{\phi}(g)$,
+    By the previous lemma \ref{3.1.4}, if $a \in gK$ then  $a \in \inv{\phi}(g)$,
     which makes $a=kg$ for some  $k \in K$, thus  $a \in Kg$. Similarly, if  $b
     \in Kg$, then  $b \in gK$.
 \end{proof}
@@ -130,7 +131,7 @@ the following result.
 \end{theorem}
 \begin{proof}
     Let $a' \in aK$ and  $b' \in bK$. Then  $a'=ak_1$ and $b'=bk_2$, thus
-    $a'b'=(ak_1)(bk_2)=a(k_1b)k_2=a(bk_1)k_2=ab(k_1k_2)=abk'$. This makes $a'b'
+    $a'b'=(ak_1)(bk_2)=a(k_1b)k_2=a(bk')k_2=ab(k'k_2)=abk''$. This makes $a'b'
     \in abK$, and by definition  $aKbK=abK$, we get  $a'b'K=abK$. Therefore
     coset multiplication is well defined.
 
@@ -176,12 +177,12 @@ the following result.
              $\faktor{\R^2}{(0,\R)}$. Taking $(x,\R) \rightarrow x$, we get
              $\faktor{\R^2}{(0,\R)} \simeq \R$.
 
-         \item[(5)] Consider the quaternions $\H$ and the Keli-$4$ group  $V_4$.
-             Take  $\phi:\H \rightarrow V_4$ defined by the rule $\pm 1
+         \item[(5)] Consider the quaternions $\Hb$ and the Kelin-$4$ group  $V_4$.
+             Take  $\phi:\Hb \rightarrow V_4$ defined by the rule $\pm 1
              \rightarrow 1$, $\pm i \rightarrow a$, $\pm j \rightarrow b$, and
               $\pm k \rightarrow c$. Then  $\phi$ is a homomorphism with kernel
                $\ker{\phi}=\vbrack{-1,1}$. Then the cosets of the quotient group
-                $\faktor{\H}{\vbrack{-1,1}}$ are all $\vbrack{-1,1}$,
+                $\faktor{\Hb}{\vbrack{-1,1}}$ are all $\vbrack{-1,1}$,
                 $\vbrack{-i,i}$, $\vbrack{-j,j}$, and $\vbrack{-k,k}$, all
                 collaped to  $1,a,b,c \in V_4$.
     \end{enumerate}

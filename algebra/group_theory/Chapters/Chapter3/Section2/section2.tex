@@ -43,13 +43,13 @@ equivalence classes.
 \end{proof}
 
 \begin{example}\label{3.3}
-    Consider the subgroup $n\Z \leq Z$ and define  $\equiv$ to be $a \equiv b
-    \mod{n\Z}$ if $a-b \in \nZ$. Then if  $a \equiv b \mod{n\Z}$ we have
+    Consider the subgroup $n\Z \leq Z$ and define  $\sim$ to be $a \sim b
+    \mod{n\Z}$ if $a-b \in n\Z$. Then if  $a \sim b \mod{n\Z}$ we have
     $a-b=nm$, so that  $n|(a-b)$, making $a \equiv b \mod{n}$. Conversely, if $a
-    \equiv b \mod{n}$, then $n|(a-b)$, making $a-b=nk$, hence  $a \equiv b
-    \mod{n\Z}$. Therefore, the equivalence relation $\equiv$ defined is exaclty
+    \equiv b \mod{n}$, then $n|(a-b)$, making $a-b=nk$, hence  $a \sim b
+    \mod{n\Z}$. Therefore, the equivalence relation $\sim$ defined is exaclty
     that of $\equiv_n$ of congruence mod $n$. Thus
-    $\faktor{Z}{\equiv}=\faktor{Z}{\equiv_n}=\faktor{Z}{n\Z}$.
+    $\faktor{Z}{\sim}=\faktor{Z}{\equiv_n}=\faktor{Z}{n\Z}$.
 \end{example}
 
 Since $aH$ describes the equivalence classes of the relation  $a \equiv b
@@ -83,7 +83,7 @@ arbitrary cosets. So we wish to make an assertion.
     Suppose that $aHbH=abH$ is well defined. That is, if  $a' \in aH$ and $b'
     \in bH$ then  $a'Hb'H=a'b'H=abH$. Now, let  $g \in G$ and  $h \in H$. Then
     take $\inv{g}H=h\inv{g}H$. Then, since coset multiplication is well defined,
-    we get $g\inv{h}\inv{g}H=H$, so that $g\inv{h}\inv{g} \n H$ for $\inv{h} \in
+    we get $g\inv{h}\inv{g}H=H$, so that $g\inv{h}\inv{g} \in H$ for $\inv{h} \in
     H$ arbitrary.
 
     Conversly, suppose that $gh\inv{g} \in H$ then $gh\inv{g}=h'$, hence
@@ -120,11 +120,11 @@ arbitrary cosets. So we wish to make an assertion.
 \end{definition}
 
 \begin{lemma}\label{3.2.4}
-    Let $G$ be a group, and  $H \leq G$. Then the following are equivalent:
+    Let $G$ be a group, and  $N \leq G$. Then the following are equivalent:
     \begin{enumerate}
-        \item[(1)] $H \unlhd G$.
+        \item[(1)] $N \unlhd G$.
 
-        \item [(2)] $N(H)=G$.
+        \item [(2)] The normalizer of $N$ is precisely  $G$.
 
         \item[(3)] $gN=Ng$ for all  $g \in G$.
 
@@ -138,10 +138,10 @@ arbitrary cosets. So we wish to make an assertion.
 \end{theorem}
 \begin{proof}
     We have shown that if $\phi$ is a homomorphism on  $G$, then  $\ker{\phi}
-    \unhld G$; see lemmas \ref{3.1.4} and \ref{3.2.4}.
+    \unlhd G$; see lemmas \ref{3.1.4} and \ref{3.2.4}.
 
     Now, suppose that $N \unlhd G$. Now, let $\phi:G \rightarrow \faktor{G}{N}$
-    be defined by $phi:g \rightarrow gN$. Since $N$ is normal, coset
+    be defined by $\phi:g \rightarrow gN$. Since $N$ is normal, coset
     multiplicaton is well defined and, we have that $abN=aNbN$, so that $\phi$
     is a homomorphism. Now, notice then that
     $\ker{\phi}=\{g \in G : \phi(g)=N\}$. So if $g \in \ker{\phi}$, then $gN=N$,
