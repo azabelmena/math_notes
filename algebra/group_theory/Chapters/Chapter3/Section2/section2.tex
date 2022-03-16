@@ -4,3 +4,190 @@
 
 \section{Alternative Definitions.}
 \label{section1}
+
+There is another way for driving the theory for quotient groups that does not
+involve the use of homomorphisms at all. Instead, it relies on the notion of
+equivalence classes.
+
+\begin{definition}
+    Let $G$ be a group and  $H \leq G$ a subgroup. For $a,b \in G$, we say that
+     $a$ is  \textbf{congruent} to $b$  $\mod{H}$ if $\inv{b}a \in H$. We write
+     $a \equiv b \mod{H}$.
+\end{definition}
+
+\begin{lemma}\label{3.2.1}
+    For any subgroup $H$ of any group, the relation  $\equiv$ of congruence
+    $\mod{H}$ is an equivalence relation.
+\end{lemma}
+\begin{proof}
+    Let $G$ be group and and  $H \leq G$. We have that  $\inv{a}a = e' \in H$ so
+    that $a \equiv a \mod{H}$.
+
+    Now, suppose that $a \equiv b \mod{H}$. Then $\inv{b}a \in H$, so
+    $\inv{b}a=h$. Then $\inv{h}=\inv{a}b \in H$; so $b \equiv a \mod{H}$.
+    Lastly, suppose that $a \equiv b \mod{H}$ and that $b \equiv c \mod{H}$.
+    Then  $\inv{b}a \in H$ and $\inv{c}b \in H$. By closure then,
+    $(\inv{c}b)(\inv{b}a)=\inv{c}(b\inv{b})a=\inv{c}a \in H$. So $\inv{c}a \in
+    H$ making $a \equiv c \mod{H}$.
+\end{proof}
+\begin{corollary}
+    The equivalence classes of $\faktor{G}{\equiv}$ are precisely the left
+    cosets $aH$, of $H$ in  $G$.
+\end{corollary}
+\begin{proof}
+    We have that the equivalence classes of $\equiv$ in  $G$ are of the from
+    $[a]=\{b \in G : b \equiv a \mod{H}\}$. Then for $b \in [a]$, we have
+    $\inv{a}b=h$ for some $h \in H$, so  $b=ah$. Likewise, for  $b \in aH$,
+    $b=ah'$ for some $h' \in H$; hence  $\inv{a}b =h' \in H$. This makes
+    $[a]=aH$.
+\end{proof}
+
+\begin{example}\label{3.3}
+    Consider the subgroup $n\Z \leq Z$ and define  $\equiv$ to be $a \equiv b
+    \mod{n\Z}$ if $a-b \in \nZ$. Then if  $a \equiv b \mod{n\Z}$ we have
+    $a-b=nm$, so that  $n|(a-b)$, making $a \equiv b \mod{n}$. Conversely, if $a
+    \equiv b \mod{n}$, then $n|(a-b)$, making $a-b=nk$, hence  $a \equiv b
+    \mod{n\Z}$. Therefore, the equivalence relation $\equiv$ defined is exaclty
+    that of $\equiv_n$ of congruence mod $n$. Thus
+    $\faktor{Z}{\equiv}=\faktor{Z}{\equiv_n}=\faktor{Z}{n\Z}$.
+\end{example}
+
+Since $aH$ describes the equivalence classes of the relation  $a \equiv b
+\mod{H}$, they partion the group $G$ into disjoint subsets. That is:
+
+ \begin{theorem}\label{3.2.2}
+     Let $G$ be a group, and  $H \leq G$. Then the left cosets of $H$ in $G$
+     partition $G$ into disjoint subsets. That is:
+     \begin{equation}
+         G = \bigcup_{g \in G}{gH}
+     \end{equation}
+     Where $aH \cap bH=\emptyset$ for  $a,b \in G$ distinct.
+\end{theorem}
+\begin{proof}
+    We have that $g \in gH$ for all $g \in G$, so that  $G$ is the union of left
+    cosets of  $H$ in  $G$. Now suppose that $ \in aH \cap bH$. Then  $g=ah$ and
+     $g=bh'$. So $ah=bh'$, so  $\inv{b}a = h'\inv{h}=h''$. So $b \in aH$. This
+     makes $aH=bH$. Therefore if $aH$ and $bH$ are distinct, they are disjoint.
+\end{proof}
+
+Now to define the quotient group, it is not enough to define left cosets as
+equivalence classes. In general, coset multiplcation is not well defined for
+arbitrary cosets. So we wish to make an assertion.
+
+\begin{theorem}\label{3.2.3}
+    Let $G$ be a group and  $H \leq G$, and define the operation of coset
+    multiplication by  $aHbH=abH$. Then this opertion is well defined if, and
+    only if for any  $h \in H$,  $gh\inv{g} \in H$ for all $g \in G$.
+\end{theorem}
+\begin{proof}
+    Suppose that $aHbH=abH$ is well defined. That is, if  $a' \in aH$ and $b'
+    \in bH$ then  $a'Hb'H=a'b'H=abH$. Now, let  $g \in G$ and  $h \in H$. Then
+    take $\inv{g}H=h\inv{g}H$. Then, since coset multiplication is well defined,
+    we get $g\inv{h}\inv{g}H=H$, so that $g\inv{h}\inv{g} \n H$ for $\inv{h} \in
+    H$ arbitrary.
+
+    Conversly, suppose that $gh\inv{g} \in H$ then $gh\inv{g}=h'$, hence
+    $gh=h'g$. That is  $gh \in Hg$ and  $h'g \in gH$ making  $gH=Hg$. Thus if
+    $a' \in aH$ and $b' \in bH$ then  $a'=ah_1$, $b'=bh_2$ so that
+    $a'b'=(ah_1)(bh_2)=a(h_1b)h_2=ab(bh')h_2=ab(h'h_2)$, making $a'b' \in abH$.
+    Therefore, $a'Hb'H=a'b'H=abH$ making coset multiplication well defined.
+\end{proof}
+\begin{proof}
+    If $H$ is such that $gh\inv{g} \in H$ for all $g \in G$, then  $gH=Hg$. That
+    is, every left coset is also a right coset.
+\end{proof}
+\begin{corollary}
+    If $gh\inv{g} \in H$ for all $g \in G$, then the set of all cosets of  $H$
+    in  $G$ form a group under coset mutliplication.
+\end{corollary}
+\begin{proof}
+    This proof is idential to that of theorem \ref{3.1.6}.
+\end{proof}
+
+\begin{definition}
+    Let $G$ be a group and $N$ a subgroup of  $H$. For  $n \in N$ we
+    $gn\inv{g}$ the \textbf{conjugate} of $n$ by  $g$. We call the set
+    $gN\inv{g}=\{gn\inv{g} : n \in N\}$ the \textbf{conjugate} of $N$ by $g$. We
+    say that the subgroup $N$ is \textbf{normal} in $G$ if $gN\inv{g}=N$. That
+    is, every every element of $G$ normalizes  $N$. If  $N$ is a normal subgroup
+    of  $G$, we write  $N \unlhd G$.
+\end{definition}
+
+\begin{definition}
+    Leet $G$ be a group, and let $N \unlhd G$ be a normal subgroup of $G$. Then
+    the  \textbf{quotient group} $\faktor{G}{N}$ is the group of all cosets of
+    $N$ in  $G$.
+\end{definition}
+
+\begin{lemma}\label{3.2.4}
+    Let $G$ be a group, and  $H \leq G$. Then the following are equivalent:
+    \begin{enumerate}
+        \item[(1)] $H \unlhd G$.
+
+        \item [(2)] $N(H)=G$.
+
+        \item[(3)] $gN=Ng$ for all  $g \in G$.
+
+        \item [(4)] $gN\inv{g} \subseteq N$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{theorem}\label{3.2.5}
+    Let $G$ be a group and  $N \leq G$. Then  $N$ is normal if, and only if it
+    is the kernel of some homomorphism defined on $G$.
+\end{theorem}
+\begin{proof}
+    We have shown that if $\phi$ is a homomorphism on  $G$, then  $\ker{\phi}
+    \unhld G$; see lemmas \ref{3.1.4} and \ref{3.2.4}.
+
+    Now, suppose that $N \unlhd G$. Now, let $\phi:G \rightarrow \faktor{G}{N}$
+    be defined by $phi:g \rightarrow gN$. Since $N$ is normal, coset
+    multiplicaton is well defined and, we have that $abN=aNbN$, so that $\phi$
+    is a homomorphism. Now, notice then that
+    $\ker{\phi}=\{g \in G : \phi(g)=N\}$. So if $g \in \ker{\phi}$, then $gN=N$,
+    so that $g \in N$. Moreover, if  $g \in N$, then  $\phi(g)=gN=N$, so that $g
+    \in \ker{\phi}$. This makes $\phi=N$.
+\end{proof}
+\begin{corollary}
+    $\phi$ is onto.
+\end{corollary}
+\begin{proof}
+    Notice that the cosets of $N$ in  $G$ partition  $G$, so that each distinct
+    $g$ gets mapped to a distinct $gN$.
+\end{proof}
+\begin{remark}
+    With this theorem, we have tied together the equivalence of the quotient
+    group as defined with fibers, to the quotient group as defined with
+    equivalence classes of cosets of normal subgroups.
+\end{remark}
+
+The homomorphism in theorem \ref{3.2.5} warrants its own definition.
+
+\begin{definition}
+    Let $G$ be a group and  $N \unlhd G$. The homomorphism from $G$ onto
+    $\faktor{G}{N}$ defined by $g \rightarrow gN$ is called the \textbf{natrual
+    projection} of $G$ onto  $\faktor{G}{N}$. If $H \leq \faktor{G}{N}$, then
+    the \textbf{complete fiber} of $H$ in  $G$ is the preimage of $H$ under the
+    natrual projection.
+\end{definition}
+
+We conclude with some examples.
+
+\begin{example}\label{3.4}
+    \begin{enumerate}
+        \item[(1)] let $G$ be any group. Then $G$ and $\vbrack{e}$ are normal
+            in $G$, with quotient groups $\faktor{G}{\vbrack{e}} \simeq G$ and
+            $\faktor{G}{G} \simeq \vbrack{e}$.
+
+        \item[(2)] If $G$ is Abelian, then any subgroup  $H \leq G$ is normal.
+            We have  $gh=hg$ for all  $g \in G$,  $h \in h$, so that  $gH=Hg$
+            for all  $g \in G$. Thus quotient groups can be described for every
+            subgroup.
+
+        \item [(3)] Every subgroup of $\Z$ is normal, and cyclic, so
+            $N=\vbrack{n}=N=\vbrack{-n}=n\Z$. The quotient group
+            $\faktor{\Z}{n\Z}=\vbrack{1}$ is also cyclic.
+
+        \item[(4)] If $N \leq Z(G)$ for a group $G$, then  $N \unlhd G$.
+    \end{enumerate}
+\end{example}
