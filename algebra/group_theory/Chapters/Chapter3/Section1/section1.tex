@@ -31,11 +31,16 @@ We can immediately define a special fiber for any homomorphisms.
 \end{definition}
 
 \begin{lemma}\label{3.1.1}
-    If $\phi:G \rightarrow H$ is a $1-1$ homomorphism then $\ker{\phi}=\vbrack{e}$.
+    $\phi:G \rightarrow H$ is a $1-1$ homomorphism if and only if
+    $\ker{\phi}=\vbrack{e}$.
 \end{lemma}
 \begin{proof}
     We have that $\phi(e)=e'$, thus since $\phi$ is $1-1$, we have $\phi(a)=e'$
     implies $a=e$.
+
+    On the other hand, suppose $\ker{\phi}=\vbrack{e}$, and that
+    $\phi(a)=\phi(b)$. Then $\phi(a)\inv{\phi(b)}=\phi(a\inv{b})=e'$, so that
+    $a\inv{b}=e$. That is, $a=b$.
 \end{proof}
 
 \begin{lemma}\label{3.1.2}
