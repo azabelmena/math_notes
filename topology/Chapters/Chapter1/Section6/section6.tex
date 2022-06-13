@@ -6,21 +6,21 @@
 
 \begin{definition}
     A subset $A$ of a topological space  $X$ is said to be  \textbf{closed} if
-    $\com{X}{A}$ is open.		
+    $\com{X}{A}$ is open.
 \end{definition}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Consider $[a,b] \subseteq \R$, we have that
+    \begin{enumerate}
+        \item[(1)] Consider $[a,b] \subseteq \R$, we have that
             $\com{\R}{[a,b]}=(-\infty,a) \cup (b, \infty)$ which is open in
             $\R$. So  $[a,b]$ is closed.
 
-        \item In  $\R \times \R$, the set  $A=\{x \times y: x,y \geq 0\}$  (i.e
+        \item[(2)] In  $\R \times \R$, the set  $A=\{x \times y: x,y \geq 0\}$  (i.e
             the first quadtant of the plane) is closed, for $\com{\R \times
             \R}{A}=(- \infty,0) \times \R \cup \R \times (-\infty,0)$, which is
             open in $\R \times \R$.
 
-        \item Consider the finite complement topology $\Tc_C$ on a set  $X$. We
+        \item[(3)] Consider the finite complement topology $\Tc_C$ on a set  $X$. We
             have that  $\com{X}{X}=\emptyset \in \Tc$, so  $X$ is closed,
             similarly,  $\emptyset$ is also closed. Likewise, if  $A \subseteq
             X$ is a finite set, then  $\com{X}{A}$ is also finite, and hence $A$
@@ -28,26 +28,26 @@
             are those finite subsets of  $X$. As a consequence, this examle also
             illustrates that sets can be both closed and open.
 
-        \item In the discrete topology  $2^X$, every open set is closed. This is
+        \item[(4)] In the discrete topology  $2^X$, every open set is closed. This is
             another example where open sets are also closed sets.
 
-        \item Consider  $[0,1] \cup (2,3)$ in the subspace topology on $\R$. We
+        \item[(4)] Consider  $[0,1] \cup (2,3)$ in the subspace topology on $\R$. We
             have that  $[0,1]$ is open  ($[0,1]=[0,1] \cup (2,3) \cap
             (-\frac{2}{3}),\frac{3}{2}$), similarly, $(2,3)$ is also open. Now
             taking  $\com{[0,1] \cup (2,3)}{(2,3)}=[0,1]$, which is open, so
             $[0,1]$ is closed in the subspace topology on  $\R$, bu the same
             reasoning, so is  $(2,3)$.
-    \end{enumerate}		
-\end{example} 
+    \end{enumerate}
+\end{example}
 
 \begin{theorem}\label{1.6.1}
     Let $X$ be a topological space. Then:
-         \begin{enumerate}[label=(\arabic*)]
-             \item $\emptyset$ and  $X$ are closed.
+         \begin{enumerate}
+             \item[(1)] $\emptyset$ and  $X$ are closed.
 
-             \item Arbitrary intersections of closed sets are closed.
+             \item[(2)] Arbitrary intersections of closed sets are closed.
 
-             \item Finite unions of closed sets are closed.
+             \item[(3)] Finite unions of closed sets are closed.
         \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -93,7 +93,7 @@
     By theorem \ref{1.6.2}, if $A$ is closed in  $Y$, then  $A=C \cap Y$ with
     $C$ closed in  $X$, now since  $Y$ is closed in  $X$, then  $Y=D \cap X$
     with  $D$ closed in  $X$. Thus  $A=(C \cap D) \cap X$, therefore,  $A$ is
-    closed in  $X$.		
+    closed in  $X$.
 \end{proof}
 
 We now go over the concepts of the closure, and the interior of a set.
@@ -163,26 +163,26 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
 \end{corollary}
 \begin{proof}
     This is a direct application of theorem \ref{1.6.6}, since basis elements
-    are open sets.	
+    are open sets.
 \end{proof}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item We have the closure of $(0,1]$ in  $\R$ is the closed interval
+    \begin{enumerate}
+        \item[(1)] We have the closure of $(0,1]$ in  $\R$ is the closed interval
             $[0,1]$, since every neighborhood of $0$ intersects  $(0,1]$. Now
             every point outside of  $[0,1]$ has a neighborhood disjoint from
             $[0,1]$  (take the neighborhood $(2,3)$ of  $2$).
 
-        \item $\cl{\frac{1}{\Z^+}}=\{0\} \cup \frac{1}{\Z+}$ and $\cl{\{0\} \cup
+        \item[(2)] $\cl{\frac{1}{\Z^+}}=\{0\} \cup \frac{1}{\Z+}$ and $\cl{\{0\} \cup
             (1,2))}=\{0\} \cup [1,2]$.
 
-        \item $\cl{\Q}=\R$,  $\cl{\Z^+}=\Z^+$,  $\cl{\R^+}=\R^+ \cup \{0\}$.
+        \item[(3)] $\cl{\Q}=\R$,  $\cl{\Z^+}=\Z^+$,  $\cl{\R^+}=\R^+ \cup \{0\}$.
             This first follows from the density of $\Q$ in  $\R$. Every
             neighborhood  $n \in \Z^+$ intersects  $\Z^+$, so  $\cl{Z^+}
-            \subseteq \Z^+$, and we have that the neighborhood  $(0,1)$ of  $0$ 
+            \subseteq \Z^+$, and we have that the neighborhood  $(0,1)$ of  $0$
             intersects $\R^+$, so  $\cl{\R^+} \subseteq \R^+ \cup \{0\}$.
-    \end{enumerate}		
-\end{example} 
+    \end{enumerate}
+\end{example}
 
 \begin{definition}
     If $A \subseteq X$, with  $X$ a topological space, and if  $x \in X$, we say
@@ -192,22 +192,22 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
 \end{definition}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Consider $(0,1]$, we have that  $0 \in [0,1]=\cl{(0,1]}=\cl{\com{[0,1]}{\{0\}}$, 
-            so $0$ is a limit point of $(0,1]$, the same can be said for any  $x \in (0,1]$.		
+    \begin{enumerate}
+        \item[(1)] Consider $(0,1]$, we have that  $0 \in [0,1]=\cl{(0,1]}=\cl{\com{[0,1]}{\{0\}}$,
+            so $0$ is a limit point of $(0,1]$, the same can be said for any  $x \in (0,1]$.
 
-        \item For $\frac{1}{\Z^+}$, $0$ is once again a limit point. 
+        \item[(2)] For $\frac{1}{\Z^+}$, $0$ is once again a limit point.
             Let  $x \in \R$ be nonzero, and let  $[x,b)$ be the neighborhood
             of  $x$ in the lower limit topology. Then  $[x,b) \cap
             \frac{1}{\Z^+}=\emptyset$ or $\{x\}$, hence,  $0$ is the only limit
             point of  $ \frac{1}{\Z^+}$.
 
-        \item $\cl{\{0\} \cup (1,2)}=\{0\} \cup [1,2]$ has all of its limit
+        \item[(3)] $\cl{\{0\} \cup (1,2)}=\{0\} \cup [1,2]$ has all of its limit
             points in $[1,2]$. Likewise, every point in  $\R$ is a limit point
             of  $\Q$.  $\Z^+$ has no limit points in  $\R$, and the limit points
             of  $\R^+$ are all the points of  $\cl{\R^+}$.
     \end{enumerate}
-\end{example} 
+\end{example}
 
 \begin{theorem}\label{1.6.7}
     Let $A \subseteq X$,  $X$ a topological space, and let  $A'$ be the set of
@@ -226,17 +226,17 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
 \end{corollary}
 \begin{proof}
     If $A$ is closed, then  $\cl{A}=A=A \cup A'$, thus  $A' \subseteq A$. The
-    converse is obvious.		
+    converse is obvious.
 \end{proof}
 
 \begin{definition}
     Let $X$ be a topological space. A sequence  $\{x_n\}$ is said to
     \textbf{converge} to a point  $x \in X$ if for every neighborhood  $U$ of
-    $x$, there is an  $N \in \Z^+$ such that  $x_n \in U$ for all  $n \geq N$.		
+    $x$, there is an  $N \in \Z^+$ such that  $x_n \in U$ for all  $n \geq N$.
 \end{definition}
 
 \begin{example}
-    Consider the following topological space on $\{a,b,c\}$ in 
+    Consider the following topological space on $\{a,b,c\}$ in
     \begin{figure}[h]
         \centering
         \includegraphics[scale = 0.5]{Figures/Chapter1/hausdorffSpace.png}
@@ -249,7 +249,7 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
     $U_a=\{a,b\}$,  $U_b=\{b\}$, and  $U_c=\{b,c\}$. Now let $N>0$, then we see
     that for all  $n \geq N$, that  $b \in U_b,U_a,U_c$, thus  $b$
     converges to  $a$ and to  $c$, and itself,
-\end{example} 
+\end{example}
 
 \begin{definition}
     A topological space $X$ is called a \textbf{Hausdorff space} if for each
@@ -261,7 +261,7 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
 \begin{example}
     The topology of the previous example in figure \ref{1.8} is not a Hausdorff
     space.
-\end{example} 
+\end{example}
 
 \begin{theorem}\label{1.6.8}
     Every finite point set in a Hausdorff space is closed.
@@ -319,29 +319,29 @@ topoltopological spaces.
 \begin{definition}
     Let $\{x_n\}$ be a sequence in a Hausdorff space  $X$. If  $\{x_n\}$
     converges to a point $x \in X$, we call  $x$ the \textbf{limit} of
-    $\{x_n\}$ and we write  $\lim{x_n}=x$ or  $\{x_n\} \rightarrow x$.		
+    $\{x_n\}$ and we write  $\lim{x_n}=x$ or  $\{x_n\} \rightarrow x$.
 \end{definition}
 
 \begin{theorem}\label{1.6.12}
     The following are true:
-        \begin{enumerate}[label=(\arabic*)]
-            \item Every simply oredered set under the order topology is
+        \begin{enumerate}
+            \item[(1)] Every simply oredered set under the order topology is
                 Hausdorff.
 
-            \item The product of two Hausdorff spaces is Hausdorff.
+            \item[(2)] The product of two Hausdorff spaces is Hausdorff.
 
-            \item The subspace of a Hausdorff space is Hausdorff.
+            \item[(3)] The subspace of a Hausdorff space is Hausdorff.
         \end{enumerate}
 \end{theorem}
 \begin{proof}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $X$ be an ordered set under the order topology. Take  $x,y \in
+    \begin{enumerate}
+        \item[(1)] Let $X$ be an ordered set under the order topology. Take  $x,y \in
             X$ distinct, and suppose without loss of generality that $x<y$. Then
             consider the neighborhoods  $(-\infty,x]$ and  $[y,\infty)$ of  $x$
             and  $y$ respectively. Then  $(-\infty,x] \cap
             [y,\infty)=\emptyset$.
 
-        \item Let $X$ and  $Y$ be Hausdorff, and consider  $X \times Y$ in the
+        \item[(2)] Let $X$ and  $Y$ be Hausdorff, and consider  $X \times Y$ in the
             product topology. Let  $ x_1 \times y_1$ and $ x_2 \times y_2$ be
             distinct points, and let $U_{x_1}$, $U_{x_2}$, $V_{y_1}$ and
             $V_{y_2}$ be basis elements of $ x_1$, $ x_2$, $y_1$, and $y_2$
@@ -355,12 +355,12 @@ topoltopological spaces.
             V_{y_2})=(U_{x_1} \cap U_{x_2}) \times (V_{y_1} \cap V_{y_2}) = \emptyset
             \times \emptyset =\emptyset)$.
 
-        \item Let $X$ be Hausdorff, and let  $Y$ be a subspace of  $X$. Let  $x_1$ 
+        \item[(3)] Let $X$ be Hausdorff, and let  $Y$ be a subspace of  $X$. Let  $x_1$
             and $x_2$ be distinct points, and let  $U_{x_1}$ and $U_{x_2}$ be
             their neighborhoods. Since $Y$ is open in  $X$, then so are  $Y \cap
             U_{x_1}$ and $Y \cap U_{x_2}$, so they are also neighborhoods of $
             x_1$ and $ x_2$ respectively. Then $Y \cap
             U_{x_1} \cap Y \cap U_{x_2}=Y \cap (U_{x_1} \cap
             U_{x_2})=\emptyset$.
-    \end{enumerate}		
+    \end{enumerate}
 \end{proof}

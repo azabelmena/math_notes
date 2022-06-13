@@ -52,9 +52,9 @@ We go more in depth on metric spaces here.
     $\epsilon \leq \frac{\epsilon_i}{i}$ and $d(x_i,y_i)<\epsilon_i$, and so $y \in \Prod{U_i}$.
     Therefore $D$ induces the product space topology
 \end{proof}
-\begin{remark} 
+\begin{remark}
     This theorem generalizes theorem \ref{2.2.9} for any countable product space of a metric space
-    $X$. Hence we can take theorem \ref {2.2.9} as a corollary to this theorem.		
+    $X$. Hence we can take theorem \ref {2.2.9} as a corollary to this theorem.
 \end{remark}
 
 We would now like to study continuous functions in metric spaces, which brings us into the realm of
@@ -151,8 +151,8 @@ We now consder methods for constructing continous functions on metric spaces.
 \end{proof}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item $\R^{\omega}$ is not metrizable in the box topology. Let $A=\{(x_1,x_2,\dots) \in
+    \begin{enumerate}
+        \item[(1)] $\R^{\omega}$ is not metrizable in the box topology. Let $A=\{(x_1,x_2,\dots) \in
             \R^{\omega}:x_i>0\}$ and consider $0=(0,0,\dots) \in \R^{\omega}$. $0 \in \cl{A}$ if
             for any basis element $B=(a_1,b_1) \times (a_2,b_2) \times \dots$, $0 \in B$; then  $B
             \cap A \neq \emptyset$  (take the point $ \frac{1}{2}b \in \R^\omega$). Now let
@@ -161,7 +161,7 @@ We now consder methods for constructing continous functions on metric spaces.
             (-x_{22},x_{22}) \times \dots$. Then $0 \in B'$, but  $\{a_n\} \not\subseteq B'$ for the
             point $x_{nn} \notin (-x_{nn},x_{nn})$. Thus $a_n \not\rightarrow 0$.
 
-        \item An uncountable product of  $\R$ with itself is not metrizable. Let  $J$ be
+        \item[(2)] An uncountable product of  $\R$ with itself is not metrizable. Let  $J$ be
             uncountable, and let  $A=\{(x_{\alpha}) \in \R^J:x_{\alpha}=1 \text{ for all but
             finitely many } \alpha\}$. Consider $0 \in \R^J$ and let  $\Prod{U_{\apha}}$ be a basis
             for containing $0$. Now  $U_{\alpha} \neq \R$ for $\alpha_1, \dots, \alpha_n$, so let
@@ -176,5 +176,5 @@ We now consder methods for constructing continous functions on metric spaces.
             $U_{\beta}=(-1,1)$ in $\R$ let  $U=\pi_{\beta}^{-1}(U_{\beta})$ in $\R^J$. Then  $U$ is
             a neighborhood of  $0$ not containing  any points of  $\{a_n\}$, so $a_n \not\rightarrow
             0$.
-    \end{enumerate}		
-\end{example} 
+    \end{enumerate}
+\end{example}

@@ -14,7 +14,7 @@ Now if $f:X \rightarrow Y$ is continuous, the for every open set  $V$ of  $Y$,
 $f^{-1}(V)$ is open in  $X$. Now suppose that  $\Bc$ is a basis of  $Y$, then
 $V=\bingcup{B_{\alpha}}$, hence
 $f^{-1}(\bingcup{B_{\alpha}})=\bingcup{f^{-1}{B_{\alpha}}}$, which is open in
-$X$, thus  $B_{\alpha}$ must also be open in  $X$. 
+$X$, thus  $B_{\alpha}$ must also be open in  $X$.
 
 Similarly, if $\Sc$ is a subbasis of  $Y$, then for any basis element  $B$ of
 $Y$,  $B=\bigcap_{i=1}^{n}{S_i}$, which then implies that
@@ -22,8 +22,8 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
  $1 \leq i \leq n$.
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $f:\R \rightarrow \R$ be a continuous realvalued function.
+    \begin{enumerate}
+        \item[(1)] Let $f:\R \rightarrow \R$ be a continuous realvalued function.
             THen for each open interval  $I \subseteq \R$,  $f^{-1}(I)$ is an
             open interval in  $\R$, so take  $x_0 \in \R$ and $\epsilon>0$, and
             let $I=(f(x_0)-\epsilon,f(x_0)+\epsilon)$, then since $ x_0 \in
@@ -47,32 +47,32 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
             topological definition of continuity is equivialent to the real
             analytic definition of continuity.
 
-        \item Let $f:\R \rightarrow \R_l$ be defined such that  $f(x)=x$ for all
+        \item[(2)] Let $f:\R \rightarrow \R_l$ be defined such that  $f(x)=x$ for all
             $x \in \R$. Take  $[a,b) \subseteq \R_l$, we have that
             $f^{-1}([a,b))=[a,b)$, which is not open in  $\R$  (under the
             standard topology), hence $f$ is not continuous. However, the map
             $g:\R_l \rightarrow \R$ defined the same way is continuous since
             $g^{-1}((a,b))$ is open in  $\R_l$.
     \end{enumerate}
-\end{example} 
+\end{example}
 
 \begin{theorem}\label{1.7.1}
     Let $X$ and  $Y$ be topological spaces, and let  $f:X \rightarrow Y$ be a mapping of  $X$ into
     $Y$. Then the following are equivalent:
-        \begin{enumerate}[label=(\arabic*)]
-            \item $f$ is continuous.
+        \begin{enumerate}
+            \item[(1)] $f$ is continuous.
 
-            \item For every $A \subseteq X$,  $f(\cl{A}) \subseteq \cl{f(A)}$.
+            \item[(2)] For every $A \subseteq X$,  $f(\cl{A}) \subseteq \cl{f(A)}$.
 
-            \item For every closed set $B \subseteq Y$,  $f^{-1}(B)$ is closed in $X$.
+            \item[(3)] For every closed set $B \subseteq Y$,  $f^{-1}(B)$ is closed in $X$.
 
-            \item For each  $x \in X$ and each neighborhood  $V$ of  $f(x)$, there us a neighborhood
+            \item[(4)] For each  $x \in X$ and each neighborhood  $V$ of  $f(x)$, there us a neighborhood
                 $U$ of  $x$ such that  $f(U) \subseteq V$.
         \end{enumerate}
 \end{theorem}
 \begin{proof}
     Let $f$ be continuous and let  $A \subseteq X$. Consider the neighborhood  $V$ of  $f(x)$, then
-    $f^{-1}(V)$ is open in $X$, and intersects  $A$ at a point  $y$. Then  $V \cap f(A)=f(y)$, thus 
+    $f^{-1}(V)$ is open in $X$, and intersects  $A$ at a point  $y$. Then  $V \cap f(A)=f(y)$, thus
     $f(x) \in \cl{f(A)}$.
 
     Now let $B$ be closed in  $Y$, and let  $A=f^{-1}(B)$. THen we have that $f(A)=f(f^{-1(B)})
@@ -90,17 +90,17 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
 
 \begin{definition}
     Let $X$ and  $Y$ be topological spaces, and  $f:X \rightarrow Y$ be a $1-1$ mapping of  $X$ onto
-    $Y$. We call  $f$ a \textbf{homeomorphism} if both $f$ and  $f^{-1}$ are continuous.		
+    $Y$. We call  $f$ a \textbf{homeomorphism} if both $f$ and  $f^{-1}$ are continuous.
 \end{definition}
 
-\begin{lemma}\label{1.7.2} 
+\begin{lemma}\label{1.7.2}
     Let $X$ and  $Y$ be topological spaces and let $f:X \rightarrow Y$ be a homeomorphism. Then
     $f(U)$ is open if and only if $U$ is open.
 \end{lemma}
 \begin{proof}
     We have that both $f:X \rightarrow Y$ and  $f^{-1}:Y \rightarrow X$ are continuous $1-1$ of $X$
-    and  $Y$ onto each other  (respectively). Now let $U$ be open in  $X$, then $U=f^{-1}(V)$, for 
-    some set  $V$ open in $Y$. Notice then, that $f(U)=f(f^{-1}(V))=V$, thus $f(U)$ is open in $Y$. 
+    and  $Y$ onto each other  (respectively). Now let $U$ be open in  $X$, then $U=f^{-1}(V)$, for
+    some set  $V$ open in $Y$. Notice then, that $f(U)=f(f^{-1}(V))=V$, thus $f(U)$ is open in $Y$.
     Conversely, let $V=f(U)$ be open in $Y$ for some open set  $U$ in  $X$, then  $U=f^{-1}(V)$, so
     by definition of continuity, $U$  is open in $X$.
 \end{proof}
@@ -112,78 +112,78 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
 \end{definition}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item The map $f:\R \rightarrow \R$ defined by  $f(x)=3x+1$ is a homeomorphism whose inverse
+    \begin{enumerate}
+        \item[(1)] The map $f:\R \rightarrow \R$ defined by  $f(x)=3x+1$ is a homeomorphism whose inverse
             is $f^{-1}(y)-\frac{1}{3}(y-3)$, both $f$ and  $f^{-1}$ are contiuous.
 
-        \item The map $f:(-1,1) \rightarrow \R$ defined by $f(x)=\frac{x^2}{1-x^2}$ has as its
+        \item[(2)] The map $f:(-1,1) \rightarrow \R$ defined by $f(x)=\frac{x^2}{1-x^2}$ has as its
             inverse the map $f:\R \rightarrow (-1,1)$ defined by
             $f^{-1}(y)=\frac{2y}{1+\sqrt{1+4y^2}}$. Both $f$ and  $f^{-1}$ are contiuous, so $f$ is
             a homeomorphism.
 
-        \item Teh map  $g:\R_l \rightarrow \R$ defined by  $g(x)=x$ is not a homeomorphism, despite
+        \item[(3)] The map  $g:\R_l \rightarrow \R$ defined by  $g(x)=x$ is not a homeomorphism, despite
             being contiuous, as $g^{-1}(1)$ is undefined.
 
-        \item Let $S^1$ be the unit circle in $\R$, which is a subspace of $\R$, and define
+        \item[(4)] Let $S^1$ be the unit circle in $\R$, which is a subspace of $\R$, and define
             $f:[0,1) \rightarrow S^1$ by $f(t)=(\cos(t),\sin(t))$. Clearly $f$ is  $1-1$ onto
             $S^1$, and contiuous, however  $f^{-1}$ is not contiuous as $f([0,\frac{1}{4}))$ is not
             open in $S^1$ as  $f(0)$ is in no open set of $\R^2$ such that  $U \cap S^1=f([0,1))$.
 
-        \item Consider the mappings $g:[0,1) \rightarrow \R^2$ by $f(t)=(\cos(2t\pi),\sin(2t\pi)))$.
+        \item[(5)] Consider the mappings $g:[0,1) \rightarrow \R^2$ by $f(t)=(\cos(2t\pi),\sin(2t\pi)))$.
             Now $g$ is  $1-1$ and continuous, and we have that  $g([0,1)) \subseteq S^1$, however
             since $g$ is not a homeomorphism,  $g$ fails to be a topological embedding.
     \end{enumerate}
-\end{example} 
+\end{example}
 
 \begin{theorem}[Constructions for continuous functions.]\label{1.7.3}
     Let $X$ and  $Y$ be topological spaces, then:
-        \begin{enumerate}[label=(\arabic*)]
-            \item (Constant construction) If $f:X \rightarrow Y$ maps  $x \rightarrow y_0$ for all
+        \begin{enumerate}
+            \item[(1)] (Constant construction) If $f:X \rightarrow Y$ maps  $x \rightarrow y_0$ for all
                 $x \in X$, then  $f$ is continuous.
 
-            \item  (Inclusion) If $A \subseteq X$ is a subspace, then the inclusion mapping  $\iota:A
+            \item[(2)]  (Inclusion) If $A \subseteq X$ is a subspace, then the inclusion mapping  $\iota:A
                 \rightarrow Y$ is continuous.
 
-            \item (Construction by composition) If $f:X \rightarrow Y$ and  $g:Y \rightarrow Z$ are
+            \item[(3)] (Construction by composition) If $f:X \rightarrow Y$ and  $g:Y \rightarrow Z$ are
                 continuous, then  $f \circ g: X \rightarrow Z$ is also continuous.
 
-            \item  (Domain restriction) If  $f:X \rightarrow Y$ is continuous and  $A \subseteq X$,
+            \item[(4)]  (Domain restriction) If  $f:X \rightarrow Y$ is continuous and  $A \subseteq X$,
                 then  $f:A \rightarrow Y$ is continuous.
 
-            \item  (Range restriction) if $f:X \rightarrow Y$, and  $Z \subseteq Y$ such that  $f(X)
+            \item[(5)]  (Range restriction) if $f:X \rightarrow Y$, and  $Z \subseteq Y$ such that  $f(X)
                 \subseteq Y$, then $f:X \rightarrow Z$ is continuous.
 
-            \item  (Range exapnsion) If $f:X \rightarrow Y$ is continuous, and  $Y \subseteq Z$ is a
+            \item[(6)]  (Range exapnsion) If $f:X \rightarrow Y$ is continuous, and  $Y \subseteq Z$ is a
                 subspace of  $Z$, then  $f:X \rightarrow Z$ is continuous.
 
-            \item  (Local Formulation) The map $f:X \rightarrow Y$ is continuous if  $X$ can be
+            \item[(7)]  (Local Formulation) The map $f:X \rightarrow Y$ is continuous if  $X$ can be
                 written as the union of open sets  $U_{\alpha}$ such that $f:U_{\alpha} \rightarrow
                 Y$ is continuous for all $\alpha$.
         \end{enumerate}
 \end{theorem}
 \begin{proof}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $f (x)=y_0$ for all $x \in X$, and let  $V$ be open in  $Y$, then  $f^{-1}(V)=X$
+    \begin{enumerate}
+        \item[(1)] Let $f (x)=y_0$ for all $x \in X$, and let  $V$ be open in  $Y$, then  $f^{-1}(V)=X$
             or $\emptyset$ depending on if $ y_0 \in V$ or noy. In either case, $f^{-1}(V)$ is open.
 
-        \item If $U$ us open in  $X$, then  $f^{-1}(U)=U \cap A$ which is open in the subspace
+        \item[(2)] If $U$ us open in  $X$, then  $f^{-1}(U)=U \cap A$ which is open in the subspace
             topology of $X$.
 
-        \item If $U$ is open in  $Z$,  $g^{-1}(U)$ is open in $Y$, hence  $f^{-1}g^{-1}(U)$ is
+        \item[(3)] If $U$ is open in  $Z$,  $g^{-1}(U)$ is open in $Y$, hence  $f^{-1}g^{-1}(U)$ is
             open in $X$.
 
-        \item Notice that  $f_A=\iota \circ f=f:A \rightarrow Y$ which is continuous by $(2)$
+        \item[(4)] Notice that  $f_A=\iota \circ f=f:A \rightarrow Y$ which is continuous by $(2)$
             and $(3)$.
 
-        \item Let $f:A \rightarrow Y$ be continuous and let  $f(X) \subseteq Z \subseteq Y$. Let $B$
+        \item[(5)] Let $f:A \rightarrow Y$ be continuous and let  $f(X) \subseteq Z \subseteq Y$. Let $B$
             be open in  $Z$, so  $B=Z \cap U$ for some  $U$ open in  $Y$. Now by hypothesis, we have
             that $f^{-1}(U) \subseteq f^{-1}(B)$, hence $f^{-1}(B)$ is open in $X$, thus  $f:X
             \rightarrow Z$ is continuous.
 
-        \item Let  $f$ be as in  $(5)$, and let $Y \subseteq Z$ be a subspace of  $Z$. Then the
+        \item[(6)] Let  $f$ be as in  $(5)$, and let $Y \subseteq Z$ be a subspace of  $Z$. Then the
             mapping  $h:X \rightarrow Z$ defined by $h=\iota \circ f$ is continuous.
 
-        \item Let  $X=\bingcup{U_{\alpha}}$ where $U_{\alpha}$ is open in $X$, and $f:U_{\alpha}
+        \item[(7)] Let  $X=\bingcup{U_{\alpha}}$ where $U_{\alpha}$ is open in $X$, and $f:U_{\alpha}
             \rightarrow Y$ is continuous for all  $\alpha$. LEt $V$ be open in  $Y$, then
             $f^{-1}(V) \cap U_{\alpha}=f^{-1}_U{\alpha}(V)$, and since $f$ is continuous on
             $U_{\alpha}$, then $f^{-1}(V)=\bigcup{f^{-1}_{U_{\alpha}}(V)}$ is open in $X$.
@@ -200,7 +200,7 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
         \end{cases}$
     . Then $h$ is continuous.
 \end{theorem}
-\begin{proof} 
+\begin{proof}
     Let $C$ be closed in  $Y$, then  $h^{-1}(C)=f^{-1}(C) \cup g^{-1}(C)$. Since $f$ and  $g$ are
     continuous, then  $f^{-1}(C)$ and $g^{-1}(C)$ are closed in $A$ and  $B$, respectively. Thus
     $h^{-1}(C)$ is closed in $X$.
@@ -210,7 +210,7 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
         Define $h:\R \rightarrow \R$ by $h(x)=
             \begin{cases}
                 x \text{, } & x \leq 0 \\
-                \frac{x}{2} \text{, } & x \geq 0 
+                \frac{x}{2} \text{, } & x \geq 0
             \end{cases}$
         . We have that $x$ and  $\frac{x}{2}$ are continuous on their respective domains,
         intersecting at $0$, i.e.  $x:(-\infty,0] \rightarrow \R$, $ \frac{x}{2}:[0,\infty
@@ -220,12 +220,12 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
         However, $k,l:\R \rightarrow \R$ defined by $k(x)=
             \begin{cases}
                 x-2 \text{, } & x \leq 0 \\
-                x+2 \text{, } & x \geq 0 
+                x+2 \text{, } & x \geq 0
             \end{cases}$
             and $l(x)=
             \begin{cases}
                 x-2 \text{, } & x < 0 \\
-                x+2 \text{, } & x \geq 0 
+                x+2 \text{, } & x \geq 0
             \end{cases}$
             are not continuous. We have that their domains intersect at $0$, but that  $k(0)=\pm_2$,
             (so $k$ isn't even a function). Likewise, $(-\infty,0) \cap [0,\infty)=\emptyset$, which
@@ -237,7 +237,7 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
                 \caption{The mappings $h$, $k$, and  $l$.}
                 \label{fig_1.9}
             \end{figure}
-\end{example} 
+\end{example}
 
 \begin{theorem}\label{1.7.5}
     Let $f:A \rightarrow X \times Y$ be defined by  $f(a)=(f_1(a),f_2(a))$, where $ f_1:A
@@ -273,4 +273,4 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
 \begin{example}
     The function $f(t)=((\cos(t)),\sin(t))$ is a parametrization of the curve $x^2+y^2=1$, i.e. the
     unit circle  $S^1$.
-\end{example} 
+\end{example}

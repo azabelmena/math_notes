@@ -7,12 +7,12 @@
 \begin{definition}
     A \textbf{metric} (or \textbf{distance function}) on a set $X$ is a map  $d:X \times X
     \rightarrow \R$ satisfying the following for all $x,y,z \in X$:
-        \begin{enumerate}[label=(\arabic*)]
-            \item $d(x,y) \geq 0$ and $d(x,y)=0$ if and only if $x=y$.
+        \begin{enumerate}
+            \item[(1)] $d(x,y) \geq 0$ and $d(x,y)=0$ if and only if $x=y$.
 
-            \item $d(x,y)=d(y,x)$.
+            \item[(2)] $d(x,y)=d(y,x)$.
 
-            \item (The Triangle Inequality) $d(x,y) \leq d(x,z)+d(z,y)$.
+            \item[(3)] (The Triangle Inequality) $d(x,y) \leq d(x,z)+d(z,y)$.
         \end{enumerate}
         We call $d(x,y)$ the \textbf{distance} between $x$ and  $y$, and given  $\epsilon>0$, we
     define the  \textbf{$\epsilon$-ball centered about $x$} to be the set $B_d(x,\epsilon)=\{y \in
@@ -45,7 +45,7 @@
 \begin{definition}
     If $d$ is a metric on  $X$, we call the topology having as basis the collection of all
     $\epsilon$-balls centered about  $x$, for some  $x \in X$ and  $\epsilon>0$, the \textbf {metric
-    topology} induced by $d$.		
+    topology} induced by $d$.
 \end{definition}
 
 \begin{corollary}
@@ -62,16 +62,16 @@
 \end{figure}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Define $d(x,y)=1$ if $x \neq y$ and  $d(x,y)=0$ if $x=y$. Clearly  $d$ is a metric on
+    \begin{enumerate}
+        \item[(1)] Define $d(x,y)=1$ if $x \neq y$ and  $d(x,y)=0$ if $x=y$. Clearly  $d$ is a metric on
             $X$, and induces the discrete topology on  $X$. The basis  $B_d(x,1)=\{x\}$
 
-        \item The standard metric on $\R$ is defined to be  $d(x,y)=|x-y|$ and is a metric on $\R$ 
+        \item[(2)] The standard metric on $\R$ is defined to be  $d(x,y)=|x-y|$ and is a metric on $\R$
             (that is, the absolute $|cdot|$ is a metric on  $\R$). This metric induces the standard
             topology on $\R$ as we see that it has basis $B_d(x,\epsilon)=\{y \in \R:
             |x-y|<\epsilon\}=\{y \in \R: y-\epsilon<x<y+\epsilon\}=(y-\epsilon,y+\epsilon)$.
-    \end{enumerate}		
-\end{example} 
+    \end{enumerate}
+\end{example}
 
 \begin{definition}
     If $X$ is a topological space, we call  $X$ \textbf {metrizable} if there is a metric $d$ which
@@ -108,12 +108,12 @@ metric.
 \end{proof}
 
 \begin{definition}
-    We call $\bar{d}$ the \textbf{standard bounded metric} corresponding to $d$.		
+    We call $\bar{d}$ the \textbf{standard bounded metric} corresponding to $d$.
 \end{definition}
 
 \begin{definition}
     Let $x \in \R^n$. We define the \textbf {norm} of $x$,  $||x||$, to be
-    $||x||=\sqrt{x_1^2+ \dots +x_n^2}$. We define the \textbf{square metric} $\rho$  on 
+    $||x||=\sqrt{x_1^2+ \dots +x_n^2}$. We define the \textbf{square metric} $\rho$  on
     $\R^n$ to be  $\rho(x,y)=\mac\{|x_1-y_1|, \dots |x_n-y_n|\}$.
 \end{definition}
 
@@ -136,7 +136,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
 
     Now if $x=0$ and  $y=0$, then  $|\vbrack{x,y}|=||x||||y||=0$, so suppose that both $x,y \neq 0$,
     and let  $a=\frac{1}{||x||}$ and $b=\frac{1}{||y||}$. Notice that $||ax+by|| \geq 0$ and
-    $||ax-by|| \geq 0$, then $||ax+by||^2||ax-by||^2=||x||^2||y^2||-|\vbrack{x,y}|^2\geq 0$, hence 
+    $||ax-by|| \geq 0$, then $||ax+by||^2||ax-by||^2=||x||^2||y^2||-|\vbrack{x,y}|^2\geq 0$, hence
     $|\vbrack{x,y}| \leq ||x||||y||$.
 \end{proof}
 \begin{remark}

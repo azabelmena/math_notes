@@ -17,27 +17,27 @@
 \end{definition}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item     $\R$ is not compact. Consider the following cover of  $\R$:
+    \begin{enumerate}
+        \item[(1)] $\R$ is not compact. Consider the following cover of  $\R$:
             \begin{equation*}
                 \Ac=\{(n,n+2):n \in \Z\}
             \end{equation*}
             however, there is no finite subcollection of $\Ac$ that is a subcover of  $\R$.
 
-        \item The subspace $X=\{0\} \cup \{\frac{1}{n}: n \in \Z\}$ of $\R$ is compact. Let  $\Ac$
+        \item[(2)] The subspace $X=\{0\} \cup \{\frac{1}{n}: n \in \Z\}$ of $\R$ is compact. Let  $\Ac$
             be a cover of  $X$. There is a  $U \in \Ac$ with  $0 \in U$ and $U$ contains all but
             finitely many of the points  $ \frac{1}{n}$. Now choose for each $\frac{1}{n} \in
             \com{X}{U}$ an element of $\Ac$ $A_{n}$ containing it. Then for all $n$,  $\{A_n\}$ is
             finite and covers $X$.
 
-        \item If  $X$ is a finite topological space, then it is compact, since every open cover of
+        \item[(3)] If  $X$ is a finite topological space, then it is compact, since every open cover of
             $X$ is finite.
 
-        \item The interval  $(0,1]$ is not compact. The open cover $\Ac=\{(\frac{1}{n}, 1]: n \in
+        \item[(4)] The interval  $(0,1]$ is not compact. The open cover $\Ac=\{(\frac{1}{n}, 1]: n \in
             \Z^+\}$ contains no finite subcollection of $\Ac$ that covers  $(0,1]$. Likewise,
             $(0,1)$ is not compact by the same argument. However, $[0,1]$ is compact.
     \end{enumerate}
-\end{example} 
+\end{example}
 
 \begin{lemma}\label{3.4.1}
     Let $Y$ be a subspace of a topological space  $X$.  $Y$ is compact if and only if every open
@@ -52,7 +52,7 @@
 
     Conversely, suppose that for every cover $\{A_\alpha\}$, open in  $X$, of  $Y$ that
     $\{A_\alpha\}$ contains a finite subcover of $Y$. Choose  $A_\alpha'=A_\alpha \cap Y$ for all
-    $\alpha$; then $\{A_\alpha'\}$ is an open cover of $Y$. 
+    $\alpha$; then $\{A_\alpha'\}$ is an open cover of $Y$.
     By hypthesis, there is a finite subcover $\{A_i\}_{i=1}^n$, and by our assignment, we
     get that $\{A_i'\}_{i=1}^n \subseteq \{A_\alpha'\}$ is also a finite subcover of $Y$. Therefore
      $Y$ is compact as a subspace of  $X$.
@@ -83,7 +83,7 @@ U_{y_i}$, so $z \notin U$. Then  $U$ is a neighborhood of  $X$, disjoint from  $
 $\com{X}{Y}$ open in $X$. Therefore  $Y$ is closed in  $X$.
 \end{proof}
 
-\begin{figure}[h] 
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.2]{Figures/Chapter3/compactHausdorff1.eps}
     \caption{}
@@ -105,7 +105,7 @@ $\com{X}{Y}$ open in $X$. Therefore  $Y$ is closed in  $X$.
             $\R$ is closed under finite complements, however every subset of  $\R$ is compact in the
             finite complement topology.
     \end{enumerate}
-\end{example} 
+\end{example}
 
 \begin{theorem}\label{3.4.4}
     If $X$ is a compact space, and  $Y$ is a topological space, and  $f:X \rightarrow Y$ is a
@@ -178,7 +178,7 @@ The following theorem lemma states the existence of such tubes, and helps establ
     Let $Y=0 \times \R$ and let  $N=\{x \times y: |x|<\frac{1}{y^2+1}\}$. $N$ is open in  $\R^2$ and
      $Y \subseteq N$; however there is no tube about  $Y$, so the tube lemma fails when  $Y$ is not
      compact.
-\end{example} 
+\end{example}
 
 \begin{definition}
     A collection $\Cc$ of subsets of a set  $X$ is said to satisfy the  \textbf{finite intersection

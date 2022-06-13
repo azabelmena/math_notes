@@ -38,27 +38,27 @@ closed.
 \end{proof}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item If $X$ is a $2$-point set in the indescrete topology, then clearly by lemma \ref
-            {3.1.1}, $X$ is connected.		
+    \begin{enumerate}
+        \item[(1)] If $X$ is a $2$-point set in the indescrete topology, then clearly by lemma \ref
+            {3.1.1}, $X$ is connected.
 
-        \item Consider the subspace $[-1,0) \cup (0,1]$ in $\R$. We have that the intervals
+        \item[(2)] Consider the subspace $[-1,0) \cup (0,1]$ in $\R$. We have that the intervals
             $[-1,0)$ and $(0,1]$ form a seperation of $\R$  (also notice that $[-1,0)$ and $(0,1]$
             share no limitpoints).
 
-        \item The sets $[-1,0]$ and $(0,1]$ are disjoint in the subspace $[-1,1]$ of $\R$, however,
+        \item[(3)] The sets $[-1,0]$ and $(0,1]$ are disjoint in the subspace $[-1,1]$ of $\R$, however,
             they are not a seperation of  $[-1,1]$ as $[-1,0]$ is closed (and also shares a limit
             point with $(0,1]$).
 
-        \item The field of rationals $\Q$ is not connected. Let  $Y$ be a subsspace of  $\Q$ and
+        \item[(4)] The field of rationals $\Q$ is not connected. Let  $Y$ be a subsspace of  $\Q$ and
             consider  $Y \cap (-\infty,a)$ and $Y \cap (a,\infty)$, for $a \in \com{\R}{\Q}$. These
             two sets from a seperation of $\Q$.
 
-        \item Consider  $X=\{x \times x \in \R^2:y=0\} \cup \{x \times y \in \R:x \geq 0 \text{ and
+        \item[(5)] Consider  $X=\{x \times x \in \R^2:y=0\} \cup \{x \times y \in \R:x \geq 0 \text{ and
             } y=\frac{1}{x}\}$. $X$ is not connected, the subsets in the definition form a
             seperation.
-    \end{enumerate}		
-\end{example} 
+    \end{enumerate}
+\end{example}
 
 \begin{lemma}\label{3.1.3}
     If $X$ is a topological space and  $C$ and  $D$ form a seperation of  $X$ and if  $Y$ is a
@@ -103,7 +103,7 @@ closed.
     The image of a connected subspace under a continuous map is connected.
 \end{theorem}
 \begin{proof}
-    Let $F:X \rightarrow Y$ be continuous and let $X$ be connected consider  
+    Let $F:X \rightarrow Y$ be continuous and let $X$ be connected consider
     $f:X \rightarrow f(X)$ and suppose that $f(X)=C \cup D$ is a seperation of $f(X)$. Then
     $f^{-1}(C)$ and $f^{-1}(D)$ are also nonempty, disjoint open sets of $X$ who's union is  $X$,
     and so they form a seperation of  $X$ which cannot happen. Hence  $f(X)$ is connected.
@@ -121,18 +121,18 @@ closed.
 
      Now suppose that  $\prod_{i=1}^{n}{X_i}$ is connected for all $n \geq 1$. We have that
      $\prod_{i=1}^{n+1}{X_i}$ is homeomorphic to $\prod_{i=1}^{n}{X_i} \times X_{n+1}$, which is
-     connected by hypothesis. Thus $\prod_{i=1}^{n+1}{X_i}$ is connected. 
+     connected by hypothesis. Thus $\prod_{i=1}^{n+1}{X_i}$ is connected.
 \end{proof}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Consider $\R^{\omega}$ in the box topology. Let $A$ be the set of all bounded
+    \begin{enumerate}
+        \item[(1)] Consider $\R^{\omega}$ in the box topology. Let $A$ be the set of all bounded
             sequences, and  $B$ the set of all unbounded sequences. Then  $\R^{\omega}=A \cup B$ is
             a seperation of $\R^{\omega}$, for if $U=\prod{(a_i-1,a_i+1)}$ for the sequence
             $\{a_n\}$, then $U$ is bounded if  $\{a_n\}$ is bounded, and unbounded if $\{a_n\}$ is
             unbounded.
 
-        \item $\R^{\omega}$ under the product topology is connected. Let $\hat{\R^n}$ be the
+        \item[(2)] $\R^{\omega}$ under the product topology is connected. Let $\hat{\R^n}$ be the
             subspace of $\R^{\omega}$ of all sequences that are eventually $0$, i.e.  $x_i=0$
             whenever  $i>n$.  $\hat{\R^n}$ is homeomorphic to $\R^n$, so  $\hat{\R^n}$ is connected.
             Then $\R^{\infty}=\bigcup{\hat{\R^n}}$ is also connected since $0$ is a common point.
@@ -142,5 +142,5 @@ closed.
             a_N,0,0,\dots) \in \R^{\infty} \cap U$, since $U_i \in U$ for all  $i$ and  $0 \in U_i$
             whenever  $i>N$. So $\cl {\R^{\infty}}=\R^{\omega}$, and so $\R^{\omega}$ is indeed
             connected.
-    \end{enumerate}		
-\end{example} 
+    \end{enumerate}
+\end{example}

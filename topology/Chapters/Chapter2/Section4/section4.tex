@@ -29,13 +29,13 @@
     If $p:X \rightarrow Y$ is a continuous map of  $X$ onto  $Y$, for topological spaces  $X$ and
     $Y$, that is either open or closed, then  $p$ is a quotient map.
 \end{lemma}
-\begin{remark} 
-    A quotient map need not be open nor closed.		
+\begin{remark}
+    A quotient map need not be open nor closed.
 \end{remark}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $X$ be the subspace  $[0,1] \cup [2,3]$ and $Y$ be the subspace  $[0,2]$ in $\R$,
+    \begin{enumerate}
+        \item[(1)] Let $X$ be the subspace  $[0,1] \cup [2,3]$ and $Y$ be the subspace  $[0,2]$ in $\R$,
             and defined  $p:X \rightarrow Y$ by  $p(x)=\begin{cases}
                                                 x, \text{ } x \in [0,1] \\
                                                 x-1, \text{ } x \in [2,3] \\
@@ -48,13 +48,13 @@
         continuous onto, but fails to be closed. So  $p|_A$ is not a quotient map, depsite the fact
         that  $[2,3]$ is open in $A$ and saturated with respect to  $p|_A$.
 
-        \item Let $\pi_1:\R \times \R \rightarrow \R$ be the projection map that takes $x \times y
+        \item[(2)] Let $\pi_1:\R \times \R \rightarrow \R$ be the projection map that takes $x \times y
             \rightarrow x$. Clearly  $\pi_1$ is continuous onto, and $\pi_1$ is also open as
             $\pi_1(U \times V)=U$ which is open in $Y$; hence  $\pi_1$ is a quotient map. Now
             consider the closed set $C=\{x \times y:xy=1\}$ in $\R \times \R$.
             $\pi_1(C)=\com{\R}{\{0\}}$ which is not closed.
     \end{enumerate}
-\end{example} 
+\end{example}
 
 \begin{theorem}\label{2.4.2}
     Let $X$ be a topological space, and  $A$ a set, and let  $p:X \rightarrow Y$ be onto. Define
@@ -67,7 +67,7 @@
         \begin{equation*}
             p^{-1}(\bigcup{U_{\alpha}})=\bigcup{p^{-1}(U_{\alpha})}
         \end{equation*}
-    and 
+    and
         \begin{equation*}
             p^{-1}(\bigcap_{i=1}^{n}{U_i})=\bigcap_{i=1}^{n}{p^{-1}(U_i)}.
         \end{equation*}
@@ -96,18 +96,18 @@
                 \end{cases}
         \end{equation*}
     Then the quotient topology on $A$ is the topology  $\Tc=\{\emptyset, \{a\}, \{b\}, \{a,b\},A\}$.
-    
-    \begin{figure}[h] 
+
+    \begin{figure}[h]
         \centering
         \includegraphics[scale = 0.2]{Figures/Chapter2/quotientOnABC.eps}
         \caption{The quotient topology on $A=\{a,b,c\}$ induced by $p$.}
     \end{figure}
-\end{example} 
+\end{example}
 
 \begin{definition}
     Let $X$ be a topological space and  $X/p$ be a partition of  $X$ into disjoint subsets whos
     disjoint union is  $X$. Let  $p:X \rightarrow X/p$ be onto such that  $p:x \rightarrow U$ if  $x
-    \in U$. We call  $X/p$ in the quotient topology induced by $p$ the \textbf{quotient space} of $X$, or the 
+    \in U$. We call  $X/p$ in the quotient topology induced by $p$ the \textbf{quotient space} of $X$, or the
     \textbf{decomposition space} of $x$.
 \end{definition}
 
@@ -119,15 +119,15 @@ the quotient space $X/p$ by noting a subset $U$ of equivalence classes where $p^
 $X/p$ or  $X/\sim$.
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item     Let $X=\{x \times y: x^+y^2 \leq 1\}$ be the closed unit ball in $\R^2$ and let  $X/\sim$ be the
+    \begin{enumerate}
+        \item[(1)] Let $X=\{x \times y: x^+y^2 \leq 1\}$ be the closed unit ball in $\R^2$ and let  $X/\sim$ be the
     quotient space of  $X$ by taking its equivalence classes to be all one point sets  $\{x \times
     y\}$ for which $x^2+y^2<1$, and the unit circle  $S^1$. Take  $p:X \rightarrow X/\sim$ by the
     rule
         \begin{equation*}
             p:x \times y \rightarrow \begin{cases}
                 \{x \times y\}, & x^2+y^22<1 \\
-                S^1        & x^2+y^2=1 \\ 
+                S^1        & x^2+y^2=1 \\
                       \end{cases}
         \end{equation*}
     Clearly $p$ is onto by definition, and e have that for any one point sets and  $ S_1$ in
@@ -136,25 +136,26 @@ $X/p$ or  $X/\sim$.
     quotient map. Now let  $S^2=\{x \times y \times z: x^2+y^2+z^2=1\}$ be the \textbf{unit sphere}
     in $\R^3$, then we can map  $X/\sim \rightarrow S^2$ by taking  $\{x \times y\} \rightarrow \{x
     \times y \times z: x^2+y^2+z^2<1\}$ and $ S^1 \rightarrow S^1$. Then we have that $X/\sim$ is
-    homeomorphic to the unit sphere.		
-    \end{enumerate}
+    homeomorphic to the unit sphere.
 
-        \item Let $X$ be the unit square  $[0,1] \times [0,1]$ and define the quotient space
+        \item[(2)] Let $X$ be the unit square  $[0,1] \times [0,1]$ and define the quotient space
             $X/\sim$ of $X$ to be the collection of all point sets $\{x \times y\}$ for which $x
             \times y \in (0,1) \times (0,1)$, together with the sets $\{x \times 0, x \times 1\},
             \{0 \times y, 1 \times y\}$ with $x \times y \in (0,1) \times (0,1)$, and the set $\{0
             \times 0, 0 \times 1, 1 \times 0, 1 \times 1\}$, then we can show that $X/\sim$ is
             homeomorphic to a torus.
-\end{example} 
 
-\begin{figure}[h] 
+    \end{enumerate}
+\end{example}
+
+\begin{figure}[h]
     \centering
     \includegraphics[scale = 0.2]{Figures/Chapter2/diskSphere-eps-converted-to.pdf}
     \caption{Transforming the unit disk into the unit sphere}
     \label{fig_2.4}
 \end{figure}
 
-\begin{figure}[h] 
+\begin{figure}[h]
     \centering
     \includegraphics[scale = 0.2]{Figures/Chapter2/squareTorus.eps}
     \caption{Transforming the unit disk into the unit sphere}
@@ -164,10 +165,10 @@ $X/p$ or  $X/\sim$.
 \begin{theorem}\label{2.4.3}
     Let $p:X \rightarrow Y$ be a quotient map and let  $A$ be a subspace of  $X$ saturated with
     respect to  $p$. Let  $q:A \rightarrow p(A)$, then:
-        \begin{enumerate}[label=(\arabic*)]
-            \item If $A$ is either open or closed, then  $q$ is a quotient map.
+        \begin{enumerate}
+            \item[(1)] If $A$ is either open or closed, then  $q$ is a quotient map.
 
-            \item If $p$ is either open or closed, then  $q$ is a quotient map.
+            \item[(2)] If $p$ is either open or closed, then  $q$ is a quotient map.
         \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -226,8 +227,8 @@ $X/p$ or  $X/\sim$.
 \begin{corollary}
     Let $g:X \rightarrow Z$ be continuous and let $X/\sim=\{g^{-1}(\{z\}):z \in Z\}$ ` be the
     following quotient space for $X$. Then
-        \begin{enumerate}[label=(\arabic*)]
-            \item The map $g$ induces a continuous  $1-1$ map  $f:X/\sim \rightarrow Z$ of  $X/\sim$
+        \begin{enumerate}
+            \item[(1)] The map $g$ induces a continuous  $1-1$ map  $f:X/\sim \rightarrow Z$ of  $X/\sim$
                 onto  $Z$ which is a homeomorphism if and only if $g$ is a quotient map.
 
                 \[\begin{tikzcd}
@@ -239,7 +240,7 @@ $X/p$ or  $X/\sim$.
 	                \arrow["g", from=1-1, to=3-3]
                     \end{tikzcd}\]
 
-            \item If $Z$ is Hausdorff, then so is  $X/\sim$.
+            \item[(2)] If $Z$ is Hausdorff, then so is  $X/\sim$.
         \end{enumerate}
 \end{corollary}
 \begin{proof}
@@ -257,8 +258,8 @@ $X/p$ or  $X/\sim$.
 We conclude with some examples.
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $X=\{[0,1] \times n:n \in Z^+\}$ be the subspace of $\R^2$ and let  $Z=\{x \times
+    \begin{enumerate}
+        \item[(1)] Let $X=\{[0,1] \times n:n \in Z^+\}$ be the subspace of $\R^2$ and let  $Z=\{x \times
             \frac{x}{n}: x \in [0,1] \text{ } n \in \Z^+\}$ be another subspace of $\R^2$. We have
             that  $X$ is the union of countably many disjoint line segments in  $\R^2$ and  $Z$ is
             the union of countably many line segments in  $\R^2$ having a common endpoint.
@@ -281,7 +282,7 @@ We conclude with some examples.
                 \label{fig_2.6}
             \end{figure}
 
-        \item Not it is not in general true that the product of two quotient maps is itself a
+        \item[(2)] Not it is not in general true that the product of two quotient maps is itself a
             quotient map. Consider $\R$ and let  $\R/\sim$ be the quotient space obtained from  $\R$
             by taking $\Z^+ \sim b$ for some point  $b$. Now let  $p:\R \rightarrow \R/\sim$ be the
             quotient map and consider  $\Q$ as a subspace of  $\R$. Let  $i:\Q \rightarrow \Q$ be
@@ -305,4 +306,4 @@ We conclude with some examples.
             points that need not lie in $U$, which contradicts that  $U'$ is open in $\R/\sim$ So
             $p \times i$ cannot be a quotient map.
     \end{enumerate}
-\end{example} 
+\end{example}
