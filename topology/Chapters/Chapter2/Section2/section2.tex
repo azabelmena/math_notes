@@ -12,7 +12,7 @@
 
             \item[(2)] $d(x,y)=d(y,x)$.
 
-            \item[(3)] (The Triangle Inequality) $d(x,y) \leq d(x,z)+d(z,y)$.
+            \item[(3)]$d(x,y) \leq d(x,z)+d(z,y)$ (The Triangle Inequality).
         \end{enumerate}
         We call $d(x,y)$ the \textbf{distance} between $x$ and  $y$, and given  $\epsilon>0$, we
     define the  \textbf{$\epsilon$-ball centered about $x$} to be the set $B_d(x,\epsilon)=\{y \in
@@ -27,7 +27,7 @@
 \begin{proof}
     Let $y \in B_d(x,\epsilon)$ and let $\delta=\epsilon-d(x,y)$, and take $z \in B_d(y,\delta)$,
     then we have that $d(y,z)<\epsilon-d(x,y)$, thus $d(x,x) \leq d (x,y)+d(y,z)<\epsilon$ which
-    complete the proof.
+    completes the proof.
 \end{proof}
 
 \begin{theorem}\label{2.2.2}
@@ -67,9 +67,10 @@
             $X$, and induces the discrete topology on  $X$. The basis  $B_d(x,1)=\{x\}$
 
         \item[(2)] The standard metric on $\R$ is defined to be  $d(x,y)=|x-y|$ and is a metric on $\R$
-            (that is, the absolute $|cdot|$ is a metric on  $\R$). This metric induces the standard
-            topology on $\R$ as we see that it has basis $B_d(x,\epsilon)=\{y \in \R:
-            |x-y|<\epsilon\}=\{y \in \R: y-\epsilon<x<y+\epsilon\}=(y-\epsilon,y+\epsilon)$.
+            (that is, the absolute $|\cdot|$ is a metric on  $\R$). This metric
+            induces the standard topology on $\R$ as we see that it has basis
+            $B_d(x,\epsilon)=\{y \in \R: |x-y|<\epsilon\}=\{y \in \R:
+            y-\epsilon<x<y+\epsilon\}=(y-\epsilon,y+\epsilon)$.
     \end{enumerate}
 \end{example}
 
@@ -108,7 +109,9 @@ metric.
 \end{proof}
 
 \begin{definition}
-    We call $\bar{d}$ the \textbf{standard bounded metric} corresponding to $d$.
+    Let $X$ be a metric space with metric  $d$. We define the \textbf{standard
+    bounded metric} to be the metric $\bar{d}:X \times X \rightarrow \R$ defined
+    by the rule $\bar{d}(x,y) = \min\{d(x,y), 1\}$ for any $x,y \in X$.
 \end{definition}
 
 \begin{definition}
@@ -122,7 +125,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
  \begin{definition}
     Let $x,y \in \R^n$. We define the \textbf{inner product} of $x$ and $y$ to be:
         \begin{equation}
-            \vbrack{x,y}=x_1y_1+ \dots x_ny_n
+            \vbrack{x,y}=x_1y_1+ \dots +x_ny_n
         \end{equation}
 \end{definition}
 
@@ -131,8 +134,8 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     ||x||||y||$.
 \end{lemma}
 \begin{proof}
-    W have $\vbrack{x,y+z}=x_1(y_1+z_1)+ \dots +x_n(y_n+z_n)=(x_1y_1 + \dots +x_n_y_n)+(x_1z_1+
-    \dots +x_nz_n)=\vbrack{x,y}+\vbrack{x,z}$.
+    We have $\vbrack{x,y+z}=x_1(y_1+z_1)+ \dots +x_n(y_n+z_n)=(x_1y_1 + \dots
+    +x_ny_n)+(x_1z_1+ \dots +x_nz_n)=\vbrack{x,y}+\vbrack{x,z}$.
 
     Now if $x=0$ and  $y=0$, then  $|\vbrack{x,y}|=||x||||y||=0$, so suppose that both $x,y \neq 0$,
     and let  $a=\frac{1}{||x||}$ and $b=\frac{1}{||y||}$. Notice that $||ax+by|| \geq 0$ and
@@ -185,14 +188,15 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     The norm and the square metric both induce the product topology on $\R^n$.
 \end{theorem}
 \begin{proof}
-    Notics that $\rho(x,y) \leq ||x-y|| \leq \sqrt{n}\rho(x,y)$. This first inequality shows that
+    Notics that $\rho(x,y) \leq ||x-y|| \leq \rho(x,y)\sqrt{n}$. This first
+    inequality shows that
     $B_{||\cdot||}(x,\epsilon) \subseteq B_{\rho}(x,\epsilon)$, and the second shows that
     $B_{\rho}(x,\frac{\epsilon}{\sqrt{n}}) \subseteq B_{||\cdot||}(x,\epsilon)$, thus both
     $||\cdot||$ and  $\rho$ induce the same topology.
 
     Now let  $B=(a_1,b_1) \times \dots \times (a_n,b_n)$ be a basis for the product topology on $
     \R^n$. Since, for each  $i$, there is an  $\epsilon_i>0$ such that
-    $(x_i-\epsilon_i,x_i+epsilon_i) \subseteq (a_i,b_i)$, choosing $\epsilon=\min\{\epsilon_1,
+    $(x_i-\epsilon_i,x_i+\epsilon_i) \subseteq (a_i,b_i)$, choosing $\epsilon=\min\{\epsilon_1,
     \dots, \epsilon_n\}$, we see that $B_{\rho}(x,\epsilon) \subseteq B$. Conversely, given $y \in
     B_{\rho}(x,\epsilon)$, notice that $B_{\rho}(x, \epsilon)=(x_1-\epsilon,x_1+\epsilon) \times
     \dots \times (x_n-\epsilon,x_n+\epsilon)$, thus $B \subseteq B_{\rho}(x,\epsilon)$. Thus the
@@ -212,7 +216,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     the box topology on  $\R^J$, and all three topologies are different if  $J$ is infinite.
 \end{theorem}
 \begin{proof}
-    Let $x=(x_[\alpha])$ and $\prod{U_{\alpha}}$ be a basis element for the product topology, and
+    Let $x=(x_\alpha)$ and $\prod{U_{\alpha}}$ be a basis element for the product topology, and
     let $\alpha_1 ,\dots, \alpha_n$ be the indices for which $U_{\alpha} \neq \R$, and for each $i$,
     choose  $\epsilon_i>0$ such that the  $\epsilon_i$-ball about  $x_{\alpha_i}$,
     $B_{\bar{d}}(x_{\alpha_i},\epsilon_i) \subseteq U_{\alpha}$. Let $\epsilon=\min\{\epsilon_1,
@@ -230,7 +234,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     map  $J \rightarrow \Z^+$ by  $\alpha_i \rightarrow i$. Let
     $U=\prod{(x_i-\epsilon,x_i+\epsilon)}$ and consider a base $B_{\bar{\rho}}(x,\epsilon)$. We have
     that for  $y \in B_{\bar{\rho}}(x,\epsilon)$ that
-    $\bar{d(x_{\alpha},y_{\alpha})}=\min\{\rho(x_i,y_i),1\}$, we have that
+    $\bar{d}(x_{\alpha},y_{\alpha})=\min\{\rho(x_i,y_i),1\}$, we have that
     $\bar{d}(x_i,y_i)=\bar{\rho}(x_i,y_i)$ or $1$, and if we choose  $0<\epsilon<1$, then
     $\bar{\rho}$ fails to put $B_{\bar{\rho}}(x,\epsilon)$ inside of $U$. Likewise, the basis
     $\prod{U_{\alpha}}$ (in the prodct topology) failes to be contained in
@@ -243,31 +247,37 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
 \end{remark}
 
 \begin{theorem}\label{2.2.9}
-    Let $\bar{d}(a,b)=\min{|a-b|,1\}$ be the standard bounded metric on $\R$, and for  $x,y \in
-    \R^{\omega}$, define:
-        \begin{equation}
-            D(x,y)=\sup\{\frac{\bar{d}(x_i,y_i)}{i}\}
-        \end{equation}.
-    Then $D$ is a metric that induces the product topology on $\R^{\omega}$.
-\$B_{\bar{\rho}}(x,\epsilon)$
+    Let $\bar{d}(a,b)=\min\{|a-b|,1\}$ be the standard bounded metric on $\R$,
+    and for  $x,y \in \R^\omega$, define:
+    \begin{equation}
+        D(x,y) = \sup\{\frac{\bar{d}(x_i,y_i)}{i}\}
+    \end{equation}
+    Then $D$ is a metric that induces the product space topology on $\R^\omega$
 \end{theorem}
 \begin{proof}
-    Since $\bar{d}$ is a metric, $D$ satisfies the conditions for a metric space, it is worth
-    looking into the case for the triangle inequality however. Notice that for all  $i$,  $
-    \frac{\bar{d}(x_i,y_i)}{i} \leq \frac{\bar{d}(x_i,z_i)}{i}+\frac{\bar{d}(z_i,y_i)}{i} \leq
-    D(x,z)+D(z,y)$, thus $D(x,y) \leq D(x,z)+D(z,y)$.
+    Since $\bar{d}$ is a metric, $D$ satisfies the conditions for a metric, it
+    is worth looking into the case for the triangle inequality. Notice that for
+    all  $i$,  $D(x,y) \leq \frac{\bar{d}(x_i,y_i)}{i} \leq
+    \frac{\bar{d}(x_i,z_i)}{i}+\frac{\bar{d}(z_i,y_i)}{i} \leq D(x,z)+D(z,y)$.
+    Therefore $D(x,y) \leq D(x,z)+D(z,y)$.
 
-    Now let $U$ be open in the metric topology induced by  $D$ and let  $x \in U$. Choose an
-    $\epsilon$-ball  $B_D(x,\epsilon) \subseteq U$, and choose $N>0$ large enough that  $
-    \frac{1}{N}<\epsilon$, and let $V=(x_1-\epsilon,x_1+\epsilon) \times \dots \times
-    (x_N-\epsilon,x_N+\epsilon) \times \R \times \dots \times \R \times \dots$. Given $y \in
-    \R^{\omega}$, we have $ \frac{\bar{d}(x_i,y_i)}{i} \leq \frac{1}{N}$, thus $D(x,y)$ \leq
-    \max\{\bar(d)(x_1,y_1),\dots, \bar(d)(x_i,y_i)}{i}, \frac{1}{N}\} for all $i \geq N$. Now if  $y
-    \in V$, then the expression is less than  $\epsilon$, so  $V \subseteq B_D(x,\epsilon)$.
-    Convsersely, let $U=\prod{U_{i}}$ with $U_i$ open in  $\R$ for  $i=\alpha_1, \dots, \alpha_n$,
-    and $U_i=\R$ for all other  indices. Given $x \in U$, for  $i=\alpha_1, \dots, \alpha_n$ and let
-    $\epsilon=\min\{\frac{\epsilon_i}{i}:i=\alpha_1, \dots, \alpha_n\}$. Letting $B_d(x,\epsilon)$,
-    we see that $ \frac{\bar{d}(x_i,y_i)}{i} \leq D(x,y)<\epsilon$. Now if $i=\alpha_1, \dots,
-    \alphaalpha_n$, then $\bar{d}(x_i,y_i)<\epsilon_i \leq 1$, hence $|x_i-y_i|<\epsilon_i$, thus
-    $y \in U$.
+    Now let $U$ be open in the metric topology induced by  $D$, and let  $x \in
+    U$. Choose an  $\epsilon$-ball  $B_D(x,\epsilon) \subseteq U$ and choose
+    $N>0$ arbitrarily large such that  $\frac{1}{N}<\epsilon$ and let
+    $V=(x_1-\epsilon, x_1+\epsilon) \times \dots (x_N-\epsilon, x_N+\epsilon)
+    \times \R \times \dots \times \R \dots$. Given $y \in \R^\omega$, we have
+    $\frac{\bar{d}(x_i,y_i)}{i} \leq \frac{1}{N}$ for all $i \geq N$, thus
+    $D(x,y) \leq \max\{\frac{\bar{d}(x_1,y_1)}{1}, \dots,
+        \frac{\bar{d}(x_N,y_N)}{N}, \frac{1}{N}\}$ Now if $y \in V$, then the
+        expression is less than  $\epsilon$, so  $V \subseteq B_D(x, \epsilon)$.
+
+        Conversely let $U=\prod{U_i}$ where $U_i$ is open in  $\R$ for  $i =
+        \alpha_1, \dots, \alpha_n$, and $U_i=\R$ for all other indices. Given
+        $x \in U$, for $i=\alpha_1, \dots, \alpha_n$, and leting $\epsilon=
+        \min\{\frac{\epsilon_i}{i} : i=\alpha_1, \dots, \alpha_n \}$ where
+        $\frac{1}{N} < \epsilon_i$ for each $i$. Letting  $B_d(x,\epsilon)$ be
+        the corresponding $\epsilon$-ball under the metric $d$, we see that
+        $\frac{\bar{d}(x_i,y_i)}{i} \leq D(x,y)<\epsilon$. Now if $i=\alpha_1,
+        \dots, \alpha_n$, then  $\bar{d}(x_i,y_i)<\epsilon_i \leq 1$, hence
+        $|x_i-y_i|<\epsilon_i$, putting  $y \in U$.
 \end{proof}

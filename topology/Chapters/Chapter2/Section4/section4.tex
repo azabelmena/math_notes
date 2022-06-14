@@ -120,17 +120,17 @@ $X/p$ or  $X/\sim$.
 
 \begin{example}
     \begin{enumerate}
-        \item[(1)] Let $X=\{x \times y: x^+y^2 \leq 1\}$ be the closed unit ball in $\R^2$ and let  $X/\sim$ be the
+        \item[(1)] Let $X=\{x \times y: x^2+y^2 \leq 1\}$ be the closed unit ball in $\R^2$ and let  $X/\sim$ be the
     quotient space of  $X$ by taking its equivalence classes to be all one point sets  $\{x \times
     y\}$ for which $x^2+y^2<1$, and the unit circle  $S^1$. Take  $p:X \rightarrow X/\sim$ by the
     rule
         \begin{equation*}
             p:x \times y \rightarrow \begin{cases}
-                \{x \times y\}, & x^2+y^22<1 \\
+                \{x \times y\}, & x^2+y^2<1 \\
                 S^1        & x^2+y^2=1 \\
                       \end{cases}
         \end{equation*}
-    Clearly $p$ is onto by definition, and e have that for any one point sets and  $ S_1$ in
+    Clearly $p$ is onto by definition, and we have that for any one point sets and  $ S_1$ in
     $X/\sim$ that  $p^{-1}(\{x \times y\})=B_{||\cdot||}(x,1)$, and $p^{-1}(S^1)=S_1$, thus open
     sets in $X$ are open in  $X/\sim$  (likewise closed), so $p$ is open which makes it into a
     quotient map. Now let  $S^2=\{x \times y \times z: x^2+y^2+z^2=1\}$ be the \textbf{unit sphere}
@@ -212,7 +212,8 @@ $X/p$ or  $X/\sim$.
 \end{tikzcd}\]
 
 \begin{proof}
-    For each $y \in Y$, since  $g$ is constant on all  $p^{-1(\{y\})}$, $g(p^{-1(\{y\})})$ is a one
+    For each $y \in Y$, since  $g$ is constant on all  $p^{-1}(\{y\})$,
+    $g(p^{-1}(\{y\}))$ is a one
     point set in $Z$; let it be $f(y)$. Then we have a map $f:Y \rightarrow Z$ such that
     $f(p(x))=g(x)$ for each $x$. Now if  $f$ is continuous, then so is  $g$; likewise if  $f$ is a
     quotient map.

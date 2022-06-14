@@ -5,7 +5,7 @@
 \section{The Subspace Topology.}
 
 \begin{theorem}\label{1.5.1}
-    Let $X$ he a topological space with topology $\Tc$, and let $Y \subseteq X$. Then the
+    Let $X$ be a topological space with topology $\Tc$, and let $Y \subseteq X$. Then the
     collection:
         \begin{equation*}
             \Tc_y = \{Y \cap U: U \in \Tc\}
@@ -39,7 +39,6 @@
     open in  $X$.
 \end{lemma}
 \begin{proof}
-    The proof is rather trivial, however, it is worth going through the motions.
     Let $U \in \Tc_Y$, then for some  $V \subseteq X$,  $U=Y \cap V$. Now since  $Y$ is open in  $X$, and so
     is  $V$, then  it follows that $U$ is also open in  $X$.
 \end{proof}
@@ -69,10 +68,10 @@
             $a$ nor  $b$ are in $[0,1]$, then we have $(a,b) \cap [0,1]=[0,1]$ only if  $[0,1] \subseteq (a,b)$, and
             $(a,b) \cap [0,1]=\emptyset$ otherwise.
 
-            Now each of these sets are open in $\R$, under the standard topology, except for $(a,1]$ and
-            $[0,b)$.
+            The only one of these sets open in $\R$ under the standard topology
+            is $(0,1)$.
 
-        \item[(2)] For  $[0,1) \cup \{2\} \subseteq \R$, the singletomn  $\{2\}$ is open in the
+        \item[(2)] For  $[0,1) \cup \{2\} \subseteq \R$, the singletoun  $\{2\}$ is open in the
             subspace topology on $[0,1) \cup \{2\}$; for observe, that $(\frac{3}{5},\frac{5}{2}) \cap
             ([0,1) \cup \{2\})=\{2\}$, however, in the order topology, on that same set, $\{2\}$ is not open.
             Any basis element on  $[0,1) \cup \{2\}$ containing  $2$ is of the form $(a,2]$, where
@@ -113,7 +112,7 @@
     Then the order topology on  $Y$ is the same as the subspace topology on  $Y$.
 \end{theorem}
 \begin{proof}
-    Consider $(a, \intfy) \subseteq X$. If  $a \in Y$, then  $(a,\infty) \cap Y=\{x \in Y: x>a\}$,
+    Consider $(a, \infty) \subseteq X$. If  $a \in Y$, then  $(a,\infty) \cap Y=\{x \in Y: x>a\}$,
     which is by definition an open ray on $Y$. Now if  $a \notin Y$, then  $a$ is either a lowerbound, or
     an upperbound. Then  $(a, \infty) \cap Y=\emptyset$ and  $(-\infty,a) \cap Y=Y$ if  $a$ is an
     upperbound, similarly, if  $a$ is a lowerbound we get  $(a, \infty) \cap Y=Y$ and  $(-\infty,a) \cap Y=\emptyset$.

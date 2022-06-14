@@ -25,7 +25,7 @@
             similarly,  $\emptyset$ is also closed. Likewise, if  $A \subseteq
             X$ is a finite set, then  $\com{X}{A}$ is also finite, and hence $A$
             is also closed. Thus, we have that all the closed sets of  $\Tc_C$
-            are those finite subsets of  $X$. As a consequence, this examle also
+            are those finite subsets of  $X$. As a consequence, this example also
             illustrates that sets can be both closed and open.
 
         \item[(4)] In the discrete topology  $2^X$, every open set is closed. This is
@@ -66,7 +66,7 @@
 
 \begin{definition}
     If $Y$ is a subspace of  $X$, we say that  $A$ is  \textbf{closed in $Y$} if
-    $A \subseteq Y$ and  $A$ is closed in the subspace topology of  $Y$.
+    $A \subseteq Y$ and  $A$ is closed in the subspace topology on  $Y$.
 \end{definition}
 
 \begin{theorem}\label{1.6.2}
@@ -193,8 +193,10 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
 
 \begin{example}
     \begin{enumerate}
-        \item[(1)] Consider $(0,1]$, we have that  $0 \in [0,1]=\cl{(0,1]}=\cl{\com{[0,1]}{\{0\}}$,
-            so $0$ is a limit point of $(0,1]$, the same can be said for any  $x \in (0,1]$.
+        \item[(1)] Consider $(0,1]$, we have that  $0 \in [0,1]=\cl{(0,1]}
+            =\cl{\com{[0,1]}{\{0\}}$,
+            so $0$ is a limit point of $(0,1]$, the same can be said for any
+            $x \in (0,1]$. $$
 
         \item[(2)] For $\frac{1}{\Z^+}$, $0$ is once again a limit point.
             Let  $x \in \R$ be nonzero, and let  $[x,b)$ be the neighborhood
@@ -240,8 +242,7 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
     \begin{figure}[h]
         \centering
         \includegraphics[scale = 0.5]{Figures/Chapter1/hausdorffSpace.png}
-        \caption{A topology on $\{a,b,c\}$, which turns out to be a Hausdorff
-        space.}
+        \caption{A topology on $\{a,b,c\}$, is not a Hausdorff space.}
         \label{fig1.8}
     \end{figure}
     figure \ref{fig1.8}, and define the sequence $\{x_n\}$ by  $x_n=b$ for all
@@ -319,7 +320,9 @@ topoltopological spaces.
 \begin{definition}
     Let $\{x_n\}$ be a sequence in a Hausdorff space  $X$. If  $\{x_n\}$
     converges to a point $x \in X$, we call  $x$ the \textbf{limit} of
-    $\{x_n\}$ and we write  $\lim{x_n}=x$ or  $\{x_n\} \rightarrow x$.
+    $\{x_n\}$ as $n$  \textbf{approaches} $\infty$ and we write $\lim_{n
+    \rightarrow \infty}{x_n}=x$ or $\{x_n\} \rightarrow x$ as $n \rightarrow
+    \infty$.
 \end{definition}
 
 \begin{theorem}\label{1.6.12}
