@@ -179,7 +179,7 @@ real analysis.
 
 \begin{definition}
     Let $\Ac$ be an open covering of a compact metric space $X$ with metric $d$.
-    We call the number $\delta>0$ such that for each subseet of  $X$ with
+    We call a number $\delta>0$ such that for each subseet of  $X$ with
     $\diam<\delta$, there exists an element of  $\Ac$ containing it a
     \textbf{Lebesgue number} of $\Ac$.
 \end{definition}
@@ -198,6 +198,12 @@ real analysis.
     $f:X \rightarrow Y$ is uniformly continuous only if it is continous.
 \end{theorem}
 \begin{proof}
+    Let $\epsilon>0$ and let  $\Ac=\{B(y,\frac{\epsilon}{2})\}_{y \in Y}$ be an
+    open covering of $Y$. Then  $f^{-1}(\Ac)=\{f^{-1}(B(y,\frac{\epsilon}{2}))\}$
+    is an open covering of $X$. Now, choose $\delta>0$ a Lebesgue number for
+    $f^{-1}(\Ac)$, then for $x,z \in X$ with  $d_X(x,x)<\delta$, the set
+    $\{x,z\}$ has $\diam\{x,z\}<\delta$, so $\{\f(x),f(z)\} \subseteq
+    B(y,\frac{\epsilon}{2})$ for $y \in Y$. Thus  $d_Y(f(x),f(z))<\epsilon$.
 \end{proof}
 
 \begin{definition}
@@ -205,11 +211,41 @@ real analysis.
     \textbf{isolated point} if the one-point set $\{x\}$ is open in $X$.
 \end{definition}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{Figures/Chapter3/thm3_6_7.eps}
+    \caption{We choose disjoint neighborhoods $W_1$ and  $W_2$ of $x$ and  $y$
+    respectively. Here we want  $y \in W_2 \cap U$, but  $x$ may be in  $W_1
+\cap U$ or simply $\com{W_1}{U}$.}
+    \label{fig_3.4}
+\end{figure}
+
 \begin{theorem}\label{3.6.7}
     Let $X$ be a nonepmty compact Hausdorff space. Then if $X$ has no isolated
     points,  $X$ is uncountable.
 \end{theorem}
 \begin{proof}
+    Let $U \neq \emptyset$ be an open set of  $X$, and let  $x \in X$. Choose
+    then a  $y \in X$ with  $y \neq x$. Choose also disjoint neighborhoods
+    $W_1$, and $W_2$ of $x$ and  $y$, respectively, (figure \ref{fig_3.4}) and
+    let  $V=W_2 \cap U$. Then $V \subseteq U$ is nonempty and  $x \notin
+    \cl{V}$.
+
+    Now let $f:\Z^+ \rightarrow X$ be a function, and let $x_n=f(n)$. By the
+    preceding argument, let $U=X$ and choose  $V_1 \subseteq U$ nonempty such
+    that $x_1 \notin \cl{V_1}$ for $x_1 \in X$. Then proceeding inductively,
+    we can get find $V_{n+1} \subseteq V_n$ nonempty with $x_n \notin
+    \cl{V_{n+1}}$. Now, consider the nested sequence of nonempty sdubsets:
+    \begin{equation*}
+        \cl{V_1} \supseteq \cl{V_2} \supseteq \dots \supseteq \cl{V_{n+1}}
+        \supseteq \dots
+    \end{equation*}
+    Since $X$ is compact, there is an
+    \begin{equation*}
+        x \in \bigcap_{i \in \Z^+}{\cl{V_i}}
+    \end{equation*}
+    Then $x \neq x_n$ since  $x \in \cl{V_n}$ and $x_n \notin \cl{V_n}$. This
+    means that $f$ is not onto, and hence $X$ is uncountable.
 \end{proof}
 \begin{corollary}
     Every closed set in $\R$ is uncountable.
