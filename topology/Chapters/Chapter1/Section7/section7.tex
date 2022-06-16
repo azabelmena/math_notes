@@ -12,19 +12,17 @@
 
 Now if $f:X \rightarrow Y$ is continuous, the for every open set  $V$ of  $Y$,
 $f^{-1}(V)$ is open in  $X$. Now suppose that  $\Bc$ is a basis of  $Y$, then
-$V=\bingcup{B_{\alpha}}$, hence
-$f^{-1}(\bingcup{B_{\alpha}})=\bingcup{f^{-1}{B_{\alpha}}}$, which is open in
-$X$, thus  $B_{\alpha}$ must also be open in  $X$.
+$V=\bingcup{B_{\alpha}}$, hence $f^{-1}(\bingcup{B_{\alpha}})$, is open in $X$
 
 Similarly, if $\Sc$ is a subbasis of  $Y$, then for any basis element  $B$ of
 $Y$,  $B=\bigcap_{i=1}^{n}{S_i}$, which then implies that
-$f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
- $1 \leq i \leq n$.
+$f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus $f^{-1}(S_i)$ is also open in
+$X$ for $1 \leq i \leq n$.
 
 \begin{example}
     \begin{enumerate}
         \item[(1)] Let $f:\R \rightarrow \R$ be a continuous realvalued function.
-            THen for each open interval  $I \subseteq \R$,  $f^{-1}(I)$ is an
+            Then for each open interval  $I \subseteq \R$,  $f^{-1}(I)$ is an
             open interval in  $\R$, so take  $x_0 \in \R$ and $\epsilon>0$, and
             let $I=(f(x_0)-\epsilon,f(x_0)+\epsilon)$, then since $ x_0 \in
             f^{-1}(I)$, there is a basis $(a,b) \subseteq f^{-1}(I)$ about
@@ -66,8 +64,9 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
 
             \item[(3)] For every closed set $B \subseteq Y$,  $f^{-1}(B)$ is closed in $X$.
 
-            \item[(4)] For each  $x \in X$ and each neighborhood  $V$ of  $f(x)$, there us a neighborhood
-                $U$ of  $x$ such that  $f(U) \subseteq V$.
+            \item[(4)] For each  $x \in X$ and each neighborhood  $V$ of
+                $f(x)$, there is a neighborhood $U$ of  $x$ such that
+                $f(U) \subseteq V$.
         \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -75,11 +74,12 @@ $f^{-1}(B)=\bigcap_{i=1}^{n}{f^{-1}(S_i)}$, thus  $S_i$ is also open in  $X$ for
     $f^{-1}(V)$ is open in $X$, and intersects  $A$ at a point  $y$. Then  $V \cap f(A)=f(y)$, thus
     $f(x) \in \cl{f(A)}$.
 
-    Now let $B$ be closed in  $Y$, and let  $A=f^{-1}(B)$. Then we have that $f(A)=f(f^{-1(B)})
+    Now let $B$ be closed in  $Y$, and let  $A=f^{-1}(B)$. Then we have that
+    $f(A)=f(f^{-1}(B))
     \subseteq B$, thus $x \in \cl{A}$.
 
     Now let $V$ be open in $Y$, so that  $B=\com{Y}{V}$ is closed in $Y$, and
-    $f^{-1}(B)=\com{f^{-1}(Y)}{f^{-1}(V)}=\com{X}{f^-1}(V)$ which is closed in $X$, hence
+    $f^{-1}(B)=\com{f^{-1}(Y)}{f^{-1}(V)}=\com{X}{f^{-1}}(V)$ which is closed in $X$, hence
     $f^{-1}(V)$ is open in $X$.
 
     Now let  $x \in X$, and let  $V$ be a neighborhood of  $f(x)$. Then $U=f^{-1}(V)$ is a

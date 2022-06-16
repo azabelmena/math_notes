@@ -2,28 +2,4 @@
 %	SECTION 1.1
 %----------------------------------------------------------------------------------------
 
-\section{Connected Sets}
-
-\begin{definition}
-    Two subsets $A$ and  $B$ of a metric space  $X$ are \textbf{seperated} if $A \cap \hat{B}$ 
-    and $\hat{A} \cap B$ are both empty. We say a subset $E$ of $X$ is \textbf{connected}, if 
-    $E$ is not the union of two nonepmty speperated sets.
-\end{definition}
-
-\begin{theorem}\label{2.5.1}
-    A subset $E$ of  $\R$ is connected if and only if  $x,y \in E$ and  $x<z<y$ imply 
-     $z \in E$.
-\end{theorem}
-\begin{proof}
-    Let $x,y \in E$ such that for some  $z \in (x,y))$, $z \notin E$. Then $E=A \cup B$, 
-    with $A=E \cup (-\infty,z)$ and $B=E \cup (z, \infty)$. Then $A$ and  $B$ are seperated, 
-    which contradicts the connectedness of  $E$.
-
-    Conversely suppose for  $x,y \in E$, that  $z \in E$ for  $z \in (x,y)$. Then there 
-    are nonempty seperated sets $A$ and $B$ such that  $A \cup B=E$. Choose  $x \in A$,  $y \in B$ 
-    such that  $x<y$, and let  $z=\sup{(A \cap [x,y])}$. Then by theorem \ref{2.2.7}, 
-    $z \in \hat{A}$, so  $z\ notin B$. In particular,  $x \leq x<y$. Now if  $z \notin A$, 
-    then  $x<z<y$, with  $z \notin E$. Now if $z \in A$, then  $z \notin \hat{B}$, 
-    hence there is a  $z'$ such that  $z<z'<y$, and  $z' \notin B$. Then  $x<z'<y$ 
-    and  $z' \not in E$.
-\end{proof}
+\section{Topological Groups.}

@@ -6,9 +6,10 @@
 
 \begin{definition}
     A collection $\Ac=\{A_{\alpha}\}$ of subsets of a topological space $X$ is said to be a  \textbf{cover}, or a
-    \textbf{covering} of $X$ if  $X \subseteq \bigcup{A_\alpha}$. We call $\{A_\alpha\}$ an \textbf{open cover} if each $A$
-    is open in  $X$. If  $\{A'\}$ is a subcollection of $\Ac$ that also covers $X$, we call
-    $\{A'\}$ a \textbf{subcover} of $X$.
+    \textbf{covering} of $X$ if  $X \subseteq \bigcup{A_\alpha}$. We call
+    $\{A_\alpha\}$ an \textbf{open cover} if each $A_\alpha$
+    is open in  $X$. If  $\{A'_\alpha\}$ is a subcollection of $\Ac$ that also covers $X$, we call
+    $\{A'_\alpha\}$ a \textbf{subcover} of $X$.
 \end{definition}
 
 \begin{definition}
@@ -53,7 +54,7 @@
     Conversely, suppose that for every cover $\{A_\alpha\}$, open in  $X$, of  $Y$ that
     $\{A_\alpha\}$ contains a finite subcover of $Y$. Choose  $A_\alpha'=A_\alpha \cap Y$ for all
     $\alpha$; then $\{A_\alpha'\}$ is an open cover of $Y$.
-    By hypthesis, there is a finite subcover $\{A_i\}_{i=1}^n$, and by our assignment, we
+    By hypothesis, there is a finite subcover $\{A_i\}_{i=1}^n$, and by our assignment, we
     get that $\{A_i'\}_{i=1}^n \subseteq \{A_\alpha'\}$ is also a finite subcover of $Y$. Therefore
      $Y$ is compact as a subspace of  $X$.
 \end{proof}
@@ -86,7 +87,7 @@ $\com{X}{Y}$ open in $X$. Therefore  $Y$ is closed in  $X$.
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{Figures/Chapter3/compact_hausdorf_space.eps}
-    \caption{}
+    \caption{Closed sets of a compact Hausdorff space (See theorem \ref{3.4.3}).}
     \label{fig_3.1}
 \end{figure}
 
@@ -144,18 +145,21 @@ The following theorem lemma states the existence of such tubes, and helps establ
     nieghbourhood $W$ of  $x_0$.
 \end{lemma}
 \begin{proof}
-    Take $x_0 \in X$ and let $N \subseteqX \times Y$ be open. We show there exists a tube about
-    $x_0 \times Y$. Cover $x_0 \times Y$ by basis elements $U \times V \subseteq N$. We have  $x_0
-    \times Y$ is compact since $x_0 \times Y$ is homeomorphic to $Y$; hence there is a finite
-    subcollection  $\{U_i \times V_i\}_{i=1}^n$ of the $U \times V \subseteq N$ covering  $x_0
-    \times Y$, supposing that $U_i \times V_i$ intersects  $x_0 \times Y$ for all $i$. Now define
-    $W=\bigcap_{i=1}^n{U_i}$. $W$ is open in  $X$, and contains  $x_0$.
+    Take $x_0 \in X$ and let $N \subseteqX \times Y$ be open. We show there
+    exists a tube about $x_0 \times Y$. Cover $x_0 \times Y$ by basis elements
+    $U \times V \subseteq N$. We have  $x_0 \times Y$ is compact since
+    $x_0 \times Y$ is homeomorphic to $Y$; hence there is a finite subcollection
+    $\{U_i \times V_i\}_{i=1}^n$ of the $U \times V \subseteq N$ covering  $x_0
+    \times Y$, supposing that $U_i \times V_i$ intersects  $x_0 \times Y$ for
+    all $i$. Now define $W=\bigcap_{i=1}^n{U_i}$. $W$ is open in  $X$, and
+    contains  $x_0$.
 
-    Now let x \times y \in $W \times Y$ and  $x_0 \times y \in x_0 \times Y$. We have that $x_0
-    \times y \in U_i \times v_i$, hence $y \un V_i$ for  $1 \leq i \leq n$. We also get that  $x \in
-    U_j$ for all  $1 \leq j \leq n$, since  $x \in W$ by definition. Hence  $x \times y \in U_i
-    \times V_i$. Since  $W \subseteq U_i \times V_i \subseteq N$, for all  $1 \leq i \leq n$, we get
-    the required result.
+    Now let x \times y \in $W \times Y$ and  $x_0 \times y \in x_0 \times Y$.
+    We have that $x_0 \times y \in U_i \times v_i$, hence $y \in V_i$ for
+    $1 \leq i \leq n$. We also get that  $x \in U_j$ for all  $1 \leq j \leq n$,
+    since  $x \in W$ by definition. Hence  $x \times y \in U_i \times V_i$.
+    Since  $W \subseteq U_i \times V_i \subseteq N$, for all  $1 \leq i \leq n$,
+    we get the required result.
 \end{proof}
 
 \begin{theorem}\label{3.4.7}

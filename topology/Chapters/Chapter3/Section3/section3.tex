@@ -14,7 +14,7 @@
     both  $x$ and  $y$, by definition,  $y \sim x$. Now suppose that  $x \sim y$ and  $y \sim z$.
     Then there are connected subspaces  $U$ and  $V$ with  $x,y \in U$,  $y,z \in V$. Since $y \in U
     \cap V$, by theorem \ref{3.1.4}, $U \cup V$ is a connected subspace with  $x,z \in U \cup V$.
-    That is  $x \sim z$. 
+    That is  $x \sim z$.
 \end{proof}
 
 \begin{definition}
@@ -39,7 +39,7 @@ The following theorem gives us the equivalence classes of $X$.
     \sim x_2$. This makes $C_1=C_2$ since they are equivalence classes.
 
     Now let $C$ be a component with  $ x_0 \in C$ then for all $x \in C$, $ x_0 \sim x$, then there
-    is a connected subspace $A_x$ of $X$ with  $x-,x \in A_x$. Then $A \subseteq C$, moreover 
+    is a connected subspace $A_x$ of $X$ with  $x_0,x \in A_x$. Then $A \subseteq C$, moreover
         \begin{equation*}
             C=\bigcup_{x \in C}{A_x}
         \end{equation*}
@@ -65,17 +65,18 @@ The following theorem gives us the equivalence classes of $X$.
 
 \begin{example}
     Consider $\Q$ as a subspace of  $\R$ under  $|\cdot|$.  $\Q$ is Hausdorff, so consider
-    a subspace  $A$ of  $\Q$ with atleast two elements  $q_1,q_2$ with $ q_1<q_2$. SInce
-    $\com{\R}{\Q}$ is dense in $\R$, then there exists an $i \in \com{\R}{\Q}$ such that $
-    q_1<i<q_2$. Now define $U=(-\infty,i)$ and $V=(i,\infty)$. We have $ q_1 \in U$, $ q_2
-    \in V$, $U \cap V=\emptyset$ and  $A=U \cup V$, that is  $U$ and  $V$ form a seperation
-    of $A$. Thus if  $A$ is to be connected,  $A$ must be a singleton. That is all the
+    a subspace  $A$ of  $\Q$ with atleast two elements  $q_1,q_2$ with $ q_1<q_2$.
+    Since $\com{\R}{\Q}$ is dense in $\R$, then there exists an
+    $i \in \com{\R}{\Q}$ such that $q_1<i<q_2$. Now define $U=(-\infty,i)$
+    and $V=(i,\infty)$. We have $ q_1 \in U$, $ q_2 \in V$, $U \cap V=\emptyset$
+    and  $A=U \cup V$, that is  $U$ and  $V$ form a seperation of $A$. Thus if
+    $A$ is to be connected,  $A$ must be a singleton. That is all the
     components of  $\Q$ are singletons.
 
     Now if  $A$ was an open component in  $\Q$, then the subspace topology on  $\Q$ would be
     $2^{\Q}$. Now notice that the sequence $\{\frac{1}{n}\}_{\Z^+}$ has a limit point at $0$
     in the topology induced by  $|\cdot|$, but it does not have a limit point at  $0$ under
-    $2^{\Q}$. SO none of the components of $\Q$ are open.
+    $2^{\Q}$. So none of the components of $\Q$ are open.
 \end{example}
 
 We also define equivalence classes of a topological space using path connectedness.
@@ -93,7 +94,7 @@ We also define equivalence classes of a topological space using path connectedne
     and $g:[1,2] \rightarrow X$ from $x$ to  $y$ and  $y$ to  $z$ respectively.  Since
     $f(1)=g(1)=y$ for $\{1\}=[0,1] \cap [1,2]$, and $f$ and  $g$ are continuous; construct, by the
     pasting lemma, a continuous function $h:[0,2] \rightarrow X$. Then $h(0)=f(0)=x$ and
-    $h(2)=g(2)=z$, hence $h$ is a path from $x$ to  $z$. That is  $x \sim z$. 
+    $h(2)=g(2)=z$, hence $h$ is a path from $x$ to  $z$. That is  $x \sim z$.
 \end{proof}
 
 \begin{definition}
@@ -192,6 +193,6 @@ We now define connectedness in the local.
     sucht that  $P \subseteq C$, but  $P \neq C$. Define  $Q=\bigcup{P'}$, where each $P' \neq P$ is
     a path component intersecting  $C$, then  $P' \subseteq C$. So  $C=P \cup Q$. Since  $X$ is
     locally path connected, each path component is open in  $X$, thus  $P,Q \neq \emptyset$ are
-    open, and disjoit, hence they form a seperation of $C$, which contradicts its connectedness.
+    open, and disjoint, hence they form a seperation of $C$, which contradicts its connectedness.
     Therefore  $P=C$.
 \end{proof}

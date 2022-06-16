@@ -17,14 +17,14 @@
 
         \item[(2)] In  $\R \times \R$, the set  $A=\{x \times y: x,y \geq 0\}$  (i.e
             the first quadtant of the plane) is closed, for $\com{\R \times
-            \R}{A}=(- \infty,0) \times \R \cup \R \times (-\infty,0)$, which is
-            open in $\R \times \R$.
+            \R}{A}=((- \infty,0) \times \R) \cup (\R \times (-\infty,0))$, which
+            is open in $\R \times \R$.
 
-        \item[(3)] Consider the finite complement topology $\Tc_C$ on a set  $X$. We
-            have that  $\com{X}{X}=\emptyset \in \Tc$, so  $X$ is closed,
+        \item[(3)] Consider the finite complement topology $\Tc_f$ on a set  $X$. We
+            have that  $\com{X}{X}=\emptyset \in \Tc_f$, so  $X$ is closed,
             similarly,  $\emptyset$ is also closed. Likewise, if  $A \subseteq
             X$ is a finite set, then  $\com{X}{A}$ is also finite, and hence $A$
-            is also closed. Thus, we have that all the closed sets of  $\Tc_C$
+            is also closed. Thus, we have that all the closed sets of  $\Tc_f$
             are those finite subsets of  $X$. As a consequence, this example also
             illustrates that sets can be both closed and open.
 
@@ -32,11 +32,11 @@
             another example where open sets are also closed sets.
 
         \item[(4)] Consider  $[0,1] \cup (2,3)$ in the subspace topology on $\R$. We
-            have that  $[0,1]$ is open  ($[0,1]=[0,1] \cup (2,3) \cap
-            (-\frac{2}{3}),\frac{3}{2}$), similarly, $(2,3)$ is also open. Now
-            taking  $\com{[0,1] \cup (2,3)}{(2,3)}=[0,1]$, which is open, so
-            $[0,1]$ is closed in the subspace topology on  $\R$, bu the same
-            reasoning, so is  $(2,3)$.
+            have that  $[0,1]$ is open in the subspace topology on $\R$;
+            $[0,1]=[0,1] \cup (2,3) \cap (-\frac{2}{3},\frac{3}{2})$, similarly,
+            $(2,3)$ is also open. Now taking  $\com{[0,1] \cup
+            (2,3)}{(2,3)}=[0,1]$, which is open, so $[0,1]$ is closed in the
+            subspace topology on  $\R$, by the same reasoning, so is  $(2,3)$.
     \end{enumerate}
 \end{example}
 
@@ -77,11 +77,11 @@
     Suppose that $A$ is closed in  $Y$, then  $\com{Y}{A}$ is open in  $Y$,
     hence we have that  $\com{Y}{A}=U \cap Y$ for some open set $U$ of  $X$. Now
     $\com{X}{U}$ is closed in  $X$, and with  $A \subseteq Y$, we have that
-    $A=Y \cap \com{X}{U}$.
+    $A=Y \cap (\com{X}{U})$.
 
     Conversely, suppose that $A=C \cap Y$, with  $C$ closed in  $X$. Then
-    $\com{X}{C}$ is open in  $X$, hence  $\com{X}{C} \cap Y$ is open in  $Y$,
-    now since  $\com{X}{C} \cap Y=\com{Y}{A}$, which is open, we have that  $A$
+    $\com{X}{C}$ is open in  $X$, hence  $(\com{X}{C}) \cap Y$ is open in  $Y$,
+    now since  $(\com{X}{C}) \cap Y=\com{Y}{A}$, which is open, we have that  $A$
     is closed in  $Y$.
 \end{proof}
 
@@ -123,12 +123,11 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
 \end{corollary}
 
 \begin{theorem}\label{1.6.5}
-    Let $Y$ be a subspace of  $X$, and let  $A \subseteq Y$, and let $\cl{A}$
-    be the closure of $A$. Then  $\cl{A} \cap Y$ is the closure of  $A$ in
-    $Y$.
+    Let $Y$ be a subspace of  $X$, and let  $A \subseteq Y$. Then  $\cl{A}
+    \cap Y$ is the closure of  $A$ in $Y$.
 \end{theorem}
 \begin{proof}
-    Let $\cl{A}$ be the closure of  $A$ in  $Y$. Since  $\cl{A}$ is closed in
+    Let $\cl{A}$ be the closure of  $A$ in  $X$. Since  $\cl{A}$ is closed in
     $X$, by theorem \ref{1.6.2},  $\cl{A} \cap Y$ is closed in  $Y$, now we
     have that $A \subseteq \cl{A} \cap Y$, and since $\cl{A}=\bigcap{U}$, then
     $\cl{A} \subseteq \cl{A} \cap Y$.
@@ -178,7 +177,7 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
 
         \item[(3)] $\cl{\Q}=\R$,  $\cl{\Z^+}=\Z^+$,  $\cl{\R^+}=\R^+ \cup \{0\}$.
             This first follows from the density of $\Q$ in  $\R$. Every
-            neighborhood  $n \in \Z^+$ intersects  $\Z^+$, so  $\cl{Z^+}
+            neighborhood  $n \in \Z^+$ intersects  $\Z^+$, so  $\cl{\Z^+}
             \subseteq \Z^+$, and we have that the neighborhood  $(0,1)$ of  $0$
             intersects $\R^+$, so  $\cl{\R^+} \subseteq \R^+ \cup \{0\}$.
     \end{enumerate}
@@ -232,9 +231,10 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
 \end{proof}
 
 \begin{definition}
-    Let $X$ be a topological space. A sequence  $\{x_n\}$ is said to
-    \textbf{converge} to a point  $x \in X$ if for every neighborhood  $U$ of
-    $x$, there is an  $N \in \Z^+$ such that  $x_n \in U$ for all  $n \geq N$.
+    Let $X$ be a topological space. A sequence of points of $X$ $\{x_n\}$ is
+    said to \textbf{converge} to a point  $x \in X$ if for every neighborhood
+    $U$ of $x$, there is an  $N \in \Z^+$ such that  $x_n \in U$ for all
+    $n \geq N$.
 \end{definition}
 
 \begin{example}
@@ -243,25 +243,25 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
         \centering
         \includegraphics[scale = 0.5]{Figures/Chapter1/non_hausdorff_space.eps}
         \caption{A topology on $\{a,b,c\}$, is not a Hausdorff space.}
-        \label{fig1.8}
+        \label{fig_1.8}
     \end{figure}
     figure \ref{fig1.8}, and define the sequence $\{x_n\}$ by  $x_n=b$ for all
     $n \in \Z^+$. The neighborhoods of  $a$, $b$, and $c$ are
     $U_a=\{a,b\}$,  $U_b=\{b\}$, and  $U_c=\{b,c\}$. Now let $N>0$, then we see
-    that for all  $n \geq N$, that  $b \in U_b,U_a,U_c$, thus  $b$
-    converges to  $a$ and to  $c$, and itself,
+    that for all  $n \geq N$, that  $b \in U_a$, $b \in U_b$, and $b \in U_c$
+    thus  $b$ converges to  $a$ and to  $c$, and itself,
 \end{example}
 
 \begin{definition}
     A topological space $X$ is called a \textbf{Hausdorff space} if for each
     pair of distinct points  $ x_1$ , and $x_2$, there are neighborhoods $ U_1$
-    and $U_2$ of $ x_1$ and $ x_2$ respectively such that $ U_1$ and $ u_2$ are
+    and $U_2$ of $ x_1$ and $ x_2$ respectively such that $ U_1$ and $U_2$ are
     disjoint.
 \end{definition}
 
 \begin{example}
-    The topology of the previous example in figure \ref{1.8} is not a Hausdorff
-    space.
+    The topology of the previous example in figure \ref{fig_1.8} is not a
+    Hausdorff space.
 \end{example}
 
 \begin{theorem}\label{1.6.8}
@@ -270,13 +270,12 @@ We have by the very definitions that $\Int{A} \subseteq A \subseteq \cl{A}$
 \begin{proof}
     Let $X$ be a Hausdorff space, and let  $x_0 \in X$. We have that
     $\cl{\{x_0\}}=\bigcap_{\{x_0\} \in U}{U}$. Now let $x \neq x_0 \in X$.
-    Since $x \in \{x_0\}$, and $X$ is Hausdorff, the inters of the neighborhoods
-    of $x$ and  $ x_0$ is empty, thus $x \notin \cl{\{x_0\}}$, therefore
-    $\cl{\{x_0\}}=\{x_0\}$.
+    Since $x \otin \{x_0\}$, and $X$ is Hausdorff, the intersections of the
+    neighborhoods of $x$ and  $ x_0$ is empty, thus $x \notin \cl{\{x_0\}}$,
+    therefore $\cl{\{x_0\}}=\{x_0\}$.
+
+    We can then extend this proof to finite point sets of size $n$ by induction.
 \end{proof}
-\begin{remark}
-    We can extend this proof to finite point sets of size $n$ by induction.
-\end{remark}
 
 Now the condition that finite point sets be closed need not depend on whether or
 not $X$ is a Hausdorff space. In fact, we can assume the following for some
@@ -286,7 +285,7 @@ topoltopological spaces.
     In any topological space, every finite point set of $X$ is closed.
 \end{axiom}
 
-\begin{theorem}\label{1.6.10}
+\begin{theorem}\label{1.6.9}
     Let $X$ be a topological space satisfying the $ T_1$ axiom, and let $A
     \subseteq X$. Then a point  $x$ is a limit point of  $A$ if and only if
     every neighborhood of  $x$ contains infinitely many points of  $A$.
@@ -297,15 +296,15 @@ topoltopological spaces.
     thus  $x$ is a limit point of  $A$.
 
     Conversely suppose that  $x$ is a limit point of  $A$, and let  $U_x \cap A$
-    be finite, then  $U_x \cap \com{A}{\{x\}}$. Now let  $U_x \cap
-    \com{A}{\{x\}}=\{x_1, \dots x_m\}$. By the $T_1$ axiom,  $\{x_1, \dots,
-    x_m\}$ is closed, so $\com{X}{\{x_1, \dots,
-    x_m\}}$ is open, thus $U_x \cap \com{X}{\{x_1, \dots,
-    x_m\}}$ is a neighborhood of $x$ that does not intersect  $\com{A}{\{x\}}$,
-    which contradicts that  $x$ is a limit point.
+    be finite, then  $U_x \cap (\com{A}{\{x\}})$ is also  finite. Now let
+    $U_x \cap (\com{A}{\{x\}})=\{x_1, \dots x_m\}$. By the $T_1$ axiom,
+    $\{x_1, \dots, x_m\}$ is closed, so $\com{X}{\{x_1, \dots, x_m\}}$ is open,
+    thus $U_x \cap (\com{X}{\{x_1, \dots, x_m\}})$ is a neighborhood of $x$ that
+    does not intersect  $\com{A}{\{x\}}$, which contradicts that  $x$ is a
+    limit point.
 \end{proof}
 
-\begin{theorem}\label{1.6.11}
+\begin{theorem}\label{1.6.10}
     If $X$ is a Hausdorff space, then a sequence of points of  $X$ converges to
     at most one point in  $X$.
 \end{theorem}
@@ -325,7 +324,7 @@ topoltopological spaces.
     \infty$.
 \end{definition}
 
-\begin{theorem}\label{1.6.12}
+\begin{theorem}\label{1.6.11}
     The following are true:
         \begin{enumerate}
             \item[(1)] Every simply oredered set under the order topology is
@@ -356,7 +355,7 @@ topoltopological spaces.
             y_2$, respectively, and hence neighborhoods of those elements
             respectively.Then we have $(U_{x_1} \times V_{y_1}) \cap (U_{x_2} \times
             V_{y_2})=(U_{x_1} \cap U_{x_2}) \times (V_{y_1} \cap V_{y_2}) = \emptyset
-            \times \emptyset =\emptyset)$.
+            \times \emptyset =\emptyset$.
 
         \item[(3)] Let $X$ be Hausdorff, and let  $Y$ be a subspace of  $X$. Let  $x_1$
             and $x_2$ be distinct points, and let  $U_{x_1}$ and $U_{x_2}$ be

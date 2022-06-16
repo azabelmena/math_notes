@@ -13,8 +13,8 @@ We go more in depth on metric spaces here.
 \begin{proof}
     Clearly $d:A \times A \rightarrow \R$ is a metric. So consider the $\epsilon$-ball about $x$,
     $B_d(x,\epsilon)$ in $X$; restricting  $d$ to  $A \times A$, consider  $A \cup B_d(x,\epsilon)$.
-    For $y \in A$, there is a  $\delta$-ball about  $y$ such that  $B_d(y,\delta) \subset
-    B_d(x\epsilon)$; then $B_d(y,\delta) \subseteq B_d(x,\epsilon)$. This makes $A$ as a subspace,
+    For $y \in A$, there is a  $\delta$-ball about  $y$ such that  $B_d(y,\delta)
+    \subseteq B_d(x,\epsilon)$; then $B_d(y,\delta) \subseteq B_d(x,\epsilon)$. This makes $A$ as a subspace,
     into a metric space.
 \end{proof}
 
@@ -32,15 +32,15 @@ We go more in depth on metric spaces here.
 \begin{proof}
     Let $X$ be a metric space with metric  $d$. Define
     $\bar{d}(x,y)=\min\{d(x,y),1\}$ on $X$ and define  $D(x,y)=\sup\{\frac{\bar{d}(x_i,y_i)}{i}\}$
-    on $X^{\omega}$. It is clear that both $\hat{d}$ and $D$ are metrics on  $X$ and  $X^{\omega}$
+    on $X^{\omega}$. It is clear that both $\bar{d}$ and $D$ are metrics on  $X$ and  $X^{\omega}$
     respectively. We would like to show that $D$ induces the product topology on  $X^{\omega}$.
 
     Let $U$ be open and let  $x \in U$. Choose  $B_D(x,\epsilon) \subseteq U$ and choose $N$ large
-    enough such that  $ \frac{1}{N}<\epsilon$. Now let $V=(x_1-\epsilon,x_1+\epsilon) \times \dots
-    \timed (x_N-\epsilon,x_N+\epsilon) \times X \times \dots$ be a basis in the product topology on
+    enough such that  $ \frac{1}{N}<\epsilon$. Now let
+    $V=(x_1-\epsilon,x_1+\epsilon) \times \dots \times (x_N-\epsilon,x_N+\epsilon) \times X \times \dots$ be a basis in the product topology on
     $X^{\omega}$. Given $y \in X^{\omega}$, such that $\frac{\bar{d}(x_i,y_i)}{i} \leq
     \frac{1}{N}$, we have by definition that $D(x,y) \leq \max\{\bar{d}(x_1,y_1),
-    \frac{\bar{d}(x_2,y_2)}{2}, \dots, \frac{\bar{d}(x_N,y_N)}{N}, \frac{1}{N}\}$. IF $y \in V$, we
+    \frac{\bar{d}(x_2,y_2)}{2}, \dots, \frac{\bar{d}(x_N,y_N)}{N}, \frac{1}{N}\}$. If $y \in V$, we
     get that  $V \subseteq B_D(x,\epsilon)$ and we are done.
 
     Conversely let $U=\Prod{U_i}$ be a basis of the product topology where $U_i$ is open in  $X$
@@ -72,7 +72,8 @@ continuity carry over.
     B(f(x),\epsilon)$, as is required.
 
     Now suppose that for $x \in X$ and  $\epsilon>0$, that there is a  $\delta>0$ such that
-    $d_Y(f(x),f(y))<\epsilon$ whenever $d_X(x,y)<\delta$, for $x\in X$. Let  $V$be open in  $Y$ and
+    $d_Y(f(x),f(y))<\epsilon$ whenever $d_X(x,y)<\delta$, for $x\in X$. Let $V$
+    be open in  $Y$ and
     let  $x \in f^{-1}(V)$. Then $f(x) \in V$, hence there is an $\epsilon$-ball  $B(f(x),\epsilon)
     \subseteq V$. By hypothesis, there is a  $\delta>0$ such that $f(B(x,\delta)) \subseteq
     B(f(x),\epsilon)$, hence $B(x,\delta) \subseteq f^{-1}(V)$ which makes $f^{-1}(V)$ open.
@@ -165,7 +166,7 @@ We now consder methods for constructing continous functions on metric spaces.
             uncountable, and let  $A=\{(x_{\alpha}) \in \R^J:x_{\alpha}=1 \text{ for all but
             finitely many } \alpha\}$. Consider $0 \in \R^J$ and let  $\Prod{U_{\apha}}$ be a basis
             for containing $0$. Now  $U_{\alpha} \neq \R$ for $\alpha_1, \dots, \alpha_n$, so let
-            $(x_{\alpha}) \in A$ be definedby letting $x_{\alpha}=0$ for $\alpha_1, \dots, \alpha_n$
+            $(x_{\alpha}) \in A$ be defined by letting $x_{\alpha}=0$ for $\alpha_1, \dots, \alpha_n$
             and $x_{\alpha=1}$ for all other indices. Then $(x_{\alpha}) \in A \cap
             \Pord{U_{\alpha}}$.
 

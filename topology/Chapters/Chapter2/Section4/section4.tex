@@ -113,7 +113,7 @@
 
 We can take an equivalence relation $\sim$ on  $X$ by taking  $x \sim y$ if  $x,y \in U$ for  $U \in
 X/p$. Then the quotient space is the collection of equivalence classes of $X$; that is we can think
-of obtaining $X^*$ by ``identify'' those pairs of equivalent points. Similarly, we can also describe
+of obtaining $X^*$ by ``identifying'' those pairs of equivalent points. Similarly, we can also describe
 the quotient space $X/p$ by noting a subset $U$ of equivalence classes where $p^{-1}(U)=\bigcup_{V
 \in U}{V}$ is the union of all equivalence classes in $U$. We will denote the quotient space by
 $X/p$ or  $X/\sim$.
@@ -158,7 +158,7 @@ $X/p$ or  $X/\sim$.
 \begin{figure}[h]
     \centering
     \includegraphics[scale = 0.5]{Figures/Chapter2/square_to_torus_2.eps}
-    \caption{Transforming the unit disk into the unit sphere}
+    \caption{Transforming the unit square into torus}
     \label{fig_2.4}
 \end{figure}
 
@@ -182,7 +182,7 @@ $X/p$ or  $X/\sim$.
     \subseteq A$ is open. If $A$ is open in $X$, then $q^{-1}(V)$ is also open in $X$, and since
     $q^{-1}(V)=p^{-1}(V)$, then $V$ is open in  $Y$, and since  $p$ is a quotient map, then  $V$ is
     open in  $p(A)$. Now if  $p$ is open, since  $q^{-1}(V)=p^{-1}(V)$ and $q^{-1}(V)$ is open in
-    $A$, then  $p^[-1](V)=U \cap A$, thus $V=p(p^{-1}(V))=p(U \cap A)=p(U) \cap p(A)$. Now $p(U)$ is
+    $A$, then  $p^{-1}(V)=U \cap A$, thus $V=p(p^{-1}(V))=p(U \cap A)=p(U) \cap p(A)$. Now $p(U)$ is
     open in $Y$, so  $V$ is open in  $p(A)$. In either case e have that $q$ is a quotient map.
 \end{proof}
 
@@ -266,11 +266,11 @@ We conclude with some examples.
             the union of countably many line segments in  $\R^2$ having a common endpoint.
 
             Now define $g:X \rightarrow Z$ by  $g:x \times n \rightarrow x \times \frac{x}{n}$. We
-            have that $g$ is continous onto. Now consider the quotient space  $X/g$ whose elements
+            have that $g$ is continuous onto. Now consider the quotient space  $X/g$ whose elements
             are  $g^{-1}(\{z\})$ to be the space obtained from $X$ by identifying the equivalence
             classes of $\{0\} \times \Z^+$ to be points. Now we have that $g$ induces a  $1-1$
             continuous map  $f:X/g \rightarrow Z$ of  $X/g$ onto  $Z$; but  $f$ is not a
-            homeomorphism. It is sufficient to show that  $g$ is not a quotient mapl consider the
+            homeomorphism. It is sufficient to show that  $g$ is not a quotient map consider the
             sequence  $\{\frac{1}{n} \times n\}$ of points of $X$. This sequence is closed in  $X$
             since it has no limit points, it is also saturated with respect to  $g$. However  $g(A)$
             is not closed in $Z$ for it consists of the sequence of points  $\{\frac{1}{n} \times

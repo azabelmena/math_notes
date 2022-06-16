@@ -151,9 +151,9 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
 \end{theorem}
 \begin{proof}
     We start with the norm. Now clearly, since $\sqrt{x} \geq 0$ (for real numbers), $||x-y|| \geq
-    0$, and  if $||x-y||=0$ then  $(x_1-y_1)^2+ \dots (x_n-y_n)^2=0$ hence $x_i=y_i$ for all  $1
-    \leq i \leq n$, and if  $x_i=y_i$, then clearly  $||x-y||=0$. We also see that
-    $||x-y||=||y-x||$.
+    0$, and  if $||x-y||=0$ then  $(x_1-y_1)^2+ \dots +(x_n-y_n)^2=0$ hence
+    $x_i=y_i$ for all  $1 \leq i \leq n$, and if  $x_i=y_i$, then clearly
+    $||x-y||=0$. We also see that $||x-y||=||y-x||$.
 
     Now consider  $z \in \R^n$, notice that
     $||x+y||^2=\vbrack{x+y,x+y}=\vbrack{x+y,x}+\vbrack{x+y,y}=\vbrack{x,x}+\vbrack{y,y} \leq
@@ -161,7 +161,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     and evaluate), so  $||\cdot||$ is a metric on  $\R^n$.
 
     Now consider the square metric. Clearly we have that $\rho(x,y) \geq 0$ and that $\rho(x,y)=0$
-    if and only if $x=y$  (snce $|\cdot|$ is also a metric), we also see that $\rho(x,y)=\rho(y,x)$.
+    if and only if $x=y$  (since $|\cdot|$ is also a metric), we also see that $\rho(x,y)=\rho(y,x)$.
 
     Now let $x \in \R^n$, and we have for all  $1 \leq i \leq n$ that  $|x_i-y_i| \leq
     |x_i-z_i|+|z_i-y_i|$, hence by definition $|x_i-y_i| \leq  \rho(x,z)+\rho(z,y)$, thus $\rho(x,y)
@@ -171,7 +171,8 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
 \begin{lemma}\label{2.2.6}
     Let $d$ and  $d'$ be metrics on  $X$ and let  $\Tc$ and  $\Tc'$ be the topologies induced by
     $d$ and  $d'$ respectively.  $\Tc \subseteq \Tc'$ if and only if for each  $x \in X$, and
-    $\epsilon>0$, there is a  $\delta>0$ such that  $B_{d'}(x,\epsilon) \subseteq B_d(x,\epsilon)$.
+    $\epsilon>0$, there is a  $\delta>0$ such that  $B_{d'}(x,\delta)
+    \subseteq B_d(x,\epsilon)$.
 \end{lemma}
 \begin{proof}
     Suppose that $\Tc \subseteq \Tc'$, and take  $B_d(x,\epsilon)$ in $\Tc$, then by lemma \ref
@@ -204,10 +205,11 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
 \end{proof}
 
 \begin{definition}
-    Given an index set $J$ and given points  $x=(x_{\alpha})$ and $y=(y_{\alpha})$ fo $\R^J$, we
-    define the \textbf {uniform metric} $\bar{\rho}$ on $\R^J$ by
-    $\bar{\rho}(x,y)=\sup\{\bar{d}(x_{\alpha},y_{\alpha}): \alpha \in J\}$, where $\bar{d}$ is the
-    standard bounded metric on  $\R^J$. We call the topology induced by $\bar{\rho}$ the
+    Given an index set $J$ and given points  $x=(x_{\alpha})$ and
+    $y=(y_{\alpha})$ of $\R^J$, we define the \textbf {uniform metric}
+    $\bar{\rho}$ on $\R^J$ by $\bar{\rho}(x,y)=\sup\{\bar{d}(x_{\alpha},
+    y_{\alpha}): \alpha \in J\}$, where $\bar{d}$ is the standard bounded
+    metric on  $\R^J$. We call the topology induced by $\bar{\rho}$ the
     \textbf{uniform topology}.
 \end{definition}
 

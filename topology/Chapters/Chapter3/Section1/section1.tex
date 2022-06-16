@@ -14,7 +14,7 @@ That is to say that $X$ is connected if one cannot partition  $X$ into two open 
 
 \begin{lemma}\label{3.1.1}
     A topological space is connected if and only if the only open and closed sets of $X$ are  $X$
-    itself an  $\emptyset$.
+    itself and $\emptyset$.
 \end{lemma}
 \begin{proof}
 Let $A \subseteq X$ be both open and closed in $X$. Then $A$ and $\com{X}{A}$ are both nonempty
@@ -79,7 +79,7 @@ closed.
 \begin{proof}
     Let $\{A_{\alpha}\}$ be a collection of connected subspaces and let $p \in \bigcap{A_{\alpha}}$
     and let $Y=\bigcup{A_{\alpha}}$. Suppose that $Y=C \cup D$ is seperation of  $Y$. Then  $p \in
-    C$ or  $p in D$  (but not both). Suppose that $p \in C$, then since $A_{\alpha}$ is connected
+    C$ or  $p \in D$  (but not both). Suppose that $p \in C$, then since $A_{\alpha}$ is connected
     for all $\alpha$,  $A_{\alpha} \subseteq C$ or $A_{\alpha} \subseteq D$, but not both. Now since
     $p \in C$,  $A_{\alpha} \subseteq C$ implying $D=\emptyset$, a contradiction. Hence  $Y$ is also
     connected.
@@ -104,7 +104,7 @@ closed.
     The image of a connected subspace under a continuous map is connected.
 \end{theorem}
 \begin{proof}
-    Let $F:X \rightarrow Y$ be continuous and let $X$ be connected consider
+    Let $f:X \rightarrow Y$ be continuous and let $X$ be connected consider
     $f:X \rightarrow f(X)$ and suppose that $f(X)=C \cup D$ is a seperation of $f(X)$. Then
     $f^{-1}(C)$ and $f^{-1}(D)$ are also nonempty, disjoint open sets of $X$ who's union is  $X$,
     and so they form a seperation of  $X$ which cannot happen. Hence  $f(X)$ is connected.
@@ -133,10 +133,12 @@ closed.
             $\{a_n\}$, then $U$ is bounded if  $\{a_n\}$ is bounded, and unbounded if $\{a_n\}$ is
             unbounded.
 
-        \item[(2)] $\R^{\omega}$ under the product topology is connected. Let $\hat{\R^n}$ be the
-            subspace of $\R^{\omega}$ of all sequences that are eventually $0$, i.e.  $x_i=0$
-            whenever  $i>n$.  $\hat{\R^n}$ is homeomorphic to $\R^n$, so  $\hat{\R^n}$ is connected.
-            Then $\R^{\infty}=\bigcup{\hat{\R^n}}$ is also connected since $0$ is a common point.
+        \item[(2)] $\R^{\omega}$ under the product topology is connected.
+            Let $\hat{\R}^n$ be the subspace of $\R^{\omega}$ of all sequences
+            that are eventually $0$, i.e.  $x_i=0$ whenever  $i>n$.
+            $\hat{\R}^n$ is homeomorphic to $\R^n$, so  $\hat{\R}^n$ is
+            connected. Then $\R^{\infty}=\bigcup{\hat{\R}^n}$ is also connected
+            since $0$ is a common point.
 
             Now let  $a \in \R^{\omega}$ and $U=\prod{U_i}$ be a basis element about $a$. There is
             an  $N \in \Z^+$ such that  $U_i=\R$ for all  $i>N$,=. Then the point  $x=(a_1,\dots,
