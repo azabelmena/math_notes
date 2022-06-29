@@ -89,6 +89,32 @@
     denote it by $I_0^2$.
 \end{definition}
 
+\begin{lemma}\label{1.5.5}
+    Let $Y$ be a subspace of a topological space  $X$, and let  $A \subseteq
+    Y$. Then the topology of  $A$ as a subspace of  $Y$ is the same as the
+    topolgy of  $A$ as a subspace of  $X$.
+\end{lemma}
+\begin{proof}
+    Let $V$ be open in  $Y$, then $V \cap A$ is open in $A$ as a subspace of
+    $Y$, however, since $Y$ is a subspace of $X$,  $V=U \cap Y$ for some  $U$
+    open in $X$, so $V \cap A=(U \cap Y) \cap A=U \cap (A \cap Y)=U \cap A$,
+    making $V \cap A$ open in $A$ as a subspace of $X$.
+
+    Conversely, if $U$ is open in $X$, then $U \cap A$ is open in $A$ as a
+    subspace of $X$, additionally, $U \cap Y$ is open in  $Y$ as a subspace of
+    $Y$, so that  $(U \cap Y) \cap A=U \cap (A \cap Y)=U \cap A$, which makes $U
+    \cap A$ open in $A$ as a subspace of $Y$.
+\end{proof}
+
+\begin{example}\label{1.9}
+    Suppose that $\Tc$ and  $\Tc'$ are topologies on a set $X$, with $\Tc
+    \subseteq \Tc'$. Then if  $Y \subseteq X$, then the topology of  $Y$ as a
+    subspace of  $X$ under  $\Tc'$ is finer than the topology of  $Y$ as a
+    subspace of  $X$ under  $\Tc$; for, if  $U$ is open in  $X$ under  $\Tc$,
+    then  $U \cap Y$ is open in  $Y$ under  $\Tc$. But  $\Tc \subseteq \Tc'$,
+    which implies that  $U \cap Y$ is open in  $Y$ under  $\Tc'$
+\end{example}
+
 \begin{definition}
     Let $X$ be an ordered set. We say that a nonempty subset $Y \subset X$ is \textbf{convex}
     in $X$ if for each pair of points  $a,b \in Y$, with  $a<b$, then the open interval  $(a,b) \subseteq X$ is
