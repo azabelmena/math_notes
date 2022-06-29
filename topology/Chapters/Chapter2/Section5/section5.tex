@@ -2,4 +2,222 @@
 %	SECTION 1.1
 %----------------------------------------------------------------------------------------
 
-\section{Topological Groups.}
+\section{Topological Groups}
+
+\begin{definition}
+    We call a group $G$ a  \textbf{topological group} if it is a topological
+    space satisfying the $T_1$ axiom, and the maps $x \times y \rightarrow x
+    \cdot y$ and $x \rightarrow \inv{x}$ are continuous.
+\end{definition}
+
+Before we prove anything of substance, let us make the following statements.
+
+\begin{lemma}\label{2.5.2}
+    If $X$ is a  $T_1$ space, and $Y$ a subspace of  $X$, then  $Y$ is also
+    $T_1$.
+\end{lemma}
+\begin{proof}
+    Let $U$ be a finite pointset of  $X$, then  $U$ is closed. Then so is the
+    set  $U \cap Y$, which also happens to be a finite point set.
+\end{proof}
+
+\begin{lemma}\label{2.5.2}
+    If $\{X_\alpha\}$ is a collection of $T_1$ spaces, then the product
+    $\prod{X_\alpha}$ is also $T_1$.
+\end{lemma}
+\begin{proof}
+    If $X_\alpha$ is  $T_1$, then every finite pointset of $X_\alpha$ is closed.
+    Now, let  $U_\alpha$ be a finite point set of  $X_\alpha$, for each
+    $\alpha$. Then  $U_\alpha$ is closed. Moreover, the product
+    $\prod{U_\alpha}$ is also a finite pointset that is closed, which completes
+    the proof.
+\end{proof}
+
+\begin{lemma}\label{2.5.3}
+    Let $H$ be a group that is also a topological space. If $H$ satisfies the
+    $T_1$ axiom, then $H$ is a topological group if, and only if the map $x
+    \times y \rightarrow x\inv{y}$ of $H \times H \rightarrow H$ is continuous.
+\end{lemma}
+\begin{proof}
+    Define the maps $f:H \times H \rightarrow H$, $g:H \rightarrow H$
+    and $h:H \times H \rightarrow H$ by the rules $f:x \times y \rightarrow xy$,
+    $g:y \rightarrow \inv{y}$ and $h:x \times y \rightarrow x\inv{y}$.
+
+    Now, suppose that $H$ is a topological group. Then the maps  $f$ and  $g$
+    are continuous. Then taking the range expansion of  $g$,  $g_{x_0}:y
+    \rightarrow x_0 \times \inv{y}$ of $H \rightarrow H \times H$ makes
+    $g_{x_0}$ continuous. Then the map $f \circ g_{x_0}:y \rightarrow x_0 \times
+    \inv{y} \rightarrow x_0\inv{y}$ is also continuous. Finally, notice that the
+    local formulation of all $f \circ g_{x_0}$ for all $x_0$ is continuous and
+    is  $h$.
+
+    Conversely, suppose that  $h:x \times y \rightarrow x\inv{y}$ is continuous.
+    Consider the map $f:x \times y \rightarrow xy$, then notice that the
+    $f=h \circ f'$, where  $f': x \times y \rightarrow xy^2 \times y$. That is,
+    $f: x \times y \rightarrow xy^2  \times y \rightarrow (xy^2)\inv{y}=xy$.
+    Then to show that $f$ is continuous, it remains to show that $f'$ is
+    continuous. Let $U$,$V$ be finite point sets in $H$, then they are closed,
+    and hence  $U \times V$ is closed in  $H \times H$. Notice then that
+    $\inv{f'}(U \times V)=\{x \times y : f'(x \times y)=xy^2
+    \times y\}$. Since there are finitely many points for $x \in U$, and  $y \in
+    V$, there are finitely many points for  $xy^2 \times y  \in \inv{f'}(U
+    \times V)$, so that $\inv{f'}(U \times V)$ is a finite point set in  $H
+    \times H$.  Since $H$ satisfies the  $T_1$ axiom, so does the product $H
+    \times H$, this makes $\inv{f'}(U \times V)$ closed, and hence $f'$ is
+    continuous. Therefore $f$ must be continuous since it is the composition of
+    continuous maps. We can show that the map  $g:y \rightarrow \inv{y}$ is
+    continuous by noting $g=h \circ g'$ where  $g':y \rightarrow e \times y$,
+    where $e$ is the identity of  $H$. By similar reasoning, we can see that
+    $g'$ is also continuous, making  $g$ continuous. Therefore the maps  $x
+    \times y \rightarrow xy$ and $y \rightarrow \inv{y}$ are continuous in a
+    $T_1$ space, so that $H$ is a topological group.
+\end{proof}
+
+\begin{example}\label{2.9}
+    \begin{enumerate}
+        \item[(1)] The group of integers $\Z$ under the usual addition $+$ forms
+            a topological group under the discrete topology. Since every finite
+            point set is closed under the discrete topology on $\Z$,  $\Z$
+            is $T_1$. Moreover, the map $f:x \times y \rightarrow x-y$ is
+            continuous, for $U$ being a finite pointset of $\Z$ makes
+            $\inv{f}(U)=\{z \in \Z: z=x-y\}=\{x \times y : f(x \times y)=x-y\}$
+            a finite point set in $\Z \times \Z$, so that  $\inv{f}(U)$ is
+            closed, and hence continuous.
+
+        \item[(2)] The group of reals $\R$ under the usual addition $+$ forms a
+            topological group under the order topology.
+
+        \item[(3)] The positive reals $\R^+$ under the usual multiplication
+            $\cdot$ forms a topological group under the order topology.
+
+        \item[(4)] The unit circle $S^1 \subseteq \C$, as considered as a
+            subspace of  $\C$ forms a topological group under complex
+            multiplication. Recall that $S^1=\{z \in \C : |z|=1\}$. Then $S^1$
+            is  $T_1$, for $S^1$ is a subspace of $\C$, a Hausdorff space, and
+            so  $S^1$ is Hausdorff. Now, consider the map  $f:x \times y
+            \rightarrow \frac{x}{y}$. Then notice that $f=gh$ where  $g: x
+            \rightarrow x$ and $h:y \rightarrow \frac{1}{y}$, both $g$ and  $h$
+            are continuous in  $\C$, thus so is  $f$.
+
+        \item[(5)] The general linear group $GL(n,\R)$ of all nonsingular real
+            $n \times n$ matrices is a topological group under matrix
+            multiplication when considered as a subspace of the space
+            $\R^{n^2}$. We have that $\R^{n^2}$ is Hausdorff, and since
+            $GL(n,\R)$ is a subspace, then $GL(,\R)$ is Hausdorff, and hence
+            $T_1$. Moreover, notice that the map $f:X \times Y \rightarrow XY$
+            is a coordinatization of the inner product $\vbrack{x_i,y_j}$ which
+            is continuous on $\R^{n^2}$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{2.5.4}
+    Let $G$ be a topological group, and $H$ a subspace of $G$. Then if $H$ is a
+    subgroup of  $G$, then  $H$ and  $\cl{H}$ are topological groups.
+\end{lemma}
+\begin{proof}
+    Suppose that $H$ is a subgroup of  $G$. Since  $G$ is  $T_1$, and $H$ is a
+    subspace, then  $H$ and  $\cl{H}$ are also $T_1$. Moreover, the map $f:x
+    \times y \rightarrow x\inv{y}$ is being continuous in $G$, makes it
+    continuous in  $H$. Now, we have that $f$ is continuous on $H$. Recall that
+    $\cl{H}=\bigcap_{H \subseteq U}{U}$ where $U$ is closed in  $G$. Now, since
+     $f$ is continuous, then  $\inv{f}(U)$ is closed for all $U$ containing $H$.
+     Therefore, if $V \subseteq \cl{H}$, then $V$ is closed, and hence so is
+     $\inv{f}(V)$. This makes $f$ continuous on  $\cl{H}$.
+
+     It remains to show that $\cl{H}$ is a group. Let $a,b \in \cl{H}$, if both
+     $a,b \in H$, there is nothing to prove. If  $a,b \in H'$ are both limit
+     point of $H$, then all neighborhoods of $a$ and $b$ intersect $H$ at
+     distinct points $a',b'$. Then consider a neighborhood $U$ of the point
+     $ab$, and consider  $f:x \times y \rightarrow xy$, then $a \times b \in
+     \inv{f}(U)$, and since $a$, and  $b$ are limit points, $\inv{f}(U) \cap (H
+     \times H)=\{a' \times b'\}$, thus $U \cap H=\{a'b'\}$, making $ab \in H'$.
+
+     Similarly, if  $a \in H'$ and  $b \in H$, we have if $U$ is a neighborhood
+     of the point $ab$, then $\inv{f}(U) \cap (H \times H)=\{a' \times B\}$,
+     where $a'$ is the point at which every neighborhood of $a$ intersects $H$,
+     and $B$ is a collection of points (including $b$) formed by
+     interesecting neighborhoods of $b$ with  $H$. Then  $U \cap H=\{a'B\}$, so
+     $a'b \in U \cap H$, which makes  $ab$ a limit point of  $H$. Similarly, we
+     have that if $a \in H'$, then the map  $g:x \rightarrow \inv{x}$ makes
+     $\inv{a}$ a limit point of $H$. Therefore,  $\cl{H}$ is a group.
+\end{proof}
+
+\begin{example}\label{2.10}
+    Let $G$ be a topological group, and let  $a \in G$. Define the map
+    $f_a:x \rightarrow ax$ for all $x \in G$. We see that since $a, x \in G$,
+    and $ax \in G$, that $f_a$ is onto. Moreover, we have that  $ax=ay$ implies
+    $x=y$ by cancellation, so that $f_a$ is  $1-1$. Notice then that for
+    $U \subseteq G$, that $f_a(U)=\{ax : x \in U\}$. If $f_a(U)$ is open, then
+    choose an $ax \in f_a(U)$. Since the operation of $G$ is continuous, the map
+     $g:a \times x \rightarrow ax$ of the operation restircted to $G \times U$
+     is also continuous. Then  $\inv{g}(f_a(U))$ is open whenever $f_a(U)$ is
+     open, but notice that $\inv{g}(f_a(U))=G \times U$, and since $f_a(U)$ is
+     open and $G$ is open, then  $U$ must also be open. By similar reasoning,
+     $\inv{f_a}(U)$ is open whenever $U$ is open in  $G$. This makes  $f_a$ into
+     a homomorphism. Likewise, the map  $g_a:x \rightarrow xa$ is also a
+     homeomorphism.
+\end{example}
+
+\begin{definition}
+    We call a topological space $G$ \textbf{homogeneous} if for every $x,y \in
+    G$, there is a homeomorphsim of $G$ onto  $G$ that takes  $x \rightarrow
+    y$.
+\end{definition}
+
+\begin{lemma}\label{2.5.5}
+    A topological group is Hausdorff if, and only if the point set $\{e\}$ is
+    closed, where $e$ is the identity.
+\end{lemma}
+\begin{proof}
+    If a toplogical group $G$ is Hausdorff, then every point-set of $G$ is
+    closed, hence  $\{e\}$ is closed. Now suppose that $\{e\}$ is closed, and
+    consider the map $f:x \times y \rightarrow x\inv{y}$, which is continuous by
+    definition. Then $f(x \times y)=e$ if, and only if $x\inv{y}=e$, if, and
+    only if $x=y$, therefore we have  $\inv{f}(\{e\})=\Delta(G)$, the diagonal
+    of $G$. Since  $\{e\}$ is closed, and $f$ is continuous, then  $\Delta(G)$
+    is closed. Therefore, $G$ is Hausdorff.
+\end{proof}
+
+\begin{lemma}\label{2.5.6}
+    If $G$ is a topological group, then  $G$ is homoegeneous.
+\end{lemma}
+\begin{proof}
+    For every $x,y \in G$, either  $y=ax$ or  $y=xb$ for some  $a,b \in G$. Then
+    take the maps  $f_a:G \rightarrow G$ and  $g_b:G \rightarrow G$, both of
+    which are homeomorphisms.
+\end{proof}
+
+\begin{lemma}\label{2.5.7}
+    Let $G$ be a topological group, and let  $H$ be a subgroup of  $G$. Then the
+    quotient group $\faktor{G}{H}$ as a quotient space is homogeneous.
+\end{lemma}
+\begin{proof}
+    Consider te map $f_a:x \rightarrow ax$, which makes $G$ into a homogeneous
+    space. Now construct the map  $h:xH \rightarrow f_a(x)H$. Then $h(xH)=axH$
+    for all $x \in G$. Since $f_a$ is onto, then so is $h$. Moreover, we have
+    $axH=ayH$ if, and only if  $ax=ay$, if, and only if  $x=y$, so that
+    $xH=yH$; which makes  $h$  $1-1$.
+
+    Lastly, since  $f_a$ is a homeomorphism,  $f_a$ and  $\inv{f_a}$ are
+    continuous. Letting $U \in \faktor{G}{H}$ be open, with $U=U'H$, where  $xH
+    \in U$ implies  $x \in U'$; notice this makes $U'$ open in  $G$. Since $U$
+    is open, then  $h(U)=\{f_a(x)H : x \in U\}$ must also be open, as $f_a(U')$
+    is open whenever $U'$ is open. So $h$ is continuous. By similar reasoning,
+    $\inv{h}$ is also continuous. Therefore $h$ is a homeopmorphism, which makes
+     $\faktor{G}{H}$ into a homogeneous space.
+\end{proof}
+\begin{remark}
+    Notice that this lemma does not state that $\faktor{G}{H}$ is a topological
+    group.
+\end{remark}
+
+\begin{example}\label{2.11}
+    Let $G$ be a topological group, and let $H$ be closed in $G$. Then consider
+    the homeomorphism of $f_x$, then $f_x(H)a=xH$, which makes $xH$ closed in
+    $G$, therefore  $\{xH\}$ is closed in $\faktor{G}{H}$.
+\end{example}
+
+\begin{lemma}\label{2.5.8}
+    Let $G$ be a topological group, and  $H$ a subsgroup of  $G$. Then the
+    quotient map  $p:G \rightarrow \faktor{G}{H}$ is an open map.
+\end{lemma}
