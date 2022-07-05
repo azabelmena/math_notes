@@ -51,6 +51,28 @@ $X$ for $1 \leq i \leq n$.
             standard topology), hence $f$ is not continuous. However, the map
             $g:\R_l \rightarrow \R$ defined the same way is continuous since
             $g^{-1}((a,b))$ is open in  $\R_l$.
+
+        \item[(3)] Consider the map $f:\R \rightarrow \R$ defined by $f(x)=x$ if
+            $x \in \Q$ and  $f(x)=0$ if $x \in \com{\R}{\Q}$. Then $f$ is
+            continuous only at  $x=0$, for the limits
+            \begin{equation*}
+                \lim_{x \rightarrow x_0^+}{f(x)}
+            \end{equation*}
+            and
+            \begin{equation*}
+                \lim_{x \rightarrow x_0^-}{f(x)}
+            \end{equation*}
+            both fail to exist for $x_0 \in \Q$ and $x_0 \neq 0$.
+
+        \item[(4)] Let $f:A \rightarrow B$ and $g:C \rightarrow D$ be continuous
+            and define $f \times g:A \times C \rightarrow B \times D$ by $f
+            \times g:a \times c \rightarrow f(a) \times g(c)$. Then $f \times g$
+            is continous. We have that  $U$ and  $V$ open in $B$ and $D$ make
+            $\inv{f}(U)$ and $\inv{g}(V)$ open in $A$ and  $C$, respectively.
+            Then it follows that  $U \times V$ is open in  $B \times D$, and
+            that  $\inv{(f \times g)}(U \times V)=\inv{f}(U) \times \inv{g}(V)$
+            is also open by the definition if $f \times g$. This makes
+            $f \times g$ continuous.
     \end{enumerate}
 \end{example}
 
@@ -88,6 +110,18 @@ $X$ for $1 \leq i \leq n$.
     then $U_x \subseteq f^{-1}(V)$, then $f^{-1}(V)$ is a union of open sets, and hence open in $X$.
 \end{proof}
 
+\begin{example}\label{1.20}
+    Suppose $f:X \rightarrow Y$ is continuous, and that $A \subsseteq X$. Let
+    $x \in A'$ be a limit point of $A$. Certainly, we have $x \in \cl{A}$ so
+    then $f(x) \in f(\cl{A}) \subseteq \cl{f(A)}$. It reamins to see if $x \in
+    (f(A))'$ then. Let $V$ be open in  $Y$ such that  $x \in U=\inv{f}(V)$.
+    Then $U \cap (\com{A}{x}) \neq \emptyset$. So then we get $V \cap
+    (\com{f(A)}{f(x)}) \subsetq V \cap f(A) \neq \emptyset$. If $z \in U \cap A$,
+    then  $f(z)=f(x)$, so that $f(U \cap A)=\{f(x)\}$, which means that $x
+    \notin (f(A))'$, in general. It is the case that $f(x)$ is a limit point of
+    $f(A)$ whenver $f$ is  $1-1$.
+\end{example}
+
 \begin{definition}
     Let $X$ and  $Y$ be topological spaces, and  $f:X \rightarrow Y$ be a $1-1$ mapping of  $X$ onto
     $Y$. We call  $f$ a \textbf{homeomorphism} if both $f$ and  $f^{-1}$ are continuous.
@@ -105,6 +139,27 @@ $X$ for $1 \leq i \leq n$.
     by definition of continuity, $U$  is open in $X$.
 \end{proof}
 
+We can also characterize now when the topology of one set is finer or coarser
+than the topology of another given another given a continuous mapping.
+
+\begin{lemma}\label{1.7.3}
+    If $X$ and  $X'$ are two sets with topologies  $\Tc$ and  $\Tc'$,
+    respectively,then if  $f:X' \rightarrow Y$ is the identity mapping, then $f$
+    is continuous if, and only if $\Tc \subseteq \Tc'$
+\end{lemma}
+\begin{proof}
+    Suppose that $f$ is continuous, then for every  $V$ open in  $X$ under
+    $\Tc$,  $\inv{f}(V)$ is open in $X'$ unde r $\Tc'$. Since  $f$ is the
+    identity, we get that $V=\inv{f}(V)$, so that $V$ is open in  $X'$.
+
+    COnversely, if  $\Tc \subseteq \Tc'$, then for every  $V$ open in  $X$,  $V$
+    is open in  $X'$. Notice then  $V=\inv{f}(V) \subseteq X'$. Therefore, $f$
+    is continuous.
+\end{proof}
+\begin{corollary}
+    $f:X' \rightarrow X$ is a homomorphism if, and only if $\Tc=\Tc'$.
+\end{corollary}
+
 \begin{definition}
     Let $X$ and  $Y$ be topological spaces and let  $f:X \rightarrow Y$ be a
     contniuous  $1-1$ maping
@@ -114,29 +169,47 @@ $X$ for $1 \leq i \leq n$.
 
 \begin{example}
     \begin{enumerate}
-        \item[(1)] The map $f:\R \rightarrow \R$ defined by  $f(x)=3x+1$ is a homeomorphism whose inverse
-            is $f^{-1}(y)-\frac{1}{3}(y-3)$, both $f$ and  $f^{-1}$ are contiuous.
+        \item[(1)] The map $f:\R \rightarrow \R$ defined by  $f(x)=3x+1$ is a
+            homeomorphism whose inverse is $f^{-1}(y)-\frac{1}{3}(y-3)$, both
+            $f$ and  $f^{-1}$ are contiuous.
 
-        \item[(2)] The map $f:(-1,1) \rightarrow \R$ defined by $f(x)=\frac{x^2}{1-x^2}$ has as its
-            inverse the map $f:\R \rightarrow (-1,1)$ defined by
-            $f^{-1}(y)=\frac{2y}{1+\sqrt{1+4y^2}}$. Both $f$ and  $f^{-1}$ are contiuous, so $f$ is
-            a homeomorphism.
+        \item[(2)] The map $f:(-1,1) \rightarrow \R$ defined by $f(x)=
+            \frac{x^2}{1-x^2}$ has as its inverse the map $f:\R \rightarrow
+            (-1,1)$ defined by $f^{-1}(y)=\frac{2y}{1+\sqrt{1+4y^2}}$. Both $f$
+            and  $f^{-1}$ are contiuous, so $f$ is a homeomorphism.
 
-        \item[(3)] The map  $g:\R_l \rightarrow \R$ defined by  $g(x)=x$ is not a homeomorphism, despite
-            being contiuous, as $g^{-1}(1)$ is undefined.
+        \item[(3)] The map  $g:\R_l \rightarrow \R$ defined by  $g(x)=x$ is not
+            a homeomorphism, despite being contiuous, as $g^{-1}(1)$ is undefined.
 
-        \item[(4)] Let $S^1$ be the unit circle in $\R$, which is a subspace of $\R$, and define
-            $f:[0,1) \rightarrow S^1$ by $f(t)=(\cos(t),\sin(t))$. Clearly $f$ is  $1-1$ onto
-            $S^1$, and contiuous, however  $f^{-1}$ is not contiuous as $f([0,\frac{1}{4}))$ is not
-            open in $S^1$ as  $f(0)$ is in no open set of $\R^2$ such that  $U \cap S^1=f([0,1))$.
+        \item[(4)] Let $S^1$ be the unit circle in $\R$, which is a subspace
+            of $\R$, and define $f:[0,1) \rightarrow S^1$ by
+            $f(t)=(\cos(t),\sin(t))$. Clearly $f$ is  $1-1$ onto $S^1$, and
+            contiuous, however  $f^{-1}$ is not contiuous as $f([0,\frac{1}{4}))$
+            is not open in $S^1$ as  $f(0)$ is in no open set of $\R^2$ such
+            that  $U \cap S^1=f([0,1))$.
 
-        \item[(5)] Consider the mappings $g:[0,1) \rightarrow \R^2$ by $f(t)=(\cos(2t\pi),\sin(2t\pi)))$.
-            Now $g$ is  $1-1$ and continuous, and we have that  $g([0,1)) \subseteq S^1$, however
-            since $g$ is not a homeomorphism,  $g$ fails to be a topological embedding.
+        \item[(5)] Consider the mappings $g:[0,1) \rightarrow \R^2$ by
+            $f(t)=(\cos(2t\pi),\sin(2t\pi)))$. Now $g$ is  $1-1$ and continuous,
+            and we have that  $g([0,1)) \subseteq S^1$, however since $g$ is not
+            a homeomorphism,  $g$ fails to be a topological embedding.
+
+        \item[(6)] Let $X$ and  $Y$ be topological spaces, and consider the maps
+             $f:x \rightarrow x \times y_0$ and $g:y \rightarrow y_0 \times x$
+             for some $x_0 \in X$ and $y_0 \in Y$. We see that $f$ and  $g$ are
+             both onto $f(X)$ and $g(Y)$, respectively, and that $x \times
+             y_0=x' \times y_0$ and $x_0 \times y=x_0 \times y'$ both imply that
+             $x=x'$ and  $y=y'$, so  $f$ and  $g$ are also  $1-1$.
+
+             Lastly, we see that if  $U \times y_0$ and $ x_0 \times V$ are open
+             in $X \times Y$, then $\inv{f}(U \times y_0)$ and $\inv{g}(x_0
+             \times V)$ are open in $X$ and  $Y$, respectively. This makes  $f$
+             and  $g$ continuous, and by the same argument, so are  $\inv{f}$
+             and $\inv{g}$. Thus $f$ and  $g$ are imbeddings of  $X$ onto $f(X)=
+             X \times y_0$ and $g(X)=x_0 \times Y$.
     \end{enumerate}
 \end{example}
 
-\begin{theorem}[Constructions for continuous functions.]\label{1.7.3}
+\begin{theorem}[Constructions for continuous functions.]\label{1.7.4}
     Let $X$ and  $Y$ be topological spaces, then:
         \begin{enumerate}
             \item[(1)] (Constant construction) If $f:X \rightarrow Y$ maps  $x \rightarrow y_0$ for all
@@ -191,7 +264,7 @@ $X$ for $1 \leq i \leq n$.
     \end{enumerate}
 \end{proof}
 
-\begin{theorem}[The pasting lemma]\label{1.7.4}
+\begin{theorem}[The pasting lemma]\label{1.7.5}
     Let $X=A \cup B$ with  $A$ and  $B$ closed in  $X$, and let  $f:A \rightarrow Y$ and  $g:B
     \rightarrow Y$ be continuous. If  $f(x)=g(x)$ for all $x \in A \cap B$, then we can
     construct a mapping  $h:X \rightarrow Y$ defined by  $h(x)=
@@ -256,6 +329,8 @@ $X$ for $1 \leq i \leq n$.
     in $A$, hence so is $f^{-1}(U \times V)=f_1^{-1}(U) \cap f_2^{-1}(V)$.
 \end{proof}
 
+We now conclude the section with some more definitions and examples.
+
 \begin{definition}
     We define the \textbf{parametrized curve} of the plane $\R^2$ to be the continuous function
     $f:[a,b] \rightarrow \R^2$ defined by $f(t)=(x(t),y(t))$. If $f$ is in a vector field, then wwe
@@ -274,4 +349,112 @@ $X$ for $1 \leq i \leq n$.
 \begin{example}
     The function $f(t)=((\cos(t)),\sin(t))$ is a parametrization of the curve $x^2+y^2=1$, i.e. the
     unit circle  $S^1$.
+\end{example}
+
+\begin{example}\label{1.24}
+    Suppose $\{A_\alpha\}$ is a finite collection of subsets of a topological
+    space $X$, and that  $X=\bigcup_{\alpha}{A_\alpha}$. Suppose $f:X
+    \rightarrow Y$ is defined such that the maps $f_\alpha=f:A_\alpha
+    \rightarrow Y$ are continuous for each $\alpha$. Then  $f$ is also
+    continuous provided that each  $A_\alpha$ is closed. For, if each
+    $A_\alpha$ is closed, then  $X$ is the finite union of closed sets.
+    Morevoer, for any  $V \subseteq Y$ closed, we get  $\inv{f_\alpha}(V)$ is
+    closed in $A_\alpha$ as a subspace of  $X$. So
+    $\inv{f}(V)=\bigcup{\inv{f_\alpha}(V)}$ is closed in $X=\bigcup{A_\alpha}$,
+    via local formulation, Making $f$ continuous.
+
+    This fact is not true however if  $\{A_\alpha\}$ is countable, but not
+    finite. Consider the collection $\{[\frac{1}{n},1]\}_{n \in \Z^+}$, of the
+    space $[0,1]$. We have $[0,1]=\bigcup_{n \in \Z^+}{[\frac{1}{n}, 1]}$, and
+    each $[\frac{1}{n},1]$ is closed in $[0,1]$ as a subspace of $\R$. However,
+    the function  $f(x)=\frac{1}{n}$ if $x \in [\frac{1}{n}, 1]$ and $f(x)=1$
+    otherwise is continuous on each $[\frac{1}{n},1]$, but its local formulation
+    is not continuous on $[0,1]$.
+\end{example}
+
+\begin{remark}
+    Theorem \ref{1.7.4} only states that the local formulation of a mapping is
+    continuous only if its domain is the union of open sets. Thus a local
+    formulation where the domain is a union of closed sets need not be
+    continuous.
+\end{remark}
+
+\begin{definition}
+    Let $X$ be a topological space, and  $\{A_\alpha\}$ a collection of subsets
+    of $X$. We call \$ {a_\alpha\} \textbf{locally finite} if for each $x \in
+    X$, there is a neighborhood  $U$ of  $X$ such that  $U \cap A_\alpha \neq
+    \emptyset$ only for a finite number of  $\alpha$.
+\end{definition}
+
+\begin{lemma}\label{1.7.7}
+    Let $X$ be a topological space, and  $\{A_\alpha\}$ a locally finite
+    collection of subsets of $X$. If  $f:X \rightarrow Y$ is defined such that
+    $f_\alpha=f:A_\alpha \rightarrow Y$ is continuous for each $\alpha$, then
+    $f$ is continuou.
+\end{lemma}
+\begin{proof}
+    If $\{A_\alpha\}$ is locally finite, then for each $x \in X$, there s a
+    neighborhood  $U_x$ of  $x$ such that  $U_x \cap A_\alpha \neq \emptyset$
+    for only a finite number of  $\alpha$. Then  $U_x \cap A_\alpha$ is open in
+     $A_\alpha$ as a subspace of  $X$. Then  $V_x=\com{A_\alpha}{(U_x \cap
+     A_\alpha)}$ is closed in $A_\alpha$, and  $V_x=\inv{f_\alpha}(W)$ for some
+     $W$ closed in  $Y$. Thus  $\bigcup_{x \in
+     X}{V_x}=\bigcup_{\alpha}{\inv{f_\alpha}(W)}=\inv{f}(W)$ (which is a finite
+     union) is closed in $X$. This makes $f$ continuous.
+\end{proof}
+
+\begin{definition}
+    Let $X$,  $Y$, and  $Z$ be topological space. We say a map  $F: X \times Y
+    \rightarrow Z$ is \textbf{continuous in each variable} if the maps $F_X:X
+    \rightarrow Z$ and $F_Y:Y \rightarrow Z$ defined by $F_X(x)=F(x \times y_0)$
+    and $F_Y(y)=F(x_0 \times y)$ are continuous.
+\end{definition}
+
+\begin{lemma}\label{1.7.8}
+    If $X$,  $Y$, and  $Z$ are topological spaces, and  $F:X \times Y
+    \rightarrow Z$ is continuous, then $F$ is continuous in each variable
+    seperately.
+\end{lemma}
+\begin{proof}
+    If $F$ is continuous, then  $W$ open in  $Z$ implies that $\inv{F}(W)$ is
+    open in $X \times Y$, and that  $U \times V=\inv{F}(W)$ for $U$ and  $V$
+    open in  $X$ and  $Y$ respectively. Then $F$ is continuous at $U \times
+    y_0$, for $y_0 \in V$; that is $\inv{F}(U \times y_0)$ is open in $X \times
+    Y$. So, by definition,  $F_X(U)$ is open in $X$, and $F_X$ is continuous.
+    By similar reasoning, we can also conclude that $F_Y$ is continuous, and
+    that $F$ is continuous in each variable.
+\end{proof}
+
+\begin{example}\label{1.25}
+    Define $F:\R \rightarrow \R$ by
+    \begin{equation*}
+        F(x \times y)=\begin{cases}
+                    \frac{xy}{x^2+y^2}, \text{ if } x \times y \neq 0 \times 0 \\
+                    0, \text{ otherwise}
+                \end{cases}
+    \end{equation*}
+    Define $F_X(x)=F(x \times y_0)$, then $F(x \times
+    y_0)=\frac{xy_0}{x^2+y_0^2}$ if $x \neq 0$ and  $y_0 \neq 0$, and $0$
+    otherwise. Then when $y_0=0$ we see that
+    \begin{equation*}
+        \lim_{x \rightarrow 0}{F(x \times y_0)}=\lim_{x \rightarrow 0}{F_X(x)}
+        =F_X(0)=F(0 \times 0)=0
+    \end{equation*}
+    so that $F_X$ is continuous at  $x=0$, and it is also continuous everywhere
+    else. So  $F_X$ is continuous. Similarly, the mapping  $F_Y(y)=F(x_0 \times
+    y)$ is also continuous, and $F$ is continous in each variable.
+
+     $F$ however, is not continuous in general. Define  $g(x)=F(x \times x)$ so
+     we get
+     \begin{equation*}
+         g(x)=\begin{cases}
+                \frac{1}{2}, \text{ if } x \neq 0 \\
+                0, \text{ otherwise}
+            \end{cases}
+     \end{equation*}
+     which is not continuous. So $F$ cannot be continuous at the points  $x
+     \times x$, for it degenrates into a noncontinuous function. In fact, if we
+     have $\frac{xy}{x^2+y^2}=\frac{1}{2}$, then we get $x^2+y^2-2xy=(x-y)^2=0$
+     and $x \times y \neq 0 \times 0$. This means $\inv{F}(\{\frac{1}{2}\})=\{x
+     \times x : x \neq 0\}$ is not closed.
 \end{example}
