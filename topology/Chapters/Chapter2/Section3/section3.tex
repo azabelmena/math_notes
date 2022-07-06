@@ -7,16 +7,20 @@
 We go more in depth on metric spaces here.
 
 \begin{theorem}\label{2.3.1}
-    If $A$ is a subspace of a metric space $X$, with metric  $d$, then  $d$ restricted to  $A \times
-    A$ makes  $A$ into a metric space.
+    If $A$ is a subspace of a metric space $X$, with metric  $d$, then  $d$
+    restricted to  $A \times A$ makes  $A$ into a metric space.
 \end{theorem}
 \begin{proof}
-    Clearly $d:A \times A \rightarrow \R$ is a metric. So consider the $\epsilon$-ball about $x$,
-    $B_d(x,\epsilon)$ in $X$; restricting  $d$ to  $A \times A$, consider  $A \cup B_d(x,\epsilon)$.
-    For $y \in A$, there is a  $\delta$-ball about  $y$ such that  $B_d(y,\delta)
-    \subseteq B_d(x,\epsilon)$; then $B_d(y,\delta) \subseteq B_d(x,\epsilon)$. This makes $A$ as a subspace,
-    into a metric space.
+    Clearly $d:A \times A \rightarrow \R$ is a metric. So consider the
+    $\epsilon$-ball about $x$, $B_d(x,\epsilon)$ in $X$; restricting  $d$ to
+    $A \times A$, consider  $A \cap B_d(x,\epsilon)$. For $y \in A$, there is
+    a  $\delta$-ball about  $y$ such that  $B_d(y,\delta) \subseteq
+    B_d(x,\epsilon)$; then $B_d(y,\delta) \subseteq B_d(x,\epsilon)$. This makes
+    $A$ as a subspace, into a metric space.
 \end{proof}
+\begin{corollary}
+    The metric topology on $A$ is the same as the subspace topology on  $A$.
+\end{corollary}
 
 \begin{theorem}\label{2.3.2}
     The Hausdorff axiom is satisfied in every metric space.
@@ -179,3 +183,38 @@ We now consder methods for constructing continous functions on metric spaces.
             0$.
     \end{enumerate}
 \end{example}
+
+\begin{lemma}\label{2.3.10}
+    Let $X$ and  $Y$ be metric spaces with metrics  $d_X$ and $d_Y$, and suppose
+    that  $f:X \rightarrow Y$ is a function such that for all $x,y \in X$,
+    \begin{equation*}
+        d_Y(f(x)f(y))=d_X(x,y)
+    \end{equation*}
+    then $f$ is an imbedding.
+\end{lemma}
+\begin{proof}
+    First, we have that $f$ is  $1-1$, for if  $f(x)=f(y)$, then
+    $d_Y(f(x),f(y))=d_X(x,y)=0$, making $x=y$. So  $f$ is  $1-1$ of $X$ onto
+    $f(X)$.
+
+    We also have by theorem \ref{2.3.4}, that $f$ is continuous if, and only if
+    for every  $\epsilon>0$, there is a  $\delta>0$ such that
+    $d_Y(f(x),f(y))<\epsilon$ whenever $d_X(x,y)<\delta$. When $x=y$, we can
+    take  $\epsilon$ and  $\delta$ to be any real number. Now, if  $x \neq y$,
+    just take  $\epsilon=d_X(x,y)+1$ and $\delta=d_Y(f(x),f(y))+1$, which makes
+    $f$ continuous.
+
+    On the other hand, if $B_{d_X}(x,\epsilon)$ is an open ball in $X$, then
+    by definition of $f$, we get that
+    $f(B_{d_X}(x,\epsilon))=B_Y(f(x),\epsilon)$, which is an open ball in
+    $f(X)$. Therefore, $\inv{f}$ is continuous, and we have that $f$ is an
+    imbedding of  $X$ onto  $f(X)$.
+\end{proof}
+
+\begin{definition}
+    Let $X$ and  $Y$ be metric spaces. We call a function  $f:X \rightarrow Y$
+    an \textbf{isometric imbedding} if for every $x,y \in X$ we have
+    \begin{equation}
+        d_Y(f(x),f(y))=d_X(x,y)
+    \end{equation}
+\end{definition}

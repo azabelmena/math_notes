@@ -5,8 +5,8 @@
 \section{The Metric Topology}
 
 \begin{definition}
-    A \textbf{metric} (or \textbf{distance function}) on a set $X$ is a map  $d:X \times X
-    \rightarrow \R$ satisfying the following for all $x,y,z \in X$:
+    A \textbf{metric} (or \textbf{distance function}) on a set $X$ is a map
+    $d:X \times X \rightarrow \R$ satisfying the following for all $x,y,z \in X$:
         \begin{enumerate}
             \item[(1)] $d(x,y) \geq 0$ and $d(x,y)=0$ if and only if $x=y$.
 
@@ -14,43 +14,46 @@
 
             \item[(3)]$d(x,y) \leq d(x,z)+d(z,y)$ (The Triangle Inequality).
         \end{enumerate}
-        We call $d(x,y)$ the \textbf{distance} between $x$ and  $y$, and given  $\epsilon>0$, we
-    define the  \textbf{$\epsilon$-ball centered about $x$} to be the set $B_d(x,\epsilon)=\{y \in
-    X: d(x,y)<\epsilon\}$.
+        We call $d(x,y)$ the \textbf{distance} between $x$ and  $y$, and given
+        $\epsilon>0$, we define the  \textbf{$\epsilon$-ball centered about $x$}
+        to be the set $B_d(x,\epsilon)=\{y \in X: d(x,y)<\epsilon\}$.
 \end{definition}
 
 \begin{lemma}\label{2.2.1}
-    Let $d$ be a metric on  $X$. For  $x,y \in X$, and  $B_d(x,\epsilon)$ an $\epsilon$-ball
-    centered about  $x$, there is a  $\delta$-ball centered about  $y$,  $B_d(y,\delta)$ such that
-    $B_d(y,\delta) \subseteq B_d(x,\epsilon)$.
+    Let $d$ be a metric on  $X$. For  $x,y \in X$, and  $B_d(x,\epsilon)$ an
+    $\epsilon$-ball centered about  $x$, there is a  $\delta$-ball centered about
+    $y$, $B_d(y,\delta)$ such that $B_d(y,\delta) \subseteq B_d(x,\epsilon)$.
 \end{lemma}
 \begin{proof}
-    Let $y \in B_d(x,\epsilon)$ and let $\delta=\epsilon-d(x,y)$, and take $z \in B_d(y,\delta)$,
-    then we have that $d(y,z)<\epsilon-d(x,y)$, thus $d(x,x) \leq d (x,y)+d(y,z)<\epsilon$ which
-    completes the proof.
+    Let $y \in B_d(x,\epsilon)$ and let $\delta=\epsilon-d(x,y)$, and take $z
+    \in B_d(y,\delta)$, then we have that $d(y,z)<\epsilon-d(x,y)$, thus $d(x,x)
+    \leq d (x,y)+d(y,z)<\epsilon$ which completes the proof.
 \end{proof}
 
 \begin{theorem}\label{2.2.2}
-    Let $d$ be a metric on  $X$. Then the colletion of all  $\epsilon$-balls about  $x$, for some
-    $x \in X$ forms the basis for a topology on  $X$.
+    Let $d$ be a metric on  $X$. Then the colletion of all  $\epsilon$-balls about
+    $x$, for some $x \in X$ forms the basis for a topology on  $X$.
 \end{theorem}
 \begin{proof}
-    Clearly $x \in B_d(x,\epsilon)$, by definition, so it remains to show that the intersection of
-    two $\epsilon$-balls contains an  $\epsilon$-ball. Let  $B_1$ and $B_2$ be $\epsilon$-balls
-    about  $x$, and let  $y \in B_1 \cap B_2$. By lemma \ref{2.2.1}, there are $\delta_1,\delta_2>0$
-    such that $B_d(y,\delta_1) \subseteq B_1$ and $B_d(y,\delta_2) \subseteq B_2$. Now take
-    $\delta=\min\{\delta_1, \delta_2\}$, then we see that $B_d(y,\delta) \subseteq B_1 \cap B_2$.
+    Clearly $x \in B_d(x,\epsilon)$, by definition, so it remains to show that
+    the intersection of two $\epsilon$-balls contains an  $\epsilon$-ball. Let
+    $B_1$ and $B_2$ be $\epsilon$-balls about  $x$, and let  $y \in B_1 \cap B_2$.
+    By lemma \ref{2.2.1}, there are $\delta_1,\delta_2>0$ such that
+    $B_d(y,\delta_1) \subseteq B_1$ and $B_d(y,\delta_2) \subseteq B_2$. Now
+    take $\delta=\min\{\delta_1, \delta_2\}$, then we see that $B_d(y,\delta)
+    \subseteq B_1 \cap B_2$.
 \end{proof}
 
 \begin{definition}
-    If $d$ is a metric on  $X$, we call the topology having as basis the collection of all
-    $\epsilon$-balls centered about  $x$, for some  $x \in X$ and  $\epsilon>0$, the \textbf {metric
-    topology} induced by $d$.
+    If $d$ is a metric on  $X$, we call the topology having as basis the
+    collection of all $\epsilon$-balls centered about  $x$, for some  $x \in X$
+    and $\epsilon>0$, the \textbf {metric topology} induced by $d$.
 \end{definition}
 
 \begin{corollary}
-    A set $U$ is open in the metric topology induced by  $d$ if and only if for each  $y \in U$, and
-     $\delta>0$, there is a  $\delta$-ball centered about $y$ contained in  $U$.
+    A set $U$ is open in the metric topology induced by  $d$ if and only if for each
+    $y \in U$, and $\delta>0$, there is a  $\delta$-ball centered about $y$
+    contained in  $U$.
 \end{corollary}
 
 \begin{figure}[h]
@@ -63,16 +66,71 @@
 
 \begin{example}
     \begin{enumerate}
-        \item[(1)] Define $d(x,y)=1$ if $x \neq y$ and  $d(x,y)=0$ if $x=y$. Clearly  $d$ is a metric on
-            $X$, and induces the discrete topology on  $X$. The basis  $B_d(x,1)=\{x\}$
+        \item[(1)] Define $d(x,y)=1$ if $x \neq y$ and  $d(x,y)=0$ if $x=y$.
+            Clearly  $d$ is a metric on $X$, and induces the discrete topology on
+            $X$. The basis  $B_d(x,1)=\{x\}$
 
-        \item[(2)] The standard metric on $\R$ is defined to be  $d(x,y)=|x-y|$ and is a metric on $\R$
-            (that is, the absolute $|\cdot|$ is a metric on  $\R$). This metric
-            induces the standard topology on $\R$ as we see that it has basis
-            $B_d(x,\epsilon)=\{y \in \R: |x-y|<\epsilon\}=\{y \in \R:
-            y-\epsilon<x<y+\epsilon\}=(y-\epsilon,y+\epsilon)$.
+        \item[(2)] The standard metric on $\R$ is defined to be  $d(x,y)=|x-y|$
+            and is a metric on $\R$ (that is, the absolute $|\cdot|$ is a metric
+            on  $\R$). This metric induces the standard topology on $\R$ as we
+            see that it has basis $B_d(x,\epsilon)=\{y \in \R: |x-y|<\epsilon\}=
+            \{y \in \R: y-\epsilon<x<y+\epsilon\}=(y-\epsilon,y+\epsilon)$.
+
+        \item[(3)] Define $d:\R^n \times \R^n \rightarrow \R$ by
+            \begin{equation*}
+                d(x,y)=\sum_{i=1}^n{|x_i-y_i|}
+            \end{equation*}
+            We have that $d$ is a metric, for  $d(x,y) \geq 0$ and $d(x,y)=0$ if
+            and only if $x=y$. Likewise, $d(x,y)=d(y,x)$, since
+            $|x_i-y_i|=|y_i-x_i|$.
+
+            Lastly, we see for  $x,y,z \in \R^n$,  $|x_i-y_i| \leq
+            |x_i-z_i|+|z_i-y_i|$, so that $\sum{|x_i-y_i|} \leq \sum{|x_i-z_i|}+
+            \sum{|z_i-y_i|}$, so $d(x,y) \leq d(x,z)+d(z,y)$.
+
+            Now, consider the open balls under $d$, and let  $y \in B(x,
+            \epsilon)$. Then $d(x,y)=\sum{|x_i-y_i|}<\epsilon$, which makes
+            $|x_i-y_i|<\epsilon$, and hence  $y_i-\epsilon < x_i <
+            y_i+\epsilon$, for all $1 \leq i \leq n$, so $y_i \in
+            (x_i-\epsilon,x_i+\epsilon)$. This puts $y \in
+            (x_1-\epsilon,x_1+\epsilon) \times \dots \times
+            (x_n-\epsilon,x_n+\epsilon)$. So $d$ induces the usual topology on
+            $\R^n$. We call this metric the \textbf{taxicab metric}.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.5]{Figures/Chapter2/open_ball_taxicab.eps}
+                \caption{The open ball of radius $1$ centered about the point
+                $0 \times 0$ in the taxicab metric}
+                \label{fig_2.2}
+            \end{figure}
+
+        \item[(4)] For the metric $d'\R^n \times \R^n \rightarrow \R$ defined by
+            \begin{equation*}
+                d'(x,y)=\sqrt[p]{\sum_{i=1}^n{|x_i-y_i|^p}}
+            \end{equation*}
+            for some $p$ also induces the usual topology on $\R^n$. For if  $y
+            \in B(x, \epsilon)$, then
+            $d'(x,y)=\sum_{i=1}^n{|x_i-y_i|^p}<\epsilon^p$, which makes
+            $|x_i-y_i|^p<\epsilon^p$, so that $|x_i-y_i|<\epsilon$, which is the
+            same as the above example.
     \end{enumerate}
 \end{example}
+
+\begin{lemma}\label{2.2.3}
+    If $X$ is a metric space, then the metric of  $X$ is a cotinuous function.
+\end{lemma}
+\begin{proof}
+    Let $d:X \times X \rightarrow \R$ be the metric of $X$, and let  $U \in \R$.
+    Then if  $x \times y \in \inv{d(U)}$, then $a=d(x,y) \in U$. We also have
+    then in the usual metric of $\R$, that  $(a-\epsilon,a+\epsilon) \subseteq
+    U$, for some $\epsilon>0$. Now, take  $x' \times y' \in
+    B(x,\frac{\epsilon}{2}) \times B(y,\frac{\epsilon}{2})$. By the triangle
+    inequality, we have that $|d(x',y')-d(x,y)| \leq d(x,x')+d(y,y')<\epsilon$,
+    so that $d(x',y') \in (a-\epsilon,a+\epsilon) \subseteq U$. This makes $B(x,
+    \frac{\epsilon}{2}) \times b(y,\frac{\epsilon}{2}) \subseteq \inv{d}(U)$
+    open in $X \times X$, which makes  $\inv{d}(U)$ open in $X$
+\end{proof}
 
 \begin{definition}
     If $X$ is a topological space, we call  $X$ \textbf {metrizable} if there is a metric $d$ which
@@ -89,7 +147,7 @@
 It is easy to see that boundedness of a set does not depend on the topology of $X$, but on the
 metric.
 
-\begin{theorem}\label{2.2.3}
+\begin{theorem}\label{2.2.4}
     Let $X$ be a metric space with metric $d$ and define  $\bar{d}:X \times X \rightarrow \R$ by
     $\bar{d}=\min\{d(x,y),1\}$ for all $x,y \in X$. Then  $\bar{d}$ is a metric on $X$ that induces
     the same topology as  $d$.
@@ -129,7 +187,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
         \end{equation}
 \end{definition}
 
-\begin{lemma}\label{2.2.4}
+\begin{lemma}\label{2.2.5}
     For $x,y \in \R^n$,  $\vbrack{x,y+z}=\vbrack{x,y}+\vbrack{x,z}$ and $|\vbrack{x,y}| \leq
     ||x||||y||$.
 \end{lemma}
@@ -146,7 +204,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     We call the last relation in the lemma the \textbf{Cauchy-Schwarz inequality}.
 \end{remark}
 
-\begin{theorem}\label{2.2.5}
+\begin{theorem}\label{2.2.6}
     Both the norm and square metrics make  $\R^n$ into a metric space.
 \end{theorem}
 \begin{proof}
@@ -168,7 +226,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     \leq \rho(x,z)+\rho(z,y)$ and $\rho$ is a metric.
 \end{proof}
 
-\begin{lemma}\label{2.2.6}
+\begin{lemma}\label{2.2.7}
     Let $d$ and  $d'$ be metrics on  $X$ and let  $\Tc$ and  $\Tc'$ be the topologies induced by
     $d$ and  $d'$ respectively.  $\Tc \subseteq \Tc'$ if and only if for each  $x \in X$, and
     $\epsilon>0$, there is a  $\delta>0$ such that  $B_{d'}(x,\delta)
@@ -185,7 +243,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     have that  $\Tc \subseteq \Tc'$.
 \end{proof}
 
-\begin{theorem}\label{2.2.7}
+\begin{theorem}\label{2.2.8}
     The norm and the square metric both induce the product topology on $\R^n$.
 \end{theorem}
 \begin{proof}
@@ -213,7 +271,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     \textbf{uniform topology}.
 \end{definition}
 
-\begin{theorem}\label{2.2.8}
+\begin{theorem}\label{2.2.9}
     The uniform topology on $\R^J$ is finer than the product topology on  $\R^J$ and coarser than
     the box topology on  $\R^J$, and all three topologies are different if  $J$ is infinite.
 \end{theorem}
@@ -248,7 +306,7 @@ Before we show that $||\cdot||$ and  $\rho$ are metrics, we introduce the follow
     the box and product topologies are the same for finite product spaces.
 \end{remark}
 
-\begin{theorem}\label{2.2.9}
+\begin{theorem}\label{2.2.10}
     Let $\bar{d}(a,b)=\min\{|a-b|,1\}$ be the standard bounded metric on $\R$,
     and for  $x,y \in \R^\omega$, define:
     \begin{equation}
