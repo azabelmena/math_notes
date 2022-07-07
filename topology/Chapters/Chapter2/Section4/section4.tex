@@ -306,5 +306,63 @@ We conclude with some examples.
             $(n-\epsilon,n+\epsilon) \times I_{\delta} \subseteq \R \times \Q$, however there are
             points that need not lie in $U$, which contradicts that  $U'$ is open in $\R/\sim$ So
             $p \times i$ cannot be a quotient map.
+
+        \item[(2)] Likewise, the product of two quotient maps need not be a
+            quotient map. Consider the space $\R$ and the quotient space
+            $\faktor{\R}{p}$ Where $p:\R \rightarrow \faktor{\R}{p}$ is the
+            quotient map taking $\Z^+$ to a point  $b$. Consider also  $\Q$ as a
+            subspace of  $\R$ and take the identity map  $i:\Q \rightarrow Q$.
+            Then $i$ is also a quotient map, but the product  $p \times i$ is
+            not a quotient map.
+
+            For each  $n \in \Z^+$, let  $c_n=\frac{\sqrt{2}}{n}$ and consider
+            the lines in $\R$ with slopes $\pm 1$, through the point $n \times
+            c_n$. Now, let $U_n$ be all the points of $\R \times \Q$ that lie
+            above these lines, or below these lines, and between the lines
+            $x=\frac{n \pm 1}{4}$. $U_n$ is open in  $\R \times \Q$, as it
+            contains the set $\{n\} \times \Q$. Now let
+            \begin{equation*}
+                U=\bigcup_{n \in \Z^+}{U_n}
+            \end{equation*}
+            Then $U$ is also open in  $\R \times \Q$, and it is saturatedwith
+            respect to  $p \times i$, as it contains  $\Z^+ \times \{q\}$ for
+            each $q \in \Q$. Then suppose that  $p \times i(U)$ is open in
+            $\faktor{\R}{p} \times \Q$.
+
+            We have that $U$ contains the set  $\Z^+ \times 0$, so $p \times
+            i(U)$ contains the point $b \times 0$. So  $p \times i(U)$ contains
+            a neighborhood of the form $W \times I_\delta$,  $W$ a neighborhood
+            of  $b$, and  $I_\delta=\{y \in \Q : |y|<\delta\}$. Then we have
+            \begin{equation*}
+                \inv{p}(W) \times I_\delta \subseteq U
+            \end{equation*}
+            Now, choose $n$ sufficiently large so that  $c_n<\delta$. Since
+            $\inv{p}(W)$ is open in $\R$, and contains $\Z^+$, choose
+            $\epilon<\frac{1}{4}$, so that $(n-\epsilon,n+\epsilon) \subseteq
+            \inv{p}(W)$. Then $U$ also contains a subset of the form
+            $(n-\epsilon,n+\epsilon) \times I_\delta$. But figure \ref{fig_2.8}
+            shows that there are points of $(n-\epsilon,n+\epsilon) \times
+            I_\delta$ not lying in $U$, taking  $x \times
+            y=n=\frac{1}{2}\epsilon \times y$ with
+            $|y-c_n|<\frac{1}{2}\epsilon$. Thus $U$ cannot be open and we have a
+            contradiction. Therefore $p \times i$ is not a quotient map.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.5]{Figures/Chapter2/figure22_8.eps}
+                \caption{}
+                \label{fig_2.8}
+            \end{figure}
     \end{enumerate}
 \end{example}
+
+\begin{definition}
+    Let $X$ be a topological space, and  $A \subseteq X$. We call a continuous
+    map $r:X \rightarrow A$ a \textbf{retraction} of $X$ onto  $A$ if
+    $r:a \rightarrow a$ for all $a \in A$
+\end{definition}
+
+\begin{lemma}\label{}
+    For any topological space $X$ and  $A \subseteq X$, a retraction of  $X$
+    onto  $A$ is a quotient map.
+\end{lemma}
