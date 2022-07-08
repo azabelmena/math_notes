@@ -25,17 +25,25 @@
     \textbf {closed map} if for each closed subset $U \subseteq X$,  $f(U) \subseteq Y$ is closed.
 \end{definition}
 
-\begin{lemma}\label{4.4.1}
+\begin{lemma}\label{2.4.1}
     If $p:X \rightarrow Y$ is a continuous map of  $X$ onto  $Y$, for topological spaces  $X$ and
     $Y$, that is either open or closed, then  $p$ is a quotient map.
 \end{lemma}
-\begin{remark}
-    A quotient map need not be open nor closed.
-\end{remark}
 
 \begin{example}
     \begin{enumerate}
-        \item[(1)] Let $X$ be the subspace  $[0,1] \cup [2,3]$ and $Y$ be the subspace  $[0,2]$ in $\R$,
+        \item[(1)] A quotient map need not be open nor closed. Consider the
+            projection $\pi_1$ on $\R \times \R$, which is a quotient map.
+            Consider $A=\{x \times y \in \R \times \R : x \geq 0 \text{ or }
+            y=0\}$ of $\R \times \R$, and take $q=\pi_1|_{A}$. Then $q$ is also
+            a quotient map by inheretance, but it is not open in  $\R$. We have
+             $A$ is open in its ssubspace topology, so that  $q(A)=[x, \infty)$,
+             which is not open in $\R$. Likewise, $q$ is not closed, for take
+             $U=\{x \times y: 0<x<1 \text{ or } y \geq 0\}$, which is closed in
+             $A$ as a subspace, however,  $q(U)=(0,1)$, which is not closed in
+             $\R$.
+
+        \item[(2)] Let $X$ be the subspace  $[0,1] \cup [2,3]$ and $Y$ be the subspace  $[0,2]$ in $\R$,
             and defined  $p:X \rightarrow Y$ by  $p(x)=\begin{cases}
                                                 x, \text{ } x \in [0,1] \\
                                                 x-1, \text{ } x \in [2,3] \\
@@ -48,7 +56,7 @@
         continuous onto, but fails to be closed. So  $p|_A$ is not a quotient map, depsite the fact
         that  $[2,3]$ is open in $A$ and saturated with respect to  $p|_A$.
 
-        \item[(2)] Let $\pi_1:\R \times \R \rightarrow \R$ be the projection map that takes $x \times y
+        \item[(3)] Let $\pi_1:\R \times \R \rightarrow \R$ be the projection map that takes $x \times y
             \rightarrow x$. Clearly  $\pi_1$ is continuous onto, and $\pi_1$ is also open as
             $\pi_1(U \times V)=U$ which is open in $Y$; hence  $\pi_1$ is a quotient map. Now
             consider the closed set $C=\{x \times y:xy=1\}$ in $\R \times \R$.
@@ -118,6 +126,22 @@ the quotient space $X/p$ by noting a subset $U$ of equivalence classes where $p^
 \in U}{V}$ is the union of all equivalence classes in $U$. We will denote the quotient space by
 $X/p$ or  $X/\sim$.
 
+We have the following lemma for determining when a map is a quotient map.
+
+\begin{lemma}\label{2.4.3}
+    If $p:X \rightarrow Y$ is a continuous map, and there exists a continuous
+    map $f:Y \rightarrow X$ such that $p \circ f=i$ the identity map on  $i$,
+    then  $p$ is a quotient map.
+\end{lemma}
+\begin{proof}
+    By lemma \ref{2.4.1}, $p$ is a quotient map if  $p$ is open or closed. Let
+    $U$ be open in  $X$, since  $f$ is continuous,  $\inv{f}(U)$ is open in
+    $Y&$, and since  $p$ is continuous,  $\inv{p}(\inv{f}(U))$ is open in $X$.
+    Since  $i$ is the identity on  $Y$, we have  $\inv{p}(\inv{f}(U))=U$, so
+    that $\inv{f}(U)=p(U)$, which is open. Therefore $p$ is open and hence a
+    quotient map.
+\end{proof}
+
 \begin{example}
     \begin{enumerate}
         \item[(1)] Let $X=\{x \times y: x^2+y^2 \leq 1\}$ be the closed unit ball in $\R^2$ and let  $X/\sim$ be the
@@ -145,6 +169,45 @@ $X/p$ or  $X/\sim$.
             \times 0, 0 \times 1, 1 \times 0, 1 \times 1\}$, then we can show that $X/\sim$ is
             homeomorphic to a torus.
 
+        \item[(3)] Consider $\R \times \R$ under the equivalence relation
+            $\sim$, where  $x_0 \times y_0 \sim x \times y$ if
+            $x_0+y_0^2=x+y^2$, and consider $\faktor{\R \times \R}{\sim}$ as a
+            quotient space. Then let $g(x \times y)=x+y^2$. We have that $y^2
+            \geq 0$, but  $x \in \R$ is arbitrary, so  $g$ is onto  $\R$.
+            Likewisse,  $\lim{g(x \times y)}=g(x_0 \times y_0)=x_0+y_0^2$ as
+            $x \times y \rightarrow x_0 \times y_0$, which makes $g$ continuous.
+            Lastly, let  $f(x)=x \times 0$, then $g \circ f=i$ the identity map
+            on  $\R$. This makes $g$ into a quotient map. Then the space
+            $\faktor{\R \times \R}{g}=\faktor{\R \times \R}{\sim}$ is
+            homeomorphic to a cylindircal parabaloid in $\R^3$. We can imagine
+            this by taking a piece of paper  (representing $\R \times \R$), and
+            bending it into a parabola shape.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.4]{Figures/Chapter2/paraboloid_cylinder.eps}
+                \caption{The space $\faktor{\R \times \R}{g}$, where $g(x \times
+                y)=x+y^2$}
+                \label{fig_2.5}
+            \end{figure}
+
+        \item[(4)] Taking $\R \times \R$ under the equivalence relation $\sim$
+            where  $x_0 \times y_0 \sim x \times y$ if $x_0^2+y_0^2=x^2+y^2$.
+            Let $h(x \times y)=x^2+y^2$, then $h$ is onto  $\R^+$ and is also
+            continuous. Moreover, it is a quotient map, for let  $f(x)=\sqrt{x}
+            \times 0$, which makes $h \circ f=i$ the identity map on  $\R$. Then
+             $\faktor{\R \times \R}{h}=\faktor{\R \times \R}{\sim}$ is
+             homeomorphic to an elliptic paraboloid. This can be visualized by
+             taking a sheet of rubber and making a dimple in the middle and
+             pushing it deeper.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.4]{Figures/Chapter2/paraboloid_elliptic.eps}
+                \caption{The space $\faktor{\R \times \R}{h}$, where $h(x \times
+                y)=x^2+y^2$}
+                \label{fig_2.6}
+            \end{figure}
     \end{enumerate}
 \end{example}
 
@@ -162,7 +225,7 @@ $X/p$ or  $X/\sim$.
     \label{fig_2.4}
 \end{figure}
 
-\begin{theorem}\label{2.4.3}
+\begin{theorem}\label{2.4.4}
     Let $p:X \rightarrow Y$ be a quotient map and let  $A$ be a subspace of  $X$ saturated with
     respect to  $p$. Let  $q:A \rightarrow p(A)$, then:
         \begin{enumerate}
@@ -186,7 +249,7 @@ $X/p$ or  $X/\sim$.
     open in $Y$, so  $V$ is open in  $p(A)$. In either case e have that $q$ is a quotient map.
 \end{proof}
 
-\begin{lemma}\label{2.2.3}
+\begin{lemma}\label{2.4.5}
     The composition of two quotient maps is a quotient map,
 \end{lemma}
 \begin{proof}
@@ -195,7 +258,7 @@ $X/p$ or  $X/\sim$.
     that  $p^{-1}(U)$ is open in $X$. Hence  $p^{-1}(q^{-1}(V))$ is open in $X$.
 \end{proof}
 
-\begin{theorem}\label{2.4.5}
+\begin{theorem}\label{2.4.6}
     Let $p:X \rightarrow Y$ be a quotient map and let  $Z$ be a topological space with  $g:X
     \rightarrow Z$ a map constant on all  $p^{-1}(\{y\})$ for each $y \in Y$. Then  $g$ induces a
     map $f:Y \rightarrow Z$ such that  $f \circ p=g$, where  $f$ is continuous if and only if  $g$
@@ -350,7 +413,8 @@ We conclude with some examples.
             \begin{figure}[h]
                 \centering
                 \includegraphics[scale=0.5]{Figures/Chapter2/figure22_8.eps}
-                \caption{}
+                \caption{The product of two quotient maps need not be a quotient
+                map.}
                 \label{fig_2.8}
             \end{figure}
     \end{enumerate}
@@ -362,7 +426,14 @@ We conclude with some examples.
     $r:a \rightarrow a$ for all $a \in A$
 \end{definition}
 
-\begin{lemma}\label{}
+\begin{lemma}\label{2.4.7}
     For any topological space $X$ and  $A \subseteq X$, a retraction of  $X$
     onto  $A$ is a quotient map.
 \end{lemma}
+\begin{proof}
+    Let $r$ be a retraction of  $X$ onto  $A$, and let  $f:A \rightarrow X$ be
+    such that $r \circ f=i$ the identity map in  $A$. Let  $U$ be open in  $A$,
+    then  $U=\inv{r}(U)$ is open in $X$, and since  $r \circ f=i$, we get
+    $\inv{f}(\inv{r}(U))=\inv{f}(U)$ must be open in $A$. this makes  $f$
+    continuous. Therefore by lemma \ref {2.4.3}, $r$ is a quotient map.
+\end{proof}
