@@ -7,9 +7,10 @@
 \begin{definition}
     Let $X$ and  $Y$ be topological spaces, and let  $p:X \rightarrow Y$ be onto.
     We say that  $p$ is a \textbf {quotient map} if a subset $U \subseteq Y$ is
-    open if and only if  $p^{-1}(U) \subseteq X$ is open. We say that a subset $C$ is \textbf {saturated} with respect to $p$
-    if for every $p^{-1}(\{y\})$ that intersects $C$,  $p^{-1}(\{y\}) \subseteq C$; that is $C \cap
-    p^{-1}(\{y\})=p^{-1}(\{y\})$.
+    open if and only if  $p^{-1}(U) \subseteq X$ is open. We say that a subset
+    $U$ is \textbf {saturated} with respect to $p$ if $U=\inv{p}(V)$ for some
+    $V \subseteq Y$. That is a saturated subset is the preimage of some subset
+    of  $Y$.
 \end{definition}
 
 \begin{figure}[h]
