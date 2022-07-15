@@ -22,58 +22,62 @@
 \end{definition}
 
 \begin{example}\label{1.1}
+    \begin{enumerate}
         The emptyset $\emptyset$ together with $2^\emptyset=\{\emptyset\}$ forms
         a matroid called the \textbf{empty matroid} and the collection $2^E$ on an
         nonempty set $E$ induces a matroid called the \textbf{trivial matroid}.
         It is easy to see why these two are matroids; since one encompasses only
         the empty set, and the other all subsets, these two matroids are not
         very interesting.
+    \end{enumerate}
 \end{example}
 
 We provide some equivalent definitions with independent sets.
 
 \begin{example}\label{1.2}
-    Let $E$ be a finite set. Then $M=(E,\Ic)$ is a matroid if, and only if:
     \begin{enumerate}
-        \item[(1)] $\Ic \neq \emptyset$.
+        \item[(1)] Let $E$ be a finite set. Then $M=(E,\Ic)$ is a matroid if,
+            and only if:
+            \begin{enumerate}
+                \item[(I^{\prime}1)] $\Ic \neq \emptyset$.
 
-        \item[(2)] Inheritance holds.
+                \item[(I^{\prime}2)] Inheritance holds.
 
-        \item[(3)] If $I_1,I_2 \in \Ic$, with $|I_2|=|I_1|+1$, then there is an
-            $e \in \com{I_2}{I_1}$ such that $I_1 \cup e \in \Ic$.
-    \end{enumerate}
+                \item[(I^{\prime}3)] If $I_1,I_2 \in \Ic$, with $|I_2|=|I_1|+1$,
+                    then there is an $e \in \com{I_2}{I_1}$ such that $I_1 \cup e
+                    \in \Ic$.
+            \end{enumerate}
 
-    Notice, that if $M$ is a matroid, then  $\emptyset \in \Ic$, so  (1) is
-    satisfied. Moreover, the augmentation theorem implies (3), since if
-    $|I_2|=|I_1|+1$, we have $|I_1|<|I_2|$.
+        Notice, that if $M$ is a matroid, then  $\emptyset \in \Ic$, so  (1) is
+        satisfied. Moreover, the augmentation theorem implies (3), since if
+        $|I_2|=|I_1|+1$, we have $|I_1|<|I_2|$.
 
-    On the otherhand, if $\Ic \neq \emptyset$, then $\Ic$ contains, at least
-    $\emtyset$, since  $\Ic \subseteq 2^E$. (I2) is also given by (2).
+        On the otherhand, if $\Ic \neq \emptyset$, then $\Ic$ contains, at least
+        $\emtyset$, since  $\Ic \subseteq 2^E$. (I2) is also given by (2).
 
-    Now, if $I_1, I_2 \in \Ic$ such that $|I_2|=|I_1|+1$, then $|I_1|<|I_2|$,
-    and it follows from there that (3) implies (I3).
+        Now, if $I_1, I_2 \in \Ic$ such that $|I_2|=|I_1|+1$, then $|I_1|<|I_2|$,
+        and it follows from there that (3) implies (I3).
 
-    This gives us an equivalent way to define the matroid $M$, still using
-    independent sets, but with different rules.
-\end{example}
+        This gives us an equivalent way to define the matroid $M$, still using
+        independent sets, but with different rules.
 
-\begin{example}\label{1.3}
-    A finite set $E$ together with a collection  $\Ic \subseteq 2^E$ is a
-    matroid if, and only if the following hold:
-    \begin{enumerate}
-        \item[(1)] $\emptyset \in \Ic$.
+    \item[(2)] A finite set $E$ together with a collection  $\Ic \subseteq 2^E$
+        is a matroid if, and only if the following hold:
+        \begin{enumerate}
+            \item[(I^{\prime\prime}1)] $\emptyset \in \Ic$.
 
-        \item [(2)] Inheritance holds; i.e. if $I \in \Ic$ and  $J \subseteq I$,
-            then  $J \in \Ic$.
+            \item[(I^{\prime\prime}2)] Inheritance holds; i.e. if $I \in \Ic$
+                and  $J \subseteq I$, then  $J \in \Ic$.
 
-        \item[(3)] If $X \subseteq E$, and  $I_1,I_2 \in \Ic$ are maximal such
-            that $I_1,I_2 \subseteq X$ (that is, $I_1$ and $I_2$ are maximal
-            sets of the collection $\{I \in \Ic : I \subseteq X\}$), then
-            $|I_1|=|I_2|$.
+            \item[(I^{\prime\prime}3)] If $X \subseteq E$, and  $I_1,I_2 \in
+                \Ic$ are maximal such that $I_1,I_2 \subseteq X$ (that is, $I_1$
+                and $I_2$ are maximal sets of the collection $\{I \in \Ic :
+                I \subseteq X\}$), then $|I_1|=|I_2|$.
+        \end{enumerate}
 
-            It is rather simple to prove (1) and (2), so the nontrivial work
-            goes to showing that property (3) and (I3) are equivalent to each
-            other.
+        It is rather simple to prove (1) and (2), so the nontrivial work
+        goes to showing that property (3) and (I3) are equivalent to each
+        other.
     \end{enumerate}
 \end{example}
 
