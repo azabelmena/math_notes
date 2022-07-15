@@ -3,3 +3,73 @@
 %----------------------------------------------------------------------------------------
 
 \section{The Rank of a Matroid.}
+
+Let $M=(E,\Ic)$ be a matroid, and let $X \subseteq E$, and  $\Ic|X=\{I \subseteq
+X : I \in \Ic\}$. Then the pair $(X,\Ic|X)$ forms a matroid which we can define
+as follows.
+
+\begin{definition}
+    If $M=(E,\Ic)$ is a matroid, and $X \subseteq E$, then we call the matroid
+    $M|X=(X,\Ic|X)$ the \textbf{restriction} of $M$ to  $X$, or alternatively,
+    the \textbf{deletion} of $\com{E}{X}$ from $M$.
+\end{definition}
+
+This also motivates the following definition for the ``rank'' of a matroid.
+
+\begin{definition}
+    Let $M=(E,\Ic)$ bea matroid, and $X \subseteq E$. We define the
+    \textbf{rank} of $X$ to be the cardinality of some basis  $B$ of  $M|X$, and
+    denote it  $\rank{X}$; we also call $B$ a  \textbf{basis} of $X$. We define
+    the  \textbf{rank function} of the matroid $M$ to be the mapping  $\rank:2^E
+    \rightarrow \N$, and we write $\rank{M}=\rank{E}$. That is the rank of the
+    matroid $M$ is the rank of its ground set.
+\end{definition}
+
+\begin{lemma}\label{1.3.1}
+    Let $M$ be a matroid on a set  $E$, and let $X \subseteq E$. If $\rank$ is
+    the rank function of  $M$, then the following are true:
+    \begin{enumerate}
+        \item[(R1)] $0 \leq \rank{X} \leq |X|$.
+
+        \item[(R2)] If  $Y \subseteq E$ with  $X \subseteq Y$, then  $\rank{X}
+            \leq \rank{Y}$.
+
+        \item[(R3)] If $X \subseteq E$ and  $Y \subseteq E$, then $\rank{(X \cup
+            Y)}+\rank{(X \cap Y)} \leq \rank{X}+\rank{Y}$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Since $\rank$ maps a subset of $E$ to a nonnegative integer in $\N$, we see
+    that  $\rank{X} \geq 0$. Now, if $B$ is a basis of $X$, then  $B \subseteq
+    X$, so that  $|B| \leq |X|$, so  $\rank{X} \leq |X|$.
+
+    Moreover, if $X \subseteq Y$, and  $B$ is a basis
+    of  $X$, then it is a basis of the matroid  $M|X$, as well as being an
+    independent set of the matroid $M|Y$. So if  $B'$ is the basis for  $Y$;
+    i.e. a basis of  $M|Y$, then we have  $|B| \leq |B'| \leq |Y|$, so that
+    $\rank{X} \leq \rank{Y}$
+
+    Now, let $B_{X \cap Y}$ be a basis of $X \cap Y$, then it is an independent
+    set in  $M|(X \cup Y)$, and hence contained in a basis $B_{X \cup Y}$ of $X
+    \cup Y$. Now, we also have that  $B_{X \cup Y} \cap X$ and $B_{X \cup Y}
+    \cap Y$ are independent in  $M|X$ and  $M|Y$, respectively; So we get that
+    $\rank{X} \geq |B_{X \cup Y} \cap X|$ and $\rank{Y} \geq |B_{X \cup Y} \cap
+    Y|$, thus $\rank{X}+\rank{Y} \geq |B_{X \cup Y} \cap X|+|B_{X \cup Y} \cap
+    y|=|B_{X \cup Y}|+|B_{X \cap Y}|=\rank{(X \cup Y)}+\rank{(X \cap Y)}$.
+\end{proof}
+
+\begin{lemma}\label{1.3.2}
+    Let $E$ be a set and  $r:2^E \rightarrow \N$ be a mapping satisfying (R1)
+    and (R2). if $X$ and  $Y$ are subsets of  $E$ such that  $r(X \cup y)=r(X)$
+    for all $y \in \com{Y}{X}$, then $r(X \cup Y)=r(X)$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}\label{1.3.3}
+    Let $E$ be a set and $r:2^E \rightarrow \N$ be a mapping of $2^E$ into
+    $\N$ such that $r$ satisfies (R1)-(R3). If $\Ic=\{X \subseteq E :
+    r(X)=|X|\}$ Then $r$ is the rank function of a matroid $M$ on $E$
+\end{theorem}
+\begin{proof}
+\end{proof}
