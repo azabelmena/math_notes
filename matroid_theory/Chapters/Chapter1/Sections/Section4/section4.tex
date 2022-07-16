@@ -2,4 +2,294 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{The Closure of a Matroid.}
+\section{The Closure Operator of a Matroid.}
+
+\begin{definition}
+    Let $M$ be a matroid on a set $E$, we define a mapping $\cl:2^E \rightarrow
+    2^E$ called the \textbf{closure operator} of $M$ by the rule:
+    \begin{equation*}
+        \cl(X)=\{x \in E : \rank{(X \cup e)}=\rank{X}\}
+    \end{equation*}
+    For all $X \in E$. We call  $\cl{X}$ the \textbf{closure}, or the
+    \textbf{span} of $X$ in  $M$.
+\end{definition}
+
+\begin{example}\label{1.14}
+    \item[(1)] For any vector space $V$, and a vector  $v \in V$,  $v$ is in the
+        span of a set of vectors  $\{v_1, \dots, v_n\}$ if the subspaces spanned
+        by $\{v_1, \dots, v_n\}$ and $\{v_1, \dots, v_n,v\}$ have the same
+        dimension. Indeed, the span of a subset of vectors ion $V$ is the closure
+        operator for the matroid  $M[V]$.
+
+    \item[(2)] In example \ref{1.12}(2), we have $\cl{\emptyset}=Z$,
+        $\cl{\{1,3,5\}}=\{1,2,3,4,5\}$, and $\cl{\{4,5,6\}}=X$.
+\end{example}
+
+\begin{lemma}\label{1.4.1}
+    Let $M$ be a matroid on a set  $E$, then for every $X \subseteq E$,
+    $\rank{X}=\rank{(\cl{X})}$.
+\end{lemma}
+\begin{proof}
+    Let $B$ be a basis of  $X$, then for each  $x \in \com{(\cl{X})}{X}$,
+    $\rank{(B \cup x)}=\rank{X}=\rank{B} \leq \rank{(B \cup x)}$. Then
+    $\rajnk{(B \cup x)}<|B \cup x|$, so that $B \cup x$ is a dependent set. This
+    makes  $B$ a basis of  $\cl{X}$.
+\end{proof}
+
+\begin{lemma}\label{1.4.2}
+    The closure operator of a matroid $M$ on a set  $E$ satisfies the following
+    for all  $X,Y \subseteq E$:
+    \begin{enumerate}
+        \item[(CL1)] $X \subseteq \cl{X}$.
+
+        \item[(CL2)] If $X \subseteq Y$, then  $\cl{X} \subseteq \cl{Y}$.
+
+        \item[(CL3)] $\cl{X}=\cl{(\cl{X})}$.
+
+        \item[(CL4)] If $x \in E$, and  $y \in \com{\cl{(X \cup x)}}{\cl{X}}$,
+            then $x \in \cl{X \cup y}$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    By definition of closure, we have that $\rank{X \cup x}=\rank{X}$ for all $x
+    \in X$, so  $x \in \cl{X}$. Now suppose that $X \subseteq Y$, and let  $x
+    \in \com{(\cl{X})}{X}$, then $\rank{(X \cup x)}=\rank{X}$. Now if $B$ is a
+    basis of  $X$, then it is a basis for  $X \cup x$. Then  $Y \cup x$ has a
+    basis  $B'$ which contains $\com{B}{x}$. Then it follows that $\rank{Yc \cup
+    x}=\rank{Y}$, so that $x \in \cl{Y}$. So $\cl{X} \subseteq \cl{Y}$.
+
+    Notice also that $\cl{X} \subseteq \cl{(\cl{X})}$. Then for $x \in
+    \cl{(\cl{X})}$, $\rank{(\cl{X} \cup x)}=\rank{(\cl{X})}=\rank{X}$, by lemma
+    \ref{1.4.1}, now we have that $\rank{X} \leq \rank{)X \cup x} \lewq
+    \rank{(\cl{X} \cup x)}$, so equality holds and $x \in \cl{X}$.
+
+    Now suppose that $y \in \com{{(\cl{(X \cup x)})}}{\cl{X}}$, then $\rank{X
+    \cup x \cup y}=\rank{X \cup x}$, and $\rank{X \cup y} \neq \rank{X}$. Then
+    by the corollary to lemma \ref{1.3.1}, we het $\rank{(X \cup
+    y)}=\ranl{X}+1$. Thus we have that $\rank{X}+1=\rank{(X \cup y)} \leq
+    \rank{(X \cup x \cup y)}=\rank{(X \cup y)}=\rank{X}+1$, so by equality, we
+    get $\rank{(X \cup x \cup y)}=\rank{X \cup y}$, so that $x \in \cl{(X \cup
+    y)}$.
+\end{proof}
+
+\begin{lemma}\label{1.4.3}
+    Let $M$ be a matroid on a set $E$. Let $X \subseteq E$, and  $x \in E$. If
+    $X$ is an independent set, and $X \cup x$ a dependent set, then $x \in
+    \cl{X}$.
+\end{lemma}
+\begin{proof}
+    We have that $X \cup x \notin \Ic$, is dependent, so that for  $y \in X \cup
+    x$,  $y \in \cl{\com{(X \cup x)}{y}}$. Now, if $y=x$, we are done as
+    $\com{(X \cup x)}{y}=X$. On the otherhand, if $y \neq x$, then  $\com{(X
+    \cup x)}{y}=(\com{X}{y}) \cup x$, so $y \in \com{\cl{((\com{X}{y}) \cup
+    x)}}{\cl{(\com{X}{y})}}$. Therefore, $x \in \cl{((\com{X}{y}) \cup
+    y)}=\cl{X}$.
+\end{proof}
+
+\begin{theorem}\label{1.4.4}
+    Let $E$ be a set and  $\cl:2^E \rightarrow 2^E$ be a mapping satisfying
+    (CL1)-(CL4). If $\Ic=\{X \subseteq X : x \notin \cl{(\com{X}{x})}, \text{
+    for all } x \in X\}$, then $\Ic$ is the collection of independent sets of a
+    matroid  $M$ on  $E$ having  $\cl$ as its closure operator.
+\end{theorem}
+\begin{proof}
+    We have $\emptyset \in \Ic$. Now, let $I \in \Ic$ with  $I' \subseteq  I$,
+    then for any  $x \in I$, we have  $x \notin \cl{(\com{I}{x})}$, and
+    $\cl{(\com{I'}{x})} \subseteq \cl{(\com{I}{x})}$, so $x \notin
+    \cl{(\com{I}{x})}$. Therefore $I' \in \Ic$.
+
+    Now let  $I,I' \in \Ic$ with  $|I|<|I'|$, and suppose there is no  $e \in
+    \com{I'}{I}$ such that $I \cup e \in \Ic$, and suppose additionally that for
+    all pairs of  $I$ and  $I'$, that  $|I \cap I'|$ is maximal. Choose then a
+    $y \in \com{I'}{I}$ and take $\com{I'}{y}$. Suppose that $I \subseteq
+    \cl{(\com{I'}{y})}$, then $\cl{I} \subseteq \cl{(\com{I'}{y})}$, so that $y
+    \notin \cl{\(\com{I}{y})}$, therefore by the above lemma we have that $I
+    \cup y \in \Ic$, which contradicts our assumption. So we get that  $\cl{I}
+    \notsubseteq \cl{(\com{I'}{y})}$, and there is some $t \in I$, and  $t
+    \notin \cl{(\com{I'}{y})}$. Now, $t \in \com{I}{I'}$, and $(\com{I'}{y})
+    \cup t \in \Ic$. Now $|I \cap(\com{I'}{y}) \cup t|>|I \cap I'|$, so that $x
+    \in \com{((\com{I'}{y}) \cup t)}{I}$, making $I \cup x \in \Ic$, but  $x \in
+    \com{I'}{I}$, a contradiction. Therefore such an $e$ stated in the
+    assumption must exist. This makes  $M$ into a matroid with  $\Ic$ as its
+    collection of independent sets.
+
+    Now suppose that $x \in \com{(\cl{X})}{X}$ and that $B$ is a basis of  $X$.
+    Then  $\rank{(X \cup x)}=\rank{X}$, and $B \in \Ic$, and  $B \cup x \notin
+    \Ic$. Then it follows that  $x \in \cl{B}$ by the above lemma. Likewise, if
+    $x \in \com{{(\cl{X})}}{X}$ and $B$ is a basis of  $X$, then  $B \cup y
+    \notin \Ic$ for all  $y \in \com{X}{B}$. So again we get that $X \subseteq
+    \cl{B}$, so $\cl{X} \subseteq \cl{B}$. Thus $x \in \cl{B}$ so that $B \cup x
+    \in \Ic$, making  $B \cup x$ a basis of  $X \cup x$, and $\rank{(X \cup
+    x)}=|B|=\rank{X}$. Therefore $\cl$ is the closure operator of $M$.
+\end{proof}
+\begin{corollary}
+    For any set $E$, the mapping $\cl:2^E \rightarrow 2^E$ is the closure
+    operator for a matroid on $E$ if, and only if it satisfies (CL1)-(CL4).
+\end{corollary}
+
+\begin{definition}
+    We define a matroid $M$ on a set  $E$ to be the pair  $(E,\cl)$ where
+    $\cl:2^E \rightarrow 2^E$ is a mapping satisfying the following:
+    \begin{enumerate}
+        \item[(CL1)] $X \subseteq \cl{X}$.
+
+        \item[(CL2)] If $X \subseteq Y$, then  $\cl{X} \subseteq \cl{Y}$.
+
+        \item[(CL3)] $\cl{X}=\cl{(\cl{X})}$.
+
+        \item[(CL4)] If $x \in E$, and  $y \in \com{\cl{(X \cup x)}}{\cl{X}}$,
+            then $x \in \cl{X \cup y}$.
+    \end{enumerate}
+    We call $\cl$ the \textbf{closure operator} of  $M$, and we call  $\cl{X}$
+    th \textbf{closure}, or \textbf{span} of $X$ in  $M$.
+\end{definition}
+
+We also have the additional definitions.
+
+\begin{definition}
+    if $M$ is a matroid on a set  $E$ with closure operator $\cl$, then we call
+    a subset $X$ of  $E$ a  \textbf{flat} if $\cl{X}=X$. We call $X$ a
+    \textbf{hyperplane} if it is a flat of rank $\rank{M}-1$, and we call $X$ a
+     \textbf{spanning set} of $M$ if  $\cl{X}=M$. If $Y \subseteq \cl{X}$, we
+     also say that $X$  \textbf{spans} $Y$.
+\end{definition}
+
+\begin{example}\label{1.15}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=1.0]{Figures/Chapter1/closure_K_5.eps}
+        \caption{}
+        \label{fig_1.5}
+    \end{figure}
+    Consider the graphic matroid on $K_5$ labeled as in figure \ref{fig_1.5}.
+    then $M(K_5)$ has $\emptyset$ as the unique flat of rank  $0$. The rank-$1$
+    flats of $M(K_5)$ are the edges of $K_5$, the rank-$2$ flats of $M(K_5)$ are
+    the edgesets of  $K_3$ along with pairs of adjacent edges of $K_5$. the
+    rank-$3$ flats of $M(K_5)$ are teh hyperplanes of  $M(K_5)$, and consists of
+    the edgesets of  $K_4$ along with edgesets that are isomorphic to the
+    disjoint union $K_2 \cup K_3$. Finally, the rank-$4$ flat of $M(K_5)$ is
+    $M(K_5)$ itself.
+\end{example}
+
+\begin{lemma}\label{1.4.5}
+    lket $M$ be a matroid on  $E$, and let  $X \subseteq E$. If  $x \in \cl{X}$,
+    then $\cl{(X \cup x)}=X$.
+\end{lemma}
+
+\begin{theorem}\label{1.4.6}
+    Let $M$ be a matroid on  $E$, and let $X \subseteq E$. Then:
+    \begin{enumerate}
+        \item[(1)] $X$ is a spanning set if, and only if  $\rank{X}=\rank{M}$.
+
+        \item[(2)] $X$ is a basis if, and only if  $X$ is a independent spanning
+            set.
+
+        \item[(3)] $X$ is a basis if, and only if it is a minimal spanning set.
+
+        \item[(4)] $X$ is a hyperplane if, and only if it is a maximal
+            nonspanning set.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}\label{1.4.7}
+    Let $M$ be a matroid on a set  $E$. Then:
+    \begin{enumerate}
+        \item[(1)] $X$ is a circuit if, and only if  $X$ is a minimal nonempty
+            set such that  $x \in \cl{(\com{X}{x})}$ for all $x \in X$.
+
+        \item[(2)] $\cl{X}=(\cl{X}) \cup \{x : x \in C \subseteq X \cup x,
+            \text{ where } C \text{ is a circuit of} M\}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    The first statement mjust reasserts that circuits are minimal dependent
+    sets. Now, for the second statement, suppose that $x \in \com{\cl{X}}{X}$,
+    then $\rank{X \cup x}=\rank{X}$, so if $B$ is a basis of  $X$, then  $B \cup
+    x$ is a dependent set. Therefore there exists a circuit  $C$ with  $x \in C
+    \subseteq B \cup x$. Thus  $x \in C \subseteq X \cup x$. Conversly, if $C$
+    is a circuit, ten by (1) and (CL2), $x \in \cl{(\com{C}{x})} \subseteq
+    \cl{(\com{X}{x})}$.
+\end{proof}
+
+The above theorem motivates the following theorem.
+
+\begin{theorem}[The Strong Circuit Elimination Axiom]\label{1.4.8}
+    The collection $\Cc$ of circuits of a matroid satisfies the following:
+    \begin{enumerate}
+        \item[(C^\prime3)] If $C_1,C_2 \in \Cc$ with $e \in C_1 \cap C_2$, and $f
+            \in \com{C_1}{C_2}$, then there exists a $C \in \Cc$ such that  $f
+            \in C \subseteq \com{(C_1 \cup C_2)}{e}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Notice that $e \in \cl{(\com{C_2}{e})}$ and that $\com{C_2}{e} \subseteq
+    \com{(C_1 \cup C_2)}{\{e,f\}}$. Then $e \in \cl{(\com{(C_1 \cup
+    C_2)}{\{e,f\}})}$, therfore we get $\cl{(\com{(C_1 \cup
+C_2)}{\{e,f\}})}=\cl{(\com{(C_1 \cup C_2)}{f})}$. But $f \in \cl{(\com{C}{f})}
+\subseteq \cl{(\com{(C_1 \cup C_2)}{f})}$, so $f \in
+\cl{(\com{(C_1 \cup C_2)}{\{e,f\}})}$ Thus, by theorem \ref{1.4.7}, the matroid
+of $\Cc$ has a circuit $C$ with $f \in C \subseteq \com{(C_1 \cup C_2)}{e}$.
+\end{proof}
+\begin{corollary}
+    A collection $\Cc$ of subsets of a set  $E$ is the collection of circuits of
+    a matroid if, and only if it satisfies the following:
+    \begin{enumerate}
+        \item[(C1)] $\emptyset \notin \Cc$.
+
+        \item[(C2)] If $C_1, C_2 \in \Cc$, and $C_1 \subseteq C_2$, then
+            $C_1=C_2$.
+
+        \item[(C^\prime3)] If $C_1,C_2 \in \Cc$ with $e \in C_1 \cap C_2$, and $f
+            \in \com{C_1}{C_2}$, then there exists a $C \in \Cc$ such that  $f
+            \in C \subseteq \com{(C_1 \cup C_2)}{e}$.
+\end{corollary}
+
+\begin{theorem}\label{1.4.9}
+    If $M$ is a matroid of rank $r$, with $\Cc'$ a collection of nonspanning
+    circuits, then:
+    \begin{equation*}
+        \Cc=\Cc' \cup \{X \subseteq E : |X|=r+1 \text{ and }  X \text{ contains
+        no circuit of } \Cc'\}
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}\label{1.4.10}
+    if $G$ is a graph then  $H$ is a hyperplane of  $M(G)$ if, and only if
+    $\com{E(G)}{H}$ is a minimal set of edges such whose removal fro m $G$
+    increases the number of connected components.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}\label{1.4.11}
+    Let $E$ be a set. Then the mapping $r:2^E \rightarrow \N$ is the rank
+    function for a matroid $M$ on  $E$ if, and only if the following are
+    satisfied:
+    \begin{enumerate}
+        \item[(R^\prime1)] $r(\emptyset)=0$.
+
+        \item[(R^\prime2)] If $X \subseteq E$ and  $x \in E$, then $r(X) \leq
+            r(X \cup x) \leq r(X)+1$.
+
+        \item[(R^\prime3)] If $X \subseteq E$, and  $x,y \in E$ such that  $r(X
+            \cup x)=r(X \cup y)=r(X)$, then $r(X \cup x \cup y)=r(X)$.
+    \end{enumerate}
+\end{theorem}
+
+With the inclusion of the notion of rank and closure in a matroid, we have two
+more equivalent definitions as can be verified by the theorems above. The
+equivalence of the independence, rank, and closure axiomes can be seen in
+figure \ref{fig_1.6}, and the equivalence of the rank and closure axioms to the
+base and circuit axioms can be verified by the transitivity of the two diagrams
+in figures \ref{fig_1.3} and \ref{fig_1.6}. This gives us already a total of $5$
+equivalent definitions of what a matroid is.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{Figures/Chapter1/equiv_def_2.eps}
+    \caption{The equivalence of matroids defined by the independence $(\Ic)$,
+    rank $(\Rc)$, and closure $(\Cc\Lc)$ axioms.}
+    \label{fig_1.6}
+\end{figure}

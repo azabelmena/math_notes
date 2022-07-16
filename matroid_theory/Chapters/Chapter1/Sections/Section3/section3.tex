@@ -57,6 +57,12 @@ This also motivates the following definition for the ``rank'' of a matroid.
     Y|$, thus $\rank{X}+\rank{Y} \geq |B_{X \cup Y} \cap X|+|B_{X \cup Y} \cap
     y|=|B_{X \cup Y}|+|B_{X \cap Y}|=\rank{(X \cup Y)}+\rank{(X \cap Y)}$.
 \end{proof}
+\begin{corollary}
+    For any matroid $M$ on  $E$ with $X \subseteq E$ and  $x \in E$:
+    \begin{equation*}
+        \rank{X} \leq \rank{(X \cup x)} \leq \rank{X}+1
+    \end{equation*}
+\end{corollary}
 
 \begin{example}\label{1.11}
     Let $V$ be a vector space and consider the matroid $M[V]$ on $V$, the
