@@ -27,9 +27,36 @@
 \end{definition}
 
 \begin{lemma}\label{2.4.1}
-    If $p:X \rightarrow Y$ is a continuous map of  $X$ onto  $Y$, for topological spaces  $X$ and
-    $Y$, that is either open or closed, then  $p$ is a quotient map.
+    If $p:X \rightarrow Y$ is a continuous map of  $X$ onto  $Y$, for topological
+    spaces  $X$ and $Y$, that is either open or closed, then  $p$ is a quotient
+    map.
 \end{lemma}
+
+\begin{lemma}\label{2.4.2}
+    A continuous map $p:X \rightarrow Y$ of $X$ onto  $Y$ is a quuotient map if,
+    and only if it takes saturated open sets to open sets, or saturated closed
+    sets to closed sets.
+\end{lemma}
+\begin{proof}
+    Suppose that $p$ is a quotient map, then by definition, $U$ is open in $Y$
+    if, and only if  $\inv{p}(U)$ is open in $X$. Now, let  $V$ be a saturated
+    open set of  $X$ such that $V=p(U)$, then we get that $U$ is open since  $V$
+    is open. Thus  $p$ takes saturated open sets to open sets. Alternatively,
+    if  $U$ is closed, we simply consider the open set $\com{Y}{U}$ and repeat
+    the proof above.
+
+    Now, suppose that $q$ is onto and continuous, and takes saturated open sets
+    to open sets. That is, if  $V=\inv{p}(U)$ is open in $X$, then  $U$ is open
+    in $Y$. Certainly, if  $U$ is open in  $Y$, then, $V$ is open in  $X$.
+    Conversely if  $V$ is open in  $X$, then by hypothesis, $p(\inv{p}(U))=U$ is
+    open in  $Y$ and this makes  $p$ into a quotient map. Moreover, if  $p$
+    takes saturated closed subsets to closed subsets, then just consider the
+    open sets $\com{X}{V}=\inv{p}(\com{Y}{U})$ and repeat the proof above.
+\end{proof}
+\begin{remark}
+    One consequence of this is that open or closed maps taking one space onto
+    another are quotient maps.
+\end{remark}
 
 \begin{example}
     \begin{enumerate}
@@ -44,28 +71,79 @@
              $A$ as a subspace, however,  $q(U)=(0,1)$, which is not closed in
              $\R$.
 
-        \item[(2)] Let $X$ be the subspace  $[0,1] \cup [2,3]$ and $Y$ be the subspace  $[0,2]$ in $\R$,
-            and defined  $p:X \rightarrow Y$ by  $p(x)=\begin{cases}
-                                                x, \text{ } x \in [0,1] \\
-                                                x-1, \text{ } x \in [2,3] \\
-                                            \end{cases}$.
-        We have that $p$ is continuous onto, by the pasting lemma, furthermore,  $p$ is also closed;
-        hence  $p$ is a quotient map.  $p$ is not open however, as  $p([0,1])=[0,1]$ is closed in
-        $Y$.
+        \item[(2)] Let $X$ be the subspace  $[0,1] \cup [2,3]$ and $Y$ be the
+            subspace  $[0,2]$ in $\R$, and defined  $p:X \rightarrow Y$ by
+            $p(x)=\begin{cases}
+                        x, \text{ } x \in [0,1] \\
+                        x-1, \text{ } x \in [2,3] \\
+                  \end{cases}$.
+        We have that $p$ is continuous onto, by the pasting lemma, furthermore,
+        $p$ is also closed; hence  $p$ is a quotient map.  $p$ is not open however,
+        as  $p([0,1])=[0,1]$ is closed in $Y$.
 
-        Now if  $A$ is the subspace  $[0,1) \cup [2,3]$ of $X$, then  $\:A \rightarrow Y$ is
-        continuous onto, but fails to be closed. So  $p|_A$ is not a quotient map, depsite the fact
-        that  $[2,3]$ is open in $A$ and saturated with respect to  $p|_A$.
+        Now if  $A$ is the subspace  $[0,1) \cup [2,3]$ of $X$, then  $p:A
+        \rightarrow Y$ is continuous onto, but fails to be closed. So  $p|_A$ is
+        not a quotient map, depsite the fact that  $[2,3]$ is open in $A$ and
+        saturated with respect to  $p|_A$.
 
-        \item[(3)] Let $\pi_1:\R \times \R \rightarrow \R$ be the projection map that takes $x \times y
-            \rightarrow x$. Clearly  $\pi_1$ is continuous onto, and $\pi_1$ is also open as
-            $\pi_1(U \times V)=U$ which is open in $Y$; hence  $\pi_1$ is a quotient map. Now
-            consider the closed set $C=\{x \times y:xy=1\}$ in $\R \times \R$.
+        \item[(3)] Let $\pi_1:\R \times \R \rightarrow \R$ be the projection map
+            that takes $x \times y \rightarrow x$. Clearly  $\pi_1$ is continuous
+            onto, and $\pi_1$ is also open as $\pi_1(U \times V)=U$ which is open
+            in $Y$; hence  $\pi_1$ is a quotient map. Now consider the closed
+            set $C=\{x \times y:xy=1\}$ in $\R \times \R$.
             $\pi_1(C)=\com{\R}{\{0\}}$ which is not closed.
+
+        \item[(4)] Consider the map $p:\com{\R^n}{\{0\}} \rightarrow SA^{n-1}$
+            taking punctured Euclidean space onto the unit circle via the rule
+            $x \rightarrow \frac{x}{\|x\|}$ then the saturated open sets of
+            $\com{\R^n}{\{0\}}$ are unions of rays originiating from the origin
+            $0$. We notice that $p$ takes saturated open sets onto open sets,
+            which makes $p$ a quotient map.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale = 1.0]{Figures/Chapter2/saturated_rays.eps}
+                \caption{Saturated open sets of $\com{\R^2}{\{0\}}$ onto $S^1$
+                via the map  $p:x \rightarrow \frac{x}{\|x\|}$.}
+                \label{fig_2.4}
+            \end{figure}
     \end{enumerate}
 \end{example}
 
-\begin{theorem}\label{2.4.2}
+\begin{lemma}\label{2.4.3}
+    If $p:X \rightarrow Y$ is an open quotient map, then $Y$ is Hausdorff if,
+and only if  $\inv{p}(\Delta(Y))=\{x \times y \in X \times X : p(x)=p(y)\}$ is
+closed.
+\end{lemma}
+\begin{proof}
+    Suppose that $Y$ is Hausdorff, and let  $x \times y \notin
+    \inv{p}(\Delta(Y))$. Then $p(x) \neq p(y)$ and there exist disjoint
+    negihborhoods $U$ of  $p(x)$ and $V$ of  $p(y)$. Now, we have that
+    $\inv{q}(U)$ and $\inv{p}(V)$ are open in $X$, hence  $\inv{p}(U) \times
+    \inv{p}(V)$ is open in $X \times X$ and is a neihborhood of  $x \times y$.
+    Now, if $z \times z' \in \inv{p}(\Delta(Y)) cap (\inv{p}(U) \times
+    \inv{p}(V))$, then $p(z) \in U$ and $p(z') \in V$, and $p(z)=p(z')$; but $U
+    \cap V=\emptyset$ making $p(z) \neq p(z')$, a contradiction, thus
+    $\inv{p}(\Delta(Y))$ and $\inv{p}(U) \times \inv{p}(V)$ are disjoint. We
+    have that $\com{X \times X}{\inv{p}(\Delta(Y))}$ is open, making
+    $\inv{p}(\Delta(Y))$ closed.
+
+    On the otherhand, suppose that $\inv{\Delta(Y)}$ is closed. Now, take $x,y
+    \in Y$ distinct, then let  $x',y' \in X$ such that  $p(x')=x$ and $p(y')=y$,
+    then $x' \times y' \notin \inv{p}(\Delta(Y))$. Then there exists a
+    neighborhood $U \times V$ of  $x' \times y'$ disjoint from
+    $\inv{p}(\Delta(Y))$. Now consider $p(U)$ and $p(V)$; since $p$ is an open
+    map, then these sets are open. Moreover, we have that  $x \in p(U)$ and $y
+    \in p(V)$, so $p(U)$ and $p(V)$ are neighborhoods of $x$ and  $y$. Now,
+    since  $U \times V$ is disjoint from  $\inv{p}(\Delta(Y))$, we get that
+    $p(U)$ and $p(V)$ are disjoint. Therefore, $Y$ must be Hausdorff.
+\end{proof}
+\begin{remark}
+    This gives us a useful check for determining when spaces arising from open
+    quotient maps are Hausdorff. A more general check is presented later.
+\end{remark}
+
+\begin{theorem}\label{2.4.4}
     Let $X$ be a topological space, and  $A$ a set, and let  $p:X \rightarrow Y$ be onto. Define
     $\Tc$ to be the collection of subsets  $U$ of  $A$ for which  $p^{-1}(U)$ is open in $X$. Then
     $\Tc$ is a unique topology for which  $p$ is a  quotient map.
@@ -129,7 +207,7 @@ $X/p$ or  $X/\sim$.
 
 We have the following lemma for determining when a map is a quotient map.
 
-\begin{lemma}\label{2.4.3}
+\begin{lemma}\label{2.4.5}
     If $p:X \rightarrow Y$ is a continuous map, and there exists a continuous
     map $f:Y \rightarrow X$ such that $p \circ f=i$ the identity map on  $i$,
     then  $p$ is a quotient map.
@@ -226,7 +304,7 @@ We have the following lemma for determining when a map is a quotient map.
     \label{fig_2.4}
 \end{figure}
 
-\begin{theorem}\label{2.4.4}
+\begin{theorem}\label{2.4.6}
     Let $p:X \rightarrow Y$ be a quotient map and let  $A$ be a subspace of  $X$ saturated with
     respect to  $p$. Let  $q:A \rightarrow p(A)$, then:
         \begin{enumerate}
@@ -250,7 +328,7 @@ We have the following lemma for determining when a map is a quotient map.
     open in $Y$, so  $V$ is open in  $p(A)$. In either case e have that $q$ is a quotient map.
 \end{proof}
 
-\begin{lemma}\label{2.4.5}
+\begin{lemma}\label{2.4.7}
     The composition of two quotient maps is a quotient map,
 \end{lemma}
 \begin{proof}
@@ -259,7 +337,7 @@ We have the following lemma for determining when a map is a quotient map.
     that  $p^{-1}(U)$ is open in $X$. Hence  $p^{-1}(q^{-1}(V))$ is open in $X$.
 \end{proof}
 
-\begin{theorem}\label{2.4.6}
+\begin{theorem}\label{2.4.7}
     Let $p:X \rightarrow Y$ be a quotient map and let  $Z$ be a topological space with  $g:X
     \rightarrow Z$ a map constant on all  $p^{-1}(\{y\})$ for each $y \in Y$. Then  $g$ induces a
     map $f:Y \rightarrow Z$ such that  $f \circ p=g$, where  $f$ is continuous if and only if  $g$
@@ -309,7 +387,7 @@ We have the following lemma for determining when a map is a quotient map.
         \end{enumerate}
 \end{corollary}
 \begin{proof}
-    By the theorem \ref{2.4.5}, $g$ induces a continuous map  $f:X/\sim \rightarrow Z$ which is
+    By the theorem \ref{2.4.6}, $g$ induces a continuous map  $f:X/\sim \rightarrow Z$ which is
     $1-1$ and  (clearly) onto. Suppose that $f$ is a homeomorphism. Then both  $f$ and  $p:X
     \rightarrow X/\sim$ are quotient maps, which makes  $g$ a quotient map. On the other hand, if
     $g$ is a quotient map, then so is  $f$, which makes  $f$  $1-1$ continuous, and hence a
@@ -427,7 +505,7 @@ We conclude with some examples.
     $r:a \rightarrow a$ for all $a \in A$
 \end{definition}
 
-\begin{lemma}\label{2.4.7}
+\begin{lemma}\label{2.4.8}
     For any topological space $X$ and  $A \subseteq X$, a retraction of  $X$
     onto  $A$ is a quotient map.
 \end{lemma}
@@ -436,5 +514,5 @@ We conclude with some examples.
     such that $r \circ f=i$ the identity map in  $A$. Let  $U$ be open in  $A$,
     then  $U=\inv{r}(U)$ is open in $X$, and since  $r \circ f=i$, we get
     $\inv{f}(\inv{r}(U))=\inv{f}(U)$ must be open in $A$. this makes  $f$
-    continuous. Therefore by lemma \ref {2.4.3}, $r$ is a quotient map.
+    continuous. Therefore by lemma \ref{2.4.4}, $r$ is a quotient map.
 \end{proof}
