@@ -436,7 +436,48 @@ We conclude with some examples and extra results.
 
 \begin{example}
     \begin{enumerate}
-        \item[(1)] Let $X=\{[0,1] \times n:n \in Z^+\}$ be the subspace of $\R^2$
+        \item[(1)] Define the quotient space $\faktor{\R}{\Z}=\faktor{\R}{\sim}$
+            where $x \sim y$ if, and only if  $x-y \in \Z$. We can visualize
+            this space by coiling up  $\R$ into a helical structure, where two
+            points lie exactly above eachother if they differ by an integer
+            distance, as shown in figure \ref{fig_1.10}. One can collapse these
+            points into one point and show that $\faktor{\R}{\Z}$ is
+            homeomorphic to the circle $S^1$.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.5]{Figures/Chapter2/R_mod_Z.eps}
+                \caption{}
+                \label{fig_1.10}
+            \end{figure}
+
+            By theorem \ref{2.4.8}, consider the map $f(x)=\sin{2\pi x}$, and
+            let $q$ be the quotient map of  $\faktor{\R}{\Z}$. Then notice that
+            $f(x)=f(x')$, since if $q(x)=q(x')$, then $x-x' \in \Z$, i.e
+            $x=x'+n$, for  $n \in \Z+$, then we get  $f(x)=\sin{2pi x}=
+            \sin{2\pi x'+2\pi n)}=\sin{2\pi x'}$. So we have the following
+            commutative diagram:
+
+            \[\begin{tikzcd}
+                {\mathbb{R}} \\
+                    \\
+                    \\
+                {\faktor{\mathbb{R}}{\mathbb{Z}}} &&& {\mathbb{R}}
+                \arrow["q"', from=1-1, to=4-1]
+                \arrow["{\tilde{f}}"', dashed, from=4-1, to=4-4]
+                \arrow["{f(x)=\sin{2\pi x}}", from=1-1, to=4-4]
+            \end{tikzcd}\]
+
+            Now we can show that $\faktor{\R}{\Z}$ is homeomorphic to $S^1$, by
+            the second corollary to theorem \ref{2.4.8}. Consider the quotient
+            maps $q:\R \rightarrow \faktor{\R}{\Z}$ and $q':\R \rightarrow S^1$.
+            Supposing that $q(x)=q(x')$, then we get that $x-x' \in \Z$, hence
+            $e^{2i\pi x}=e^{2i\pi x'}$, which implies that $q'(x)=q'(x')$.
+            Conversely if $q'(x)=q'(x')$, then $e^{2i\pi x}=e^{2i\pi x'}$, we
+            get that $x=x'+n$, so that  $x-x' \in \Z$, making  $q(x)=q(x')$. We
+            then get that $\faktor{\R}{\Z}$ and $S^1$ are homeomorphic.
+
+        \item[(2)] Let $X=\{[0,1] \times n:n \in Z^+\}$ be the subspace of $\R^2$
             and let  $Z=\{x \times \frac{x}{n}: x \in [0,1] \text{ } n \in \Z^+\}$
             be another subspace of $\R^2$. We have that  $X$ is the union of
             countably many disjoint line segments in  $\R^2$ and  $Z$ is the
@@ -463,7 +504,7 @@ We conclude with some examples and extra results.
                 \label{fig_2.6}
             \end{figure}
 
-        \item[(2)] Not it is not in general true that the product of two quotient
+        \item[(3)] Not it is not in general true that the product of two quotient
             maps is itself a quotient map. Consider $\R$ and let  $\R/\sim$ be
             the quotient space obtained from  $\R$ by taking $\Z^+ \sim b$ for
             some point  $b$. Now let  $p:\R \rightarrow \R/\sim$ be the quotient
@@ -494,7 +535,7 @@ We conclude with some examples and extra results.
             that  $U'$ is open in $\R/\sim$ So $p \times i$ cannot be a quotient
             map.
 
-        \item[(3)] Likewise, the product of two quotient maps need not be a
+        \item[(4)] Likewise, the product of two quotient maps need not be a
             quotient map. Consider the space $\R$ and the quotient space
             $\faktor{\R}{p}$ Where $p:\R \rightarrow \faktor{\R}{p}$ is the
             quotient map taking $\Z^+$ to a point  $b$. Consider also  $\Q$ as a
