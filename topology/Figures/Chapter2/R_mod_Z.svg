@@ -26,8 +26,8 @@
      showgrid="false"
      showguides="true"
      inkscape:zoom="2.0457938"
-     inkscape:cx="436.50538"
-     inkscape:cy="609.78775"
+     inkscape:cx="461.92339"
+     inkscape:cy="592.19067"
      inkscape:window-width="1888"
      inkscape:window-height="1008"
      inkscape:window-x="13"
@@ -61,12 +61,12 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:none;fill-opacity:1;stroke:#d40000;stroke-width:0.121;stroke-opacity:1"
-       d="m 101.28939,7.977671 c 17.77018,-0.02349 28.69275,9.730612 28.29553,17.86247 -0.26289,8.915375 -10.61526,17.660758 -28.29553,17.862473 -15.20481,-0.637102 -17.093922,-3.942603 -17.088456,-7.979436 -0.154788,-6.692615 3.66527,-9.339064 17.088456,-9.82254 17.71522,0.365553 28.10353,8.872967 28.29553,17.862473 -0.15639,10.884816 -13.98201,17.804246 -28.29553,17.862473"
+       style="fill:none;fill-opacity:1;stroke:#d40000;stroke-width:0.321;stroke-opacity:0.74901962;stroke-dasharray:none"
+       d="m 101.41872,7.7566728 c 17.77018,-0.02349 28.69275,9.7306122 28.29553,17.8624702 -0.26289,8.915375 -10.61526,17.660758 -28.29553,17.862473 -15.20481,-0.637102 -17.093922,-3.942603 -17.088456,-7.979436 -0.154788,-6.692615 3.66527,-9.339064 17.088456,-9.82254 17.71522,0.365553 28.10353,8.872967 28.29553,17.862473 -0.15639,10.884816 -13.98201,17.804246 -28.29553,17.862473"
        id="path1911"
        sodipodi:nodetypes="ccccccc" />
     <path
-       style="fill:none;fill-opacity:1;stroke:#d40000;stroke-width:0.121;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#d40000;stroke-width:0.321;stroke-opacity:0.74901962;stroke-dasharray:none"
        d="m 101.28939,115.2735 c -17.770179,0.0235 -28.692751,-9.73061 -28.295524,-17.862466 0.262884,-8.91538 10.615257,-17.66076 28.295524,-17.86248 15.20481,0.63711 17.09393,3.94261 17.08846,7.97944 0.15479,6.69261 -3.66527,9.33906 -17.08846,9.82254 -17.715212,-0.36555 -28.103531,-8.87297 -28.295524,-17.86247 0.156392,-10.88482 13.98201,-17.80425 28.295524,-17.86248"
        id="path1911-7"
        sodipodi:nodetypes="ccccccc" />
@@ -113,7 +113,7 @@
        cy="7.9776711"
        r="1.4804782" />
     <ellipse
-       style="fill:none;fill-opacity:1;stroke:#d40000;stroke-width:0.119574;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#d40000;stroke-width:0.321;stroke-opacity:0.74901962;stroke-dasharray:none"
        id="path2107"
        cx="106.89595"
        cy="189.53493"
