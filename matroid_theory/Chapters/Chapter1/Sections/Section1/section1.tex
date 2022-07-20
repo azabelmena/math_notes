@@ -496,7 +496,7 @@ We now introduce one last example of a matroid for this section.
     Consider the following bipartition of the sets $X=\{1,2,3\}$ and
     $Y=\{a,b,c,d,e,f\}$, together with the relation $E=\{(1,a), (2,a), (2,b),
         (2,c), (3,a), (3,b), (3,a), (3,e), (3,e)\}$. We can represent this as
-        the following bipartite graph, $G=(X \cup Y, E)$ in figure \ref{1.3}
+        the following bipartite graph, $G=(X \cup Y, E)$ in figure \ref{fig_1.3}
     \begin{figure}[h]
         \centering
         \includegraphics[scale=0.5]{Figures/Chapter1/matching.eps}
@@ -505,22 +505,41 @@ We now introduce one last example of a matroid for this section.
     \end{figure}
     Then if we define those ``independent sets'' $\Ic$ consisting of all subsets
     of  $Y$ that can be ``matched'' to elements of $X$. i.e. those subsets of
-    $Y$ whose edges from $X$ contain no common endpoint. Then $Y$ together with
+    $Y$ whose edges between $X$ contain no incident edges. Then $Y$ together with
     $\Ic$ forms a matroid.
 \end{example}
 
 \begin{definition}
-    Let $G$ be a bipartite graph with bipartition $(X,Y)$. We say that the set
-    of edges $E(G)$ is a \textbf{matching} between $X$ and $Y$ if no two edges
-    has a common endpoint, and we say that a subset $U \subseteq Y$ is
-    \textbf{matched} to $X$, if there exists a matching between $X$ and  $U$.
+    Let $G$ be a bipartite graph with bipartition $(X,Y)$. For a subset $U$  of
+    $Y$, if  $E$ is the set of edges on $ (X,U)$, then we call $E$ a
+    \textbf{matching} between $X$ and  $U$ if no two edges in  $E$ have a common
+    endpoint. We say that $U$ can be \textbf{matched} to $X$. We say that  $E$
+    is a complete matching if $U=Y$.
 \end{definition}
 
 \begin{lemma}\label{1.1.6}
     Let $G$ be a bipartite graph, with bi-partition $(X,Y)$. Let $\Ic$ be the
-    collection of all subsets of  $Y$ that can be matched with elements of  $X$.
-    Then $M=(Y, \Ic)$ forms a matroid.
+    collection of all subsets of  $Y$ that can be matched to $X$. Then
+    $M=(Y, \Ic)$ forms a matroid.
 \end{lemma}
+\begin{proof}
+    We have that for $\emptyset \subseteq Y$, there are no two edges on the
+    bipartition $(X,\emptyset)$ with a common endpoint; infact, there are no
+    edges in this bipartition. now suppose that $I \subseteq Y$ can be matched
+    to  $X$, that means no two edges between the bipartition  $(X,I)$ has a
+    common endpoint. Now, if $I' \subseteq I$, then it follows that no two edges
+    between  $(X,I')$ has a common endpoint. Therefore (I1), and (I2) are
+    satisfied.
+
+    Now suppose subsets $I$ and  $I'$ of $Y$ can be matched to $X$, and that
+    $|I|<|I'|$. Then the bipartitions $(X,I)$ and $(X,I')$ have no two edges
+    incident to each other. Then the bipartition $(X,I \cup I')$ have no two
+    edges incident with each other. Now, choose an $e \in \com{I'}{I}$, then the
+    edge from $e$ to some point in  $X$ has no other incident edge, therefore
+    the edges between  $X$ and  $I \cup e$ have no two edges incident. That is
+    no two edges are incident between $(X, I \cup e)$, therefor (I3) is
+    satisfied. This makes $M=(Y,\Ic)$ into a matroid.
+\end{proof}
 \begin{remark}
     Notice that we can make $G$ into a bi-partite graph by taking the set of
     edges to be all matchings from the set  $X$ to subsets of  $Y$. Matroids of

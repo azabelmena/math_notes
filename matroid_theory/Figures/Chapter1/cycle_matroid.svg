@@ -5,7 +5,7 @@
    height="955"
    id="svg1122"
    sodipodi:docname="cycle_matroid.svg"
-   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -23,15 +23,15 @@
      inkscape:lockguides="true"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="1.7392848"
-     inkscape:cx="401.60186"
-     inkscape:cy="470.02079"
+     inkscape:zoom="7.4595433"
+     inkscape:cx="321.9366"
+     inkscape:cy="587.50246"
      inkscape:window-width="1888"
      inkscape:window-height="1008"
      inkscape:window-x="13"
      inkscape:window-y="53"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="svg1122"
      inkscape:showpageshadow="2"
      inkscape:deskcolor="#d1d1d1" />
   <defs
@@ -265,8 +265,9 @@
      id="path1114" />
   <path
      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 400,513.5 c 0,0 -56.33678,118.21254 -86.80575,105.868 -30.46897,-12.34453 -30.46897,-12.34453 -30.46897,-12.34453 0,0 31.74173,-33.37814 -57.24873,-33.37814 -88.99046,0 -88.99046,0 -88.99046,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 22.80051,-68.03427 -21.14102,-101.5898 C 71.40353,438.5 71.40353,438.5 71.40353,438.5"
-     id="path2014" />
+     d="m 400,513.5 c 0,0 -59.98621,86.85596 -86.80575,105.868 -5.41124,3.83596 -9.02118,10.69014 -30.46897,-12.34453 0,0 31.74173,-33.37814 -57.24873,-33.37814 h -88.99046 v 0 0 c 0,0 22.80051,-68.03427 -21.14102,-101.5898 L 71.40353,438.5"
+     id="path2014"
+     sodipodi:nodetypes="cscscccsc" />
   <path
      style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:4,2,1,2;stroke-dashoffset:0"
      d="m 136.48609,573.64533 c 111.55464,-11.70324 264.15449,-183.97999 0,-270.29066"
