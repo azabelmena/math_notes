@@ -492,35 +492,37 @@ imposing a collection of independent sets/circuits.
 
 We now introduce one last example of a matroid for this section.
 
+\begin{example}\label{}
+    Consider the following bipartition of the sets $X=\{1,2,3\}$ and
+    $Y=\{a,b,c,d,e,f\}$, together with the relation $E=\{(1,a), (2,a), (2,b),
+        (2,c), (3,a), (3,b), (3,a), (3,e), (3,e)\}$. We can represent this as
+        the following bipartite graph, $G=(X \cup Y, E)$ in figure \ref{1.3}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.5]{Figures/Chapter1/matching.eps}
+        \caption{}
+        \label{fig_1.3}
+    \end{figure}
+    Then if we define those ``independent sets'' $\Ic$ consisting of all subsets
+    of  $Y$ that can be ``matched'' to elements of $X$. i.e. those subsets of
+    $Y$ whose edges from $X$ contain no common endpoint. Then $Y$ together with
+    $\Ic$ forms a matroid.
+\end{example}
+
 \begin{definition}
-    Let $G$ be a set with bi-parition  $(X,Y)$. We defiine a \textbf{matching}
-    from elements of $X$ to subsets of  $Y$ to simply be a map
-    $\mu:X \rightarrow 2^Y$. We then say that a subset $U \subseteq Y$ can be
-    \textbf{matched} to $X$ if there exists a matching  $\mu:X \rightarrow U$.
+    Let $G$ be a bipartite graph with bipartition $(X,Y)$. We say that the set
+    of edges $E(G)$ is a \textbf{matching} between $X$ and $Y$ if no two edges
+    has a common endpoint, and we say that a subset $U \subseteq Y$ is
+    \textbf{matched} to $X$, if there exists a matching between $X$ and  $U$.
 \end{definition}
 
 \begin{lemma}\label{1.1.6}
-    Let $G$ be a bipartite graph, with bi-partition  $(X,Y)$. Let $\Ic$ be the
+    Let $G$ be a bipartite graph, with bi-partition $(X,Y)$. Let $\Ic$ be the
     collection of all subsets of  $Y$ that can be matched with elements of  $X$.
     Then $M=(Y, \Ic)$ forms a matroid.
 \end{lemma}
-\begin{proof}
-    Notce that $\emptyset \in \Ic$, and can be matched to elements of  $X$ with
-    no matching. Likewise, if $I_1$ is a subset of $Y$ that can be matched to
-    elements of  $X$, then there is a matching  $\mu:X \rightarrow I_1$. Now if
-    $I_2 \subseteq I_1$, then $I_2$ can also be matched to elements of $X$ by
-    restricting the image of $\mu$, i.e. taking  $\mu:X \rightarrow I_2$.
-
-    Now, let $I_1, I_2 \in \Ic$. That is, they can be matched to elements of $X$
-    via the matchings  $\mu:X \rightarrow I_1$ and $\eta:X \rightarrow I_2$. Now,
-    suppose that $|I_1|<|I_2|$ Then, taking $e \in \com{I_2}{I_1}$, form the
-    matching $\lambda:X \rightarrow I_1 \cup e$ by the rule
-    $\lambda(I_1)=\mu(I_1)$ and $\lambda(e)=\nu(e)$. Then $I_1 \cup e$ can be
-    matched to $X$ via  $\lmabda$. Thus  $I_1 \cup e \in \Ic$, making $(Y,\Ic)$
-    a matroid.
-\end{proof}
 \begin{remark}
     Notice that we can make $G$ into a bi-partite graph by taking the set of
     edges to be all matchings from the set  $X$ to subsets of  $Y$. Matroids of
-    this type are called ``transversal'' and will be studied later.
+    this type are called ``transversal'' and will be studied in more rigor later.
 \end{remark}
