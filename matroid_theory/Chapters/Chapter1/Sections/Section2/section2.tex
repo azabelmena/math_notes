@@ -245,6 +245,37 @@ We now come to our next equivalent definition of a matroid.
                 is a $2 \times 4$ matrix over $\F_3$, then $\dim{W}=2$, and so
                 the bases are all $2$ element subsets of linearly independnet
                 columns. Thus  $M(A) \simeq U_{2,4}$.
+
+            \item[(4)] Consider the graph $G$ in figure \ref{1.4}, we would like
+                to know how many spanning trees this graph has.
+                 \begin{figure}[h]
+                    \centering
+                    \includegraphics[scale=0.5]{Figures/Chapter1/matrix_tree.eps}
+                    \caption{}
+                    \label{fig_1.4}
+                \end{figure}
+
+                We first form the $|V| \times |V|=4 \times 4$ matrix $L$ defined
+                as follows:
+                \begin{align*}
+                    L_{v,v} &= \deg{v} \\
+                    L_{u,v} &= -|\{e \in E : e\ \text{ is between } u \text{ and
+                    } v\}|\\
+                \end{align*}
+                We call $L$ the  \textbf{Laplacian} of $G$. By a Kirchoff's
+                matrix tree theorem combinatorics, the number of spanning trees
+                of  $G$ is equal to any cofactor of  $L$, in this case, we have:
+                \begin{equation*}
+                    L=\begin{pmatrix}
+                        2   &   -1  &   -1  &   0   \\
+                       -1   &    4  &   -2  &  -1   \\
+                       -1   &   -2  &    4  &  -1   \\
+                        0   &   -1  &   -1  &   2   \\
+                      \end{pmatrix}
+                \end{equation*}
+                Which has a cofactor of $12$, and hence there are $12$ spanning
+                trees on  $G$. This also means that the cycle matroid on $G$ has
+                 $12$ bases.
     \end{enumerate}
 \end{example}
 
@@ -285,5 +316,5 @@ we get the following figure:
     \centering
     \includegraphics[scale=0.5]{Figures/Chapter1/equiv_def_1.eps}
     \caption{The implication digraph of $(\Ic)$, $(\Bc)$, and $(\Cc)$.}
-    \label{fig_1.3}
+    \label{fig_1.5}
 \end{figure}
