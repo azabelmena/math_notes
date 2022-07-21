@@ -1,5 +1,8 @@
 \documentclass[12pt]{book}
 
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{\textbf{.}}
+
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amsfonts,amsthm,amssymb,graphicx,mathtools,tikz,hyperref}
 
@@ -37,7 +40,7 @@
 \newtheorem*{remark}{Remark}
 \newtheorem{claim}{Claim}
 \newtheorem*{note}{Note}
- \date{}
+\date{\today}
 
 
 \title{Matroid Theory}

@@ -257,14 +257,16 @@ We now come to our next equivalent definition of a matroid.
 
                 We first form the $|V| \times |V|=4 \times 4$ matrix $L$ defined
                 as follows:
-                \begin{align*}
-                    L_{v,v} &= \deg{v} \\
-                    L_{u,v} &= -|\{e \in E : e\ \text{ is between } u \text{ and
-                    } v\}|\\
-                \end{align*}
-                We call $L$ the  \textbf{Laplacian} of $G$. By a Kirchoff's
-                matrix tree theorem combinatorics, the number of spanning trees
-                of  $G$ is equal to any cofactor of  $L$, in this case, we have:
+                \begin{equation*}
+                    (L_{u,v}) =\begin{cases}
+                                    \deg{v}, \text{ if } u=v \\
+                                    -|E_{u,v}|, \text{ otherwise} \\
+                               \end{cases}
+                \end{equation*}
+                Where $E_{u,v}$ is the set of edges between $u$ and  $v$. We call
+                $L$ the  \textbf{Laplacian} of $G$. By Kirchoff's matrix tree
+                theorem combinatorics, the number of spanning trees of $G$ is
+                equal to any cofactor of  $L$, in this case, we have:
                 \begin{equation*}
                     L=\begin{pmatrix}
                         2   &   -1  &   -1  &   0   \\
