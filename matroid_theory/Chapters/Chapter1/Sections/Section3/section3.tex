@@ -65,15 +65,21 @@ This also motivates the following definition for the ``rank'' of a matroid.
 \end{corollary}
 
 \begin{example}\label{1.11}
-    Let $V$ be a vector space and consider the matroid $M[V]$ on $V$, the
-    dimension of $V$ is a rank function of $M[V]$ by definition. Moreover, if
-    $U$ and  $W$ are subspaces of  $V$, then we can define matroids  $M[U]$ and
-    $M[W]$ on $U$ and  $W$, respectively by taking  $M[U]=M[V]|U$ and
-    $M[U]=M[W]|W$, morevoer, we also get by a well known theorem of linear
-    algebra that
-    \begin{equation*}
-        \dim{(U+W)}+\dim{(U \cap W)}=\dim{U}+\dim{W}
-    \end{equation*}
+    \begin{enumerate}
+        \item[(1)] Let $V$ be a vector space and consider the matroid $M[V]$ on
+            $V$, the dimension of $V$ is a rank function of $M[V]$ by definition.
+            Moreover, if $U$ and  $W$ are subspaces of  $V$, then we can define
+            matroids  $M[U]$ and $M[W]$ on $U$ and  $W$, respectively by taking
+            $M[U]=M[V]|U$ and $M[U]=M[W]|W$, morevoer, we also get by a well
+            known theorem of linear algebra that
+                \begin{equation*}
+                    \dim{(U+W)}+\dim{(U \cap W)}=\dim{U}+\dim{W}
+                \end{equation*}
+
+            \item[(2)] Infact, for any representable matroid $M[V]$ over a
+                vector space $V$, by above we get that (R3) attains equality, so
+                that any matroid isomorphic to $M[V]$ attains equality on (R3).
+    \end{enumerate}
 \end{example}
 
 \begin{lemma}\label{1.3.2}
@@ -193,6 +199,24 @@ This gives the next definition of a matroid.
                          \end{cases}
             \end{equation*}
 
+            In fact, any matroid is isomorphic to a uniform matroid if and only
+            if there are no circuits of size less than $\rank{M}+1$. By
+            definition, we have that if $U_{m,n}$ is the uniform matroid of
+            rank $m$, then by definition the circuits are those sets  $C$ for
+            which  $|C|=m+1$; so any matroid isomorphic to  $U_{m,n}$ must also
+            satisfy this. Conversely, if $M$ is a matroid of rank $m$, with all
+            circuits $C$ of size $m+1$, then by minimality of $C$,
+            $I=\com{C}{c}$ is maximally independent for appending any element
+            makes it of size $m+1$, which necesarily makes it a circuit. Thus
+            $I$ is a base, so that $\rank{I}=m$, since $C$ is arbitrary, so is
+            $I$, this then makes  $M$ isomorphic to $U_{m,n}$.
+
+            It happens for $U_{1,n}$, (R3) does not attain equality. Notice any
+            basis $B$ has  $\rank{B}=1$, and any circuit $C$ has
+            $\rank{C}=1$, so $\rank{B}+\rank{C}=2$. However, if $B$ and $C$ are
+            disjoint, then  $\rank{(B \cup C)}=1$ and $\rank{(B \cap C)}=0$, so
+            that $\rank{(B \cup C)}+\rank{(B \cap C)}=1<2$.
+
         \item[(2)] If $A$ is an  $m \times n$ matrix over a field  $F$, then the
         rank function of  $M[A]$ is the rank of the $m \times |X|$ submatrix
         $A|X$ consisting of columns of $A$ labeled by members of $X$. Moreover,
@@ -226,9 +250,57 @@ This gives the next definition of a matroid.
         Let $G$ be the graph in figure \ref{fig_1.6}, then $G$ is a connected
         graph so  $\rank{M(G)}=|V(G)|-1=4$. Now, if $X=\{4,5,6,7,8\}$, then
         $M(X)=M(G)|X$ has as a basis the set $\{4,7,8\}$, so that $\rank{X}=3$.
-        If $Z=\{1,2\}$, then $M(Z)$ has no basis, so that $\rank{Z}=0$.
+        If $Z=\{1,2\}$, then $M(Z)$ only has $\emptyset$ as a basis, so that
+        $\rank{Z}=0$.
+
+    \item[(5)] In any matroid $M$, we have an element $x$ is a loop if, and only
+        if  $\rank{\{x\}}=0$, and two elements $x$ and $y$ are parallel if and
+        only if $\rank{\{x,y\}}=1$.
+
+        Certainly, if $x$ is a loop, then  $\{x\}$ is a circuit, so that the
+        only basis of $M|\{x\}$ is $\emptyset$, this makes  $\rank{\{x\}}=0$.
+        Likewise, if $x$ and  $y$ are parallel, then $\{x,y\}$ is a circuit,
+        making $\{x\}$ and $\{y\}$ maximally independnet, and hence bases of
+        $M|\{x,y\}$, thus $\rank{\{x,y\}}=1$.
+
+        Conversely, if $\rank{\{x\}}$, then $\{x\}$ only has $\emptyset$ as a
+        basis, hence $\{x\}$ is minimally dependent, hence a circuit, hence it
+        is a loop. By similar reasoning for parallel elements, if
+        $\rank{\{x,y\}}=1$, then $x || y$.
     \end{enumerate}
 \end{example}
+
+\begin{lemma}\label{1.3.5}
+    Let $M$ be a matroid and  $k \in \N$ such that  $k \leq \rank{M}$. Define
+    the map $r_{(k)}:2^E \rightarrow \N$ by $r_{(k)}(X)=\min{\{k,\rank{X}\}}$.
+    Then $r_{(k)}$ is the rank function for a matroid.
+\end{lemma}
+\begin{proof}
+    Certainly by definition, we have $0 \leq r_{(k)}(X) \leq |X|$. Moreover, if
+    $X \subseteq Y$, then  $\min\{k,\rank{X}\} \leq \min\{k,\rank{Y}\}$, so we get
+    $r_{(k)}(X) \leq r_{(k)}(Y)$.
+
+    Now, if $X$ and  $Y$, then we get $r_{(k)}(X \cup Y)=\min\{k,\rank{(X \cup
+    Y)}\}$, and $r_{(k)}(X \cap Y)=\min\{l, \rank{(X \cap Y)}\}$, then
+    $r_{(k)}(X \cup Y)+r_{(k)}(X \cap Y)=\min\{k, \rank{(X \cup Y)}+\rank{X \cap
+    Y}\} \leq \min\{k, \rank{X}+\rank{Y}\}=r_{(k)}(X)+r_{(k)}(Y)$. This makes
+    $r_{(k)}$ the rank function of the matroid.
+\end{proof}
+\begin{corollary}
+    $r_{(k)}(M)=k$
+\end{corollary}
+\begin{proof}
+    We have that $k \leq M$, so  $r_{(k)}(M)=\min\{k,\rank{M}\}=k$ in all cases.
+\end{proof}
+\begin{remark}
+    We call this matroid obtained through $r_{(k)}$ a matroid obtained by a
+    sequence of ``truncations'' . The collection of independent sets on these
+    matroids are the collection of all independent sets of $M$ of size less than
+    or equal to  $k$. That is:
+    \begin{equation*}
+        \Ic=\{I \subseteq M : |I| \leq k\}
+    \end{equation*}
+\end{remark}
 
 \begin{definition}
     We call a matroid \textbf{paving} if it has no circuits of size less than
@@ -246,7 +318,7 @@ This gives the next definition of a matroid.
     uniform.
 \end{example}
 
-\begin{theorem}\label{1.3.5}
+\begin{theorem}\label{1.3.6}
     Let $\Dc$ bea collection of nonempty subsets of a set $E$. Then  $\Dc$ is
     the collection of circuits of a paving matroid on  $E$ if, and only if there
     is a  $k \in \Z^+$ with  $k<|E|$, and a subcollection  $\Dc' \subseteq \Dc$
