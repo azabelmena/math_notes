@@ -277,6 +277,24 @@ of $\Cc$ has a circuit $C$ with $f \in C \subseteq \com{(C_1 \cup C_2)}{e}$.
             \cup x)=r(X \cup y)=r(X)$, then $r(X \cup x \cup y)=r(X)$.
     \end{enumerate}
 \end{theorem}
+\begin{proof}
+    Suppose first that $r$ is the rank function of the matroid  $M$. Then we see
+    that  $r(\emptyset)=0$, and by the corollary to lemma \ref{1.3.1}, that
+    $r(X) \leq r(X \cup x) \leq r(X)+1$, whenever $X \subseteq E$, and  $x \in
+    E$.
+
+    Now suppose that $X$ is a subset of $E$, and that  $x,y \in E$, such that
+    $r(X \cup x)=r(X \cup y)=r(X)$. This makes $x,y \in \cl{X}$, hence we have
+    that $x \cup y \subseteq \cl{X}$, so we get that $r(X \cup x \cup y)=r(X
+    \cup (x \cup y))=r(X)$. So the rank function of a matroid satisfies
+    $(R'1)-(R'3)$.
+
+    Conversely suppose that $r:2^E \rightarrow \N$ is a mapping of subsets of $E$
+    satisfying $(R'1)-(R'3)$. Then by  $(R'1)$ and $(R'2)$ we get that $0 \leq
+    r(X) \leq |X|$. Now suppose that $X \subseteq Y$, then $0 \leq r(X) \leq
+    |X|$, and $0 \leq r(Y) \leq |Y|$, and $|X| \leq |Y|$ then $0 \leq r(Y)-r(X)
+    \leq |Y|-|X|$, thus we get that $r(X) \leq r(Y)$.
+\end{proof}
 
 With the inclusion of the notion of rank and closure in a matroid, we have two
 more equivalent definitions as can be verified by the theorems above. The
