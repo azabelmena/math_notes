@@ -8,7 +8,7 @@
     Let $M$ be a matroid on a set $E$, we define a mapping $\cl:2^E \rightarrow
     2^E$ called the \textbf{closure operator} of $M$ by the rule:
     \begin{equation*}
-        \cl(X)=\{x \in E : \rank{(X \cup e)}=\rank{X}\}
+        \cl(X)=\{e \in E : \rank{(X \cup e)}=\rank{X}\}
     \end{equation*}
     For all $X \in E$. We call  $\cl{X}$ the \textbf{closure}, or the
     \textbf{span} of $X$ in  $M$.
@@ -144,13 +144,62 @@
     th \textbf{closure}, or \textbf{span} of $X$ in  $M$.
 \end{definition}
 
+We have thge immediate lemma concerning the closure operator.
+
+\begin{lemma}\label{1.4.5}
+    Let $M$ be a matroid on a set $E$, then the following are true for all $X,Y
+    \subseteq E$.
+    \begin{enumerate}
+        \item[(1)] If $X \subseteq \cl{Y}$, and $\cl{Y} \subseteq \cl{X}$, then
+            $\cl{X}=\cl{Y}$.
+
+        \item[(2)] If $Y \subseteq \cl{X}$, then $\cl{(X \cup Y)}=\cl{X}$.
+
+        \item[(3)] The intersection of all flats containing $X$ is precisely
+            $\cl{X}$.
+
+        \item[(4)] $\rank{(X \cup Y)}=\rank{(X \cup \cl{Y})}=\rank{(\cl{X} \cup
+            \cl{X})}=\rank{(\cl{(X \cup Y)})}$.
+
+        \item[(5)] If $X \subseteq Y$,  and  $\rank{X}=\rank{Y}$, then
+            $\cl{X}=\cl{Y}$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Let $X \subseteq Y$, and  $\cl{Y} \subseteq \cl{X}$, then we have $\cl{X}
+    \subseteq \cl{(\cl{Y})}=\cl{Y}$, this shows equality.
+
+    Now, if $Y \subseteq \cl{X}$, then for all $y \in Y$,  $\rank{(X \cup y)}=
+    \rank{X}$, then by lemma \ref{1.3.2}, $\rank{(X \cup Y)}=\rank{X}$.
+
+    To prove (3), let $\Fc=\bigcap_{X \subseteq F}{F}$ be the intersection of
+    all flats $F$ containing  $X$. Then for each  $F$,  $\cl{F}=F$, by
+    containment, this makes $\cl{X}=X$, so that $\cl{X} \subseteq \Fc$. On the
+    otherhand, if $x \in \Fc$, then  $x \in F$, $F$, arbitrary. If $x \in \cl{X}$,
+    then we are done, otherwise, $\rank{(X \cup x)}=\rank{X}+1$, but $\rank{(F
+    \cup x)}=\rank{F}$, which makes $\rank{(X \cup x)}>\rank{X}$, which
+    contradicts the rank properties. Therefore $x \in \cl{X}$. This makes $\Fc
+    \subseteq \cl{X}$.
+
+    Now, for (4), we have $Y \subseteq \cl{Y}$, so $\rank{(X \cup Y)} \leq
+    \rank{(X \cup \cl{Y})} \leq \rank{(\cl{X} \cup \cl{Y})} \leq \rank{(\cl{(X
+    \cup Y)})}=\rank{(X \cup Y)}$, since $e \in \cl{(X \cup Y)}$ implies
+    $\rank{(X \cup Y \cup e)}=\rank{(X \cup Y)}$.
+
+    Lastly, let $X \subseteq Y$ with  $\rank{X}=\rank{Y}$. First we have $\cl{X}
+    \subseteq \cl{Y}$. Now if $y \in \cl{Y}$, then $\rank{(Y \cup
+    y)}=\rank{Y}=\rank{X}$, then $\rank{(X \cup y)} \leq \rank{X}+1=\rank{Y}+1$.
+    Now, if equality holds, then (R2) is contradicted, so we must have $\rank{(X
+    \cup y)}<\rank{Y}+1$, so that $\rank{(X \cup y)}=\rank{Y}=\rank{X}$.
+\end{proof}
+
 We also have the additional definitions.
 
 \begin{definition}
     if $M$ is a matroid on a set  $E$ with closure operator $\cl$, then we call
     a subset $X$ of  $E$ a  \textbf{flat} if $\cl{X}=X$. We call $X$ a
     \textbf{hyperplane} if it is a flat of rank $\rank{M}-1$, and we call $X$ a
-     \textbf{spanning set} of $M$ if  $\cl{X}=M$. If $Y \subseteq \cl{X}$, we
+     \textbf{spanning set} of $M$ if  $\cl{X}=E$. If $Y \subseteq \cl{X}$, we
      also say that $X$  \textbf{spans} $Y$.
 \end{definition}
 
@@ -171,12 +220,12 @@ We also have the additional definitions.
     $M(K_5)$ itself.
 \end{example}
 
-\begin{lemma}\label{1.4.5}
-    lket $M$ be a matroid on  $E$, and let  $X \subseteq E$. If  $x \in \cl{X}$,
-    then $\cl{(X \cup x)}=X$.
+\begin{lemma}\label{1.4.6}
+    let $M$ be a matroid on  $E$, and let  $X \subseteq E$. If  $x \in \cl{X}$,
+    then $\cl{(X \cup x)}=\cl{X}$.
 \end{lemma}
 
-\begin{theorem}\label{1.4.6}
+\begin{theorem}\label{1.4.7}
     Let $M$ be a matroid on  $E$, and let $X \subseteq E$. Then:
     \begin{enumerate}
         \item[(1)] $X$ is a spanning set if, and only if  $\rank{X}=\rank{M}$.
@@ -191,16 +240,48 @@ We also have the additional definitions.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
+    First, let $X$ be a spanning set of $M$, then $\cl{X}=E$, ten by lemma
+    \ref{1.4.1}, $\rank{X}=\rank{(\cl{X})}=\rank{E}=\rank{M}$, so $X$ is a basis
+    of  $M$. Conversely, if $\rank{X}=\rank{M}$, then for all $e \in E$,
+    $\rank{(X \cup e)}=\rank{X}=\rank{M}$. This makes $\cl{X}=E$, and hence $X$
+    is spanning.
+
+    Now, if  $X$ is a basis, then  $\rank{X}=\rank{M}$, and $X$ is independent,
+    so  $X$ is an independent spanning set. Conversely, if  $X$ is an
+    independent spanning set, we have  $\rank{X}=\rank{M}$, and by theorem
+    \ref{1.3.4}, $X$ must be a basis.
+
+     let $X$ be a minimal spanning set. Then  $\rank{X}=\rank{M}$, and if $x \in
+     X$, then  $\com{X}{x}$ is not spanning. so by theorem \ref{1.4.8}, $x
+     \notin \cl{(\com{X}{x})}$, this makes $X$ independent, and hence  $X$ is a
+     basis. Now, if  $X$ is a basis, then  $X$ is spanning and independent. Then
+      $\cl{X}=E$. Now let $x \in X$, then  $\rank{(X \cup x)}=\rank{X}$, and
+      $\rank{(\com{X}{x})} \leq \rank{X}$, if equality holds, then
+      $\rank{(\com{X}{x})}=\rank{M}$, making $\cl{(\com{X}{x})}=E$, which
+      contradicts the spanning of $X$. Therefore $\com{X}{x}$ cannot be
+      spanning, making $X$ minimal.
+
+      Lastly suppose that $X$ is a hyperplane, then it is a flat of rank
+      $\rank{M}-1$; that is $\rank{X}=\rank{M}-1$, and $\cl{X}=X$. Now, if $x
+      \in \com{E}{X}$, then $\rank{(X \cup x)}=\rank{X}+1=\rank{M}$, so that $X
+      \cup x$ is not a flat, and hence not a hyperplane. Moreover, if $\rank{(X
+      \cup x)}=\rank{M}$, then $E \subseteq \cl{X}$, making $X$ a spanning set.
+      On the other hand, suppose that $X$ is a maximal nonspanning set. That is
+      $\cl{(X \cup x)}=E$. Then $\rank{(X \cup x)}=\rank{M}$, hence $\rank{X}=
+      \rank{M}-1$. Now, by maximality, we also have that $\cl{X} \neq E$, but
+      that for any $x \in \cl{X}$, $\rank{(X \cup x)}=\rank{X}$, so that $x \in
+      X$. Therefore  $\cl{X}=X$. This makes $X$ a flat of rank  $\rank{M}-1$,
+      and hence a hyperplane.
 \end{proof}
 
-\begin{theorem}\label{1.4.7}
+\begin{theorem}\label{1.4.8}
     Let $M$ be a matroid on a set  $E$. Then:
     \begin{enumerate}
         \item[(1)] $X$ is a circuit if, and only if  $X$ is a minimal nonempty
             set such that  $x \in \cl{(\com{X}{x})}$ for all $x \in X$.
 
-        \item[(2)] $\cl{X}=(\cl{X}) \cup \{x : x \in C \subseteq X \cup x,
-            \text{ where } C \text{ is a circuit of} M\}$.
+        \item[(2)] $\cl{X}=X \cup \{x : x \in C \subseteq X \cup x,
+            \text{ where } C \text{ is a circuit of } M\}$.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -215,7 +296,7 @@ We also have the additional definitions.
 
 The above theorem motivates the following theorem.
 
-\begin{theorem}[The Strong Circuit Elimination Axiom]\label{1.4.8}
+\begin{theorem}[The Strong Circuit Elimination Axiom]\label{1.4.9}
     The collection $\Cc$ of circuits of a matroid satisfies the following:
     \begin{enumerate}
         \item[(C^\prime3)] If $C_1,C_2 \in \Cc$ with $e \in C_1 \cap C_2$, and $f
@@ -229,7 +310,7 @@ The above theorem motivates the following theorem.
     C_2)}{\{e,f\}})}$, therfore we get $\cl{(\com{(C_1 \cup
 C_2)}{\{e,f\}})}=\cl{(\com{(C_1 \cup C_2)}{f})}$. But $f \in \cl{(\com{C}{f})}
 \subseteq \cl{(\com{(C_1 \cup C_2)}{f})}$, so $f \in
-\cl{(\com{(C_1 \cup C_2)}{\{e,f\}})}$ Thus, by theorem \ref{1.4.7}, the matroid
+\cl{(\com{(C_1 \cup C_2)}{\{e,f\}})}$ Thus, by theorem \ref{1.4.8}, the matroid
 of $\Cc$ has a circuit $C$ with $f \in C \subseteq \com{(C_1 \cup C_2)}{e}$.
 \end{proof}
 \begin{corollary}
@@ -246,7 +327,56 @@ of $\Cc$ has a circuit $C$ with $f \in C \subseteq \com{(C_1 \cup C_2)}{e}$.
             \in C \subseteq \com{(C_1 \cup C_2)}{e}$.
 \end{corollary}
 
-\begin{theorem}\label{1.4.9}
+\begin{lemma}\label{1.4.10}
+    Let $M$ be a matroid on a set  $E$. Then the following are equivalent for
+    any  $e \in E$.
+    \begin{enumerate}
+        \item[(1)] $e$ is in every basis of  $M$.
+
+        \item[(2)] $e$ is in no circuit of  $M$.
+
+        \item[(3)] If $X \subseteq E$ and  $e \in \cl{X}$, then $e \in X$.
+
+        \item[(4)] $\rank{(\com{E}{e})}=\rank{E}-1$
+
+        \item[(5)] $\com{E}{e}$ is a flat.
+
+        \item[(6)] $\com{E}{e}$ is a hyperplane.
+
+        \item[(7)] If $I$ is independent, then so is  $I \cup e$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    If $e$ is in any basis, of  $M$, then  $e$ cannot be in any dependent set,
+    and hence no circuit.
+
+    Now suppose that  $e$ is in no circuit, and that for  $X \subseteq E$, that
+     $e \in \cl{X}$. Then if $e \notin X$,  $e \in \{x : x \in C \subseteq X
+     \cup x \text{ where } C \text{ is a circuit of } M\}$. This makes $e$
+     contained in a circuit contained in  $X \cup e$, which contradicts our
+     supposition. So  $e \in X$.
+
+     Now supposse that for  $X \subseteq E$, and  $e \in \cl{X}$, that $e \in
+     X$. Then we get that  $\cl{X}=X$, so that $X$ is a flat of  $M$. Then
+     $\rank{(X \cup e)}=\rank{X}$. Then notice that $E \subseteq E$, and that
+     $e \in \cl{E}$, then we have $\rank{(\com{E}{e})}=\rank{E}-1$. This makes
+     $\com{E}{e}$ a flat, since for any other $f \in \com{E}{e}$,
+     $\rank{((\com{E}{e}) \cup f)}=\rank{(\com{E}{e})}=\rank{E}-1$. We also get
+     that $\com{E}{e}$ is a hyperplane.
+
+     Now, if $\com{E}{e}$ is a hyperplane, then $\com{E}{e}$ is a flat, so that
+     $\cl{(\com{E}{e})}=\com{E}{e}$. This makes any $X \subseteq \com{E}{e}$ a
+     flat as well, so that $\cl{X}=X$. So if $I$ is independent, then
+     $\cl{I}=I$, so that $e$ is in no circuit contained in  $I \cup e$. This
+     makes  $I \cup e$ independnet.
+
+     Moreover, suppose that if $I$ and  $I \cup e$ are independent, then $e$ is
+     in no circuit contained in $I \cup e$, and since  $I$ is arbitrary, we get
+     that  $e$ is in no circuit of $M$. Which means $e$ has to be contained in
+     every basis of $M$.
+\end{proof}
+
+\begin{theorem}\label{1.4.11}
     If $M$ is a matroid of rank $r$, with $\Cc'$ a collection of nonspanning
     circuits, then:
     \begin{equation*}
@@ -255,7 +385,7 @@ of $\Cc$ has a circuit $C$ with $f \in C \subseteq \com{(C_1 \cup C_2)}{e}$.
     \end{equation*}
 \end{theorem}
 
-\begin{theorem}\label{1.4.10}
+\begin{theorem}\label{1.4.12}
     if $G$ is a graph then  $H$ is a hyperplane of  $M(G)$ if, and only if
     $\com{E(G)}{H}$ is a minimal set of edges such whose removal fro m $G$
     increases the number of connected components.
@@ -263,7 +393,7 @@ of $\Cc$ has a circuit $C$ with $f \in C \subseteq \com{(C_1 \cup C_2)}{e}$.
 \begin{proof}
 \end{proof}
 
-\begin{theorem}\label{1.4.11}
+\begin{theorem}\label{1.4.13}
     Let $E$ be a set. Then the mapping $r:2^E \rightarrow \N$ is the rank
     function for a matroid $M$ on  $E$ if, and only if the following are
     satisfied:
@@ -311,3 +441,17 @@ equivalent definitions of what a matroid is.
     rank $(\Rc)$, and closure $(\Cc\Lc)$ axioms.}
     \label{fig_1.8}
 \end{figure}
+
+We can make one more definition for a matroid.
+
+\begin{definition}
+    Let $M$ be a matroid on a set  $E$. We define the  \textbf{nullity} of a set
+    $X$ of  $M$ to be:
+    \begin{equation*}
+        \nul{X}=|X|-\rank{X}
+    \end{equation*}
+\end{definition}
+
+One could define a matroid in terms of the nullity of its sets, however, doing
+so shows that the axiom system for nullity is precisely that for rank
+functiions. This makes the nullity of a matroid $M$ a rank function.
