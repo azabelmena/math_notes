@@ -177,3 +177,30 @@ We present one lemma on affine independence without proof.
         \label{fig_1.14}
     \end{figure}
 \end{example}
+
+\begin{theorem}\label{1.5.4}
+    Let $M$ be a matroid on a set $E$ having a subset $X$ that is both a circuit
+    and ahyperplane. Let $\Bc$ be the collection of bases of $M$, and  $\Bc'=\Bc
+    \cup \{X\}$, then $\Bc'$ is the set of bases of a matroid $M'$ on $E$.
+    Moreover, if $\Cc$ is the set of circuits of  $M$, then  $M'$ has the
+    following as its set of circuits:
+    \begin{equation*}
+        \Cc'=(\com{\Cc}{X}) \cup \{X \cup e : e \in \com{E}{X}\}
+    \end{equation*}
+\end{theorem}
+
+\begin{example}\label{1.20}
+    Consider the geometric figures $P$, and $P'$ of figure \ref{fig_1.15}. We
+    call the matroid on $P$ a  \textbf{Papus} matroid, while $P'$ is
+    non-Papus they both obey law  $1.5.9$, and hence are geometric
+    representations of  matroids of $\rank=3$. The Papus matroid $P$ is a
+    representable matroid, while the non-Papus matroid  $P'$ is
+    nonrepresentable. A ``smallest'' matroid can be derived with this property
+    from the affine space $AG(3,2)$.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.8]{Figures/Chapter1/paupus_nonpaupus.eps}
+        \caption{$P'$ is a non-Papus matroid, and $P$ is a Papus matroid.}
+        \label{fig_1.15}
+    \end{figure}
+\end{example}
