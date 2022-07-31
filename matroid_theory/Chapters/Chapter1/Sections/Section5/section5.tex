@@ -118,6 +118,21 @@ We present one lemma on affine independence without proof.
     \end{enumerate}
 \end{example}
 
+\begin{definition}
+    Let $E$ be a set and $\Lc$ the collection of lines inducing a geomtry on
+    $E$. We call a subset $X$ of $\Lc$ \textbf{geometrically} dependent if for
+    any of the points of $X$, two are identical, three are colinear, four are
+    coplanar, or there are  $5$ arbitrary points in space.
+\end{definition}
+
+\begin{theorem}\label{1.5.3}
+    Affine dependence is equivalent to geometric dependence.
+\end{theorem}
+
+Theorem \ref{1.5.3} provides a way to represent matroids of small rank
+geometrically. However, not all geometric figures are matroids. Consider the
+next example.
+
 \begin{example}\label{1.18}
     \begin{figure}[h]
         \centering
@@ -149,7 +164,11 @@ We present one lemma on affine independence without proof.
     Notice that the rank of this matroid is $4$.
 \end{example}
 
-\begin{lemma}\label{1.5.3}
+The next result gives a way of identifing when geometric figures represent
+matroids of rank at most $4$, provided that any two distinct lines in the
+figure meet in at most one point.
+
+\begin{lemma}\label{1.5.4}
     Let $E$ be a set and $\Lc$ a collection of subsets of $E$ each having
     atleast $3$ elements, and such that every two distinct members of $\Lc$
     intersect at atmost one element. Let  $\Ic$ be the collection of subsets $X$
@@ -189,6 +208,26 @@ We present one lemma on affine independence without proof.
     \end{equation*}
 \end{theorem}
 
+There are also necessary and sufficient conditios on which a geometry actually
+represents a matroid of rank $\leq 4$.
+
+\begin{theorem}\label{1.5.6}
+    A set $E$ together with a collection of lines inducing a geometry on  $E$ is
+    a simple matroid of rank at most $4$ if and only if the following hold:
+    \begin{enumerate}
+        \item[(1)] Any two distinct lines meet in at most one point.
+
+        \item[(2)] Any two distinct planes meeting at more than one point do so
+            in a line.
+
+        \item[(3)] Any two distinct lines meeting at a point do so in at most
+            one point, and lie on a common plane.
+
+        \item[(4)] Any line not lying on a plane intersects the plane in at most
+            one point.
+    \end{enumerate}
+\end{theorem}
+
 \begin{example}\label{1.20}
     Consider the geometric figures $P$, and $P'$ of figure \ref{fig_1.15}. We
     call the matroid on $P$ a  \textbf{Papus} matroid, while $P'$ is
@@ -204,3 +243,76 @@ We present one lemma on affine independence without proof.
         \label{fig_1.15}
     \end{figure}
 \end{example}
+
+It turns out most of the matroids represented here belong to a specific class of
+matroids which we define below.
+
+\begin{theorem}\label{1.5.7}
+    Let $E=\{t,x_1,y_1, \dots, x_r,y_r\}$ for some $r \geq 3$. Let
+    $\Cc_1=\{\{t,x_i,y_i\} : 1 \leq i \leq r\}$, let
+    $\Cc_2=\{\{x_iy_i,x_j,/y_j\} : 1 \leq i \leq j \leq r\}$. Let $\Cc_3$ be the
+    possibly empty collection of all $\{z_1, \dots, z_r\}$ such that $z_i \in
+    \{x_i,y_i\}$, and no two member of $\Cc_3$ has more than $r-2$ points in
+    common. Let  $\Cc_4$ be the collection of all $(r+1)$-element subsets that
+    do not contain members of $\Cc_2 \cup \Cc_3$. Then there is a matroid on $E$
+    of rank  $r$ having  $\Cc=\Cc_1 \cup \Cc_2 \cup \Cc_3 \cup \Cc_4$ as its
+    collection of circuits.
+\end{theorem}
+\begin{proof}
+    We have that $\emptyset \notin \Cc$, as the only collection that can
+    possibly be empty is  $\Cc_3$. We also have by definition that no member of
+    $\Cc$ can be a proper subset of another member of  $\Cc$.
+
+    Now if  $\Cc$ were the collection of circuits on  $M$, then we have that
+    $\rank{M} \leq r$,by definition of $\Cc_4$. On the otherhand, by the
+    definition of $\Cc_3$, at most one of the subsets $\{y_1, \dots, y_r\}$ and
+    $\{y_1, \dots, y_{r-1}, x_r\}$ is independent, so that $\ranbk{M} \geq r$.
+    This makes $\rank{M}=r$.
+
+    Now, let $C_1, C_2 \in \Cc$, and $e \in C_1 \cap C_2$. If $C_1,C_2 \in \Cc_1
+    \cup \Cc_2$, then the weak circuit elimination axiom is satisfied. Now,
+    suppose then that $|C_1| \leq |C_2|$ and that $C_2 \in \Cc_3 \cup \Cc_4$.
+    Then we have:
+    \begin{align*}
+        |\com{(C_1 \cup C_2)}{e}|  &=   |C_1 \cup C_2|-1 \\
+                                &= |C_1|+|C_2|-|C_1 \cap C_2|-1 \\
+                                &= |\com{C_1}{C_2}|+|C_2|-1
+    \end{align*}
+Since $|C_2|=r$ or $|C_2|=r+1$, we must have that  $|\com{(C_1 \cup C_2)}{e}|
+\geq r+1$, or that $C_2 \in \Cc_3$ and that $|\com{C_1}{C_2}|=1$. In the first
+case, we get that there is a circuit $C \in \Cc$ contained in
+$\com{(C_1 \cup C_2)}{e}$. In the second case, we get that $C_2 \in \Cc_4$,
+making $|C_1|>|C_2|$, which contradicts our suposition, so only the first case
+is true. This makes the collection $\Cc$ into the collection of cirvuits of
+$M$.
+\end{proof}
+
+\begin{definition}
+    A matroid $M$ on a set $E$ having as collection of circuits the collection
+    $\Cc$ defined in theorem \ref{1.5.7} an  \textbf{$r$-spiked matroid} with
+    \textbf{tip} $t$, and legs  $L_i=\{t,x_i,y_i\}$ where $1 \leq i \leq r$. If
+     $\Cc_3=\emptyset$, then we call $M$ a  \textbf{free spike}. If
+     $/M'=\com{M}{t}$ is also a matroid, then we call $M'$ a \textbf{tipless}
+     spiked matroid.
+\end{definition}
+
+\begin{theorem}\label{1.5.8}
+    Let $r \geq 2$ be an integer. A matroid  $M$ is an  $r$- spike with tip $t$
+    if, and only if:
+    \begin{enumerate}
+        \item[(1)] $E$ is the union of the legs  $L_1, \dots, L_r$, each of
+            which is a $3$-element circuit containing  $t$.
+
+        \item[(2)] For each $1 \leq k \leq r-1$, the union of any  $k$ legs
+            $L_1, \dots, L_r$ has rank $k+1$.
+
+        \item[(3)] $\rank{(L_1 \cup \dots \cup L_r)}=r$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    Let $M$ be a matroid. We call distinct elements  $e$ and  $f$ of  $M$
+    \textbf{clones} if there exists an isomorphism $\phi:M \rightarrow M$ of $M$
+    onto itself such that $\phi:e \rightarrow f,f \rightarrow e$, and $\phi:g
+    \rightarrow g$ for any $g$ distinct from both  $e$ and  $f$.
+\end{definition}

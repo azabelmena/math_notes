@@ -26,14 +26,14 @@
      showgrid="false"
      showguides="true"
      inkscape:zoom="1.754102"
-     inkscape:cx="394.2188"
+     inkscape:cx="394.7889"
      inkscape:cy="235.44811"
      inkscape:window-width="1888"
      inkscape:window-height="1008"
      inkscape:window-x="13"
      inkscape:window-y="53"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer2" />
   <defs
      id="defs2" />
   <g
@@ -58,10 +58,6 @@
        id="path1330" />
     <path
        style="fill:#d40000;fill-opacity:0.74902;stroke:#000000;stroke-width:0.330999;stroke-opacity:1"
-       d="m 117.06932,46.510781 34.01984,-16.06078 19.9034,29.741603 -39.33469,7.935799 z"
-       id="path1332" />
-    <path
-       style="fill:#d40000;fill-opacity:0.74902;stroke:#000000;stroke-width:0.330999;stroke-opacity:1"
        d="M 103.27895,57.951875 117.06932,46.510781 151.08916,30.450001 131.93952,46.33737 103.27895,57.951875"
        id="path1334" />
     <circle
@@ -72,39 +68,15 @@
        r="2.3947582" />
     <circle
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
-       id="path1388-7"
-       cx="117.06932"
-       cy="46.51078"
-       r="2.3947582" />
-    <circle
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
        id="path1388-5"
        cx="103.27895"
        cy="57.951874"
        r="2.3947582" />
     <circle
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
-       id="path1388-3"
-       cx="131.65787"
-       cy="68.127403"
-       r="2.3947582" />
-    <circle
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
-       id="path1388-56"
-       cx="170.99255"
-       cy="60.191605"
-       r="2.3947582" />
-    <circle
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
        id="path1388-2"
        cx="131.93951"
        cy="46.337372"
-       r="2.3947582" />
-    <circle
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
-       id="path1388-9"
-       cx="151.08916"
-       cy="30.450001"
        r="2.3947582" />
     <g
        fill="#000000"
@@ -197,5 +169,38 @@
            id="path84" />
       </g>
     </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <path
+       style="fill:#d40000;fill-opacity:0.74902;stroke:#000000;stroke-width:0.330999;stroke-opacity:1"
+       d="m 117.06932,46.510781 34.01984,-16.06078 19.9034,29.741603 -39.33469,7.935799 z"
+       id="path1332" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
+       id="path1388-3"
+       cx="131.65787"
+       cy="68.127403"
+       r="2.3947582" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
+       id="path1388-56"
+       cx="170.99255"
+       cy="60.191605"
+       r="2.3947582" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
+       id="path1388-9"
+       cx="151.08916"
+       cy="30.450001"
+       r="2.3947582" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.210483;stroke-opacity:1"
+       id="path1388-7"
+       cx="117.06932"
+       cy="46.51078"
+       r="2.3947582" />
   </g>
 </svg>
