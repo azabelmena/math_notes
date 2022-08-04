@@ -1,2 +1,201 @@
 \section{The Alternating Group.}
 \label{section1}
+
+We now go over transpositions and the generation of $S_n$.
+
+\begin{definition}
+    A $2$-cycle in  $S_n$ is called a \textbf{transposition}.
+\end{definition}
+
+\begin{lemma}\label{3.6.1}
+    Every element of $S_n$ can be written as a product of transpositions in
+    $S_n$. That is,  $S_n=\vbrack{T}$, where $T=\{(i \ j) : 1 \leq i \leq j \leq
+    n\}$.
+\end{lemma}
+\begin{proof}
+    Observe that $(a_1 \ a_2 \ \dots \ a_m)=(a_1 \ a_m)(a_1 \ a_{m-1}) \dots
+    (a_1 \ a_2)$ for any $m$-cycle.
+\end{proof}
+
+\begin{example}\label{}
+    The permutation $s=(1 \ 12 \ 8  \ 10 \ 4)(2 \ 13)(5 \ 11 \ 7)(6 \ 9)$ can be
+    written as: $s=(1 \ 4)(1 \ 10)(1 \ 8)(1 \ 12)(2 \ 13)(5 \ 7)(5 \ 11)(6 \
+    9)$.
+\end{example}
+
+For the following, let $x_1, \dots, x_n$ be independent variables and define the
+polynomial:
+\begin{equation}
+    \Delta=\prod_{1 \leq i \leq j \leq n}{(x_i-x_j)}
+\end{equation}
+
+\begin{example}\label{}
+    For $n=4$,  $\Delta=(x_1-x_2)(x_1-x_3)(x_1-x_4)(x_2-x_3)(x_2-x_4)(x_3-x_4).$
+\end{example}
+
+Now, for $s \in S_n$, let $s$ act on  $\Delta$ by permuting the indices of the
+terms. That is:
+\begin{equation*}
+    \Delta=\prod{(x_{s(i)}-x_{s(j)})}
+\end{equation*}
+It can be verified that $s(\Delta)$ and $\Delta$ only differ by a sign. That is
+ $s(\Delta)=\pm\Delta$.
+
+\begin{definition}
+    Let $\Delta$ be the polynomial of equation (3.5), and let $s \in S_n$ act on
+     $\Delta$ by permuting the indices of the terms. We define the
+     \textbf{sign} of $s$ to be:
+     \begin{equation}
+         \epsilon(s)=\begin{cases}
+                1, \text{ if } s(\Delta)=\Delta \\
+               -1, \text{ if } s(\Delta)=-\Delta \\
+              \end{cases}
+     \end{equation}
+     We call $s$  \textbf{even} if $\epsilon(s)=1$, and  \textbf{odd} if
+     $\epsilon(s)=-1$.
+\end{definition}
+
+\begin{lemma}\label{3.6.2}
+    The sign map of a permutation $\epsilon:S_n \rightarrow \vbrack{-1,1}$ is a
+    homomorphism.
+\end{lemma}
+\begin{proof}
+    By definition, for $s,t \in S_n$, we have
+    $ts(\Delta)=\prod{(x_{ts(i)}-x_{ts(j)})}$. Now suppose that $s(\Delta)$ has
+    $k$ factors, of the form  $x_j-x_i$ with  $i<j$. Then we have
+    $\epsilon(s)=(-1)^k$. We also have that $ts$ has  $k$ factors of the form
+    $x_{t(j)-x_{t(i)}}$. Then the terms of the $k$ factors are permuted, and so
+     have the form $x_{t(p)}-x_{t(q)}$, where $p<q$. Then
+     \begin{equation*}
+         ts(\Delta)=\epsilon(s)\prod{(x_{t(p)}-x_{t(q)})}
+     \end{equation*}
+     So, by definition of $\epsilon$,
+     \begin{equation*}
+         \epsilon(t)\Delta=\prod{(x_{t(p)}-x_{t(q)})}
+     \end{equation*}
+     so that $ts(\Delta)=\epsilon(t)\epsilon(s)\Delta$. Therefore, we get that
+     $\epsilon(ts)=\epsilon(t)\epsilon(s)$.
+\end{proof}
+
+\begin{example}\label{}
+    Let $n=4$, $s=(1 \ 2 \ 3 \ 4)$ and  $t=(4 \ 2 \ 3)$. Then $ts(\Delta)=(1 \ 3
+    \ 2 \ 4)\Delta=(x_3-x_2)(x_3-x_2)(x_3-x_1)(x_4-x_2)(x_4-x_1)(x_2-x_1)=(-1)^5$.
+    So that $\epsilon(ts)=-1$. Now, we also have that $s(\Delta)=(1 \ 2 \ 3 \
+    4)\Delta=(x_2-x_3)(x_2-x_4)(x_2-x_1)(x_3-x_4)(x_3-x_1)(x_4-x_1)=(-1)^3\Delta$.
+    Additionally,
+    $t(\Delta)=(x_1-x_3)(x_1-x_4)(x_1-x_2)(x_3-x_4)(x_3-x_2)(x_4-x_2)=(-1)^2\Delta$.
+    So $\epsilon(t)=1$, and $\epsilon(s)=-1$, so $\epsilon(t)\epsilon(s)=-1$.
+\end{example}
+
+\begin{theorem}\label{3.6.3}
+    Transpositions are all odd permutations, and the sign of a permutation is
+    onto.
+\end{theorem}
+\begin{proof}
+    Notice for any $s \in S_n$,  $\epsilon$ maps  $s$ to  $1$ or  $-1$, so
+    $\epsilon$ is onto.
+
+    Now, consider the transposition  $(1 \ 2)$. Then $(1 \ 2)\Delta$ takes
+    $x_1-x_2$ to $x_2-x_1$. So $\epsilon((1 \ 2))=-1$. Now, for any
+    transposition $(i \ j)$, let $\lambda$ be the permutation taking  $1
+    \rightarrow i$, $2 \rightarrow j$, and fixes all other entries. Then $(i \
+    j)=\lambda(1 \ 2)\lambda$. And so we get:
+    \begin{align*}
+        \epsilon((i \ j))       &=      \epsilon(\lambda(1 \ 2)\lambda)     \\
+                        &=      \epsilon(\lambda)\epsilon((1 \ 2))\epsilon(\lambda) \\
+                        &= (-1)(\epsilon((1 \ 2)))^2        \\
+                        &= (-1)                     \\
+    \end{align*}
+    Making $(i \ j)$ an odd permutation.
+\end{proof}
+
+We can now define the following group:
+
+\begin{definition}
+    The \textbf{Alternating group} of \textbf{degree} $n$,  $A_n$, is the kernel
+    of  $\epsilon$. That is, it is the group of all even permutations of $S_n$.
+\end{definition}
+
+\begin{lemma}\label{3.6.4}
+   $\ord{A_n}=\frac{1}{2}n!$ .
+\end{lemma}
+\begin{proof}
+    By the first isomorphism theorem, we have that
+    $\faktor{S_n}{A_n}=\epsilon(S_n)=\vbrack{-1,1}$. So
+    $\ord{A_n}=\frac{1}{2}\ord{S_n}=\frac{1}{2}n!$.
+\[\begin{tikzcd}
+	{A_n} &&& {\epsilon(S_n)} \\
+	\\
+	\\
+	&&& {\langle -1, 1 \rangle}
+	\arrow[from=1-1, to=1-4]
+	\arrow[from=1-4, to=4-4]
+	\arrow[dashed, from=1-1, to=4-4]
+\end{tikzcd}\]
+\end{proof}
+\begin{corollary}
+    For $s \in S_n$:
+    \begin{equation*}
+        \epsilon(s)=\begin{cases}
+                1, \text{ if } s \text{ is a product of an even number of
+                transpostions.} \\
+               -1, \text{ if } s \text{ is a product of an odd number of
+               transpostions.} \\
+             \end{cases}
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    Since $\epsilon$ is a homomorphism, and any $s \in S_n$ can be written as
+    the product of transpositions, $s=t_1 \dots t_k$, so that
+    $\epsilon(s)=\epsilon(t_1) \dots \epsilon(t_k)$.
+\end{proof}
+
+\begin{lemma}\label{3.6.5}
+    A permutation $s$ is odd if, and only if the number of cycles of even length
+    in the decomposition of $s$ is odd.
+\end{lemma}
+\begin{proof}
+    For any $s \in S_n$, let  $a_1, \dots, a_k$ be its cycle decomposition. Then
+    $\epsilon(s)=\epsilon(a_1) \dots \epsilon(a_k)$, where $\epsilon(a_i)=-1$
+    for all $1 \leq i \leq k$, if and only if $a_i$ has even length. So
+    $\epsilon(s)=(-1)^k$, so $k$ must be odd if  $\epsilon(s)=1$.
+\end{proof}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] $A_1=A_2=\vbrack{(1)}$.
+
+        \item[(2)] $\ord{A_3}=3$, so $A_3=\vbrack{(1 \ 2 \ 3)} \simeq
+            \faktor{\Z}{3\Z}$.
+
+        \item[(3)] $|A_4|=12$, and $A_4$ has the following lattice of figure
+            \ref{fig_3.5}
+    \end{enumerate}
+\end{example}
+
+\begin{figure}[h]
+\[\begin{tikzcd}[column sep=tiny]
+	&& {A_4} \\
+	& {\langle (1 \ 2)(3 \ 4),(1 \ 3)(2 \ 4) \rangle} \\
+	&&&& {\langle (1 \ 2 \ 3) \rangle} & {\langle (1 \ 2 \ 4) \rangle} & {\langle (1 \ 3 \ 4) \rangle} & {\langle (2 \ 3 \ 4) \rangle} \\
+	{\langle (1 \ 2)(3 \ 4) \rangle} & {\langle (1 \ 3)(2 \ 4) \rangle} & {\langle (1 \ 4)(2 \ 3) \rangle} \\
+	&& {\langle (1) \rangle}
+	\arrow["4"', no head, from=1-3, to=3-5]
+	\arrow["4"', no head, from=1-3, to=3-6]
+	\arrow["4"', no head, from=1-3, to=3-7]
+	\arrow["4"', no head, from=1-3, to=3-8]
+	\arrow["3", no head, from=3-8, to=5-3]
+	\arrow["3"', no head, from=3-7, to=5-3]
+	\arrow["3"', no head, from=3-6, to=5-3]
+	\arrow["3"', no head, from=3-5, to=5-3]
+	\arrow["2", no head, from=4-2, to=5-3]
+	\arrow["2", no head, from=4-1, to=5-3]
+	\arrow["2", no head, from=4-3, to=5-3]
+	\arrow["3", no head, from=1-3, to=2-2]
+	\arrow["2", no head, from=2-2, to=4-2]
+	\arrow["2", no head, from=2-2, to=4-3]
+	\arrow["2", no head, from=2-2, to=4-1]
+\end{tikzcd}\]
+    \caption{The lattice of subgroups for $A_4$.}
+    \label{fig_3.5}
+\end{figure}
