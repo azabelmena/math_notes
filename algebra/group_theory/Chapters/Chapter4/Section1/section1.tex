@@ -1,1 +1,150 @@
 \section{Group Actions and Permutation Representations.}
+
+We now present the notion of a group ``acting'' on a given set. The study of
+these ``actions'' will allow us to prove results for groups and also for finding
+underlying structures of specific sets.
+
+\begin{definition}
+    A \textbf{left} group \textbf{action} of a group $G$ on a set  $A$ is a map
+    $\cdot: G \times A
+    \rightarrow A$ such that for all $g \in G$ and  $a \in A$:
+    \begin{enumerate}
+        \item[(1)] $g_1 \cdot (g_2 \cdot a)=(g_1g_2) \cdot a$.
+
+        \item[(2)] $e \cdot a=a$, where  $e$ is the identity of  $G$.
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+    As before, we will drop explicit mention of the action $\cdot$ and mearly
+    werite $ga$. It should be taken into account that the group action $\cdot$
+    is not a binary operation.
+\end{remark}
+\begin{remark}
+    Similarly, one can define \textbf{right} group actions. Our study will
+    consist of left group actions, so we drop the indication.
+\end{remark}
+
+\begin{lemma}\label{4.1.1}
+    Let $G$ be a group acting on a set $S$. For each $g \in G$, define the map
+    $\sigma_g:S \rightarrow S$ by $\sigma_g:a \rightarrow ga$. Then:
+    \begin{enumerate}
+        \item[(1)] For each $g \in G$,  $\sigma_g$ is a permutation of  $S$.
+
+        \item [(2)] The map $G \rightarrow A(S)$ defined by $g \rightarrow
+            \sigma_g$ is a homomorphism.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Let $a,b \in S$ and suppose that $\sigma_g(a)=\sigma_g(b)$. Then $ga=gb$,
+    and by the cancellation laws,  $a=b$. This makes $\sigma_g$  $1-1$. On the
+    otherhand, since $ga \in A$ for all $a \in A$, we get that $\sigma_g$ is
+    onto. This makes  $\sigma_g$ a permutation. Now, consider  $\inv{g} \in G$,
+    and notice that
+    $\sigma_{\inv{g}}\sigma_g(a)=\simga_{\inv{g}}(ga)=\inv{g}(ga)=(\ing{g}g)a=ea=a$.
+    Thus we get $\inv{\sigma_g}=\sigma_{\inv{g}}$.
+
+    Now consider the map $\phi:g \rightarrow \sigma_g$. Then
+    $\phi(gg')(a)=\sigma_{gg'}(a)=(gg')a=g(g'a)=\sigma_g\sigma_{g'}(a)=
+    \phi(g)\phi(g')$.
+\end{proof}
+\begin{remark}
+    The main takeaway of this lemma is that group actions on a set $S$ are
+    merely permutations of the elements of  $S$.
+\end{remark}
+
+\begin{definition}
+    Let $G$ be a group acting on a set  $S$, and define $\sigma_g:a \rightarrow
+    ga$, and define $\phi:G \rightarrow A(S)$ by $\phi:g \rightarrow \sigma_a$.
+    We call $\phi$ the  \textbf{permutation representation} of $S$ associated
+    with  $g$.
+\end{definition}
+
+\begin{example}
+    Let $G$ be a group, and  $A \neq \emptyset$. Then:
+
+    \begin{enumerate}
+        \item[(1)] Define the action $ga=a$ for all  $g \in G$. Then
+            $g_1(g_2)a=g_1a=a$ and $(g_1g_2)a=a$, so $g_1(g_2)a=(g_1g_2)a$, and
+            $ea=a$, so we indeed have an action. We call this the
+            \textbf{trivial} action, and we say that $G$ acts
+            \textbf{trivially} on $A$. Define then  $\sigma_g:a \rightarrow
+            ga=a$, then $\sigma_g$ is the identity map. So the permutation
+            representation associated with  $g$ is the identity map.
+
+        \item[(2)] In the vector space axioms, scalar multiplication $\cdot:F^*
+            \times V \rightarrow V$ is an action of $F^*$ on  $V$. We have for any
+             $\alpha,\beta \in F$, and  $v \in V$,
+             $\alpha(\beta)v=(\alpha\beta)v$, and $1v=v$. Here $F$ is a field,
+             and so  $F^*$ forms a multiplicative group under the relavent
+             multiplication.
+
+         \item [(3)] For any $S \neq \emptyset$, the symmetric group  $A(S)$
+             acts on $S$ via the action  $sa=s(a)$.
+
+         \item[(4)] Consider again the regular $n$-gon. Label its veritces to be
+             the set $\faktor{\Z}{n\Z}$, then we can see that the symmetries of
+             the $n$-gon act on vertices of the $n$-gon.
+
+             Consider the map $D_{2n} \times \faktor{\Z}{n\Z}\rightarrow
+             \faktor{\Z}{n\Z}$ of $D_{2n} \times \faktor{\Z}{n\Z}$ onto
+             $\faktor{\Z}{n\Z}$ via the map $(r^jt,i) \rightarrow r^jt(i)$,
+             where $j \in \faktor{\Z}{n\Z}$. This map forms a group action of
+             $D_{2n}$ on $\faktor{\Z}{n\Z}$. Also notice that distinct
+             symmetries induce distinct permutations of the vertices.
+
+         \item[(5)] Let $G$ be any group, and let  $A=G$. Then the binary
+             operation on $G$ is a group action of  $G$ onto itself. We have
+             $a(bc)=(ab)c$, and so the first prppertiy is satisfied by
+             associativity, and $ea=a$ and the second property is satisfied by
+             the identity law. We call the binary operation a \textbf{left
+             regular} action. Also notice that distinct elements of $G$ induce
+             distinct permutations of  $G$.
+    \end{enumerate}
+\end{example}
+
+We end the section, and the chapter with two more definitions.
+
+\begin{definition}
+    Let $G$ be a group acting on a set $A$. We call the action of $G$ on  $A$
+     \textbf{faithful} if distinct elements of $G$ induce distinct permutations
+     on  $G$. That is if $\phi$ is the permutation representation associated
+     with  $G$, then  $\phi$ is  $1-1$.
+\end{definition}
+
+\begin{definition}
+    Let $G$ be a group acting on a set $A$. We define the \textbf{kernel} of the
+    group action on $A$ to be  $\ker{A}=\{g \in G : ga=a \text{ for all } a \in
+    A\}$
+\end{definition}
+
+\begin{lemma}\label{4.1.2}
+    The kernel of a group action is precisely the kernel of the associated
+    permutation representation.
+\end{lemma}
+\begin{proof}
+    Let $G$ be a group acting on a set  $A$. Now, for any  $g \in \ker{A}$, we
+    have $ga=a$ for all  $a \in A$. Now let $\sigma:a \rightarrow ga$, and
+    consider the permutation representation of $A$ with respect to  $g$,
+    $\phi:g \rightarrow \sigma_g$. We can then see that $\phi(g)=\sigma_g$,
+    for which $\sigma_g(a)=a$ for all $a \in A$, so that  $\phi(g)=(1)$, hence,
+    $g \in \ker{\phi}$. Conversely, we also get that if $g \in \ker{\phi}$, then
+    $\phi(g)=\sigma_g=(1)$, so that for all $a \in A$, $a=ga$, which makes  $g
+    \in \ker{A}$.
+\end{proof}
+\begin{corollary}
+    Two group elements induce the same permutation on $A$ if, and only if they
+    are in the same coset of the kernel; i.e. if, and only if they are in the
+    same fiber of the permutation representation $\phi$.
+\end{corollary}
+
+\begin{example}\label{4.2}
+    \begin{enumerate}
+        \item[(1)] Let $n \in \Z^+$, then the symmetric group $S_n$, acts on the
+            set $A=\{1, \dots, n\}$ by the action $s \cdot i=s(i)$. for all $i
+            \in A$. The permutation representation of $A$ is then the map
+            $\phi:S_n \rightarrow S_n$ taking $s \rightarrow s$; i.e. the
+            identity map. Snce $\phi$ is  $1$--$1$, we get that $\phi$ is
+            faithful, and that for each $i \in A$, the \stab{i} \simeq
+            $S_{n-1}$.
+    \end{enumerate}
+\end{example}
