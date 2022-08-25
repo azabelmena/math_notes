@@ -26,26 +26,25 @@ underlying structures of specific sets.
 
 \begin{lemma}\label{4.1.1}
     Let $G$ be a group acting on a set $S$. For each $g \in G$, define the map
-    $\sigma_g:S \rightarrow S$ by $\sigma_g:a \rightarrow ga$. Then:
+    $s_g:S \rightarrow S$ by $s_g:a \rightarrow ga$. Then:
     \begin{enumerate}
-        \item[(1)] For each $g \in G$,  $\sigma_g$ is a permutation of  $S$.
+        \item[(1)] For each $g \in G$,  $s_g$ is a permutation of  $S$.
 
         \item [(2)] The map $G \rightarrow A(S)$ defined by $g \rightarrow
-            \sigma_g$ is a homomorphism.
+            s_g$ is a homomorphism.
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    Let $a,b \in S$ and suppose that $\sigma_g(a)=\sigma_g(b)$. Then $ga=gb$,
-    and by the cancellation laws,  $a=b$. This makes $\sigma_g$  $1-1$. On the
-    otherhand, since $ga \in A$ for all $a \in A$, we get that $\sigma_g$ is
-    onto. This makes  $\sigma_g$ a permutation. Now, consider  $\inv{g} \in G$,
+    Let $a,b \in S$ and suppose that $s_g(a)=s_g(b)$. Then $ga=gb$,
+    and by the cancellation laws,  $a=b$. This makes $s_g$  $1-1$. On the
+    otherhand, since $ga \in A$ for all $a \in A$, we get that $s_g$ is
+    onto. This makes  $s_g$ a permutation. Now, consider  $\inv{g} \in G$,
     and notice that
-    $\sigma_{\inv{g}}\sigma_g(a)=\simga_{\inv{g}}(ga)=\inv{g}(ga)=(\ing{g}g)a=ea=a$.
-    Thus we get $\inv{\sigma_g}=\sigma_{\inv{g}}$.
+    $s_{\inv{g}}s_g(a)=s_{\inv{g}}(ga)=\inv{g}(ga)=(\inv{g}g)a=ea=a$.
+    Thus we get $\inv{s_g}=s_{\inv{g}}$.
 
-    Now consider the map $\phi:g \rightarrow \sigma_g$. Then
-    $\phi(gg')(a)=\sigma_{gg'}(a)=(gg')a=g(g'a)=\sigma_g\sigma_{g'}(a)=
-    \phi(g)\phi(g')$.
+    Now consider the map $\phi:g \rightarrow s_g$. Then
+    $\phi(gg')(a)=s_{gg'}(a)=(gg')a=g(g'a)=s_gs_{g'}(a)= \phi(g)\phi(g')$.
 \end{proof}
 \begin{remark}
     The main takeaway of this lemma is that group actions on a set $S$ are
@@ -53,8 +52,8 @@ underlying structures of specific sets.
 \end{remark}
 
 \begin{definition}
-    Let $G$ be a group acting on a set  $S$, and define $\sigma_g:a \rightarrow
-    ga$, and define $\phi:G \rightarrow A(S)$ by $\phi:g \rightarrow \sigma_a$.
+    Let $G$ be a group acting on a set  $S$, and define $s_g:a \rightarrow
+    ga$, and define $\phi:G \rightarrow A(S)$ by $\phi:g \rightarrow s_a$.
     We call $\phi$ the  \textbf{permutation representation} of $S$ associated
     with  $g$.
 \end{definition}
@@ -67,8 +66,8 @@ underlying structures of specific sets.
             $g_1(g_2)a=g_1a=a$ and $(g_1g_2)a=a$, so $g_1(g_2)a=(g_1g_2)a$, and
             $ea=a$, so we indeed have an action. We call this the
             \textbf{trivial} action, and we say that $G$ acts
-            \textbf{trivially} on $A$. Define then  $\sigma_g:a \rightarrow
-            ga=a$, then $\sigma_g$ is the identity map. So the permutation
+            \textbf{trivially} on $A$. Define then  $s_g:a \rightarrow
+            ga=a$, then $s_g$ is the identity map. So the permutation
             representation associated with  $g$ is the identity map.
 
         \item[(2)] In the vector space axioms, scalar multiplication $\cdot:F^*
@@ -125,10 +124,10 @@ We end the section, and the chapter with two more definitions.
     Let $G$ be a group acting on a set  $A$. Now, for any  $g \in \ker{A}$, we
     have $ga=a$ for all  $a \in A$. Now let $\sigma:a \rightarrow ga$, and
     consider the permutation representation of $A$ with respect to  $g$,
-    $\phi:g \rightarrow \sigma_g$. We can then see that $\phi(g)=\sigma_g$,
-    for which $\sigma_g(a)=a$ for all $a \in A$, so that  $\phi(g)=(1)$, hence,
+    $\phi:g \rightarrow s_g$. We can then see that $\phi(g)=s_g$,
+    for which $s_g(a)=a$ for all $a \in A$, so that  $\phi(g)=(1)$, hence,
     $g \in \ker{\phi}$. Conversely, we also get that if $g \in \ker{\phi}$, then
-    $\phi(g)=\sigma_g=(1)$, so that for all $a \in A$, $a=ga$, which makes  $g
+    $\phi(g)=s_g=(1)$, so that for all $a \in A$, $a=ga$, which makes  $g
     \in \ker{A}$.
 \end{proof}
 \begin{corollary}
@@ -146,5 +145,129 @@ We end the section, and the chapter with two more definitions.
             identity map. Snce $\phi$ is  $1$--$1$, we get that $\phi$ is
             faithful, and that for each $i \in A$, the \stab{i} \simeq
             $S_{n-1}$.
+
+        \item[(2)] Consider $D_8$ acting on the set $A$ of  $4$ vertices of a
+        square with  $A=\{1,2,3,4\}$. Letting $r$ be the rotation of the square
+        by  $\frac{\pi}{2}$, and $t$ the reflecton of the square about the
+        line cutting vertices $1$ and $3$. Then the permutations of $A$ via
+        $r$ and  $t$ are  $s_r=(1 \ 2 \ 3 \ 4)$ and $s_t = (2 \ 4)$. Notice then
+        that $s_{rt}=s_rs_t=(1 \2 \ 3 \4)(2 \ 4)=(1 \ 4)(2 \ 3)$. The action of
+        $D_8$ on $A$ is also faithful, since  $\ker{A}=\vbrack{e}$. We can also
+        see that $\stab{a} \leq D_8$ and that $\ord{(\stab{a})}=2$.
+
+    \item[(3)] Consider the square labeled by the vertices in the
+        previous example and let $A$ be the set of unordered pairs of opposite
+        vertices  $A=\{\{1,3\}, \{2,4\}\}$. Then $D_8$ acts on $A$ with the
+        permutations $s_r$ and  $s_t$. Letting  $1'=\{1,3\}$ and $2'=\{2,4\}$,
+        we get that $s_r=(1' \ 2')$ and $s_t=(1')$. This action is not faithful,
+        as $\ker{A}=\vbrack{t,r^2}$.
     \end{enumerate}
 \end{example}
+
+\begin{theorem}\label{4.1.3}
+    For any group $G$ acting on a nonempty set $S$, there is a 1--1 correspondence
+    of teh actions of  $G$ onto homomorphisms of  $G$ into $A(S)$.
+\end{theorem}
+\begin{proof}
+    Let $\phi:G \rightarrow A(S)$ be a homomorphism, and define the action
+    $ga=\phi(g)(a)$. Then the kernel of the action is $\ker{A}=\{g \in G :
+    \phi(g)(a)=a\}=\{g \in G : \phi(g)=e\}=\ker{G}$. Moreover, the permutation
+    representation of $ga$ is precisely  $\phi$.
+\end{proof}
+
+\begin{definition}
+    For any group $G$, a  \textbf{permutation representation} of $G$ is a
+    homomorphism of  $G$ into $A(S)$.
+\end{definition}
+
+\begin{lemma}\label{4.1.4}
+    Let $G$ be a group acting on a nonempty set $A$. The  $\sim$ on $A$ defined
+    by  $a \sime b$ if, and only if  $a=gb$ for some  $g \in G$ is an
+    equivalence relation.
+\end{lemma}
+\begin{proof}
+    We have $a=ea$, so  $a \sim a$. Now, if $a \sim b$, then  $a=gb$ for  $g \in
+    G$. Then  $b=\inv{g}a$ so that $b \sim a$. Now let  $a \sim b$ and  $b \sim
+    c$. Then  $a=gb$ and  $b=hc$ for  $g,h \in G$. Then  $a=g(hc)=(gh)c$, and by
+    closure of $G$, this makes  $a \sim c$.
+\end{proof}
+\begin{corollary}
+    For each $a \in A$, the number of elements in the equivalence class of  $a$
+    is the index of  $\stab{a}$ in $G$; i.e.  $[G:\stab{a}]$.
+\end{corollary}
+\begin{proof}
+    Let $\Oc_a=\{ga : g \in G\}$ be the equivalence class of $a \in A$ under
+    $\sim$. Notice that  $g\stab{a}$ is a left coset of $G$, and so consider the
+    map  $\phi:ga \rightarrow g\stab{a}$ from $\Oc_a \rightarrow
+    \faktor{G}{\stab{a}}$. We get that $\phi$ is onto since $ga \in \Oc_a$ for
+    every $g \in G$. Moreover,  $\phi$ is 1--1 since  $ga=hb$ if, and only if
+    $(\inv{h}g)a=b$ so that $(\inv{h}g)\stab{a}=\stab{b}$, hence
+    $g\stab{a}=h\stab{b}$. This make $\Oc_a \simeq \faktor{G}{\stab{a}}$.
+\end{proof}
+
+\begin{definition}
+    Let $G$ be a group acting on a nonempty set  $A$. We call the equivalence
+    class $\orb{a}=\{ga : g \in G\}$ of $a$ the  \textbf{orbit} of $a$. We call
+    the action of  $G$ on  $A$  \textbf{transitive} if there is only one orbit.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] For any group $G$ and set  $A$, if  $G$ acts trivially on
+            $A$, then  $\stab{a}=G$ for all $a \in A$, and  $\orb{A}=A$. Then
+        the trivial action is transitive if, and only if $|A|=1$.
+
+    \item[(2)] The symmetric group $S_n$ acts on  $A=\{1, \dots n\}$
+        transitively in its usual action. Notice that for any $i \in A$,
+        $[S_n:\stab{i}]=|A|=n$.
+
+    \item[(3)] If $G$ is any group acting on $A$, and  $H \leq G$, then  $H$
+        also acts on $A$. Now suppose that  $G$ acts on  $A$ transitively, in
+        particular let $G=S_n$. Let  $H=\vbrack{(1 \ 2),(3 \ 4)} \leq S_n$. Then
+        the orbits of  $H$ on  $A=\{1, \dots, n\}$ are the sets $\{1,2\}$ and
+        $\{3,4\}$, and there is no element taking $2 \rightarrow 3$. Thus $H$
+        does not act transitively on $A$. For any group $G$ acting on  $A$
+        transitively,  $H$ need not act on  $A$ transitively.
+
+    \item[(4)] $D_8$ acts transitively on the vertices of a square. The
+        stabalizer of any vertex is the subgroup of order $2$ generated by the
+        reflection about the line passing through that vertex.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{4.1.5}
+    Every element of $S_n$ has a unique cycle decomposition.
+\end{theorem}
+\begin{proof}
+    Let $A=\{1, \dots, n\}$ and let $s \in S_n$, and consider  $\vbrack{s}$.
+    Then $\vbrack{s}$ acts on $A$, and hence partitions it into orbits. Now,
+    consider an orbit  $\Oc$ under  $s$, and let  $x \in \Oc$. Then we have that
+     $\Oc=A$, and there is a 1--1 correspondence of cosets of $\stab{x}$ in $G$
+     onto elements of  $\Oc$, defined by the map  $s^ix \rightarrow
+     s^i\stab{x}$. Now, since $\vbrack{s}$ is cyclic, we get $\stab{x} \unlhd
+     \vbrack{s}$, and $\faktor{\vbrack{s}}{\stab{x}}$ must be cyclic of order
+     $d$, where  $d$ is the least integer for which  $s^d \in \stab{x}$. Then we
+     get that $d=[\vbrack{s},\stab{x}]=|\Oc|$ and the cosets can be listed in
+     order as:
+     \begin{align*}
+         \stab{x}   &&   s\stab{x}   &&   \dots   &&   s^{d-1}\stab{x} \\
+     \end{align*}
+     So $\Oc$ has elements
+     \begin{align*}
+         x      &&      s(x)    &&      \dots       &&      s^{d-1}(x)      \\
+     \end{align*}
+     So $s$ cycles through  $\Oc$; that is  $s$ is a  $d$-cycle on $\Oc$ which
+     gives  $s$ a cycle decomposition.
+
+     Moreover, teh orbits of  $\vbrack{s}$ are uniquely determined by $s$, so
+     choosing  $s^i(x)$ we can reorder the elements of $\Oc$ as
+     \begin{align*}
+         s^i(x) && s^{i+1}(x) && \dots && s^{d-1}(x) && x && s(x) && \dots &&
+         s^{i-1}(x) \\
+     \end{align*}
+     which is a cycle permutation.
+\end{proof}
+
+\begin{definition}
+    We call the subgroups of the symmetric group \textbf{permutation groups}.
+\end{definition}
