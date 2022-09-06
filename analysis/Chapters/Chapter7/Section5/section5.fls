@@ -1,9 +1,0 @@
-PWD /home/eletrico/Mathematics/Notes/Analysis/Chapters/Chapter7/Section5
-INPUT /etc/texmf/web2c/texmf.cnf
-INPUT /usr/share/texmf/web2c/texmf.cnf
-INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
-INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT section5.tex
-OUTPUT section5.log
-INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
