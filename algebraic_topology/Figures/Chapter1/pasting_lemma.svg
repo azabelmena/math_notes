@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="pasting_lemma.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:lockguides="false"
+     showguides="true"
+     inkscape:zoom="1.2305624"
+     inkscape:cx="341.71368"
+     inkscape:cy="262.48161"
+     inkscape:window-width="1888"
+     inkscape:window-height="1008"
+     inkscape:window-x="13"
+     inkscape:window-y="53"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid132"
+       dotted="true"
+       empspacing="25" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <clipPath
+       id="clip-0">
+      <path
+         clip-rule="nonzero"
+         d="M 0,0 H 5 V 4.289062 H 0 Z m 0,0"
+         id="path8" />
+    </clipPath>
+    <clipPath
+       id="clipPath986">
+      <path
+         clip-rule="nonzero"
+         d="M 0,0 H 4.277344 V 6.917969 H 0 Z m 0,0"
+         id="path984" />
+    </clipPath>
+    <clipPath
+       id="clipPath1132">
+      <path
+         clip-rule="nonzero"
+         d="M 0,0 H 4.277344 V 6.917969 H 0 Z m 0,0"
+         id="path1130" />
+    </clipPath>
+    <clipPath
+       id="clipPath1221">
+      <path
+         clip-rule="nonzero"
+         d="M 0,0 H 3.273438 V 4.152344 H 0 Z m 0,0"
+         id="path1219" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#008000;fill-rule:evenodd;stroke:#000000;stroke-width:0.397584"
+       d="M 33.072916,39.6875 V 99.21875"
+       id="path1433" />
+    <path
+       style="fill:#008000;fill-rule:evenodd;stroke:#000000;stroke-width:0.460999"
+       d="M 3.3072922,72.990916 H 62.838541"
+       id="path1435" />
+    <path
+       style="fill:#008000;fill-rule:evenodd;stroke:#000000;stroke-width:0.397584"
+       d="M 105.83334,39.6875 V 99.218747"
+       id="path1433-3" />
+    <path
+       style="fill:#008000;fill-rule:evenodd;stroke:#000000;stroke-width:0.460999"
+       d="M 76.067709,72.990916 H 135.59896"
+       id="path1435-6" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:0.460999;stroke-opacity:1"
+       d="M 59.531249,52.916666 33.072916,72.760416 26.458333,99.21875"
+       id="path1481" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:0.437949;stroke-opacity:1"
+       d="M 107.15625,58.869789 132.29166,46.302083"
+       id="path1537" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:0.437076;stroke-opacity:1"
+       d="M 104.45741,86.34444 79.372098,92.61577"
+       id="path1539" />
+    <ellipse
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#d40000;stroke-width:0.216064;stroke-opacity:1"
+       id="path1597"
+       cx="105.83334"
+       cy="59.53125"
+       rx="1.3919679"
+       ry="1.391968" />
+    <ellipse
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#d40000;stroke-width:0.216064;stroke-opacity:1"
+       id="path1597-5"
+       cx="105.83334"
+       cy="85.989586"
+       rx="1.3919679"
+       ry="1.391968" />
+    <path
+       style="fill:#008000;fill-rule:evenodd;stroke:#000000;stroke-width:0.397584"
+       d="m 178.59375,39.687496 v 59.53125"
+       id="path1433-3-6" />
+    <path
+       style="fill:#008000;fill-rule:evenodd;stroke:#000000;stroke-width:0.460999"
+       d="m 148.82812,72.990916 h 59.53125"
+       id="path1435-6-2" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:0.460999;stroke-opacity:1"
+       d="M 178.59374,59.531245 205.05207,46.302079"
+       id="path1537-9" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#d40000;stroke-width:0.460999;stroke-opacity:1"
+       d="m 178.59374,85.989576 -26.45833,6.61459"
+       id="path1539-1" />
+    <ellipse
+       style="fill:#d40000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.216064"
+       id="path1597-2"
+       cx="178.59375"
+       cy="59.531246"
+       rx="1.3919679"
+       ry="1.391968" />
+    <ellipse
+       style="fill:#d40000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.216064"
+       id="path1597-5-7"
+       cx="178.59375"
+       cy="85.989586"
+       rx="1.3919679"
+       ry="1.391968" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="Layer 5" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Layer 3" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Layer 4" />
+</svg>

@@ -1,0 +1,127 @@
+\section{Limit Point Compactnes}
+
+\begin{definition}
+    We say a topological space $X$ is \textbf{limit point compact} if every
+    infinite subset of $X$ has a limit point.
+\end{definition}
+
+\begin{theorem}\label{3.7.1}
+    A compact topological space is limit point compact.
+\end{theorem}
+\begin{proof}
+    Let $X$ be a compact topological space, and let  $A \subseteq X$ be an
+    infinite subset of  $X$. Supposing that  $A$ has no limit point then  $A'
+    \subseteq A$, making  $A$ closed. Now let  $a \in A$ and  $U_a$ a
+    neighborhood of  $a$ such that $U_a \cap A=\{a\}$. Now both $\com{X}{A}$ and
+    $U_a$ cover  $X$ for each $a$, and since  $X$ is compact, $X$ can be covered
+    by finitely many sets of the collection  $(\com{X}{A}) \cup \{U_a\}_{a \in
+    A}$. Now, $(\com{X}{A}) \cap A=\emptyset$ and only one $a$ is in each $U_a$.
+    By finiteness of the covering, $A$ is finite, which contradicts the
+    assumption that it is infinite. Therefore $A$ must have a limit point,
+    therefore  $X$ must be limit point compact.
+\end{proof}
+
+\begin{example}\label{3.11}
+    \begin{enumerate}
+        \item[(1)] Let $Y$ be a topological space under the indescrete topology
+             $\Tc=\{\emptyset, Y\}$, with $|Y|=2$. Let  $X=Y \times \Z^+$. Then
+              $X$ is limit point compact since the infinite subsets  $y_1 \times
+              \Z^+$ and  $y_2 \times \Z^+$ have limit points. However, $X$ is
+              not compact, since the open cover  $\{Y \times \{n\}\}_{n \in \Z^+}$
+              has no finite open subcover.
+
+          \item[(2)] Let $S_\omega$ be the minimal uncountable well ordered set
+              under the order topology.  $S_\omega$ is not compact as it has no
+              greatest element. Now, let  $A \subseteq S_\omega$ be an infinite
+              subset, and let  $B \subseteq A$ be countably finite. Then  $B$
+              has an upperbound  $b \ion S_\omega$, so that  $B \subseteq
+              [a_0,b]$, where $a_0$ is the least element of $S_\omega$. Since
+              $S_\omega$ is well ordered, it has the least upperbound property,
+              so  $[a_0,b]$ is compact by theorem \ref{3.6.1} Thus $B$ has a
+              limit point, making  $A$ have a limit point. Therefore by theorem
+               \ref{3.7.1}, $S_\omega$ is limit point compact.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $X$ be a topological space, and  $\{x_n\}$ a sequence of points of $X$.
+    If  $n_1<n_2<\dots$ is an increasing sequence of nonnegative integers, then
+    we call the sequence $\{y_m\}$ defined by $y_i=x_{n_i}$ a
+    \textbf{subsequence} of $\{x_n\}$.
+\end{definition}
+
+\begin{definition}
+    We call a topological space \textbf{sequentially compact} if every sequence
+    of points in the space has a convergent subsequence.
+\end{definition}
+
+\begin{theorem}\label{3.7.2}
+    For any metrizable space $X$, the following are equivalent:
+    \begin{enumerate}
+        \item[(1)] $X$ is compact.
+
+        \item[(2)] $X$ is limit point compact.
+
+        \item[(3)] $X$ is sequentially compact.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Let $X$ be a metrizable space. By theorem \ref{3.7.1} we have that (1)
+    implies (2).
+
+    Now, suppose that $X$ is limit point compact; that is, every infinite subset
+    of  $X$ has a limit point. Consider the sequence  $\{x_n\}_{n \in \Z^+}$. If
+    $\{x_n\}$ is finite, then there is a point $x \in X$ for which  $x=x_n$  for
+    infinitely many $n$. Then the sequence  $\{x\}$ is a convergent subsequence
+    of $\{x_n\}$ by this fact, making $X$ sequentially compact.
+
+    Now, if  $\{x_n\}$ is an infinite sequence, then $\{x_n\}$ has a limit point
+    $x \in X$ by hypothesis. Define, then, the sequence $\{y_m\}$ such that
+    \begin{equation*}
+        y_i=x_{n_i}=B(x,\frac{1}{i})
+    \end{equation*}
+    which works since every open ball interesect $\{x_n\}$ at infinitely many
+    points. Then as $i \rightarrow \infty$, $\frac{1}{i} \rightarrow 0$, so that
+    $\{y_m\} \rightarrow x$, making $X$ sequentially compact.
+
+    Now, suppose that  $X$ is sequentially compact. Then every sequence
+    $\{x_n\}$ of points of $X$ has a convergent subsequence. Let  $\Ac$ be an
+    open cover for  $X$ and suppose that  $\Ac$ has no Lebesgue number; i.e.
+    there is no  $\delta>0$ for which any set with $\diam<\delta$ has an element
+    of  $\Ac$ containing it. Then for each  $n \in \Z^+$, there are sets with
+    $\diam<\frac{1}{n}$, not contained in any member of $\Ac$. Denote these sets
+    $C_n$ and choose $x_n \in C_n$. Then for the sequence  $\{x_n\}_{x_n \in
+    C_n}$, there is a subsequence $\{y_m\}$ with $y_i=x_{n_i}$ converging to a
+    point $a \in A$ for some $A \in \Ac$. Now, choose $\epsilon>0$ such that
+    $B(a,\epsilon) \subseteq A$, if $i$ is sufficiently large such that
+    $\frac{1}{n_i}<\frac{\epsilon}{2}$. Then take $C_{n_i} \subseteq
+    B(x_{n_i},\frac{\epsilon}{2})$, if $i$ is also chosen such that
+    $d(x_{n_i},a)<\frac{\epsilon}{2}$, then $C_{n_i} \subseteq B(a,\epsilon)$
+    which makes $C_{n_i} \subseteq A$, a contradiction on the definition of the
+    $C_n$. This forces $\Ac$ to satisfy the Lebesgue number lemma.
+
+    Now, suppose there exists an $\epsilon>0$ such that $X$ cannot be covered by
+    finitely many  $\epsilon$-balls. Define the sequence of points of $X$,
+    $\{x_n\}$ by the following steps:
+    \begin{enumerate}
+        \item[Step 1:] Choose any $x_1 \in X$.
+
+        \item[Step 2:] Choose $x_2 \in X$ with $x_2 \notin B(x_1,\epsilon)$.
+
+        \item[Step 3:] Proceed inductively and choose $x_n \in X$ with  $x_n
+            \notin \bigcup{B(x_i,\epsilon)}$
+    \end{enumerate}
+
+    Since the collection $\{B(x_i,\epsilon)\}_{i=1}^n$ does not cover $X$, and
+    $d(x_{n+1},x_i) \geq \epsilon$, then the sequence $\{x_n\}$ has no
+    convergent subsequence. This contradicts that $X$ is sequentially compact.
+    So there must be a finite collection of $\epsilon$-balls covering  $X$.
+
+    Finally, by the above, we have that  $\Ac$ has a Lebesgue number $\delta$.
+    Let  $\epsilon=\frac{\delta}{2}$, then by above, we can find a finite
+    collection of $\epsilon$-balls, $\{B(x_i,\epsilon)\}$, covering $X$ where
+    $\diam{B(x_i,\epsilon)} \leq \frac{2}{3}\delta$. So $B(x_i,\epsilon)
+    \subseteq A$ for some $A \in \Ac$, for each $x_i$, and so
+    $\{B(x_i,\epsilon)\}$ forms a finite subcover of $X$. Therefore $X$ is
+    compact.
+\end{proof}

@@ -1,0 +1,149 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Connected Spaces.}
+
+\begin{definition}
+    Let $X$ be a topological space. We define a  \textbf{seperation} of $X$ to be a pair $U,V$ of disjoint
+    open sets in  $X$ who's union equals  $X$. We say that $X$ is \textbf{connected} if no such
+    seperation exists.
+\end{definition}
+
+That is to say that $X$ is connected if one cannot partition  $X$ into two open sets.
+
+\begin{lemma}\label{3.1.1}
+    A topological space is connected if and only if the only open and closed sets of $X$ are  $X$
+    itself and $\emptyset$.
+\end{lemma}
+\begin{proof}
+Let $A \subseteq X$ be both open and closed in $X$. Then $A$ and $\com{X}{A}$ are both nonempty
+disjoint open subsets of $X$ with $A \cup \com{X}{A}=X$, and hence form a seperation. Conversely if
+$U$ and  $V$ form a seperation of  $X$, with  $U \neq X$, we see that  $U=\com{X}{V}$ is also
+closed.
+\end{proof}
+
+\begin{lemma}\label{3.1.2}
+    If $Y$ is a subspace of a topological space  $X$, a seperation of  $Y$ is a pair of nonempty
+    disjoint sets  $A,B$ who's union is $Y$; such that  $A$ shares no limit point with  $B$ and  $B$
+    shares no limit point with  $A$ i.e.  $\cl{A} \cap B = \emptyset$ and $A \cap \cl{B}=\emptyset$
+\end{lemma}
+\begin{proof}
+    Let $A,B \subseteq Y$ be nonempty such that  $A \cup B=Y$. Suppose that neither share any
+    limit points with eachother; that is if $a$ is a limit point of $A$ and  $b$ a limit point of
+    $B$ then  $a \notin B$ and  $b \notin A$. Then  $\cl{A} \cap B=\emptyset$ and $A \cap
+    \cl{B}=\emptyset$. Hence $\cl{A} \cap Y=A$ and $cl{B} \cap Y=B$, so $A$ and  $B$ are both open
+    and closed. On the otherhand,  $\com{Y}{A}=B$ and $\com{Y}{B}=A$, so they are both open as well.
+    Hence they form a seperation.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] If $X$ is a $2$-point set in the indescrete topology, then clearly by lemma \ref
+            {3.1.1}, $X$ is connected.
+
+        \item[(2)] Consider the subspace $[-1,0) \cup (0,1]$ in $\R$. We have that the intervals
+            $[-1,0)$ and $(0,1]$ form a seperation of $\R$  (also notice that $[-1,0)$ and $(0,1]$
+            share no limitpoints).
+
+        \item[(3)] The sets $[-1,0]$ and $(0,1]$ are disjoint in the subspace $[-1,1]$ of $\R$, however,
+            they are not a seperation of  $[-1,1]$ as $[-1,0]$ is closed (and also shares a limit
+            point with $(0,1]$).
+
+        \item[(4)] The field of rationals $\Q$ is not connected. Let  $Y$ be a
+            subspace of  $\Q$ and consider  $Y \cap (-\infty,a)$ and
+            $Y \cap (a,\infty)$, for $a \in \com{\R}{\Q}$. These two sets form
+            a seperation of $\Q$.
+
+        \item[(5)] Consider  $X=\{x \times x \in \R^2:y=0\} \cup \{x \times y \in \R:x \geq 0 \text{ and
+            } y=\frac{1}{x}\}$. $X$ is not connected, the subsets in the definition form a
+            seperation.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{3.1.3}
+    If $X$ is a topological space and  $C$ and  $D$ form a seperation of  $X$ and if  $Y$ is a
+    connected subspace of  $X$, then  either $Y \subseteq C$ or  $Y \subseteq D$, but not both.
+\end{lemma}
+\begin{proof}
+    That $Y \not\subseteq C \cap D$ is obvious. Now since  $C$ and  $D$ are open in  $X$,  $C \cap
+    Y$ and  $D \cap Y$ are open in  $Y$. Now since $(C \cap Y) \cap (D \cap Y)=(C \cap D) \cap
+    Y=\emptyset$, and $(C \cap Y) \cup (D \cap Y)=Y$. Now if both $C \cap Y$ and  $D \cap Y$ are
+    nonempty, then they form a seperation of  $Y$, which is imposible, hence  $Y \subseteq C$ or  $Y
+    \subseteq D$.
+\end{proof}
+
+\begin{theorem}\label{3.1.4}
+    The union of a collection of connected subspaces that have a common point is connected.
+\end{theorem}
+\begin{proof}
+    Let $\{A_{\alpha}\}$ be a collection of connected subspaces and let $p \in \bigcap{A_{\alpha}}$
+    and let $Y=\bigcup{A_{\alpha}}$. Suppose that $Y=C \cup D$ is seperation of  $Y$. Then  $p \in
+    C$ or  $p \in D$  (but not both). Suppose that $p \in C$, then since $A_{\alpha}$ is connected
+    for all $\alpha$,  $A_{\alpha} \subseteq C$ or $A_{\alpha} \subseteq D$, but not both. Now since
+    $p \in C$,  $A_{\alpha} \subseteq C$ implying $D=\emptyset$, a contradiction. Hence  $Y$ is also
+    connected.
+\end{proof}
+
+\begin{theorem}\label{3.1.5}
+    Let $A$ be a connected subspace of  $X$. If  $A \subseteq B \subseteq \cl{A}$.
+    Then $B$ is connected.
+\end{theorem}
+\begin{proof}
+    Let $A$ be connected and let  $A \subseteq B \subseteq \cl{A}$. If $B=C \cup D$ is a seperation
+    of  $B$, then  $A \subseteq C$ or  $A \subseteq D$, but not both. If  $A \subseteq C$, then
+    $\cl{A} \subseteq \cl{C}$ and since $\cl{C} \cap D=\emptyset$, so $B \cap D=\emptyset$, hence
+    $D=\emptyset$, a contradiction.
+\end{proof}
+\begin{remark}
+    What this theorem says is that we can construct a connected space from a given connected
+    subspace $A$ by adjoining limit points of $A$ to itself.
+\end{remark}
+
+\begin{theorem}\label{3.1.6}
+    The image of a connected subspace under a continuous map is connected.
+\end{theorem}
+\begin{proof}
+    Let $f:X \rightarrow Y$ be continuous and let $X$ be connected consider
+    $f:X \rightarrow f(X)$ and suppose that $f(X)=C \cup D$ is a seperation of $f(X)$. Then
+    $f^{-1}(C)$ and $f^{-1}(D)$ are also nonempty, disjoint open sets of $X$ who's union is  $X$,
+    and so they form a seperation of  $X$ which cannot happen. Hence  $f(X)$ is connected.
+\end{proof}
+
+\begin{theorem}\label{3.1.7}
+    Finite products of connected spaces are connected.
+\end{theorem}
+\begin{proof}
+    Suppose first that $X$ and  $Y$ are connected, and let  $a \times b \in X \times Y$. Notice that
+     $X \times b$ is connected and homeomorphic to  $X$ via  $\pi_1$, and $a \times Y$ is connected
+     and homeomorphic to  $Y$ via  $\pi_2$. Then the space $T_x=(X \times b) \cup (x \times Y)$ for
+     each $x \in X$ is connected, then taking  $\bigcup{T_x}=X \times Y$, since $T_x$ is connected
+     for al  $x$ and share a common point, then  $X \times Y$ is also connected.
+
+     Now suppose that  $\prod_{i=1}^{n}{X_i}$ is connected for all $n \geq 1$. We have that
+     $\prod_{i=1}^{n+1}{X_i}$ is homeomorphic to $\prod_{i=1}^{n}{X_i} \times X_{n+1}$, which is
+     connected by hypothesis. Thus $\prod_{i=1}^{n+1}{X_i}$ is connected.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] Consider $\R^{\omega}$ in the box topology. Let $A$ be the set of all bounded
+            sequences, and  $B$ the set of all unbounded sequences. Then  $\R^{\omega}=A \cup B$ is
+            a seperation of $\R^{\omega}$, for if $U=\prod{(a_i-1,a_i+1)}$ for the sequence
+            $\{a_n\}$, then $U$ is bounded if  $\{a_n\}$ is bounded, and unbounded if $\{a_n\}$ is
+            unbounded.
+
+        \item[(2)] $\R^{\omega}$ under the product topology is connected.
+            Let $\hat{\R}^n$ be the subspace of $\R^{\omega}$ of all sequences
+            that are eventually $0$, i.e.  $x_i=0$ whenever  $i>n$.
+            $\hat{\R}^n$ is homeomorphic to $\R^n$, so  $\hat{\R}^n$ is
+            connected. Then $\R^{\infty}=\bigcup{\hat{\R}^n}$ is also connected
+            since $0$ is a common point.
+
+            Now let  $a \in \R^{\omega}$ and $U=\prod{U_i}$ be a basis element about $a$. There is
+            an  $N \in \Z^+$ such that  $U_i=\R$ for all  $i>N$,=. Then the point  $x=(a_1,\dots,
+            a_N,0,0,\dots) \in \R^{\infty} \cap U$, since $U_i \in U$ for all  $i$ and  $0 \in U_i$
+            whenever  $i>N$. So $\cl {\R^{\infty}}=\R^{\omega}$, and so $\R^{\omega}$ is indeed
+            connected.
+    \end{enumerate}
+\end{example}

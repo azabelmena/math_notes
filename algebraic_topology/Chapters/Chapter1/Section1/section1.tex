@@ -1,0 +1,26 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\sectio{Definition of a Category.}
+
+\begin{definition}
+    A \textbf{category} $\Cc$ is a collection of a class of \textbf{objects},
+    denoted $\obj{\Cc}$ a collection of sets of \textbf{morphisms} $\Hom{(A,B)}$
+    for each $A,B \in \obj{\Cc}$ and a binary operation $\circ:\Hom{(A,B)}
+    \times \Hom{(B,C)} \xrightarrow{} \Hom{(A,C)}$, defined by $(f,g) \xrightarrow{}
+    g \circ f$, called \textbf{composition} such that:
+    \begin{enumerate}
+        \item[(1)] Each $\Hom{(A,B)}$ is pairwise disjoint for all $A,B \in
+            \obj{\Cc}$.
+
+        \item[(2)] $\circ$ is associative when defined; that is if either $(g
+            \circ f) \circ h$ or $g \circ (f \circ h)$ are defined, then $(g
+            \circ f) \circ h=g \circ (f \circ h)$, for morphisms $f,g,h$.
+
+        \item[(3)] For each $A \in \obj{\Cc}$, there exists an \textbf{identity}
+            morphism $1_A \in \Hom{(A,A)}$ such that for each $B,C \in
+            \obj{\Cc}$, $1_A \circ f=f$ and  $g \circ 1_A=g$ for each morphism
+            $f \in \Hom{(B,A)}$ and $g \in \Hom{(A,C)}$.
+    \end{enumerate}
+\end{definition}

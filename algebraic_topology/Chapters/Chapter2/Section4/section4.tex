@@ -1,0 +1,604 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{The Quotient Topology}
+
+\begin{definition}
+    Let $X$ and  $Y$ be topological spaces, and let  $p:X \rightarrow Y$ be onto.
+    We say that  $p$ is a \textbf {quotient map} if a subset $U \subseteq Y$ is
+    open if and only if  $p^{-1}(U) \subseteq X$ is open. We say that a subset
+    $U$ is \textbf {saturated} with respect to $p$ if $U=\inv{p}(V)$ for some
+    $V \subseteq Y$. That is a saturated subset is the preimage of some subset
+    of  $Y$.
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{Figures/Chapter2/square_to_torus.eps}
+    \caption{Gluing the edges of the unit square to form a cylinder, and then a torus.}
+    \label{fig_2.2}
+\end{figure}
+
+\begin{definition}
+    Let $f:X \rightarrow Y$ be a map, with $X$ and  $Y$ topological spaces. We
+    say that  $f$ is an \textbf {open map} if for each open subset $U \subseteq X$,
+    $f(U) \subseteq Y$ is also open. We say $f$ is a \textbf {closed map} if for
+    each closed subset $U \subseteq X$,  $f(U) \subseteq Y$ is closed.
+\end{definition}
+
+\begin{lemma}\label{2.4.1}
+    If $p:X \rightarrow Y$ is a continuous map of  $X$ onto  $Y$, for topological
+    spaces  $X$ and $Y$, that is either open or closed, then  $p$ is a quotient
+    map.
+\end{lemma}
+
+\begin{lemma}\label{2.4.2}
+    A continuous map $p:X \rightarrow Y$ of $X$ onto  $Y$ is a quuotient map if,
+    and only if it takes saturated open sets to open sets, or saturated closed
+    sets to closed sets.
+\end{lemma}
+\begin{proof}
+    Suppose that $p$ is a quotient map, then by definition, $U$ is open in $Y$
+    if, and only if  $\inv{p}(U)$ is open in $X$. Now, let  $V$ be a saturated
+    open set of  $X$ such that $V=p(U)$, then we get that $U$ is open since  $V$
+    is open. Thus  $p$ takes saturated open sets to open sets. Alternatively,
+    if  $U$ is closed, we simply consider the open set $\com{Y}{U}$ and repeat
+    the proof above.
+
+    Now, suppose that $q$ is onto and continuous, and takes saturated open sets
+    to open sets. That is, if  $V=\inv{p}(U)$ is open in $X$, then  $U$ is open
+    in $Y$. Certainly, if  $U$ is open in  $Y$, then, $V$ is open in  $X$.
+    Conversely if  $V$ is open in  $X$, then by hypothesis, $p(\inv{p}(U))=U$ is
+    open in  $Y$ and this makes  $p$ into a quotient map. Moreover, if  $p$
+    takes saturated closed subsets to closed subsets, then just consider the
+    open sets $\com{X}{V}=\inv{p}(\com{Y}{U})$ and repeat the proof above.
+\end{proof}
+\begin{remark}
+    One consequence of this is that open or closed maps taking one space onto
+    another are quotient maps.
+\end{remark}
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] A quotient map need not be open nor closed. Consider the
+            projection $\pi_1$ on $\R \times \R$, which is a quotient map.
+            Consider $A=\{x \times y \in \R \times \R : x \geq 0 \text{ or }
+            y=0\}$ of $\R \times \R$, and take $q=\pi_1|_{A}$. Then $q$ is also
+            a quotient map by inheretance, but it is not open in  $\R$. We have
+             $A$ is open in its ssubspace topology, so that  $q(A)=[x, \infty)$,
+             which is not open in $\R$. Likewise, $q$ is not closed, for take
+             $U=\{x \times y: 0<x<1 \text{ or } y \geq 0\}$, which is closed in
+             $A$ as a subspace, however,  $q(U)=(0,1)$, which is not closed in
+             $\R$.
+
+        \item[(2)] Let $X$ be the subspace  $[0,1] \cup [2,3]$ and $Y$ be the
+            subspace  $[0,2]$ in $\R$, and defined  $p:X \rightarrow Y$ by
+            $p(x)=\begin{cases}
+                        x, \text{ } x \in [0,1] \\
+                        x-1, \text{ } x \in [2,3] \\
+                  \end{cases}$.
+        We have that $p$ is continuous onto, by the pasting lemma, furthermore,
+        $p$ is also closed; hence  $p$ is a quotient map.  $p$ is not open however,
+        as  $p([0,1])=[0,1]$ is closed in $Y$.
+
+        Now if  $A$ is the subspace  $[0,1) \cup [2,3]$ of $X$, then  $p:A
+        \rightarrow Y$ is continuous onto, but fails to be closed. So  $p|_A$ is
+        not a quotient map, depsite the fact that  $[2,3]$ is open in $A$ and
+        saturated with respect to  $p|_A$.
+
+        \item[(3)] Let $\pi_1:\R \times \R \rightarrow \R$ be the projection map
+            that takes $x \times y \rightarrow x$. Clearly  $\pi_1$ is continuous
+            onto, and $\pi_1$ is also open as $\pi_1(U \times V)=U$ which is open
+            in $Y$; hence  $\pi_1$ is a quotient map. Now consider the closed
+            set $C=\{x \times y:xy=1\}$ in $\R \times \R$.
+            $\pi_1(C)=\com{\R}{\{0\}}$ which is not closed.
+
+        \item[(4)] Consider the map $p:\com{\R^n}{\{0\}} \rightarrow SA^{n-1}$
+            taking punctured Euclidean space onto the unit circle via the rule
+            $x \rightarrow \frac{x}{\|x\|}$ then the saturated open sets of
+            $\com{\R^n}{\{0\}}$ are unions of rays originiating from the origin
+            $0$. We notice that $p$ takes saturated open sets onto open sets,
+            which makes $p$ a quotient map.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale = 1.0]{Figures/Chapter2/saturated_rays.eps}
+                \caption{Saturated open sets of $\com{\R^2}{\{0\}}$ onto $S^1$
+                via the map  $p:x \rightarrow \frac{x}{\|x\|}$.}
+                \label{fig_2.4}
+            \end{figure}
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{2.4.3}
+    If $p:X \rightarrow Y$ is an open quotient map, then $Y$ is Hausdorff if,
+and only if  $\inv{p}(\Delta(Y))=\{x \times y \in X \times X : p(x)=p(y)\}$ is
+closed.
+\end{lemma}
+\begin{proof}
+    Suppose that $Y$ is Hausdorff, and let  $x \times y \notin
+    \inv{p}(\Delta(Y))$. Then $p(x) \neq p(y)$ and there exist disjoint
+    negihborhoods $U$ of  $p(x)$ and $V$ of  $p(y)$. Now, we have that
+    $\inv{q}(U)$ and $\inv{p}(V)$ are open in $X$, hence  $\inv{p}(U) \times
+    \inv{p}(V)$ is open in $X \times X$ and is a neihborhood of  $x \times y$.
+    Now, if $z \times z' \in \inv{p}(\Delta(Y)) cap (\inv{p}(U) \times
+    \inv{p}(V))$, then $p(z) \in U$ and $p(z') \in V$, and $p(z)=p(z')$; but $U
+    \cap V=\emptyset$ making $p(z) \neq p(z')$, a contradiction, thus
+    $\inv{p}(\Delta(Y))$ and $\inv{p}(U) \times \inv{p}(V)$ are disjoint. We
+    have that $\com{X \times X}{\inv{p}(\Delta(Y))}$ is open, making
+    $\inv{p}(\Delta(Y))$ closed.
+
+    On the otherhand, suppose that $\inv{\Delta(Y)}$ is closed. Now, take $x,y
+    \in Y$ distinct, then let  $x',y' \in X$ such that  $p(x')=x$ and $p(y')=y$,
+    then $x' \times y' \notin \inv{p}(\Delta(Y))$. Then there exists a
+    neighborhood $U \times V$ of  $x' \times y'$ disjoint from
+    $\inv{p}(\Delta(Y))$. Now consider $p(U)$ and $p(V)$; since $p$ is an open
+    map, then these sets are open. Moreover, we have that  $x \in p(U)$ and $y
+    \in p(V)$, so $p(U)$ and $p(V)$ are neighborhoods of $x$ and  $y$. Now,
+    since  $U \times V$ is disjoint from  $\inv{p}(\Delta(Y))$, we get that
+    $p(U)$ and $p(V)$ are disjoint. Therefore, $Y$ must be Hausdorff.
+\end{proof}
+\begin{remark}
+    This gives us a useful check for determining when spaces arising from open
+    quotient maps are Hausdorff. A more general check is presented later.
+\end{remark}
+
+\begin{theorem}\label{2.4.4}
+    Let $X$ be a topological space, and  $A$ a set, and let  $p:X \rightarrow Y$
+    be onto. Define $\Tc$ to be the collection of subsets  $U$ of  $A$ for which
+    $p^{-1}(U)$ is open in $X$. Then $\Tc$ is a unique topology for which  $p$
+    is a  quotient map.
+\end{theorem}
+\begin{proof}
+    Clearly $\emptyset,A \in \Tc$, for  $p^{-1}(\emptyset)=\emptyset$ and
+    $p^{-1}(A)=X$. Now let $\{U_{\alpha}\}$ and $\{U_i\}_{i=1}^{n}$ be collections
+    of subsets of $A$. Then
+        \begin{equation*}
+            p^{-1}(\bigcup{U_{\alpha}})=\bigcup{p^{-1}(U_{\alpha})}
+        \end{equation*}
+    and
+        \begin{equation*}
+            p^{-1}(\bigcap_{i=1}^{n}{U_i})=\bigcap_{i=1}^{n}{p^{-1}(U_i)}.
+        \end{equation*}
+    Thus $\Tc$ is a topology on  $A$. Now notice that this also makes  $p$ into
+    a quotient map.
+
+    Now suppose that there is another topology $\Tc'$ for which  $p$ is a quotient
+    map.  Clearly $\Tc \subsesubseteq \Tc'$, now if $p$ is open, then for $U$
+    open in $X$,  $p(U)$ is open in $A$, hence so are their preimages, and since
+    $p$ is continuous and onto this makes $\Tc' \subseteq \Tc$, thus $\Tc$ is
+    unique. Likewise, by similar reasoning with closed sets, if  $p$ is closed,
+    $\Tc$ is still unique.
+\end{proof}
+
+\begin{definition}
+    If $X$ is a topologicas space, and  $A$ a set, and  $p:X \rightarrow A$ is
+    onto, then there is exactly one topology  $\Tc$ on  $A$ for which  $p$ is a
+    quotient map. We call this topology the \textbf {quotient topology} on $A$ induced by  $p$.
+\end{definition}
+
+\begin{example}
+    Let $p:\R \rightarrow A$, with  $A=\{a,b,c\}$ be defined by
+        \begin{equation*}
+            p(x)=\begin{cases}
+                    a, \text{ } x>0 \\
+                    b, \text{ } x<0 \\
+                    c, \text{ } x=0 \\
+                \end{cases}
+        \end{equation*}
+    Then the quotient topology on $A$ is the topology  $\Tc=\{\emptyset, \{a\}, \{b\}, \{a,b\},A\}$.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.5]{Figures/Chapter2/quotient_on_three.eps}
+        \caption{The quotient topology on $A=\{a,b,c\}$ induced by $p$.}
+    \end{figure}
+\end{example}
+
+\begin{definition}
+    Let $X$ be a topological space and  $X/p$ be a partition of  $X$ into disjoint
+    subsets whos disjoint union is  $X$. Let  $p:X \rightarrow X/p$ be onto such
+    that  $p:x \rightarrow U$ if  $x \in U$. We call  $X/p$ in the quotient
+    topology induced by $p$ the \textbf{quotient space} of $X$, or the
+    \textbf{decomposition space} of $x$.
+\end{definition}
+
+We can take an equivalence relation $\sim$ on  $X$ by taking  $x \sim y$ if
+$x,y \in U$ for  $U \in X/p$. Then the quotient space is the collection of
+equivalence classes of $X$; that is we can think of obtaining $X^*$ by
+``identifying'' those pairs of equivalent points. Similarly, we can also describe
+the quotient space $X/p$ by noting a subset $U$ of equivalence classes where
+$p^{-1}(U)=\bigcup_{V \in U}{V}$ is the union of all equivalence classes in $U$.
+We will denote the quotient space by $X/p$ or  $X/\sim$.
+
+We have the following lemma for determining when a map is a quotient map.
+
+\begin{lemma}\label{2.4.5}
+    If $p:X \rightarrow Y$ is a continuous map, and there exists a continuous
+    map $f:Y \rightarrow X$ such that $p \circ f=i$ the identity map on  $i$,
+    then  $p$ is a quotient map.
+\end{lemma}
+\begin{proof}
+    By lemma \ref{2.4.1}, $p$ is a quotient map if  $p$ is open or closed. Let
+    $U$ be open in  $X$, since  $f$ is continuous,  $\inv{f}(U)$ is open in
+    $Y&$, and since  $p$ is continuous,  $\inv{p}(\inv{f}(U))$ is open in $X$.
+    Since  $i$ is the identity on  $Y$, we have  $\inv{p}(\inv{f}(U))=U$, so
+    that $\inv{f}(U)=p(U)$, which is open. Therefore $p$ is open and hence a
+    quotient map.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] Let $X=\{x \times y: x^2+y^2 \leq 1\}$ be the closed unit ball
+            in $\R^2$ and let  $X/\sim$ be the
+    quotient space of  $X$ by taking its equivalence classes to be all one point
+    sets $\{x \times y\}$ for which $x^2+y^2<1$, and the unit circle  $S^1$. Take
+    $p:X \rightarrow X/\sim$ by the rule
+        \begin{equation*}
+            p:x \times y \rightarrow \begin{cases}
+                \{x \times y\}, & x^2+y^2<1 \\
+                S^1        & x^2+y^2=1 \\
+                      \end{cases}
+        \end{equation*}
+    Clearly $p$ is onto by definition, and we have that for any one point sets and
+    $S_1$ in $X/\sim$ that  $p^{-1}(\{x \times y\})=B_{||\cdot||}(x,1)$, and
+    $p^{-1}(S^1)=S_1$, thus open sets in $X$ are open in  $X/\sim$  (likewise
+    closed), so $p$ is open which makes it into a quotient map. Now let
+    $S^2=\{x \times y \times z: x^2+y^2+z^2=1\}$ be the \textbf{unit sphere} in
+    $\R^3$, then we can map  $X/\sim \rightarrow S^2$ by taking  $\{x \times y\}
+    \rightarrow \{x \times y \times z: x^2+y^2+z^2<1\}$ and $ S^1 \rightarrow S^1$.
+    Then we have that $X/\sim$ is homeomorphic to the unit sphere.
+
+        \item[(2)] Let $X$ be the unit square  $[0,1] \times [0,1]$ and define
+            the quotient space $X/\sim$ of $X$ to be the collection of all point
+            sets $\{x \times y\}$ for which $x \times y \in (0,1) \times (0,1)$,
+            together with the sets $\{x \times 0, x \times 1\}, \{0 \times y, 1
+            \times y\}$ with $x \times y \in (0,1) \times (0,1)$, and the set
+            $\{0 \times 0, 0 \times 1, 1 \times 0, 1 \times 1\}$, then we can
+            show that $X/\sim$ is
+            homeomorphic to a torus.
+
+        \item[(3)] Consider $\R \times \R$ under the equivalence relation
+            $\sim$, where  $x_0 \times y_0 \sim x \times y$ if
+            $x_0+y_0^2=x+y^2$, and consider $\faktor{\R \times \R}{\sim}$ as a
+            quotient space. Then let $g(x \times y)=x+y^2$. We have that $y^2
+            \geq 0$, but  $x \in \R$ is arbitrary, so  $g$ is onto  $\R$.
+            Likewisse,  $\lim{g(x \times y)}=g(x_0 \times y_0)=x_0+y_0^2$ as
+            $x \times y \rightarrow x_0 \times y_0$, which makes $g$ continuous.
+            Lastly, let  $f(x)=x \times 0$, then $g \circ f=i$ the identity map
+            on  $\R$. This makes $g$ into a quotient map. Then the space
+            $\faktor{\R \times \R}{g}=\faktor{\R \times \R}{\sim}$ is
+            homeomorphic to a cylindircal parabaloid in $\R^3$. We can imagine
+            this by taking a piece of paper  (representing $\R \times \R$), and
+            bending it into a parabola shape.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.4]{Figures/Chapter2/paraboloid_cylinder.eps}
+                \caption{The space $\faktor{\R \times \R}{g}$, where $g(x \times
+                y)=x+y^2$}
+                \label{fig_2.5}
+            \end{figure}
+
+        \item[(4)] Taking $\R \times \R$ under the equivalence relation $\sim$
+            where  $x_0 \times y_0 \sim x \times y$ if $x_0^2+y_0^2=x^2+y^2$.
+            Let $h(x \times y)=x^2+y^2$, then $h$ is onto  $\R^+$ and is also
+            continuous. Moreover, it is a quotient map, for let  $f(x)=\sqrt{x}
+            \times 0$, which makes $h \circ f=i$ the identity map on  $\R$. Then
+             $\faktor{\R \times \R}{h}=\faktor{\R \times \R}{\sim}$ is
+             homeomorphic to an elliptic paraboloid. This can be visualized by
+             taking a sheet of rubber and making a dimple in the middle and
+             pushing it deeper.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.4]{Figures/Chapter2/paraboloid_elliptic.eps}
+                \caption{The space $\faktor{\R \times \R}{h}$, where $h(x \times
+                y)=x^2+y^2$}
+                \label{fig_2.6}
+            \end{figure}
+    \end{enumerate}
+\end{example}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{Figures/Chapter2/disk_to_sphere.eps}
+    \caption{Transforming the unit disk into the unit sphere}
+    \label{fig_2.4}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{Figures/Chapter2/square_to_torus_2.eps}
+    \caption{Transforming the unit square into torus}
+    \label{fig_2.4}
+\end{figure}
+
+\begin{theorem}\label{2.4.6}
+    Let $p:X \rightarrow Y$ be a quotient map and let  $A$ be a subspace of
+    $X$ saturated with respect to  $p$. Let  $q:A \rightarrow p(A)$, then:
+        \begin{enumerate}
+            \item[(1)] If $A$ is either open or closed, then  $q$ is a quotient map.
+
+            \item[(2)] If $p$ is either open or closed, then  $q$ is a quotient map.
+        \end{enumerate}
+\end{theorem}
+\begin{proof}
+    We first have that $q^{-1}(V)=p^{-1}(V)$ since $V \subseteq A$ and  $A$ is
+    saturated, well $p^{-1}(V) \subseteq A$. We also have that $p(U \cap A)=\(U)
+    \cap p(A)$. Now suppose that $y=p(u)=p(a)$ for $u \in U$ and  $a \in A$.
+    Since  $A$ is saturated, it contains $p^{-1}(p(a))=p^{-1}(p(u))$, hence
+    $y=p(u)$ with $u \in U \cap A$, so  $P(U) \cap p(A) \subseteq P(U \cap A)$.
+
+    Now suppose that $A$, or that  $p$ is open. Given  $V \subseteq p(A)$, suppose
+    $q^{-1}(V) \subseteq A$ is open. If $A$ is open in $X$, then $q^{-1}(V)$ is
+    also open in $X$, and since $q^{-1}(V)=p^{-1}(V)$, then $V$ is open in  $Y$,
+    and since  $p$ is a quotient map, then  $V$ is open in  $p(A)$. Now if  $p$
+    is open, since  $q^{-1}(V)=p^{-1}(V)$ and $q^{-1}(V)$ is open in $A$, then
+    $p^{-1}(V)=U \cap A$, thus $V=p(p^{-1}(V))=p(U \cap A)=p(U) \cap p(A)$. Now $p(U)$ is
+    open in $Y$, so  $V$ is open in  $p(A)$. In either case e have that $q$ is
+    a quotient map.
+\end{proof}
+
+\begin{lemma}\label{2.4.7}
+    The composition of two quotient maps is a quotient map,
+\end{lemma}
+\begin{proof}
+    Let $p:X \rightarrow Y$ and  $q:Y \rightarrow Z$ be quotient maps and consider
+    $q \circ p:X \rightarrow Z$. Let $V \subseteq Z$ be open, then  $q^{-1}(V)=U$
+    is open in $Y$ which implies that  $p^{-1}(U)$ is open in $X$. Hence
+    $p^{-1}(q^{-1}(V))$ is open in $X$.
+\end{proof}
+
+\begin{theorem}\label{2.4.7}
+    Let $p:X \rightarrow Y$ be a quotient map and let  $Z$ be a topological
+    space with  $g:X \rightarrow Z$ a map constant on all  $p^{-1}(\{y\})$ for
+    each $y \in Y$. Then  $g$ induces a map $f:Y \rightarrow Z$ such that
+    $f \circ p=g$, where  $f$ is continuous if and only if  $g$ is continuous,
+    and where  $f$ is a quotient map if and only if  $g$ is a quotient map.
+
+    \[\begin{tikzcd}
+        X \\
+        \\
+        Y && Z
+        \arrow["g", from=1-1, to=3-3]
+        \arrow["f"', dotted, from=3-1, to=3-3]
+        \arrow["p"', from=1-1, to=3-1]
+    \end{tikzcd}\]
+\end{theorem}
+
+\begin{proof}
+    For each $y \in Y$, since  $g$ is constant on all  $p^{-1}(\{y\})$,
+    $g(p^{-1}(\{y\}))$ is a one point set in $Z$; let it be $f(y)$. Then we have
+    a map $f:Y \rightarrow Z$ such that $f(p(x))=g(x)$ for each $x$. Now if  $f$
+    is continuous, then so is  $g$; likewise if  $f$ is a quotient map.
+
+    Conversely, suppose that  $g$ is continuous, given  $V \subseteq Z$ open,
+    $g^{-1}(V)$ is open in $X$. Now  $g^{-1}(V)=p^{-1}(f^{-1}(V))$, and since
+    $p$ is a quotient map,  $f^{-1}(V)$ is open in $Y$, hence  $f$ is continuous.
+    Now suppose that  $g$ is a quotient map, for  $V \subseteq Z$, if
+    $f^{-1}(V)$ is open in $Y$, then  $p^{-1}(f^{-1}(V))$ is open in $X$ by
+    continuity of  $p$, thus  $g^{-1}(V)$ is open in $X$, then  $V$ is open in
+    $Z$; this makes  $f$ a quotient map.
+\end{proof}
+\begin{corollary}
+    Let $g:X \rightarrow Z$ be continuous and let $X/\sim=\{g^{-1}(\{z\}):z \in
+    Z\}$ be the following quotient space for $X$. Then
+        \begin{enumerate}
+            \item[(1)] The map $g$ induces a continuous  $1-1$ map  $f:X/\sim
+                \rightarrow Z$ of  $X/\sim$ onto  $Z$ which is a homeomorphism
+                if and only if $g$ is a quotient map.
+
+                \[\begin{tikzcd}
+	                X \\
+	                \\
+	                {X/\sim} && Z
+	                \arrow["p"', from=1-1, to=3-1]
+	                \arrow["f"', from=3-1, to=3-3]
+	                \arrow["g", from=1-1, to=3-3]
+                    \end{tikzcd}\]
+
+            \item[(2)] If $Z$ is Hausdorff, then so is  $X/\sim$.
+        \end{enumerate}
+\end{corollary}
+\begin{proof}
+    By the theorem \ref{2.4.6}, $g$ induces a continuous map  $f:X/\sim
+    \rightarrow Z$ which is $1-1$ and  (clearly) onto. Suppose that $f$ is a
+    homeomorphism. Then both  $f$ and  $p:X \rightarrow X/\sim$ are quotient
+    maps, which makes  $g$ a quotient map. On the other hand, if $g$ is a
+    quotient map, then so is  $f$, which makes  $f$  $1-1$ continuous, and hence
+    a homeomorphism.
+
+    Now supose that  $Z$ is Hausdorff, given points of  $X/\sim$, their images
+    under  $f$ are distinct, and hence they posses disjoint neighborhoods  $U$
+    and $V$. Then  $f^{-1}(U) \cap f^{-1}(V)=\emptyset$, which makes $X/\sim$
+    Hausdorff.
+\end{proof}
+\begin{corollary}
+    Suppose thast $q:X \rightarrow Y$ and $q':X \rightarrow Y'$ are quotient
+    maps such that $q(x)=q(x')$ if, and only if $q'(x)=q'(x')$, then $Y$ is
+    homeomorphic to $Y'$.
+\end{corollary}
+\begin{proof}
+    By the above theorem, there exists maps $\tilde{q}$ and $\tilde{q}'$ such
+    that $\tilde{q} \circ q'=q$ and $\tilde{q'} \circ q=q'$. It then suffices to
+    show that $\tilde{q}$ and $\tilde{q'}$ are inverses of each other. That is
+
+    to say, that $\tidle{q} \circ \tilda{q'}=i$, where $i$ is the identity on
+    $Y'$. Notice then that  $i \circ q'=\tilde{q'} \circ q=\tilde{q'} \circ
+    \tilde{q} \circ q'$. Now, since both $q$ and  $q'$ are onto, they are right
+    invertible, so taking right inverse of $q'$, we get $i=\tilde{q'} \circ
+    \tilde{q}$.
+\end{proof}
+
+We conclude with some examples and extra results.
+
+\begin{example}
+    \begin{enumerate}
+        \item[(1)] Define the quotient space $\faktor{\R}{\Z}=\faktor{\R}{\sim}$
+            where $x \sim y$ if, and only if  $x-y \in \Z$. We can visualize
+            this space by coiling up  $\R$ into a helical structure, where two
+            points lie exactly above eachother if they differ by an integer
+            distance, as shown in figure \ref{fig_1.10}. One can collapse these
+            points into one point and show that $\faktor{\R}{\Z}$ is
+            homeomorphic to the circle $S^1$.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.5]{Figures/Chapter2/R_mod_Z.eps}
+                \caption{}
+                \label{fig_1.10}
+            \end{figure}
+
+            By theorem \ref{2.4.8}, consider the map $f(x)=\sin{2\pi x}$, and
+            let $q$ be the quotient map of  $\faktor{\R}{\Z}$. Then notice that
+            $f(x)=f(x')$, since if $q(x)=q(x')$, then $x-x' \in \Z$, i.e
+            $x=x'+n$, for  $n \in \Z+$, then we get  $f(x)=\sin{2pi x}=
+            \sin{2\pi x'+2\pi n)}=\sin{2\pi x'}$. So we have the following
+            commutative diagram:
+
+            \[\begin{tikzcd}
+                {\mathbb{R}} \\
+                    \\
+                    \\
+                {\faktor{\mathbb{R}}{\mathbb{Z}}} &&& {\mathbb{R}}
+                \arrow["q"', from=1-1, to=4-1]
+                \arrow["{\tilde{f}}"', dashed, from=4-1, to=4-4]
+                \arrow["{f(x)=\sin{2\pi x}}", from=1-1, to=4-4]
+            \end{tikzcd}\]
+
+            Now we can show that $\faktor{\R}{\Z}$ is homeomorphic to $S^1$, by
+            the second corollary to theorem \ref{2.4.8}. Consider the quotient
+            maps $q:\R \rightarrow \faktor{\R}{\Z}$ and $q':\R \rightarrow S^1$.
+            Supposing that $q(x)=q(x')$, then we get that $x-x' \in \Z$, hence
+            $e^{2i\pi x}=e^{2i\pi x'}$, which implies that $q'(x)=q'(x')$.
+            Conversely if $q'(x)=q'(x')$, then $e^{2i\pi x}=e^{2i\pi x'}$, we
+            get that $x=x'+n$, so that  $x-x' \in \Z$, making  $q(x)=q(x')$. We
+            then get that $\faktor{\R}{\Z}$ and $S^1$ are homeomorphic.
+
+        \item[(2)] Let $X=\{[0,1] \times n:n \in Z^+\}$ be the subspace of $\R^2$
+            and let  $Z=\{x \times \frac{x}{n}: x \in [0,1] \text{ } n \in \Z^+\}$
+            be another subspace of $\R^2$. We have that  $X$ is the union of
+            countably many disjoint line segments in  $\R^2$ and  $Z$ is the
+            union of countably many line segments in  $\R^2$ having a common endpoint.
+
+            Now define $g:X \rightarrow Z$ by  $g:x \times n \rightarrow x \times
+            \frac{x}{n}$. We have that $g$ is continuous onto. Now consider the
+            quotient space  $X/g$ whose elements are  $g^{-1}(\{z\})$ to be the
+            space obtained from $X$ by identifying the equivalence classes of
+            $\{0\} \times \Z^+$ to be points. Now we have that $g$ induces a  $1-1$
+            continuous map  $f:X/g \rightarrow Z$ of  $X/g$ onto  $Z$; but  $f$
+            is not a homeomorphism. It is sufficient to show that  $g$ is not a
+            quotient map consider the sequence  $\{\frac{1}{n} \times n\}$ of
+            points of $X$. This sequence is closed in  $X$ since it has no limit
+            points, it is also saturated with respect to  $g$. However  $g(A)$
+            is not closed in $Z$ for it consists of the sequence of points
+            $\{\frac{1}{n} \times \frac{1}{n^2}\}$ whose limit point is the
+            origin (see \ref{fig_2.6}).
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale = 0.5]{Figures/Chapter2/example_2_8(2).eps}
+                \caption{}
+                \label{fig_2.6}
+            \end{figure}
+
+        \item[(3)] Not it is not in general true that the product of two quotient
+            maps is itself a quotient map. Consider $\R$ and let  $\R/\sim$ be
+            the quotient space obtained from  $\R$ by taking $\Z^+ \sim b$ for
+            some point  $b$. Now let  $p:\R \rightarrow \R/\sim$ be the quotient
+            map and consider  $\Q$ as a subspace of  $\R$. Let  $i:\Q \rightarrow \Q$
+            be the identity map, then  $p \times i:\R \times \Q \rightarrow
+            \R/\sim \times \Q$ is not a quotient map. For each  $n$, take the
+            sequence  $\{\frac{\sqrt{2}}{n}\}$ and consider the straight lines
+            of slope $\pm1$ in $\R^2$ through the point  $n \times
+            \frac{\sqrt{2}}{n}$. Let $U_n$ be the set of all  $\R \times \Q$
+            points lying above or beneth both these line, and between the lines
+            $x=n \pm \frac{1}{4}$. We have that $U_n$ is open in  $\R \times Q$
+            as it contains the set  $\{n\} \times \Q$.
+
+            Now let $U=\bigcup{U_n}$, then $U$ is open in  $\R \times \Q$, and
+            it is saturated with
+            respect to  $p \times i$, as  $\Z^+ \times q \in \R \times \Q$ for
+            all  $q \in \Q$, so assume that  $U'=p \times i(U)$ is open in
+            $\R/\sim \times \Q$. Now since  $\Z^+ \times 0 \subseteq U$, the
+            point  $b \times 0 \in U'$, so  $U'$ contains an open set of the form
+            $W \times I_{\delta}$ where $W$ is a neighborhood of  $b$ in
+            $\R/\sim$, and $I_{\delta}=\{y \in \Q:|y|<\delta\}$. Then $p^{-1}(W)
+            \times I_{\delta} \subseteq U$. Choosing $n$ large enough so that
+            $\frac{\sqrt{2}}{n}<\delta$, since $p^{-1}(W)$ is open in $\R$ and
+            contains  $\Z^+$, choose  $0<\epsilon<\frac{1}{4}$ so that
+            $(n-\epsilon,n+\epsilon) \subseteq p^{-1}(W)$. Then $U$ contains the subset
+            $(n-\epsilon,n+\epsilon) \times I_{\delta} \subseteq \R \times \Q$,
+            however there are points that need not lie in $U$, which contradicts
+            that  $U'$ is open in $\R/\sim$ So $p \times i$ cannot be a quotient
+            map.
+
+        \item[(4)] Likewise, the product of two quotient maps need not be a
+            quotient map. Consider the space $\R$ and the quotient space
+            $\faktor{\R}{p}$ Where $p:\R \rightarrow \faktor{\R}{p}$ is the
+            quotient map taking $\Z^+$ to a point  $b$. Consider also  $\Q$ as a
+            subspace of  $\R$ and take the identity map  $i:\Q \rightarrow Q$.
+            Then $i$ is also a quotient map, but the product  $p \times i$ is
+            not a quotient map.
+
+            For each  $n \in \Z^+$, let  $c_n=\frac{\sqrt{2}}{n}$ and consider
+            the lines in $\R$ with slopes $\pm 1$, through the point $n \times
+            c_n$. Now, let $U_n$ be all the points of $\R \times \Q$ that lie
+            above these lines, or below these lines, and between the lines
+            $x=\frac{n \pm 1}{4}$. $U_n$ is open in  $\R \times \Q$, as it
+            contains the set $\{n\} \times \Q$. Now let
+            \begin{equation*}
+                U=\bigcup_{n \in \Z^+}{U_n}
+            \end{equation*}
+            Then $U$ is also open in  $\R \times \Q$, and it is saturatedwith
+            respect to  $p \times i$, as it contains  $\Z^+ \times \{q\}$ for
+            each $q \in \Q$. Then suppose that  $p \times i(U)$ is open in
+            $\faktor{\R}{p} \times \Q$.
+
+            We have that $U$ contains the set  $\Z^+ \times 0$, so $p \times
+            i(U)$ contains the point $b \times 0$. So  $p \times i(U)$ contains
+            a neighborhood of the form $W \times I_\delta$,  $W$ a neighborhood
+            of  $b$, and  $I_\delta=\{y \in \Q : |y|<\delta\}$. Then we have
+            \begin{equation*}
+                \inv{p}(W) \times I_\delta \subseteq U
+            \end{equation*}
+            Now, choose $n$ sufficiently large so that  $c_n<\delta$. Since
+            $\inv{p}(W)$ is open in $\R$, and contains $\Z^+$, choose
+            $\epilon<\frac{1}{4}$, so that $(n-\epsilon,n+\epsilon) \subseteq
+            \inv{p}(W)$. Then $U$ also contains a subset of the form
+            $(n-\epsilon,n+\epsilon) \times I_\delta$. But figure \ref{fig_2.8}
+            shows that there are points of $(n-\epsilon,n+\epsilon) \times
+            I_\delta$ not lying in $U$, taking  $x \times
+            y=n=\frac{1}{2}\epsilon \times y$ with
+            $|y-c_n|<\frac{1}{2}\epsilon$. Thus $U$ cannot be open and we have a
+            contradiction. Therefore $p \times i$ is not a quotient map.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.5]{Figures/Chapter2/figure22_8.eps}
+                \caption{The product of two quotient maps need not be a quotient
+                map.}
+                \label{fig_2.8}
+            \end{figure}
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $X$ be a topological space, and  $A \subseteq X$. We call a continuous
+    map $r:X \rightarrow A$ a \textbf{retraction} of $X$ onto  $A$ if
+    $r:a \rightarrow a$ for all $a \in A$
+\end{definition}
+
+\begin{lemma}\label{2.4.8}
+    For any topological space $X$ and  $A \subseteq X$, a retraction of  $X$
+    onto  $A$ is a quotient map.
+\end{lemma}
+\begin{proof}
+    Let $r$ be a retraction of  $X$ onto  $A$, and let  $f:A \rightarrow X$ be
+    such that $r \circ f=i$ the identity map in  $A$. Let  $U$ be open in  $A$,
+    then  $U=\inv{r}(U)$ is open in $X$, and since  $r \circ f=i$, we get
+    $\inv{f}(\inv{r}(U))=\inv{f}(U)$ must be open in $A$. this makes  $f$
+    continuous. Therefore by lemma \ref{2.4.4}, $r$ is a quotient map.
+\end{proof}
