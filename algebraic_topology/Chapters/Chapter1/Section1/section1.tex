@@ -2,7 +2,7 @@
 %	SECTION 1.1
 %----------------------------------------------------------------------------------------
 
-\sectio{Definition of a Category.}
+\section{Categories and Subcategories.}
 
 \begin{definition}
     A \textbf{category} $\Cc$ is a collection of a class of \textbf{objects},
@@ -23,4 +23,72 @@
             \obj{\Cc}$, $1_A \circ f=f$ and  $g \circ 1_A=g$ for each morphism
             $f \in \Hom{(B,A)}$ and $g \in \Hom{(A,C)}$.
     \end{enumerate}
+    We denote morphisms by $f:A \xrightarrow{} B$ instead of $f \in \HOm{(A,B)}$.
 \end{definition}
+
+\begin{definition}
+    Let $\Cc$ be a category and  $f:A \xrightarrow{} B$ a morphism in $\Cc$. We
+    call $A$ and  $B$ the  \textbf{domain} and \textbf{codomain} of $f$,
+    respectively, and we call the set  $G_f=\{(a,f(a)) : a \in A\} \subseteq B$
+    the \textbf{graph} of $f$.
+\end{definition}
+
+\begin{example}\label{1.1}
+    \begin{enumerate}
+        \item[(1)] The category of all sets $\Set$ has as onjects the class of
+            all sets. The morphisms in  $\Set$ are all functions  $f:A
+            \xrightarrow{} B$ where $A$ and  $B$ are sets. The composition of
+            $\Set$ is the usual composition of functions.
+
+        \item[(2)] The category of all topological spaces $\Top$ has as objects
+            all topological spaces, and as morphisms all continuous maps  $f:Y
+            \xrightarrow{} Y$ from a space $X$ to a space  $Y$. The composition
+            is the usual composition.
+
+        \item[(3)] The category of all groups, $\Grp$ has as objects all groups
+            and as morphisms all homomorphisms $f:G \xrightarrow{} H$, under the
+            usual composition.
+
+        \item[(4)] The category of rings with unit $\Rng$ has as objects all
+            rings with unit, along with all ring homomorphisms  $f:R
+            \xrightarrow{} K$ to be the morphisms under the usual composition.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    We call a category $\Aa$ a  \textbf{subcategory} of a category $\Cc$ if
+    $\obj{\Ac}$ \subseteq \obj{\Cc}, $\Hom_{\Ac}{(A,B)} \subseteq
+    \Hom_{\Cc}{(A,B)}$ for all $A,B \in \Cc$, and  $\Ac$ inherits the
+    composition of  $\Cc$.
+\end{definition}
+
+\begin{example}\label{1.2}
+    \begin{enumerate}
+        \item[(1)] The category of all pairs of topological spaces $(X,A)$ where
+            $A$ is a subspace of $X$, whose morphisms are pairs of continuous
+            maps $f=(f_1,f_2)$ such that $f_1i=jf_2$ where $i:A \xrightarrow{}
+            X$ and $j:B \xrightarrow{} Y$ are inclusions, is a subcategory of
+            $\Top$. We denote this category  $\Top^2$.
+
+            \[\begin{tikzcd}
+                A &&& X \\
+                \\
+                \\
+                B &&& Y
+                \arrow["i", hook, from=1-1, to=1-4]
+                \arrow["j"', hook', from=4-1, to=4-4]
+                \arrow["{f_1}", from=1-4, to=4-4]
+                \arrow["{f_2}"', from=1-1, to=4-1]
+            \end{tikzcd}\]
+
+        \item[(2)] The category of all \textbf{pointed spaces}, $\Top^*$ is
+            defined with the objects being all pairs  $(X,\{x_0\})$, where $x_0
+            \in X$ with the morphisms of $\Top^2$.  $\Top^*$ is a subcategory of
+            $\Top^2$. We call $x_0$ the \textbf{base point}, and we call the
+            morphisms of  $\Top^*$  \textbf{pointed maps}.
+
+        \item[(2)] The category of all Abelian groups, $\Ab$ is a subcategory of
+             $\Grp$. Likewise, the category of all commutative rings with unit
+             is a subcategory of $\Rng$.
+    \end{enumerate}
+\end{example}
