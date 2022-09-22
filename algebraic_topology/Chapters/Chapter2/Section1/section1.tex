@@ -3,3 +3,158 @@
 %----------------------------------------------------------------------------------------
 
 \section{Homotopy}
+
+\begin{definition}
+    If $X$ and  $Y$ are topological spaces, and  $f_0:X \xrightarrow{} Y$ and
+    $f_1:X \xrightarrow{} Y$ are continuous maps, we say that $f_0$ is
+    \textbf{homotopic} to $f_1$ if there exists a continuous map  $F:X \times I
+    \xrightarrow{} Y$ with $F(x,0)=f_0(x)$ and $F(x,1)=f_1(x)$. We write $f_0
+    \simeq f_1$ and call $F$ a  \textbf{homotopy}. We also write $F:f_0 \simeq
+    f_1$ to denote a homotopy between $f_0$ and $f_1$.
+\end{definition}
+
+\begin{lemma}[The Pasting Lemma]\label{2.1.1}
+    Let $X$ is a topolgoical space that is covered by open sets  $\{X_n\}$. If
+    $Y$ is some topological space for which there exist unique maps $f_n:X_n
+    \xrightarrow{} Y$ that coincide in the intersections of their domains, then
+    there exists a unique map $f:X \xrightarrow{} Y$ such that $f|_{X_n}=f_n$,
+    for all $n$.
+\end{lemma}
+
+\begin{lemma}\label{2.1.2}
+    Homotopy between continuous maps is an equivalence relation.
+\end{lemma}
+\begin{proof}
+    Let $f:X \xrightarrow{} Y$ be a continouos map. Define $F:X \times I \rangle
+    Y$ by $(x,t) \xrightarrow{} f(x)$ for all $(x,t) \in X \times I$. Then $F$
+    is continuous by definition; moreover,  $F(x,0)=F(x,1)=f(x)$, making $f
+    \simeq f$.
+
+    Now suppose there exist a homotopy $F:f \simeq g$ for maps  $f:X
+    \xrightarrow{} Y$ and $g:X \xrightarrow{} Y$. Define the map $G:X \times I
+    \xrightarrow{} Y$ by $(x,t) \xrightarrow{} F(x,1-t)$. $G$ is the composition
+    of continuous maps, so  $G$ is continuous, moreover,  $G(x,0)=F(x,1)=g(x)$
+    and $G(x,1)=F(x,0)=f(x)$, so that $g \simeq f$.
+
+    Lastly, suppose that  $F:f \simeq g$ and  $G:g \simeq h$ for maps $f,g,h$.
+    Define the map $H:X \times I \xrightarrow{} Y$ by:
+    \begin{equation*}
+        H(x,t)  =  \begin{cases}
+                        F(x,2t),    & \text{ if } 0 \leq t \leq \frac{1}{2}  \\
+                        G(x,2t-1),  & \text{ if } \frac{1}{2} \leq t \leq 1 \\
+                   \end{cases}
+    \end{equation*}
+    Notice that $F$ and  $G$ conicide in their domains which cover  $X$.
+    Therefore, by the pasting lemma,  $H$ is continuous. Now notice also that
+    $H(x,0)=F(x,2 \cdot 0)=F(x,0)=f(x)$ and $H(x,1)=G(x,2 \cdot
+    1-1)=G(x,1)=h(x)$. This makes $f \simeq h$.
+\end{proof}
+
+\begin{definition}
+    For any continuous map $f:X \xrightarrow{} Y$ we define the \textbf{homotopy
+    class} of $f$ to be the equivalence class of all continuous maps homotopic
+    to  $f$. That is:
+    \begin{equation*}
+    [f]=\{g: X \xrightarrow{} Y : g \text{ is continous and } g \simeq f\}
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{2.1.3}
+    Let $f_0:X \xrightarrow{} Y$, $f_1:X \xrightarrow{} Y$ and $g_0:X
+    \xrightarrow{} Y$, $g_1:X \xrightarrow{} Y$ be continuous maps. If $f_0
+    \simeq f_1$ and $g_0 \simeq g_1$, then $g_0 \circ f_0 \simeq g_1 \circ f_1$.
+    That is $[g_0 \circ f_0]=[g_1 \circ f_1]$.
+\end{lemma}
+\begin{proof}
+    Let $F:f_0 \simeq f_1$ and $G:g_0 \simeq g_1$ be the homotopies of $f_0$
+    into $f_1$ and $g_0$ into $g_1$, respectively. Define the map $H:X \times I
+    \xrightarrow{} Y$ by taking $(x,t) \xrightarrow{} G(f_0(x),t)$. Then we have
+    that $H$ is continuous by composition, and that
+    $H(x,0)=G(f_0(x),0)=g_0(f_0(x))$, and $H(x,1)=G(f_0(x),1)=g_1(f_0(x))$. Thus
+    we see that $g_0 \circ f_0 \simeq g_1 \circ f_0$.
+
+    Now define the map $K:X \times I \xrightarrow{} Y$ by $K=g_1 \circ F$. We
+    have that $K$ is continuous by composition, and that  $K(x,0)=g_1 \circ f_0$
+    and $K(x,1)=g_1 \circ f_1$, making $g_1 \circ f_0 \simeq g_1 \circ f_1$.
+    Therefore, by transitivity of homotopy, $g_0 \circ f_0 \simeq g_1 \circ
+    f_1$.
+\end{proof}
+
+\begin{theorem}\label{2.1.4}
+    Homotopy is a congruence on the category $\Top$.
+\end{theorem}
+\begin{proof}
+    The proof follows by lemmas \ref{2.1.2} and \ref{2.1.3}.
+\end{proof}
+
+\begin{definition}
+    We call the quotient category of $\Top$ induced by homotopy the
+    \textbf{homotopy category} and denote it $\hTop$.
+\end{definition}
+
+\begin{definition}
+    A continuous map $f:X \xrightarrow{} Y$ is a \textbf{homotopy equivalence}
+    if there exists a continuous map $g:Y \xrightarrow{} X$ such that $f \circ
+    g \simeq 1_Y$ and  $g \circ f \simeq 1_X$. We say that the spaces $X$ and
+    $Y$ have the same \textbf{homotopy type} if there exists a homotopy
+    equivalence.
+\end{definition}
+
+\begin{definition}
+    We call a continuous map \textbf{nullhomotopic} if it is homotopic to a
+    constant map.
+\end{definition}
+
+\begin{example}\label{2.1}
+    The space of complex numbers $\C$ and the unit circle  $S^1$ have the same
+    homnotopy type.
+\end{example}
+
+\begin{definition}
+    Let $Y$ and  $Z$ be topological spaces, and  $X \subseteq Y$ a subspace of
+    $Y$. If  $f:X \xrightarrow{} Z$ is a continuous map, then we call the map
+    $g:Y \xrightarrow{} Z$ defined by $g \circ i=f$ an \textbf{extension} of
+    $f$, where  $i:X \xrightarrow{} Y$ is the inclusion map.
+\end{definition}
+
+\begin{theorem}\label{2.1.5}
+    Let $f:S^n \xrightarrow{} Y$ be a continuous map into a topological space
+    $Y$. The following are equivalent:
+    \begin{enumerate}
+        \item[(1)] $f$ is nullhomotopic.
+
+        \item[(2)] $f$ can be extended to a continuous map  $B^{n+1}
+            \xrightarrow{} Y$.
+
+        \item[(3)] There exists a constant map $k:S^n \xrightarrow{} Y$, taking
+            $x \xrightarrow{} f(x_0)$, for all $x \in S^n$, such that $f \simeq
+            k$, for $x_0 \in S^n$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Notice that (3) implies (1) immediately. Now suppose that $f$ is
+    nullhomotopic. Then there exists a constant map  $k:X \xrightarrow{} Y$,
+    such that for some $x_0 \in S^n$, $k:x \xrightarrow{} x_0$ for all $x \in
+    S^n$ implies that  $f \simeq k$. Now, define the map  $g:B^{n+1}
+    \xrightarrow{} Y$ by:
+    \begin{equation*}
+     g(x)=\begin{cases}
+            y_0,    &   \text{ if } 0 \leq \|x\| \leq \frac{1}{2} \\
+            F(\frac{x}{\|x\|},2-2\|x\|), & \text{ if } \frac{1}{2} \leq \|x\| \leq 1 \\
+        \end{cases}
+    \end{equation*}
+    Notice, that if $\|x\|=\frac{1}{2}$, then $g(x)=F(2x,1)=y_0$. Therefore, by
+    the pasting lemma, $g$ is continuous. Moreover, if  $\|x\|=1$,
+    $g(x)=F(x,0)=f$, which makes $g$ an extension of  $f$.
+
+    Now, suppose that there exists an extension  $g:B^{n+1} \xrightarrow{} Y$ of
+    $f$. Since  $S^n$ is a subspace of  $B^{n+1}$, we have that $g \circ
+    i=g|_{S^n}=f$, where $i:Y \xrightarrow{} S^n$ is an inclusion. Now, let $x_0
+    \in S^n$ and define the constant map $k:S^n \xrightarrow{} Y$ by taking $x
+    \xrightarrow{} f(x_0)$ for all $x \in S^n$. Additionally, define the map
+    $F:S^N \times I \xrightarrow{} Y$ given by $F(x,t)=g((1-t)x+x_0t)$. We have
+    that $F$ is continuous by composition of continuous maps, and that
+    $F(x,0)=g(x)=f(x)$, since $F$ has the domain  $S^n \times I$, and that
+    $F(x,1)=g(x_0)=f(x_0)$, since $F$ has the domain  $S^n \times I$. This makes
+     $f \simeq k$ with $F$ as the associated homotopy.
+\end{proof}
