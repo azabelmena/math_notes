@@ -2,219 +2,151 @@
 %	SECTION 1.1
 %----------------------------------------------------------------------------------------
 
-\section{More on Metric Spaces}
-
-We go more in depth on metric spaces here.
-
-\begin{theorem}\label{2.3.1}
-    If $A$ is a subspace of a metric space $X$, with metric  $d$, then  $d$
-    restricted to  $A \times A$ makes  $A$ into a metric space.
-\end{theorem}
-\begin{proof}
-    Clearly $d:A \times A \rightarrow \R$ is a metric. So consider the
-    $\epsilon$-ball about $x$, $B_d(x,\epsilon)$ in $X$; restricting  $d$ to
-    $A \times A$, consider  $A \cap B_d(x,\epsilon)$. For $y \in A$, there is
-    a  $\delta$-ball about  $y$ such that  $B_d(y,\delta) \subseteq
-    B_d(x,\epsilon)$; then $B_d(y,\delta) \subseteq B_d(x,\epsilon)$. This makes
-    $A$ as a subspace, into a metric space.
-\end{proof}
-\begin{corollary}
-    The metric topology on $A$ is the same as the subspace topology on  $A$.
-\end{corollary}
-
-\begin{theorem}\label{2.3.2}
-    The Hausdorff axiom is satisfied in every metric space.
-\end{theorem}
-\begin{proof}
-    If $x,y \in X$ are distinct, let  $\epsilon=\frac{1}{2}d(x,y)$, by the triangle inequality, we
-    have that $B_d(x,\epsilon)$ and $B_d(y,\epsilon)$ are disjoint.
-\end{proof}
-
-\begin{theorem}\label{2.3.3}
-    Countable products of metrizable spaces are metrizable.
-\end{theorem}
-\begin{proof}
-    Let $X$ be a metric space with metric  $d$. Define
-    $\bar{d}(x,y)=\min\{d(x,y),1\}$ on $X$ and define  $D(x,y)=\sup\{\frac{\bar{d}(x_i,y_i)}{i}\}$
-    on $X^{\omega}$. It is clear that both $\bar{d}$ and $D$ are metrics on  $X$ and  $X^{\omega}$
-    respectively. We would like to show that $D$ induces the product topology on  $X^{\omega}$.
-
-    Let $U$ be open and let  $x \in U$. Choose  $B_D(x,\epsilon) \subseteq U$ and choose $N$ large
-    enough such that  $ \frac{1}{N}<\epsilon$. Now let
-    $V=(x_1-\epsilon,x_1+\epsilon) \times \dots \times (x_N-\epsilon,x_N+\epsilon) \times X \times \dots$ be a basis in the product topology on
-    $X^{\omega}$. Given $y \in X^{\omega}$, such that $\frac{\bar{d}(x_i,y_i)}{i} \leq
-    \frac{1}{N}$, we have by definition that $D(x,y) \leq \max\{\bar{d}(x_1,y_1),
-    \frac{\bar{d}(x_2,y_2)}{2}, \dots, \frac{\bar{d}(x_N,y_N)}{N}, \frac{1}{N}\}$. If $y \in V$, we
-    get that  $V \subseteq B_D(x,\epsilon)$ and we are done.
-
-    Conversely let $U=\Prod{U_i}$ be a basis of the product topology where $U_i$ is open in  $X$
-    for  $i=1,\dots,n$ and  $U_i=X$ for all other indices. Now let  $x \in U$ and choose an interval
-    about  $x_i$,  $(x_i-\epsilon_i,x_i+\epsilon_i)$ lying in $U_i$ with  $0<\epsilon_i \leq 1$ for
-    all  $i$. Choose  $\epsilon=\min\{\epsilon_1,\frac{\epsilon_2}{2}, \dots,
-    \frac{\epsilon_n}{n}\}$. Then  $x \in B_D(x,\epsilon) \subseteq U$, for if $y \in
-    B_D(x,\epsilon)$, we have that $\frac{\bar{d}(x_i,y_i)}{i} \leq D(x,y)<\epsilon$, hence
-    $\epsilon \leq \frac{\epsilon_i}{i}$ and $d(x_i,y_i)<\epsilon_i$, and so $y \in \Prod{U_i}$.
-    Therefore $D$ induces the product space topology
-\end{proof}
-\begin{remark}
-    This theorem generalizes theorem \ref{2.2.9} for any countable product space of a metric space
-    $X$. Hence we can take theorem \ref {2.2.9} as a corollary to this theorem.
-\end{remark}
-
-We would now like to study continuous functions in metric spaces, which brings us into the realm of
-analysis. We show that the ``$\epsilon$-$\delta$'' definition, and the sequence definiton of
-continuity carry over.
-
-\begin{theorem}\label{2.3.4}
-    Let $f:X \rightarrow Y$ with  $X$ and  $Y$ metric spaces with metric  $d_X$ and  $d_Y$
-    respectively. Then  $f$ is continuous if and only if for  $x \in X$,a nd  $\epsilon>0$, there is
-    a  $\delta>0$ such that  $d_Y(f(x),f(y))<\epsilon$ whenever $d_X(x,y)<\delta$.
-\end{theorem}
-\begin{proof}
-    Suppose that $f$ is continous and consider  $f^{-1}(B(f(x),\epsilon))$ open in $X$. Then it
-    contains a $\delta$-ball $B(x,\delta)$ about $x$. If  $y \in B(x,\delta)$, then $f(y) \in
-    B(f(x),\epsilon)$, as is required.
-
-    Now suppose that for $x \in X$ and  $\epsilon>0$, that there is a  $\delta>0$ such that
-    $d_Y(f(x),f(y))<\epsilon$ whenever $d_X(x,y)<\delta$, for $x\in X$. Let $V$
-    be open in  $Y$ and
-    let  $x \in f^{-1}(V)$. Then $f(x) \in V$, hence there is an $\epsilon$-ball  $B(f(x),\epsilon)
-    \subseteq V$. By hypothesis, there is a  $\delta>0$ such that $f(B(x,\delta)) \subseteq
-    B(f(x),\epsilon)$, hence $B(x,\delta) \subseteq f^{-1}(V)$ which makes $f^{-1}(V)$ open.
-\end{proof}
-
-\begin{lemma}[The Sequence Lemma]\label{2.3.5}
-    Let $X$ be a topological space and let  $A \subseteq X$. If there is a sequence of points of
-    $A$ converging to $x \in X$, then $x \in \cl{A}$. The converse holds if $X$ is metrizable.
-\end{lemma}
-\begin{proof}
-    Suppose for some sequence $\{x_n\} \subseteq A$ that $x_n \rightarrow x$. By theorem \ref
-    {1.6.6}, we have every neighborhood of $x$ contains points of  $A$,  hence $x \in \cl{A}$.
-    Conversely, suppose that $X$ is metrizable with metric  $d$, and let  $x \in \cl{A}$. For $n
-    \in \Z^+$, take  $B_d(x,\frac{1}{n})$ and take $\{x_n\}=B_d(x,\frac{1}{n}) \cap A$. Then $x_n
-    \rightarrow n$, for: any open set  $U$ of  $x$ contains an  $\epsilon$-ball about  $x$,
-    $B_d(x,\epsilon)$, so choose $N$ large enough so that  $ \frac{1}{N}<\epsilon$, hence $U$
-    contains  $x_i$ for all  $i \geq N$.
-\end{proof}
-
-\begin{theorem}[The Sequential Criterion]\label{2.3.6}
-    Let $f:X \rightarrow Y$ be continuous, then for every convergent sequence  $\{x_n\}$ converging
-    to $x \in X$, the sequence  $\{f(x_n)\}$ converges to $f(x)$. the converse holds if $X$ is
-    metrizable.
-\end{theorem}
-\begin{proof}
-    Let $f$ be continuous and suppose that  $x_n \rightarrow x$. Let  $V$ be a neighborhood of
-    $f(x)$, then $f^{-1}(V)$ is a neighborhood of $x$; hence there is an  $N>0$ such that  $x_n \in
-    f^{-1}(V)$ whenever $n \geq N$, thus  $f(x_n) \in V$ whenever $n \geq N$.
-
-    Conversely suppose that for every  $\{x_n\}$ converging to $x$, that  $\{f(x_n)\}$ converges to
-    $f(x)$, and let $A \subseteq X$. if  $x \in \cl{A}$, by the sequence lemma, there is a sequence
-    $\{x_n\} \subseteq A$ converging to $X$. Now since  $f(x_n) \rightarrow f(x)$. and $f(x_n) \in
-    f(A)$, by the sequence lemma again, $f(x) \in \cl{f(A)}$.  Thus $f(\cl{A}) \subseteq
-    \cl{f(A)}$ and we are done.
-\end{proof}
-
-We now consder methods for constructing continous functions on metric spaces.
-
-\begin{lemma}\label{2.3.7}
-    The additions, subtraction, and multiplication operations are continous from $\R \times \R$ to
-    $\R$. The quotient operation is continous from  $\R \times \com{\R}{\{0\}}$ to $\R$.
-\end{lemma}
-
-\begin{theorem}\label{2.3.8}
-    If $X$ is a topological space and if  $f,g:X \rightarrow \R$ are continous, then  $f+g$,  $f-g$,
-    a nd $fg$ are continuous; moreover if  $g(x) \neq 0$ for all $x \in X$, then $\frac{f}{g}$ is
-    also continuous.
-\end{theorem}
-\begin{proof}
-    The map $h:X \rightarrow \R \times \R$ defined by $h(x)=f(x) \times g(x)$ is continuous. Then
-    notice that $f+g(x)=+(f(x),g(x))=+\circ h(x)$, so by the above lemma, we get that $f+g$ is
-    contincontinuous. We also have that  $f-g$ is continuous for  $f-g(x)=+(f(x),-g(x))$. The same
-    argument holds for $fg$ and  $ \frac{f}{g}$.
-\end{proof}
+\section{Convexity and Contracibilty}
 
 \begin{definition}
-    Let $f_n:X \rightarrow Y$ be a sequence of functions from $X$ to the metric space  $Y$, with
-    metric  $d$. We say that the sequence  $\{f_n\}$ \textbf{converges uniformly} to the function
-    $f:X \rightarrow Y$ if for  $\epsilon>0$, there is an integer $N>0$ such that
-    $d(f_n(x),f(x))<\epsilon$ whenever $n \geq N$, for all  $x \in X$.
+    We call a subset $X$ of $\R^n$  \textbf{convex} if for every $x,y \in X$,
+    the line segment joining  $x$ to  $y$ is convex. That is the line
+    $tx+(1-t)y \in X$ for all $t \in [0,1]$.
 \end{definition}
 
-\begin{theorem}\label{2.3.9}
-    Let $f_n:X \rightarrow Y$ be a sequence of continuous functions from the topological space  $X$
-    to the metric space  $Y$. If  $\{f_n\}$ converges uniformly to $f$, then  $f$ is continuous.
-\end{theorem}
-\begin{proof}
-    Let $V$ be open in  $Y$ and let  $ x_0 \in f^{-1}(V)$. Let $ y_0=f(x_0)$ and choose $\epsilon>0$
-    such that  $B(y_0,\epsilon) \subseteq V$. By uniform convergence, choosing $N>0$ so that
-    whenever  $n \geq N$,  $d(f_n(x),f(x))<\frac{\epsilon}{3}$ for all $x \in X$. By the continuity
-    of $f_N$, choose a neighborhood  $U$ of  $ x_0$ such that $f_N(U) \subseteq
-    B(f_N(x_0),\frac{\epsilon}{3})$. Then if $x \in U$, we have
-    $d(f(x),f_N(x))<\frac{\epsilon}{3}$, $d(f_N(x),f_N(x_0))<\frac{\epsilon}{3}$, and
-    $d(f_N(x_0),f(x_0))<\frac{\epsilon}{3}$ by the triangle inequality we get
-    $d(f(x),f(x_0))<\epsilon$ which completes the proof.
-\end{proof}
+\begin{example}\label{2.4}
+    The sets $\R^n$, $I^n$,  $B^n$ and  $\Delta(\R^n)$ are all convex. The
+    sphere $S^{n-1}$ is not convex.
+\end{example}
 
-\begin{example}
+\begin{definition}
+    We call a topological space $X$  \textbf{contracible} if $1_X$ is
+    nullhomotopic.
+\end{definition}
+
+\begin{example}\label{2.5}
     \begin{enumerate}
-        \item[(1)] $\R^{\omega}$ is not metrizable in the box topology. Let $A=\{(x_1,x_2,\dots) \in
-            \R^{\omega}:x_i>0\}$ and consider $0=(0,0,\dots) \in \R^{\omega}$. $0 \in \cl{A}$ if
-            for any basis element $B=(a_1,b_1) \times (a_2,b_2) \times \dots$, $0 \in B$; then  $B
-            \cap A \neq \emptyset$  (take the point $ \frac{1}{2}b \in \R^\omega$). Now let
-            $\{a_n\}$ be a sequence of points of $A$ with  $a_n=(x_{1n},x_{2n}, \dots, x_ {in},
-            \dots)$, since $x_{in}>0$, construct a basis element $B'=(-x_{11},x_{11}) \times
-            (-x_{22},x_{22}) \times \dots$. Then $0 \in B'$, but  $\{a_n\} \not\subseteq B'$ for the
-            point $x_{nn} \notin (-x_{nn},x_{nn})$. Thus $a_n \not\rightarrow 0$.
+        \item[(1)] Let $X=\{x,y\}$ together with the topolgoy $\Tc=\{\emptyset, \{x\}, X\}$.
+            Then $X$ is contractible under the topology $\Tc$. We call  $X$
+            together with  $\Tc$ the \textbf{Sierpinski space}.
 
-        \item[(2)] An uncountable product of  $\R$ with itself is not metrizable. Let  $J$ be
-            uncountable, and let  $A=\{(x_{\alpha}) \in \R^J:x_{\alpha}=1 \text{ for all but
-            finitely many } \alpha\}$. Consider $0 \in \R^J$ and let  $\Prod{U_{\apha}}$ be a basis
-            for containing $0$. Now  $U_{\alpha} \neq \R$ for $\alpha_1, \dots, \alpha_n$, so let
-            $(x_{\alpha}) \in A$ be defined by letting $x_{\alpha}=0$ for $\alpha_1, \dots, \alpha_n$
-            and $x_{\alpha=1}$ for all other indices. Then $(x_{\alpha}) \in A \cap
-            \Pord{U_{\alpha}}$.
+        \item[(2)] The space $\R^n$ is contractible, but the sphere  $S^{n-1}$
+            is not contractible.
 
-            Nowe let $\{a_n\} \subseteq A$ and for $n \in \Z^+$ elt  $J_n=\{\alpha \in J:
-            \alpha_{\alpha n} \neq 1\}$. Then we see that $\bigcup{J_n}$ is a countable union of
-            finite sets, and hence countable itself. Now since $J$ is uncountable, there is a
-            $\beta \in J$ for which  $\beta \notin \bigcup{J_n}$, so $a_{\beta n} \neq 1$. Lettng
-            $U_{\beta}=(-1,1)$ in $\R$ let  $U=\pi_{\beta}^{-1}(U_{\beta})$ in $\R^J$. Then  $U$ is
-            a neighborhood of  $0$ not containing  any points of  $\{a_n\}$, so $a_n \not\rightarrow
-            0$.
+        \item[(3)] Continuous images of contractible spaces need not be
+            contractible.
     \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{2.3.10}
-    Let $X$ and  $Y$ be metric spaces with metrics  $d_X$ and $d_Y$, and suppose
-    that  $f:X \rightarrow Y$ is a function such that for all $x,y \in X$,
-    \begin{equation*}
-        d_Y(f(x)f(y))=d_X(x,y)
-    \end{equation*}
-    then $f$ is an imbedding.
-\end{lemma}
+\begin{theorem}\label{2.3.1}
+    Every convex set is contractible.
+\end{theorem}
 \begin{proof}
-    First, we have that $f$ is  $1-1$, for if  $f(x)=f(y)$, then
-    $d_Y(f(x),f(y))=d_X(x,y)=0$, making $x=y$. So  $f$ is  $1-1$ of $X$ onto
-    $f(X)$.
+    Choose $x_0 \in X$ and consider the constant map $c:X \xrightarrow{} X$ by
+    $x \xrightarrow{} x_0$ for all $x \in X$. Define  $F:X \times I
+    \xrightarrow{} X$ by $F(x,t)=tx_0+(1-t)x$. This map is continuous, with
+    $F(x,0)=x=1_X(x)$ and $F(x,1)=x_0=c(x)$. Therefore $1_X \simeq c$.
+\end{proof}
 
-    We also have by theorem \ref{2.3.4}, that $f$ is continuous if, and only if
-    for every  $\epsilon>0$, there is a  $\delta>0$ such that
-    $d_Y(f(x),f(y))<\epsilon$ whenever $d_X(x,y)<\delta$. When $x=y$, we can
-    take  $\epsilon$ and  $\delta$ to be any real number. Now, if  $x \neq y$,
-    just take  $\epsilon=d_X(x,y)+1$ and $\delta=d_Y(f(x),f(y))+1$, which makes
-    $f$ continuous.
+\begin{lemma}\label{2.3.2}
+    If $X$ is a contractible space, and homeomorphic to a space  $Y$, then  $Y$
+    is also contractible.
+\end{lemma}
 
-    On the other hand, if $B_{d_X}(x,\epsilon)$ is an open ball in $X$, then
-    by definition of $f$, we get that
-    $f(B_{d_X}(x,\epsilon))=B_Y(f(x),\epsilon)$, which is an open ball in
-    $f(X)$. Therefore, $\inv{f}$ is continuous, and we have that $f$ is an
-    imbedding of  $X$ onto  $f(X)$.
+\begin{example}\label{3.6}
+    If $X$ and  $Y$ are subspaces of  $\R^n$, with $X$ homeomorphic to $Y$, and
+     $X$ convex, then  $Y$ is contractible by lemma \ref{2.3.2}, however, $Y$
+     may not be convex. This shows that not all contractible spaces are convex
+     spaces.
+\end{example}
+
+\begin{lemma}\label{2.3.3}
+    Contractible spaces are connected.
+\end{lemma}
+\begin{corollary}
+    Convex sets are connected.
+\end{corollary}
+\begin{proof}
+    This follows from theorem \ref{2.3.1}.
 \end{proof}
 
 \begin{definition}
-    Let $X$ and  $Y$ be metric spaces. We call a function  $f:X \rightarrow Y$
-    an \textbf{isometric imbedding} if for every $x,y \in X$ we have
-    \begin{equation}
-        d_Y(f(x),f(y))=d_X(x,y)
-    \end{equation}
+    If $X$ is a topological space, define the equivalence relation  $\sim$ on
+    $X \times I$ by  $(x,t) \sim (x',t')$ if, and only if $t=t'=1$. Denote the
+    equivalence classes of  $(x,t)$ as $[x,t]$. We call the quotient space
+    $\faktor{X \times I}{\sim}$ the \textbf{cone} over $X$, and denote it  $CX$.
+    We call the equivalence class  $[x,1]$ the \textbf{vertex} of $CX$.
 \end{definition}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.2]{Figures/Chapter3/cone.eps}
+    \caption{The space $X$ and the cone $CX$ formed by identifying all $t=1$ of
+    $X \times I$ to a point.}
+    \label{fig_3.1}
+\end{figure}
+
+\begin{example}\label{2.7}
+    \begin{enumerate}
+        \item[(1)] For topological spaces $X$ and  $Y$, every continuous map  $f:X \times I
+            \xrightarrow{} Y$ with $f(x,1)=y_0$ for some $y_0 \in Y$ induces a
+            continuous map $Cf:CX \xrightarrow{} Y$ by taking $[x,t] \xrightarrow{}
+            f(x,t)$.
+
+        \item[(2)] The cone over $S^{n-1}$ is $CS^{n-1}=D^n$ and has the vertex
+            $0$.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{2.3.4}
+    For any topological space $X$, the cone over  $X$ is contractible.
+\end{theorem}
+\begin{proof}
+    Define the map $F:CX \times I \xrightarrow{} CX$ by taking $([x,t],s)
+    \xrightarrow{} [x,(1-s)t+s]$. This map is continuous by composition,
+    moreover $F([x,t],0)=[x,t]$ and $F([x,t],1)=[x,1]$ which makes $1_{CX}
+    \simeq c$ where $c:CX \xrightarrow{} CX$ is the constant map taking $[x,t]
+    \xrightarrow{} [x,1]$ for all $x \in X$.
+\end{proof}
+
+\begin{theorem}\label{2.3.5}
+    A topological space has the same homotopy type as a point if, and only if
+    $X$ is contractible.
+\end{theorem}
+\begin{proof}
+    Let $\{a\}$ be a point space, and suppose that $X \simeq \{a\}$ have the
+    same homotopy type. Then there are maps $f:X \xrightarrow{} \{a\}$ and
+    $g:\{a\} \xrightarrow{} X$ with $a \xrightarrow{g} x_0$ such that  $g \circ
+    f \simeq 1_X$ and  $f \circ g \simeq 1_{\{a\}}$. Notice that $g \circ
+    f(x)=g(a)=x_0$, for all $x \in X$, so  $g \circ f$ is constant. This makes
+    $1_X$  (and $1_Y$) nullhomotopic. Therefore $X$ is contractible.
+
+    On the otherhand, supposing that  $X$ is contractible, let  $1_X \simeq c$
+    where  $c:X \xrightarrow{} X$ is the constant map defined by $x
+    \xrightarrow{} x_0$ for all $x \in X$. Define the maps  $f:X \xrightarrow{}
+    \{x_0\}$ and  $g:\{x_0\} \xrightarrow{} X$ by $x \xrightarrow{f} x_0$ and
+    $x_0 \xrightarrow{g} x_0$. Observe that $g \circ f=1_X$, and that $f
+    \circ g \simeq 1_{\{x_0\}}$ Therefore $X$ is of the same homotopy type as
+    $\{x_0\}$.
+\end{proof}
+\begin{remark}
+    This theorem shows that the simplest objects in $\hTop$ are the contractible
+    spaces.
+\end{remark}
+
+\begin{theorem}\label{2.3.6}
+    If $Y$ is a contractible space, then any two maps  $X \xrightarrow{} Y$ are
+    homotopic.
+\end{theorem}
+\begin{proof}
+    Suppose that $1_Y \simeq c$ where  $c:Y \xrightarrow{} Y$ takes $y
+    \xrightarrow{} y_0$ for all $y \in Y$. Defie $g:X \xrightarrow{} Y$ by
+    taking $x \xrightarrow{} y_0$ for all $x \in X$. If  $f:X \xrightarrow{} Y$
+    is any continuous map, then $f \simeq g$. Consider the diagram
+    \[\begin{tikzcd}
+        X && Y && Y
+        \arrow[from=1-1, to=1-3]
+        \arrow["k", curve={height=-6pt}, from=1-3, to=1-5]
+        \arrow["{1_Y}"', curve={height=6pt}, from=1-3, to=1-5]
+    \end{tikzcd}\]
+    Since $1_Y \simeq k$, we get that  $f=1_Y \circ f \simeq k \circ f=g$.
+\end{proof}
+\begin{corollary}
+    Any two maps $X \xrightarrow{} Y$ are nullhomotopic.
+\end{corollary}
