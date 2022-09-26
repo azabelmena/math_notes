@@ -2,4 +2,125 @@
 %	SECTION 1.1
 %----------------------------------------------------------------------------------------
 
-\section{Integration and Differentiation.}
+\section{Outer and Inner Approximations.}
+
+\begin{lemma}[The Excision Property]\label{8.3.1}
+    If $A$ is a measurable set of finite outer measure contained in a set $B$,
+    then:
+    \begin{equation*}
+        m^*(\com{B}{A})=m^*(B)-m^*(A)
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    $M^*(B)=m^*(B \cap A)+m^*(B \cap \com{\R}{A})=m^*(A)+m^*(\com{B}{A})$.
+\end{proof}
+
+\begin{definition}
+    We call a countable intersection of open sets in $\R$ a \textbf{$G_\delta$
+    set}, and we call a countable union of closed sets in $\R$ an
+    \textbf{$F_\sigma$ set}.
+\end{definition}
+
+\begin{theorem}[The Outer Approximation Property]\label{8.3.2}
+    If $E \subseteq \R$, the following are equivalent:
+    \begin{enumerate}
+        \item[(1)] $E$ is measurable.
+
+        \item[(2)] For every $\epsilon>0$ there is an open set  $U$ of  $\R$,
+            containing $E$, such that  $m^*(\com{U}{E})<\epsilon$.
+
+        \item[(3)] There is a $G_\delta$ set $G$ containing $E$ such that
+            $m^*(\com{G}{E})=0$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Suppose that $E$ is measurable, and that  $E$ has finite outer measure. Then
+    there is a countable collection of open intervals  $\{I_n\}$ covering $E$
+    such that
+    \begin{equation*}
+        \sum{I_n}<m^*(E)+\epsilon
+    \end{equation*}
+    Let $U=\bigcup{I_n}$. Then $U$ is an open set with  $E \subseteq U$, so we
+    get
+    \begin{equation*}
+        m^*(U) \leq \sum{I_n}<m^*(E)+\epsilon
+    \end{equation*}
+    Then $m^*(U)-m^*(E)<\epsilon$, and since $E$ has finite measure, the
+    excision property holds.
+
+    Now suppose that $E$ has infinite outer measure, then $E$ is covered by a
+    collection of disjoint measurable sets $\{E_n\}$, each of finite outer
+    measure. Consider the collection $\{U_n\}$ of open sets such that $E_n
+    \subseteq U_n$ for each  $n \in \Z^+$. Then by above, we have each
+    $m^*(\com{U_n}{E_n})<\frac{\epsilon}{2^n}$, for some $\epsilon>0$. Take
+    $U=\bigcup{U_n}$ Then $U$ is open containing $E$, and notice that:
+    \begin{equation*}
+        \com{U}{E} \subseteq \bigcup{\com{U_n}{E_n}}
+    \end{equation*}
+    By monotoinicity, this gives us:
+    \begin{equation*}
+        m^*(\com{U}{E}) \leq
+        \sum{m^*(\com{U_n}{E_n})}<\sum{\frac{\epsilon}{2^n}}<\epsilon
+    \end{equation*}
+
+    Now, suppose that (1) holds for $E$. For each  $n \in \Z^+$, choose an open
+    set  $U=\bigcup{U_n}$ containing $E$ such that
+    $m^*(\com{U_n}{E})<\frac{1}{n}$. Define $G=\bigcap{U_n}$, then $G$ is a
+    $G_\delta$ set, containing $E$. Notice that $\com{G}{E} \subseteq
+    \com{U_n}{U}$, by monotonicity again, this gives us
+    \begin{equation*}
+        m^*(\com{G}{E}) \leq m^*(\com{U_n}{E})<\frac{1}{n}
+    \end{equation*}
+    Notice then that as $n \xrightarrow{} \infty$ that $m^*(\com{G}{E})=0$.
+
+    Now suppose that (2) holds for $E$. Then  $m^*(\com{G}{E})=0$ for some
+    $G_\delta$ set  $G$ containing $E$. Thus $\com{G}{E}$ is measurable. Since
+    $G$ is also measurable as a  $G_\delta$ set, we have that  $E=G \cap
+    \com{\R}{(\com{G}{E})}$ must also be measurable.
+\end{proof}
+\begin{corollary}[The Inner Approximation Propery]
+    The following are equivalent for all $E \subseteq \R$.
+    \begin{enumerate}
+        \item[(1)] $E$ is measurable.
+
+        \item[(2)] For every $\epsilon>0$, there exists a closed set $V$ of $\R$,
+            contained in $E$ such that $m^*(\com{E}{V})<\epsilon$.
+
+        \item[(3)] There is an $F_\sigma$ set  $F$, contained in  $E$ such that
+            $m^*(\com{E}{F})=0$.
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}\label{8.3.3}
+    Let $E$ be a measurable set of finite outer measure. If for every
+    $\epsilon>0$ there is a finite collection of disjoint open intervals
+    $\{I_n\}$ for which $U=\bigcup{I_n}$, then
+    \begin{equation*}
+        m^*(\com{U}{E})+m^*(\com{E}{U})<\epsilon
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    By theorem \ref{8.3.2}, there is an open set $U$, with  $E \subseteq U$ such
+    that $m^*(\com{U}{E})<\frac{\epsilon}{2}$. Since  $E$ has finite outer
+    measure, then  $m^*(\com{U}{E})=m^*(U)-m^*(E)<\frac{\epsilon}{2}$. This
+    implies that $U$ must also have finite outer measure.
+
+    Now, let $U=\bigcup{I_{n+1}}$ where $\{I_{n+1}\}$ is a union of disjoint
+    open intervals. THen $\sum{l(I_{n+1})}=m^*(\bigcup{I_{n+1}}) \leq m^*(U)$.
+    Since $U$ has finite outer measure,  $\sum{I_{n+1}}<\frac{\epsilon}{2}$.
+    Now, define $V=\bigcup_{k=1}{n}{I_n}$, we then have that $\com{V}{E}
+    \subseteq \com{U}{E}$ so that:
+    \begin{equation*}
+        m^*(\com{V}{E}) \leq m^*(\com{U}{E})<\frac{\epsilon}{2}
+    \end{equation*}
+    Since $E \subseteq U$, we get that
+    $\com{E}{V}=\com{U}{V}=\bigcup_{k=n+1}{I_k}$. Therefore, by definition we
+    get
+    \begin{equation*}
+        m^*(\com{E}{V}) \leq \sum_{k=n+1}{I_k}<\frac{\epsilon}{2}
+    \end{equation*}
+    so that
+    \begin{equation*}
+        m^*(\com{V}{E})+m^*(\com{E}{V})<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+    \end{equation*}
+\end{proof}
