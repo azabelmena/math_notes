@@ -1,0 +1,131 @@
+\section{The Cantor Set}
+
+\begin{definition}
+    We define the \textbf{cantor set} to be the set
+    \begin{equation*}
+        \Cc=\bigcap_{n \in \Z^+}{C_n}
+    \end{equation*}
+    Where $\{C_n\}$ is a monotonically decreasing countable collection such that
+    $C_n$ is the disjoint union of  $2^n$ intervals each of length
+    $\frac{1}{3^n}$.
+\end{definition}
+
+\begin{theorem}\label{8.6.1}
+    The Cantor set is closed, uncountable, and of measure $0$.
+\end{theorem}
+\begin{proof}
+    By the closure of intersections, $\Cc$ is closed in  $\R$ under its usual
+    topology. Moreover, notice that each  $C_n$ is measurable, hence so is
+    $\Cc$. Now, since  $C_n$ is measurable for each  $n$, we have that
+    $m(C_n)=(\frac{2}{3})^n$ by countable additivity. Since $\Cc \subetseq C_n$,
+    we get  $m(\Cc) \leq m(C_n)=(\frac{2}{3})^n$. So as $n \xrightarrow{}
+    \infty$ we see that $m(\Cc)=0$.
+
+    Now, suppose that $\Cc$ is countable and let  $\Cc=\{c_n\}_{n \in \Z^+}$ an
+    enumeration. Consider $F_1$ one of the $2$ intervals of  $C_1$ not
+    containing $c_1$. Let $F_2$ be one of the $2^2=4$ intervals of  $C_2$ not
+    containing  $c_2$, and proceeding inductively define the collection
+    $\{F_n\}$ such that:
+    \begin{enumerate}
+        \item[(1)] $F_n$ is closed and  $\{F_n\}$ is monotonically decreasing.
+
+        \item[(2)] $F_n \subseteq C_n$
+
+        \item[(3)] $c_n \notin C_n$
+    \end{enumerate}
+    By the nested interval theorem, we get $\bigcap{F_n}$ is nonempty. Now let
+    $x \in \bigcap{F_n}$, then by definition $x \in \bigcap{C_n}=\Cc$, which
+    makes $x=c_n$ for some  $n \in \Z^+$. This makes  $c_n \in \bigcap{F_n}$,
+    and hence $c_n \in F_n$ which cannot happen. Therefore  $\Cc$ cannot be
+    countable.
+\end{proof}
+
+\begin{definition}
+    Let $\Oo=\bigcap{\Oo_n}$ where $\Oo_n$ is the union of the first  $2^n-1$
+    intervals removed after $n$ Cantor deletions. Then $\Cc=\com{[0,1]}{\Oo}$.
+    Define $\phi$ on $\Oo_n$ the increasing function which is constant on each
+    of its $2^n-1$ open intervals, and takes the  $2^n-1$ values
+    \begin{align*}
+        \frac{1}{2^n}   &&  \dots   &&   \frac{2^n-1}{2^n}
+    \end{align*}
+
+    Now domain extend $\phi$ to $\Cc$ by the rule:
+    \begin{equation*}
+        \phi(0)=0 \text{ and } \phi(x)=\sup{\{\phi(t) : t \in \Oo \cap [0,x)\}}
+        \text{ if } x \in \com{\Cc}{0}
+    \end{equation*}
+    We call $\phi:[0,1] \xrightarrow{} [0,1]$ the \textbf{Cantor-Lebesgue
+    function}.
+\end{definition}
+
+\begin{theorem}\label{8.6.2}
+    The Cantor-Lebesgue function is an increasing continuous function taking
+    $[0,1]$ onto $[0,1]$. Moreover its derivative on the open set
+    $\Oo=\com{\Cc}{[0,1]}$ exists with
+    \begin{equation*}
+        \phi'=0 \text{ on } \Oo \text{ if } m(\Oo)=1
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    By definition, $\phi$ is increasing on $\Oo$, so it must be increasing on
+    its extension to  $[0,1]$. Moreover $\phi$ is also continuous on  $\Oo$, and
+    so must be continuous on  $[0,1]$ by extension as well.
+
+    Now, consider $x_0 \in \Cc$ with $x_0 \neq 0,1$. Then $x$ is not in any of
+    the  $2^n-1$ intervals that were removed after  $n$ Cantor deletions. Then
+    for  $n$ sufficiently large,  $x$ is inbetween two consecutave intervals in
+     $\Oo_n$. Now, choose  $a_n$ in the lower bound of these intervals
+     (together) and $b_n$ in the upperbound of these intervals in $\Oo_n$. Then
+     by definition of  $\phi$ on  $\Oo_n$, when  $a_n<x_0<b_n$, we get
+     \begin{equation*}
+         \phi(b_n)-\phi(a_n)=\frac{1}{2^n}
+     \end{equation*}
+     For $n$ sufficiently large, we then see that  $\phi$ fails to have jump
+     discontinuities at  $x_0$. This makes $\phi$ continuous at  $x_0$. Now, if
+     $x_0$ is an endpoint of $[0,1]$, we get continuity by similar reasoning.
+
+     Now, since $\phi$ is constant on each  $\Oo_n$, and  $\Oo=\bigcup{\Oo_n}$,
+     we get the derivative $\phi'$ exists, and $\phi'=0$ on $\Oo$. Now, since
+     $m(\Cc)=0$, we must have that $m(\Oo)=1$. Since $\phi(0)=0$ and
+     $\phi(1)=1$, and $\phi$ is increasing,  $\phi$ maps  $[0,1]$ onto itself by
+     the intermediate value theorem.
+\end{proof}
+
+\begin{theorem}\label{8.6.3}
+    Let $\phi$ be the Cantor-Lebesgue function and let $\psi$ on $[0,1]$ be
+    defined by
+    \begin{equation*}
+        \psi(x)=\phi(x)+x \text{ for all } x \in [0,1]
+    \end{equation*}
+    Then $\psi$ is strictly increasing and continuous mapping  $[0,1]$ onto
+    $[0,2]$. Moreover, $\psi$ maps  $\Cc$ to a postively measured set and maps a
+    measurable subset of  $\Cc$ to a nonmeasurable set.
+\end{theorem}
+\begin{proof}
+    We have that $\phi$ and $f(x)=x$ are both strictly increasing and
+    continuous, hence $\psi=\phi+f$ must also be strictly increasing and
+    continuous. Now,  $\psi(0)=\phi(0)+0=0$ and $\psi(1)=\phi(1)+1=2$. Then
+    since $\psi$ is alos increasing, by the intermediate value theorem,  $\psi$
+    takes  $[0,1]$ onto $[0,2]$.
+
+    Now, let $\Oo=\com{[0,1]}{\Cc}$. Then $[0,1]=\Cc \cup \Oo$ which is a
+    disjoint decomposition, and so $[0,2]=\psi(\Cc) \cup \psi(\Oo)$ is also a
+    disjoint decomposition. Since $\psi$ is continuous and increasing, its
+    inverse is also continuous. This makes  $\psi(\Cc)$ closed and $\psi(\Oo)$
+    open; which make them measurable.
+
+    Now, let $\{I_n\}$ be an enumeration of the intervals that were removed from
+    $\Cc$. Then  $\Oo=\bigcup{I_n}$ and since $\phi$ is constant on each  $I_n$,
+    we get  $\psi$ mapping each  $I_n$ to a translation of itself. Since $\psi$
+    is 1--1, the collection  $\{\psi(I_)\}$ is disjoint, with
+    \begin{equation*}
+        m(\psi(\Oo))=\sum{l(\psi(I_n))}=\sum{l(I_n)}=m(\Oo)
+    \end{equation*}
+    Since $m(\Cc)=0$, we must have that $m(\psi(\Oo))=1$. This makes
+    $m(\psi(\Cc))=1$. Now, by Vitali's theorem, since $m(\psi(\Cc))>0$, then
+    $\psi(\Cc)$ contains a nonmeasurable set $W$. Now,  $\inv{\psi}(W)$ is
+    measurable with measure $0$. This completes the proof.
+\end{proof}
+\begin{corollary}
+    There is a measurable subset of the Cantor set which is not Borel.
+\end{corollary}
