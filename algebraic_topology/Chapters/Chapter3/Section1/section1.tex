@@ -81,5 +81,214 @@ X\begin{definition}
 \begin{definition}
     We call points $x_0, \dots, x_m \in \R^n$ \textbf{affinely independent} if
     $\{x_1-x_0, \dots, x_m-x_0\}$ is linearly independent in $\R^n$ as a vector
-    space.
+    space. We say the points $x_0 ,\dots, x_m$ are \textbf{affinely dependent}
+    if they are not affinely independent.
 \end{definition}
+
+\begin{theorem}\label{3.1.4}
+    For any points $x_0, \dots, x_m \in \R^n$, the following are equivalent:
+    \begin{enumerate}
+        \item[(1)] $x_0, \dots, x_m$ are affinely independent.
+
+        \item[(2)] If $s_0, \dots, s_m \in \R$ such that $\sum{s_ix_i}=0$ and
+            $\sum{s_i}=0$, then $s_0=\dots=s_m=0$.
+
+        \item[(3)] If $A$ is an affine set spanned by  $x_0, \dots, x_m$, then
+            every $x \in A$ can be written as a unique affine combination of
+            $x_0, \dots, x_m$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Suppose, that $x_0, \dots, x_m$ are affinely independent. Let $a_0, \dots,
+    a_m \in \R$ such that $\sum{a_i}=0$ and $\sum{a_ix_i}=0$. We see that
+    \begin{equation*}
+        \sum{a_ix_i}=\sum{a_ix_i-0 \cdot x_0}=\sum{a_ix_i-x_0\sum{a_i}}
+        =\suma_i(x_i-x_0)=0
+    \end{equation*}
+    Now, since $x_0, \dots, x_m$ are affinelt independent, $x_1-x_0, \dots,
+    x_m-x_0$ are linearly indpendent which implies that $a_0=\dots=a_m=0$.
+
+    Now, suppose that if $\sum{a_i}=0$ and $\sum{a_ix_i}=0$, then
+    $a_0=\dots=a_m=0$. Let $A$ be an affine set spanned by $x_0, \dots, x_m$ and
+    suppose there is an $x \in A$ for which $x=\sum{a_ix_i}$ and
+    $x=\sum{b_ix_i}$. Then
+    \begin{equation*}
+        \sum{a_ix_i}=\sum{(b_ix)}
+    \end{equation*}
+    so that $\sum{(a_i-b_i)x_i}=0$. Notice also that
+    $\sum{a_i-b_i}=\sum{a_i}-\sum{b_i}=1-1=0$, so that by hypothesis,
+    $a_i-b_i=0$ for each  $i$. That is  $a_i=b_i$.
+
+    Finally, suppose that  $A$ is an affine set spanned by  $x_0, \dots, x_m$
+    for which every $x \in A$ can be written uniquely as an affine combination
+    of these points. That is $x=\sum{a_ix_i}$ where $\sum{a_i}=1$. Now, if
+    $m=0$, we get each  $x=a_0x_0$ which is trivially affinely independent. Now,
+    suppose $m \geq 0$ and by induction on  $m$, suppose that  $x_1-x_0, \dots,
+    x_m-x_0$ are linearly dependent. Then there exists $a_0, \dots, a_m \in \R$
+    not all $0$ such that  $\sum{a_i(x_i-x_0)}=0$. Choose $r_j \neq 0$ then
+    \begin{equation*}
+        \sum{\frac{r_i}{r_j}(x_i-x_0)}=0
+    \end{equation*}
+    Suppose then, without loss of generality that $r_j=1$. Then  $x_j \in
+    \{x_0. \dots, x_m\}$ which gives $x_j$ two affine combinations:
+    \begin{align*}
+        x_j     &=      1 \cdot x_j     \\
+        x_j     &=      -\sum{a_ix_i}+(1+\sum{a_i})x_0      \\
+    \end{align*}
+    This contradicts that each $x \in A$ has a unique representation as an
+    affine combination, hence $x_1-x_0, \dots, x_m-x_0$ have to be linearly
+    independent, making $x_0, \dots, x_m$ affinely indpendent.
+\end{proof}
+\begin{corollary}
+    Given points $x_0, \dots, x_m \in \R^n$, affine independence on the points
+    is independent of their ordering.
+\end{corollary}
+\begin{corollary}
+    If $A \subseteq \R^n$ is an affine set spanned by affinely independent
+    points  $x_0, \dots, x_m$, then it is the translation of an $m$-dimensional
+    subspace  $V$ of  $\R^n$ as a vector space.
+\end{corollary}
+\begin{proof}
+    Let $p_0=x_0$ and $V$ subspace of  $\R^n$ as a vector space with basis
+    $\{x_1-x_0, \dots, x_m-x_0\}$. If $z \in A$, then  $z=\sum{a_ix_i}$ where
+    $\sum{a_i}=1$ Then
+    $z=\sum{a_ix_i}+a_0x_0=\sum{a_ix_i}-\sum{a_ix_0}+(a_0+\sum{a_i})x_0=
+    \sum{a_i(x_i-x_0)}+x_0 \in V+x_0$. By similar reasoning, if we have $z \in
+    V+p_0$, then $z \in A$.
+\end{proof}
+
+\begin{definition}
+    We say a set of points $a_1, \dots, a_k \in \R^n$ are in \textbf{general
+    position} if every $n+1$ of its points are affinely independent.
+\end{definition}
+
+\begin{theorem}\label{3.1.5}
+    Given $k \geq 0$,  $\R^n$ contains  $k$ points in general position.
+\end{theorem}
+\begin{proof}
+    For $0 \leq k \leq n+1$, take the origin $0$ together with any $k-1$
+    elements of a basis of $\R^n$. These points are in general position.
+
+    Now, suppose that $k>n+1$, and choose  $r_1, \dots, r_k \in \R$ and define
+    \begin{equation*}
+        a_i=(r_i,r_i^2, \dots, r_i^n) \text{ for } 1 \leq i \leq k
+    \end{equation*}
+    Suppose additionally that the points $a_1, \dots, a_k$ are not in general
+    position. Then $n+1$ of the points $a_{i_0}, \dots, a_{i_n}$ which are
+    affinely dependent. Then $a_{i_1}-a_{i_0}, \dots, a_{i_n}-a_{i_0}$ are
+    linearly dependent. Then there exist $s_0, \dots, s_n$, not all $0$ such
+    that
+    \begin{equation*}
+        \sum{s_j(a_{i_j}-a_{i_0})}=0
+    \end{equation*}
+    Consider now, the $n \times n$ south east block,  $V^*$ of the  $(n+1)
+    \times (n+1)$ Vandermonde matrix obtained from $r_{i_0}, \dots, r_{i_n}$.
+    Let $\sigma=(s_0, \dots, s_m)$, then the equation above give the matrix
+    equation
+    \begin{equation}
+        V^*\sigma^T=0
+    \end{equation}
+    Now, since $V^*$ is nonsingular, and each of the  $r_{i_j}$ is distinct, we
+    get that $\sigma=0$, which contradicts our assumption that  $a_{i_0}, \dots,
+    a_{i_n}$ are affinely independent.
+\end{proof}
+
+\begin{definition}
+    Let $x_0, \dots, x_m \in \R^n$ be affinely independent and let $x \in \R^n$
+    be such that  $x=\sum{t_ix_i}$. We call the $(m+1)$-tuple $(t_0,x_0, \dots,
+    t_m,x_m)$ the \textbf{barycentric coordinates} fo $x$.
+\end{definition}
+
+\begin{definition}
+    Let $x_0, \dots, x_m \in \R^n$ be affinely independent. We call the convex
+    set spanned by each of these points, $[x_0, \dots, x_m]$ an $m$-simplex. We
+    call the  $n$-simplex $[e_0, \dots, e_n]$ of $\R^{n+1}$, where $\{e_0,
+    \dotsm e_m\}$ is the standard basis of $\R^N{n+1}$ the \textbf{standard}
+    $m$-simplex, and we denote it $\Delta^n$.
+\end{definition}
+
+\begin{theorem}\label{3.1.6}
+    If $x_0, \dots, x_m \in \R^n$ are affinely independent then each $x \in
+    [x_0, \dots, x_m]$ is the unique convex combination of barycentric
+    coordinates.
+\end{theorem}
+\begin{proof}
+    Note that barycentric coordinates are unuqiue by theorem \ref{3.1.4}.
+\end{proof}
+
+\begin{definition}
+    If $x_0, \dots, x_m \in \R^n$ are affinely independent, the
+    \textbf{barycenter} of $[x_0, \dots, x_m]$ is the point
+    $\frac{\sum{x_i}}{m+1}$ of $[x_0, \dots, x_m]$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] $[x_0]$ is a $0$-simplex with  $x_0$ as its barycenter.
+
+        \item[(2)] The $1$-simplex  $[x_0,x_1]$ has as its barycenter the point
+            $\frac{x_0+x_1}{2}$, which is the midpoint of a closed line segment
+            between $x_0$ and $x_1$.
+
+        \item[(3)] The $2$-simplex $[x_0,x_1,x_2]$ has barycenter
+            $\frac{x_0+x_1+x_2}{3}$ which is the geometric barycenter of a
+            triangle.
+
+        \item[(4)] Let $\Delta^n$ the standard  $n$-simplex. Every point $x \in
+            \Delta^n$ has the form $\sum{t_ie_i}$, which is represented as
+            $(t_0, \dots, t_n)$ in $\R^{n+1}$ as a vector space. Therefore the
+            barycentric coordinates of any point in $\Delta^n$ are precisely its
+            cartesian coordinates.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $[x_0, \dots, x_m]$ be an $m$-simplex. We define the \textbf{face
+    opposite} of $x_i$ to be the set
+    \begin{equation*}
+        [x_0, \dots \hat{x_i}, \dots x_m]=\{\sum{t_jx_j} : t_j \geq 0,
+        \sum{t_j}=0, \text{ and }, t_i=0\}
+    \end{equation*}
+    We define a \textbf{$k$-face} of $[x_0, \dots, x_m]$ to be a $k$-simplex
+    spanned by $k+1$ vertices of  $[x_0, \dots, x_n]$. We define the
+    \textbf{boundry} of $[x_0, \dots, x_m]$ to be the union of all faces
+    opposite $x_i$ for all  $0 \leq i \leq m$, and we write  $\partial{[x_0,
+    \dots, x_m]}$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Note that $\partial{[e_0, \dots, e_n]}=\partial{\Delta^n}$.
+
+        \item[(2)] Given any $m$-simplex, it has  ${m+1 \choose k+1}$ $k$-faces.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{3.1.7}
+    Let $S=[x_0, \dots, x_n]$ be an $n$-simplex. The following are true
+    \begin{enumerate}
+        \item[(1)] If $u,v \in S$, then $\|u-v\| \leq \sup_{i}{\|u-x_i\|}$
+
+        \item[(2)] $\diam{S}=\sup_{i,j}{\|x_i-x_j\|}$
+
+        \item[(3)] If $b$ is the barycenter of $S$, then $\|b-x_i\| \leq
+            \frac{n}{n+1}\diam{S}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Let $u,v \in S$, and  $v=\sum{t_ix_i}$ where $t_i \geq 0$ and
+    $\sum{t_i}=1$. Then $\|u-v\|=\|u-\sum{t_ix_i}\|=\|u\sum{t_i}-\sum{t_ix_i}\|
+    \leq \sum{t_i\|u_i-x_i\|} \leq \sum{t_i\sup{\|u-x_i\|}}=\sup{\|u-x_i\|}$. It
+    also follow that the second statement is true using the properties of
+    least upperbounds.
+
+    Now, let $b=\frac{x_0+\dots+x_n}{n+1}$ the barycenter of $S$. Then
+    \begin{align*}
+        \|b-x_i\|       &=      \|\frac{1}{n+1}\sum{x_j}-x_i\|    \\
+                      &=      \|frac{1}{n+1}\sum{x_j}-\frac{1}{n+1}\sum{x_i}\|  \\
+                      &=      \|\frac{1}{n+1}\sum{x_j-x_i}\|        \\
+                 \leq &       \frac{1}{n+1}\sum{\|x_j-x_i\|}    \\
+                 \leq &       \frac{n}{n+1}\sup{\|x_j-x_i\|}    \\
+                      &=      \frac{n}{n+1}\diam{S}     \\
+    \end{align*}
+\end{proof}
