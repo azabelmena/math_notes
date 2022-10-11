@@ -1,0 +1,147 @@
+\section{Local Compactnes}
+
+\begin{definition}
+    A topological space $X$ is said to be  \textbf{locally compact} at a point
+    $x$, if there exists a compact subspace $C$ of $X$ containing a neighborhood
+    of $x$. If  $X$ is locally compact at each of its points, we call $X$
+    \textbf{locally compact}.
+\end{definition}
+
+\begin{example}\label{3.12}
+    \begin{enumerate}
+        \item[(1)] $\R$ is locally compact, for every  $x \in \R$ lies in an
+            interval  $(a,b) \subseteq [a,b]$, where $a,b \in \R$ and  $a<b$.
+            Since  $[a,b]$ is closed, it is a compact subspace of $\R$
+            containing  $(a,b)$, a neighborhood of $x$.
+
+        \item[(2)] $\R^n$ is locally compact only for finite  $n$, so
+            $\R^\omega$ is not locally compact.
+
+        \item[(3)] Every simply ordered set with the least uppebound property is
+            locally compact. Every basis of $X$ is contained in a closed
+            interval of  $X$, which is compact.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{3.8.1}
+    Let $X$ be a topological space. $X$ is a locally compact Hausdorff space if,
+    and only if there is a topological space $Y$ such that:
+    \begin{enumerate}
+        \item[(1)] $X$ is a subspace of  $Y$.
+
+        \item[(2)] $\com{Y}{X}$ is a singleton.
+
+        \item[(3)] $Y$ is a compact Hausdorff space.
+    \end{enumerate}
+
+\end{theorem}
+\begin{proof}
+    Suppose that  $X$ is a locally compact Hausdorff space, and let $Y=X
+    \cup \{\infty\}$ where $\infty \notin X$. COnsider the collection of
+    subsets of  $Y$ consisting of all $U$ open in  $X$ together with all sets of
+    the form $\com{Y}{C}$ where $C$ is a compact subspace of  $X$. This
+    collection forms a topology on  $Y$.
+
+    Now given $V$ open in  $Y$, either  $V=U$,  $U$ open in  $X$ or
+    $V=\com{Y}{C}$, $C$ compact in $X$. Then whe have that $U \cap X=U$ which is
+    open in $X$ or  $(\com{Y}{C}) \cap X=\com{X}{C}$ also open in $X$  (since
+    $C$ is closed). Thus in either case, $X$ is a subspace of $Y$.
+
+    Now, let  $\Ac$ be an open cover of  $Y$. then  $\Ac$ contains sets of the
+    form  $V=U$, $U$ open in $X$, and  $V=\com{Y}{C}$, $C$ compact in  $X$.
+    Now, none of the sets of the form  $V=U$ contain the point  $\infty$. So,
+    take all members of  $\Ac$ different from  $\com{Y}{C}$ and intersect them
+    with $X$. Then they form an open cover of  $C$. By compactness of $C$, we
+    have that finitely many of these members also cover  $C$, then the
+    corresponding finite cover of  $C$ together with all  $\com{Y}{C}$ forms an
+    finite open subcover of $Y$. Therefore,  $Y$ is compact.
+
+    Now, let  $x,y \in Y$. If both  $x,y \in X$, then since  $X$ is Hausdorff,
+    there are disjoint neighborhoods $U$ and $V$ of  $x$ and  $y$, respectively.
+    Since $X$ is a subspace, $Y$ is Hausdorff consequently. Alternatively, if $x
+    \in X$, and  $y=\infty$, then choose a $C$ compact in $X$ containing a
+    neighborhood  $U$ of  $x$, and  $V=\com{Y}{C}$. Then $x \in U$, $\infty \in
+    V$ and  $U \cap V=\emptyset$, therefore  $Y$ is Hausdorff. The result is the
+    same for  $y \in X$ and  $x=\infty$.
+
+    Finally, conversely, suppose that  $Y$ is a topological space satisfying
+    properties (1)-(3). Then since $Y$ is Hausdorff, and  $X$ is a subspace of
+    $Y$, then  $X$ is Hausdorff. Now, let $x \in X$ and choose $U$ and $V$
+    disjoint open sets of $Y$ containing $x$ and the point $\{p\}=\com{Y}{X}$,
+    respectively. Take $C=\com{Y}{V}$, closed in $Y$. Then  $C$ is compact in
+    $Y$, and since $C \subseteq X$, it is also compact in $X$. Then  $C$
+    contains the neighborhood  $U$ of  $x$, making  $X$ locally compact.
+\end{proof}
+
+\begin{definition}
+    If $Y$ is a compact Hausdorff space, and  $X \subseteq Y$ is a proper
+    subspace of  $Y$, with  $\cl{X}=Y$, then $Y$ is called a
+    \textbf{compactification} of $X$. If  $\com{Y}{X}$ is a singleton, we call
+    $Y$ a  \textbf{one-point compactification} of $X$.
+\end{definition}
+
+\begin{lemma}\label{3.8.2}
+    Let $X$ be a topological space, if $Y$ and $Y'$ are two one-point
+    compactifications of $X$, then there is a homeomorphism $h:Y \rightarrow Y'$
+    where $h$ is the identity map on  $X$.
+\end{lemma}
+\begin{proof}
+    Let $X$ be a topological space, and let  $Y$ and  $Y'$ be one-point
+    compactifications of  $X$. define the map $h:Y \rightarrow Y'$ by taking
+    $h(p)=q$ where $\com{Y}{X}=\{p\}$ and $\com{Y'}{X}=\{q\}$, and where $h$ is
+    the identity everywhere on  $X$. Now, let  $U$ be open in  $Y$. If $p
+    \notin U$ then  $U \subseteq X$ and  $h(U)=U$. So $h(U)$ is open in  $X$
+    which is open in $Y'$ so $h(U)$ is open in $Y'$.
+
+    Now, is  $p \in U$, take  $C=\com{{Y}}{U}$ closed in $Y$. Then  $C$ is
+    compact in  $Y$, moreover since  $C \subseteq X$  (because $p \in U$), we
+    have that $C$ is compact in  $X$, and hence compact in  $Y'$. Since $Y'$ is
+    Hausdorff, then $C$ is closed and $h(U)=\com{Y'}{C}$ which is open in $Y'$.
+    In both cases,  $h$ is a homeomorphism.
+\end{proof}
+\begin{remark}
+    What this lemma states is that one-point compactifications of topological
+    spaces are unique up to homeomorphism.
+\end{remark}
+
+\begin{example}\label{3.13}
+    The one-point compactification of $\R$ is homeomorphic to the unit circle
+    $S^1$. The one-point compactification of $\R^2$ is the unit sphere  $S^2$.
+    The one-point compactification of $\C$ is denoted  $\C \cup \infty$ and is
+    called the \textbf{Riemann sphere}.
+\end{example}
+
+\begin{theorem}\label{3.8.3}
+    Let $X$ be a Hausdorff space. Then  $X$ is locally compact if, and only if
+    given  $x \in X$, and a neighborhood  $U$ of  $x$, there is a neighborhood
+    $V$ of  $x$ such that  $\cl{V} \subseteq U$ and $\cl{V}$ is compact.
+\end{theorem}
+\begin{proof}
+    First, we have that $\cl{V}$ is a compact subspace of $X$ containing a
+    neighborhood of $x$,  this makes $X$ locally compact.
+
+    Now suppose that  $X$ is locally compact. Then letting  $x \in X$, and  $U$
+    a neighborhood of  $x$, take the one-point compactification  $Y$ of  $X$,
+    and let  $C=\com{Y}{U}$. Then $C$ is closed in  $Y$ and hence compact in
+    $Y$. Then by the corollary to theorem \ref{3.4.3}, choose $V,W$ disjoint
+    open sets of  $Y$ with  $x \in V$ and  $C \subseteq W$. Then  $\cl{V}
+    \subseteq Y$ is compact and $C \cap \cl{V}=\emptyset$, so that $\cl{V}
+    \subseteq U$.
+\end{proof}
+\begin{corollary}
+    If $X$ is a locally compact Hausdorff space, and  $A$ is a subspace of  $X$,
+    then if  $A$ is open, or closed in  $X$,  $A$ is locally compact in  $X$.
+\end{corollary}
+\begin{proof}
+    Suppose that $A$ is open in  $X$. Let  $x \in A$, then choose a neighborhood
+     $V$ of  $x$ in  $X$ such that  $\cl{V} \subseteq A$ and $\cl{V}$ is
+     compact. Then $\cl{V}$ is a compact subspace of $A$ containing $V$.
+
+     Now, if $A$ is closed, let  $x \in A$ and  $C$ a compact subspace of  $X$
+     containing a neighborhood  $U$ of  $x$. Then $C \cap A$ is closed in  $C$,
+     and hence compact. It also contains the neighborhood  $U \cap A$ of $x$.
+\end{proof}
+\begin{corollary}
+    A topological space $X$ is homeomorphic to an open subspace of a compact
+    Hausdorff space if, and only if  $X$ is a locally compact Hausdorff space.
+\end{corollary}

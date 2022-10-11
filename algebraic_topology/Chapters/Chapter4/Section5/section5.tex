@@ -1,0 +1,88 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Tychonoff's Theorem}
+
+This section is entirely devoted to proving that arbitrary  (or infinite) products of compact spaces
+are also compact. Unlike its finite counterpart, the proof for this is not so well behaved. It can
+be achieved using the Well ordering principle, or using Zorn's lemma. We present the proof using
+Zorn's lemma, which we state without proof.
+
+\begin{lemma}[Zorn's Lemma]\label{3.5.1}
+    Every strictly partially ordered set, whose simply oredered sets have upperbounds, has a maximal
+    element.
+\end{lemma}
+
+\begin{lemma}\label{3.5.2}
+    Let $X$ be a set, and  $\Ac$ be a collection of subsets satisfying the finite intersection
+    property. There exists a collection  $\Dc$ of subsets of  $X$ such that  $\Ac \subseteq \Dc$ and
+    $\Dc$ has the finite intersection property, and is maximal with respect to it.
+\end{lemma}
+\begin{proof}
+    We construct $\Dc$ using Zorn's lemma on a set whose elements are collections of subsets of
+    $X$; let us denote is as a  \textbf{superset}. Let $\Ac \subseteq 2^X$ satisfy the FIP. Define a
+    partial order $\subset$ on supersets by  $\Ac \subset \Bc$ if  $\Ac \subseteq \Bc$ and  $\Ac
+    \neq \Bc$. Let  $\A$ be the superset of all collections  $\Bc \subseteq 2^X$ such that  $\Ac
+    \subset \Bc$ and  $\Bc$ satisfies the FIP.
+
+    Let  $\B \subseteq \A$ be ordered by inclusion and let  $\Cc=\bigcup_{\Bc \in \B}{\Bc}$. Since
+    $\B \subseteq \A$, we get  $\Ac \subset \Cc$. Now let $C_1, \dots, C_n \in \Cc$. By definition,
+    there is a $\Bc_i \in \B$ such that  $C_i \in \Bc_i$ for  $1 \leq i \leq n$. Then we have the
+    superset  $\{\Bc_i\}_{i=1}^n \subseteq \B$ is finite, hence there is a largest element, i.e.
+    there is a $\Bc_k$ such that  $\Bc_i \subset \Bc_k$ for all  $1 \leq i \leq n$,  $i \neq k$.
+    Then all  $C_i \in \Bc_k$, and since  $\Bc_k$ has the FIP, we get  $\bigcap_{i=1}^n{C_i} \neq
+    \emptyset$. So $\Cc$ also has the finite intersection property, putting  $\Cc \in \A$. Also
+    notice that  $\Cc$ is an upper bound of  $\B$.
+\end{proof}
+
+\begin{lemma}\label{3.5.3}
+    Let $X$ be a set and let  $\Dc \subseteq 2^X$ be maximal with respect to the finite intersection
+    property. Then:
+    \begin{enumerate}
+        \item[(1)] Any finite interesection of elements of $\Dc$ is an element of  $\Dc$.
+
+        \item [(2)] If $A \subseteq X$ intersects every element of  $\Dc$, then  $A \in \Dc$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Let $B=\bigcap_{i=1}^n{D_i}$ where $D_i \in \Dc$ for all  $1 \leq i \leq n$. Define a collection
+     $\Ec=\Dc \cup \{B\}$. Now take $\{E_j\}_{j=1}^m \subseteq \Ec$. If $E_j \neq B$ for all  $j$,
+     then  $\bigcap{E_j} \neq \emptyset$, by the FIP of  $\Dc$. If  $E_j=B$ for some $1 \leq j \leq
+     m$, then  $\bigcap{E_j}=E_1 \cap \dots \cap E_m \cap B=\bigcap{E_j} \cap \bigcap{D_i} \neq
+     \emptyset$. Either way $\Ec$ satisfies the FIP. Now since  $\Dc \subseteq \Ec$ and  $\Dc$ is
+     maximal with respect to the FIP, this makes  $\Dc=\Ec$.
+
+     Now let  $A \subseteq X$ and define  $\Ec=\Dc \cup \{A\}$. Take $\{E_i\}_{i=1}^n \subseteq
+     \Ec$. If $E_i \neq A$ for all $i$, then  $\bigcap{E_i}$ is a finite intersection consisting of
+     elements of $\Dc$ and  (nonempty) intersections of elements of $\Dc$ and  $A$, so
+     $\bigcap{E_i} \neq \emptyset$. On the other hand, if $E_i=A$ for some  $1 \leq i \leq n$, then
+      $\bigcap{E_i}=E_1 \cap \dots \cap E_n \cap A$. Since $A$ intersects every element of  $\Dc$,
+      we get  $\bigcap{E_i} \neq \emptyset$ again. HEnce $\Ec$ has the FIP, which makes  $A \in
+      \Dc$.
+\end{proof}
+
+\begin{theorem}[Tychonoff's Theorem]\label{3.5.4}
+    Arbitrary products of compact spaces are compact in the product topology.
+\end{theorem}
+\begin{proof}
+    Let $X=\prod{X_\alpha}$ with $X_\alpha$ compact for all  $\alpha$. Take  $\Ac$ the collection of
+    all subsets of  $X$ satisfying the finite intersection property, and consider  $\bigcap_{A \in
+    \Ac}{\cl{A}}$.
+
+    By lemma \ref{3.5.2}, there is a collection $\Dc \subseteq 2^X$ such that  $\Ac \subset \Dc$
+    (refer to the partial order defined in lemma \ref{3.5.2}) and $\Dc$ is maximal with respect to
+    the FIP.
+
+    Let  $\pi_\alpha:X \rightarrow X_\alpha$ be the projection of $x \rightarrow x_\alpha$ and
+    consder the collection $\{\pi_\alpha(D)\}_{D \in \Dc}$ of subsets of $X_\alpha$. Since  $\Dc$
+    has the FIP,  so does  $\{\pi_\alpha(D)\}$. Now by the compactness of  $X_\alpha$, take
+    $x_\alpha \in X_\alpha$ such that  $x_\alpha \in \bigcap{\cl{\pi_\alpha(D)}}$ for each $\alpha$.
+    Let  $x \in X$. We wish to show  $x \in \cl{D}$.
+
+    Let $U_\beta$ be a neighbourhood of  $x_\beta \in X_\beta$, and considet the subbasis element
+    $\pi^{-1}_\beta(U_\beta)$. Since $x_\beta \in \cl{\pi_\beta(D)}$, we have $U_\beta \cap
+    D=\pi_\beta(y)$, with $y \in D$. Then by lemma \ref{3.5.3}, we have that every basis element
+    containing $x$ is in  $\Dc$. Then every basis element containing  $x$ intersects every $D \in
+    \Dc$, thus  $x \in \cl{D}$. This shows that $X$ is compact.
+\end{proof}
