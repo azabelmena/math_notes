@@ -1,1 +1,202 @@
 \section{The Class Equation.}
+
+\begin{definition}
+    Let $G$ be a group. We call two elements  $a,b \in G$ \textbf{conjugate} if
+    $b=ga\inv{g}$ for some $g \in G$. We call the orbits of $G$ acting on itself
+    via conjugation the \textbf{conjugacy classes} of $G$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] If we define the relation $\sim$ on $G$ by $a \sim b$ if and
+            only if  $b=ga\inv{g}$ for some $g \in G$, we can see that  $\sim$
+            is reflexive and transitive; however  $\sim$ is not symmetric. If $a
+            \sim b$, then  $b=ga\inv{g}$, os $\inv{b}=\inv{g}\inv{a}g$, which
+            makes $\inv{a}=g\inv{b}\inv{g}$. So $\inv{b} \sim \inv{a}$. This
+            means that conjugacy of elements is not an equivalence relation.
+
+        \item[(2)] If $G$ is Abelian then the conjugacy class of any $a \in G$
+            is the point-set $\{a\}$.
+
+        \item[(3)] For any group $G$ of order  $\ord{G}>1$, $G$ does not act on
+            itself transitively via conjugation, as  $a=ga\inv{g}$ if, and only
+            if $a \in Z(G)$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $G$ be a group. We call subsets  $S,T \subseteq G$  \textbf{conjugate}
+    if $T=gS\inv{g}$ for some $g \in G$.
+\end{definition}
+
+\begin{lemma}\label{4.3.1}
+    The number of conjugates of a subset $S$ of a group  $G$ is the indexs of
+    the normalizer of $S$ in $G$; i.e.  $[G:N(S)]$. In particular, the number of
+    conjugates of an element $s \in G$ is  $[G:C(s)]$.
+\end{lemma}
+\begin{proof}
+    By the corollary to lemma \ref{4.1.4}, we have that $S$ has  $[G:\stab{S}]$
+    conjugates. Notice then that $\stab{S}=\{g \in G : gS\inv{g}=S\}=N(S)$, by
+    definition. Moreover, notice that $N(\{s\})=C(s)$ for any $s \in G$.
+\end{proof}
+
+\begin{theorem}[The Class Equation]\label{4.3.2}
+    Let $G$ be a finite group and  $g_1, \dots, g_r$ representatives of distinct
+    conjugacy classes of $G$ not in  $Z(G)$. Then
+    \begin{equation*}
+        \ord{G}=\ord{Z(G)}+\sum_{i=1}^r{[G:C(g_i)]}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Notice that $x$ has conjugacy class  $\{x\}$ if, and only if $x \in Z(G)$.
+    then $x=gx\inv{g}$ for all $x \in G$. Let  $Z(G)=\{z_1, \dots, z_m\}$, with
+    $z_1=e$ and let $\Kc_1, \dots, \Kc_r$ the conjugacy classes of $G$ not in
+    $Z(G)$ with representatives $g_1, \dots, g_r$. Then the conjugacy classes of
+    $G$ are precisely:
+    \begin{align*}
+        \langle e \rangle && \{z_2\} && \dots && \{z_m\} && \Kc_1 && \dots && \Kc_r   \\
+    \end{align*}
+    Since these conjugacy classes partition $G$, we get
+    \begin{equation*}
+        \ord{G}=\sum_{i=1}^m{1}+\sum_{i=1}{r}{|\Kc_i|}=\ord{Z(G)}|\sum{[G:C(g_i)]}
+    \end{equation*}
+\end{proof}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] For any Abelian group $G$,  $\ord{G}=\ord{Z(G)}$ and the
+            class equation gives nothing interesting.
+
+        \item[(2)] In any group $G$, notice that  $\langle g \rangle \leq C(g)$.
+            Now, consider the quaternion group $\Hb$, then
+            $\langle i \rangle \leq C(i)$ and since $i \in Z(\Hb)$, we have
+            $[\Hb:\langle i \rangle]=2$ so that $\langle i \rangle=C(i)$. So $i$
+            has two conjugates: itself, and  $-i=ki\inv{k}$. By similar reasoning,
+            the conjugacy classes of $\Hb$ are
+            \begin{align*}
+                \langle 1 \rangle && \{-i,i\} && \{-j,j\} && \{-k,k\}   \\
+            \end{align*}
+            Then the class equation gives $\ord{\Hb}=2+2+2+2=8$.
+
+        \item[(3)] The conjugacy classes of $D_8$ are
+            \begin{align*}
+                \langle e \rangle && \langle r^2 \rangle &&\{r,r^2\} &&
+                \{t,tr^2\} && \{tr,tr^3\}   \\
+            \end{align*}
+            and the class equation gives $\ord{D_8}=2+2+2+2=8$.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{4.3.3}
+    If $p \in \Z^+$ is prime, and $P$ is a group of order $p^r$, for some  $r
+    \in \Z^+$, then $P$ has nontrivial center.
+\end{theorem}
+\begin{proof}
+    By the class equation, we have $\ord{P}=\ord{Z(P)}+\sum{[P:C(g_i)]}$, where
+    each $g_i$ are representatives of distinct non central conjugacy classes. By
+    definition, we cannot have $C(g_i)=P$, so $p|[P:C(g_i)]$. Since we also have
+    that $p|\ord{P}$, we must have that $p|\ord{Z(P)}$.
+\end{proof}
+\begin{corollary}
+    If $\ord{P}=p^2$, then $P$ is Abelian; in particular  $P \simeq
+    \faktor{\Z}{p^2\Z}$ or $P \simeq \faktor{\Z}{p\Z} \times \faktor{\Z}{p\Z}$.
+\end{corollary}
+
+Consider now, the conjugation of symmetric groups. We then have the following.
+
+\begin{lemma}\label{4.3.4}
+    let $s,t \in S_n$ be permutations where $s$ has cycle decomposition
+    \begin{equation*}
+        s=(a_1 \ a_2 \ \dots \ a_{k_1})(b_1 \ b_2 \ \dots \ b_{k_2})\dots
+    \end{equation*}
+    Then $ts\inv{t}$ has cycle decomposition
+    \begin{equation*}
+        ts\inv{t}=(t(a_1) \ \dots \ t(a_{k_1}))(t(b_1) \ \dots \ t(b_{k_2}))\dots
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    If $s:i \xrightarrow{} j$, then $ts\inv{t}:t(i) \xrightarrow{} t(j)$. So if
+    the pair $(i,j)$ appears in the cycle decomposition of $s$, the pair
+    $(t(i),t(j))$ appears in the cycle decomposition of $ts\inv{t}$.
+\end{proof}
+
+\begin{definition}
+    If $s \in S_n$ is the product of cycles (including $1$-cycles) of lengths
+    $n_1, \dots, n_r$, with $n_1 \leq \dots \leq n_r$, then we call the $r$-tuple
+    $(n_1, \dots, n_r)$ the \textbf{cycle type} of $s$.
+\end{definition}
+
+\begin{definition}
+    A \textbf{partition} of a positive integer $n \in \Z^+$ is any nondecreasing
+    sequence of positive integers whose sum is $n$.
+\end{definition}
+
+\begin{lemma}\label{4.3.5}
+    Two elements of $S_n$ are conjugates if and only if they have the same cycle
+    type.
+\end{lemma}
+\begin{proof}
+    By lemma \ref{4.3.4}, two conjugate permutations have the same cycle type.
+    Now suppose that permutations $s_1,s_2 \in S_n$ have the same cycle tipe.
+    Order $s_1$ and $s_2$ in cycles of non-decreasing lenght (including
+    $1$-cycles). Then $s_1$ and $s_2$ is just a list of integers from $1$ to
+    $n$ appearing exactly once. Label  $s_1$ and $s_2$ as:
+    \begin{align*}
+        s_1     &=      s_{11} \ s_{12} \ \dots \ s_{1n}   \\
+        s_1     &=      s_{21} \ s_{22} \ \dots \ s_{2m}   \\
+    \end{align*}
+    Define now, the map $t:s_{1i} \xrightarrow{} s_{2i}$ sending the $i$-th
+    entry of  $s_1$ to the $i$-th entry of $s_2$. Then $t \in S_n$ is a
+    permutation and moreover,  $ts_1\inv{t}=s_2$.
+\end{proof}
+\begin{corollary}
+    The number of conjugacy classes of $S_n$ is the number of partitions of
+    $n$.
+\end{corollary}
+
+\begin{example}\label{}
+\item[(1)] Letg $s_1=(1)(3 \ 5)(8 \ 9)(2 \ 4 \ 7 \ 6)$ and $s_2=(3)(4 \ 7)(8 \
+    1)(5 \ 2 \ 6 \ 9)$. Define $t:1 \xrightarrow{} 3 \xrightarrow{} 4, 5
+    \xrightarrow{} 7, 8 \xrightarrow{} 8$. Then
+    \begin{equation*}
+        t=(1 \ 3 \ 4 \ 2 \ 5 \ 7 \ 6 \ 9)(8)
+    \end{equation*}
+    and $ts_1\inv{t}=s_2$.
+\end{example}
+
+\begin{lemma}\label{4.3.6}
+    Normal subgroups of a group are unions of conjugacy classes of the group.
+\end{lemma}
+
+\begin{theorem}\label{4.3.7}
+    The alternating group $A_5$ of order $60$ is simple.
+\end{theorem}
+\begin{proof}
+    The representatives of the cycle types of even permutations are given by
+    \begin{align*}
+        (1) && (1 \ 2 \ 3) && (1 \ 2 \ 3 \ 4 \ 5) && (1 \ 2)(3 \ 4)     \\
+    \end{align*}
+    We notice that there are $20$  $3$-cycles in $S_5$, so that all $20$
+    $3$-cycles in  $A_5$ are conjugate. Now, notice that there are $24$
+    $5$-cycles in $A_5$, with only $12$ of them conjugates of the cycle  $(1 \ 2
+    \ 3 \ 4 \ 5)$. So there is a $5$-cycle, $s$, not conjugate to $(1 \ 2 \ 3 \
+    4 \ 5)$ in $A_5$. Now, $s$ also has  $12$ distinct conjugates so that the
+     $5$-cycles of  $A_5$ lie in two conjugacy classes of  $A_5$, each with size
+     $12$.
+
+     Now the remaining $15$ nonidentity elements of  $A_5$ must have order $2$,
+     which gives us the cycle type  $(2,2)$. Then notice that the cycle
+     decomposition $(1 \ 2)(3 \ 4)$ has $15$ distinct conjugates, all of which
+     are the  $15$ elements of order  $2$.
+
+     We then get that the conjugacy classes of  $A_5$ are of the following
+     orders:
+     \begin{align*}
+         1  &&  12  &&  12  &&  15  &&  20  \\
+     \end{align*}
+     Suppose now, that $H \unlhd A_5$, then by lemma \ref{4.3.6}, $H$ is the
+     union of conjugacy classes of  $A_5$. Then $\ord{H}|60$ and $\ord{H}$ is
+     the sum of elements of subsets of the multiset $\{1, 12, 12, 15, 20\}$.
+     Therefore the only options are that $\ord{H}=60$ or $\ord{H}=1$; that is,
+     $H=A_5$ or $H=\langle (1) \rangle$.
+\end{proof}
