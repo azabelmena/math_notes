@@ -202,7 +202,16 @@
         \item[(4)] For all $n \neq 6$,  $\Aut{S_n}=\Inn{S_n} \simeq S_n$. If
             $n=6$, then $[\Aut{S_6}:\Inn{S_6}]=2$
 
-        \item[(5)] $\Aut{D_8} \simeq D_8$ and $\Aut{\Hb} \simeq S_4$.
+        \item[(5)] Notice that $D_8 \unlhd D_{16}$. Then $\Inn{D_{16}} \simeq
+            \Aut{D_8}$ and notice that $Z(D_{16})= \langle r^4 \rangle$. So
+            $\Aut{D_8} \simeq \faktor{D_{16}}{\langle r^4 \rangle} \simeq D_8$.
+            Therefore $\ord{{(\Aut{D_8})}}=8$.
+
+        \item[(6)] Notice that $V_4 \Char D_8$ and that $D_8 \Char S_4$, so we
+            get that $V_4 \Char S_4$
+
+        \item[(7)] Notice that $\langle r \rangle$ is the unique subgroup of
+            order $n$ of  $D_{2n}$, and so $\langle r \rangle \Char D_{2n}$.
     \end{enumerate}
 \end{theorem}
 
@@ -216,3 +225,30 @@
     $C(P)=G$ and $P \leq Z(G)$. Since $\faktor{G}{Z(G)}$ is cyclic, $G$ must be
     Abelian.
 \end{example}
+
+\begin{lemma}\label{4.4.7}
+    For any group $G$,  $\Inn{G} \unlhd \Aut{G}$.
+\end{lemma}
+\begin{proof}
+    We have that $\Inn{G} \leq \Aut{G}$. Now, let $s \in \Aut{G}$, and consider
+    the map $\phi_g:x \xrightarrow{} gx\inv{g}$ of conjugation by some $g \in G$.
+    Then we have $s\phi_g\inv{s}(x)=s(\phi_g(\inv{s}(x)))=s(g\inv{s}(x)\inv{g})=
+    s(g)x\inv{s}(g)$ So that $s(\Inn{G})\inv{s} \subseteq \Inn{G}$.
+\end{proof}
+
+\begin{definition}
+    Let $G$ be a group. We call the factor group  $\faktor{\Aut{G}}{\Inn{G}}$
+    the \textbf{outer automorphism group} of $G$.
+\end{definition}
+
+\begin{lemma}\label{4.4.8}
+    Let $G$ be Abelian of order $pq$, where $p,q \in \Z^+$ are distinct primes.
+    Then $G$ is cyclic.
+\end{lemma}
+\begin{proof}
+    By Cauchy's theorem, we have that $p|pq$ and  $q|pq$, so there exist
+    elements  $x,y \in G$ such that  $\ord{x}=p$ and $\ord{y}=q$. Then we have
+    that $((xy)^p)^q=(xy)^{pq}=(x^p)^q(y^q)^p=e$ so that $\ord{xy}=pq$ (since
+    $p$ and $q$ are prime, $pq$ is the smalles such integer for which
+    $(xy)^{pq}=e$). Then we have that $\ord{G}=\ord{xy}$. Therefore $G$
+\end{proof}
