@@ -1,1 +1,151 @@
 \section{Sylow's Theorems}
+
+\begin{definition}
+    Let $G$ be a group and $p$ a prime. A  \textbf{$p$-subgroup} of $G$ is a
+    subgroup of $G$ of order  $p^r$ for some $r \in \Z^+$. If $\ord{G}=p^r$, we
+    call  $G$ a  \textbf{$p$-group}.
+\end{definition}
+
+\begin{definition}
+    If $G$ is a group of order  $p^rm$, where  $p$ is prime, and  $p \not| m$
+    for  $m,r \in \Z^+$, then we call a subgroup of $G$ a \textbf{Sylow
+    $p$-subgroup} (or \textbf{$p$-Sylow}) of $G$ if it has order $p^r$. We
+    denote the set of all Sylow $p$-subgroups of $G$ by  $\Syl{(p,G)}$. We
+    denote $n_p(G)=|\Syl{(p,G)}|$ to be the number of Sylow $p$-subgroups of
+    $G$.
+\end{definition}
+
+\begin{lemma}\label{4.5.1}
+    Let $P \in \Syl{(p,G)}$ be a $p$-Sylow of a group  $G$. If  $Q$ is a
+    $p$-group of  $G$, then  $Q \cap N(P)=Q \cap P$.
+\end{lemma}
+\begin{proof}
+    Let $H=Q \cap N(P)$, since $P \leq N(P)$, we have $Q \cap P \leq H$. Now, by
+    definition, $H \leq Q$. Since $H \leq N(P)$, $PH$ is a group, and  $PH \leq
+    G$. Then we have
+    \begin{equation*}
+        \ord{PH}=\frac{\ord{P}\ord{H}}{|P \cap H|}=\frac{p^rp^l}{p^m}=p^\alpha
+    \end{equation*}
+    for some $r,l,m,\alpha \in \Z^+$. So $PH$ is a  $p$-subgroup of  $G$. Then
+    $p^r|p^\alpha$ and  $p^r|\ord{G}$ so $p^r$ is the largest prime power
+    dividing  $\ord{G}$. This makes $m=l$ and $r=\alpha$ hence $\ord{PH}=p^r$.
+    So $P=PH$ making $H \leq P$. Therefore $H=Q \cap P$.
+\end{proof}
+
+\begin{theorem}[Sylow's Theorems]\label{4.5.2}
+    Let $G$ be a group of order  $p^rm$, where  $p$ is a prime and  $p \not| m$
+    for  $m,r \in \Z^+$. Then the following statements are true.
+    \begin{enumerate}
+        \item[(1)] There exist Sylow $p$-subgroups of $G$; i.e. $\Syl{(p,G)}
+            \neq \emptyset$.
+
+        \item[(2)] If $Q$ is a  $p$-subgroup of $G$, and $P$ is a $p$-Sylow in
+            $G$, then there exists a $g \in G$ such that $Q \leq gP\inv{g}$. In
+            particular, any two Sylow $p$-subgroups are conjugate in $G$.
+
+        \item[(3)] $n_p(G) \equiv 1 \mod{p}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    By induction on $\ord{G}$, if $\ord{G}=1=p^0 \cdot 1$, then we are done.
+    Now, suppose that there exist $p$-Sylows for any group of order less than
+    $p^rm$. Now, if $p|\ord{Z(G)}$, then by Cauchy's theorem $Z(G)$ has an element
+    of order $p$ which generates a cyclic subgroup $N$ of order $p$ in $Z(G)$.
+    Consider then the factor set $\faktor{G}{N}$. Then $|\faktor{G}{N}|p^{r-1}m$
+    and by hypothesis, $\faktor{G}{N}$ has a $p$-Sylow subgroup of order
+    $p^{r-1}$. If $P$ is the subgroup of $G$ containing $N$ for which
+    $\faktor{P}{N}$ exists, then $\ord{P}=|\faktor{P}{N}|\ord{N}=p^r$ making $P$
+    a $p$-Sylow in $G$.
+
+    Now, suppose that  $p \not| \ord{Z(G)}$, and let $g_1, \dots, g_l$ be the
+    representatives of distinct noncentral conjugacy classes of $G$. Then by the
+    class equation:
+    \begin{equation*}
+        \ord{G}=\ord{Z(G)}+\sum_{i=1}^l{[G:C(g_i)]}
+    \end{equation*}
+    Now, if $p|\sum{[G:C(g_i)]}$, since $p|\ord{G}$ we must also have
+    $p|\ord{Z(G)}$, which cannot happen by assumption; therefore $p \not|
+    \sum{[G:C(g_i)]}$. There is then some $1 \leq i \leq l$ for which  $p \not|
+    [G:C(g_i)]$, so that $\ord{C(g_i)}=p^rk$ for some $k \in \Z^+$, where  $p
+    \not| k$. Since  $g_i \notin Z(G)$ for all $i$, and $\ord{C(g_i)}<\ord{G}$,
+    by hypothesis $C(g_i)$ has a $p$-Sylow, $P$, making  $P$ a $p$-Sylow of $G$.
+    Therefore $\Syl{(p,G)} \neq \emptyset$.
+
+    Now, let $P$ be a Sylow $p$-subgroup of $G$ and let  $0=\{P_1, \dots, P_s\}$
+    such that $P_i=gP\inv{g}$ for some $g \in G$. That is,  $S$ is the set of
+    all conjugates of  $P$. Let $Q$ be any $p$-subgroup of $G$, then $Q$ acts on
+     $S$ via conjugation, that
+     \begin{equation*}
+         S=\bigcup_{i=1}^s{\Oc(P_i)}
+     \end{equation*}
+     Where $\Oc(P_i)$ is the orbit of $P_i$ under the action of  $Q$. Then we
+     have
+     \begin{equation*}
+         r=\sum_{i=1}^s{|\Oc(P_i)|}
+     \end{equation*}
+     Then by the corollary to lemma \ref{4.1.4}, $|\Oc(P_i)|=[G:N_Q(P_i)]$ where
+     $N_Q(P_i)$ is the normalizer of $P_i$ in $Q$. Then $N_Q(P_i)=Q \cap N(P_i)=Q
+     \cap P_i$ by lemma \ref{4.5.1}; and we get $|\Oc(P_i)|=[G:P_i \cap Q]$ for
+     all $1 \leq i \leq s$.
+
+     Now take $Q=P_1=gP\inv{g}$ for some $g \in G$. Then  $|\Oc(P_1)|=1$, now
+     for all $i>1$, we have $P_1 \neq P_i$ so $[P_1:P_1 \cap P_i]=p^l$ for $l
+     \in \Z^+$. That is,  $p||\Oc(P_i)|$ Therefore
+     \begin{equation*}
+         r=|\Oc(P_1)|+\sum_{i=2}^s{|\Oc(P_i)|}=1+kp \equiv 1 \mod{p}
+     \end{equation*}
+
+     Now, let $Q$ be any $p$-subgroup of $G$ not contained in  $P_i$ for all  $1
+     \leq i \leq s$. Then  $Q \not\leq gP\inv{g}$ for all $g \in G$. THen  $Q
+     \cap P_i \leq Q$ so that $|\Oc(P_i)|=[Q:Q \cap P_i]=1$, which makes
+     $p|\Oc(P_i)|$ for all $i$ which makes  $p|r$. But  $r \equiv 1 \mod{p}$, a
+     contradiction. Therefore we must have that $Q \leq gP\inv{g}$ for some $g
+     \in G$. Now if $Q$ is any  $p$-Sylow of  $G$, then $Q$ is a $p$-subgroup of
+      $G$. So that  $Q \leq gP\inv{g}$ for some other $p$-Sylow $P$. Now since
+      $\ord{Q}=\ord{gP\inv{g}}=p^r$, we get that $Q=gP\inv{g}$ making $p$-Sylows
+      conjugates of eachother. Moreover, we get that $S=\Syl{(p,G)}$ so that
+      $n_p(G)=r \equiv 1 \mod{p}$.
+\end{proof}
+\begin{corollary}
+    f $P$ is $p$-Sylow in $G$, then  $[G:N(P)]=n_p(G)$ and $n_p(G)|m$.
+\end{corollary}
+\begin{proof}
+    By lemma \ref{4.3.1} $n_p=|\Syl{(p,G)}|=[G:N(P)]$ for all $P \in
+    \Syl{(p,G)}$.
+\end{proof}
+\begin{corollary}
+    The following are equivalent for any group $G$.
+    \begin{enumerate}
+        \item[(1)] $P$ is the unique Sylow  $p$-subgroup of  $G$ and
+            $n_p(G)=1$.
+
+        \item[(2)] $P \unlhd G$.
+
+        \item[(3)] $P \Char G$
+
+        \item[(4)] All subgroups generated by elements of order a power of $p$
+            are $p$-subgroups. That is, if $X \subseteq G$ such that
+            $\ord{x}=p^l$ for all $x, \in X$,  $l \in \Z^+$, then  $\langle X
+            \rangle$ is a $p$-subgroup of  $G$.
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    Suppose that $\Syl{(p,G)}=\{P\}$ and $n_p(G)=1$, then $gP\inv{g}=P$, for
+    all $g \in G$ making $P \unlhd G$. COnversly, if $P \unlhd G$, and  $Q \in
+    \Syl{(p,G)}$ then there exists a $g \in G$ such that  $Q=gP\inv{g}=P$, making
+    $Q=P$ the unique $p$-Sylow of $G$.
+
+    Now, if  $P \Char G$, then  $P \unlhd G$. On the other hand, suppose that
+    $P \unlhd G$. Then  $P$ is the unique group of order $p^r$ in $G$, for some
+     $r \in \Z^+$, so that  $P \Char G$.
+
+     Now, suppose that $\Syl{(p,G)}=\{P\}$ and $n_p(G)=1$. Let $X \subseteq G$
+     such that $\ord{x}=p^l$ for some $l \in \Z^+$. By conjugation, for all  $x
+     \in X$, there exists a  $g \in G$ such that  $x \in gP\inv{g}=P$, so that
+     $X \subseteq P$. Necessarily we then get  $\langle X \rangle \leq P$,
+     making $\langle X \rangle$ a $p$-subgroup. Conversely if  $\langle X
+     \rangle$ is a $p$-subgroup of $G$, let $X=\bigcup{P}$ where $P \in
+     \Syl{(p,G)}$. Then any $P$ is a subgroup of  $\langle X \rangle$, and since
+     $P$ is also a $p$-subgroup of  $G$, of maximum order $p^r$, then
+     $P=\langle X \rangle$ making $\Syl{(p,G)}=\{P\}$ and hence $n_p(G)=1$.
+\end{proof}
