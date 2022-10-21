@@ -1,1 +1,139 @@
 \section{Applications of Sylow's Theorems}
+
+We go over some specific examples which utilize Sylow's theorems.
+
+\begin{example}[Groups of order $pq$, where $p<q$]\label{4.13}
+    Let $G$ be a group of order $\ord{G}=pq$, where $p<q$, for  $p,q$ primes.
+    Let  $P \in \Syl{(p,G)}$ and let $Q \in \Syl{(q,G)}$. Since $n_q(G) \equiv 1
+    \mod{q}$, $n_q(G)=1+kq$ for some $K \in \Z^+$. Now,  $n_q(G)|p$, and since
+    $p<q$ we get  $k=0$ so that  $n_q(G)=1$. This makes $Q \unlhd G$ by the
+    corollory to Sylow's theorems.
+
+    Now, we also have that  $n_p(G)|q$, so $n_p_(G)=1$ or $n_p_(G)=q$. Now if $p
+    \not| q-1$, then  $n_p(G)=1$ making $P \ublhd G$. Letting  $P=\langle x
+    \rangle$ and $Q=\langle y \rangle$. If $P \unlhd G$, then
+    $\faktor{G}{C(P)}$ is isomorphic to a subgroup of $\Aut{\faktor{\Z}{p\Z}}$
+    of order $p-1$. By Cayley's theorem. Now, by Lagrange's theorem, and since
+    $p,q \not| p-1$ we must have  $G=C(P)$; so that $x \in P \leq Z(G)$.
+    Therefore $x$ and $y$ commute and  $\ord{xy}=pq$, which makes $G \simeq
+    \faktor{\Z}{p\Z}$.
+
+    Now, if $p|q-1$, then letting $\ord{N(Q)}=q(q-1)$ and by Cauchy's theorem,
+    $N(Q)$ has a sbgroup of order $p$. This makes $PQ \leq G$, and since
+    $C(Q)=Q$, $PQ$ is abelian. Since  $\Aut{\faktor{\Z}{p\Z}}$ is cyclic, this
+    makes $PQ$ unique.
+\end{example}
+
+\begin{example}[Groups of order $30$]\label{4.14}
+    Let $G$ be a group of order  $\ord{G}=30=5 \cdot 3 \cdot 2$. Let $P \in
+    \Syl(5,G)$ a $5$-Sylow, and let  $Q \in \Syl(3,Q)$ a $3$-Sylow. If  $P
+    \unlhd G$ or  $Q \unlhd G$, then  $\ord{PQ}=5 \cdot 3=15$; moreover, $P
+    \Char{PQ}$ and $Q \Char{PQ}$, making $P \unlhd G$ and  $Q \unlhd G$.
+
+    Now suppose that neither $P$ nor $Q$ are normal in $G$. Since $n_5(G) \equiv
+    1 \mod{5}$, $n_3(G) \equiv 1 \mod{3}$ and $n_5(G)|6=3 \cdot 2$ and
+    $n_3(G)|10=5 \cdot 2$, we must have that $n_5(G)=6$ and $n_3(G)=10$. Now,
+    each element of order $5$ lies in a $5$-Sylow, so by Lagrange's theorem,
+    distinct $5$-Sylows intersect at  $\langle e \rangle$. Therefore $G$ has $4
+    \cdot 6=24$ elements of order $5$. Similarly $G$ has $2 \cdot 10=20$ element
+    of order $3$. This makes $\ord{G} \geq 20+24=44>30$, which is a contradiction.
+    Hence either $P$, or  $Q$ must be normal in $G$. This also implies that $P$
+    is the unique Sylow $p$-subgroup of $G$.
+\end{example}
+
+\begin{example}[Groups of order $12$]\label{4.15}
+    Let $G$ be a group of order $\ord{G}=12=2^2 \cdot 3$. Suppose that $n_3 \neq
+    1$, and let $P \in \Syl{(3,G)}$. Then $n_3|4=2^2$ and since $n \equiv 1
+    \mod{3}$, we get $n_3=4$. Now, by Lagrange's theorem, distinct $3$-Sylows
+    intersect at  $\langle e \rangle$, so that $G$ has $2 \cdot 4=8$ elements of
+    order $3$. Moreover,  $[G:N(P)]=n_3=4$ so that $N(P)=P$. Consider then the
+    permutation representation $\phi:G \xrightarrow{} S_4$ of conjugation by $G$
+    on  $\Syl{(3,p)}$. Then $\ker{\phi} \leq P$, and since $P \not{\unlhd} G$,
+    $\ker{\phi}=\langle e \rangle$. So $\phi$ is 1--1 making $G$ isomorphic to a
+    subgroup of $S_4$, by Cayley's theorem. So $G \simeq \phi(G) \leq S_4$. Now,
+    since there are precisely $8$ elements of order  $3$ in $S_4$, $\phi(G) \cap
+    A_4$ is a subgroup of at least order $8$. Since  $\ord{G}=\ord{A_4}=12$, we
+    get $G \simeq A_4$.
+\end{example}
+
+\begin{example}[Groups of order $p^2q$, where $p$, and $q$ are distinct]\label{4.16}
+    Let $G$ be a group of order  $p^2q$, where  $p \neq q$, for primes  $p$ and
+     $q$. Let  $P \in \Syl{(p,G)}$ and $Q \in \Syl{(q,G)}$. Suppose that $p>q$,
+     then  $n_p(G)|q$ and $n_p(G) \equiv 1 \mod{p}$ force $n_p(G)=1$. This makes
+     $P \unlhd G$ and hence $P$ is the unique Sylow $p$-subgroup of $G$.
+
+     Now, i  $p<q$, if $n_q(G)=1$, we are done, so suppose that $n_q(G) \neq 1$.
+     Since $n_q(G)|p^2$ $n_q(G)=p$ or $n_q(G)=p^2$. Since  $n_q(G) \equiv 1
+     \mod{q}$, we must have $n_q(G)=p^2$. Moreover notice that  $n_q(G)=1+tq$
+     for some $t \in \Z^+$. So we have
+     \begin{equation*}
+         tq=p^2-1=(p-1)(p+1)
+     \end{equation*}
+     So $q|p-1$ or  $q|p+1$. But since  $q>p$, we must have  $q|p+1$. This
+     forces  $p=2$ and  $q=3$ so that  $\ord{G}=12$, making $Q \unlhd G$.
+\end{example}
+
+We now characterize groups of order $60$.
+
+\begin{theorem}\label{4.6.1}
+    Let $G$ be a group of order $60=2^2 \cdot 5 \cdot 3$. If $G$ has more than
+    one Sylow $5$-subgroup, then $G$ is a simple group.
+\end{theorem}
+\begin{proof}
+    Suppose that $n_5=n_5(G)>1$, but that $G$ is not simple. Then $G$ has at
+    least one nontrivial normal subgroup $N$. now, since  $n_5 \equiv 1
+    \mod{5}$, and $n_5|12=2^2 \cdot 3$, then $n_5=6$. Choose then a Sylow
+    $5$-subgrop $P \in \Syl{(5,G)}$ for which $\ord{N(P)}=10$, so that
+    $[G:N(P)]=n_5=6$.
+
+    Suppose then that $n_5|\ord{N}$, then by Cauchy's theorem, $N$ has a
+    $5$-Sylow, $Q$ and since $N \unlhd G$, $gQ\inv{g} \leq N$ for all $g \in G$.
+    The number of conjugates of $Q$ is $n_5$, so we have $\ord{N} \geq 1+6 \cdot
+    4=25$. By Lagrange's theorem, $\ord{N}=30$, but every group of order $30$
+    has a unique  $5$-Sylow, making  $n_5=1$, a contradiction. Hence $n_5 \not|
+    \ord{N}$. Now, if $\ord{N}=6$ or $\ord{N}=12$, then $N$ has a normal Sylow
+    subgroup $H$ in $G$. let $\ord{H}=2$, or $\ord{H}=3$, or $\ord{H}=4$ then
+    $\ord{\faktor{G}{H}}=30$, $\ord{\faktor{G}{H}}=20$, or
+    $\ord{\faktor{G}{H}}=15$. In each case $\faktor{G}{H}$ has a normal
+    $5$-subgroup  $H'$. Let  $H'$ be the complete preimage of  $H'$ in  $G$,
+    then  $H' \unlhd G$ is nontrivial and  $5|\ord{H}$, which contradicts the
+    above assumption.
+\end{proof}
+\begin{corollary}
+    The alternating group of degree $5$,  $A_5$ is simple.
+\end{corollary}
+\begin{proof}
+    Notice that $\ord{A_5}=\frac{\ord{S_5}}{2}=\frac{120}{2}=60$ and that
+    $\langle (1 \ 2 \ 3 \ 4 \ 5) \rangle$ and $\langle (1 \ 3 \ 2 \ 4 \ 5)
+    \rangle$ are Sylow $5$-subgroups.
+\end{proof}
+
+\begin{theorem}\label{4.6.2}
+    If $G$ is a simple group of order  $60$, then  $G \simeq A_5$.
+\end{theorem}
+\begin{proof}
+    Let $G$ be a simple group of order  $60=2^2 \cdot 5 \cdot 3$. Then
+    $n_2=3,5, \text{ or } 15$. Let $P \in \Syl{(2,G)}$, so that $[G:N(P)]=n_2$.
+    If $H$ were a subgroup of index $3$, $4$, or $2$, then $G$ has a normal
+    subgroup  $K$ in  $H$, with  $\faktor{H}{K} \simeq S_4, S_3, \text{ or
+    }S_2$. Since $K \neq G$, and  $G$ is simple, we must have $K=\langle e
+    \rangle$. But $60 \not| 4!=12$, so  $n_2 \neq 3$.
+
+    Now suppose that $n_2=5$ and consider the permutation representation of left
+    multiplication of $G$ on  $\faktor{G}{N}$, from $G \xrightarrow{} S_5$.
+    Since $\ker \unlhd G$, and $\ker \neq G$, we must have $\ker=\langle e
+    \rangle$, making the permutation representation from $G \xrightarrow{} S_5$
+    1--1. By Cayley's theorem, $G$ is isomorphic to a subgroup of  $S_5$. Now,
+    without loss of generality, let $G \leqS_5$. If $G \not\leq A_5$, then
+    $S_5=GA_5$. By the second isomorphism theorem, we get $[G: G \cap A_5]=2$, a
+    contradiction since $G$ has no normal subgroup of index  $5$. SO  $G \leq
+    A_5$. Since $\ord{G}=\ord{A_5}=60$, we then get that $G=A_5$.
+
+    Lastly, if $n_2=15$, and $P,Q \in \Syl{(2,G)}$, with $P \cap Q=\langle e
+    \rangle$, then $G$ has  $3 \cdot 15=45$ elements of order $5$ So $\ord{G}
+    \geq 24+45=69>60$ which is a contradiction. So we must have that $|P \cap
+    Q|=2$. Let  $M=N(P \cap Q)$, since $\ord{P}=\ord{Q}=4$, we have tht $P$ and
+     $Q$ are Abelian, and  $P,Q \leq M$. Since  $G$ is simple,  $M \neq G$. So
+     $4|\ord{M}$ so $\ord{M}=5$ making $[G:M]=5$. By above we get that $G \simeq
+     A_5$. But $n_2(A_5)=5$, a contradiction so $n_2 \neq 15$.
+\end{proof}
