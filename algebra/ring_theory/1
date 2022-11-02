@@ -1,0 +1,90 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Polynomail Rings, Matrix Rings, and Group Rings.}
+\label{section1}
+
+\begin{theorem}\label{1.2.1}
+    Let $R$ be a commutative ring with identity, and define $R[x]=
+    \{f(x)=a_0+a_1x+\dots+a_nx^n : a_0, \dots a_n \in R\}$. Define the
+    operations $+$ and  $\cdot$ on $R[x]$ for $f(x)=a_0+a_1x+\dots+a_nx^n$ and
+    $g(x)=b_0+b_1x+\dots+b_nx^n$ by:
+    \begin{align*}
+        f+g &=  (a_0+b_0)+(a_1+b_1)x+\dots+(a_n+b_n)x^n \\
+        fg  &=  c_0+c_1x+\dots+c_kx^k \text{ where }
+        c_j=\sum_{i=0}^j{a_ib_{j-i}} \text{ and } k=n+m  \\
+    \end{align*}
+    Then $R[x]$ is a commutative ring with identity.
+\end{theorem}
+
+\begin{definition}
+    Let $R$ be a commutative ring with identity. We call the ring $R[x]$ the
+    \textbf{ring of polynomials} in $x$ with \textbf{coefficients} in $R$ whose
+    elements of the form
+    \begin{equation*}
+        f(x)=a_0+a_1x+\dots+a_nx^n
+    \end{equation*}
+    where $n \geq 0$ are called \textbf{polynomails}. If $a_n \neq 0$, then the
+     \textbf{degree} of $f$ is  denoted $\deg{f}=n$, and $f$ is called
+     \textbf{monic} if $a_n=1$. We call $+$ and $\cdot$ the  \textbf{addition}
+     and \textbf{multiplication} of polynomials.
+\end{definition}
+
+\begin{example}\label{1.6}
+    \begin{enumerate}
+        \item[(1)] Take $R$ any commutative ring with identity and form $R[x]$.
+            One can verify that the polynomial $0(x)=0+0x+\dots+0x^n+\dots=0$,
+            in this case we call $0$ the \textbf{zero polynomial}. Similarly,
+            the additive inverse of $f(x)=a_0+a_1x^1+\dots+a_nx^n$ is the
+            polynomial $-f(x)=-a_0-a_1x^1-\dots-a_nx^n$. Now, since $R[x]$ has
+            identity, the \textbf{identity} polynomial is $1(x)=1+0x+\dots=1$,
+            that is, it is the identity in $R$. Lastly, we call a polynomial $f$
+            with  $\deg{f}=0$ a \textbf{constant polynomial}. Notice that $0$
+            and  $1$ are constant polynomials.
+
+        \item[(2)] $\Z[x]$, $\Q[x]$, $\R[x]$ and $\C[x]$ are the polynomial
+            rings in $x$ with coeffiients in $\Z$, $\Q$, $\R$, and $\C$
+            respectively.
+
+        \item[(3)] Notice that the rings $\Z[\omega]$ and $\Z[i]$ are polynomial
+            rings in $\omega$ and  $i$, respectively, with coefficients in $\Z$,
+            and where $\omega=\sqrt{D}$ if $D \not\equiv 1 \mod{4}$ or
+            $\omega=\frac{1+\sqrt{D}}{2}$ otherwise, and $i^2=-1$. Notice that
+            the highest degree a polynomial in  $\Z[i]$ can achieve is $\deg=1$;
+            however, one may be able to form polynomial rings in other variables
+            with coefficients in $\Z[i]$, i.e. take $Z[x]$, where $Z=\Z[i]$.
+
+        \item[(4)] $\faktor{\Z}{3\Z}[x]$ is the polynomial ring with
+            coefficients in $\faktor{\Z}{3\Z}$.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{1.2.2}
+    Let $R$ be an integral domain, and let  $p,q \neq 0$ be polynomials in
+    $R[x]$. Then the following are true:
+    \begin{enumerate}
+        \item[(1)] $\deg{pq}=\deg{p}+\deg{q}$.
+
+        \item[(2)] The units of $R[x]$ are precisely the units of $R$
+
+        \item[(3)] $R[x]$ is an integral domain.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Consider the leading terms $a_nx^n$ and  $b_mx^m$ of  $p$ and  $q$
+    respectively. Then  $a_nb_mx^{m+n}$ is the leading term of $pq$; moreover we
+    require $a_nb_m \neq 0$. Now, if $\deg{pq}<m+n$, then $ab=0$, making $a$ and
+    $b$ zero divisors of  $R$; impossoble. Therefore  $ab \neq 0$. It also
+    follows that since no term of $p$ is a zero divisor, then $p$ cannot be a
+    zero divisor of  $R[x]$. Lastly, if $pq=1$, then $\deg{p}+\deg{q}=0$, so
+    that $pq$ is a constant polynomial. Noticing that constant polynomials are
+    simply just elements of $R$, then $p$ and $q$ are units.
+\end{proof}
+
+\begin{theorem}\label{1.2.3}
+    LEt $R$ be a ring. Let  $R^{m \times n}$ be the set of all $m \times n$
+    matrices with entries in $R$ and define the operations $+$ and  $\cdot$ by:
+     \begin{align*}
+    \end{align*}
+\end{theorem}

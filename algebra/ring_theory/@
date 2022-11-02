@@ -131,50 +131,6 @@
     Let $RG$ the set of all sums $a_1g_1+\dots+a_ng_n$, where $a_i \in R$ for
     all  $1 \leq i \leq n$. Define the operations $+$ and $\cdot$ by:
     \begin{align*}
-        (a_1g_1+\dots+a_ng_n)+(b_1g_1+\dots+b_ng_n) &= (a_1+b_1)g_1+\dots+(a_n+b_n)g_n \\
-        (a_1g_1+\dots+a_ng_n)(b_1g_1+\dots+b_ng_n)  &=  c_1g_1+\dots+c_ng_n,
-        \text{ where } c_k=\sum_{g_k=g_ig_j}{a_ib_j}
+        (a_1g_1+\dots+a_ng_n)+(b_1g_1+\dots+b_ng_n)
     \end{align*}
-    Then $RG$ forms a ring with identity under  $+$ and  $\cdot$. Moreover, $RG$
-    is commutative if, and only if $G$ is abelian.
 \end{theorem}
-
-\begin{definition}
-    Let $R$ be a ring with identity, and let  $G$ be a finite group of order
-    $n$. We call the ring $RG$ the \textbf{group ring} of $G$. We call the
-    elements of  $RG$  \textbf{formal sums} of the elements of $G$.
-\end{definition}
-
-\begin{example}\label{1.8}
-    \begin{enumerate}
-        \item[(1)] Consider $D_8=\langle r,t : r^4=t^2=1, rt=t\inv{r} \rangle$
-            and $\Z$. Let $a,b \in \Z{D_8}$ where $a=r+r^2-2t$ and  $b=-3r^2+rt$.
-            Then
-            \begin{align*}
-                a+b &=  r-2r^2+rt-t \\
-                ab  &=  -5r^3+r^3t+7r^2t-3  \\
-            \end{align*}
-
-        \item[(2)] For any ring with identity $R$, and finite group $G$, $R
-            \subseteq RG$, for take the elements of  $R$ to be the sums
-            $a_1+\dots+a_n$. $G \subseteq RG$, for  $g_i=1g_i$; moreover, each
-            $g_i$ has an inverse in  $RG$, so we call  $G$ the subgroup of units
-            of $RG$.
-
-        \item[(3)] Let $G$ be a group with $\ord{G}>1$. Let $g \in G$ with
-            $\ord{g}=m$. Notice that the elements $(1-g),(1+g+\dots+g^{m-1}) \in
-            RG$ are nonzero, but that
-            \begin{equation*}
-                (1-g)(1+g+\dots+g^{m-1})=1-g^m=1-1=0
-            \end{equation*}
-            which makes $1-g$ a zero divisor. In general, the ring $RG$ will
-            always have zero divisors.
-
-        \item[(4)] Let $G$ be a finite group. We call the rings  $\Z{G}$,
-            $\Q{G}$, $\R{G}$, and $\C{G}$ the \textbf{integral},
-            \textbf{rational}, \textbf{real}, and \textbf{complex} group rings
-            of $G$, respectively. Notice that $\Z{G} \subseteq \Q{G} \subseteq
-            \R{G} \subseteq \C{G}$. Moreover, if $H \leq G$ is a subgroup of
-            $G$, then  $RH \subseteq RG$ is a subring.
-    \end{enumerate}
-\end{example}
