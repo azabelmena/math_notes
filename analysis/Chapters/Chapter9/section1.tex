@@ -1,0 +1,150 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{The Algebra of Lebesgue Measurable Functions}
+
+\begin{definition}
+    We say a property holds \textbf{almost everywhere} on a measurable set $E$
+    if it holds on  $\com{E}{E_0}$ for some $E_0 \subseteq E$ with $m(E_0)=0$.
+\end{definition}
+
+\begin{theorem}\label{9.1.1}
+    Let $f$ a function with measurable domain. Then the following are equivalent
+    \begin{enumerate}
+        \item[(1)] For every $v \in \R$ the set  $\{x \in E : f(x)>c\}$ is
+            measurable.
+
+        \item[(2)] For every $v \in \R$ the set  $\{x \in E : f(x) \geq c\}$ is
+            measurable.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Notice that $\{x \in E : f \geq c\}=\bigcup{x \in E : f>c+\frac{1}{k}}$
+    which is a countable union of measurable sets. By similar reasoning, we
+    deduce that $\{x \in E: f>c\}$ is measurable.
+\end{proof}
+\begin{corollary}
+    The following are also equivalent.
+    \begin{enumerate}
+        \item[(1)] For every $v \in \R$ the set  $\{x \in E : f(x)<c\}$ is
+            measurable.
+
+        \item[(2)] For every $v \in \R$ the set  $\{x \in E : f(x) \leq c\}$ is
+            measurable.
+    \end{enumerate}
+\end{corollary}
+\begin{corollary}
+    If $c \in \R_\infty$, then $\{x \in E : f=c\}$ is measurable.
+\end{corollary}
+\begin{proof}
+    If $c \in \com{\R}{\infty}$, then we are done. On the other hand, suppose
+    that $c=\infty$, then  $\{x \in E : f(x)=\infty\}=\bigcap\{x \in E : f>k\}$
+    for some $k>0$ large enough, so that  $\inv{f}(\infty)$ is measurable.
+\end{proof}
+
+\begin{definition}
+    We say an extended realvalued function $f:E \xrightarrow{} \R_\infty$ on a
+    measurable set $E$ is \textbf{Lebesgue measurable} if it satisfies one of
+    the above statements in theorem \ref{1.1.9} or its corollories.
+\end{definition}
+
+\begin{theorem}\label{9.1.2}
+    Let $f$ be defined on a measurable set  $E$. Then  $f$ is measurable if, and
+    only if for every opens set $U$ of $\R$,  $\inv{f}(U)$ is measurable.
+\end{theorem}
+\begin{proof}
+    If $\inv{f}(U)$ is measurable, then for each open interval $(c, \infty)$, we
+    have that $f$ is measurable. Conversely, suppose that  $f$ is lebesgue
+    measurable Let  $U$ be open in  $\R$, then  $U=\bigcup{I_k}$ where $\{I_k\}$
+    is a countable collection of open intervals, in fact, take each
+    $I_k=(-\infty,b_k) \cap (a_k, \infty)$. Then $B_k=\inv{f}((-\infty,b_k))$ and
+    $A_k\inv{f}((a_k,\infty))$ are measurable, hences, so is $B_k \cap A_k$.
+    Then we get  $\inv{f}(U)=\inv{f}(\bigcup{(B_k \cap A_k)})$ is measurable.
+\end{proof}
+
+\begin{lemma}\label{9.1.3}
+    Any realvalued function continuous on a measurable set is measurable.
+\end{lemma}
+\begin{proof}
+    Let $f:E \xrightarrow{} \R$ be continuous, where $E$ is measurable. Take
+    $U$ open in $\R$, then $\inv{f}(U)=E \cap V$ is open in $\R$ under the
+    relevant subspace topology. Now, since $E$ and $V$ are measurable, then so
+    is  $\inv{f}(U)$.
+\end{proof}
+
+\begin{theorem}\label{9.1.4}
+    Monotone functions on intervals are measurable.
+\end{theorem}
+
+\begin{theorem}\label{9.1.5}
+    Let $f:E \xrightarrow{} \R_\infty$ an extended realvalued function on a
+    measurable set $E$. Then the following are true
+    \begin{enumerate}
+         \item[(1)] If $f$ is measurable on  $E$, and  $f=g$ almost everywhere
+             on $E$, then $g:E \xrightarrow{} \R_\infty$ is measurable on $E$.
+
+         \item[(2)] If $D \subseteq E$ is measurable, then  $f$ is measurable on
+              $E$ if, and only if its restriction  $f|_{\com{E}{D}}$ is
+              measurable on $\com{E}{D}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Define $A=\{x \in E : f \neq g\}$. Observe tat $\{x \in E : g>c\}=\{x \in E
+    : g>c\} \cup (\{x \in E : f>c\} \cap \com{E}{A})$. Now, since $f=g$ almost
+    everywhere, $m(A)=0$ making $\{x \in E : g>c\}$ measurable.
+
+    Additionally we have $\{x \in E : f>c\}=\{x \in D : f>c\} \cup \{x \in
+    \com{E}{D} : f>c\}$. By above, we complete the proof.
+\end{proof}
+
+\begin{theorem}\label{9.1.6}
+    Let $f,g$ be measurable functions on $E$, and finite almost everywhere on
+    $E$. Then:
+    \begin{enumerate}
+        \item[(1)] For all $a,b \in \R$,  $af+bg$ is measurable on $E$.
+
+        \item[(2)] $fg$ is measurable on $E$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Let $f$ and $g$ be finite almost everywhere on $E$. If  $a=0$, then  $af=0$
+    is measurable. Now, suppose that  $a \neq 0$. Observe that for  $c \in \R$,
+    the set  $\{x \in E : af>c\}=\{x \in E : f>\frac{c}{a}\}$ if $a>0$, and that
+     $\{x \in E : af>c\}=\{x \in E : f<\frac{c}{a}\}$ if $a<0$. This makes  $af$
+     measurable.
+
+     Now, take  $a=b=1$ and consider $f+g$. If $x \in E$ and  $f+g<c$, then
+     $f<c-g$. Now, by the density of $\Q$ in $\R$, there is a  $q \in \Q$ such
+     that  $f<q<c-g$. Thus the set  $\{x \in E : f+g<c\}=\bigcup_{q \in \Q}{(\{x
+     \in E : g<c-q\} \cap \{x \in E : f<q\})}$. Since $\Q$ is countable, and
+     hence, measurable then  $\{x \in E : f+g<c\}$ is measurable making $f+g$
+     measurable. Therefore  $af+bg$ is measurable for any  $a,b \in \R$.
+
+     To show that $fg$ is measurable, notice that
+     $fg=\frac{1}{2}((f+g)^2-f^2-g^2)$. It suffices to show that $f^2$ is
+     measurable. For  $c \geq 0$, $\{x \in E : f^2>c\}=\{x \in E : f>\sqrt{c}\}
+     \cup \{x \in E : f<-\sqrt{c}\}$. If $c<0$, then  $\{x \in E : f^2>c\}=E$.
+     In either case, $f^2$ is measurable.
+\end{proof}
+
+\begin{theorem}\label{9.1.7}
+    Let $g$ be measurable on  $E$. If  $f$ is continuous on all of  $\R$, then
+    $g \circ f$ is measurable on  $E$.
+\end{theorem}
+\begin{proof}
+    Let $U$ be open in $\R$. Then $\inv{(g \circ f)}(U)=\inv{g}(\inv{f}(U))$.
+    Since $f$ is continous, then $V=\inv{f}(U)$ is open in $E$, thus
+    $\inv{g}(V)$ is measurable, since $g$ is measurable. This makes  $\inv{(g
+    \circ f)}(U)$ measurable.
+\end{proof}
+
+\begin{theorem}\label{9.1.8}
+    Let $\{f_k\}_{k=1}^n$ be a finite sequence of measurable functions with
+    common domain $E$ Then the functions $\bar{f}=\max{\{f_1, \dots, f_n\}}$ and
+    $\bbar{f}=\min{\{f_1, \dots, f_n\}}$ are measurable.
+\end{theorem}
+\begin{proof}
+    For every $c \in \R$, we have $\{x \in E : \bar{f}>c\}=\bigcup{\{x \in E :
+    f_k>c\}}$ is measurable. Similar follows for $\bbar{f}$.
+\end{proof}
