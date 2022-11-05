@@ -1,1 +1,113 @@
 \section{The Lebesgue Integral of a Bounded Measurable Function}
+
+\begin{definition}
+    For a simple function $\phi$ on a finitely measurable set $E$, the
+    \textbf{integral} of $\phi$ over  $E$ is define to be
+    \begin{equation*}
+        \int_E{\phi}=\sum_{i=1}^n{a_im(E_i)}
+    \end{equation*}
+    where $\phi=\sum{a_i\chi_{E_i}}$ and $E=\bigcup{E_i}$ is a disjoint union.
+\end{definition}
+
+\begin{lemma}\label{10.1.1}
+    Let $\{E_i\}_{i=1}^n$ be a finite disjoint collection of finitely measurable
+    sets. Let $a_i \in \R$. Then if $\phi=\sum_{i=1}^n{a_i\chi_{E_i}}$, then
+    \begin{equation*}
+        \int_E{\phi}=\sum_{i=1}^n{a_im(E_i)}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\lambda_1, \dots, \lambda_m$ the distinct values of $\phi$. For  $1
+    \leq j \leq m$, take $A_j=\{x \in E : \phi(x)=\lambda_j\}$. Then we have
+    \begin{equation*}
+        \int_E{\phi}=\sum{\lambda_jm(E_j)}
+    \end{equation*}
+    Now, let $I_j$ be the set of indices fr which  $a_i=\lambda_j$. Then
+    \begin{equation*}
+        I=\bigcup{I_j}
+    \end{equation*}
+    is disjoint, and by additivity, we get
+    \begin{equation*}
+        m(A_j)=\sum{m(E_j)} \text{ for all } 1 \leq j \leq m
+    \end{equation*}
+    Therefore
+    \begin{equation*}
+        \sum{a_im(E_i)}=\sum_{j=1}^m{\sum{a_im(E_i)}}=\sum{\lambda_j\sum{m(E_i)}}
+        =\lambda_jm(A_j)=\int_E{\phi}
+    \end{equation*}
+\end{proof}
+
+\begin{lemma}\label{10.1.2}
+    Let $\phi$ and  $\psi$ be simple functions defined on a finitely measurable
+    set $E$. Then for any $a,b \in \R$
+    \begin{equation*}
+        \int_E{a\phi+b\psi}=a\int_E{\phi}+b\int_E{\psi}
+    \end{equation*}
+    Moreover, if $\phi \leq \psi$, then
+    \begin{equation*}
+        \int_E{\phi} \leq \int_E{\psi}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\{E_i\}_{i=1}^n$ be a finite disjoint collection of finitely measurable
+    subsets of $E$, with  $E=\bigcup{E_i}$. Let $\phi$ and  $\psi$ be constant
+    on each  $E_i$ for all $1 \leq i \leq n$ and let $a_i$  $b_i$ the values
+    taken by  $\phi$ and  $\psi$ on  $E_i$, respectively. Then we have
+    \begin{equation*}
+        \int_E{\phi}=\sum{a_im(E_i)} \text{ and } \int_E{\psi}=\sum{b_im(E_i)}
+    \end{equation*}
+    so that
+    \begin{equation*}
+        \int_E{a\phi_b\psi}=\sum{(aa_i+bb+i)m(E_i)}=a\sum{a_im(E_i)}+b\sum{a_im(E_i)}
+        =a\int_E{\phi}+b\int_E{\psi}
+    \end{equation*}
+    Now, if $\phi \leq \psi$, then  $0 \leq \psi-\phi$ so that
+    \begin{equation*}
+        0 \leq \int_E{\psi-\phi}=\int_E{\psi}-\int_E{\phi}
+    \end{equation*}
+    and we are done.
+\end{proof}
+
+\begin{definition}
+    Let $f$ be a bounded realvalued function on a measurable set $E$. We define
+    the \textbf{upper Lebesuge integral} of $f$ to be
+    \begin{equation*}
+        \bar{\int_E}{f}=\sup{\{\int_E{\phi} : \phi \text{ is simple and } \phi
+        \leq f \text{ on } E\}}
+    \end{equation*}
+    Similarly, we define the \textbf{lower Lebesgue integral} of $f$ on $E$ to
+    be
+    \begin{equation*}
+        \bbar{\int_E}{f}=\sup{\{\int_E{\psi} : \psi \text{ is simple and } f
+        \leq \psi \text{ on } E\}}
+    \end{equation*}
+    We say that $f$ is \textbf{Lebesgue integrable} on $E$ provided that
+    \begin{equation*}
+        \int_E{f}=\bar{\int_E}{f}=\bbar{\int_E}{f}
+    \end{equation*}
+    and we call $\int_E{f}$ the \textbf{Lebesgue integral} of $f$ on $E$.
+\end{definition}
+
+\begin{theorem}\label{10.1.3}
+    If $f$is a bounded function defined on  $[a,b]$ such that $f$ is Riemann
+    integrable on  $[a,b]$, then it is Lebesuge integrable on $[a,b]$. Moreover,
+    the two integrals coincide.
+\end{theorem}
+\begin{proof}
+    Let us denote $R\int{f}$ to be the Riemann-Stieltjes integral of $f$, and
+    let  $I=[a,b]$. If $f$ is Riemann integrable, then we have
+    \begin{equation*}
+        \bar{R\int_I}{f}=\bbar{R\int_I}{f}
+    \end{equation*}
+    i.e.
+    \begin{equation*}
+        \sup{\{R\int_E{\phi} : \phi \text{ is a step function and } \phi \leq f\}}=
+        \inf{\{R\int_E{\psi} : \psi \text{ is step function and } f \leq \psi\}}
+    \end{equation*}
+    Since $\phi$ and  $\psi$ are step functions, they are simple hence we get
+    \begin{equation*}
+        R\int_I{\phi}=\int_I{\phi} \text{ and } R\int_I{\psi}=\int_I{\psi}
+    \end{equation*}
+    This makes $R\int{f}=\int{f}$, and hence makes $f$ Lebesgue integrable on
+    $[a,b]$.
+\end{proof}
