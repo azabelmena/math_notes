@@ -1,1 +1,111 @@
 \section{The Theorems of Littlewood, Ergoroff, and Lusin}
+
+\begin{lemma}\label{.9.3.1}
+    Let $\{f_n\}$ a sequence of measurable functions on $E$ converging to  $f$,
+    then for each $\eta>0$ and  $\delta>0$, there exists a measurable subset  $A
+    \subseteq E$ and an index $N>0$ such that
+    \begin{equation*}
+        |f_n-f|<\eta \text{ on } A \text{ for all } n \geq N \text{ where }
+        m(\com{E}{A})<\delta
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since $f$ is realvalued and measurable, the set $\{x \in E : |f-f_n|<\eta\}$
+    is measurable, so that $|f-f_n|$ is properly defined. Then let $E_n=\{x \in
+    E : |f-f_k|<\eta \text{ for all } k \geq n\}$, then $E_n$ is measurable.
+    Therefore  $\{E_n\}$ is a countable collection of disjoint measurable sets
+    and $E=\bigcup{E_n}$. Since $\{f_n\} \xrightarrow{} f$ pointwise on $E$, we
+    have that  $m(E)=\lim{m(E_n)}$, and since $m(E)$ is finite, choose $N>0$
+    such that  $m(E_n)>m(E)-\delta$. Define then $A=E_n$. Then by the excision
+    property, we have $m(\com{E}{A})<\delta$.
+\end{proof}
+
+\begin{theorem}[Ergoroff's Theorem]\label{9.3.2}
+    Let $E$ be a finitely measurable set and  $\{f_n\}$ a sequence of measurable
+    functions on $E$ vconverging pointwise to $f$ on  $E$. Then for every
+    $\epsilon>0$, there exists a closed set  $F \subseteq E$ such that  $\{f_n\}
+    \xrightarrow{} f$ uniformly on $F$ and  $m(\com{E}{F})<\epsilon$.
+\end{theorem}
+\begin{proof}
+    For all $n \ion \Z^+$, let  $A_n \subseteq E$ be measurable. Let $N(n)>0$
+    such that
+    \begin{equation*}
+        |f-f_n|<\eta \text{ on } A \text{ for all } n \geq N(n)
+    \end{equation*}
+    and $m(\com{E}{A})<\delta$, where $\delta=\frac{\epsilon}{2^{n+1}}$, and
+    $\eta=\frac{1}{n}$. Define
+    \begin{equation*}
+        A=\bigcap{A_n}
+    \end{equation*}
+    Then by DeMorgan's laws, and countable subadditivity, we have
+    \begin{equation*}
+        m(\com{E}{A}) \leq
+        \sum{m(\com{E}{A_n})}<\sum{\frac{\epsilon}{2^{n+!}}}=\frac{\epsilon}{2}
+    \end{equation*}
+
+    Now, let $\epsilon>0$ and choose $n_0>0$ such that $\frac{1}{n_0}<\epsilon$.
+    Then we have
+    \begin{equation*}
+        |f-f_k|<\frac{1}{n_0} \text{ on } A_{n_0} \text{ for } k \geq N(n_0)
+    \end{equation*}
+    Ye, $A \subseteq A_{n_0}$, so that
+    \begin{equation*}
+        |f_k-f|<\epsilon \text{ on } A
+    \end{equation*}
+    Therefore, $\{f_n\} \xrightarrow{} f$ uniformly on $A$ where
+    $m(\com{E}{A})<\frac{\epsilon}{2}$. Now, choose $F \subseteq A$ closed for
+    which $m(\com{A}{F})<\frac{\epsilon}{2}$, then $m(\com{E}{E})<\epsilon$ so
+    that $\{f_n\} \xrightarrow{} f$ unifomrly on $F$.
+\end{proof}
+
+\begin{theorem}[Littlewood's Second Principle]\label{9.3.3}
+    Let $f$ be a simple function on  $E$. Then for every  $\epsilon>0$, there
+    exists a continous function  $g$ on  $\R$, and a closed set $F \subseteq E$
+    for which  $f=g$ on  $F$ and  $m(\com{E}{F})<\epsilon$.
+\end{theorem}
+\begin{proof}
+    Let $a_1, \dots, a_n$ be the finitely many values taken by $f$ on the sets
+    $E_1, \dots, E_n$ respectively, where $E=\bigcup{E_k}$ is a disjoint union.
+    Choose closed sets $\{F_k\}_{k=1}^n$ such that $F_k \subseteq E_k$ and
+    $m(\com{E_k}{F_k})<\frac{\epsilon}{n}$. Then $F=\bigcup{F_k}$ is a finite
+    union with
+    \begin{equation*}
+        m(\com{E}{F})<\sum{m(\com{E_k}{F_k})}=\epsilon
+    \end{equation*}
+
+    Now, define $g$ on  $F$ to take the value $a_k$ on $F_k$ for all $1 \leq k
+    \leq n$. Since  $\{F_k\}$ is a disjoint collection of closed sets, $g$ is
+    well defined. Moreover,  $g$ is continuous since for  $x \in F_k$ there is
+    an open interval $I$  such that $x \in I$ and  $I \cap
+    \com{F}{F_k}=\emptyset$. That is, $g$ is constant on $I \cap F$. Now, extend
+    $g$ from  $F$ to $\R$, then $g$ is continuous, and we are done.
+\end{proof}
+
+\begin{theorem}[Lusin's Theorem]\label{9.3.4}
+    Let $f:E \xrightarrow{} \R$ a realvalued measurable function on $E$. Then
+    for every  $\epsilon>0$ there exists a continuous function $g$ on $\R$ and
+    a closed set  $F \subseteq E$ for which $f=g$ on $F$ where
+    $m(\com{E}{F})<\epsilon$.
+\end{theorem}
+\begin{proof}
+    Suppose that $E$ has finite measure. By the simple approximation theorem,
+    there is a sequence  $\{f_n\}$ of simple functions defined on $E$,
+    converging pointwise to  $f$ on $E$. Now, let $n \in \Z^+$, and choose a
+    continuous function $g_n$ on  $\R$, and $F_n \subseteq E$ closed such that
+    $f_n=g_n$ on  $F_n$ where  $m(\com{E}{F_n})<\frac{\epsilon}{2^{n+1}}$. By
+    Ergoroff's theorem, there is a closed set $F_0 \subseteq E$ such that
+    $\{f_n\} \xrightarrow{} f$ uniformly on $F_0$ and
+    $m(\com{E}{F_0})<\frac{\epsilon}{2}$. Now, define
+    \begin{equation*}
+        F=\bigcap{F_n}
+    \end{equation*}
+    By DeMorgan's laws, and subadditivity, we have
+    \begin{equation*}
+        m(\com{E}{F}) \leq
+        \frac{\epsilon}{2}+\sum{\frac{\epsilon}{2^{n+1}}}=\epsilon
+    \end{equation*}
+    Now, $F$ is closed, and each  $f_n$ is continuous on  $F$ as  $F \subseteq
+    F_n$ and  $f_n=g_n$ on  $F_n$. Finally,  $\{f_n\} \xrightarrow{} f$
+    uniformly on $F$ as  $F \subseteq F_0$ so that $f|_F$ is cointinuous on $F$.
+    THerefore there is a continuous function $g$ on $\R$ such that $g|_F=f$.
+\end{proof}
