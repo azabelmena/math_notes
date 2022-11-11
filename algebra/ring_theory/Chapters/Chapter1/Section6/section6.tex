@@ -1,2 +1,85 @@
-\section{The Chinese Remainder Theorem.}
-\label{section1}
+\section{Sun Tzu's Theorem.}
+
+\begin{definition}
+    Let $\{R_\alpha\}$ a collection of commutative rings with identity. We
+    define the \textbf{direct product} of $\{R_\alpha\}$ to be the direct product
+    of $\{R_\alpha\}$ as a group, nmade into a ring by the operation $(r_\alpha),
+    (s_\alpha) \xrightarrow{} (r_\alpha s_\alpha)$. We write $R=R_1 \times R_2
+    \times \dots$ when $\{R_\alpha\}$ is a countable collection.
+\end{definition}
+
+\begin{definition}
+    We call the ideals $A,B \subseteq R$ of a ring $R$ \textbf{comaximal} if
+    $A+B=R$.
+\end{definition}
+
+\begin{example}\label{1.19}
+    If $(m,n)=1$, then the ideals $n\Z$  $m\Z$ with  $m\Z+n\Z=\Z$ are comaximal.
+     $m\Z+n\Z=\Z$ is the set of all diophantine equations of the form
+     \begin{equation*}
+         mx+ny=1
+     \end{equation*}
+\end{example}
+
+\begin{theorem}[Sun-Tzu's Theorem]\label{1.6.1}
+    LEt $A_1, \dots, A_k$ be ideals in a commutative ring $R$ with identity.
+    Then the map
+    \begin{align*}
+        R   &   \xrightarrow{} \faktor{R}{A_1} \times \dots \times
+        \faktor{R}{A_k} \\
+        r   &   \xrightarrow{} (r+A_1, \dots, r+A_k)    \\
+    \end{align*}
+    is a ring homomorphism with kernel
+    \begin{equation*}
+        K=\bigcap_{i=1}^k{A_i}
+    \end{equation*}
+    Moreover if for all $1 \leq i,j \leq k$ with  $i \neq j$,  $A_i$ and  $A_j$
+    are comaximal, then this map is onto with  $\bigcap{A_i}=\prod{A_i}$ so that
+    \begin{equation*}
+        \faktor{R}{A_1 \dots A_k} \simeq \faktor{R}{A_1} \times \dots \times
+        \faktor{R}{A_k}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $k=2$, and  $A_1=A$ and $A_2=B$. Consider the map
+    \begin{align*}
+        \phi:R  &   \xrightarrow{} R  \\
+        r   &   \xrightarrow{}  (r+A,r+B)   \\
+    \end{align*}
+    Then $rs \xrightarrow{} (rs+A,rs+B)=(r+A,r+B)(s+A,s+B)$ so that $\phi$ is a
+    ring homomorphism. Now, let  $r \in \ker{\phi}$, then $(r+A,r+B)=(A,B)$ so
+    that $r \in A \cap B$, conversly if  $r \in A \cap B$ then  $r+A=A$ and
+    $r+B=B$ so that  $r \in \ker{\phi}$. Thereofore
+    \begin{equation*}
+        \ker{\phi}=A \cap B
+    \end{equation*}
+
+    Now, suppose that $A$ and  $B$ are comaximal, that is, $A+B=(1)$. Then there
+    is an  $x \in A$, and a  $y \in B$ such that  $x+y=1$. Then $\phi(x)=(0,1)$
+    and $\phi(y)=(1,0)$ and $x=1-y \in 1+B$. Now, take  $r+A$,  $s+B$, then
+    \begin{equation*}
+        \phi(rx+sy)=\phi(r)\phi(x)+\phi(s)+\phi(y)=(r+A,r+B)(0,1)+(s+A,s+B)(1,0)
+        =(r+A,s+B)
+    \end{equation*}
+     this makes $\phi$ onto, moreover notice that  $AB \subseteq A \cap B$, and
+     if  $A+B=(1)=R$, then for every $x \in AB$,  $c=c \cdot 1=cx+cy \in AB$ so
+     that  $A \cap B=AB$.
+
+     Now, by induction on $k \geq 2$, takine  $A=A_1$ and $B=A_2 \dots A_k$ by
+     repeating the above argument, we get the result.
+\end{proof}
+\begin{corollary}
+    Let $n=p_1^{a_1} \dots p_k^{a_k} \in \Z^+$ be the prime factorization of
+    $n$, where  $p_1 \neq \dots \neq p_k$. Then
+    \begin{equation*}
+        \faktor{\Z}{n\Z} \simeq U(\faktor{\Z}{p_1^{a_1}\Z}) \times \dots \times
+        U(\faktor{\Z}{p_1^{a_1}\Z})
+    \end{equation*}
+\end{corollary}
+
+\begin{remark}
+    Sun-Tzu's theorem is most commonly know as the Chines Remainder theorem,
+    however it is the belief of the author that the name of the theorem should
+    credit the author whenever possible. Also note that the Sun-Tzu of this
+    theorem \textit{is not} the same Sun-Tzu who penned \textit{The Art of War}.
+\end{remark}

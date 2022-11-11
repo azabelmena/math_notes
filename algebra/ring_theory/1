@@ -201,19 +201,5 @@
     Suppose that $P$ is prime, and let  $(a+P)(b+P)=ab+P=P$. This gives us that
     $ab \in P$ and hence  $a \in P$ or  $b \in P$. Then either $a+P=P$ or $b+P=P$
     in $\faktor{R}{P}$. Conversly, if $\faktor{R}{P}$ is an integral domain, then
-     for any $a+P,b+P$  $ab+P=P$ implies that either $a+P=P$ or  $b+P=P$. Then
-     $a \in P$ or  $b \in P$, only when  $ab \in P$. This makes  $P$ prime.
+     for any $a+P,b+P$  $ab+P=P$ implies that either $a+P=P$ or  $b+P=P$.
 \end{proof}
-\begin{corollary}
-    Every maximal ideal is a prime ideal.
-\end{corollary}
-
-\begin{example}\label{1.17}
-    \begin{enumerate}
-        \item[(1)] The prime ideals of $\Z$ are $p\Z$, where $p$ is prime, which
-            are the maximal ideals of $\Z$.
-
-        \item[(2)] The ideal $(x)$ in $\Z[x]$ is a prime ideal, but it is not
-            maximal as $(x) \subseteq (2,x) \subseteq \Z[x]$.
-    \end{enumerate}
-\end{example}
