@@ -1,1 +1,214 @@
-\section{THe Fundamental Group of $S^1$.}
+\section{The Fundamental Group of $S^1$.}
+
+\begin{lemma}\label{4.3.1}
+    If $\pi_1(X,y_0) \neq \langle 1 \rangle$ for some pointed space $(Y,y_0)$,
+    then $\pi_1(S^1,1) \neq \langle 1 \rangle$.
+\end{lemma}
+\begin{proof}
+    We defer the proof.
+\end{proof}
+
+\begin{lemma}\label{4.3.2}
+    Let $X$ be a compact convex subset of  $\R^k$, and  $f:(X,x_0)
+    \xrightarrow{} (S^1,1)$ a continuous map. For $t_0 \in \Z$, there exists a
+    unique continuous map $\tilde{f}:(X,x_0) \xrightarrow{} (\R,t_0)$ with
+    $\exp{\tilde{f}}=f$, where $\exp{t}=e^{2i\pi t}$
+    \[\begin{tikzcd}
+        {(\R,t_0)} \\
+        \\
+        {(X,x_0)} && {(S^1,1)}
+        \arrow["{\tilde{f}}", dashed, from=3-1, to=1-1]
+        \arrow["\exp", from=1-1, to=3-3]
+        \arrow["f"', from=3-1, to=3-3]
+    \end{tikzcd}\]
+\end{lemma}
+\begin{proof}
+    Since $X$ is compact and metrizable under the norm $\|\cdot\|$, we have
+    that $f$ is uniformly continuous. That is, there is an $\epsilon>0$ for
+    which  $\|f(x)-f(y)\|<2$ whenever $\|x-y\|<\epsilon$, and where  $2=\diam{S^1}$
+    so that $f(x)$ and $f(y)$ are not antipodal. Now, since $X$ is compact and
+    metrizable, it is also bounded. So there exists an $n>0$ with
+    \begin{equation*}
+        \frac{\|x-x_0\|}{n}<\epsilon \text{ for all } x_0 \in X
+    \end{equation*}
+    Now, partition the line segment $l(x,x_0) \in X$ with endpoints $x$ and
+    $x_0$ into intervals of equal length according to the partition $\{x_0, x_1,
+    \dots ,x_n=x\}$. Then $\|x_j-x_{j+1}\|=\frac{\|x-x_0\|}{n}<\epsilon$, hence
+    $\frac{f(x_{j+1})}{f(x_j)} \neq -1$, i.e. $f(x_j)$ and $f(x_{j+1})$ are not
+    antipodal for all $j$. Now, define  $g_j:X \xrightarrow{} \com{S^1}{\{-1\}}$
+    for all $0 \leq j \leq n-1$ by the rule
+    \begin{equation*}
+        g_j(x)=\frac{f(x_{j+1})}{f(x_j)}
+    \end{equation*}
+    Then $g_j$ is continuous, and  $g_j(x_0)=1$ for all $j$. Now, considering
+    $S^1$ as a subspace of  $\C$, since it is a multiplicativ group, there
+    exista a product
+    \begin{equation*}
+        f(x)=f(x_0)\frac{f(x_1)}{f(x_0)}\frac{f(x_2)}{f(x_1)} \dots
+        \frac{f(x_n)}{f(x_{n-1})}=f(x_0)g_0(x) \dots g_{n-1}(x)
+    \end{equation*}
+    Consider now the restriction of $\exp$ to  $(-\frac{1}{2},\frac{1}{2})$. for
+    which it is a homeomorphism. Let $\lambda:\com{S^1}{\{-1\}} \xrightarrow{}
+    (-\frac{1}{2},\frac{1}{2})$ the inverse map of $\exp$. Then  $\lambda(1)=0$,
+    moreover, $g_j(X) \subseteq \com{S^1}{\{-1\}}$ and $\lambda \circ g_j$ is
+    defined and continuous. Thus, define the map $\tilde{f}:X \xrightarrow{} \R$
+    by
+    \begin{equation*}
+        \tilde{f}=t_0+\lambda(g_0(x))+\dots+\lambda(g_{n-1}(x))
+    \end{equation*}
+    Then $\tilde{f}$ is continuous with $\tilde{f}(x_0)=t_0$. Moreover, since
+    $\exp$ is a homomorphism of groups
+    \begin{equation*}
+        \exp{\tilde{f}}=(\exp{t_0})g_0(x) \dots g_{n-1}(x)=f
+    \end{equation*}
+    Now, let $\tilde{g}:X \xrightarrow{} \R$ a continuous map with $\exp{g}=f$,
+    and $g(x_0)=t_0$. Define $h:X \xrightarrow{} \R$ by $h=\tilde{f}-\tilde{g}$.
+    Then $h$ is continuous, and  $\exp{h}=\exp{\tilde{f}-\tilde{g}}=1$, that is
+    \begin{equation*}
+        \frac{\exp{\tilde{f}}}{\exp{\tilde{g}}}=1
+    \end{equation*}
+    so that $\exp{\tilde{f}}=\exp{\tilde{g}}$. Taking $\lambda$ on both sides we
+    get  $\tilde{f}=\tilde{g}$ which establishes the uniquness.
+\end{proof}
+\begin{corollary}
+    Let $f:(I,\partial{I}) \xrightarrow{} (S^1,1)$ be a continuous map. Then
+    there exists a unique $\tilde{f}I \xrightarrow{} \R$ with
+    $\exp{\tilde{f}}=f$ and $\tilde{f}(0)=0$. Moreover, if $g:(I,\partial{I})
+    \xrightarrow{} (S^1,1)$ is a map for which $f \simeq g \rel{\partial{I}}$,
+    then  $\tilde{f} \simeq \tilde{g} \rel{\partial{I}}$.
+\end{corollary}
+\begin{proof}
+    Notice that $I \times I$ is compact and convex. Choose  $0 \times 0$ as the
+    basepoint, and let  $F:I \times I \xrightarrow{} S^1$ be the relative
+    homotopy $F:f \simeq g \rel{\partial{I}}$. By the above theorem there exists
+    a map $\tilde{F}:I \times I \xrightarrow{} \R$ with $\exp{\tilde{F}}=F$ and
+    $\tilde{F}(0,0)=0$. Then it can be shown that $\tilde{F}:\tilde{f} \simeq
+    \tilde{g} \rel{\partial{I}}$ (\it{hint} let $\phi_i(s)=\tilde{F}(s,i)$ and
+    $\theta_i(t)=\tilde{F}(i,t)$ for $i \in \faktor{\Z}{2\Z}$).
+\end{proof}
+
+\begin{definition}
+    Let $X$ be a compact convex subset of  $\R^k$, and  $f:(X,x_0)
+    \xrightarrow{} (S^1,1)$ a continuous map. For $t_0 \in \Z$, we call the
+    unique map $\tilde{f}:X \xrightarrow{} \R$ such that $\tilde{f}=f$ and
+    $\tilde{f}(x_0)=t_0$ the \textbf{lifting} of $f$ into $\R$.
+\end{definition}
+
+\begin{example}\label{4.1}
+    One example of a lifting is the winding number. Consider $S^1=\{z \in \C :
+    \|z\|=1\}$ as a subspace of $\C$. We define the \textbf{winding number} of a
+    paramtrization $f:(I,\partial{I}) \xrightarrow{} (S^1,1)$ of $S^1$ to be
+    \begin{equation*}
+        W(f)=\frac{1}{2i\pi}\oint_f{\frac{dz}{z}}
+    \end{equation*}
+    One can lift $f$ to the map $\tilde{f}$ and compute $W(f)$ as a Riemann (or
+    Lebesgue) integra. Take $z=f(t)=\exp{\tilde{f}(t)}$ and
+    $dz=z2i\pi\tilde{f}(t) \ dt$. Then
+    \begin{equation*}
+        W(f)=\frac{1}{2i\pi}\oint_f{\frac{dz}{z}}=\int_0^1{\tilde{f}'(t) \
+        dt}=\tilde{f}(1)-\tilde{f}(0)
+    \end{equation*}
+\end{example}
+
+\begin{definition}
+    If $f:(I,\partial{I}) \xrightarrow{} (S^1,1)$ is continuous, we define the
+    \textbf{degree} of $f$ to be  $\deg{f}=\tilde{f}(1)$, where $\tilde{f}$ is
+    the unique lifiting of $f$, and  $\tilde{f}(0)=0$.
+\end{definition}
+
+\begin{theorem}\label{4.3.3}
+    $\pi_1(S^1,1) \simeq \Z$, in particular, $\deg{f \ast g}=\deg{f}+\deg{g}$.
+\end{theorem}
+\begin{proof}
+    Define $d:\pi_1(S^1,1) \xrightarrow{} \Z$ by $[f] \xrightarrow{} \deg{f}$.
+    By lemma \ref{4.3.2}, $d$ is well defined. Moreover, notice that the map
+    $f:z \xrightarrow{} z^m$ has degree $\deg{f}=m$, for all $m \in \Z$, so that
+     $d$ is onto.
+
+     Now, suppose that  $\deg{f}=0$, where $f$ is a closed path in  $S^1$ at
+     $1$, then $\tilde{f}(1)=0$ so that $\tilde{f}$ is a closed path in $\R$ at
+     $0$. Notice that  $\exp$ induces a homomorphism $\pi_1(\R,0) \xrightarrow{}
+     \pi_1(S^1,1)$ by $[\tilde{f}] \xrightarrow{} [\exp{f}]=[f]$. Since $\R$ is
+     contractible, then  $\pi_1(\R,0)=\langle 1 \rangle$ so that
+     $[\tilde{f}]=[f]=1$ is the identity map.
+
+     Now, suppose that $f$ and  $g$ are closed paths in $S^1$ at $1$, with
+     degrees  $\deg{f}=m$ and $\deg{g}=n$. Let $\tilde{g}$ be the lifiting of
+     $g$ with  $\tilde{g}(0)=0$, and define $\tilde{\gamma}(t)=m+\tilde{g}(t)$.
+     Then $\gamma$ is a path in  $\R$ from  $m$ to  $m+n$. Let  $\tilde{f}$ the
+     lifting of $f$ with  $\tilde{f}(0)=0$. Then $\tilde{f} \ast \tilde{\gamma}$
+     is a path in $\R$ from  $0$ to  $m+n$ where
+     \begin{equation*}
+         \exp{(\tilde{f} \ast \tilde{gamma})}=\begin{cases}
+                \exp{\tilde{f}(2t)} \text{ if } 0 \leq t \leq \frac{1}{2}   \\
+                \exp{\tilde{g}(2t-1)} \text{ if } \frac{1}{2} \leq t \leq 1  \\
+                                           \end{cases}
+     \end{equation*}
+     since $\tilde{f}$ is a lifting of $f$,  $\exp{\tilde{f}}=f$, and
+     $\exp{\gamma}=e^{2i\pi m}\exp{\tilde{g}}=g$. Since $m \in \Z$ and
+     $\tilde{g}$ is a lifting of $g$ we get  $\exp{\tilde{f} \ast
+     \tilde{\gamma}}=f \ast g$, thus $\deg{f \ast g}=\deg{f}+\deg{g}=m+n$ .
+     Moreover notice that $\ker{d}=\langle 1 \rangle$, and so we are done.
+\end{proof}
+\begin{corollary}
+    $S^1$ is not simply connected.
+\end{corollary}
+\begin{corollary}
+    $\pi_1(S^1,t)=\pi_1{S^1}$.
+\end{corollary}
+\begin{proof}
+    Notice that since $S^1$ is path connected, its fundamental group is
+    independent of any base point.
+\end{proof}
+\begin{corollary}
+    Two closed paths in $S^1$ are homotopic relative  $\partial{I}$ if, and only
+    if they have the same degree.
+\end{corollary}
+
+\begin{theorem}[The Fundamental Theorem of Algebra]\label{4.3.4}
+    Every nonconstant polynomial with coefficients in $\C$ as at least one root
+    in  $\C$.
+\end{theorem}
+\begin{proof}
+    Define $\Sigma_\rho=\{z \in \C : \|z\|=\rho\}$ the circle of radius $\rho$
+    centered at the point  $0+i_0$ in $\C$. For $n \geq 0$ define
+    $f^n_\rho:\Sigma_\rho \xrightarrow{} \com{\C}{\{0\}}$ the restriction to
+    $\Sigma_\rho$ of the map  $z \xrightarrow{} z^n$. Consider then the
+    composition $h:S^1 \xrightarrow{\rho z} \Sigma_\rho \xrightarrow{z^n}
+    \com{\C}{\{0\}} \xrightarrow{\frac{z}{\|z\|}} S_1$. Then $h(z)=z^n$. Suppose
+    that $f^n_\rho$ is freely nullhomotopic, then so is  $h$, and hence
+    $\pi_1{h}:\pi_1{S^!} \xrightarrow{} \pi_1{S^1}$ is trivial. In particular,
+    $\pi_1{h}([\exp])=[h \circ \exp]=[\exp^n]$ is trivial. That is $\exp^n$ is
+    nullhomotopic relative  $\partial{I}$, so $\deg{\exp^n}=0$, but
+    $\deg{\exp^n}=n>0$, which is a contradiction. Thus $f^n_\rho$ is not
+    nullhomotopic.
+
+    Now, consider the polynomial
+    \begin{equation*}
+        g(z)=z^n+a_{n-1}z^{n-1}+\dots+a_1z+a_0 \in \C[z]
+    \end{equation*}
+    and choose $\rho>\max{\{\1, \sum_{i=0}^{n-1}{\|a_i\|}\}}$ and define the map
+    $F:\Sigma_\rho \xrightarrow{} \C$ by
+    \begin{equation*}
+        F(z,t)=z^n+\sum_{i=0}^{n-1}{(1-t)a_iz^i}
+    \end{equation*}
+    Then $F:g_{\Sigma_\rho} \rel f^n_\rho$. Suppose that $F(I \times I)
+    \not\subseteq \com{\C}{\{0\}}$, then $F(z,t)=0$ for some $t \in I$, and  $z \in
+    \Sigma_\rho$. Then
+    \begin{equation*}
+        z^n=-\sum_{i=0}^{n-1}{(1-t)a_iz^i}
+    \end{equation*}
+    by the triangle inequality, we have
+    \begin{equation*}
+        \rho^n \leq \sum_{i=0}^{n-1}{(1-t)\|a_i\|\rho^i} \leq
+        \rho^{n-1}(\sum_{i=0}^{n-1}{\|a_i\|})
+    \end{equation*}
+    For $\rho>1$, we get  $\rho^i \leq \rho^{n-1}$, and we get $\rho \leq
+    \sum_{i=0}^{n-1}{\|a_i\|}$, which contradicts our choice of $\rho$.
+
+    Suppose now that $g$ has no complex roots. Define $G:\Sigma_\rho \times I
+    \xrightarrow{} \com{\C}{\{0\}}$ by $G(z,t)=g((-1t)z)$. Notice thta
+    $G:g|_{\Sigma_\rho} \simeq k$, where $k$ is the constant map at $a_0$. Thus
+    $g|_{\Sigma_\rho}$ is nullhomotopic, which makes $f^n_\rho$ null homotopic.
+    A contradiction. Therefore $g$ must have at least one root in $\C$
+\end{proof}
