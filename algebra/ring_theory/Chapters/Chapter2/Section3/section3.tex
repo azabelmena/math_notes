@@ -1,1 +1,76 @@
-%\section{Unique Factorization Domains.}
+\section{Unique Factorization Domains.}
+
+\begin{definition}
+    Let $R$ be an integral domain. A nonzero element  $r \in R$ that is not an
+    associate is called \textbf{irreducible} if whenever $r=ab$, then either $a$
+    or $b$ are units in $R$; otherwise, we call $r$ \textbf{reducible}.
+\end{definition}
+
+\begin{definition}
+    Let $R$ be an integral domain. An element $p \in R$ is called \textbf{prime}
+    if the ideal $(p)$ is a prime ideal. That is $p$ is not a unit and whenever
+     $p|ab$, then either  $p|a$ or $p|b$. We call two elements $a,b \in R$
+     \textbf{associates} if $a=ub$ for some unit $u \in R$.
+\end{definition}
+
+\begin{lemma}\label{2.3.1}
+    In an integral domain, a prime element is always irreducible.
+\end{lemma}
+\begin{proof}
+    Let $(p)$ be a nonzero prime ideal with $p=ab$, for some  $a,b \in R$. Then
+     $ab \in (p)$, so that either $a \in (p)$, or $b \in (p)$. Suppose that $a
+     \in (p)$. Then $a=pr$ for some  $r \in R$, so that  $p=(pr)b=p(rb)$, so
+     that $rb=1$. This makes $b$ a unit. Similarly, we see that $a$ is a unit if
+      $b \in (p)$. In either case, $p$ is irreducible.
+\end{proof}
+
+\begin{example}\label{2.6}
+    \begin{enumerate}
+        \item[(1)] In the ring $\Z$ of integers, those elements which are
+            irreducible are precisely those which are prime, since the ideals
+            $2\Z, 3\Z, \dots, p\Z, \dots$, for  $p$ a prime number are also the
+            prime ideals of $\Z$
+
+        \item[(2)] Irreducible elements need not be prime. The element $3 \in
+            \Z[\sqrt{-5}]$ is irreducible, as was shown in example \ref{2.2},
+            however it is not prime. Notice that
+            $3|9=(2+\sqrt{-5})(2-\sqrt{-5})$, but $3 \nmid (2+\sqrt{-5})$ and
+            $3 \nmid (2-\sqrt{-5})$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{2.3.2}
+    In a principle ideal domain, a nonzero element is prime if, and only if it
+    is irreducible.
+\end{lemma}
+\begin{proof}
+    Let $R$ be a PID, and suppose that $p$ is irreducible. Let $(m)$ be the
+    principle ideal containing $(p)$, then $p=rm$, and by irreducibility, either
+     $r$ or $m$ are units, in either case, we get that either $(p)=(m)$ or
+     $(m)=(1)$. This makes $(p)$ a maximal ideal, and hence a prime ideal.
+\end{proof}
+
+\begin{example}\label{2.7}
+    \begin{enumerate}
+        \item[(1)] Since $3$ is not prime in  $\Z[\sqrt{-5}]$, then $(3)$ is not
+            a prime ideal in this ring. Therefore $\Z[\sqrt{-5}]$ cannot be a
+            PID.
+
+        \item[(2)] Notice that since $\Z$ is a PID, then the fact that
+            irreducible and prime elements coincide is guaranteed by lemma
+            \ref{2.3.2}.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    We call an integral domain $R$ a  \textbf{unique factorization domain (UFD)}
+    if for every nonzero element $r \in R$ which is not a unit, the following
+    are true.
+    \begin{enumerate}
+        \item[(1)] $r$ can be written as the product of, not necessarily distinct,
+            irreducible elements. We call this product the
+            \textbf{factorization} of $r$.
+
+        \item[(2)] The factorization of $r$ is unique up to associates.
+    \end{enumerate}
+\end{definition}
