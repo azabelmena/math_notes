@@ -74,3 +74,130 @@
         \item[(2)] The factorization of $r$ is unique up to associates.
     \end{enumerate}
 \end{definition}
+
+\begin{example}\label{2.8}
+    \begin{enumerate}
+        \item[(1)] All fields are unique factorization domains.
+
+        \item[(2)] Polynomial rings are unique factorization domains whenever
+            the ground ring $R$ is a unique factorization domain.
+
+        \item[(3)] The subring $\Z[2i]$ of $\Z[i]$ is an integral domain, but it
+            is not a UFD. Notice that both $2$ and  $2i$ are irreducible in
+            $\Z[2i]$, but that $4=2 \cdot 2=(2i) \cdot (-2i)$.
+
+        \item[(4)] $\Z[\sqrt{-5}]$ is another example of an integral domain that
+            is not a UFD.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{2.3.3}
+    In a unique factorization domain $R$, a nonzero element is prime if, and
+    only if it is irreducible.
+\end{lemma}
+\begin{proof}
+    Since prime elements are irreducible, it remains to show that irreducible
+    elements are prime. Let $p$ be irreducible and suppose that  $p|ab$, for
+    $a,b \in R$. Then  $ab=pc$ for some  $c \in R$. Writing  $ab$ as a product
+    of irreducibles, since  $R$ is a UFD,  $p$ must be associate to one of the
+    irreducibles in the factorization of $a$, or to one in the factorization of
+$b$. In either case, we get that $p|a$ or $p|b$, and hence  $p$ is prime.
+\end{proof}
+
+\begin{lemma}\label{2.3.4}
+    Let $a,b \in R$ nonzero elements of a unique factorization domain $R$. If
+    $a=up_1^{e_1} \dots p_n^{e_n}$ and $b=vp_1^{f_1} \dots p_n^{f_n}$, where
+    $u,v \in R$ are units, then the element
+    \begin{equation*}
+        d=p_1^{\min\{e_1,f_1\}} \dots p_n^{\min\{e_n,f_n\}}
+    \end{equation*}
+    os the greatest common divisor of $a$ and  $b$.
+\end{lemma}
+\begin{proof}
+    Notice that by definition of $d$, that  $d|a$ and  $d|b$. Now, let  $c$ be a
+    common divisor of  $a$ and  $b$ with the unique prime factorization
+    $c=q_1^{g_1} \dots q_m^{g_m}$. Since $q_i|c$ for each  $1 \leq i \leq m$,
+    then  $q_i|p_j$ for each prime factor in the factorizations of  $a$ and
+    $b$. Since both  $q_i$ and  $p_j$ are irreducible, they are associates. That
+    implies that the primes of  $c$ are the primes of  $a$ and  $b$. Moreover
+    notice that since each $g_i \leq e_i,f_i$, that  $c|d$, and so  $d=(a,b)$.
+\end{proof}
+
+\begin{definition}
+    Let $R$ be a principle ideal domain. Let $\{a_n\}$ a sequence of elements of
+    $R$. We call the increasing sequence of ideals  $\{(a_n)\}$ an
+    \textbf{infinite ascending chain} of ideals in $R$ and write
+    \begin{equation*}
+        (a_1) \subseteq (a_2) \subseteq \dots \subseteq (a_n) \subseteq \dots
+        \subseteq R
+    \end{equation*}
+    We say that the infinite ascending chain $\{(a_n)\}$ \textbf{stabalizes} if
+    for some $k \geq n$, we have  $(a_n)=(a_k)$.
+\end{definition}
+
+\begin{lemma}\label{2.3.5}
+    In any principle ideal domian, infinite ascending chains of ideals
+    stabalize.
+\end{lemma}
+\begin{proof}
+    Let $I_1 \subseteq I_2 \subseteq \dots \subseteq R$ an infinite ascending
+    chain of ideals and let $I=\bigcup{I_k}$. Then $I$ is an ideal in  $R$, and
+    since  $R$ is a PID,  $I=(a)$ for some $a \in R$. This makes  $a \in I_n$
+    for some  $n$, and hence  $I_n \subseteq I$. This makes  $I_n=I$ for some
+    $n \geq 1$, and hence this chain stabalizes.
+\end{proof}
+
+\begin{theorem}\label{2.3.6}
+    Every principle ideal domain is a unique factorization domain.
+\end{theorem}
+\begin{proof}
+    Let $R$ be a PID, and  $r \in R$ a nonzero element which is not a unit. If
+    $r$ is irreducible, we are done. Otherwise, we have  $r=r_1r_2$ fr some
+    $r_1,r_2 \in R$. Now, if both $r_1$ and $r_2$ are irreducible, we are done.
+    Suppose then, without loss of generality, thart $r_1$ is reducible. Then
+    $r_1=r_{11}r_{12}$, and if both $r_{11}$ and $r_{12}$ are irreducible, we
+    are done. Suppose then that $r_{11}$ is reducible; continuing this process,
+    we arrive at an infinite ascending chain of ideals
+    \begin{equation*}
+        (r) \subseteq (r_1) \subseteq (r_{11}) \subseteq \dots \subseteq R
+    \end{equation*}
+    and since $R$ is a PID, this chain stabalizes. Thus $r$ can be factored into
+    irreducible elements; since this process terminates.
+
+    Now, by induction on $n$, for  $n=0$, we notice that  $r$ is a unit, and we
+    are done. Suppose, then for  $n \geq 1$, that  $r=p_1 \dots p_n=q_1 \dots
+    q_m$ for some $m \geq n$, and where each  $p_i$ and  $q_j$ are  (not
+    necessarily distinct) irreducibles for all $1 \leq i \leq n$ and $1 \leq j
+    \leq m$. Notice that  $p_1|q_1 \dots q_m$, and so $p_1|q_j$ for some $j$.
+    This makes  $p_1$ and $q_j$ associates; i.e.  $q_j=p_1u$, with $u \in R$ a
+    unit. Cancelling the  $p_1$ from both sides of the equation, we get $p_2
+    \dots p_n=q_1 \dots q_{j-1}q_{j+1} \dots q_m$. Repeating this process, we
+    get a 1--1 correspondence between associates, and hence the factorization of
+    $r$ is unique up to associates. Therefore  $R$ is a UFD.
+\end{proof}
+\begin{corollary}
+    Every Euclidean domain is a unique factorization domain.
+\end{corollary}
+\begin{proof}
+    Notice that Euclidean domains are PIDs by lemma \ref{2.1.1}.
+\end{proof}
+\begin{corollary}[The Fundamental Theorem of Arithmetic]
+    $\Z$ is a unique factorization domain.
+\end{corollary}
+\begin{proof}
+    Notce that $\Z$ is a Euclidean domain.
+\end{proof}
+\begin{corollary}
+    There exists a multiplicative Dedekind-Hasse norm on $R$.
+\end{corollary}
+\begin{proof}
+    If $R$ is a PID, then the theorem tells us it is a UFD. Define the norm $N:R
+    \xrightarrow{} \N$ by taking $0 \xrightarrow{} 0$, $u \xrightarrow{} 1$ if
+    $u$ is a unit, and  $a \xrightarrow{} 2^n$ where $a=p_1 \dots p_n$, where
+    each $p_i$ is irreducible. Notice that for every  $a,b \in R$,
+    $N(ab)=N(a)N(b)$. Now, suppose further that $a,b \neq 0$ and consider the
+    ideal  $(a,b)=(r)$, for some $r \in R$. UIf  $a \notin (b)$, nether is $r$,
+    and hence  $b \nmid r$. Now, since  $b=xr$,  $x \in R$, then  $x$ cannot be
+    a unit in  $R$, so that  $N(b)=N(xr)=N(x)N(r)>N(r)$. This completes the
+    proof.
+\end{proof}
