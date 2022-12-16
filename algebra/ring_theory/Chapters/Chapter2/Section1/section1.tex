@@ -37,7 +37,7 @@
 
         \item[(4)] Let $D \in \Z^+$ be squarefree, and consider  $\Z[\sqrt{D}]$.
             Define $N:\Z[\sqrt{D}]=\N$ to be the absolute value of the field
-            norm, that is $N(a+b\sqrt{D})=\|a+b\sqrt{D}\|=a^2+Db^2$. We notice
+            norm, that is $N(a+b\sqrt{D})=\|a+b\sqrt{D}\|^2=a^2+Db^2$. We notice
             that $\Z[\sqrt{D}]$ is an integral domain, but it is not a Euclidean
             domain. This depends on our choice of $D$. Let  $D=-1$ so tha t
             $\sqrt{D}=i$, and $i^2=-1$. Then the Gaussian integers, $\Z[i]$, is
@@ -53,7 +53,7 @@
                 |r-p| \leq \frac{1}{2} \text{ and } |s-q| \leq \frac{1}{2}
             \end{equation*}
             Let $w=(r-p)+i(s-q)$, and take $z=wy$. Then we have  $z=x-(p+iq)y$,
-            so that $x=(p+iq)y+z$, moreover, we have $\|w\|=(r-p)^2+(q-s)^2 \leq
+            so that $x=(p+iq)y+z$, moreover, we have $N(w)=(r-p)^2+(q-s)^2 \leq
             \frac{1}{4}+\frac{1}{4}=\frac{1}{2}$. Since $\|\cdot\|$ is
             multiplicative, we have
             \begin{equation*}
@@ -113,10 +113,10 @@
             $(3,2+\sqrt{-5})$ is a principle ideal, that is
             $(3,2+\sqrt{5})=(a+b\sqrt{-5})$ for some $a,b \in \Z$. Then we get
             that $3=x(a+b\sqrt{-5})$ and $2+\sqrt{-5}=y(a+b\sqrt{-5})$. Then
-            notice that $\|x\|a^2+5b^2=9$, and since  $a^2+5b^2 \in \Z^+$, we
+            notice that $N(x)=a^2+5b^2=9$, and since  $a^2+5b^2 \in \Z^+$, we
             must have that $a^2+5b^2=1,3,9$.
             \begin{enumerate}
-            \item[(i)] If $a^2+5b^2=9$, then $\|x\|=1$ making $x=\pm 1$ and
+            \item[(i)] If $a^2+5b^2=9$, then $N(x)=1$ making $x=\pm 1$ and
                 $a+b\sqrt{-5}=\pm3$, which cannot happen since $2+\sqrt{-5}$ is
                 not divisible by $3$.
 
@@ -130,7 +130,7 @@
                 $3|(2-\sqrt{-5})$ which is impossible.
             \end{enumerate}
             In all three cases, we were led to an impossibility, hence
-            $\Z[sqrt{-5}]$ cannot be a Euclidean domain.
+            $\Z[\sqrt{-5}]$ cannot be a Euclidean domain.
     \end{enumerate}
 \end{example}
 
@@ -174,7 +174,7 @@
      $b$.
 \end{lemma}
 
-\begin{lemma}\label{}
+\begin{lemma}\label{2.1.4}
     Let $R$ be an inetegral domain. If $c,d \in R$ generate the same principle
     ideal, i.e. $(d)=(c)$, then $d=uc$ for some unit  $u \in R$.
 \end{lemma}
@@ -247,13 +247,13 @@
 \begin{example}\label{2.3}
     Notice that $\pm 1$ are the only units in the ring
     $\Z[1+\frac{\sqrt{-19}}{2}]$, so that $\tilde{R}=\{0,1,-1\}$. Suppose that
-    $u \in R$ is a universal side divisor, and let $N=\|\cdot\|$ be the field norm;
-    so that $\|a+(1+\frac{\sqrt{-19}}{2})b\|=a^2+ab+5b^2$. If $a,b \in \Z$ and
-    $b \neq 0$, then we have $a^2+ab+5b^2=(a+\frac{b}{2})^2+\frac{19}{4b^2} \geq
-    5$ so that the smallest nonzero norms are $1$ for $x=1$ and $4$ for $x=2$.
+    $u \in R$ is a universal side divisor, and let $N=\|\cdot\|^2$ be the field
+    norm; so that $N(a+(1+\frac{\sqrt{-19}}{2})b)=a^2+ab+5b^2$. If $a,b \in \Z$
+    and $b \neq 0$, then we have $a^2+ab+5b^2=(a+\frac{b}{2})^2+\frac{19}{4b^2}
+    \geq 5$ so that the smallest nonzero norms are $1$ for $x=1$ and $4$ for $x=2$.
     Now, if $u$ is a universal side divisor, then  $u|2-0$ or  $u|(2 \pm 1)$
     that is $u|2$,  $u|3$ or  $u|1$ making  $u$ a nonunit divsor. If  $2=xy$
-    then $4=\|x\|\|y\|$ and so that $\|x\|=1$ or  $\|y\|=1$. Hence the only
+    then $4=N(x)N(y)$ and so that $N(x)=1$ or  $N(y)=1$. Hence the only
     divisors of $2$ in  $\Z[1+\frac{\sqrt{-19}}{2}]$ are $\pm 1$ or  $\pm 2$.
     Similarly the only divisors of  $3$ arew  $\pm 1$ or  $\pm 3$ hence  $u=\pm
     2$ or  $u=\pm 3$. Letting  $x=\frac{1+\sqrt{-19}}{2}$, then $x$, nor  $x

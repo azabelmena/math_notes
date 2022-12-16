@@ -1,1 +1,122 @@
-\section{Unique Factorization in the Gaussian Integers.}
+\section{Factorization in the Gaussian Integers.}
+
+\begin{lemma}\label{2.4.1}
+    Let $D \in \Z$ a square free integer. If for some $z \in \Z[\sqrt{D}]$,
+    $N(z)$ is $\pm$ a prime, then  $z$ is irreducible in
+    $\Z[\sqrt{D}]$.
+\end{lemma}
+\begin{proof}
+    Let $z \in \Z[\sqrt{D}]$ an element with prime norm $N(z)=p$, where
+    $N=\|\cdot\|^2$. Then f  $z=vw$, for some  $v,w \in \Z[\sqrt{D}]$, then
+    $p=N(z)=N(v)N(r)$, so that either $N(v)=\pm 1$ or $N(w)=\pm 1$. In either
+    case, $v$ or  $w$ is a unit in  $\Z[\sqrt{D}]$, which makes $z$ irreducible.
+\end{proof}
+
+\begin{lemma}\label{2.4.2}
+    A prime $\p \in \Z^+$ divides an integer of the form  $n^2+1$, for some  $n
+    \in \Z$, if, and only if  $p=2$, or  $p \equiv 1 \mod{4}$, for $p$ odd.
+\end{lemma}
+\begin{proof}
+    Certainly, $2=1^2+1$. Now suppose that  $p$ is an odd prim.e. IF  $p|n^2+1$,
+    then  $n^2 \equiv -1 \mod{p}$. That is $n$ is of order $4$ in the unit group
+    $U(\faktor{\Z}{p\Z})$. So $p|n^2+1$ if, and only if  $U(\faktor{\Z}{p\Z})$
+    contains an element of order $4$; by Lagrange's theorem we then have that
+    $4|p-1$, which makes $p \equiv 1 \mod{4}$.
+
+    Conversely, if $p \equiv 1 \mod{4}$, then $4|(p-1)$. Now, if $m \in \Z$ such
+    that  $m^2 \equiv 1 \mod{p}$, then $p|(m^2-1)=(m+1)(m-1)$ so that $m \equiv
+    \pm 1 \mod{p}$ and $m$ is unique. Now,  $U(\faktor{\Z}{p\Z})$ has a subgroup
+    of order $4$. Notice that since the Klein-$4$ group, $V_4$ has three elements
+    of order $2$, and  $U(\faktor{\Z}{p\Z})$ has only one, then this subgroup
+    cannot be $V_4$. The only other option is $\faktor{\Z}{4\Z}$. Thus
+    $U(\faktor{\Z}{p\Z})$ contains an element of order $4$, and we are done.
+\end{proof}
+
+\begin{theorem}\label{2.4.3}
+    $\Z[i]$ is a unique factorization domain.
+\end{theorem}
+\begin{proof}
+    Notice that $\Z[i]$ is a Euclidean domain with norm $N=\|\cdot\|^2$ the
+    field norm for complex numbers.
+\end{proof}
+\begin{corollary}
+    A prime $p$ factors in  $\Z[i]$ in precisely two irreducible elements if,
+    and only if $p=a^2+b^2$ for some  $a,b \in \Z$. Otherwise,  $p$ is
+    irreducible in  $\Z[i]$.
+\end{corollary}
+\begin{proof}
+    Consider first the ring $\Z[\sqrt{D}]$ (which is not necessarily a Euclidean
+    domain). Suppose that $\pi \in \Z[\sqrt{D}]$ is prime. Then $(\pi) \cap \Z$
+    is a prime ideal, and since $N(\pi) \geq 0$ is an integer in $(\pi)$, $(\pi)
+    \cap \Z=p\Z$ for some prime $p \in \Z^+$. Then  $p \in (\pi)$ so that
+    $\pi|p$ and hence we can determine the prime elements of  $\Z[\sqrt{D}]$ to
+    see how the prime number $p$ factors in $\Z[\sqrt{D}]$. Suppose that
+    $p=\pi\pi'$, then  $N(p)=N(\pi)N(\pi')=p$. Since $\pi$ is not a unit, then
+    either  $\pi=\pm p^2$ or $\pi=\pm p$. In either case, we have that $p$ is
+    the product of precisely two irreducibles in $\Z[\sqrt{D}]$.
+
+    Now, suppose that $D=-1$, so that we have  $\Z[i]$ (which is a Euclidean
+    domain by theorem \ref{2.4.3}). The units of $\Z[i]$ are $\pm 1$ and  $\pm
+    i$. Now, if  $z=a+ib$, then  $N(z)=z\bar{z}=(a+ib)(a-ib)=a^2+b^2$ and we are
+    done.
+\end{proof}
+
+\begin{theorem}\label{2.4.4}
+    The following statements are true.
+    \begin{enumerate}
+        \item[(1)] A prime $p \in \Z^+$ is the sum of two integer squares if,
+            and only if  $p=2$, or  $p \equiv 1 \mod{4}$, for $p$ odd. This sum
+            is unique up to ordering and sign.
+
+        \item[(2)] The irreducible elements of $\Z[i]$ are preciesly $(1+i)$,
+            all primes $p \in \Z$ for which  $p \equiv 3 \mod{4}$, and all
+            irreducible factors of all $p \in \Z$ of the form $p=a^2+b^2$, for
+            which  $p \equiv 1 \mod{4}$. These factors are of the form $a \pm
+            ib$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Notice that $2=1^2+1^2$, and that  $2=(1+i)(1-i)$ in $\Z[i]$. Moreover
+    $1-i=-i(1+i)$, which makes $1 \pm i$ associates.
+
+    Now, for any integer, its square is either $0 \mod{4}$ or $1 \mod{4}$.
+    Hence, if $p$ is an odd prime, then $p^2 \equiv 1 \mod{4}$. So if $p \equiv
+    3 \mod{4}$, it is not the sum of two squares, and hence it is irreducible in
+    $\Z[i]$.
+
+    Now, if $p \equiv 1 \mod{4}$, by lemma \ref{2.4.2}, we have $p|n^2+1$ for
+    some integer  $n \in \Z$. Then  $p|(n+i)(n-i)$. Suppose then, that $p$ was
+    irreducible. Then either $p|(n+i)$ or $p|(n-i)$; however since $p$ is a real
+    number, we have $p$ dividing both. Thus $p|((n+i)-(n-i))=2i$, which cannot
+    happen, and hence $p$ is reducible. Then by above, $p=a^2+b^2=(a+ib)(a-ib)$
+    for some $a,b \in \Z$.
+\end{proof}
+\begin{corollary}
+    Let $n \in \Z$ be of the form
+    \begin{equation*}
+        n=2^kp_1^{a_1} \dots p_r^{a_r}q_1^{b_1} \dots q_s^{b_s}
+    \end{equation*}
+    where each $p_i \equiv 1 \mod{4}$ is a distinct prime and each $q_j \equiv 3
+    \mod{4}$ is a distinct prime. Then $n$ is the sum of two integer squares if,
+    and only if $b_j$ is even. Moreover, the number of representations of $n$ as
+    a sum of two integer squares is
+    \begin{equation*}
+        4(a_1+1) \dots (a_r+1)
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    Notice that if $n=A^2+B^2$ for some  $A,B \in \Z$, then  $N(A+iB)=n$,
+    for $A+iB \in \Z[i]$. Now, by the above theorem, we have proved the first
+    assertion that if $n=A^2+B^2$, then the $b_j$s are even. Suppose then that
+    $b_j$ is even for all  $1 \leq j \leq s$. For each  $p_i \equiv 1 \mod{4}$,
+    write $p_i=\pi_i\bar{\pi_i}$ where $\pi_i$ is irreducible in $\Z[i]$ and
+    $\bar{\pi_i}$ is its conjugate. Now, if $N(A+iB)=n$, then the factorization
+    of $A+iB$ in  $\Z[i]$ is
+    \begin{equation*}
+        A+iB=(1+i)^k(\prod_{i=1}^r{\pi^{a_{i,1}}\bar{\pi}^{a_{i,2}}})
+        q_1^{\frac{b_1}{2}} \dots q_s^{\frac{b_s}{2}}
+    \end{equation*}
+    Where $a_{i,1}+a_{i,2}=a_i$. Now since each $a_{i,1}$ is one of $a_i+1$
+    possible choices, we have $(a_1+1) \dots (a_r+1)$ unique choices up to
+    units. Since $\Z[i]$ has the $4$ units  $\pm 1, \pm i$, we get the result.
+\end{proof}

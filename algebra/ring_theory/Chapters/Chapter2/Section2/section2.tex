@@ -74,30 +74,30 @@
 \end{proof}
 
 \begin{example}\label{2.5}
-    COnsider the ring $\Z[1+\frac{\sqrt{-19}}{2}]$. With norm  $N=\|\cdot\|$ the
-    field norm. Let $x,y \in \Z[1+\frac{\sqrt{-19}}{2}]$ be nonzero elements and
-    that $\frac{x}{y} \notin \Z[1+\frac{\sqrt{-19}}{2}]$. Write
+    Consider the ring $\Z[1+\frac{\sqrt{-19}}{2}]$. With norm  $N=\|\cdot\|^2$
+    the field norm. Let $x,y \in \Z[1+\frac{\sqrt{-19}}{2}]$ be nonzero elements
+    and that $\frac{x}{y} \notin \Z[1+\frac{\sqrt{-19}}{2}]$. Write
     \begin{equation*}
         \frac{x}{y}=\frac{a+b\sqrt{-19}}{c} \in \Q[1+\frac{\sqrt{-19}}{2}]
     \end{equation*}
     where $a,b,c$ are all coprime, with  $c>1$. Then there are integers $u,v,w$
     with $av+bu+cw=1$, then  $au-19bv=cq+r$ for some quotient $q$ and remainder
-    $r$ with  $\|r\| \leq \frac{c}{2}$ and let $s=u+v\sqrt{-19}$ and
+    $r$ with  $N(r) \leq \frac{c}{2}$ and let $s=u+v\sqrt{-19}$ and
     $t=q-w\sqrt{-19}$. Then we find that
     \begin{equation*}
-        0<\|\frac{x}{y}s-t\| \leq \frac{1}{4}+\frac{19}{c^2}
+        0<N(\frac{x}{y}s-t) \leq \frac{1}{4}+\frac{19}{c^2}
     \end{equation*}
-    Then $s=1, t=\frac{(a-1)+b\sqrt{-19}}{2} \in R$ satisfy $0<\|\frac{x}{y}s-t\|$
+    Then $s=1, t=\frac{(a-1)+b\sqrt{-19}}{2} \in R$ satisfy $0<N(\frac{x}{y}s-t)$
 
     Now, suppose that $c=3$, then $3 \nmid (a^2+19b^2)$. Then $a^2+19b^2=3q+r$
     with  $r=1$ or $r=2$. Then $s=a-b\sqrt{-19},t=q$ statisfy
-    $0<\|\frac{x}{y}s-t\|$. Finally, for $c=4$, with $a,b$ not both even, so
+    $0<N(\frac{x}{y}s-t)$. Finally, for $c=4$, with $a,b$ not both even, so
     that $a^2+19b^2$ is odd. Then $a^2+19b^2=4q+r$ so for $q,r \in \Z$ with
-    $0<r<4$, then $s=a-b\sqrt{-19}, t=q$ satisfy $0<\|\frac{x}{y}s-t\|$. Now, if
+    $0<r<4$, then $s=a-b\sqrt{-19}, t=q$ satisfy $0<N(\frac{x}{y}s-t)$. Now, if
     both $a$ and  $b$ are odd, then  $a^2+19b^2 \equiv 1+3 \mod{8}$ so taht
     $a^2+19b^2=8q+4$ for some  $q \in \Z$, then
     \begin{equation*}
         s=\frac{a-b\sqrt{-19}}{2} \text{ and } t=q
     \end{equation*}
-    satisfy $0<\|\frac{x}{y}s-t\|$.
+    satisfy $0<N(\frac{x}{y}s-t)$.
 \end{example}
