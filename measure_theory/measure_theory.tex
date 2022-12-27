@@ -1,0 +1,51 @@
+\documentclass[12pt, twoside]{book}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{pgfplots}
+    \pgfplotsset{compat=1.12,}
+\usepackage{enumitem}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,graphicx,mathtools,hyperref, faktor}
+
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\bar}[1]{\overline{#1}}
+\usetikzlibrary{positioning}
+\input{Library/Fonts/BlackboardBold}
+\input{Library/Fonts/MathCalligraphy}
+\input{Library/definitions}
+\input{Library/styles}
+\input{Library/greek_letters.tex}
+
+\renewcommand*{\proofname}{Proof}
+
+
+
+\title{Measure Theory}
+\author{Alec Zabel-Mena\\ \textbf{\underline{Text}} \\Real
+    Analysis ($4^{th}$ edition) \\ P.M. Fitzpatrick \& H.L. Royden}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\input{Chapters/Chapter1/chapter1.tex}
+%\input{Chapters/Chapter2/chapter2.tex}
+%\input{Chapters/Chapter3/chapter3.tex}
+%\input{Chapters/Chapter4/chapter4.tex}
+%\input{Chapters/Chapter5/chapter5.tex}
+%\input{Chapters/Chapter6/chapter6.tex}
+%\input{Chapters/Chapter7/chapter7.tex}
+
+\nocite{*}
+
+\bibliography{references.bib}
+\bibliographystyle{ieeetr}
+
+\end{document}

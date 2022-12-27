@@ -1,0 +1,59 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Derivatives of vector valued functions.}
+
+\begin{definition}
+    Let $f:[a,b] \rightarrow \C$ be a complex valued function, such that $f(t)=f_1(t)+if_2(t)$. 
+    We say that $f$ is \textbf{differentiable} at  a point $x$ if and only if  $f_1$ and $f_2$ 
+    are differentiable, and we denote the \textbf{derivative} of $f$ to be the function 
+    $f:(a,b) \rightarrow \C$ such that  $f'=f_1'+if_2'$
+\end{definition}
+
+\begin{definition}
+    Let $f:[a,b] \rightarrow \R^k$ be a vectorvalued function for  $k \in \Z^+$.  $f$ is said 
+    to be \textbf{differentiable} at $x \in (a,b)$ if there is some point $f'(x) \in \R^k$ such that:
+        \begin{equation}
+            \lim_{t \rightarrow x}{||\frac{f(t)-f(x)}{t-x}-f'(x)||}=0		
+        \end{equation}
+        We define the \textbf{derivative} of  $f$ at $x$ to be the function $f':(a,b) \rightarrow \R$ such 
+        that the values of $f'$ statisfy equat ion $(5.3)$
+\end{definition}
+
+\begin{remark}
+    If $f:[a,b] \rightarrow \R^k$ is defined by  $f=(f_1, \dots, f_k)$, then  $f$ is 
+    differentiable at a point  $x \in (a,b)$ if and only if $f_i$ is differentiable at  $x$ 
+    for  $1 \leq i \leq k$, and we have that  $f'=(f_1', \dots, f_k')$.
+\end{remark}
+
+Theorem \ref{6.1.1} follows natrually, and so does theorem \ref{6.1.2}$(a)$ and $(2)$, where 
+we define  $fg$ as  $\vbrack{f,g}$, howeever, the mean value theorem in general does not hold.
+
+\begin{example}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Define $f:\R \rightarrow \C$ by $f(x)=e^{ix}=\cos{x}+i\sin{x}$. Then $f(2\pi)-f(0)=0$, 
+            however, $f'(x)=ie^{ix} \neq 0$ for all $x$ (moreover, $|f'|=1$), so the 
+            generalized mean value theorem fails here.
+
+        \item Define $f,g:(0,1) \rightarrow \C$ by  $f(x)=x$ and $g(x)=x+x^2e^{\frac{i}{x^2}}$ 
+            for all $x$. Since $|e^{it}|=1$, we have that $\lim{\frac{f}{g}}=1$ as $x \rightarrow 0$. 
+            Now  $g'(x)=1+(2x-i\frac{2}{x})e^{\frac{1}{x^2}}$ on $(0,1)$, hence  $|g'|=
+            |2x-i\frac{2}{x}|-1 \geq \frac{2}{x}-1$, so $|\frac{f'}{g'}| \leq \frac{x}{2-x} \rightarrow 0$ 
+            as $x \rightarrow 0$, so L'Hospital's rule fails in  $\C$ as well, and hence in  $\R^2$  
+            (as $\C$ is isomorphic to  $\R^2$).
+    \end{enumerate}
+\end{example} 
+
+\begin{theorem}\label{6.6.1}
+    Suppose $f:[a,b] \rightarrow \R^k$, for  $k \in \Z^+$ is continuous, and that $f$ is 
+    differentiable on  $(a,b)$. Then there is an  $x \in (a,b)$ for which $||f(b)-f(a)|| \leq (b-a)||f'(x)||$.
+\end{theorem}
+\begin{proof}
+    Let $z=f(b)-f(a)$, and define  $\phi=\vbrack{f,g}$ for all  $t \in [a,b]$, then $\phi$ 
+    is a realvalued function continuous on $[a,b]$, moreover it is differentiable on  $(a,b)$; therefore, 
+    by the mean value theorem,  $\phi(b)-\phi(a)=(b-a)\phi'(a)=(b-a)\vbrack{z,f'(x)}$ for  $x \in  (a,b)$. 
+    On the other hand, we have that $\phi(b)-\phi(a)=\vbrack{z,z}=||z||^2$, hence, by the Cauchy 
+    Schwarz inequality, we have that $||z||^2=(b-a)\vbrack{z,f'} \leq ||z||||f'||$,  which gives 
+    the desired result.
+\end{proof}

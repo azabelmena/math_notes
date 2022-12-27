@@ -1,0 +1,143 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Open Sets, and $\s$-Algebras}
+
+\begin{definition}
+    We call a set $U$ of real numbers \textbf{open} provided for any $x \in U$,
+    there is an  $r>0$ such that  $(x-r,x+r) \subseteq U$.
+\end{definition}
+
+\begin{lemma}\label{lemma_1.1.1}
+    The set of real numbers $\R$, together with open sets defines a topology on
+     $\R$.
+\end{lemma}
+\begin{proof}
+    Notice that both $\R$ and  $\emptyset$ are open sets. Moreover, if
+    $\{U_n\}$ is a collection of open sets, then so is thier union. Now,
+    consider the fintie collection $\{U_k\}_k=1^n$ and let
+    $U=\bigcap_{k=1}^n{U_k}$. If $U$ is empty, we are done. Otherwise, let  $x
+    \in U$. Then  $x \in U_k$ for every  $1 \leq k \leq n$, and since each
+    $U_k$ is open, choose an  $r_k>0$ for which  $(x-r_k,x+r_k) \subseteq U_k$.
+    Then let $r=\min{\{r_1, \dots ,r_n\}}$. Then $r>0$, and we have  $(x-r,x+r)
+    \subseteq U$, which makes $U$ open in  $\R$.
+\end{proof}
+
+\begin{lemma}\label{lemma_1.1.2}
+    Every nonempty set is the disjoint union of a countable collection of open
+    sets.
+\end{lemma}
+\begin{proof}
+    Let $U$ be nonempty and open in  $\R$. LEt  $x \in U$. Then there is a
+    $y>x$ for which  $(x,y) \subseteq U$ and there is a $z<x$ for which  $(z,x)
+    \subseteq U$. Now, let $a_x=\inf{\{z : (z,x) \subseteq U\}}$ and
+    $b_x=\sup{\{y : (x,y) \subseteq U\}}$, and let $I_x=(a_x,b_x)$. Then we have
+    \begin{equation*}
+        x \in I_x \text{ and } a_x \notin I_x \text{ and } b_x \notin I_x
+    \end{equation*}
+    Let $w \in I_x$ such that  $x<w<b_x$. Then there is a  $y>w$ such that
+    $(x,y) \subseteq U$ so that $w \in U$. Now, if  $b_x \in U$, then there is
+    an  $r>0$ for which  $(b_x-r,b_x+r) \subseteq U$, in particular, $(x,b_x+r)
+    \subseteq U$. But $b_r$ is the least upperbound of all such numbers, and
+    $b_x<b_x+r$, a contradiction. Thus  $b_x \notin U$, and hence  $b_x \notin
+    I_x$. A similar argument shows that  $a_x \notin I_x$.
+
+    Consider now the collection  $\{I_x\}_{x \in U}$. Then $U=\bigcup{I_x}$ and
+    since $a_x,b_x \notin I_x$ for each  $x$, the collection  $\{I_x\}$ is a
+    disjoint collection. Lastly, by the density of $\Q$ in  $\R$ there is a 1--1
+    mapping between this collection and $\Q$, making it countable.
+\end{proof}
+
+\begin{definition}
+    Let $E \subseteq \R$ a set. We call a point $x \in \R$ a  \textbf{point of
+    closure} of $E$ if every open interval containing  $x$ also contains a point
+    of  $E$. We call the collection of all such points the  \textbf{closure} of
+    $E$, and denote it $\cl{E}$. If $E=\cl{E}$, then we say that $E$ is
+    \textbf{closed}.
+\end{definition}
+
+\begin{lemma}\label{1.1.3}
+    For any set $E$ of real numbers,  $\cl{E}$ is closed; i.e.
+    $\cl{E}=\cl{(\cl{E})}$. Moreover, $\cl{E}$ is the smallest closed set
+    containing $E$.
+\end{lemma}
+
+\begin{lemma}\label{1.1.4}
+    Every set $E$ of rea numbers is open if, and only if  $\com{\R}{E}$ is
+    closed.
+\end{lemma}
+
+\begin{definition}
+    Let $E \subseteq \R$ a set. We call a collection  $\{E_{\lambda}\}$ a
+    \textbf{cover} of $E$ if  $E \subseteq \bigcup{E_\lambda}$. If each
+    $E_\lambda$ is open, then we call this collection an  \textbf{open cover} of
+    $E$.
+\end{definition}
+
+\begin{theorem}[Heine-Borel]\label{1.1.5}
+    For any closed and bounded set $F$ of  $\R$, every open cover of  $F$ has a
+    finite subcover.
+\end{theorem}
+\begin{proof}
+    Suppose first that $F=[a,b]$, for $a \leq b$ real numbers. Then  $F$ is
+    closed and bounded. Let  $\Fc$ be an open cover of  $[a,b]$, and deifne
+    $E=\{x \in [a,b] : [a,x] \text{ has a finite subcover by sets in } \Fc\}$.
+    Notice that $a \in E$, so that $E$ is nonempty. Now, since  $E$ is bounded
+    by  $b$, by the completeness of  $\R$, let  $c=\sup{\{E\}}$. Then $c \in
+    [a,b]$ and there is a set $U \in \Fc$ with  $c \in U$. Since  $U$ is open,
+    there exists an  $\epsilon>0$ such that  $(c-\epsilon, c+\epsilon) \subseteq
+    U$. Now, $c-\e$ is not an upperbound of $E$, so there is an  $x \in E$ with
+     $c-\e<x$, and a finite collection of open sets  $\{U_i\}_{i=1}^k$ covering
+     $[a,x]$. Then the collection $\{U_i\}_{i=1}^k \cup U$ covers $[a,x]$ so
+     that $c=b$, and we have found a finite subcover of  $F$.
+
+     Now, let $F$ be closed and bounded. Then it is contained in a closed
+     bounded interval  $[a,b]$. Now, let $U=\com{\R}{F}$ open and $\Fc$ an open
+     cover of  $F$. Let  $\Fc'=\Fc \cup U$. Since  $\Fc$ covers  $F$,
+     $\Fc'$ covers $[a,b]$. By above, there is a finite subcover of $[a,b]$, and
+     hence of $F$ by sets in  $\Fc'$. Removine  $U$ from  $\Fc'$, we get a
+     finite subcover of  $F$ by sets in  $\Fc$.
+\end{proof}
+
+\begin{theorem}[The Nested Set Theorem]\label{1.1.6}
+    Let $\{F_n\}$ be a descending collection of nonempty closed sets of $\R$,
+    for which  $F_1$ is bounded. Then
+    \begin{equation*}
+        \bigcap{F_n} \neq \emptyset
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $F=\bigcap{F_n}$, and suppose to the contrary that $F$ is empty. Then
+    for all  $x \in \R$, there is an  $n \in \Z^+$ for which  $x \notin F_n$. So
+    that  $x \in U_n=\com{\R}{F_n}$. TYhen $\bigcvap{U_n}=\R$, and each $U_n$ is
+    open. So  $\{U_n\}$ is an open cover of $\R$, and hence $F_1$. By the
+    theorem of Heine-Borel, there is an $N>0$ such that  $F \subseteq
+    \bigcup_{n=1}^N{U_n}$. Since $\{F_n\}$ is descending, the collection
+    $\{U_n\}$ is ascending, and hence $\bigcup{U_n}=U_N=\com{\R}{F_N}$ which
+    makes $F_1 \suibseteq \com{\R}{F_N}$, a contradiciton.
+\end{proof}
+
+\begin{definition}
+    Let $X$ be a set. We call a collection  $\Ac$ of subsets of  $X$
+    \textbf{$\s$-algebra} if
+    \begin{enumerate}
+        \item[(1)] $\emptyset \in \Ac$.
+
+        \item[(2)] For any $A \in \Ac$,  $\com{X}{A} \in \Ac$.
+
+        \item[(3)] If $\{A_n\}$ is a countable collection of elements of $\Ac$,
+            then their union is an element of  $\Ac$.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}\label{1.1.7}
+    Let $\Fc$ a collection of subsets of a set $X$. The intersection of all
+    $\s$-algebras containing  $\Fc$ is a  $\s$-algebra. Moreover, it is the
+    smallest such  $\s$-algebra.
+\end{lemma}
+
+\begin{definition}
+    We define the \textbf{Borel sets} of $\R$ to be the  $\s$-algebra of  $\R$
+    cotnaining all open sets in  $\R$
+\end{definition}
