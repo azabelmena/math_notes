@@ -1,96 +1,107 @@
-%----------------------------------------------------------------------------------------
-%	SECTION 1.3
-%----------------------------------------------------------------------------------------
-
-\section{The Field of Real Numbers}
-
-\begin{theorem}\label{1.3.1}
-    There exists an ordered field $\R$ with the least upperbound property, such that 
-     $\Q \subseteq \R$.
-\end{theorem}
+\section{Continuous Functions of a Real Variable.}
 
 \begin{definition}
-    We call the field $\R$ the \textbf{field of real numbers},and we call the elements 
-    of $\R$ \textbf{real numbers}.
+    A realvalued function $f$ on a domain $E$ is said to be \textbf{continuous}
+    at a point $x \in E$ provided for any $\e>0$ there is a  $\dl>0$ for which
+    \begin{equation*}
+        |f(x)-f(y)|<\e \text{ whenever } |x-y|<\delta \text{ for any } y \in E
+    \end{equation*}
+    We call $f$  \textbf{continuous} on $E$ if it is continuous at every point
+    in  $E$. We call  $f$  \textbf{Lipschitz continuous} if there is a $c \geq
+    0$ for which
+    \begin{equation*}
+        |f(x)-f(y)| \leq c|x-y| \text{ for all } x,y \in E
+    \end{equation*}
 \end{definition}
 
+\begin{lemma}\label{1.3.1}
+    A Lipschitz continuous function on a domain is continuous on that domain.
+\end{lemma}
+
+\begin{lemma}[The Sequential Criterion]\label{1.3.2}
+    A realvalued function $f$ defined on a domain  $E$ is continous at a point
+    $x \in E$ if, and only if for any ssequence  $\{x_n\} \xrightarrow{} x$ of
+    points in $E$, converging to  $x$, that the sequence $\{f(x_n)\} \xrightarrow{}
+    f(x)$ converges to $f(x)$.
+\end{lemma}
+
+\begin{theorem}[The Extreme Value Theorem]\label{1.3.3}
+    A continuous realvalued function defined on a nonempty, closed and bounded
+    domain takes on a maximum value, and a minimum value on that domain.
+\end{theorem}
+\begin{proof}
+    Let $f$ be a continuous realvalued function defined on the domain  $E$,
+    where $E$ is nonempty, closed, and bounded. Let $x \in E$ and  $\dl>0$ and
+    $\e=1$. Define the open interval  $I_x=(x-\dl,x+\dl)$. Then if $y \in E \cap
+    I_x$, then  $|f(x)-f(y)|<1$. So that $|f(y)| \leq |f(x)|+1$. Notice also
+    that the collection $\{I_x\}$ is an open cover of $E$. By the theorem of
+    Heine-Borel, there is a finite subcover of  $E$,  $\{I_{x_k}\}_{k=1}^n$.
+    Define, then, $M=1+\max{\{|f(x_1)|, \dots, |f(x_n)|\}}$. Then we get that
+    $|f(x)| \leq M$ and $f$ is bounded.
+
+    Now, let  $m=\sup{f(E)}$. If $f$ does not take the value  $m$ for any points
+    in  $E$, then the function  $x \xrightarrow{} \frac{1}{f(x)-m}$ is a
+    contoinuous unbounded function on $E$; which is impossible. So there is an
+    $x \in E$ with  $f(x)=m$ and $m$ is a maximum value. Now, since $f$ is
+    continuous, then so is  $-f$, and hence  $-m$ defines a minimum value on $f$.
+\end{proof}
+
+\begin{theorem}[The Intermediate Value Theorem]\label{1.3.4}
+    If $f$ is a continuous realvalued function on a closed bounded interval
+    $[a,b]$, for which $f(a)<c<f(b)$, then there exists an $x_0 \in (a,b)$ for
+    which $f(x_0)=c$.
+\end{theorem}
+\begin{proof}
+    Define $a_1=a$ and $b_1=b$ and let $m_1$ be the midpoint of the interval
+    $[a_1,b_1]$. If $c<f(m_1)$, define $a_2=a_1$ and $b_2=m_1$, otherwise define
+    $a_2=m_1$ and $b_2=m_1$, so that in either case we get $f(a_2) \leq c \leq
+    f(b_2)$ and $b_2-a_2=\frac{b-a}{2}$. By induction, construct the collection
+    of closde bounded intervals $\{[a_n,b_n]\}$ such that $f(a_n) \leq c \leq
+    f(b_n)$ and $b_n-a_n=\frac{b-a}{2^{n-1}}$. This collection is a descending
+    collection, so by the nested set theorem, the intersection
+    $I=\bigcap{[a_n,b_n]}$ is nonempty. Choose an $x_0 \in I$, and observe that
+    \begin{equation*}
+        |a_n-x_0| \leq b_n-a_n=\frac{b-a}{2^{n-1}}
+    \end{equation*}
+    So the sequence $\{a_n\} \xrightarrow{} x_0$. By the sequential criterion,
+    since $f$ is continuous at  $x_0$, we get the sequence $\{f(a_n)\}
+    \xrightarrow{} f(x_0)$. Since $f(a_n) \leq c$, and $(-\infty,c]$ is closed,
+    we also get $f(x_0) \leq c$.
+
+    By similar reasoning to the argument provided above, we also get that
+    $f(x_0) \geq c$ so that equality is established.
+\end{proof}
+
 \begin{definition}
-    Let $S$ be an ordered field, and let  $E \subseteq S$. We say that  $E$ is \textbf{dense} 
-    in $S$, if for all $r,s \in S$, with $r<s$, there is an $\alpha \in E$ such that 
-    $r<\alpha<s$.
-\end{definition}
-
-\begin{theorem}[The Archimedean Principle]\label{1.3.2}
-    If $x,y \in \R$, and  $x>0$, then there is an  $n \in \Z^+$ such that  $nx>y$.
-\end{theorem}
-\begin{proof}
-    Let $A=\{nx: n \in \Z^+\}$, and suppose that  $nx \leq y$. Then  $y$ is an upperbound 
-    of $A$, abd since  $A$ is nonempty,  $\alpha=\sup{A} \in \R$, since $x>0$, we have 
-     $\alpha-x<\alpha$, so  $\alpha-x$ is not an upperbound of  $A$. Hence  $\alpha-x<mx$ for some 
-     $m \in \Z^+$. Then  $\alpha<(1-m)x \in A$, contradicting that  $\alpha$ is an upperbound 
-     of  $A$.
-\end{proof}
-
-\begin{theorem}[The density of $\Q$ in  $\R$]\label{1.3.3}
-    $\Q$ is dense in  $\R$.
-\end{theorem}
-\begin{proof}
-    Let $x<y$ be realnumbers, then  $y-x>0$, so by the Archimedean principle, there is 
-    an $n \in \Z^+$ fir which $n(y-x)>1$. By the Archimedean principle again, we have  
-    $m_1,m_2 \in \Z^+$ for which $m_1>nx$ and $m_2>-nx$, thus $-m_2<nx<m_1$, and we also 
-    have that there is an $m \in \Z^+$ for which  $-m_2<m<m_1$, and $m-1 \leq nx<m$. Thus 
-    combining inequalities, we get  $nx<m<ny$, thus  $x<\frac{m}{n}<y$.
-\end{proof}
-
-\begin{theorem}[The existence of $n^th$ roots of positive reals]\label{1.3.4}
-    For every real number $X>0$, and for every  $n \in \Z^+$, there is one, and only one 
-    positive real number  $y$ for which  $y^n=x$.
-\end{theorem}
-\begin{proof}
-    Let $y>0$ be a real number; then $y^n>0$, so there is atmost one such  $y$ for which 
-    $y^n=x$. Now let  $E=\{t:\R: t^n<x\}$, choosing  $t=\frac{x}{1+x}$, we see that 
-    $0 \leq t<1$, hence  $t^n<t<x$, so $E$ is nonempty. Now if $1+x<t$, then $t^n \geq x$, so 
-    $t \notin E$, and  $E$ has $1+x$ as an upperbound. Therefore, $\alpha=\sup{E} \in \R$ exists.
-
-    Now suppose that  $y^n<x$, choose  $0 \leq h<1$ such that  $h<\frac{x-y^n}{n(y+1)^{n-1}}$, 
-    then $(y+h)^n-y^n<hn(y+h)^{n-1}<hn(y+1)^{}n-1<x-y^n$, thus  $(y+h)^n<x$, so  $y+h \in E$, 
-    contraditing that  $y$ is an upperbound. On the other hand, if  $y^n>x$, choosing 
-    $k=\frac{y^n-x}{ny^{n-1}}$, then $0 \leq k<y$, and letting  $t \geq y-k$, we get that 
-    $y^n-t^n \leq y^n+(y-k)^n<kny_{n-1}=y^n-x^n$, so $t^n \geq x$, making  $y-k$ an uppeerbound 
-    of  $E$, which contradicts  $y=\sup{E}$.
-\end{proof}
-\begin{remark} 
-    We denote $y$ as  $\sqrt[n]{x}$, or as  $x^{\frac{1}{n}}$.
-\end{remark}
-
-\begin{corollary}
-    If $a,b \in \R$, with  $a,b>0$, and  $n \in \Z^+$, then  $\sqrt[n]{ab}=\sqrt[n]{a}\sqrt[n]{b}$.
-\end{corollary}
-\begin{proof}
-    Let $\alpha=\sqrt[n]{a}$, and  $\beta=\sqrt[n]{b}$. Then  $\alpha^n=a$, and  $\beta^n=b$, so 
-    $ab=\alpha^n\beta^n=(l\alpha\beta)^n$, we are done.
-\end{proof}
-
-\begin{definition}
-    We define the \textbf{extended real number system} to be the field $\R$, together with symbols 
-    $\infty$, and  $-\infty$, called  \textbf{positive infinity} and \textbf{negative infinity}, such that 
-    $-\infty<x<\infty$ for all $x \in \R$. We call elements of the extended real numbers \textbf{infinite}, 
-    and every other element not in the extended real numbers \textbf{finite}.
+    A realvalued function $f$ on a domain $E$ is said to be \textbf{uniformly
+    continuous} if for everyu $\e>0$ there is a  $\dl>0$ such that
+    \begin{equation*}
+        |f(x)-f(y)|<\e \text{ whenever } |x-y|<\dl \text{ for all } x,y \in E
+    \end{equation*}
 \end{definition}
 
 \begin{lemma}\label{1.3.5}
-    $\infty$ is an upperbound for every subset  $E$, of  $\R$, and  $-\infty$ is a lowerbound 
-    for every subset  $E$ of  $\R$. Moreover, if $E$ is not bounded above, then  $\sup{E}=\infty$, 
-    and if  $E$ is not bounded below, then  $\inf{E}=-\infty$.
+    If $f$ is a uniformly continuous function on a domain  $E$, then it is
+    continuous on  $E$.
 \end{lemma}
 
-\begin{remark}
-    We make the following assumptions for extended real numbers:
-        \begin{enumerate}[label=(\arabic*)]
-            \item If $x \in \R$, then  $x+\infty=\infty$, $x-\infty=-\infty$, and  $ \frac{x}{\infty}=\frac{x}{-\infty}=0$.
-
-            \item If $x>0$, then  $x(\infty)=\infty$ and  $x(-\infty)=-\infty$.
-
-            \item If  $x<0$, then  $x(\infty)=-\infty$ and  $x(-\infty)=\infty$.
-        \end{enumerate}
-\end{remark}
+\begin{theorem}\label{1.3.6}
+    A continuous realvalued function on a closed and bounded domain is unifomrly
+    continuous.
+\end{theorem}
+\begin{proof}
+    Let $f$ be continuous on  $E$, and  $E$ a closed and bounded domain. Let
+    $\e>0$. For every  $x \in E$, there is a  $\dl_x>0$ for which
+    $|f(x)-f(y)|<\e$ whenever $|x-y|<\dl_x$ for some $y \in E$. Define
+    $I_x=(x-\frac{\dl_x}{2}, x+\frac{\dl_x}{2})$. Then $\{I_x\}$ is an open
+    cover for $E$, so that by the theorem of Heine-Borel, there is a finite
+    subcover  $\{I_{x_k}\}_{k=1}^n$ of $E$. Define  $\dl=
+    \frac{1}{2}\min{\{\frac{\dl_{x_1}}{2}, \dots, \frac{\dl_{x_n}}{2}\}}$. Then
+    $\dl>0$ moreover, if $x,y \in E$, with $|x-y|<\dl$, then asince
+    $\{I_{x_k}\}$ covers $E$, there is a  $k>0$ such that
+    \begin{equation*}
+        |x-x_k|<\frac{\dl_{x_k}}{2} \text{ and } |x_{x_k}-y|<\frac{\dl_{x_k}}{2}
+    \end{equation*}
+    Then we have $|f(x)-f(x_k)|<\frac{\e}{2}$ and $|f(x_k)-f(y)|<\frac{\e}{2}$
+    so that $|f(x)-f(y)|<\e$, which makes $f$ unifomrly continuous.
+\end{proof}
