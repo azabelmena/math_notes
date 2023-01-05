@@ -1,1 +1,202 @@
 \section{Lebesuge Measurable Sets}
+
+\begin{definition}
+    We call a set $E$ of  $\R$  \textbf{Lebesuge measurable}, provided for any
+    subset $A$ of  $\R$,
+    \begin{equation*}
+        m^\ast(A)=m^\ast(A \cap E)+m^\ast(A \cap \com{\R}{E})
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{2.2.1}
+    A set $E$ is Lebesuge measurable if, and only if for any subset $A$ of $\R$,
+     \begin{equation*}
+        m^\ast(A) \geq m^\ast(A \cap E)+m^\ast(A \cap \com{\R}{E})
+     \end{equation*}
+\end{lemma}
+\begin{proof}
+    We have $A=(A \cap E) \cup (A \cap \com{\R}{E})$, so by finite
+    subadditivity, $m^\ast(A) \leq m^\ast(A \cap E)+m^\ast(A \cap \com{\R}{E})$.
+\end{proof}
+
+\begin{lemma}\label{2.2.2}
+    Any set of Lebesuge outer measure $0$ is Lebesgue measurable.
+\end{lemma}
+\begin{proof}
+    Let $E$ have  $m^\ast(E)=0$ and let $A \subseteq \R$. Notice that  $A \cap E
+    \subseteq E$ and  $A \cap \com{\R}{E} \subseteq E$, so that $m^\ast(A \cap E)
+    \leq m^\ast(E)=0$ and $m^\ast(A \cap \com{\R}{E}) \leq m^\ast(A)$. Then we
+    have
+    \begin{equation*}
+        m^\ast(A) \geq m^\ast(A \cap \com{\R}{E})=0+m^\ast(A \cap
+        \com{\R}{E})=m^\ast(A \cap E)+m^\ast(A \cap \com{\R}{E})
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    Countable sets are measurable.
+\end{corollary}
+
+\begin{lemma}\label{2.2.3}
+    The union of two measurable sets is measurable.
+\end{lemma}
+\begin{proof}
+    Let $E_1$ and $E_2$ be measurable sets and $A \subseteq \R$. Then
+    $m^\ast(A)=m^\ast(A \cap E_1)+m^\ast(A \cap \com{\R}{E_1})=m^\ast(A \cap
+    E_1)+m^\ast((A \cap \com{\R}{E_1}) \cap E_2)+m^\ast((A \cap \com{\R}{E_1})
+    \cap \com{\R}{E_2})$. Moreover, notice that
+    \begin{equation*}
+        (A \cap \com{\R}{E_1}) \cap \com{\R}{E_2}=A \cap \com{\R}{(E_1 \cup E_2)}
+        \text{ and }
+        (A \cap E_1) \cup (A \cap \com{\R}{E_1} \cap E_2)=A \cap (E_1 \cup E_2)
+    \end{equation*}
+    Then we get
+    \begin{equation*}
+        m^\ast(A)=m^\ast(A \cap E_1)+m^\ast((A \cap \com{\R}{E_1}) \cap
+        E_2)+m^\ast(A \cap \com{\R}{(E_1 \cup E_2)})
+        \geq m^\ast(A \cap (E_1 \cup E_2))+m^\ast(A \cap \com{\R}{(E_1 \cup E_2)})
+    \end{equation*}
+    which makes $E_1$ and $E_2$ measurable.
+\end{proof}
+\begin{corollary}
+    The union of a finite collection of measurable sets is measurable.
+\end{corollary}
+\begin{proof}
+    Let $\{E_k\}_{k=1}^n$ a finite collection of measurable sets. By induction
+    on $n$, we showed that this is true for  $n=1$ and  $n=2$. Now, consider the
+    collections  $\{E_k\}_{k=1}^{n+1}$ and suppose that the union
+    $E=\bigcup_{k=1}^n{E_k}$ is measurable. Notice, then that
+    \begin{equation*}
+        \bigcup_{k=1}^{n+1}{E_k}=E \cup E_{n+1}
+    \end{equation*}
+    both of which are measurable. Hence measurability of the union of
+    $\{E_k\}_{k=1}^{n+1}$ follows by above.
+\end{proof}
+
+\begin{lemma}\label{2.2.4}
+    Let $A$ a subset of  $\R$ and  $\{E_k\}_{k=1}^n$ a finite, disjoint
+    collection of measurable sets. Then
+    \begin{equation*}
+        m^\ast(A \cap \bigcup_{k=1}^n{E_k})=\sum_{k=1}^n{m^\ast(A \cap E_k)}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    By induction on $n$, for  $n=1$ it is true. Now, suppose that it is true for
+     $n$, and consider the collection  $\{E_k\}_{k=1}^{n+1}$ of disjoint
+     measurable sets. Then we have $A \cap (\bigcup_{k=1}^n{E_k}) \cap E_{n+1}=A
+     \cap E_{n+1}$ and $A \cap (\bigcup_{k=1}^n) \cap \com{\R}{E_{n+1}}=A \cap
+     \bigcup_{k=1}^n{E_k}$. SInce $E_{n+1}$ is measurable we get
+     \begin{equation*}
+         m^\ast(A \cap \bigcup_{k=1}^{n+1}{E_k})=m^\ast(A \cap E_{n+1})+m^\ast(A
+         \cap \bigcup_{k=1}^n{E_k})=\sum_{k=1}^{n+1}{m^\ast(A \cap E_k)}
+     \end{equation*}
+\end{proof}
+
+\begin{definition}
+    We call a collection of subsets of $\R$ an  \textbf{algebra} if it contains
+    $\R$ and it is closed under complements  (with respect to $\R$) and finite
+    unions.
+\end{definition}
+
+\begin{lemma}\label{2.2.5}
+    Any algebra of $\R$ is closed under finite intersections.
+\end{lemma}
+\begin{proof}
+    By DeMorgan's laws.
+\end{proof}
+
+\begin{theorem}\label{2.2.6}
+    The collection of all measurable sets of $\R$ forms an algebra.
+\end{theorem}
+
+\begin{lemma}\label{2.2.7}
+    The union of a countable collection of measurable sets is measurable.
+\end{lemma}
+\begin{proof}
+    Without loss of generality, let $\{E_k\}$ a countable disjoint collection of
+    measurable sets, and let $E=\bigcup{E_k}$. Let $A$ a subset of  $\R$ and
+    define  $F_n=\gibcup_{k=1}^n{E_k}$. Then $F_n$ is measurable by lemma
+    \ref{2.2.3}, and $\com{\R}{E_n} \subseteq \com{\R}{F_n}$. Then
+    \begin{equation*}
+        m^\ast(A)=m^\ast(A \cap F_n)+m^\ast(A \cap \com{\R}{F_n})
+        \geq m^\ast(A \cap F_n)+m^\ast(A \cap \com{\R}{E_n})
+    \end{equation*}
+    hence $m^\ast(A \cap F_n)=\sum_m^\ast(A \cap E_k)$ so that
+    \begin{equation*}
+        m^\ast(A) \geq \sum{m^\ast(A \cap E_k)}+m^\ast(A \cap \com{\R}{E})
+    \end{equation*}
+    By countable subadditivity of $m^\ast$ we have
+    \begin{equation*}
+        m^\ast(A) \geq m^\ast(A \cap E)+m^\ast(A \cap \com{\R}{E})
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    We call a collection of subsets of $\R$ a  \textbf{$\sigma$-algebra} if it
+    forms an algebra, and it is closed under countable unions.
+\end{definition}
+
+\begin{lemma}\label{2.2.8}
+    Any $\sigma$-algebra of  $\R$ is closed under countable intersections.
+\end{lemma}
+
+\begin{theorem}\label{2.2.9}
+    The collection of measurable sets of $\R$ forms a  $\sigma$-algebra.
+\end{theorem}
+
+\begin{lemma}\label{2.2.10}
+    Every interval of $\R$ is measurable.
+\end{lemma}
+\begin{proof}
+    Consider an interval of the form $(a,\infty)$, for any $a \in \R$. Let  $A
+    \subseteq \R$, such that  $A \notin A$; otherwise, just take
+    $\com{A}{\{a\}}$. Then since $m^\ast(A)$ is a greatest lower bound, it is
+    sufficient to show that for any countable collection $\{I_k\}$ of open,
+    bounded intervals covering $A$, that
+    \begin{equation*}
+        m^\ast(A_1)+m^\ast(A_2) \leq \sum{l(I_k)}
+    \end{equation*}
+    where
+    \begin{equation*}
+        A_1=A \cap (-\infty,a) \text{ and } A_2=A \cap (a,\infty)
+    \end{equation*}
+
+    Indeed, let $\{I_k\}$ be such a collection, and define
+    \begin{equation*}
+        I_{k,1}=I_k \cap (-\infty,a) \text{ and } I_{k,2}=I_k \cap (a,\infty)
+    \end{equation*}
+    Then $\{I_{k,1}\}$ and $\{I_{k,2}\}$ are collections of open, bounded
+    intervals which cover $A_1$ and $A_2$ respectively, Hence, by definition of
+    $m^\ast$, we have  $m^\ast(A_1) \leq \sum{l(I_{k,1})}$ and $m^\ast(A_2) \leq
+    \sum{l(I_{k,2})}$; moreover, notice that $l(I_k)=l(I_{k,1})+l(I_{k,2})$.
+    Therefore, we get
+    \begin{equation*}
+        m^\ast(A_1)+m^\ast(A_2) \leq \sum{l(I_{k,1})}+\sum{l(I_{k,1})}=\sum{l(I_k)}
+    \end{equation*}
+    and we are done.
+\end{proof}
+\begin{corollary}
+    Open sets, and closed sets of $\R$ are measurable.
+\end{corollary}
+
+\begin{definition}
+    We define the intersection of all $\sigma$-algebras of  $\R$ to be the
+    \textbf{Borel $\sigma$-algebra}, and call its elements \textbf{Borel sets}.
+\end{definition}
+
+\begin{theorem}\label{2.2.11}
+    The $\sigma$-algebra of all measurable sets of  $\R$ contains the Borel
+    $\sigma$-algebra of  $\R$. Moreover, it contains every interval of  $\R$,
+    open and closed sets, as well as  $G_\dl$ and  $F_\s$ sets.
+\end{theorem}
+
+\begin{lemma}\label{2.2.12}
+    Lebesgue measurable sets are translation invariant. That is, if $E$ is
+    Lebesuge measurable, and  $y \in \R$, then  $E+y$ is Lebesuge measurable.
+\end{lemma}
+\begin{proof}
+    Let $E$ be measurable, $y \in \R$, and  $A \subseteq \R$ Then
+    \begin{equation*}
+        m^\ast(A)=m^\ast(\com{A}{y})=m^\ast(\com{A}{y} \cap E)+m^\ast(\com{A}{y}
+        \cap \com{\R}{E})=m^\ast(A \cap (E+y))+m^\ast(A \cap \com{\R}{(E+y)})
+    \end{equation*}
+\end{proof}
