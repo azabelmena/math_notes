@@ -1,1 +1,118 @@
 \section{The Borel-Cantelli Lemma}
+
+\begin{definition}
+    We define the \textbf{Lebesgue measure} $m$ to be the restriction of the
+    Lebesgue outer measure, $m^\ast$ to the space of all Lebesgue measurable
+    sets. That is, if $E$ is Lebesgue measurable, the
+    \begin{equation*}
+        m(E)=m^\ast(E)
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}[Countable additivity]\label{2.4.1}
+    The Lebesgue measure is countable additive. That is, if $\{E_k\}$ is a
+    countable collection of disjoint measurable sets, then
+    \begin{equation*}
+        m(\bigcup{E_k})=\sum{m(E_k)}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since the space of Lebesgue measurable sets forms a $\s$-algebra, and are
+    closed under countable unions, the set  $E=\bigcup{E_k}$ is Lebesgue
+    measurable. Moreover, by subadditivity of $m^\ast$, and definition of $m$,
+    \begin{equation*}
+        m(E) \leq \sum_k=1^\infty{m(E_k)}
+    \end{equation*}
+
+    Notice, however, that $\bigcup_{k=1}^n{E_k} \subseteq E$, so that by
+    monotonicity, $\sum_{k=1}^n{m(E_k)} \leq m(E)$. Then as $n \xrightarrow{}
+    \infty$, this sum converges to $\sum_{k=1}^\infty{E_k}$ so
+    \begin{equation*}
+        \sum_{k=1}^\infty{E_k} \leq m(E)
+    \end{equation*}
+    and equality is established.
+\end{proof}
+\begin{corollary}
+    The Lebesgue measure is finitely additive.
+\end{corollary}
+
+\begin{theorem}\label{2.4.2}
+    The Lebesgue measure assignes to intervals thier lengths, is translation
+    invariant, and countable additive.
+\end{theorem}
+
+\begin{theorem}[Continuity]\label{2.4.3}
+    The following are true for the Lebesgue measure.
+    \begin{enumerate}
+        \item[(1)] If $\{A_k\}$ is an increasing sequence of Lebesgue measurable
+            sets, then
+            \begin{equation*}
+                m(\bigcup{A_k})=\lim_{k \xrightarrow{} \infty}{m(A_k)}
+            \end{equation*}
+
+        \item[(2)] If $\{B_k\}$ is an decreasing sequence of Lebesgue measurable
+            sets for which $m(B_1)$ is finite, then
+            \begin{equation*}
+                m(\bigcap{B_k})=\lim_{k \xrightarrow{} \infty}{m(B_k)}
+            \end{equation*}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    If $k_0 \in \Z^+$ is such that $m(A_{k_0})$ is infinite, then by
+    monotonicity, $m(\bigcup{A_k})$ is infinite so that $m(A_k)$ is infinite for
+    all $k \geq k_0$. Suppose then, that $m(A_k)$ is finite for all $k$ and
+    define  $A_0=\emptyset$. Furthermore, define $C_k=\com{A_k}{A_{k-1}}$ for
+    all $k \geq 1$. then since  $\{A_k\}$ is a disjoint collection of measurable
+    sets, then so is $C_k$, and  $\bigcup{A_k}=\bigcup{C_k}$. By countable
+    additivity, we have
+    \begin{equation*}
+        m(\bigcup{A_k})=m(\bigcup{C_k})=\sum{m(\com{A_k}{A_{k-1}})}
+    \end{equation*}
+    By excision, we get
+    \begin{equation*}
+        \sum{m(A_k)-m(A_{k-1})}=\lim_{n \xrightarrow{}
+        \infty}{\sum_{k=1}^n{m(A_k)-m(A_{k-1})}}=
+        \lim{(m(A_n)-m(A_0))}=\lim_{n \xrightarrow{} \infty}{m(A_n)}
+    \end{equation*}
+    since $m(A_0)=0$.
+
+    Now, define $D_k=\com{B_1}{B_k}$. Since $\{B_k\}$ is decreasing, the
+    sequence $\{D_k\}$ of measurable sets is increasing. Then by above,
+    \begin{equation*}
+        m(\bigcup{D_k})=\lim_{k \xrightarrow{} \infty}{m(D_k)}
+    \end{equation*}
+    By DeMorgan's laws, $\bigcup{D_k}=\com{B_1}{\bigcap{B_k}}$. On the
+    otherhand, by excision, since $m(B_1)$ is finite, we get
+    \begin{equation*}
+        m(D_k)=m(B_1)-m(B_k)
+    \end{equation*}
+    so that
+    \begin{equation*}
+        m(\com{B_1}{\bigcap{B_k}})=\lim_{n \xrightarrow{} \infty}{(m(B_1)-m(B_n))}
+    \end{equation*}
+    By excision again, we are done.
+\end{proof}
+
+\begin{definition}
+    We say a property holds \textbf{almost everywhere} on a measurable set $E$
+    if there exists a measurable set $E_0 \subseteq E$ with $m(E_0)=0$ for which
+    the property holds for all $x \in \com{E}{E_0}$.
+\end{definition}
+
+\begin{lemma}[Borel-Cantelli]\label{2.4.4}
+    Let $\{E_k\}$ a countable collection of measurable sets such that the sum
+    $\sum{m(E_k)}$ is finite. Then almost all $x \in \R$ belong to at most
+    finitely many of the  $E_k$.
+\end{lemma}
+\begin{proof}
+    By countable subadditivity, we have $m(\bigcup{E_k}) \leq
+    \sum_{k=n}{m(E_k)}$ is finite. Thus, by continuity, we have
+    \begin{equation*}
+        m(\bigcap_{n=1}{(\bigcup_{k=n}{E_k})})=
+        \lim_{n \xrightarrow{} \infty}{m(\bigcup_{k=n}{E_k})} \leq
+        \lim_{n \xrightarrow{} \infty}{\sum_{k=n}{m(E_k)}}=0
+    \end{equation*}
+    so that almost all $x$ does not belong to the intersection
+    $\bigcap_{n=1}{\bigcup_{k=n}{E_k}}$ and hence belongs to at most finitely
+    many of the $E_k$.
+\end{proof}
