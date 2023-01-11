@@ -1,1 +1,108 @@
 \section{The Theorems of Littlewood, Egoroff, and Lusin}
+
+\begin{lemma}\label{3.3.1}
+    If $E$ is a measurable st of finite measure, and  $\{f_n\}$ a sequence of
+    measurable functions on $E$ converging pointwise to a function  $f$ on  $E$,
+    then for all  $\h>0$, and $\dl>0$  there is a measurable subset $A$ of  $E$
+    and  $N>0$ such that
+    \begin{equation*}
+        |f-f_k|<\eta \text{ for all } n \geq N \text{ and } m(\com{E}{A})<\dl
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    For every $k$,  $|f-f_k|$ is well defined, and since  $f$ is measurable,
+    $\{x \in E : |f-f_k|<\h\}$ is measurable, and so the set $E_n=\{x \in E :
+    |f-f_k|<\h \text{ for all } k \geq n\}$ is measurable as well. Notice, that
+    $\{E_n\}$ is an increasing sequence of measurable sets, with
+    $E=\bigcup{E_n}$. Since $\{f_n\} \xrightarrow{pointwise} f$, the continuity
+    of measure, we have
+    \begin{equation*}
+        m(E)=\lim_{n \xrightarrow{} \infty}{m(E_n)}
+    \end{equation*}
+    Since $m(E)$ is finite, choose an $N>0$ such that  $m(E_N)>m(E)-\e$, and
+    define $A=E_n$. Then by exsicion, we have
+    \begin{equation*}
+        m(\com{E}{A})=m(E)-m(A)<\e
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}[Egoroff's Theorem]\label{3.3.2}
+    If $E$ is a measurable st of finite measure, and  $\{f_n\}$ a sequence of
+    measurable functions on $E$ converging pointwise to a function  $f$ on  $E$,
+    then for every $\e>0$, there is a closed set $F$ contained in  $E$ such that
+     $\{f_n\} \xrightarrow{uniformly} f$ on $F$, and  $m(\com{E}{F})<\e$.
+\end{theorem}
+\begin{proof}
+    For all $n \in \Z^+$, let  $A_n \subseteq E$ be measurable, and let
+    $N(n)>0$ such that
+    \begin{equation*}
+        |f-f_k|<\frac{1}{n} \text{ on } A_n \text{ for all } k \geq N(n)
+        \text{ and } m(\com{E}{A_n})<\frac{\e}{2^{n+1}}
+    \end{equation*}
+    Define $A=\bigcap{A_n}$, then by DeMorgan's laws, and countable
+    subadditivity, we have
+    \begin{equation*}
+        m(\com{E}{A}) \leq
+        \sum{m(\com{E}{A_n})}<\sum{\frac{\e}{2^{n+1}}}=\frac{\e}{2}
+    \end{equation*}
+
+    Now, let $\e>0$ and choose  $n_0>0$ such that $\frac{1}{n_0}<\e$. Then we
+    have
+    \begin{equation*}
+        |f-f_k|<\frac{1}{n_0} \text{ on } A_{n_0} \text{ for all } k \geq N(n_0)
+    \end{equation*}
+    But, $A \subseteq A_{n_0}$ so that $|f-f_k|<\e$ on  $A$ for all  $k \geq
+    N(n_0)$. That is, $\{f_n\} \xrightarrow{uniformly} f$ on $A$, and
+    $m(\com{E}{A})<\frac{\e}{2}$. Finally, choose a closed set $F \subseteq A$,
+    such that  $m(\com{A}{F})<\frac{\e}{2}$. Then we get $\{f_n\} \xrightarrow{}
+    f$ and $m(\com{E}{F})<\e$.
+\end{proof}
+
+\begin{lemma}[Littlewood]\label{3.3.3}
+    Let $f$ be a simple function on  $E$. Then for every  $\e>0$, there exists a
+    continuous function  $g$ on  $\R$, and a clsed set  $F \subseteq E$ such
+    that  $f=g$ on  $F$ and  $m(\com{E}{F})<\e$.
+\end{lemma}
+\begin{proof}
+    Let $a_1, \dots, a_n$ be the distinct values taken by $f$, respectively, on
+    the sets  $\{E_k\}_{k=1}^n$. The collection $\{E_k\}$ is a finite disjoint
+    collection. Then choose closed sets $\{F_k\}_{k=1}^n$ such that $F_k
+    \subseteq E_k$ and $m(\com{E_k}{F_k})<\frac{\e}{n}$ for all  $1 \leq k \leq
+    n$. Then $F=\bigcup{F_k}$ is a closed disjoint union, and since $\{E_k\}$ is
+    also disjoint, we have
+    \begin{equation*}
+        m(\com{E}{F})=\sum_{k=1}^n{m(\com{E_k}{F_k})}=\sum_{k=1}^n{\frac{\e}{n}}=\e
+    \end{equation*}
+
+    Now, define $g$ on  $F$ by  $g(x)=a_k$ on $F_k$, for all  $1 \leq k \leq n$.
+    Since  $\{F_k\}$ is disjoint, $g$ is well defined. Moreover,  $g$ is
+    contionuous. Hence, extend  $g$ from  $F$ to a continuous function  $G$ on
+    $\R$, then it follows that by definition of  $g$,  $f=G$ on  $F$.
+\end{proof}
+
+\begin{theorem}[Lusin's Theorem]\label{3.3.4}
+    Let $f$ be a realvalued function on  $E$. Then for every  $\e>0$, there exists a
+    continuous function  $g$ on  $\R$, and a clsed set  $F \subseteq E$ such
+    that  $f=g$ on  $F$ and  $m(\com{E}{F})<\e$.
+\end{theorem}
+\begin{proof}
+    Suppose that $m(E)$ is finite. By the simple approximation theorem, there
+    exists a sequence of simple functions $\{f_n\}$ on $E$ converging pointwise
+    to  $f$ on  $E$. Let  $n \in \Z^+$, then by lemma \ref{3.3.3}, choose $g_n$
+    continuous on  $\R$ and a closed set  $F_n \subseteq E$ such that  $f_n=g_n$
+    on  $F_n$, and  $m(\com{E}{F_n})<\frac{\e}{2^{n+1}}$. By Egoroff's theorem,
+    there is a closed set $F_0 \subseteq E$ such that $\{f_n\}
+    \xrightarrow{uniformly} f$ on $F_0$ with $m(\com{E}{F_0})<\frac{\e}{2}$.
+    Define
+    \begin{equation*}
+        F=\bigcap_{k=0}{F_n}
+    \end{equation*}
+    Then by DeMorgan's laws,
+    \begin{equation*}
+        m(\com{E}{F})<\frac{\e}{2}+\sum{\frac{\e}{2^{n+1}}}=\e
+    \end{equation*}
+    Moreover, $F$ is closed, each  $f_n$ is continuous on  $F$, and  $f_n=g_n$
+    on  $F_n$. Then  $f|_F$ is continous by the uniform continuity of
+    $\{f_n\}$. Finally, there exists a continuous function $g$ on  $\R$ such
+    that $g|_F=f$.
+\end{proof}
