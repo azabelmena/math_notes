@@ -1,1 +1,260 @@
 \section{Seperability.}
+
+\begin{definition}
+    Let $f$ be a polynomial over a field  $F$ with factorization
+    \begin{equation*}
+        f(x)=a_n(x-\a_1)^{n_1} \dots (x-\a_k)^{n_k}
+    \end{equation*}
+    where $\a_1, \dots, \a_k$ are roots of $f$, and $a_n$ is the leading
+    coefficient of $f$. If $n_i>1$, we call  $\a_i$ a  \textbf{multiple root} of
+    $f$, and if  $n_i=1$, we call  $\a_i$ a  \textbf{simple root}. We call $n_i$
+    the  \textbf{multiplicity} of $\a_i$.
+\end{definition}
+
+\begin{definition}
+    A polynomial over a field $F$ is said to be  \textbf{seperable} if it has
+    only simple roots. Otherwise, we say it is \textbf{inseperable}.
+\end{definition}
+
+\begin{lemma}\label{1.6.1}
+    Seperable polynomials have all their roots distinct.
+\end{lemma}
+
+\begin{definition}
+    We say a field $F$ is a \textbf{finite field} if it has a finite number of
+    elements. If $|F|=n$, then we denote $F$ as $\F_n$.
+\end{definition}
+
+\begin{lemma}\label{1.6.2}
+    Every finite field has finite characteristic.
+\end{lemma}
+\begin{proof}
+    Recall that the characteristic is just the additive order of the element $1$
+    in the field.
+\end{proof}
+
+\begin{example}\label{example_1.14}
+    \begin{enumerate}
+        \item[(1)] $x^2-2=(x+\sqrt[]{2})(x-\sqrt[]{2})$ is seperable over $\Q$.
+            However  $(x^2-1)^n$ is inseperable.
+
+        \item[(2)] Consider $x^2-t$ over the field  $\F_2(t)$ of rational
+            functions over $t$.  $x^2-t$ is irreducible, but inseperable. Let
+            $\sqrt[]{t}$ a root, then $(x-\sqrt[]{t})^2=x^2-t$ since
+            $\Char{\F_2}=2$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    The \textbf{derivative} of a polynomial $f(x)=a_0+a_1x+\dots+a_nx^n$ over a
+    field $F$ is the polynomial
+    \begin{equation*}
+        D{f}(x)=a_1+2a_2x+\dots+na_nx^{n-1}
+    \end{equation*}
+    over $F$.
+\end{definition}
+
+\begin{lemma}\label{1.6.3}
+    For any two polynomials $f$ and  $g$ over a field, the following are true.
+    \begin{enumerate}
+        \item[(1)] $D{(f+g)}=D{f}+D{(g)}$.
+
+        \item[(2)] $D{(fg)}=fD{g}+gD{f}$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}\label{1.6.4}
+    A polynomial $f$ has a multiple root  $\a$ if, and only if  $\a$ is a root
+    of  $D{f}$. Moreover, the minimal polynomial of $\a$,  $m_\a$ divides
+    $(f,D{f})$.
+\end{lemma}
+\begin{proof}
+    Let $\a$ a multiple root of  $f$. Then $f(x)=(x-\a)^ng(x)$ for some
+    polynomial $g$. Hence
+    \begin{equation*}
+        D{f}(x)=n(x-\a)^{n-1}g(x)+(x-\a)^nD{g}(x)
+    \end{equation*}
+    so that $\a$ is a root of  $D{f}$.
+
+    Conversly, suppose that $\a$ is a root of both  $f$ and  $D{f}$. Then
+    $f(x)=(x-\a)g(x)$ for some polynomial $g$, and $D{f}(x)=g(x)+(x-\a)D{g}(x)$.
+    Now, since $D{f}(\a)=0$, we get $h(\a)=0$, so that $h$ has a linear factor
+    $(x-\a)$. This makes $\a$ a multiple root of $f$.
+\end{proof}
+\begin{corollary}
+    $f$ is seperable if and only if  $(f,D{f})=1$.
+\end{corollary}
+\begin{corollary}
+    Every irreducible polynomial ina field $F$ of  $\Char{F}=0$ is seperable.
+    Moreover, a polynomial over such a field is irreducible if, and only if it
+    is the product of distinct irreducible factors.
+\end{corollary}
+\begin{proof}
+    Let $p$ an irreducible polynomial over  $F$ of  $\deg{p}=n$. Then
+    $\deg{D{p}}=n-1$. Up to constant factors, the factors of $p$ are  $1$ and
+    itself, so that  $(p,D{p})=1$. This makes $p$ seperable. Therefore every
+    irreducible polynomial over $F$ is seperable, and the rest follows.
+\end{proof}
+
+\begin{example}\label{example_1.15}
+    \begin{enumerate}
+        \item[(1)] Let $p$ prime and $f(x)=x^{p^n}-x$ over the finite field
+            $\F_p$, of $\Char{\F_p}=p$. Then $D{f}(x)=p^nx^{p^n-1}-1 \equiv -1
+            \mod{p}$. Then $D{f}$ has no roots, which makes $f$ seperable.
+
+        \item[(2)] $D{(x^n-1)}=nx^{n-1}$ for any field of $\Char$ coprime to
+            $p$. Then  $D{(x^n-1)}$ has a root $0$ of multiplicity  $n>1$, but
+            $0$ is not a root of  $x^n-1$ so that  $x^n-1$ is seperable. That
+            is,  $x^n-1$ has  $n$ distinct roots of unity  $\xi$.
+
+        \item[(3)] Let $F$ a field of  $\Char{F}=p$, where $p|n$. Then there are
+            fewew than $n$ distinct  $n$-th roots of unity over $F$, since $n
+            \equiv 0 \mod{p}$. Then $D{(x^n-1)}=0$, and every root of $x^n-1$ is
+            a multiple root.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{1.6.5}
+    If $f$ is a polynomial over a field $F$ whose derivative is  $0$, then there
+    exist a polynomial  $g$ for which $f(x)=g(x^p)$ where $\Char{F}=p$.
+\end{lemma}
+\begin{proof}
+    Let $f(x)=a_0+a_1x+\dots+a_nx^n$. Then $D{f}(x)=a_1+\dots+na_nx^{n-1}=0$, so
+    that every exponent $i \equiv 0 \mod{p}$. That is,
+    $f(x)=a_0+a_1x^p+\dots+a_mx^{mp}$. Then let
+    \begin{equation*}
+        g(x)=a_0+a_1x+\dots+a_mx^m
+    \end{equation*}
+    then $f(x)=g(x^p)$.
+\end{proof}
+
+\begin{lemma}\label{1.6.6}
+    Let $F$ a field of  $\Char{F}=p$. The for every $a,b \in F$,
+    $(a+b)^p=a^p+b^p$ and $(ab^p)=a^pb^p$.
+\end{lemma}
+\begin{proof}
+    The binomial theorem gives
+    \begin{equation*}
+        (a+b)^p=a^p+{p \choose 1}a^{p-1}b+\dots+{p \choose p-1}ab^{p-1}+b^p
+    \end{equation*}
+    Now, since ${p \choose i} \in \Z$ for any $1 \leq i \leq p-1$, and $p$ is
+    prime (the charateristic of a field has to be prime), then $p|{p \choose
+    i}$. Hence ${p \choose i} \equiv 0 \mod{p}$, so that the binomial exapnsion
+    above reduces to
+    \begin{equation*}
+        (a+b)^p \equiv a^p+b^p \mod{p}
+    \end{equation*}
+
+    Now, let $\phi:a \xrightarrow{} a^p$, then $\phi$ is an automorphism of
+    fields taking  $(ab)^p=a^pb^p$.
+\end{proof}
+\begin{corollary}
+    Let $F$ be a finite field of  $\Char{F}=p$. Then every element of $F$ is a
+    $p$^{th} power in $F$.
+\end{corollary}
+
+\begin{definition}
+    Let $F$ be a field. We call the automorphism  $F \xrightarrow{} F$ defined
+    by $a \xrightarrow{} a^p$ where $p \in \Z$ the \textbf{Forbenius automorphism}.
+\end{definition}
+
+\begin{lemma}\label{1.6.7}
+    Every irreducible polynomial in a finite field $F$ is seperable.
+\end{lemma}
+\begin{proof}
+    Suppose otherwise. Since $F$ has finite characteristic, there is a
+    polynomial $q$ over $F$ for which $p(x)=q(x^l)$, where $p$ is the
+    irreducible polynomial in question, and  $\Char{F}=l$. Let
+    \begin{equation*}
+        q(x)=a_0+a_1x+\dots+a_nx^n
+    \end{equation*}
+    then $a_i=b_i^p$ for some  $b_i \in F$, and
+    \begin{align*}
+        p(x)    &=  q(x^l)  \\
+                &=  a_0+a_1x^p+\dots+a_nx^{pn}  \\
+                &=  b_0^p+b_1^px^p+\dots+b_n^px^{np}    \\
+                &=  (b_0+b_1x+\dots+b_nx^n)^p   \\
+    \end{align*}
+    which is a contradiction.
+\end{proof}
+
+\begin{definition}
+    A field $K$ of characteristic  $\Char{K}=p$ is called \textbf{perfect} if
+    for every $a \in K$, there exists a  $b \in K$ for which  $a=b^p$, or
+    $p=0$.
+\end{definition}
+
+\begin{example}\label{example_1.16}
+    Let $n>0$ and consider the splitting field of the polynomial  $x^{p^n}-x$
+    over the finite field  $\F_p$. Then  $x^{p^n}-x$ has precisely $p^n$ roots.
+
+    Let $\a,\b$ be roots. Then  $\a^{p^n}=\a$, and $\b^{p^n}=\b$. Then
+    $(\a\b)^{p^n}=\a\b$ and $(\inv{\a})^{p^n}=\inv{\a}$. Moreover,
+    $(\a+\b)^{p^n}=\a+\b$. So the set of $p^n$ disctinct roots of  $x^{p^n}-x$
+    is closed under addition, multiplication, and inverses in its splitting
+    field. Let $F$ be that splitting field. Notice that  $F \subseteq
+    \F_{p^n}$, moreover, $[F:F_p]=n$ so that $|F|=p^n$. We also have that
+    $\Uc(F)$ is a cyclic group of order $p^n-1$, so that $F_{p^n} \subseteq F$,
+    since $\a^{p^n-1}=1$. Therefore $\F_{p^n}$ is the splitting field of
+    $x^{p^n}-x$ over $\F_p$, and so contains all the roots of $x^{p^n}-x$. Hence
+    finite fields of order $p^n$ exist and are unique up to isomorphism.
+\end{example}
+
+\begin{lemma}\label{1.6.8}
+    Let $f$ an irreducible polynomial over a field $F$ of  $\Char{F}=p$. Then
+    there exists a unique integer $k \geq 0$ and a unique seperable polynomial
+    $s$ such that  $f(x)=s(x^{p^k})$.
+\end{lemma}
+\begin{proof}
+    We have that since $\Char{F}=p$, there exists a polynomial $f_1$ over $F$
+    for which $f(x)=f_1(x^p)$.  Now, if $f_1$ is seperable, take $k=1$ and we
+    are done. Otherwise, there is a polynomial $f_2$ over $F$ for which
+    $f_2(x)=f_2(x^p)$, so that $f(x)=f_1(x^p)=f_2(x^{p^2})$. Then proceeding in
+    this fashion, we obtain a seperable polynomial $s$ for which
+    $f(x)=s(x^{p^k})$ where $k \geq 0$.
+\end{proof}
+
+\begin{definition}
+    Let $f$ an irreducible polynomial over a field of characteristic $p$, a
+    prime. Let  $f_s$ the polynomial for which $f(x)=f_s(x^{p^k})$ for some
+    unique integer $k \geq 0$. Then we call the degree of $f_s$ the
+    \textbf{seperable degree} of $f$ and write  $\deg_s{f}=\deg{f_s}$. We call
+    the integer $p^k$ the  \textbf{inseperable degree} and write
+    $\deg_i{f}=p^k$. We call $f_s$ the  \textbf{seperable part} of $f$.
+\end{definition}
+
+\begin{lemma}\label{1.6.9}
+    A polynomial $f$ is seperable if, and only if  $\deg_i{f}=1$ and
+    $\deg_s{f}=\deg{f}$. Moreover,
+    \begin{equation*}
+        \deg{f}=\deg_s{f} \cdot \deg_i{f}
+    \end{equation*}
+\end{lemma}
+
+\begin{example}\label{example_1.17}
+    \begin{enumerate}
+        \item[(1)] $x^p-t$ over  $\F_p(t)$ is irreducible with derivative $D=0$.
+            Hence  $x^p-t$ is inseperable. We call  $x^p-t$ a  \textbf{purely
+            inseperable polynomial}. Notice that $x^p-t$ has seperable part
+            $(x-t)$.
+
+        \item[(2)] $x^{p^n}-t$ over $\F_p(t)$ is irreducible with seperable part
+            $(x-t)$, and $\deg_i=p^n$.
+
+        \item [(3)] Let $f(x)=(x^{p^n}-t)(x^p-t)$ over $\F_p(t)$. Then $p$ has
+            two inseperable irreducible factors, and so is inseperable.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    An extension $K$ over a field  $F$ is a called  \textbf{seperable} if every
+    $\a \in K$ is the root of a seperable polynomial over  $F$. Otherwise, we
+    call  $K$   \textbf{inseperable}.
+\end{definition}
+
+\begin{lemma}\label{1.6.10}
+    Every fnite extension of a perfect field is seperable.
+\end{lemma}
+\begin{corollary}
+    Finite extension fields of $\Q$ and  $\F_p$ are seperable.
+\end{corollary}
