@@ -1,0 +1,157 @@
+\section{Cyclotomic Polynomials.}
+
+\begin{definition}
+    We define \textbf{Euler's totient} to be the map $\phi:\Z \xrightarrow{} \Z$
+    defined by the rule $\phi(n)=|\{a \in \Z : (a,n)=1\}|$. That is, $\phi$
+    of  $n$ is the number of all integers less than  $n$, coprime to  $n$.
+\end{definition}
+
+\begin{definition}
+    We define $\Xi_n$ to be the \textbf{group of all primitive $n$-th roots of
+    unity}, $\xi$ for which  $\xi^n=1$.
+\end{definition}
+
+\begin{lemma}\label{1.7.1}
+    $\Xi_n \simeq \faktor{\Z}{n\Z}$.
+\end{lemma}
+\begin{proof}
+    The map $a \xrightarrow{} \xi^a$ defines the required isomorphism.
+\end{proof}
+\begin{corollary}
+    $\ord{\Xi_n}=\phi(n)$ where $\phi$ is Euler's totient.
+\end{corollary}
+\begin{proof}
+    Since $\xi^n \equiv \xi^{0 \mod{n}} \equiv 1$, we have every non identity
+    power of $\xi$ has exponenct coprime to  $n$. That is there are $\phi(n)$
+    such distinct powers of$\xi$.
+\end{proof}
+\begin{corollary}
+    If $d|n$, then  $\Xi_d \leq \Xi_n$.
+\end{corollary}
+\begin{proof}
+    Notice that if $d|n$, then $d=mn$ for some  $m \in \Z^+$. Then $\xi^d=1$
+    implies  $(\xi^d)=\xi^{dm}=\xi^n=1$.
+\end{proof}
+
+\begin{definition}
+    We define the \textbf{$n$-th cyclotomic polynomial} to be the polynomial
+    \begin{equation*}
+        \Phi_n(x)=\prod{x-\xi}
+    \end{equation*}
+    having as roots all $n$-primitive roots of unity.
+\end{definition}
+
+\begin{lemma}\label{1.7.2}
+    The $n$-th cyclotomic polynomial  $\Phi_n$ has degree
+    $\deg{\Phi_n}=\phi(n)$, where $\phi$ is Euler's totient.
+\end{lemma}
+\begin{proof}
+    Recall that $\ord{\Xi_n}=\phi(n)$, and since the elements of $\Xi_n$ are the
+    roots of  $\Phi_n$, there are  $\phi(n)$ such roots. This puts
+    $\deg{\Phi_n}=\phi(n)$.
+\end{proof}
+
+\begin{example}[Computing Cyclotomic Polynomials]\label{1.18}
+    Recall that the polynomial $x^n-1$ has as roots precisely all  $n$-th roots
+    of unity  $\xi$, that is $\xi^n=1$. If $x^n-1 \in F[x]$, $F$ a field, the
+    the splitting field of  $x^n-1$ is  $F(\xi)$. Then we have
+    \begin{equation*}
+        x^n-1=\prod_{\xi \in \Xi_n}{(x-\xi)}
+    \end{equation*}
+    Now, grouping those factors where $\xi^d=1$ for some  $d|n$, then we have
+    \begin{equation*}
+        x^n-1=\prod_{\xi \in \Xi_d}{(x-\xi)}\prod_{\xi \in \Xi_n}{(x-\xi)}=
+        \prod{d|n}{\prod_{\xi \in \Xi_n}{(x-\xi)}}=\prod_{d|n}{\Phi_n(x)}
+    \end{equation*}
+    that is,
+    \begin{equation*}
+        x^n-1=\prod_{d|n}{\Phi_d(x)}
+    \end{equation*}
+    which gives a method for computing $\Phi_n$ recursively.
+
+    We have  $\Phi_1(x)=x-1$ and $\Phi_2(x)=x+1$. Now,
+    $\Phi_3(x)=\Phi_1(x)\Phi_3(x)=(x-1)\Phi_3(x)$, so that
+    \begin{equation*}
+        Phi_n(x)=x^2+x+1
+    \end{equation*}
+    We have
+    $\Phi_4(x)=\Phi_1(x)\Phi_2(x)\Phi_4(x)=(x-1)(x+1)\Phi_4(x)=(x^2-1)\Phi_4(x)$.
+    So
+    \begin{equation*}
+        \Phi_4(x)=x^2+1
+    \end{equation*}
+    Similarly,
+    \begin{align*}
+        \Phi_5(x)   &=  x^4+x^3+x+1 \\
+        \Phi_6(x)   &=  x^2-x+1 \\
+        \Phi_7(x)   &=  x^6+x^5+x^4+x^3+x^2+x+1 \\
+        \Phi_8(x)   &= x^4+1    \\
+        \Phi_9(x)   &=  x^6+x^x+1   \\
+        \Phi_{10}(x)   &=   x^4-x^3+x^2-x+1 \\
+        \Phi_{11}(x)   &=   x^{10}+x^9+x^8+x^7+x^6+x^5+x^4+x^3+x^2+x+1  \\
+        \Phi_{12}(x)   &=   x^4-x^2+1   \\
+    \end{align*}
+    Also observe that if $p$ is prime, then
+    \begin{equation*}
+        \Phi_p(x)=\sum_{i=0}^{p-1}{x^i}=x^{p-1}+x^p+\dots+x+1
+    \end{equation*}
+\end{example}
+
+\begin{lemma}\label{1.7.3}
+    $\Phi_n(x)$ is monic over $\Z$.
+\end{lemma}
+\begin{proof}
+    Notice that since $x^n-1=\prod{\Phi_d(x)}$, is monic, then each $\Phi_d$
+    must also be monic for all  $d|n$.
+
+    Now, by induction on $n$, for  $n=1$, it is clear that  $x-1$ has
+    coefficiencts in  $\Z$  (if $x^n-1 \in \Z[x]$ we are done, if not, just take
+    $1_F \xrightarrow{} 1_\Z$, whre $F$ is the underlying field of  $x^n-1$).
+    Now, suppose that $\Phi_d(x) \in \Z[x]$ for all $1 \leq d <n$, and  $d|n$.
+    Then  $x^n-1=f(x)\Phi_n(x)$, where $f(x)=\prod{\Phi_d(x)}$ is monic over
+    $\Z$. Moreover,  $f|x^n-1$, in the splitting field $\Q(\xi)$ (since we take
+    $1_F \xrightarrow{} F_\Z$), where $\xi^n=1$. Then  $f|x^n-1$ over  $\Q$ by
+    the division theorem, and by Gauss' lemma, $f|x^n-1$ in $\Z$. So $\Phi_n \in
+    \Z[x]$.
+\end{proof}
+
+\begin{theorem}\label{1.7.4}
+    $\Phi_n$ is irreducible over  $\Z$.
+\end{theorem}
+\begin{proof}
+    Again, if $x^n-1 \in F[x]$ for some field $F$, take  $1_F \xrightarrow{}
+    1_\Z$ so that $x^n-1 \in \Z[x]$. Suppose then that $\Phi_n(x)=f(x)g(x)$
+    where $f$ and  $g$ are monic, and  $f$ is irreducible. Let $\xi^n=1$, a
+    primitive $n$-th root, so that $\xi$ is a root of $f$. Then $f$ is the
+    minimal polynomial for $\xi$ over  $\Q$. Now, let $p$ a prime such that $p
+    \nmid n$. Then $\xi^p$ is a $n$-th root, of $f$ or $g$. If  $f(\xi^p)=0$,
+    then for all $a$ with  $(a,n)=1$, we have $\xi^a$ is a root of $f$.
+    Moreover,  $a=p_1 \dots p_k$ where each $p_i \nmid n$ is prime. That means
+    tht  $\xi^{p_1}$, $(\xi^{p_1})^{p_2}, \dots, \xi^n$ are all roots of $f$
+    making  $f=\Phi_n$ and we are done.
+
+    Suppose then that $g(\xi^p)=0$. Then $\xi$ is root of  $g(x^p)$,
+    and since $f$ is minimal, $f|g(x^p)$ in $\Z[x]$. Then we have
+    $g(x^p)=f(x)h(x)$ for $f,h \in \Z[x]$. reducing mod $p$, we get
+    $g(x^p) \equiv f(x)h(x) \mod{p}$ in $\F_p[x]$; but $g(x^p) \equiv (g(x))^p
+    \mod{p}$. Since $\F_p[x]$ is a unique factorization domain, we get that $f
+    \mod{p}$ and $g \mod{p}$ have a common factor. Then $\Phi_n(x) \equiv
+    f(x)g(x) \mod{p}$ has a multiple root in $\F_p[x]$ ; implying that $x^n-1$
+    has a multiple root, which is impossible; since $x^n-1$ has  $n$ distinct
+    roots. Therefore $\xi^p$ is a root of  $f$.
+\end{proof}
+\begin{corollary}
+    $[\Q(\xi):\Q]=\phi(n)$.
+\end{corollary}
+\begin{proof}
+    We have by above that $\Phi_n$ is the minimal polynomial for  $\xi$ over
+    $\Q$.
+\end{proof}
+
+\begin{example}\label{1.19}
+    Let $\xi^8=1$ an  $8$-th root of unity. Then  $[\Q(\xi):\Q]=4$ and $\Q(\xi)$
+    has minimal polynomial $\Phi_8(x)=x^4+1$. Moreover, $\Q(\xi)$ contains a
+    primitive $4$-th root of unity $i^4=1$ (over $\C$,  $i^2=-1$). So that
+    $\Q(i) \subseteq \Q(\xi)$. We als get that $\xi+\xi^7=\sqrt[]{2}$ (since
+    $\xi=e^{\frac{2i\pi}{8}}$ over $\C$), and $\Q(\xi)=\Q(i,\sqrt[]{2})$.
+\end{example}
