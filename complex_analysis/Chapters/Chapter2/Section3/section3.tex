@@ -1,1 +1,127 @@
-\section{Unique Factorization Domains.}
+\section{Completeness in $\C$}
+
+\begin{definition}
+    We say a sequence $\{x_n\}$ of points of a metric space $X$  \textbf{converges}
+    to a point $x \in X$ if for every  $\e>0$, there is anb  $N \in \Z^+$ for which
+    \begin{equation*}
+        d(x,x_n)<\e \text{ whenever } n \geq N
+    \end{equation*}
+    If $\{x_n\}$ converges to $x$, we write  $\{x_n\} \xrightarrow{} x$, or
+    $\lim{x_n}=x$.
+\end{definition}
+
+\begin{lemma}\label{2.3.1}
+    Let $X$ be a metric space. A set  $V \subseteq X$ is closed if, and only if
+    for every sequece  $\{x_n\}$ of points in $V$,  $\{x_n\}$ converges to a point
+    $x \in V$.
+\end{lemma}
+\begin{proof}
+    If $V$ is closed, and  $\{x_n\} \xrightarrow{} x$, then for every $\e>0$ and
+     $x_n \in B(x,\e)$, we get that $B(x,\e) \cap V \neq \emptyset$ so that $x
+     \in \cl{F}=F$.
+
+     Conversly, suppose that $V$ is not closed. Then there exists a point  $x_0
+     \in \com{\cl{V}}{V}$. Then we get that for every $\e>0$, the set
+     $B(x_0,\e) \cap F \neq \emptyset$ so that for all $n \in \Z^+$, there is an
+      $x_n \in B(x_0, \frac{1}{n}) \cap F$. This makes $d(x_0,x_n)<\frac{1}{n}$,
+      so that $\{x_n\} \xrightarrow{} x_0$. Since $x_0 \ntoin F$, the condition
+      fails.
+\end{proof}
+
+\begin{definition}
+    We call a point $x \in X$ of a metric space  $X$ a  \textbf{limit point} of
+    a subset $A \subseteq X$ if there exists a sequence of points  $\{x_n\}$ in
+    $A$ such that  $\{x_n\} \xrightarrow{} x$.
+\end{definition}
+
+\begin{example}\label{example_2.7}
+    Consider $\C$ and let  $A=[0,1] \cup \{i\}$. Then each point of $[0,1]$ is a
+    limit point of $A$, but  $i$ is not a limit point of $A$.
+\end{example}
+
+\begin{lemma}\label{2.3.2}
+    A subset of a metric space is closed if, and only if it contains all its
+    limit points. Moreover, if $A$ is a subset of a metric space  $X$, then
+    $\cl{A}=A \cup A'$, where $A'$ is the collection of all limit points of $A$.
+\end{lemma}
+
+\begin{definition}
+    We call a sequence $\{x_n\}$ of points of a metric space \textbf{Cauchy} if
+    for every $\e>0$ there is an  $N \in \Z^+$ for which
+    \begin{equation*}
+        d(x_m,x_m)<\e \text{ for all } m,n \geq N
+    \end{equation*}
+    If $X$ is a metric space in which every Cauchy sequence converges in to a
+    point in $X$, then we say $X$ is  \textbf{complete}.
+\end{definition}
+
+\begin{theorem}\label{2.3.3}
+    The field $\C$ of complex numbers is complete.
+\end{theorem}
+\begin{proof}
+    Let $\{z_n\}$ a Cauchy sequence of complex numbers with $z_n=x_n+iy_n$.
+    Then the sequences $\{x_n\}$ and $\{y_n\}$ are Cauchy in $\R$. Since $\R$ is
+    a complete metric space, we observe that there exist $x,y \in \R$ for which
+    $\{x_n\} \xrightarrow{} x$ and $\{y_n\} \xrightarrow{} y$. This makes
+    $\{z_n\} \xrightarrow{} z$ with $z=x+iy \in \C$.
+\end{proof}
+
+\begin{definition}
+    Let $X$ be a metric space and  $A \subseteq X$. We define the
+    \textbf{diameter} of $A$ to be the least upper bound:
+    \begin{equation*}
+        \diam{A}=\sup{\{d(x,y) : x,y \in A\}}
+    \end{equation*}
+    of all distances of points in $A$.
+\end{definition}
+
+\begin{theorem}[Cantor's theorem]\label{2.3.4}
+    A metric space $X$ is complete if, and only if for every decreasing sequence
+    $\{F_n\}$ of nonempty closed sets, with $\diam{F_n} \xrightarrow{} 0$ for
+    all $n$, then the intersection
+    \begin{equation*}
+        F=\bigcap{F_n}
+    \end{equation*}
+    consists of a single point.
+\end{theorem}
+\begin{proof}
+    Suppose that $X$ is complete. Let  $\{F_n\}$ a sequence of closed sets such
+    that
+    \begin{enumerate}
+        \item[(1)] $F_{n+1} \subseteq F_n$; i.e. $\{F_n\}$ is a decreasing sequence.
+
+        \item[(2)] $\lim{\diam{F_n}} \xrightarrow{} 0$.
+    \end{enumerate}
+    Let $x_n \in F_n$. If  $n,m \geq N$ then  $x_m,x_n \in F_N$ so that
+    $d(x_m,x_n) \leq \diam{F_n}$ by definition. By hypothesis, choose an $N$
+    large enough such that  $\diam{F_N}<\e$ for some $\e>0$. This makes the
+    sequence  $\{x_n\}$ Cauchy. Then by the completeness of $X$  $\{x_n\}
+    \xrightarrow{} x$ for some $x \in X$. Since $x_n \in F_n$ for all  $n \geq N$,
+    we get that  $F_n \subseteq F_N$ and hence  $x \in F_N$ which puts
+    \begin{equation*}
+        x \in F=\bigcap{F_n}
+    \end{equation*}
+    Now, if $y \in F$, then $x,y \in F_n$ for all  $n$ which gives  $d(x,y) \leq
+    \diam{F_n} \xrightarrow{} 0$. So $d(x,y)=0$ which makes $x=y$ and so
+    $F=\{x\}$.
+
+    Conversely, let $\{x_n\}$ be Cauchy in $X$, and take
+    $F_n=\cl{\{x_n,x_{n+1}, \dots\}}$. Then $F_{n+1} \subseteq F_n$, making
+    $\{F_n\}$ decreasing sequence. If $\e>0$, choose an  $N>0$ such that
+    $d(x_m,x_n)<\e$ for any $m,n \geq N$. Then  $\diam{F_n} \leq \e$. By
+    hypothesis, there is an $x_0 \in X$ such that $F=\bigcap{F_n}=\{x_0\}$.
+    Moreover, $x_0 \in F_n$ so that $d(x_0,x_m) \leq \diam{F_n} \xrightarrow{}
+    0$, which puts $\{x_n\} \xrightarrow{} x \in X$ which makes $X$ complete.
+\end{proof}
+
+\begin{lemma}\label{2.3.5}
+    If $X$ is a complete metric space, and  $Y \subseteq X$, then $Y$ is
+    complete if, and only if  $Y$ is closed in  $X$.
+\end{lemma}
+\begin{proof}
+    Suppose that $Y$ is complete and let  $y$ a limit point of  $Y$. Then there
+    exists a sequence $\{y_n\}$ of points of $Y$ for which  $\{y_n\}
+    \xrightarrow{} y$. This makes $\{y_n\}$ Cauchy, and so $\{y_n\}
+    \xrightarrow{} x_0 \in Y$. It follows that $y=x_0$, so that $Y' \subseteq Y$
+    and hence  $Y$ is closed.
+\end{proof}
