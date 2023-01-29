@@ -68,6 +68,19 @@
                  $-x$, and  $-h=h \circ a$ is a homeomorphism of  $U$ onto
                  $\R^n$. Then the collection  $\{(U,h)\}$ is an atlas for
                  $\Pb\R^n$.
+
+             \item[(5)] Consider the unit circle $S^2$ and the following
+                 ``trefoil knot'' $K_3$ pictured below in figure \ref{figure_1.3}
+                 \begin{figure}[h]
+                     \centering
+                     \includegraphics[scale=0.5]{Figures/Chapter1/circle_to_trefoil.eps}
+                     \caption{The unit circle $S^2$ and the trefoil knot.}
+                     \label{figure_1.3}
+                 \end{figure}
+                 Both of these are $1$-manifolds, and are homeomorphic to each
+                 other. Consider the neighborhoods on either space  (colored in
+                 red). Notice that each of these neighborhoods is homeomorphic
+                 to an interval in $\R_1$, and hence homeomorphic to each other.
     \end{enumerate}
 \end{example}
 
@@ -118,6 +131,13 @@
 \end{example}
 
 \begin{definition}
+    We define the \textbf{boundry} of an $n$-manifold $M$ to be the set
+    $\partial{M}$, of all points of $M$ for which there is a neigborhood
+    homeomorphic to a neighborhood of $H^n$, but no neighborhood homeomorphic to
+    a neighborhood of $\R^n$; where $H^n=\{x \in \R^n : x_1 \geq 0\}$.
+\end{definition}
+
+\begin{definition}
     Let $H^n=\{(x_1, \dots, x_n) \in \R^n : x_1 \geq 0\}$. We define an
    \textbf{$n$-manifold with boundry}  to be a second countable Hausdorff space
    $M$ with atlas  $\{(M_\a,\phi_\a)\}$ such that $\phi_\a$ is a homeomorphism
@@ -161,7 +181,7 @@
 \end{lemma}
 
 \begin{example}\label{example.1.4}
-    The diemeter of the ball $B^2$ is a submanifold with boundry.
+    The diameter of the ball $B^2$ is a submanifold with boundry.
 \end{example}
 
 \begin{definition}
@@ -174,3 +194,32 @@
     projection map  $\pi_y:T^2 \xrightarrow{} S^1$ fo $T^2=S^1 \times S^1$ onto
     the second factor is a continuous map between manifolds.
 \end{example}
+
+\begin{lemma}\label{1.1.4}
+    If $M$ is an  $n$-manifold with boundry, then its boundry  $\partial{M}$ is
+    an $(n-1)$-manifold without boundry.
+\end{lemma}
+\begin{proof}
+    We first notice by our definition of boundry that $\partial{M} \subseteq M$.
+    Since $M$ is second countable and Hausdorff,  $\partial{M}$ inherits these
+    properties as a subspace of $M$.
+
+    Now, consider a point $x \in \partial{M}$. Then by definition, there is a
+    neighborhood $U$ of  $x$ for which  $U$ is homeomorphic to a neighborhood
+    $V$ of $H^n$. Let $\phi:U \xrightarrow{} V$ be the given homeomorphism.
+    Notice, that $\partial{H^n} = \{x \in \R^n : x_1=0\}$, and that $\phi(x) \in
+    V$ implies $\phi(x) \in V \cap \partial{H^n}$. Since $V$ is open in $H^n$,
+    $V \cap \partial{H^n}$ is open in $\partial{H^n}$ as a subspace of $H^n$.
+    So that $\phi(U) \simeq V \cap \partial{H^n}$ and $U$ is homeomprphic to an
+    open set in  $\partial{H^n}$.
+
+    Now, take the projection map $\pi_y:\partial{H^n} \xrightarrow{} \R^{n-1}$
+    onto the second factor, defined by $\pi_y:(0,(x_2, \dots, x_n))
+    \xrightarrow{} (x_2, \dots, x_n)=(y_1, \dots, y_{n-1})$. Then $\pi_y$
+    defines a homeomorphism of  $\partial{H^n}$ onto $\R^{n-1}$, so that $\pi_y
+    \circ \phi$ is a homeomorphism of  $U$ onto an open set of  $\R^{n-1}$. This
+    makes $\partial{M}$ an $(n-1)$-manifold. Moreover, since $x \in \partial{M}$
+    was arbitrary, there is no $x \in \partial{M}$ with neighborhood
+    homeomorphic to an open set in $H^{n-1}$, so that
+    $\partial{(\partial{M})}=\emptyset$; i.e. $\partial{M}$ is without boundry.
+\end{proof}
