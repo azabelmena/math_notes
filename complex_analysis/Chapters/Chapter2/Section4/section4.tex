@@ -1,1 +1,182 @@
-\section{Factorization in the Gaussian Integers.}
+\section{Compactness in $\C$}
+
+\begin{definition}
+    Let $X$ be a metric space. We say an collection  $\{U_n\}$ of open sets of $X$
+    \textbf{covers} a subset $K$ of $X$ if  $K \subseteq \bigcup{U_n}$. We call
+    $\{U_n\}$ an \textbf{open cover} of $K$. We call  $K$  \textbf{compact} if
+    every open cover of $K$ has a finite open subcover.
+\end{definition}
+
+\begin{lemma}\label{2.4.1}
+    If $K$ is compact in a metric space  $X$, then  $K$ is closed. Moreover, if
+     $F \subseteq K$ is closed, then  $F$ is also compact.
+\end{lemma}
+\begin{proof}
+    Certainly, we have $K \subseteq \cl{K}$. Now, let $x_0 \in \cl{K}$, then
+    $B(x_0,\e) \cap K$ is nonempty for every $\e>0$. Let
+    $G_n=\com{X}{\bar{B}(x_0, \frac{1}{n})}$, and suppose that $x_0 \notin K$.
+    Then each $G_n$ is open in  $X$, and  $K \subseteq \bigcup{G_n}$. Since $K$
+    is compact, then ther is an  $m \in \Z^+$ for whcih  $K \subseteq
+    \bigcup_{n=1}^m{G_n}$. Notice, however that $G_1 \subseteq G_2 \subseteq
+    \dots \subseteq G_m \subseteq \dots$ so that $K \subseteq
+    G_m=\com{X}{\bar{B}(x_0,\frac{1}{m})}$, so that $B(x_0, \frac{1}{n}) \cap
+    K=\emptyset$; a contradiction! Therefore $x_0 \in K$ and $K=\cl{K}$.
+\end{proof}
+
+\begin{definition}
+    Let $X$ be a set. We say a collection $\{F_n\}$ of subsets of $X$ has the
+     \textbf{finite intersection property} (\textbf{FIP}) if the intersection of
+     any finite subcollection of $\{F_n\}$ is nonempty.
+\end{definition}
+
+\begin{lemma}\label{2.4.2}
+    A set $K$ of a metric space  $X$ is compact if, and only if for every
+    collection of closed sets  $\{F_n\}$ satisfying the finite intersection
+    property, the intersection
+    \begin{equation*}
+        F=\bigcap{F_n}
+    \end{equation*}
+    is nonempty.
+\end{lemma}
+\begin{proof}
+    Let $K$ be compact in  $X$, and  $\{F_n\}$ a collection of closed sets of
+    $X$ with the FIP. Suppose that  $F=\bigcap{F_n}=\emptyset$. Now, take
+    $\Gc=\{\com{X}{F_n}\}$ the collecton of open sets. Then observe that
+    \begin{equation*}
+        \bigcup{\com{X}{F_n}}=\com{X}{\bigcap{F_n}}=\com{X}{F}=X
+    \end{equation*}
+    by hypothesis. SInce $K \subseteq K$,  $\Gc$ covers  $K$, and since  $K$ is
+    compact, there is a finite subcover  $\{\com{X}{F_i}\}_{i=1}^n$ of $K$. That
+    is
+    \begin{equation*}
+        K  \subseteq \bigcup_{i=1}^n{\com{X}{F_i}}=\com{X}{\bigcap_{i=1}^n{F_i}}
+        \subseteq X
+    \end{equation*}
+    since $\bigcap_{i=1}^n{F_n} \neq \emptyset$. But then $\bigcap_{i=1}^n{F_i}
+    \subseteq \com{X}{K}$, and since $F_i \subseteq K$ for all  $1 \leq i \leq
+    n$, this makes  $\bigcap_{i=1}^n{F_i}=\emtpyset$; a contradiction!
+\end{proof}
+\begin{corollary}
+    Compact metric spaces are complete.
+\end{corollary}
+\begin{corollary}
+    If $X$ is compact, then every infinite set in $X$ has a limit point in  $X$.
+\end{corollary}
+\begin{proof}
+    Let $S \subseteq X$ infinite, and suppose the set of all limit points of
+    $S$ in  $X$,  $S'$, is empty. Consider the sequence  $\{a_n\}$ of distinct
+    points of $S$, and take  $F_n=\{a_n,a_{n+1}, \dots\}$. Then $F_n$ has no
+    limit points in  $X$ so that  $F_n'=\emptyset$. Then  $F_n' \subseteq F_n$
+    so that  $F_n$ is closed. Thus  $\{F_n\}$ has the finite intersection
+    property. But since $a_1 \neq \dots \neq a_n \neq$, we get
+    $\bigcap{F_n}=\emptyset$; which contradicts the above. Therefore $S'$ is
+    nonempty.
+\end{proof}
+
+\begin{definition}
+    We call a metric space \textbf{sequentially compact} if every sequence of
+    point in the space has a convergent subsequence.
+\end{definition}
+
+\begin{lemma}[Lebesgue's Covering Lemma]\label{2.4.3}
+    If $X$ is a sequentially compact metric space, and  $\Gc$ is an open cover
+    of  $X$, then there is an  $\e>0$ such that if  $x \in X$ there is a  $G \in
+    \Gc$ with  $B(x,\e) \subseteq G$.
+\end{lemma}
+\begin{proof}
+    Suppose by contradiction that for every open cover $\Gc$ of $X$ there is no
+     $\e$ for which the statement holds. Then for every  $n \in \Z^+$, there is
+     an  $x_n \in X$ for which  $B(x_n,\frac{1}{n}) \not\subseteq G$. Now, since
+     $X$ is sequentially compact, there is a point  $x_0 \in X$ and s
+     subsequence $\{x_{n_k}\}$ of a sequence $\{x_n\}$ for which $\{x_{n_k}\}
+     \xrightarrow{} x_0$. Let $G_0 \in \Gc$ such that $x_0 \in G_0$. Choose
+     $\e>0$ such that  $n_k \geq N$ and  $n_k>\frac{1}{\e}$. Let $y \in
+     B(x_{n_k},\frac{1}{n_k})$. THen $d(x_0,y) \leq
+     d(x_0,x_{n_k})+d(x_{n_k},y)<\frac{\e}{2}+\frac{1}{n_k}<\e$. So that
+     $B(x_{n_k},\frac{1}{n_k}) \subseteq B(x_0, \e)$. But that contradicts our
+     choice of $\{x_{n_k}\}$.
+\end{proof}
+
+\begin{definition}
+    We say a subset $K$ of a metric space  $X$ is  \textbf{totally bounded} if
+    for any $\e>0$ there exist a sequence $\{x_n\}$ of points of $X$ for which
+    $K=\bigcup_{k=1}^n{B(x_k,\e)}$.
+\end{definition}
+
+\begin{theorem}\label{2.4.4}
+    The following are equivalent in every metric space $X$.
+    \begin{enumerate}
+        \item[(1)] $X$ is compact.
+
+        \item[(2)] Every infinite set of  $X$ has a limit point in  $X$.
+
+        \item[(3)] $X$ is sequentially compact.
+
+        \item[(4)] $X$ is complete, and totally bounded.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    We have that if $X$ is compact, then every infinite set of  $X$ has their
+    limit points in  $X$, by the above corollory.
+
+    Suppopse every infinite set of $X$ has a limit point in $X$. Let $\{x_n\}$
+    a sequence, and suppose without loss of generality, that all the points are
+    distinct. Then $\{x_n\}$ has a limit point $x_0$. Then there exist an
+    $x_{n_1} \in B(x_0,1)$. Similarly, there is an $n_2>n_1$ with $x_{n_2} \in
+    B(x_0, \frac{1}{2})$. Continuiing in this manner, we get for some
+    $n_k>n_{k-1}$, that $x_{n_k} \in B(x_0, \frac{1}{k})$, so that $\{x_{n_k}\}
+    \xrightarrow{} x_0$; and so $X$ is sequentially compact.
+
+    Suppose now that  $X$ is sequentially compact, and let  $\{x_n\}$ be a
+    Cauchy sequence. By the sequential compactness of $\{x_n\}$, it has a
+    convergent subsequence, which makes $X$ complete. Now, let  $\e>0$ and fix
+    $x_1 \in X$. If $X=B(x_1,\e)$, we are done. Otherwise, choose an $x_2 \in
+    \com{X}B(x_1,\e){}$. If $X=B(x_1,\e) \cup B(x_2,\e)$ we are done. Otherwise,
+    continuing in this manner, we find a sequence $\{x_n\}$ of points with
+    $x_{n+1} \in \com{X}{\bigcup_{k=1}^n{B(x_k,\e)}}$. Which implies for $m \neq
+    n$, that  $d(x_m,x_n) \geq \e>0$. Contradictiong that $X$ is sequentially
+    compact. So we have that  $X$ must be totally bounded.
+
+    Conversely, suppose that $X$ is complete and totally bounded. Let  $\{x_n\}$
+    a sequence of distint points. Then there is a $y_1 \in X$ and a subsequence
+    $\{x_n^{(1)}\}$ of $\{x_n\}$ for which $\{x_n^{(1)}\} \subseteq B(y_1,1)$.
+    There also exists a $y_2 \in X$ and s a subsequence $\{x_n^{(2)}\}$ of
+    $\{x_n^{(1)}\}$ such that $\{x_n^{(2)}\} \subseteq B(y_2, \frac{1}{2})$.
+    Continuing in this manner, for all $k \geq 2$, there is a  $y_k \in X$ and a
+    subsequence $\{x_n^{(k)}\}$ of $\{x_n^{(k-1)}\}$ for which $\{x_n^{(k)}\}
+    \subseteq B(y_k,\frac{1}{k})$. Take $K_k\cl{\{x_n^{(k)}\}}$. Then
+    \begin{equation*}
+        \diam{F_k} \leq \frac{1}{k}
+    \end{equation*}
+    and $\{F_k\}$ is a decreasing collection of closed sets. Thus the
+    intersection $F=\{x_0\}$ is a single point. So $x_0 \in F_k$, so that
+
+    $d(x_0,x_n^{(k)}) \leq \dima{F_k} \leq \frac{1}{k}$ so that $\{x_n^{(k)}\}
+    \xrightarrow{} x_0$, making $X$ sequentially compact.
+
+    Finally, if  $X$ is sequentially compact, and  $\Gc$ is an open cover of
+    $X$, then there exists an  $\e>0$ such that for every  $x \in X$, there is a
+     $G \in \Gc$, with  $B(x,\e) \subseteq G$. Hence there is a sequence
+     $\{x_n\}$ of points of $X$ for which  $X=\bigcup{B(x_n,\e)}$ (i.e. $X$ is
+     totally bounded). Then there is a $G_n \in \Gc$ for all  $1 \leq k \leq n$
+     for which  $B(x_k,\e) \subseteq G_k$. So tghat $X=\bigcup{G_k}$ which makes
+     $X$ compact.
+\end{proof}
+
+\begin{theorem}[Heine-Borel]\label{2.4.5}
+    A subset $K$ of  $\R^n$ is compact if, and only if it is closed and bounded.
+\end{theorem}
+\begin{proof}
+    Suppose that $K$ is compact, then  $K$ is closed by lemma \ref{2.4.1}, and
+    $K$ is also totally bounded, which makes  $K$ bounded. So $K$ is closed and
+    bounded in  $\R^n$.
+
+    Conversely, suppose that $K$ is closed and bounded. Then there are sequences
+     $\{a_k\}_{k=1}$ and $\{b_k\}_{k=1}^n$ for which $K \subseteq [a_1,b_1]
+     \times [a_n,b_n]$. Now, since $\R^n$ is complete, and  $K$ is closed,  $K$
+     is also complete. Hence it remains to show that $K$ is totally bounded. Let
+     $\e>0$, and write $K$ as the union of $n$-dimensional rectangles of
+     diameters less than  $\e$. Then  $K \subseteq \bigcup_{k=1}^m{B(x_k,\e)}$
+     where $x_k$ is contained in one of the rectangles, for all  $1 \leq k \leq
+     m$. This makes $K$ totally bounded, and therefore, compact.
+\end{proof}
