@@ -1,1 +1,268 @@
 \section{The Fundamental Theorem of Galois Theory.}
+
+\begin{definition}
+    A \textbf{linear character} of a group $G$ with values in a field  $L$ is a
+    homomorphism  $\x:G \xrightarrow{} \Uc(L)$. We say that distinct linear
+    characters $\x_1, \dots, \x_n$ of $G$ are  \textbf{linearly independent}
+    over $L$ if they are linearly independent, as functions, over  $G$.
+\end{definition}
+
+\begin{theorem}\label{2.2.1}
+    If $\x_1, \dots, \x_n$ are distinct linear characters of a group $G$ with
+    values in a field  $L$, then they are linearly independent over  $L$.
+\end{theorem}
+\begin{proof}
+    Suppose that $\x_1, \dots, \x_n$ are linearly dependent, and choose a
+    dependence relation with minimum of $m$ nonzero coefficients $a_1, \dots,
+    a_m \in L$, so that
+    \begin{equation*}
+        a_1\x_1+\dots+a_n\x_m=0
+    \end{equation*}
+    Then for any $g \in G$, we have
+    \begin{equation*}
+        a_1\x_1(g)+\dots+a_n\x_m(g)=0
+    \end{equation*}
+    Now, let $g_0 \in G$, with $\x_1(g_0) \neq \x_m(g_0)$. Then
+    \begin{equation*}
+        a_1\x_1(g_0g)+\dots+a_n\x_n(g_0g)=a_1\x(g_0)\x(g)+\dots+a_m\x_m(g_0)\x_m(g)=0
+    \end{equation*}
+    multiplying the preceeding equation with the above by $\x_m(g_0)$ and
+    subtracting from the above equation, we get
+    \begin{equation*}
+        a_1(\x_1(g_0)-\x_m(g_0))\x_1(g)+\dots+a_m(\x_1(g_0)-\x_m(g_0))\x_m(g)=0
+    \end{equation*}
+    which gives a linear dependence relation with fewer than $m$ nonzero
+    coefficients; which contradicts our choice of  $m$. Therefore  $\x_1, \dots,
+    \x_n$ must be linearly independent.
+\end{proof}
+\begin{corollary}
+    If $\s_1, \dots, \s_n$ are distinct embeddings of a field $K$ into a field
+    $L$, then they are linearlyy independent as functions.
+\end{corollary}
+
+\begin{theorem}\label{2.2.2}
+    Let $G=\{\s_1, \dots, s_n\}$ where $\s_1=\i$ a subgroup of automorphisms of
+    a field $K$, and let  $F$ be the corresponding fixed field. THen
+    \begin{equation*}
+        [K:F]=\ord{G}=n
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Suppose that $n>[K:F]$, and consider the basis $\{\w_1, \dots, \w_m\}$ of
+    $\faktor{K}{F}$ as a vector space so that $[K:F]=m$. Then the matrix
+    equation
+    \begin{equation}
+        \begin{pmatrix}
+            \s_1\w_1    &   \dots   &   \s_n\w_m    \\
+            \vdots      &   \ddots  &   \vdots  \\
+            \s_n\w_1    &   \dots   &   \s_n\w_m    \\
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_1 \\  \vdots  \\  x_m \\
+        \end{pmatrix}
+        =0
+    \end{equation}
+    has nontrivial solution $\begin{pmatrix} \b_1 \\ \vdots \\ \b_n
+    \end{pmatrix}$. Let $a_1, \dots, a_m \in F$, so that $\s_i\a_j=\a_j$ for
+    each  $1 \leq i \leq n$ and $1 \leq j \leq m$. Multyplying by
+    $\begin{pmatrix} \s_1a_1 \\ \vdots \\ \s_ma_1 \end{pmatrix}$, we obtain
+    \begin{equation*}
+        \begin{pmatrix}
+            a_1\s_1\w_1    &   \dots   &   a_1\s_1\w_1    \\
+            \vdots      &   \ddots  &   \vdots  \\
+            a_m\s_m\w_1    &   \dots   &   a_m\s_n\w_m    \\
+        \end{pmatrix}
+        \begin{pmatrix}
+            \b_1    \\  \vdots  \\  b_n \\
+        \end{pmatrix}
+        =0
+    \end{equation*}
+    so that we can obtain the equation
+    \begin{equation*}
+        \s_1(a_1\w_1+\dots+a_m\w_m)\b_1+\dots+\s_n(a_1\w_1+\dots+a_m\w_m)\b_n=0
+    \end{equation*}
+    Where $\b_1, \dots, \b_n$ are not all $0$. Now, since  $\{\w_1, \dots,
+    \w_m\}$ is an $F$-basis for  $K$, for all  $\a \in K$, we get that
+    $\a=a_1\w_1+\dots+a_m\w_m$. So we have from the above equation
+    \begin{equation*}
+        (\s_1\a)\b_1+\dots(\s_n\a)\b_n=0
+    \end{equation*}
+    so that $\{\s_1, \dots, \s_n\}$ are linearly dependent over $K$; which
+    contradicts the above corollary. No $n \leq [K:F]$.
+
+    Now, suppose that $n<[K:F]$, and thte tere are more than $n$  $F$-linearly
+    independent elements  $\a_1, \dots, \a_{n+1} \in K$. Then
+    \begin{equation*}
+        \begin{pmatrix}
+            \s_1\a_1    &   \dots   &   \s_1\a_{n+1}    \\
+            \vdots  &   \ddots  &   \vdots  \\
+            \s_n\a_1    &   \dots   &   \s_n\a_{n+1}
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_1 \\  \dots   \\  x_{n+1}
+        \end{pmatrix}
+        =0
+    \end{equation*}
+    has nontrivial solution with entries $\b_1, \dots, \b_{n+1} \in K$. Now, if
+    $\b_i \in F$ for all $1 \leq i \leq n+1$, we get an immediate contradiction
+    of the linear independence of  $\{\a_1, \dots, \a_{n+1}\}$ over $F$. So at
+    least one  $\b_i \not\in F$.
+
+    Now, choose a nontrivial solution with minimum of  $r$ nonzero entries
+    $\b_i$. Suppose also that  $\b_r=1$, then at least one  $\b_i \not\in F$,
+    for  $1 \leq i \leq r-1$, and so  $r>1$. SUppose then that  $\b_1 \not\in
+    F$. Then the matrix equation
+    \begin{equation*}
+        \begin{pmatrix}
+            \s_1\a_1    &   \dots   &   \s_1\a_{r-1}    &   \s_1\a_r    \\
+            \vdots  &   \ddots  &   \vdots  \\
+            \s_n\a_n    &   \dots   &   \s_n\a_{r-1}    &   \s_n\a_r    \\
+        \end{pmatrix}
+        \begin{pmatrix}
+            \b_1    \\ \vdots   \\  \b_{r-1}    \\  1   \\
+        \end{pmatrix}
+        =0
+    \end{equation*}
+    Now, since $\b_1 \not\in F$, there exists an automorphsim $\s_{k_0}$ of $K$
+    with  $\s_{k_0}\b_1 \neq \b_1$ for $1 \leq k_0 \leq n$. Applying $\s_{k_0}$
+    to each row of the above equation yields a row of the form
+    \begin{equation*}
+        \s_{k_0}(\s_j\a_1)(\s_{k_0}\b_1)+\dots+\s_{k_0}(\s_j\a_{r-1})
+            (\s_{k_0}\b_{r-1})+\s_j\a_r=0
+    \end{equation*}
+    However, since $G$ is a group,  $\s_{k_0}\s_j=\s_i$ for $1 \leq i,j \leq n$,
+    so we get
+    \begin{equation*}
+        (\s_i\a_1)(\s_{k_0}\b_1)+\dots+(\s_i\a_{r-1})(\s_{k_0}\b_{r-1})+\s_i\a_r=0
+    \end{equation*}
+    Subtracting this equation from the one preceeding it, we obtain
+    \begin{equation*}
+        (\s_i\a_1)(\b_1-\s_{k_0}\b_1)+\dots+(\s_i\a_{r-1})(\b_{r-1}-\s_{k_0}\b_{r-1})
+            =0
+    \end{equation*}
+    with $x_1=\b_1-\s_{k_0}\b_1 \neq 0$. This choice of $k_0$ gives fewer than
+    $r$ nonzero coefficients of a nontrivial solutions, which contradicts the
+    choice of  $r$. Therefore  $n=[K:F]$.
+\end{proof}
+\begin{corollary}
+    If $K$ is a finite extension over a field  $F$, then
+    \begin{equation*}
+        \ord{\Aut{\faktor{K}{F}}} \leq [K:F]
+    \end{equation*}
+    with equality holding if, and only if $F$ is the fixed field of
+    $\Aut{\faktor{K}{F}}$.
+\end{corollary}
+\begin{proof}
+    Let $F_1$ be the fixed field of $\Aut{\faktor{K}{F}}$, so that $F \subseteq
+    F_1 \subseteq K$. TYhen $[K:F_1]=\ord{\Aut{\faktor{K}{F}}}$, hence
+    \begin{equation*}
+        [K:F]=(\ord{\Aut{\faktor{K}{F}}})[F_1:F]
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    If $G$ is a finite subgroup of automorphisms of a field  $K$, and $F$ is its
+    fixed field, then  $\Aut{\faktor{K}{F}}=G$ so that $K$ is Galois over $F$
+    with Galois group  $G$.
+\end{corollary}
+\begin{proof}
+    By definition, we have that since $G$ fixes the elements of $F$, then $G \leq
+    \Aut{\faktor{K}{F}}$. THen $\ord{G}=[K:F]$ and by the above corollary, we
+    get
+    \begin{equation*}
+        \ord{\Aut{\faktor{K}{F}}} \leq [K:F]
+    \end{equation*}
+    so that
+    \begin{equation*}
+        [K:F]=\ord{G} \leq \ord{\Aut{\faktor{K}{F}}} \leq [K:F]
+    \end{equation*}
+    and equality holds.
+\end{proof}
+\begin{corollary}
+    If $G$ and  $H$ are distinct finite subgroups of  $\Aut{K}$, then their
+    fixed fields are also distinct.
+\end{corollary}
+\begin{proof}
+    Let $F_G$ the fixed field of  $G$, and  $F_H$ the fixed field of  $H$. I f
+    $F_G=F_H$, then we have that $H$ fixes  $F_G$, and since any automorphism
+    fixing  $F_G$ is in  $G$, we have  $H \leq G$. By similar reasoning, we get
+     $G \leq H$ so that  $G=H$.
+\end{proof}
+
+\begin{theorem}\label{2.2.3}
+    The extension $K$ over a field  $F$ is Galois if, and only if $K$ is the
+    splitting field of some seperable polynomial in $F$. Moreover, every
+    irreducible polynomial over $F$ having at least one root in  $K$ splits over
+     $K$.
+\end{theorem}
+\begin{proof}
+    By lemma \ref{2.1.5}, the splitting field of a seperable polynomial over a
+    field is Galois.
+
+    Now, suppose that $K$ is Galois over  $F$, and let  $p(x) \in F[x]$ an
+    irreducible polynomial with a root $\a \in K$. Consider, for each  $\s_i \in
+    \Gal{\faktor{K}{F}}$ the elements
+    \begin{align*}
+        \a  &&   \s_2\a  &&   \dots   &&   \s_n\a  \\
+    \end{align*}
+    where $\s_1=\i$, and let
+    \begin{align*}
+        \a  &&   \a_2  &&   \dots   &&   \a_n  \\
+    \end{align*}
+    be the distinct elements taken on by these permutations (in no particular
+    order). If $\t \in \Gal{\faktor{K}{F}}$, by the group law, we get
+    $\t\s_i=\s_j$ for all  $1 \leq i,j \leq n$. APplying  $\t$ to  $\a_i$ we
+    het permutations of the elements  $\a, \a_2, \dots, \a_n$. Then the
+    polynomial $f(x)=(x-\a)(x-\a_2) \dots (x-\a_n)$ has coefficients fixed by
+    the elements of $\Gal{\faktor{K}{F}}$. That is, the coefficients lie in the
+    fixed field $F$. Hence  $f \in F[x]$.
+
+    Now, since $p$ is irreducible with root $\a$, it is the minimal polynomial
+    for $\a$ over $F$, and hence  $p|f$. Moreover, we can pbserve that $f|p$, so
+    that  $p(x)=f(x)$, which makes  $p(x)$ seperable with all its roots in  $K$.
+
+    Now, let $\{\w_1, \dots, \w_n\}$ be a basis for $\faktor{K}{F}$ as a vector
+    space, and let $p_i(x)$ the minimal polynomial for $\w_i$ over $F$ for all
+    $1 \leq i \leq n$. Then  $p_i$ is seperable, with roots in  $K$. Let
+    $g(x)=p_1(x) \dots p_n(x)$ (where this product is squarefree). Then if $E$
+    is the splitting field of  $g$ over  $F$, then $\w_i \in E$ for all  $1 \leq
+    i \leq n$, so that  $K \subseteq E$. On the otherhand, since  $g$ splits
+    over  $K$, we get  $E \subseteq K$, and so  $K=E$ is the splitting field of
+     $g$ over $F$.
+\end{proof}
+
+\begin{definition}
+    LEt $K$ be an extension of a field  $F$. If  $\a \in K$, and  $\s \in
+    \Gal{\faktor{K}{F}}$, we call the permutations $\s\a$  \textbf{Galois
+    conjugates} (or simply \textbf{conjugates}) of $\a$ over $F$. If $E$ is a
+    sbufield of  $K$ containing  $F$, then we call  $\s{E}$ the
+    \textbf{conjugate field} of $E$over  $F$.
+\end{definition}
+
+\begin{theorem}[The Fundamental Theorem of Galois Theory]\label{2.2.4}
+    Let $K$ be Galois over a field  $F$. Then there is a 1--1 correspondence of
+    the subfields  $E$ of  $K$, each containing $F$, onto the subgroups of
+    $\Gal{\faktor{F}{K}}$. This correspondence is given by taking each $E$ to
+    elements of $\Gal{\faktor{K}{F}}$ fixing $E$, and by taking subgroups of
+    $\Gal{\faktor{K}{F}}$ to thier fixed fields. Moreover, this correspondence
+    gives the following
+    \begin{enumerate}
+        \item[(1)] If $E_1$ and $E_2$ correspond to $H_1$ and $H_2$, then $E_1
+            \subseteq E_2$ if, and only if $H_2 \leq H_1$.
+
+        \item[(2)] $[K:E]=\ord{H}$ and $[E:F]=[\Gal{\faktor{K}{F}}:H]$.
+
+        \item[(3)] $K$ is Galois over  $E$ with Galois group $H=\Gal{\faktor{K}{E}}$.
+
+        \item[(4)] $E$ is Galois over  $F$ if, and only if  $H \unlhd
+            \Gal{\faktor{K}{F}}$, and $\Gal{\faktor{E}{F}}$ is isomorphic to the
+            quotient group of $\Gal{\faktor{K}{F}}$ by $H$.
+
+        \item[(5)] If $E_1$ and $E_2$ correspond to $H_1$ and $H_2$, then $E_1
+            \cap E_2$ corresponds to $\langle H_1, H_2 \rangle$, and $E_1E_2$
+            corresponds to $H_1 \cap H_2$. Moreover, the lattice of subfields of
+            $K$ containing  $F$ is dual to the lattice of subgroups of
+            $\Gal{\faktor{K}{F}}$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
