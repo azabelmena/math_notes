@@ -265,4 +265,159 @@
     \end{enumerate}
 \end{theorem}
 \begin{proof}
+    Take $G=\Gal{\faktor{K}{F}}$, and $H \leq G$. Obtain a unique fixed field of
+     $E$, of $H$. Since fixed fields of distinct subgroups of $G$ are distinct,
+     we get that the correspondence is 1--1.a Now, let  $K$ be the splitting
+     field of a seperable polynomial  $f(x)$ over $F$. Consider $f(x)$ as a
+     polynomial over $E$, for any subfield $E$ of  $K$ containing  $F$. Then
+     $K$ is the splitting field of  $f$ over  $E$, and by theorem \ref{2.2.3},
+     $K$ is Galois over  $E$. Then  $E$ is the fixed field of the automorphism
+     group  $\Aut{\faktor{K}{E}}$ which is a subgroup of $G$. Hence every
+     subfield of  $K$ containing  $F$ is the fixed field of a subgroup of  $G$,
+     and we have proved that the correspondence is onto and we get the required
+     bijection. We also have by lemma \ref{2.1.4}, that this correspondence is
+     inclusion reversing.
+
+     Now, notice that for any automorphism $\s \in G$, $\s|_E$ is an embedding
+     of  $E$ onto $\s{E}$ and $\s{E} \subseteq K$ is a subfield. Conversely, let
+     $\t:E \xrightarrow{} \t{E} \subseteq \cl{F}$ be an embedding of $E$. If $\a
+     \in E$, and  $m_\a$ is the minimum polynomial of  $\a$ over  $F$, then
+     $\t{\a}$ is alos a root of $m_\a$, and  $K$ contains all the roots of
+     $m_\a$. Now,  $K$ is the splitting field of  $f$, and hence, also the
+     splitting field of  $\t{f}(x)$. Then if we extend $\t$ to an isomorphism
+     $\s$, we get the diagram
+     \[\begin{tikzcd}
+            {\sigma:} & K & K \\
+            {\tau:} & E & {\tau{E}}
+            \arrow[from=1-2, to=1-3]
+            \arrow[from=2-2, to=2-3]
+            \arrow[no head, from=1-3, to=2-3]
+            \arrow[no head, from=1-2, to=2-2]
+      \end{tikzcd}\]
+      and since $\s$ fixes  $F$, then every embedding $\t$ of $E$ fixing  $F$ is
+      the restriction of some automorphism  $\s$ of  $K$.
+
+      Now, two autmorphisms  $\s,\s' \in G$ restrict to the same embedding if,
+      and only if  $\inv{\s}\s'=\i$, the identity map on $E$. This makes
+      $\inv{\s}\s' \in H$; i.e. $\s' \in \s{H}$. Since $\Gal{\faktor{K}{E}}=H$,
+      and letting $\Emb{\faktor{E}{F}}$ be the set of all embeddings of $E$ into
+       $\cl{F}$, we get
+       \begin{equation*}
+           |\Emb{\faktor{E}{F}}|=[G:H]=[E:F].
+       \end{equation*}
+       Also notice that since automorphisms are also embeddings,
+       $\Aut{\faktor{E}{F}} \subseteq \Emb{\faktor{E}{F}}$. Now, $E$ is Galois
+       over  $F$ if, and only if  $\ord{\Aut{\faktor{E}{F}}}=[E:F]$. Hence $E$
+       is Galois over  $F$ if, and only if
+       $\Aut{\faktor{E}{F}}=\Emb{\faktor{E}{F}}$; that is, each embedding of $E$
+       is an automorphism of $E$ which makes $\s{E}=E$.
+
+       Notice, now, that if $\s{\a} \in \s{E}$, then
+       $(\s{h}\inv{s})(\s{\a})=\s{(h\a)}=\s{\a}$, since $h\a=\a$ for all $H$ in
+        $H$. So  $\s{H}\inv{\s}$ fixes $\s{E}$. Moreover, we have
+        $\ord{\s{H}\inv{\s}}=[K:\s{E}]=[K:E]$, so that
+        $\ord{\s{H}\inv{\s}}=\ord{H}$. This makes $\s{H}\inv{\s}$ the group
+        fixing $\s{E}$.
+
+        Now, $\s{E}=E$ for all $\s \in G$ if, and only if  $\s{H}\inv{s}=H$. That
+        is, $E$ is Galois over $F$ if, and only if  $H \unlhd
+        \Gal{\faktor{K}{F}}$. Since the embedding of $E$ over  $F$ are cosets of
+         $H$ in  $G$, and  $H \unlhd G$, the correspondence gives that
+         \begin{equation*}
+             \faktor{G}{H} \simeq \Gal{\faktor{E}{F}}
+         \end{equation*}
+
+         Lastly, let $E_1,E_2 \subseteq K$ subfields contain ing $F$, and let
+         $H_1,H_2 \leq G$ subgroups fixing $E_1$ and $E_2$. Then $H_1 \cap H_2$
+         fixes both $E_1$ and $E_2$, and so fixes $E_1E_2$. Conversely, if $h
+         \in H_1$ such that $h$ fixes $E_2$, then $h \in H_1 \cap H_2$. So that
+         $H_1 \cap H_2$ corresponds to $E_1E_2$. By similar reasoning, we get
+         that $\langle H_1, H_2 \rangle$ corresponds to $E_1 \cap E_2$.
 \end{proof}
+
+\begin{example}\label{example_2.4}
+    \begin{enumerate}
+        \item[(1)] The lattices of $\Q(\sqrt{2},\sqrt{3})$ and $\Q(\sqrt[3]{2},
+            \xi)$ (where $\xi^3=1$) indicate all of the subfields of these
+            fields. We have that the lattice of $\Q(\sqrt{2},\sqrt{3})$ is
+            isomorphic to the lattice of the Klein $4$-group  $V_4$, which has
+            all its subgroups normal. Thus we get every subfield of
+            $\Q(\sqrt{2},\sqrt{3})$ is Galoix over $\Q$.
+
+            \begin{figure}[h]
+                \centering
+                \[\begin{tikzcd}
+                        & {\Q(\sqrt{2},\sqrt{3})} &&& {\langle \s,
+                        \t, \n \rangle} \\ {\Q(\sqrt{2})} & {\Q(\sqrt{6})} &
+                        {\Q(\sqrt{3})} & {\langle \s \rangle} &
+                        {\langle \t \rangle} & {\langle \n \rangle} \\
+                        & {\Q} &&& {\langle \i \rangle}
+                        \arrow[no head, from=1-2, to=2-2]
+                        \arrow[no head, from=2-2, to=3-2]
+                        \arrow[no head, from=3-2, to=2-3]
+                        \arrow[no head, from=2-3,to=1-2]
+                        \arrow[no head, from=1-2,to=2-1]
+                        \arrow[no head,from=2-1, to=3-2]
+                        \arrow[no head,from=1-5, to=2-5]
+                        \arrow[no head,from=2-5,to=3-5]
+                        \arrow[no head,from=3-5,to=2-6]
+                        \arrow[no head,from=2-6,to=1-5]
+                        \arrow[no head,from=1-5,to=2-4]
+                        \arrow[no head,from=2-4,to=3-5]
+                \end{tikzcd}\]
+                \caption{The lattice of subfields of $\Q(\sqrt{{2},\sqrt{{3}}})$
+                and the lattice of subgroups of
+            $\Gal{\faktor{\Q(\sqrt{{2},\sqrt{{3}}})}{\Q}}$.}
+                \label{figure_2.1}
+            \end{figure}
+
+            On the other hand, the lattice for $\Q(\sqrt[3]{2}, \xi)$ is
+            isomorphic to the lattice of $S^3$ where the only normal subgroup is
+            the nontrivial subgroup of order $3$; moreover, only  $\Q(\xi)$ is
+            Galois over $\Q$ with  $\Gal{\faktor{\Q(\xi)}{\Q}} \simeq
+            \faktor{S_3}{\langle \s \rangle}$, where $\langle \s \rangle$ is the
+            cyclic subgroup of order $2$.
+
+        \item[(2)] Consider $\Q(\sqrt{2}+\sqrt{3}) \subseteq \Q(\sqrt{2},\sqrt{3})$.
+            If $m(x)$ is the minimal polynomial of $\sqrt{2}+\sqrt{3}$, then
+            observe that is has as roots the distinct conjugates
+            \begin{equation*}
+                \pm \sqrt{2} \pm \sqrt{{3}}
+            \end{equation*}
+            so that
+            \begin{equation*}
+                m(x)=(x+(\sqrt{2}+\sqrt{3}))(x-(\sqrt{2}+\sqrt{3}))
+                        (x+(\sqrt{2}-\sqrt{3}))(x-(\sqrt{2}-\sqrt{3}))
+                    =x^4+10x+1
+            \end{equation*}
+            Moreover, $x^4+10x+1$ is irreducible. Then only the automorphism
+            $\i$ of  $\{\i, \s, \t, \s\t\}$ fixes $\sqrt{2}+\sqrt{{3}}$ so that
+            the fixing group of $\Q(\sqrt{2}+\sqrt{3})$ is preciesly that of
+            $\Q(\sqrt{2},\sqrt{3})$. So
+            $\Q(\sqrt{}+\sqrt{3})=\Q(\sqrt{2},\sqrt{3})$.
+
+        \item[(3)] Consider the splitting field of $x^8+1$ over  $\Q$, generated
+            by the elements  $\sqrt[8]{2}$ and $\xi$, where  $\xi^8=1$  (i.e. a
+            primitive $8$-th root of unity). Let $\z=\sqrt[8]{2}$, and notice
+            that $\z^4=\sqrt{2}$, and the splitting field of $x^8-2$ over  $\Q$
+            is  $\Q(\sqrt[8]{2},i)$ of degree $[\Q(\sqrt[8]{2},i):\Q]=16=4^2$.
+            Consider then all possible maps on $\z$ and  $i$ given by $\z
+            \xrightarrow{} \xi^a\z, i \xrightarrow{} \pm i$. Define then the
+            automorphisms
+            \begin{equation*}
+                \s:\z \xrightarrow{} \xi\z,i \xrightarrow{} i
+                \text{ and }
+                \t:\z \xrightarrow{} \z, i \xrightarrow{} -i
+            \end{equation*}
+            Since
+            $\xi=\frac{\sqrt{2}}{2}+i\frac{\sqrt{2}}{2}=\frac{1+i}{2}\z^4$, we
+            compute that $\s:\xi \xrightarrow{} \xi^5$, and $\t:\xi
+            \xrightarrow{} \xi^7$. We can then compute the Galois group by
+            noting that $\s^8=\t^2=\i$, and  $\s\t=\t\s^3$, so that
+            \begin{equation*}
+                \Gal{\faktor{\Q(\sqrt[8]{2},i)}{\Q}}=
+                \langle \s,\t : \s^8=\t^2=\i \text{ and } \s\t=\t\s^3 \rangle
+            \end{equation*}
+            which describes the quasidihedral group of order $16$.
+    \end{enumerate}
+\end{example}
