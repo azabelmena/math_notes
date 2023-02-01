@@ -179,25 +179,19 @@
             the roots $\sqrt{2}$ and $\sqrt{3}$, we get the possible
             automorphisms are given by the maps
             \begin{equation*}
-                \i=\begin{cases}
-                    \sqrt{2} \xrightarrow{} \sqrt{2}    \\
-                    \sqrt{3} \xrightarrow{} \sqrt{3}    \\
-                \end{cases}
-                &&
-                \begin{cases}
-                    \sqrt{2} \xrightarrow{} -\sqrt{2}    \\
-                    \sqrt{3} \xrightarrow{} \sqrt{3}    \\
-                \end{cases}
-                &&
-                \begin{cases}
-                    \sqrt{2} \xrightarrow{} \sqrt{2}    \\
-                    \sqrt{3} \xrightarrow{} -\sqrt{3}    \\
-                \end{cases}
-                &&
-                \begin{cases}
-                    \sqrt{2} \xrightarrow{} -\sqrt{2}    \\
-                    \sqrt{3} \xrightarrow{} -\sqrt{3}    \\
-                \end{cases}
+                \begin{array}{lcl}
+                    \sqrt{2}    \xrightarrow{} \sqrt{2} && \sqrt{3}
+                                                \xrightarrow{} -\sqrt{3} \\
+
+                 \sqrt{2}    \xrightarrow{} -\sqrt{2} && \sqrt{3}
+                                            \xrightarrow{} \sqrt{3} \\
+
+                    \sqrt{2}    \xrightarrow{} \sqrt{2} && \sqrt{3}
+                                                \xrightarrow{} -\sqrt{3} \\
+
+                    \sqrt{2}    \xrightarrow{} -\sqrt{2} && \sqrt{3}
+                                                \xrightarrow{} -\sqrt{3} \\
+                \end{array}
             \end{equation*}
             Now, let $\s:\sqrt{2} \xrightarrow{} -\sqrt{2}, \sqrt{3}
             \xrightarrow{} \sqrt{3}$ and $\t:\sqrt{2} \xrightarrow{} \sqrt{2},
@@ -216,14 +210,16 @@
             elements of the form  $a+b\sqrt{6}$. So $\Fc(\langle \s\t
             \rangle)=\Q(\sqrt{6})$. The table below lists the fixed fields of
             the Galois group considered.
-            \begin{align*}
-                \text{ subgroup }   &&  \text{ fixed field} \\
-                \langle \i \rangle  &&  \Q(\sqrt{2},\sqrt{3})   \\
-                \langle \s \rangle  &&  \Q(\sqrt{3})    \\
-                \langle \s\t \rangle    &&  \q(\sqrt{6})    \\
-                \langle \t \rangle  &&  \Q(\sqrt{2})    \\
-                \langle \s,\t \rangle   &&  \Q  \\
-            \end{align*}
+            \begin{equation*}
+                \begin{array}{lcl}
+                    \text{subgroup}    &&   \text{fixed field}   \\
+                    \langle \i \rangle  &&   \Q(\sqrt{2},\sqrt{3})   \\
+                    \langle \s \rangle  &&   \Q(\sqrt{3})   \\
+                    \langle \s\t \rangle  &&   \Q(\sqrt{6})   \\
+                    \langle \t \rangle  &&   \Q(\sqrt{2})   \\
+                    \langle \s,\t \rangle  &&   \Q   \\
+                \end{array}
+            \end{equation*}
 
         \item[(5)] The roots of $x^3-2$ over  $\Q$ are given by
             \begin{align*}
@@ -235,7 +231,7 @@
             $\Q$, and hence seperable over  $\Q$. This makes  $\Q(\sqrt[3]{2},
             \xi\sqrt[3]{2})$ Galois over $\Q$, of order  $6$.
 
-            Consider now the set of generators $\sqrt[3]{2}$ and $\xi$. THen an
+            Consider now the set of generators $\sqrt[3]{2}$ and $\xi$. Then an
             automorphism  $\s$ takes  $\sqrt[3]{2} \xrightarrow{} \sqrt[3]{2},
             \xi\sqrt[3]{2}$, or $\xi^2\sqrt[3]{2}$, and takes  $\xi
             \xrightarrow{} \xi$ or $\xi^2$. Since these are the roots of the
@@ -243,9 +239,18 @@
             determined by the actions on  $\sqrt[3]{2}$ and  $\xi$. Hence there
             are  $6$ possible automorphisms.
 
-            Let $\s:\sqrt[3]{2} \xrightarrow{} \xi\sqrt[3]{2}, \xi
-            \xrightarrow{} \xi$ and $\t:\sqrt[3]{2} \xrightarrow{} \sqrt[3]{2},
-            \xi \xrightarrow{} \xi^2$. We obtain then the elements
+            Let
+            \begin{equation*}
+                \begin{array}{lcl}
+                    \s: \sqrt[3]{2} \xrightarrow{} \xi\sqrt[3]{2}    &&  \xi
+                                                    \xrightarrow{} \xi  \\
+
+                    \t: \sqrt[3]{2} \xrightarrow{} \sqrt[3]{2}    &&  \xi
+                                                    \xrightarrow{} \xi^2  \\
+                \end{array}
+            \end{equation*}
+
+            We obtain then the elements
             \begin{align*}
                 \i  &&  \s^2    &&  \t\s^2=\s\t \\
             \end{align*}
