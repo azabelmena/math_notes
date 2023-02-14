@@ -1,1 +1,64 @@
-\section{Unique Factorization Domains.}
+\section{Finite Fields}
+
+We reiterate some previous results about finite fields.
+
+\begin{lemma}\label{2.3.1}
+    Let $E$ be a finite field over  $\F_p$. Then $E$ is an extension of finite
+    degree $[E:\F_p]=n$. Moreover, if $|E|=p^n$, and $E$ is the splitting field
+    of the polynomial $x^{p^n}-x$ over $\F_p$.
+\end{lemma}
+
+\begin{proof}
+    Suppose that $E$ is a finite field, but that the extension
+    $\faktor{E}{\F_p}$ is infinite. The $E$, as a vector space over  $\F_p$, has
+    an infinite basis  $\{\a_1, \a_2, \dots\}$. Moreover, since every element of
+    $E$ is a linear comination of this basis, we obtain a contradiction as there
+    are infinite such combinations, but $E$ is finite. Therefore $[E:\F_p]=n$,
+    for some $n \in \Z^+$.
+
+    Let $\a,\b$ be roots. Then  $\a^{p^n}=\a$, and $\b^{p^n}=\b$. Then
+    $(\a\b)^{p^n}=\a\b$ and $(\inv{\a})^{p^n}=\inv{\a}$. Moreover,
+    $(\a+\b)^{p^n}=\a+\b$. So the set of $p^n$ disctinct roots of  $x^{p^n}-x$
+    is closed under addition, multiplication, and inverses in its splitting
+    field. Let $F$ be that splitting field. Notice that  $F \subseteq E$,
+    moreover, $[F:\F_p]=n$ so that $|F|=p^n$. We also have that
+    $\Uc(F)$ is a cyclic group of order $p^n-1$, so that $E \subseteq F$,
+    since $\a^{p^n-1}=1$. Therefore $E$ is the splitting field of
+    $x^{p^n}-x$ over $\F_p$, and so contains all the roots of $x^{p^n}-x$.
+    Notice that since $E$ is a splitting field, it is unique up to isomorphism.
+\end{proof}
+\begin{remark}
+    Since the splitting fields of $x^{p^n}-x$ over $\F_p$ are unique up to
+    isomorphism, we denote them by  $\F_p$ from now on.
+\end{remark}
+\begin{corollary}
+    $\F_{p^n}$ is Galois over $\F_p$ with Galois group isomorphic to
+    $\faktor{\Z}{n\Z}$.
+\end{corollary}
+\begin{proof}
+    Notice that $\F_{p^n}$ is normal and seperable over $\F_p$. Morever, that
+    the Frobenius automorphism generates the Galois group of order  $n$.
+\end{proof}
+\begin{corollary}
+    All subfields of $\F_{p^n}$ are Galois over $\F_p$, and in 1--1
+    with the divisors of $n$. Moreover, they are of the form $\F_{p^d}$ for all
+    $d|n$.
+\end{corollary}
+\begin{proof}
+    We have that
+    \begin{equation*}
+        \Gal{\faktor{\F_{p^n}}{\F_p}}=\langle \s \rangle \simeq
+        \faktor{\Z}{n\Z}
+    \end{equation*}
+    where $\s:\a \xrightarrow{} \a^p$ is the Frobenius automorphism. By the
+    fundamental theorem of Galois theory, each subfield of $\F_{p^n}$
+    corresponds to a subgroup of $\faktor{\Z}{n\Z}$, which are defined by the
+    divisors of $n$. Hence, there is precisely one field $\F_{p^d}$ for each
+    $d|n$, with  $[\F_{p^d}:\F_p]=d$. Now, since $\faktor{\Z}{n\Z}$ is Abelian,
+    every subgroup is normal, and so each $\F_{p^d}$ is normal over $\F_p$.
+    Since they are also seperable, the are Galois over $\F_p$.
+\end{proof}
+\begin{corollary}
+    The fields $\F_{p^d}$ are precisely those fixed by $\s^d$; that is,
+    $\Fc(\langle \s^d \rangle)=\F_{p^d}$ for all $d|n$.
+\end{corollary}
