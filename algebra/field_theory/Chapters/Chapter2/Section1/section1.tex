@@ -154,6 +154,20 @@
     \textbf{Galois group} of $\faktor{K}{F}$, and write $\Gal{\faktor{K}{F}}$.
 \end{definition}
 
+\begin{lemma}\label{2.1.6}
+    An extension $K$ over a field $F$ is Galois over if and only if it is normal
+    and seperable.
+\end{lemma}
+\begin{proof}
+    If $K$ is Galois over $F$, the result follws by definition. Now, let $K$ be
+    normal and seperable. Let $\a \in K$. Then the minimal polynomial $m$ of
+    $\a$ over $F$ is seperable. Moreover, $\a$ is a root of $K$, and since $K$
+    is normal, $m$ splits completely over $K$. Thus $K$ contains the splitting
+    field of $m$, but since $m$ is minimal and irreducible, that makes  $K$ the
+    splitting field of some polynomial $f$ over $F$, having $m$ as a factor. By
+    the above corollary, this makes $K$ Galois over  $F$.
+\end{proof}
+
 \begin{example}\label{example_2.3}
     \begin{enumerate}
         \item[(1)] $\faktor{\Q(\sqrt{2})}{\Q}$ is Galois, and

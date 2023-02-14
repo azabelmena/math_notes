@@ -26,11 +26,13 @@
 \end{definition}
 
 \begin{lemma}\label{1.6.2}
-    Every finite field has finite characteristic.
+    Every finite field has finite characteristic. Moreover, that characteristic
+    is a prime integer.
 \end{lemma}
 \begin{proof}
     Recall that the characteristic is just the additive order of the element $1$
-    in the field.
+    in the field. Lemma \ref{1.1.1} reiterates that any field of nonzero
+    characteristic must have prime characteristic.
 \end{proof}
 
 \begin{example}\label{example_1.14}
@@ -247,9 +249,11 @@
 \end{example}
 
 \begin{definition}
-    An extension $K$ over a field  $F$ is a called  \textbf{seperable} if every
-    $\a \in K$ is the root of a seperable polynomial over  $F$. Otherwise, we
-    call  $K$   \textbf{inseperable}.
+    If $K$ is an extension over a field $F$, we call an element $\a \in K$
+    \textbf{seperable} if its minimal polynomial is seperable, otherwise we call
+    it \textbf{inseperable}. We call $\faktor{K}{F}$ \textbf{seperable} if every
+    $\a \in K$ is seperable; otherwise we say that  $\faktor{K}{F}$ is
+    inseperable.
 \end{definition}
 
 \begin{lemma}\label{1.6.10}

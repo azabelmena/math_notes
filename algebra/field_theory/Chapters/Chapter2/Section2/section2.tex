@@ -231,7 +231,7 @@
 \end{proof}
 
 \begin{definition}
-    LEt $K$ be an extension of a field  $F$. If  $\a \in K$, and  $\s \in
+    Let $K$ be an extension of a field  $F$. If  $\a \in K$, and  $\s \in
     \Gal{\faktor{K}{F}}$, we call the permutations $\s\a$  \textbf{Galois
     conjugates} (or simply \textbf{conjugates}) of $\a$ over $F$. If $E$ is a
     sbufield of  $K$ containing  $F$, then we call  $\s{E}$ the
@@ -239,100 +239,83 @@
 \end{definition}
 
 \begin{theorem}[The Fundamental Theorem of Galois Theory]\label{2.2.4}
-    Let $K$ be Galois over a field  $F$. Then there is a 1--1 correspondence of
-    the subfields  $E$ of  $K$, each containing $F$, onto the subgroups of
-    $\Gal{\faktor{F}{K}}$. This correspondence is given by taking each $E$ to
-    elements of $\Gal{\faktor{K}{F}}$ fixing $E$, and by taking subgroups of
-    $\Gal{\faktor{K}{F}}$ to thier fixed fields. Moreover, this correspondence
-    gives the following
+    Let $K$ be Galois over a field  $F$ with Galois group $G$, and let $E$ be an
+    intermidiate field of $K$ over $F$ which is fixed by some subgroup $H \leq
+    G$. Then the following are true.
     \begin{enumerate}
-        \item[(1)] If $E_1$ and $E_2$ correspond to $H_1$ and $H_2$, then $E_1
-            \subseteq E_2$ if, and only if $H_2 \leq H_1$.
+        \item[(1)] There is a 1--1 correspondence between the subgroups of $G$
+            onto the fixed fields of $\faktor{K}{F}$; that is, $\Fc$, treated as
+            a map, is 1--1 and onto.
 
-        \item[(2)] $[K:E]=\ord{H}$ and $[E:F]=[\Gal{\faktor{K}{F}}:H]$.
+        \item[(2)] If $\s \in G$, then $\s{E}$ is fixed by $\s{H}\inv{\s}$; that
+            is, $\s{E}=\Fc(\s{H}\inv{\s})$.
 
-        \item[(3)] $K$ is Galois over  $E$ with Galois group $H=\Gal{\faktor{K}{E}}$.
+        \item[(3)] $K$ is Galois over $E$, and $E$ is normal over  $F$ if, and
+            only if $H$ is normal in $G$.
 
-        \item[(4)] $E$ is Galois over  $F$ if, and only if  $H \unlhd
-            \Gal{\faktor{K}{F}}$, and $\Gal{\faktor{E}{F}}$ is isomorphic to the
-            quotient group of $\Gal{\faktor{K}{F}}$ by $H$.
+        \item[(4)] If $H$ is normal in $G$, then
+            \begin{equation*}
+            \Gal{\faktor{E}{F}} \simeq \faktor{G}{H}
+            \end{equation*}
 
-        \item[(5)] If $E_1$ and $E_2$ correspond to $H_1$ and $H_2$, then $E_1
-            \cap E_2$ corresponds to $\langle H_1, H_2 \rangle$, and $E_1E_2$
-            corresponds to $H_1 \cap H_2$. Moreover, the lattice of subfields of
-            $K$ containing  $F$ is dual to the lattice of subgroups of
-            $\Gal{\faktor{K}{F}}$
+        \item[(5)] Independntly of whether or not $E$ is normal over  $F$, we
+            have that
+            \begin{equation*}
+                [E:F]=[G:H]
+            \end{equation*}
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    Take $G=\Gal{\faktor{K}{F}}$, and $H \leq G$. Obtain a unique fixed field of
-     $E$, of $H$. Since fixed fields of distinct subgroups of $G$ are distinct,
-     we get that the correspondence is 1--1.a Now, let  $K$ be the splitting
-     field of a seperable polynomial  $f(x)$ over $F$. Consider $f(x)$ as a
-     polynomial over $E$, for any subfield $E$ of  $K$ containing  $F$. Then
-     $K$ is the splitting field of  $f$ over  $E$, and by theorem \ref{2.2.3},
-     $K$ is Galois over  $E$. Then  $E$ is the fixed field of the automorphism
-     group  $\Aut{\faktor{K}{E}}$ which is a subgroup of $G$. Hence every
-     subfield of  $K$ containing  $F$ is the fixed field of a subgroup of  $G$,
-     and we have proved that the correspondence is onto and we get the required
-     bijection. We also have by lemma \ref{2.1.4}, that this correspondence is
-     inclusion reversing.
+    Let $\Gc(E)=\Aut{\faktor{K}{E}}$, that is, as a map, $\Gc$ sends a
+    intermidiate field of  $\faktor{K}{F}$ to that group of $E$-automorphisms of
+    $K$; i.e. all automorphisms that fix the elements of $E$. Now, consider the
+    mapping
+    \begin{equation*}
+        H \xrightarrow{} \Fc(H) \xrightarrow{} \Gc\Fc(H)
+    \end{equation*}
+    and take $\s \in H$. Then, by definition, $\s$ fixes the field $\Fc(H)$, so
+    that $\s \in \Gc(\Fc(H))=\Gc\Fc(H)$. Then $H \leq \Gc\Fc(H)$. Now, we have
+    that the fixed field $\Fc(H)$ contains the fixed field of $\Gc\Fc(H)$,
+    i.e.  $\Fc(\Gc\Fc(H))$, which is $H$. That is, $\Gc\Fc(H) \leq H$.
+    Therefore, we have $\Gc\Fc(H)=H$. Conversely, consider the mapping
+    \begin{equation*}
+        E \xrightarrow{} \Gc(E) \xrightarrow{} \Fc\Gc(E)
+    \end{equation*}
+    Observe that $\Fc\GcEK)$ is the fixed field of $\Gc(E)=\Aut{\faktor{K}{E}}$,
+    by definition,  $\Fc\Gc(K)=K$. This establishes the 1--1 correspondence of
+    the subgroups of $G$ onto the fixed fields of $\faktor{K}{F}$.
 
-     Now, notice that for any automorphism $\s \in G$, $\s|_E$ is an embedding
-     of  $E$ onto $\s{E}$ and $\s{E} \subseteq K$ is a subfield. Conversely, let
-     $\t:E \xrightarrow{} \t{E} \subseteq \cl{F}$ be an embedding of $E$. If $\a
-     \in E$, and  $m_\a$ is the minimum polynomial of  $\a$ over  $F$, then
-     $\t{\a}$ is alos a root of $m_\a$, and  $K$ contains all the roots of
-     $m_\a$. Now,  $K$ is the splitting field of  $f$, and hence, also the
-     splitting field of  $\t{f}(x)$. Then if we extend $\t$ to an isomorphism
-     $\s$, we get the diagram
-     \[\begin{tikzcd}
-            {\sigma:} & K & K \\
-            {\tau:} & E & {\tau{E}}
-            \arrow[from=1-2, to=1-3]
-            \arrow[from=2-2, to=2-3]
-            \arrow[no head, from=1-3, to=2-3]
-            \arrow[no head, from=1-2, to=2-2]
-      \end{tikzcd}\]
-      and since $\s$ fixes  $F$, then every embedding $\t$ of $E$ fixing  $F$ is
-      the restriction of some automorphism  $\s$ of  $K$.
+    Now, since $E=\Fc(H)$, observe that $\Fc(\s{H}\inv{s})$ consists of all
+    elements of $K$ which are fixed by  $\s\t\inv{\s}$ for all $\t \in H$; that
+    is, all $\a \in K$ for which  $\s\t\inv{\s}(\a)=\a$. Observe, then that
+    $\t\inv{\s}(\a)=\t(\inv{\s}{\a})=\inv{\s}{\a}$, so that $\t$ fixes
+    $\inv{\s}{\a}$. Then $\inv{\s}{\a} \in \Fc(H)$. That is, $\a \in
+    \s{\Fc(H)}=\s{E}$, therefore $\Fc(\s{H}\inv{\s})=\s{E}$.
 
-      Now, two autmorphisms  $\s,\s' \in G$ restrict to the same embedding if,
-      and only if  $\inv{\s}\s'=\i$, the identity map on $E$. This makes
-      $\inv{\s}\s' \in H$; i.e. $\s' \in \s{H}$. Since $\Gal{\faktor{K}{E}}=H$,
-      and letting $\Emb{\faktor{E}{F}}$ be the set of all embeddings of $E$ into
-       $\cl{F}$, we get
-       \begin{equation*}
-           |\Emb{\faktor{E}{F}}|=[G:H]=[E:F].
-       \end{equation*}
-       Also notice that since automorphisms are also embeddings,
-       $\Aut{\faktor{E}{F}} \subseteq \Emb{\faktor{E}{F}}$. Now, $E$ is Galois
-       over  $F$ if, and only if  $\ord{\Aut{\faktor{E}{F}}}=[E:F]$. Hence $E$
-       is Galois over  $F$ if, and only if
-       $\Aut{\faktor{E}{F}}=\Emb{\faktor{E}{F}}$; that is, each embedding of $E$
-       is an automorphism of $E$ which makes $\s{E}=E$.
+    For the third statement, notice that since $K$ is Galois over $F$, then it
+    is normal and seperable. This makes $E$ normal and seperable over $F$, so
+    that by lemma \ref{2.1.6}, $\faktor{E}{F}$ is Galois. Now, let $\s$ be a 1--1
+    $F$-homomorphism which is from  $K \xrightarrow{} E$. Then $\s$ can be
+    extended to a 1--1 $F$-homomorphism from $K \xrightarrow{} K$, by lemma
+    \ref{1.2.5}. If $\faktor{E}{F}$ is normal, then for every $\s \in G$,  $\s$
+    fixes $E$, and  $E$ is fixed by a normal subgroup of $G$ by the previous
+    statement.
 
-       Notice, now, that if $\s{\a} \in \s{E}$, then
-       $(\s{h}\inv{s})(\s{\a})=\s{(h\a)}=\s{\a}$, since $h\a=\a$ for all $H$ in
-        $H$. So  $\s{H}\inv{\s}$ fixes $\s{E}$. Moreover, we have
-        $\ord{\s{H}\inv{\s}}=[K:\s{E}]=[K:E]$, so that
-        $\ord{\s{H}\inv{\s}}=\ord{H}$. This makes $\s{H}\inv{\s}$ the group
-        fixing $\s{E}$.
-
-        Now, $\s{E}=E$ for all $\s \in G$ if, and only if  $\s{H}\inv{s}=H$. That
-        is, $E$ is Galois over $F$ if, and only if  $H \unlhd
-        \Gal{\faktor{K}{F}}$. Since the embedding of $E$ over  $F$ are cosets of
-         $H$ in  $G$, and  $H \unlhd G$, the correspondence gives that
-         \begin{equation*}
-             \faktor{G}{H} \simeq \Gal{\faktor{E}{F}}
-         \end{equation*}
-
-         Lastly, let $E_1,E_2 \subseteq K$ subfields contain ing $F$, and let
-         $H_1,H_2 \leq G$ subgroups fixing $E_1$ and $E_2$. Then $H_1 \cap H_2$
-         fixes both $E_1$ and $E_2$, and so fixes $E_1E_2$. Conversely, if $h
-         \in H_1$ such that $h$ fixes $E_2$, then $h \in H_1 \cap H_2$. So that
-         $H_1 \cap H_2$ corresponds to $E_1E_2$. By similar reasoning, we get
-         that $\langle H_1, H_2 \rangle$ corresponds to $E_1 \cap E_2$.
+    Consider now, the homomorphism from $G \xrightarrow{} \Gal{\faktor{E}{F}}$
+    given by $\s \xrightarrow{} \s|_E$. This map is onto, with kernel consisting
+    of all automorphisms which fix $K$. Then  $\Gal{\faktor{E}{F}}=H$, moreover,
+    since $\faktor{K}{F}$ is normal, we get $H \unlhd G$. Therefore by the first
+    isomorphism theorem (for groups), we get
+    \begin{equation*}
+        \Gal{\faktor{E}{F}} \simeq \faktor{G}{H}
+    \end{equation*}
+    where $\faktor{G}{H}$ is understood to be the quotient group. Finally, we
+    also have that $[K:F]=[K:E][E:F]$. Since both $\faktor{K}{F}$ and
+    $\faktor{E}{F}$ are Galois, this makes
+    \begin{equation*}
+        \ord{G}=[E:F]\ord{H}
+    \end{equation*}
+    which makes $[E:F]=[G:H]$ by the definition of the index of a subgroup.
 \end{proof}
 
 \begin{example}\label{example_2.4}
