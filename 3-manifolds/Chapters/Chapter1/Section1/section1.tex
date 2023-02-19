@@ -131,7 +131,7 @@
 \end{example}
 
 \begin{definition}
-    We define the \textbf{boundry} of an $n$-manifold $M$ to be the set
+    We define the \textbf{boundary} of an $n$-manifold $M$ to be the set
     $\partial{M}$, of all points of $M$ for which there is a neigborhood
     homeomorphic to a neighborhood of $H^n$, but no neighborhood homeomorphic to
     a neighborhood of $\R^n$; where $H^n=\{x \in \R^n : x_1 \geq 0\}$.
@@ -139,7 +139,7 @@
 
 \begin{definition}
     Let $H^n=\{(x_1, \dots, x_n) \in \R^n : x_1 \geq 0\}$. We define an
-   \textbf{$n$-manifold with boundry}  to be a second countable Hausdorff space
+   \textbf{$n$-manifold with boundary}  to be a second countable Hausdorff space
    $M$ with atlas  $\{(M_\a,\phi_\a)\}$ such that $\phi_\a$ is a homeomorphism
    from  $M_\a$ to an open subset of  $\R^n$, or $H^n$.
 \end{definition}
@@ -147,13 +147,13 @@
 \begin{example}\label{example_1.3}
     \begin{enumerate}
         \item[(1)] The unit ball $B^n=\{x \in \R^n : \|x\| \leq 1\}$ is an
-            $n$-dimensional manifold with boundry  $\partial{B^n}=S^{n-1}$. For
+            $n$-dimensional manifold with boundary  $\partial{B^n}=S^{n-1}$. For
             interior points of $B^n$, this is clear. For points in  $S^{n-1}$,
             extending the stererographic projection gives the required
             homeomorphism.
 
         \item[(2)] The \textbf{pair of pants} (see figure \ref{fig_1.3}) Is a
-            $2$-manifold with boundry.
+            $2$-manifold with boundary.
              \begin{figure}[h]
                 \centering
                 \includegraphics[scale=0.5]{Figures/Chapter1/pair_of_pants.eps}
@@ -161,32 +161,32 @@
                 \label{fig_1.3}
             \end{figure}
 
-        \item[(3)] The $1$-holed torus is a  $2$-manifold with boundry.
+        \item[(3)] The $1$-holed torus is a  $2$-manifold with boundary.
     \end{enumerate}
 \end{example}
 
 \begin{definition}
-    A \textbf{$p$-dimensional submanifold with boundry} of an $n$-dimensional
+    A \textbf{$p$-dimensional submanifold with boundary} of an $n$-dimensional
     manifold  $M$ is a closed subset  $L$ of  $M$ for which there is an atlas
     $\{(M_\a,\phi_a)\}$ of $M$ and  $0 \leq p \leq n$, such that for every $x
     \in L$ in the interior of  $M$, there is a chart  $(M_\a,\phi_a)$ such that
     $x \in M_\a$, and  $\phi_\a(L \cap M_\a)=\{0\} \times \R^p$, and for every
-    $x \in L$ in the boundry of  $M$, there is a chart  $(M_\a,\phi_\a)$ such
+    $x \in L$ in the boundary of  $M$, there is a chart  $(M_\a,\phi_\a)$ such
     that $x \in M_\a$, and with  $\phi_\a(L \cap M_\a)=\{0\} \times \R^p$, and
     for which $\phi_\a(x) \in \{0\} \times \partial{H^p}$.
 \end{definition}
 
 \begin{lemma}\label{1.1.2}
-    The boundry of an $n$-manifold is an $(n-1)$-submanifold with boundry.
+    The boundary of an $n$-manifold is an $(n-1)$-submanifold with boundary.
 \end{lemma}
 
 \begin{example}\label{example.1.4}
-    The diameter of the ball $B^2$ is a submanifold with boundry.
+    The diameter of the ball $B^2$ is a submanifold with boundary.
 \end{example}
 
 \begin{definition}
     We call an $n$-manifold $M$ \textbf{closed} if $M$ is compact with nonempty
-    boundry $\partial{M}$.
+    boundary $\partial{M}$.
 \end{definition}
 
 \begin{example}\label{example_1.5}
@@ -196,11 +196,11 @@
 \end{example}
 
 \begin{lemma}\label{1.1.4}
-    If $M$ is an  $n$-manifold with boundry, then its boundry  $\partial{M}$ is
-    an $(n-1)$-manifold without boundry.
+    If $M$ is an  $n$-manifold with boundary, then its boundary  $\partial{M}$ is
+    an $(n-1)$-manifold without boundary.
 \end{lemma}
 \begin{proof}
-    We first notice by our definition of boundry that $\partial{M} \subseteq M$.
+    We first notice by our definition of boundary that $\partial{M} \subseteq M$.
     Since $M$ is second countable and Hausdorff,  $\partial{M}$ inherits these
     properties as a subspace of $M$.
 
@@ -221,5 +221,5 @@
     makes $\partial{M}$ an $(n-1)$-manifold. Moreover, since $x \in \partial{M}$
     was arbitrary, there is no $x \in \partial{M}$ with neighborhood
     homeomorphic to an open set in $H^{n-1}$, so that
-    $\partial{(\partial{M})}=\emptyset$; i.e. $\partial{M}$ is without boundry.
+    $\partial{(\partial{M})}=\emptyset$; i.e. $\partial{M}$ is without boundary.
 \end{proof}
