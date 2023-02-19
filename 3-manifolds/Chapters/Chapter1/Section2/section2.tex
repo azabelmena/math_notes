@@ -8,11 +8,11 @@
 \end{definition}
 
 \begin{definition}
-    A \textbf{$C^q$-manifold}, wit $q>0$ is a topological manifold with an
-    atlas that is  $C^q$. That is, for any charts  $(M_\a,\phi_\a)$ and
-    $(M_\b,\phi_\b)$, $\phi_\b \circ \inv{\phi_\a}$ is $C^q$ wherever it is
-    defined. We call  $C^\infty$-manifolds  \textbf{smooth manifolds}, or
-    \textbf{differentiable manifolds}.
+    A \textbf{$C$-smooth manifold}, or  \textbf{$C^q$-manifold} with $q>0$ is a
+    topological manifold with an atlas that is  $C^q$. That is, for any charts
+    $(M_\a,\phi_\a)$ and $(M_\b,\phi_\b)$, $\phi_\b \circ \inv{\phi_\a}$ is $C^q$
+    wherever it is defined. We call  $C^\infty$-manifolds  \textbf{smooth manifolds},
+    or \textbf{differentiable manifolds}.
 \end{definition}
 
 \begin{example}\label{example_1.6}
@@ -92,5 +92,29 @@
     The projection map of the Torus $T^2 \subseteq \R^3$ on to the thrid
     coordinate is a map with critical points. It has $1$ maximum value,  $2$
     minimum values, and  $2$ saddle points. Moreover these critical points are
-    nondegenerate, so that the projection is a Morse function.
+    nondegenerate, so that the projection is a Morse function. Notice that these
+    critical points are nondegenerate, since they consist of minima, maxima, and
+    saddle points. Moreover, we see that the sum of the minima and maxima, minus
+    the saddle points is $1+1-2=0$.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.5]{Figures/Chapter1/morse_func_torus.eps}
+        \caption{A Morse funtion on the torus $T^2$.}
+        \label{figure_1.5}
+    \end{figure}
 \end{example}
+
+\begin{definition}
+    A \textbf{$q$-smooth submanifold}, or  \textbf{$C^q$-submanifold} of a
+     $C^q$-manifold  $M$ is a  $p$-dimensional submanifold of $M$ for which the
+     transition maps restricted to $L$ are  $C^q$.
+\end{definition}
+
+\begin{definition}
+    A  \textbf{$q$-smooth manifold}, or \textbf{$C^q$-manifold} with
+    \textbf{boundry} $M$ is a toplogical manifold with boundry such that for any
+    charts $(M_\a,\phi_\a)$ and $(M_\b,\phi_\b)$ in the atlas of $M$, the
+    transistion map  $\phi_\b \circ \inv{\phi_\a}$ is $C^q$ wherever it is
+    defined. We call $C^\infty$ manifolds with boundry  \textbf{smooth
+    manifolds}, or \textbf{differentiable manifolds} with \textbf{boundry}.
+\end{definition}
