@@ -1,0 +1,87 @@
+\section{Metacategories}
+
+\begin{definition}
+    A \textbf{metagraph} is a collection of objects together with a collection
+    of \textbf{arrows} between objects, and operations $\dom$ and  $\cod$ such
+    that if  $f$ is an arrow, then $a=\dom{f}$ and $b=\cod{f}$ are objects. We
+    write $f:a \xrightarrow{} b$, and call $a$ the  \textbf{domain}, and $b$ the
+     \textbf{codomain}.
+
+\begin{definition}
+    A \textbf{metacategory} is a metagraph together with an operation $\circ$,
+    called \textbf{composition}, and arrows $\Id_a$ corresponding to each object
+    $a$, such that
+    \begin{enumerate}
+        \item[(1)] $\circ$ corresponds the pair of arrows $(g,f)$ to the arrow
+            $g \circ f$, called the  \textbf{composition}, where
+            $\cod{f}=\dom{g}$; i.e. if $f:a \xrightarrow{} b$, and $g:b
+            \xrightarrow{} c$, then $g \circ f:a \xrightarrow{} c$.
+
+        \item[(2)] $\dom{\Id_a}=\cod{\Id_a}=a$. Moreover, if $f:a \xrightarrow{}
+            b$, and $g:b \xrightarrow{} c$, then $\Id_b \circ f=f$ and  $g \circ
+            \Id_b=g$.
+
+        \item[(3)] If $f:a \xrightarrow{} b$, $g:b \xrightarrow{} c$, and $h:c
+            \xrightarrow{} d$ are arrows, then the compositions $k \circ (g
+            \circ f)$ and $(k \circ g) \circ f$ are equal whenever one of them
+            is defined.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    A \textbf{diagram} is a directed graph whos vertices consists of objects of
+    a metacategory, and whos edjes are arrows between those objects. We say a
+    diagram \textbf{commutes} if for any pair $c,c'$ of vertices, any two paths
+    from  $c$ to  $c'$ gives, by composition of the labels, equal arrows.
+\end{definition}
+
+\begin{example}\label{example_1.1}
+    \begin{enumerate}
+        \item[(1)] We represent arrows of metagraphs pictorally by the diagram
+                 \[\begin{tikzcd}
+                        a & b
+                        \arrow["f", from=1-1, to=1-2]
+                    \end{tikzcd}\]
+
+        \item[(2)] The following is a diagram of the composition law of a
+            metacategory
+            \[\begin{tikzcd}
+                    a \\ b & c
+                \arrow["f"', from=1-1, to=2-1]
+                \arrow["g"', from=2-1, to=2-2]
+                \arrow["{g \circ f}", from=1-1, to=2-2]
+            \end{tikzcd}\]
+            Moreover, the associative law, and identity laws of metagategories
+            are represented by diagrams as
+            \[\begin{tikzcd}
+                a & d && a & b \\
+                b & c &&& b & c
+                \arrow["f"', from=1-1, to=2-1]
+                \arrow["g"', from=2-1, to=2-2]
+                \arrow["h"', from=2-2, to=1-2]
+                \arrow["{h \circ (g \circ f)=(h \circ g) \circ f}", from=1-1, to=1-2]
+                \arrow["{h \circ g}"{pos=0.7},from=2-1, to=1-2]
+                \arrow["{g \circ f}"'{pos=0.6}, from=1-1, to=2-2]
+                \arrow["f", from=1-4,to=1-5]
+                \arrow["f"', from=1-4,to=2-5]
+                \arrow["g",from=1-5, to=2-6]
+                \arrow["g"',from=2-5,to=2-6]
+                \arrow["{\Id_b}"{description},from=1-5,to=2-5]
+            \end{tikzcd}\]
+
+        \item[(3)] The metacategory of sets has as objects all sets, and as
+            arrows, all functions. The identity arrow is the identity function,
+            and the composition law is the usual function composition.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    An \textbf{arrows-only metacategory} is a collection of arrows together with
+    pairs of arrows called  \textbf{composable pairs} and an operation assigning
+    the composable pair $(g,f)$ to the arrow $gf$ such that if $(hg)f$ and
+    $h(gf)$ are defined, then they are equal, and moreover $hgf$ is defined
+    whenever $hg$ and $gf$ are defined. We define the \textbf{identity arrow} to
+    be the arrow $u$ such that  $fu=f$ and  $ug=g$, whenever defined. Moreover,
+    for every arrow $g$, there are arrows  $u,u'$ such that  $u'g$ and  $gu$ are
+    defined.
+\end{definition}
