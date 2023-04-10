@@ -62,3 +62,71 @@ We reiterate some previous results about finite fields.
     The fields $\F_{p^d}$ are precisely those fixed by $\s^d$; that is,
     $\Fc(\langle \s^d \rangle)=\F_{p^d}$ for all $d|n$.
 \end{corollary}
+
+\begin{example}\label{}
+    The irreducible polynomial $x^4+1$ over  $\Z$ is reducible $\mod{p}$, by $p$
+    a prime integer. Consider  $x^4+1 \in \F_p[x]$, if $p=2$, then
+    $x^4+1=(x+1)^4$ and we are done, since $\char{\F_2}=2$. Now, if $p$ is an
+    odd prime, notice that  $p \equiv 1,3,5,7 \mod{8}$ so that $p^2 \equiv 1
+    \mod{8}$. That is, $8|p^2-1$. Then the polynomial  $x^8-1|x^{p^2-1}-1$. We
+    have then that $x^4+1|x^8-1|x^{p^2-1}-1|x^{p^2}-x$; so that the roots of
+    $x^4+1 \mod{p}$ are also the roots of $x^{p^2}-x \mod{p}$, and equivalently,
+    are fixed by the automorphism $\s^2$, $\s$ being the Frobenius automorphism.
+    Since $\F_{p^2}$ is the splitting field of $x^{p^2}-x$, and hence consists
+    of exactly the roots of $\F_{p^2}$, we get that if $\a$ is a root of
+    $x^{p^2}-x$, then $[\F_p(\a) : \F_p] \leq 2$ so that $x^4+1$ is not
+    irreducible over  $\F_p$.
+\end{example}
+
+\begin{lemma}\label{2.3.2}
+    The finite field $\F_{p^n}$ is simple.
+\end{lemma}
+\begin{proof}
+    We have that $\Uc(\F_p)$ is a multiplicative group of finite order;
+    moreover, it is the finite subgroup of the multiplicative group of a field.
+    Therefore $\Uc(\F_p)$ is cyclic. Then if $\a$ is a generator of
+    $\Uc(\F_p)$, then $\F_{p^n}=\F_p(\a)$ and there exists an irreducible
+    polynomial of degree $n$ over  $\F_p$.
+\end{proof}
+
+\begin{lemma}\label{2.3.3}
+    $x^{p^n}-x$ is precisely the product of all irreducible polynomials of
+    degree $\deg=d$, $d|n$ over  $\F_p$.
+\end{lemma}
+\begin{proof}
+    Consider $\F_{p^r}$ as the quotient ring $\faktor{\F_p[x]}{(m)}$, where
+    $m(x)$ os the minimal polynomial of a root $\a$ of  $x^{p^n}-x$. Then it
+    follows that $m(x)|x^{p^n}-x$ and $\deg{m}=n$.
+
+    COnversely, if $p(x)$ is an irreducible polynomial of degree $\deg{p}=d$,
+    with $p|x^{p^n}-x$, if $\a$ is a root of  $p$, then  $\F_p(\a) \subseteq
+    \F_{p^n}$; and $[\F_p(\a) : \F_p]=d$. That makes $d|n$, and $\F_p(\a)$
+    is Galois over $\F_p$. Now, since $\F_{p^n}$ consists preecisely of the
+    roots of $x^{p^n}-x$, grouping together the factores $x-\a$ according to the
+    degre $d$, we obtain the result.
+\end{proof}
+
+\begin{definition}
+    We define the \textbf{M\"obius function} of an integer $n \in \Z^+$ to be
+    \begin{equation*}
+        \m(n)=\begin{cases}
+            1,  &   \text{ if } n=1 \\
+            0,  &   \text{ if } n \text{ has a square factor} \\
+            (-1)^r,  &   \text{ if } n \text{ has } r \text{ distinct prime
+            factors} \\
+        \end{cases}
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}\label{2.3.4}
+    The number of irreducible polynomials of degree $n$ over  $\F_p$ is
+    \begin{equation*}
+        \psi(n)=\frac{1}{n}\sum_{d|n}{\mu(d)p^{\frac{n}{d}}}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $\psi(n)$ the number of irreducible polynomials of degree $\deg=n$ over
+    $\F_p$. By the above lemma, we get that  $p^n=\sum_{d|n}{d\psi(d)}$. Using
+    the M\"obius inversion formula for $n\psi(n)$, we get that
+    $n\psi(n)=\sum_{d|n}{\mu(d)p^{\frac{n}{d}}}$.
+\end{proof}
