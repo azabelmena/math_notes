@@ -1,0 +1,103 @@
+\section{Unique Factorization of Polynomials.}
+
+\begin{lemma}[Gauss]\label{3.2.1}
+    Let $R$ be a unique factorization ring, with field of fractions $F$. and let
+    $p(x)$ a polynomial in $R[x]$. If $p$ is reducible in $F[x]$, then $p$ is
+    reducible in  $R[x]$. That is, if $p(x)=A(x)B(x)$, where $A,B \in F[x]$,
+    then there exist $r,s \in F$, nonzero, for which  $rA(x)=a(x) \in R[x]$,
+    $sB(x)=b(x) \in R[x]$, and $p(x)=a(x)b(x)$.
+\end{lemma}
+\begin{proof}
+    Since $A,B \in F[x]$, they are quotients of elements of $R$. Then
+    multiplying by a nonzero common divisor  $d \in R$, take  $dp(x)=a'(x)b'(x)$,
+    where $a',b' \in R[x]$. Now, if $d$ is a unit, then take
+    $a(x)=\inv{d}a'(x)$, and $b(x)=b'(x)$ and we are done. Suppose, then that
+    $d$ is not a unit. Then since  $R$ is a UFD, let
+    \begin{equation*}
+        d=p_1 \dots p_n \text{ where } p_i \in R \text{ is irreducible}
+    \end{equation*}
+    the unique factorization of $d$ into irreducible elements. Then the ideal
+    $(p_1)$ is prime in $R$, since  $R$ is a UFD, then  $p_1R[x]$ is prime in
+    $R[x]$, and so we get $\faktor{R}{p_1R}[x]$ is an integral domain. Then
+    reduce $dp-a'b'$ modulo  $p_1$, and we get $a'(x)b'(x) \equiv 0
+    \mod{(p_1)}$. Hence, either $a' \equiv 0 \mod{(p_1)}$ or $b' \equiv 0
+    \mod{(p_1)}$. In either case, $p_1$ divides either $a'$ or  $b'$. That is,
+    $\frac{a'}{p_1}(x)$ has coefficients in $R$. Now, this leaves  $d$ with one
+    fewer irreducible factors. Hence repeating the process for  $p_2, \dots,
+    p_n$, cancel $d$ in the two polynomials and we get  $p(x)=a(x)b(x)$, where
+    $a,b \in R$, and  $a=rA$,  $b=sB$ for some  $r,s \in F$ nonzero.
+\end{proof}
+\begin{corollary}
+    If the coefficients of $p$ are coprime, then  $p$ is irreducible in  $R[x]$
+    if, and only if it is irreducible in $F[x]$.
+\end{corollary}
+\begin{proof}
+    By above, if $p$ is reducible in  $F[x]$, it is reducible in $R[x]$.
+    Conversley, let $a_0, \dots, a_n$ the coefficients of $p$, and suppose that
+     $c=(a_0, \dots, a_1)=1$. Now, if $p$ is reducible in $R[x]$, since $d=1$,
+     $p(x)=a(x)b(x)$, where neither $a,b \in R[x]$ are constant in $R[x]$. This
+     is also a factorization in $F[x]$.
+\end{proof}
+
+\begin{theorem}\label{3.2.2}
+    A ring $R$ is a unique factorization domain if, and only if  $R[x]$ is a
+    unique factorization domain.
+\end{theorem}
+\begin{proof}
+    Certainly, if $R[x]$ is a UFD, so is $R$, since the constant polynomials
+    are just elements of  $R$. Now, suppose that  $R$ is a UFD, and let  $F$ be
+    the field of fractions of  $R$, and  $p \in R[x]$ a polynomial with
+    coefficients $a_0, \dots, a_n$. Let $d=(a_0, \dots, a_n)$. Then
+    $p(x)=dp'(x)$, where the coefficients of $p'$ are coprime. Then such
+    factorization of is unique up to a unit, and since $d$ can be uniquely
+    factored in  $d$, it suffices to show that  $p'$ can be uniquely factored in
+     $R[x]$.
+
+     Let $c=1$ the gratest common divisor of the coefficients of  $p'$. Since
+     $F[x]$ is a UFD, $p'$ can be uniquely factored in  $F[x]$. Hence, by
+     Gauss' lemma, there is a factorization of $p'$ in  $R[x]$, whose factors
+     are $F$-multiples of factoris in  $F[x]$. Since $c=1$, each of these
+     factors must have coprime coefficients, and hence by the preceding
+     corollary, each of these factors is irreducible in $R[x]$. That is, $p'$ is
+     a finite product of irreducibles.
+
+     Suppose now, that
+     \begin{equation*}
+      p'(x)=p_1(x) \dots p_n(x)=q_1(x) \dots q_m(x)
+     \end{equation*}
+     are two factorizations of $p'$ into irreducibles. Since  $c=1$, the
+     coefficients of each factor in $p_i$ and  $q_j$ must be coprime, and
+     $\deg{p_i}>0$ and $\deg{q_j}>0$. Now, sicne the units of $F[x]$ are the
+     elements of $\Uc(F)$ , consider when $p'(x)=\frac{a}{b}q(x)$, where $a,b
+     \in R$ are nonzero. Then the coefficients in $q$ are coprime. Since the
+     greatest commond divisror in a UFD is unique up to unit,  $a=ub$ for some
+     unit  $u \in R$. And  $p'$ and $q$ are associate in $R[x]$. This makes
+     $R[x]$ a UFD.
+\end{proof}
+\begin{corollary}
+    If $R$ is a unique factorization domain, then the multivariate polynomial
+    ring in  $n$-variables  $R[x_1, \dots, x_n]$ is a unique factorization
+    domain.
+\end{corollary}
+\begin{proof}
+    By definition, $R[x_1, \dots, x_n]=(R[x_1, \dots, x_{n-1}])[x_n]$, and the
+    rest follows recursively.
+\end{proof}
+
+\begin{example}\label{example_3.3}
+    \begin{enumerate}
+        \item[(1)] Since $\Z$ is a UFD, so are $\Z[x]$ and $\Z[x,y]$, and these
+            are examples of UFDs which are not PIDs.
+
+        \item[(2)] $\Q[x]$ and $\Q[x,y]$ are also UFDs.
+
+        \item[(3)] In general, if $R$ is an integral domain, and  $p$ is a monic
+            irreducible in  $R[x]$, then it is not always true that $p$ is
+            irreducible in $F[x]$, $F$ being the field of fractions of  $R$.
+            Consider the ring  $\Z[2i]$, and let $p(x)=x^2+1$. Then the field of
+            fractions in $\Z[2i]$ is $\Q[i]$, and the polynomial $p$ factors
+            into  $p(x)=(x+i)(x-i)$, where $i^2=-1$. Neither of these factors
+            are in the polynomial ring  $(\Z[2i])[x]$, so $p$ is irreducible in
+             $(\Z[2i])[x]$, and $(\Z[2i])[x]$ fails to be UFD.
+    \end{enumerate}
+\end{example}

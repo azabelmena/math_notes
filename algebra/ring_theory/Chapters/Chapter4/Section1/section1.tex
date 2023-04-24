@@ -1,0 +1,133 @@
+\section{Definitions and Examples}
+
+\begin{definition}
+    Let $R$ be a ring. A  \textbf{left module} over $R$, or a  \textbf{left
+    $R$-module}, is a set $M$ together with a binary operation  $+:M \times M
+    \xrightarrow{} M$, called \textbf{addition}, and a left action $R \times M
+    \xrightarrow{} M$ of $R$ on $M$, defined by $(r,m) \xrightarrow{} rm$,
+    called  \textbf{left scalar multiplication} such that $M$ is an Abelian group
+    under $+$, and for all $r,s \in R$ and $m,n \in M$
+    \begin{enumerate}
+        \item[(1)] $(r+s)m=rm+sm$
+
+        \item[(2)] $(rs)m=r(sm)$
+
+        \item[(3)] $r(m+n)=rm+rn$
+    \end{enumerate}
+    We define \textbf{right modules} over $R$ similarly, where the action is a
+    right action $M \times R \xrightarrow{} M$ defined by $(m,r) \xrightarrow{}
+    mr$.
+\end{definition}
+
+\begin{definition}
+    Let $R$ be a ring with identity  $1$, and  $M$ a left  (or right module)
+    over $R$. We call  $M$  \textbf{unital} if $1m=m$ for all  $m \in M$.
+\end{definition}
+
+\begin{lemma}\label{4.1.1}
+    If $R$ is a commutative ring, then every left module of $R$ is also a right
+    module over $R$.
+\end{lemma}
+
+\begin{definition}
+    Let $R$ be a ring, and $M$ be a module over $R$. A \textbf{submodule} of $M$
+    over  $R$ is a subgroup $N$ of $M$ which is closed under the action of  $R$
+    on $M$; i.e. that is $rn \in N$ for all  $r \in R$ and  $n \in N$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Every module $M$, has as itself, and the subgroup $\langle 0
+            \rangle$ as submodules. We call $\langle 0 \rangle$ the
+            \textbf{trivial module}.
+
+        \item[(2)] If $F$ is a field, then every  $F$-module is a vector space
+            over $F$. Moreover, every submodule of an  $F$-module is a subspace
+            of the overlying vector space. It can be shown that if  $F$ is a
+            field, then the definition for modules and vector spaces coincide.
+
+        \item[(3)] If $R$ is a ring, then  $R$ is a left module over itself with
+            scalar multiplication being the the multipliaction of $R$. Moreover,
+            $R$ is a right module over itself (these structures need not
+            coincide).
+
+        \item[(4)] Let $R$ be a ring with identity  $1$, and  $n \in \Z^+$. Make
+             $R^n$ into an left $R$-module by defining $+$ to be component wise
+             addition, and left scalar multiplication $R \times R^n
+             \xrightarrow{} R^n$ defined by
+             \begin{equation*}
+                 r(a_1, \dots, a_n)=(ra_1, \dots, ra_n)
+             \end{equation*}
+             We call $R^n$ the  \textbf{free module} of \textbf{rank} $n$ over
+             $R$. Notice that if  $R$ is a field, then $R^n$ become the usual
+             $n$-space over $R$.
+
+         \item[(5)] The field $\R$ is an  $\R$-module, a  $\Q$-module, and a
+             $\Z$-module. More generally, if $R$ is a ring with unit $1_R$, and
+             $S$ is a subring of $R$ with unit $1_S$, such that  $1_R=1_S$, then
+             every  $R$-module is also an  $S$-module.
+
+         \item[(6)] Let $R$ be a ring, and  $M$ an  $R$-module, and let  $I$ be
+             an ideal of  $R$, such that  $am=0$ for all  $a \in I$ and  $m \in
+             M$. Then we say that  $I$  \textbf{annihilates} $M$. Make $M$ into
+             an left $(\faktor{R}{I})$-module by defining the addition to be the
+             addition of $M$, and left scalar multiplication to be the action
+             $\faktor{R}{I} \times M \xrightarrow{} M$ defined by
+             \begin{equation*}
+                 (r+I)m=rm
+             \end{equation*}
+
+         \item[(7)] Let $A$ be any Abelian group. We can make $A$ into a left
+             $\Z$-module by defining $+$ to be group operation on $A$, and
+             defining left scalar multiplication $(n,a) \xrightarrow{} na$ by
+             \begin{equation*}
+                 na=\begin{cases}
+                     a+\dots+a \text{ ($n$-times)}, \text{ if } n>0  \\
+                     0, \text{ if } n=0 \\
+                     (-a)+\dots+(-a) \text{ ($n$-times)}, \text{ if } n<0  \\
+                    \end{cases}
+             \end{equation*}
+             Then it can be shown that this action makes $A$ into a unital
+             $\Z$-module (notice that since $\Z$ is commutative, $A$ is also a
+             right $\Z$-module).
+
+             Conversely, if we have $M$ as a  $\Z$-module, then by definition
+             $M$ is an Abelian group. That is, we have shown that every Abelian
+             group is a $\Z$-module, having as  $\Z$-submodules all subgroups.
+
+             Notice now, that if  $A$ is an Abelian group, and  $x \in A$ is of
+             order  $n$, the $nx=0$. Therefore, there exist scalars  $n \in \Z$
+             and elements  $x \in A$ for which  $nx=0$. Notice, then if
+             $\ord{A}=m$, then by Lagrange's theorem, $mx=0$ for all  $x \in A$;
+             this shows that  $A$ is also a $(\faktor{\Z}{m\Z})$-module.
+
+         \item[(8)] Consider the example above. If $A$ is a
+             $(\faktor{\Z}{p\Z})$-module, since $\faktor{\Z}{p\Z}$ is a field,
+             then $A$ can be considered as a vector space over the finite field
+              $\F_p=\faktor{\Z}{p\Z}$. We call these group  \textbf{elementary
+                  Abelian $p$-groups}. For example, the Klein $4$-group, $V_4$
+                  is an elementary Abelian $2$ -group (it is a vector space over
+                  $\F_2$ of $\dim{V_4}=2$).
+    \end{enumerate}
+\end{example}
+
+\begin{remark}
+    From here on, we will mean ``module'' to mean left module, and ``scalar
+    multiplaction'' to mean left scalar multiplication, unless otherwise specified.
+\end{remark}
+
+\begin{lemma}[The Submodule Criterion]\label{lemma_4.1.2}
+    Let $R$ be a ring, and $M$ be a module over $R$. A nonempty subset $N$ of $M$
+    is a submodule over  $R$ if, and only if for every $r,s \in R$, and  $x,y
+    \in N$,  $rx+sy \in N$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+    Let $R$ be a commutative ring with identity. An \textbf{$R$-algebra} is a
+    ring $A$ with identity, together with a ring homomorphism $f:R
+    \xrightarrow{} A$, taking $1_R \xrightarrow{} 1_A$ such that the subring
+    $f(A)$ of $A$ is contained in the center of  $A$; i.e.  $f(A) \subseteq
+    Z(A)$.
+\end{definition}
