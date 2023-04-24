@@ -111,23 +111,157 @@
     \end{enumerate}
 \end{example}
 
+\begin{example}[Polynomials]\label{}
+    \begin{enumerate}
+        \item[(1)] Let $F$ be a field, and consider the polynomial riong
+            $F[x]$. Let $V$ be a vector space over  $F$, and let  $T$ be a
+            linear transformation. Define  $+$ on  $V$ to be the usual vector
+            addition, and define the left action  $F[x] \times V \xrightarrow{}
+            V$ by
+            \begin{equation*}
+                p(x)v=(a_nT^n+\dots+a_1T+a_0)v=a_nT^(v)+\dots+a_1T(v)+a_0v
+            \end{equation*}
+            Where $p(x)=a_nx^n+\dots+a_1x+a_0$, and $a_0, \dots, a_n \in F$.
+            Then $p(x)$ acts on $V$ as the linear transofrmation $T$. Then the
+            action $F[x] \times V \xrightarrow{} V$ makes $V$ into a left
+            $F[x]$-module.
+
+        \item[(2)] Consider the vector space $V$ over $F$ as the affine $n$-space
+            $F^n$, and consider the \textbf{left shift operator} $T(x_1, \dots,
+            x_n)=(x_2, \dots, x_n,0)$. Letting $\{e_1, \dots, e_n\}$ the
+            standard basis of $F^n$ over  $F$, notice that
+            \begin{equation*}
+                T^k(e_i)=\begin{cases}
+                            e_{i-k}, \text{ if } i>k    \\
+                            0, \text{ if } i \leq k \\
+                         \end{cases}
+            \end{equation*}
+            Then $T$ determines the action of any polynomial $p \in F[x]$ on a
+            vector $v \in V$. This shows that the action  $F[x] \times V
+            \xrightarrow{} V$ depends on our choice of $T$. This gives a  1--1
+            correspondence between all $V$ as $F[x]$-modules, and all pairs
+            $(V,T)$, where $V$ is a vector space and  $T$ is a gien linear
+            transformation.
+
+        \item [(3)] Consider the vector space $V$ as an $F[x]$-module, with $T$
+            the linear transformation givenby the action of  $x$ on  $V$. Let
+            $W \subseteq V$ be an  $F[x]$-submodule. Then $W$ must also be an
+            $F$-module, and hence must be a subspace of  $V$. Moreover, notice
+            that $T$ takes $W$ onto itself; i.e.  $T(w) \in W$ for all $w \in
+            W$, so that  $W$ is  \textbf{$T$-invariant}.
+
+            Conversely, if $T$ is a  $T$-invariant subspace of  $V$ as a vector
+            space over  $F$, then  $T^n(W) \subseteq W$ for all $n \in \Z^+$.
+            Moreover, any linear combination of  $T^n$ takes  $W$ onto itself,
+            so that  $W$ is also invariant by the action of any polynomial in
+            $T$. This makes  $W$ into an  $F[x]$-submodule. That is, there is a
+            1--1 correspondence between $F[x]$-submodules, and $T$-invariant
+            subspaces of  $V$.
+    \end{enumerate}
+\end{example}
+
 \begin{remark}
     From here on, we will mean ``module'' to mean left module, and ``scalar
     multiplaction'' to mean left scalar multiplication, unless otherwise specified.
 \end{remark}
 
-\begin{lemma}[The Submodule Criterion]\label{lemma_4.1.2}
-    Let $R$ be a ring, and $M$ be a module over $R$. A nonempty subset $N$ of $M$
-    is a submodule over  $R$ if, and only if for every $r,s \in R$, and  $x,y
-    \in N$,  $rx+sy \in N$.
+\begin{lemma}[The Submodule Criterion for Unital Modules]\label{lemma_4.1.2}
+    Let $R$ be a ring with identity, and $M$ be a unital module over $R$. A
+    nonempty subset $N$ of $M$ is a submodule over  $R$ if, and only if for every
+    $r,s \in R$, and  $x,y \in N$,  $rx+sy \in N$.
 \end{lemma}
 \begin{proof}
+    Suppose that $N$ is a submodule for $M$. Then $0 \in N$, so that  $N$ is
+    nonempty. Moreover, by the axioms for modules, observe that if we restrict
+    the scalar multiplication of $M$ to $N$  (i.e. $R \times N \xrightarrow{}
+    N$), then $rx+sy \in N$ for all  $x,y \in N$ and  $r,s \in R$; that is the
+    action of $R$ on $N$ takes  $N$ onto itself.
+
+    Conversely, suppose that $N$ is nonempty, and that for any $x,y \in N$, and
+    $r,s \in R$, that  $rx+sy \in N$. Take  $s=0$, then we have that $rx \in N$,
+    which makes $N$ closed under scalar multiplication. Moreover, let  $r=1$ amd
+     $s=1$, then we get $x+y \in N$; and for  $r=0$ and  $s=-1$, we have $-y \in
+     N$. By the subgroup criterion, this makes  $N \leq M$. Therefore  $N$ is a
+     submodule of $M$.
 \end{proof}
 
 \begin{definition}
     Let $R$ be a commutative ring with identity. An \textbf{$R$-algebra} is a
     ring $A$ with identity, together with a ring homomorphism $f:R
     \xrightarrow{} A$, taking $1_R \xrightarrow{} 1_A$ such that the subring
-    $f(A)$ of $A$ is contained in the center of  $A$; i.e.  $f(A) \subseteq
+    $f(R)$ of $A$ is contained in the center of  $A$; i.e.  $f(R) \subseteq
     Z(A)$.
 \end{definition}
+
+\begin{lemma}\label{lemma_4.1.3}
+    Let $R$ be a commutative with with identity. If  $A$ is an $R$-algebra,
+    then $A$ is a left module of $R$, and a right module of $R$.
+\end{lemma}
+\begin{proof}
+    Let $+$ be the usual addition for $A$, and define the actions $R \times A
+    \xrightarrow{} A$ and $A \times R \xrightarrow{} A$ by
+    \begin{equation*}
+        ra=f(r)a \text{ and } ar=af(r)
+    \end{equation*}
+    respectively. Notice by definition that $f(r)a=af(r)$, so that $ra=ar$.
+\end{proof}
+
+\begin{definition}
+    Let $R$ be a commutative wrng with identity, and let $A$ and  $B$
+    $R$-algebras. A  \textbf{$R$-algebra homomorphism} is a ring homomorphism
+    $\phi:A \xrightarrow{} B$, taking $1_A \xrightarrow{} 1_B$, such that
+    $\phi(ra)=r\phi(a)$ for all $r \in R$ and  $a \in A$; where  $ra=f(r)a$ is
+    the underlying scalar multiplication of $A$. We call $\phi$ a
+    \textbf{$R$-algebra isomorphism} if $\phi$ is a ring isomorphism.
+\end{definition}
+
+\begin{example}\label{}
+    Let $R$ be a commutative ring with identity  $1_R$.
+    \begin{enumerate}
+        \item[(1)] Every commutative ring with identity is a $\Z$-algebra. Take
+            $f:\Z \xrightarrow{} R$ via the map $f:n \xrightarrow{} n \cdot
+            1_R$.
+
+        \item[(2)] For any ring $A$ with identity  $1_A$, if  $R$ is a subring
+            of the center  $Z(A)$, containing $1_A$, then $A$ is an
+            $R$-algebra. In particular, a commutative ring  $A$ with identity is
+            an  $R$-algebra for any subring  $R$ of  $Z(A)$ containing $1_A$.
+
+        \item[(3)] The polynomial ring $R[x]$, the multivariate polynomial ring
+            $R[x_1, \dots, x_n]$, and the ring $RG$, for any finite group  $G$
+            are all  $R$-algebras.
+
+        \item[(4)] If $A$ is an  $R$-algebra, then the  $R$-module structure of
+             $A$ depends on the image  $f(R) \subseteq Z(A)$. In fact, every
+             algebra  $A$ arises from a subring of  $Z(A)$, containing $1_A$, up
+             to homomorphism.
+
+         \item[(5)] Let $F$ be a field, and $A$ an  $F$-algebra. Then $F$ itself
+             is a subring of $Z(A)$ containing $1_A$, in fact,  $1_A=1_F$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{lema_4.1.4}
+    Let $R$ be a commutative ring with identity. Then a ring  $A$ with identity
+     $1_A$ is an  $R$-algebra if, and only if it is a unital module satisfying
+     \begin{equation*}
+         r(ab)=(ra)b=a(rb) \text{ for all } r \in R \text{ and } a,b \in A
+     \end{equation*}
+     where $ra=f(r)a$ is the underlying action of $R$ on $A$.
+\end{lemma}
+\begin{proof}
+    Certainly, if $A$ is an  $R$-algebra, then it is a unital module. Moreover,
+    notice that if $ra=f(r)a$, then $r(ab)=f(r)(ab)=(f(r)a)b=a(f(r)b)$, so that
+    $r(ab)=(ra)b=a(rb)$.
+
+    Conversly, suppose that $A$ is a unital module satisfying
+     \begin{equation*}
+         r(ab)=(ra)b=a(rb) \text{ for all } r \in R \text{ and } a,b \in A
+     \end{equation*}
+     And where $ra=f(r)a$, where $f:R \xrightarrow{} A$ is a ring homomorphism.
+     Then $1_Ra=f(1_R)a=a$, so that $f(1_R)=1_A$; that is, $f:1_R \xrightarrow{}
+     1_A$. Moreover, since $r(ab)=(ra)b=a(rb)$, we have that
+     $(f(r)a)b=a(f(r)b)$, i.e. that $f(r)a=af(r)$ for all $a,b \in A$ and  $r
+     \in R$. This makes $f(r) \in Z(A)$, so that $f(R) \subseteq Z(A)$. This
+     makes $A$ into an  $R$-algebra.
+\end{proof}
