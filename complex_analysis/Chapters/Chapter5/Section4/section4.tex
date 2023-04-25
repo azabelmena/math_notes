@@ -1,0 +1,32 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Continuity and Connectedness.}
+
+\begin{theorem}\label{5.4.1}
+    If $f$ is a continuous mapping of a metric space  $X$ into a metric space  $Y$, and 
+    if  $E \subseteq X$ is Connected, then so is  $f(E)$.
+\end{theorem}
+\begin{proof}
+    Suppose that $f(E)=A \cup B$ with  $A,B \subseteq Y$ nonempty and seperated. Let 
+    $G=E \cap f^{-1}(A)$ and  $H=E \cap f^{-1}(B)$, then  $E=G \cup H$, and  $G$ and  $H$ are both 
+    nonempty. THen since  $A \subseteq \bar{A}$,  $G \subseteq f^{-1}(\bar{A})$, and since  $f$ is continuous, 
+    $f^{-1}(\bar{A})$ is closed, so  $\bar{G} \subseteq f^{-1}(\bar{A})$, thus  $f(\bar{G}) \subseteq \bar{A}$. 
+    Since  $f(H)=B$, and  $\bar{A} \cap B$ is empty,  $\bar{G} \cap H$, and $H \cap \bar{H}$ are 
+    alsp empty, which contradicts the connectedness of $E$.
+\end{proof}
+
+\begin{theorem}[The Intermediate Value Theorem]\label{5.4.2}
+    Let $f[a,b] \rightarrow \R$ be a realvalued function. If  $f(a)<f(b)$, and  $c \in \R$ such that 
+    $f(a)<c<f(b)$, then there is an  $x \in (a,b)$ such that $f(x)=x$.
+\end{theorem}
+\begin{proof}
+    We have that $[a,b]$ is connected in  $\R$, thus by theorem \ref{5.4.1}, $f([a,b])$ is 
+    connected in $\R$, hence there is an  $x \in  (a,b)$ for which $f(x)=c$.
+\end{proof}
+
+\begin{corollary}
+    If $f:[a,b] \rightarrow \R$ is a realvaulued function such that $f(a)<0<f(b)$, then 
+    there is an $x \in (a,b)$ such that $f(x)=0$.
+\end{corollary}

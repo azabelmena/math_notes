@@ -1,0 +1,115 @@
+\section{Complex Differentiation and Holomorphic Functions}
+
+\begin{definition}
+    Let $U$ be an open set of $\C$, and let $w \in U$. We call a complex valued
+    function  $f:U \xrightarrow{} \C$ \textbf{complex differentiable} at $w$ if
+    the limit
+    \begin{equation*}
+        f'(w)=\lim_{h \xrightarrow{} 0}\frac{f(w+h)-f(w)}{h}=
+        \lim_{z \xrightarrow{} w}\frac{f(z)-f(w)}{z-w}
+    \end{equation*}
+    exists. We call $f'(w)$ the \textbf{complex derivative} of $f$ at $w$.
+\end{definition}
+
+\begin{theorem}\label{1.3.1}
+    Let $f:U \xrightarrow{} \C$ and $g:U \xrightarrow{} \C$ be complex valued
+    functions. If $f$ and $g$ are complex differentiable at a point $z \in U$,
+    then following are true
+    \begin{enumerate}
+        \item[(1)] $f+g$ is complex differentiable at $z$, with
+            \begin{equation*}
+                (f+g)'(z)=f'(z)+g'(z)
+            \end{equation*}
+
+        \item[(2)] $(fg)'$ is complex differentiable at $z$, with
+            \begin{equation*}
+                (fg)'(z)=f'(z)g(z)+f(z)g'(z)
+            \end{equation*}
+    \end{enumerate}
+\end{theorem}
+\begin{corollary}
+    The function $\frac{f}{g}$ is complex differentiable at $z$, provided  $g(z)
+    \neq 0$, with
+    \begin{equation*}
+        \Big{(}\frac{f}{g}\Big{)}'(z)=\frac{g(z)f'(z)-f(z)-g'(z)}{(g(z))^2}
+    \end{equation*}
+\end{corollary}
+
+\begin{example}\label{example_2}
+    For all $n \in \Z^+$, the function $f(z)=z^n$ is complex differentiable on
+    all of $\C$, with  $f'(z)=nz^{n-1}$. In fact, $z^n$ is what we call a
+    ``holomorphic'' function.
+\end{example}
+
+\begin{theorem}[The Chain Rule]\label{theorem_1.3.2}
+    Let $U$ and $V$ be open sets of  $\C$, and let  $f:U \xrightarrow{} \C$, and
+    $g:V \xrightarrow{} \C$ be complex valued functions, with $f(U) \subseteq
+    V$. If $f$ is complex differentiable at a point $z \in Z$, and $g$ is
+    complex differentiable at the point $f(z) \in f(U)$, then $g \circ f$ is
+    complex differentiable at $z$ with
+    \begin{equation*}
+        (g \circ f)'(z)=(g' \circ f)(z)f'(z) =g'(f(z))f'(z)
+    \end{equation*}
+\end{theorem}
+
+\begin{definition}
+    We call a complex valued function $f:U \xrightarrow{} \C$
+    \textbf{holomorphic} on $U$ if it is complex differentiable at every point
+    of $U$.
+\end{definition}
+\begin{remark}
+    It is convention to simply say that $f$ is ``holomorphic'' when it is
+    holomorphic on all of $\C$.
+\end{remark}
+
+\begin{definition}
+    Let $f:U \xrightarrow{} \C$ a complex valued function with
+    $f(z)=u(x,y)+iv(x,y)$. We define the \textbf{vector field} of $f$ to be the
+    map  $F:U \xrightarrow{} V \xrightarrow{} \R \times \R$ defined by
+    \begin{equation*}
+        F(x,y)=(u(x,y),v(x,y))
+    \end{equation*}
+    Where $U$ and $V$ are open in $\R$.
+\end{definition}
+
+\begin{theorem}\label{1.3.3}
+    If $f$ is holomorphic on its domain, then $F$ is real differentiable on its
+    domain (resepctively to the domain of $f$) and has derivative
+    \begin{equation*}
+        \Jac{F}=\begin{pmatrix}
+                    \frac{\partial{u}}{\partial{x}} & \frac{\partial{u}}{\partial{y}} \\
+                    \frac{\partial{v}}{\partial{x}} & \frac{\partial{v}}{\partial{y}} \\
+                \end{pmatrix}
+    \end{equation*}
+    Where $\Jac{F}$ is the Jacobian of $F$.
+\end{theorem}
+\begin{corollary}
+    $f'(z)=\frac{\partial{u}}{\partial{x}}-i\frac{\partial{v}}{\partial{y}}$,
+    and the we have the following of equations
+    \begin{align*}
+        \frac{\partial{u}}{\partial{x}}-\frac{\partial{v}}{\partial{y}} &=0 \\
+        \frac{\partial{u}}{\partial{y}}+\frac{\partial{v}}{\partial{x}} &=0 \\
+    \end{align*}
+\end{corollary}
+
+\begin{theorem}\label{1.3.4}
+    If $u:\R \times \R \xrightarrow{} \R$, and $v:\R \times \R \xrightarrow{}
+    \R$ are continuously real differentiable realvalued functions satisfying the
+    equations
+    \begin{align*}
+        \frac{\partial{u}}{\partial{x}}-\frac{\partial{v}}{\partial{y}} &=0 \\
+        \frac{\partial{u}}{\partial{y}}+\frac{\partial{v}}{\partial{x}} &=0 \\
+    \end{align*}
+    Then the function $f(z)u(x,y)+iv(x,y)$ is holomorphic on its domain.
+\end{theorem}
+
+\begin{definition}
+    Let $u:U_1 \times U_2 \xrightarrow{} \R$ and $v:V_1 \times V_2
+    \xrightarrow{} \R$ be continuously real differentiable real valued
+    functions. We define the \textbf{Cauchy-Riemann equations} to be the set of
+    equations
+    \begin{align*}
+        \frac{\partial{u}}{\partial{x}}-\frac{\partial{v}}{\partial{y}} &=0 \\
+        \frac{\partial{u}}{\partial{y}}+\frac{\partial{v}}{\partial{x}} &=0 \\
+    \end{align*}
+\end{definition}

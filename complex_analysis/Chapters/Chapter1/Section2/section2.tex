@@ -1,0 +1,45 @@
+\section{Complex Valued Functions}
+
+\begin{definition}
+    We define a \textbf{complex valued function} to be a function $f:S
+    \xrightarrow{} \C$, where $S \subseteq \C$. Writing
+    $f(z)=f(x+iy)=u(x,y)+iv(x,y)$, where $u:U_1 \times U_1 \xrightarrow{} \R$
+    and $v:V_1 \times V_2 \xrightarrow{} \R$ are real valued functions (with
+    $U_1,U_2,V_1,V_2$ open in $\R$), we define the \textbf{real part} of $f$ to be
+    $\re{f}=u(x,y)$, and the \textbf{imaginary part} of $f$ to be  $\im{f}=v(x,y)$.
+\end{definition}
+\begin{remark}
+    It should be noted that the domain of a complex valued function $f$ depends
+    on the domain of its real and imaginary parts, and vice versa.
+\end{remark}
+
+\begin{example}\label{example_1}
+    \begin{enumerate}
+        \item[(1)] The real and imaginary parts of the complex valued function
+            $f(z)=x^3y+i\sin{(x+y)}$ to be $u(x,y)=x^3y$ and
+            $v(x,y)=\sin{(x+y)}$, respectively.
+
+        \item[(2)] Consider the complex valued function $f(z)=z^n$, for $n \in
+            \Z^+$. Writing  $z=re^{i\theta}$, we get
+            $f(z)=r^n\cos{n\theta}+ir^n\sin{n\theta}$. The real part of $f$ is
+            then  $u(x,y)=r^n\cos{n\theta}$, and the imaginary part of $f$ to be
+             $v(x,y)=r^n\sin{n\theta}$.
+
+             Lettinh $\bar{B^1}=\{z \in \C : |z| \leq 1\}$ the closed unit ballm
+             notice if $z \in \bar{B^1}$, then $|z^n|=|z|^n \leq 1^n=1$, so that
+              $z^n \in \bar{B^1}$, and hence $f(\bar{B^1})=\bar{B^1}$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    We call the solutions to the polynomial $z^n-1$ over $\C$ the complex
+    \textbf{$n$-th roots of unity}.
+\end{definition}
+
+\begin{theorem}\label{1.2.1}
+    Let $\xi$ be a complex $n$-th root of unity. Then $\xi=e^{\frac{2i\pi}{n}}$.
+\end{theorem}
+\begin{corollary}
+    If $\xi$ is an  $n$-th root of unity, then so is  $\xi^k$ for all  $k \in
+    \faktor{\Z}{n\Z}$.
+\end{corollary}

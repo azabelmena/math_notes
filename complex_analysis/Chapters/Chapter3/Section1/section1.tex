@@ -1,0 +1,210 @@
+\section{Properties of Lebesgue Measurable Functions}
+
+\begin{lemma}\label{3.1.1}
+    Let $f$ be an extended realvalued function on a measurable domain  $E$. Then
+    the following are equivalent.
+    \begin{enumerate}
+        \item[(1)] for some $c \in \R$, the set $\{x \in E : f(x)>c\}$ is
+            measurable.
+
+         \item[(2)] for some $c \in \R$, the set $\{x \in E : f(x) \geq c\}$ is
+            measurable.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Let $E_1=\{x \in E : f(x)>0\}$ and $E_2=\{x \in E : f(x) \geq c\}$. Suppose
+    that $S$ is measurable, then notice that
+    \begin{equation*}
+        T=\bigcap{\{x \in E : f(x)>c-\frac{1}{k}\}}
+    \end{equation*}
+    Now, each of the sets in this intersection is measurable, and since
+    measurable sets form a $\s$-algebra, $T$ must also be measurable. Likewise,
+    if $T$ is measurable, notice that
+    \begin{equation*}
+        S=\bigcup{\{x \in E : f(x)>c+\frac{1}{k}\}}
+    \end{equation*}
+    is measurable by the same argument.
+\end{proof}
+\begin{corollary}
+    The followingh are equivalent
+    \begin{enumerate}
+    \item[(1)] for some $c \in \R$, the set $\{x \in E : f(x)<c\}$ is
+        measurable.
+
+         \item[(2)] for some $c \in \R$, the set $\{x \in E : f(x) \leq c\}$ is
+            measurable.
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    Notice that these statements are the contrapostives of the statements above.
+\end{proof}
+\begin{corollary}
+    For some $c \in \R$, the set  $\{x \in E : f(x)=x\}$ is measurable.
+\end{corollary}
+\begin{proof}
+    Let $E_3=\{x \in E : f(x)=c\}$. If $c$ is finite, notice that  $E_3=\{x \in
+    E : f(x) \geq c\} \cap \{x \in E : f(x) \leq x\}$, which makes $E_3$
+    measurable. Now, if $c=\infty$, then  $\{x \in E : f(x)=\infty\}=\bigacp{\{x
+    \in E : f(x)>k\}}$ for some $k$, which is again, measurable.
+\end{proof}
+
+\begin{definition}
+    Let $f$ be an extended realvalued function on a measurable domain. We say
+    $f$ is  \textbf{Lebesgue measurable} if it statisfies one of the conditions
+    of lemma \ref{3.1.1} (or its corollories).
+\end{definition}
+
+\begin{lemma}\label{3.1.2}
+    Let $f$ be an extended realvalued functoon on a measurable domain $E$. Then
+    $f$ is measurable if, and only if, there exists an open set $U$, such that
+    $\inv{f}(U)$ is measurable.
+\end{lemma}
+\begin{proof}
+    Suppose that $U$ is open in  $\R$ such that  $\inv{f}(U)$ is measurable.
+    Then the interval $(c,\infty)$ is open, which makes $\inv{f}((c,\infty))$
+    measurable. Notice that $\inv{f}((c,\infty))=\{x \in E : f(x)>c\}$. This
+    makes $f$ measurable.
+
+    Conversely, suppose that  $f$ is measurable, and let  $U$ be open in $\R$.
+    Then $U=\bigcup{I_k}$ for some countable collection of bounded open
+    intervals $\{I_k\}$. Let $I_+=B_k \cap A_k$ where
+    \begin{equation*}
+        B_k=(-\infty, b_k) \text{ and } A_k=(a_k, \infty) \text{ for some
+        } a_k,b_k \in \R
+    \end{equation*}
+
+    Since $f$ is measurable, then the preimages $\inv{f}(A_k)$ and
+    $\inv{f}(B_k)$ are measurable. Hence, so is the union
+    \begin{equation*}
+        \bigcup{(\inv{f}(B_k) \cap \inv{f}(A_k))}=\bugcup{\inv{f}(I_l)}
+        =\inv{f}(\bigcup{I_k})=\inv{f}(U)
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    A realvalued function continuous on a measurable domain is measurable.
+\end{corollary}
+
+\begin{lemma}\label{3.1.3}
+
+    Monotone functions defined on an interval are measurable.
+\end{lemma}
+
+\begin{lemma}\label{3.1.4}
+    Let $f$ be an extended realvalued function on a measurable domain  $E$. The
+    following are true
+    \begin{enumerate}
+        \item[(1)] If $f$ is measurable on $E$, and  $f=g$ almost everywhere on
+             $E$, for some extended realvalued function $g$ on $E$, then  $g$ is
+             measurable on  $E$.
+
+         \item[(2)] If $D \subseteq E$ is measurable, then  $f$ is measurable
+             if, and only if the restrictions  $f|_D$ and  $f|_{\com{E}{D}}$ are
+             measurable.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Suppose that $f$ is measurable and that $g$ is an extended realvalued
+    function on $E$ for which  $f=g$ a.e. on  $E$. Let  $A=\{x \in E : f \neq
+    g\}$. Observe that
+    \begin{equation*}
+        E_1=\{x \in E : g(x)>c\}=\{x \in A : g>c\}z \cup \{x \in E : f>c\}
+        \cap \com{E}{A}
+    \end{equation*}
+    Since $f=g$ a.e. on  $E$, then  $m(A)=0$, so that $\{x \in A : g>c\}$ is
+    measurable. Then since measurable sets are a $\s$-algebra, $E_1$ is
+    measurable. This makes $g$ measurable.
+
+    Now, observe, also, that for every  $c \in \R$, and  $D \subseteq E$
+    measurable, that
+    \begin{equation*}
+        \{x \in E : f>c\}=\{x \in D : f>c\} \cup \{x \in \com{E}{D} : f>c\}
+    \end{equation*}
+    So that if $f$ is measurable, so are its restirctions  $f|_D$ and
+    $f|_{\com{E}{D}}$, and vice versa.
+\end{proof}
+
+\begin{theorem}\label{3.1.5}
+    Let $f$ and  $g$ be measurable functions on a measurable domain, for which
+    $f$ and  $g$ are finite almost everywhere on  $E$. Then
+    \begin{enumerate}
+        \item[(1)] For all $\al,\bt \in \R$, the function $\al f+\bt g$ is
+            measurable.
+
+        \item[(2)] $fg$ is measurable.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Suppose, without loss of generality, that $f$ and  $g$ are finite on all
+    $E$. If  $\al=0$ and  $\bt=0$, the  $\al f=0$ and we are done. Now, take
+    $\al \neq 0$ and  $\bt=0$. Then observe that if  $\al>0$ then  $\{x \in E :
+    \al f>c\}=\{x \in E : f>\frac{c}{\al}\}$, where as if $\al<0$ then  $\{x \in
+    E : \al f>c\}=\{x \in E : f<\frac{c}{\al}\}$. Since $f$ is measurable, both
+    these sets are measurable, which makes  $\al f$ measurable.
+
+    Now, take  $\al=\bt=1$ and observe the function  $f+g$. If  $f+g<c$ for all
+     $x \in E$, then  $f<c-g$, and by the density of  $\Q$ in  $\R$,  there is a
+     rational number $q$ for which  $f<q<c-g$. Then notice that
+     \begin{equation*}
+         \{x \in E : f+g<c\}=\bigcup_{q \in \Q}{\{x \in E : g<c-q\} \cap \{x \in
+         E : f<q\}}.
+     \end{equation*}
+     then since $f$ and  $g$ are both measurable, this countable union is
+     measurable.
+
+     Lastly, notice that  $fg=\frac{1}{2}((f+g)^2-f^2-g^2)$ so that it suffices
+     to show that $f^2$ is measurable. Indeed, for  $c \geq 0$  $\{x \in E :
+     f^2>c\}=\{x \in E : f>\sqrt{c}\}$ and for $c<0$,  $\{x \in E : f^2>c\}=\{x
+     \in E : f<-\sqrt{c}\}$. In either case, $f^2$ is measurable. Hence, by
+     linearity, so is  $fg$.
+\end{proof}
+
+\begin{definition}
+    We define the \textbf{Characteristic function} for a set $A$ of real numbers
+    to be the function $\chi_A:A \xrightarrow{} \{0,1\}$ defined by
+    \begin{equation*}
+        \chi_A=\begin{cases}
+                1, \text{ if } x \in A  \\
+                0, \text{ if } x \notin A   \\
+            \end{cases}
+    \end{equation*}
+\end{definition}
+
+\begin{example}\label{example_3.2}
+    Consider the function $\psi:[0,1] \xrightarrow{} \R$ given by
+    $\psi(x)=\phi(x)+x$, where $\phi$ is the Cantor-Lebesgue function. Then
+    $\psi$ is strictly increasing and maps a measurable subset  $A \subseteq
+    [0,1]$ to a nonmeasurable set $\psi(A)$. Extending $\psi$ to the function
+    $\Psi:\R \xrightarrow{} \R$, $\inv{\Psi}$ is continuous, and hence,
+    measurable. Now, since $A$ is also measurable, so is the characteristic
+    function for  $A$,  $\chi_A$. However, let $I$ be an open interval with  $1
+    \in I$ but  $0 \notin I$. Then $\inv{(\chi_A \circ
+    \inv{\Phi})}(A)=\Phi(\inv{\chi_A}(I))=\Psi(A)$. Since $\Psi$ is an extension
+    of  $\psi$,  $\Psi(A)$ is nonmeasurable, so that the function $\chi_A \circ
+    \inv{\Psi}$ is nonmeasurable; despite being the composition of two
+    measurable functions.
+\end{example}
+
+\begin{lemma}\label{3.1.6}
+    Let $g$ a measurable function on a measurable $E$ and  $f$ a continuous
+    function on $\R$. Then  $f \circ g$ is measurable in  $E$.
+\end{lemma}
+\begin{proof}
+    Let $U$ be open in  $\R$, by continuity,  $\inv{f}(U)=V$ is open, and since
+    $g$ is measurable,  $\inv{g}(V)=\inv{g}(\inv{f}(U))=\inv{(f \circ g)}(U)$ is
+    measurable, which makes $f \circ g$ measurable.
+\end{proof}
+\begin{corollary}
+    If $f$ is measurable, then so is the function  $|f|^p$ on $E$, for all
+    $p>0$.
+\end{corollary}
+
+\begin{lemma}\label{3.1.7}
+    For a finite collection $\{f_k\}_{k=1}^n$ of measurable functions with
+    common measurable domain $E$, the functions  $\bar{f}=\max{\{f_1, \dots,
+    f_n\}}$ and $\bbar{f}=\min{\{f_1, \dots, f_n\}}$ are measurable.
+\end{lemma}
+\begin{proof}
+    For all $c \in E$, notice that  $\{x \in E : \bar{f}>c\}=\bigcup_{k=1}^n{\{x
+    \in E : f_k>c\}}$ and $\{x \in E : \bbar{f}>c\}=\bigcup_{k=1}^n{\{x
+    \in E : f_k<c\}}$.
+\end{proof}

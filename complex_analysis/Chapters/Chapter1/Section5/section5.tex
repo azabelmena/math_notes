@@ -1,0 +1,53 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.5
+%----------------------------------------------------------------------------------------
+
+\section{Euclidean Spaces}
+
+\begin{definition}
+    Let $k \in \Z^+$, and let $\R^k$ be the set of all ordered  $k$-tuples  
+    $(x_1,x_2, \dots, x_k)$, with $x_i \in \R$ for  $1 \leq i \leq k$. We call $\R^k$ 
+    the \textbf{Euclidean space} of \textbf{dimension} $k$; more simply  the \textbf{Euclidean k-space}.
+    We call elements of  $\R^k$  \textbf{vectors} or \textbf{points}; and we define 
+    \textbf{vector addition} and \textbf{scalar multiplication} to be:
+        \begin{align*}
+            (x_1, \dots, x_k)+(y_1, \dots, y_k) &= (x_1+y_1, \dots, x_k+y_k) \\
+            \alpha(x_1, \dots, x_k) &= (\alpha x_1, \dots, \alpha x_k) \\
+        \end{align*}
+        for $(x_1, \dots, x_k),(y_1, \dots, y_k) \in \R^k$ and $\alpha \in \R$.
+\end{definition}
+
+\begin{theorem}\label{1.5.1}
+    $\R^k$ forms a vector space together with vector addition and scalar multiplication.
+\end{theorem}
+
+\begin{definition}
+    Let $x,y \in \R^k$. We define the \textbf{inner product} of  $x$ and  $y$ to be the 
+    binary operation $\vbrack{,}: \R^k \cross \R^k \rightarrow \R$ such that
+        \begin{equation*}
+            \vbrack{x,y}=\sum_{i=1}^{k}{x_iy_i}
+        \end{equation*}
+        We define the  \textbf{norm} of  $x$ to be  $||x||=\sqrt{\vbrack{x,x}}=\sqrt{\sum{x_i^2}}$.
+\end{definition}
+
+\begin{theorem}\label{1.5.2}
+    Let $x,y \in \R^k$, and  $\alpha \in \R$. Then:
+         \begin{enumerate}[label=(\arabic*)]
+             \item $||x|| \geq 0$ and $||x||=0$ if and only if $x_i=0$ for all $1 \leq i \leq k$.
+
+             \item $||\alpha x||=|\alpha|||x||$.
+
+             \item $||\vbrack{x,y}|| \leq ||x||||y||$.
+
+             \item $||x+y|| \leq ||x||+||y||$, and $||x-z|| \leq ||x-y||+||y-z||$
+        \end{enumerate}
+\end{theorem}
+\begin{proof}
+    $(1)$ follows by definition of the norm. We also have that  $||\alpha x||=\sqrt{\sum{\alpha^2x_i^2}}
+    =\sqrt{\alpha^2}\sqrt{\sum{x_i^2}}=|\alpha|||x||$.
+
+    Now by the Cauchy Schwarz inequality, we have that $||\vbrack{x,y}||^2=\sum{x_i^2y_i^2} 
+    \leq \sum{x_i^2}\sum{y_i^2}=||x||||y||$. Finally we have that $||x+y||=\vbrack{x+y,x+y}=
+    \vbrack{x,x}+2\vbrack{x,y}+\vbrack{y,y } \leq ||x||^2+2||x||||y||+||y^2||=(||x||+||y||)^2$, 
+    the last result follows immediately.
+\end{proof}
