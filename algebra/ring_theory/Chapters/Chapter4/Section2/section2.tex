@@ -50,3 +50,65 @@ and when we say ``module'', we mean unital modules.
     $r\phi(x)+s\phi(y)=\phi(rx)+\phi(sy)=\phi(rx+sy) \in \phi(M)$. By the
     submodule criterion for unital modules, we are done.
 \end{proof}
+
+\begin{example}\label{example_4.4}
+    \begin{enumerate}
+        \item[(1)] Module homomorphisms need not be ring homomorphisms. Consider
+            the ring $\Z$ as a module over itself. Then the map  $x
+            \xrightarrow{} 2x$ is a $\Z$-module homomorphism, but not a ring
+            homomorphism, since this map takes  $1 \xrightarrow{} 2$, and $2
+            \neq 1$ in  $\Z$. Likewise, ring homomorphisms need not be module
+            homomorphisms. Let $F$ be a field, and consider the map $f(x)
+            \xrightarrow{} f(x^2)$, where $f(x) \in F[x]$. This map is a ring
+            homomorphism, but it is not an  $F[x]$-module homomorphism when
+            considering $F[x]$ as a module over itself.
+
+        \item[(2)] Let $R$ be a ring, and  $n \in \Z^+$ Consider the \textbf{$i$-th
+            projection map} $\pi_i:R^n \xrightarrow{} R$ defined by
+            \begin{equation*}
+                \pi_i:(x_1, \dots, x_n) \xrightarrow{} x_i
+            \end{equation*}
+            Then $\pi_i$ is an $R$-module homomorphism. Moreover, we have
+            $\pi_i(R^n)=R$ (so that $\pi_i$ is onto) and $\ker{\p_i}=\{(x_1,
+            \dots, x_n) : x_i=0\}$.
+
+            \item[(3)] For any field $F$, and any vector spaces $V$ and $W$ over
+                 $F$, the usual linear transofrmations  $T:V \xrightarrow{} W$
+                 are $F$-module homomorphisms by definition.
+
+             \item[(4)] $\Z$-module homomorphisms are Abelian group
+                 homomorphisms. Recall that  module homomorphisms are group
+                 homomorphisms, and that $\Z$ is an Abelian group.
+
+             \item[(5)] Let $R$ be a ring, and  $I$ an ideal of  $R$. Suppose
+                 that  $M$ and  $N$ are  $R$-modules which are annihilated by
+                 $I$. Then any $R$-module homomorphism of $M \xrightarrow{} N$
+                 is also an $(\faktor{R}{I})$-module homomorphism.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{4.2.2}
+    Let $R$ be a ring, and let $M$, $N$, and $L$ be modules over $R$. Then the
+    following are true
+    \begin{enumerate}
+        \item[(1)] A map $\phi:M \xrightarrow{} N$ is a module homomorphism over
+            $R$ if, and only if $\phi(rx+sy)=r\phi(x)+s\phi(y)$ for any $x,y
+            \in M$ and  $r,s \in R$.
+
+        \item[(2)] If $\phi, \psi \in \Hom_R{(M,N)}$, then $\phi+\psi \in
+            \Hom_R{(M,N)}$; where $+$ is the addition of functions. Moreover, if
+             $R$ is commutative, defining the action of  $R$ on  $\Hom_R{(M,N)}$
+             by $(r\phi)(x)=r(\phi(x))$ makes $r\phi \in \Hom_R{(M,N)}$, and
+             makes $\Hom_R{(M,N)}$ into a module over $R$.
+
+         \item[(3)] If $\phi \in \Hom_R{(M,N)}$ and $\psi \in \Hom_R{(N,L)}$,
+             then $\psi \circ \phi \in \Hom_R{(M,L)}$ where $\circ$ is the usual
+             function composition.
+
+         \item[(4)] $\Hom_R{(M,M)}$ is a ring with identity under the operations
+             of function addition and function composition. Moreover, if $R$ is
+             commutative, then  $\Hom_R{(M,M)}$ is an $R$-algebra.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+\end{proof}
