@@ -95,20 +95,89 @@ and when we say ``module'', we mean unital modules.
             $R$ if, and only if $\phi(rx+sy)=r\phi(x)+s\phi(y)$ for any $x,y
             \in M$ and  $r,s \in R$.
 
-        \item[(2)] If $\phi, \psi \in \Hom_R{(M,N)}$, then $\phi+\psi \in
-            \Hom_R{(M,N)}$; where $+$ is the addition of functions. Moreover, if
-             $R$ is commutative, defining the action of  $R$ on  $\Hom_R{(M,N)}$
-             by $(r\phi)(x)=r(\phi(x))$ makes $r\phi \in \Hom_R{(M,N)}$, and
-             makes $\Hom_R{(M,N)}$ into a module over $R$.
+        \item[(2)] $\Hom_R{(M,N)}$ is an Abelian group under function addition.
 
          \item[(3)] If $\phi \in \Hom_R{(M,N)}$ and $\psi \in \Hom_R{(N,L)}$,
              then $\psi \circ \phi \in \Hom_R{(M,L)}$ where $\circ$ is the usual
              function composition.
 
          \item[(4)] $\Hom_R{(M,M)}$ is a ring with identity under the operations
-             of function addition and function composition. Moreover, if $R$ is
-             commutative, then  $\Hom_R{(M,M)}$ is an $R$-algebra.
+             of function addition and function composition.
     \end{enumerate}
 \end{lemma}
 \begin{proof}
+    We break the proof into its respective parts.
+    \begin{enumerate}
+        \item[(1)] By definition, if $\phi$ is a module homomorphism, then
+            $\phi(rx+sy)=\phi(rx)+\phi(sy)=s\phi(x)+y\phi(y)$ for all $x,y \in
+            M$ and  $r,s \in R$. Conversely if  $\phi(rx+sy)=r\phi(x)+s\phi(y)$,
+            taking $r,s=1$ gives  $\phi(x+y)=\phi(x)+\phi(y)$, and taking $s=0$
+            and $y=0$ gives $\phi(rx)=r\phi(x)$.
+
+        \item[(2)] Now, consider $\phi,\psi \in \Hom_R{(M,N)}$. Observing that
+            $(\phi+\psi)(x)=\phi(x)+\psi(x)$, we get for all $x,y \in M$ and
+            $r,s \in R$ that
+            \begin{align*}
+                (\phi+\psi)(rx+sy) &=   \phi(rx+sy)+\psi(rx+sy)    \\
+                             &=  (r\phi(x)+s\phi(y))+(r\psi(x)+s\psi(y))    \\
+                             &= (r\phi(x)+r\psi(x))+(s\phi(y)+s\psi(y)) \\
+                             &= r(\phi+\psi)(x)+s(\phi+\psi)(y) \\
+            \end{align*}
+            Since $x,y \in M$ and  $\phi(x),\phi(y),\psi(x),\psi(y) \in N$, this
+            makes $\phi+\psi \in \Hom_R{(M,N)}$. Moreover, notice that $+$ is
+            associative and commutative. We get the map $x \xrightarrow{} 0$ as
+            the identity homomorphism, and $(-\phi):x \xrightarrow{} -\phi(x)$
+            as the additive inverse of $\phi$. This makes  $\Hom_R{(M,N)}$ into
+            a group.
+
+        \item[(3)] Let $\phi \in \Hom_R{(M,N)}$ and $\psi \in \Hom_R{(N,L)}$.
+            Then for $x,y \in M$ and  $r,s \in R$, and writing $\psi
+            \circ \phi$ as  $\psi\phi$ we get
+            \begin{align*}
+                \psi\phi(rx+sy) &=  \psi(\phi(rx+sy))   \\
+                          &=    \psi(r\phi(x)+s\phi(y)) \\
+                          &= r\psi\phi(x)+s\psi\psi(y)  \\
+            \end{align*}
+            Since $x,y \in M$ and  $\psi\phi(x), \psi\phi(y) \in L$, this makes
+            $\psi \circ \phi \in \Hom_R{(M,L)}$.
+
+        \item[(4)] Finaly, observe that since $\Hom_R{(M,M)}$ is an Abelian
+            group under $+$, and  $\circ$ is well defined for  $\Hom_R{(M,M)}$,
+            then it suffies to show the distributive laws and identity. Notice
+            however that $\circ$ distributes (on both side) over $+$. Moreover,
+             $\io:x \xrightarrow{} x$ serves as the identity element for
+             $\Hom_R{(M,M)}$ under $\circ$. That is $\Hom_R{(M,M)}$ is indeed a
+             ring with identity.
+    \end{enumerate}
+\end{proof}
+\begin{corollary}
+    If $R$ is a commutative ring, then the following are true
+    \begin{enumerate}
+        \item[(1)] $\Hom_R{(M,N)}$ is a module over $R$, under the action
+            $(r\phi)(x)=r(\phi(x))$.
+
+        \item[(2)] $\Hom_R{(M,M)}$ is an $R$-algebra under function addition and
+            function composition.
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    Again, spilitting the proof by parts
+    \begin{enumerate}
+        \item[(1)] Notice that for $r,s \in R$, that
+            \begin{align*}
+                (r\phi)(sx) &=  r(\phi(sx)) \\
+                         &= r(s\phi(x)) \\
+                         &= (rs)\phi(x) \\
+                         &= (sr)\phi(x) \\
+                         &= s(r\phi(x)) \\
+                         &= s((r\phi)(x))   \\
+            \end{align*}
+            This makes $r\phi \in \Hom_R{(M,N)}$, which makes it into a module
+            over $R$.
+
+        \item[(2)] By (4) in the above lemma, we have that $\Hom_R{(M,M)}$ is a
+            ring with identity. Moreover, notice that (1) in the above statement
+            makes $\Hom_R{(M,M)}$ into a module over $R$. Then taking
+            $\phi{r}=r\phi$, we get that $\Hom_R{(M,M)}$ is an $R$-algebra.
+    \end{enumerate}
 \end{proof}
