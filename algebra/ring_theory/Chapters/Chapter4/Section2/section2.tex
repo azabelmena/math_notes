@@ -181,3 +181,113 @@ and when we say ``module'', we mean unital modules.
             $\phi{r}=r\phi$, we get that $\Hom_R{(M,M)}$ is an $R$-algebra.
     \end{enumerate}
 \end{proof}
+
+\begin{definition}
+    Let $R$ be a ring, and  $M$ a module over  $R$. We call the ring
+    $\Hom_R{(M,M)}$ the \textbf{endomorphism ring} of $M$ and denote it
+    $\End_R{M}$, or $\End{M}$ (when context is clear). We call the elements of
+    $\End_R{M}$ \textbf{endomorphisms}.
+\end{definition}
+
+\begin{example}\label{example_4.5}
+    Let $R$ be a ring with ideal $I$, and  $M$ an  $R$-module. The ring
+    homomorphism $R \xrightarrow{} \End{M}$ defined by $r \xrightarrow{} rI$
+    need not be 1--1. Notice that the homomorphism $\Z \xrightarrow{}
+    \End{\faktor{\Z}{2\Z}}$ defined by $2 \xrightarrow{} 2\Z$ is not 1--1.
+    Notice that $2x=0$ for any $x \in \faktor{\Z}{2\Z}$, so that the kernel is
+    $\faktor{\Z}{2\Z}$. However, if $R$ is a field, then the homomorphism  $r
+    \xrightarrow{} rI$ is 1--1. In this case, we call the imbedding of $R$ into
+     $\End_R{M}$ the ring of \textbf{scalar transformations}.
+\end{example}
+
+\begin{lemma}\label{lemma_4.2.3}
+    Let $R$ be a ring, and $M$ a module over $R$, and let $N \subseteq M$ a
+    submodule. Then the additive quotient gorup  $\faktor{M}{N}$ is a module
+    over $R$, under the action  $R \times \faktor{M}{N} \xrightarrow{}
+    \faktor{M}{N}$ defined by
+    \begin{equation*}
+        r(x+N)=rx+N
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since $M$ is an Abelian group under its addition,  $N \unlhd M$, and
+    $\faktor{M}{N}$ is an Abelian group. Now, consider $r \in R$, and suppose
+    that  $x+N=y+N$, for some  $x,y \in N$. Then  $x-y \in N$; since $N$ is a
+    submodule. Then $r(x-y)=rx-ry \in N$, which makes $rx+N=ry+N$. Therefore the
+    action  $R \times \faktor{M}{N} \xrightarrow{} \faktor{M}{N}$ given by
+    $r(x+N) \xrightarrow{} rx+N$ is well defined.
+
+    Now, since $M$ is an $R$-module, we get that
+    \begin{align*}
+        (r+s)(x+N)  &=  (r+s)x+N    \\
+                    &=  (rx+sx)+N   \\
+    \end{align*}
+    That
+    \begin{align*}
+        (rs)(x+N)   &=  (rs)x+N \\
+                    &=  r(sx)+N \\
+                    &= r(s(x+N))    \\
+    \end{align*}
+    that
+    \begin{align*}
+        r((x+N)+(y+N))  &=  r((x+y)+N)  \\
+                        &=  r(x+y)+N    \\
+                        &=  (rx+ry)+N   \\
+    \end{align*}
+    This makes $\faktor{M}{N}$ into an $R$-module.
+\end{proof}
+\begin{corollary}
+    The projection $\pi:M \xrightarrow{} \faktor{M}{N}$ given by $\pi:x
+    \xrightarrow{} x+N$ is a module homomorphism with $\ker{\pi}=N$.
+\end{corollary}
+\begin{proof}
+    Notice by definition that $\ph:x \xrightarrow{} x+N$ is a group homomorphism
+    with $\ker{\pi}=N$. Now, let $r \in R$, ten  $\pi(rx)=rx+N=r(x+N)=r\pi(x)$.
+\end{proof}
+
+\begin{definition}
+    Let $M$ be a module, and let  $A$ and $B$ submodules of  $M$. We define the
+     \textbf{sum} of $A$ and  $B$ to be the set
+     \begin{equation*}
+         A+B=\{a+b : a \in A \text{ and } b \in B\}
+     \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lemma_4.2.4}
+    Let $M$ be a module, and  $A$ and  $B$ submodules. Then  $A+B$ is a
+    submodule of  $M$.
+\end{lemma}
+
+\begin{theorem}[The First Isomorphism Theorem]\label{4.2.5}
+    Let $R$ be a ring, and  $M$,  $N$ be modules over  $R$ and let  $\phi:M
+    \xrightarrow{} N$ a module homomorphism over $R$. Then  $\ker{\phi}$ and
+    $\phi(M)$ are submodules of $M$, and
+    \begin{equation*}
+        \faktor{M}{\ker{\phi}} \simeq \phi(M)
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}[The Second Isomorphism Theorem]\label{4.2.6}
+    Let $R$ be a ring and $M$ a module over $M$. Let  $A$ and  $B$ be submodules
+    of  $M$. Then
+    \begin{equation*}
+        \faktor{(A+B)}{B} \simeq \faktor{A}{(A \cap B)}
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}[The Third Isomorphism Theorem]\label{4.2.7}
+    Let $M$ be a module, and  $A$ and  $B$ submodules of  $M$. Then
+    \begin{equation*}
+       \faktor{(\faktor{M}{A})}{(\faktor{A}{B})} \simeq \faktor{M}{B}
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}[The Fourth Isomorphism Theorem]\label{4.2.8}
+    Let $R$ be a ring,  $M$ be a module over  $R$, and  $N$ be a submodule of
+    $M$. Then there exists a 1--1 correspondence of submodules of  $M$
+    containing  $N$, onto  submodules of $\faktor{M}{N}$ given by the map
+    \begin{equation*}
+        A \xrightarrow{} \faktor{A}{N}
+    \end{equation*}
+    for all $N \subseteq A$.
+\end{theorem}
