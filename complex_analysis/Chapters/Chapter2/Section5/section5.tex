@@ -1,1 +1,98 @@
 \section{Differentiation of Power Series}
+
+\begin{definition}
+    Let $B(0,r)$ be an open ball in $\C$ with  $r>0$. A function $f$ on $B(0,r)$
+    for which there exists a convergent power series $\sum{a_nz^n}$ or radius of
+    convergence greater than or equal $r$ for which
+    \begin{equation*}
+        f(z)=\sum{a_nz^n}
+    \end{equation*}
+    is said to \textbf{admit a power series expansion} on $B(0,r)$. We define
+    the \textbf{formal derived series} of $\sum{a_nz^n}$ to be the series
+    \begin{equation*}
+        \sum{na_nz^{n-1}}
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}\label{2.5.1}
+    Of $f(z)$ is a complex valued function admiting a power series expansion of
+    radius of convergence $r>0$. Then the following are true.
+    \begin{enumerate}
+        \item[(1)] The formal derived series of the power series expansion of
+            $f$ is convergent, with the same radius of convergence.
+
+        \item[(2)] If $f$ is holomorphic on $B(0,r)$, then the complex
+            derivative of $f$ on  $B(0,r)$ admits as power series expansion, the
+            formal derived series of the power series expansion of $f$; that is
+            if  $f(z)=\sum{a_nz^n}$, then
+            \begin{equation*}
+                f'(z)=\sum{nz_nz^n}
+            \end{equation*}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Observe that we have $\limsup{\sqrt[n]{|a_n|}}=\frac{1}{r}$, but that
+    $\limsup{\sqrt[n]{|na_n|}}=\limsup{\sqrt[n]{n}\sqrt[n]{|a_n|}}$. Then the
+    sequences $\{\sqrt[n]{|a_n|}\}$ and $\{\sqrt[n]{|na_n|}\}$ have the same
+    limit superior; so that $\limsup{\sqrt[n]{|na_n|}}=\frac{1}{r}$. Now, since
+    the power series expansion of $f$ converges, and has the same radius of
+    convergence as its formal derived series, then the formal derived series
+    \begin{equation*}
+        \sum{na_nz^{n-1}}
+    \end{equation*}
+    also converges on the same radius.
+
+    Now, let $|z|<r$ and  $\d>0$, such that  $|z|+\d<r$. Cisider  $h \in \C$
+    such that  $|h|<\d$, then we have
+    $f(z+h)=\sum{a_n(z+h)^n}=\sum{a_n(z^n+nz^{n-1}h+h^2p_n(z,h))}$, where
+    \begin{equation*}
+        p_n(z,h)=\sum_{k=2}^n{{n \choose k}z^{n-k}h^{k-2}}
+    \end{equation*}
+    Then we have the estimate
+    \begin{equation*}
+        |p_n(z,h)|=\sum_{k=2}^n{{n \choose k}\d^{k-2}|z|^{n-k}}=p(|z|,\d)
+    \end{equation*}
+    Subtracting $f(z)$, we get
+    \begin{equation*}
+        f(z+h)-f(z)-\sum{na_nz^{n-1}h}=h^2\sum{a_np_n(z,h)}
+    \end{equation*}
+    The series are absolutely convergent so that
+    \begin{equation*}
+        \frac{f(z+h)-f(z)}{h}-\sum{na_nz^{n-1}}=h\sum{a_np_n(z,h)}
+    \end{equation*}
+    Then for $|h|<\d$, we have
+    \begin{equation*}
+        |\sum{a_np_n(z,h)}| \leq \sum{|a_n||P_n(z,h)|)} \leq
+        \sum{|a_n|p_n(|z|,\d)}
+    \end{equation*}
+    Multiplying by $h$, and as  $h \xrightarrow{} 0$ we get
+    $\lim{|h\sum{a_np_n(z,h)}|}=0$. Therefore
+    \begin{equation*}
+        f'(z)=\sum{na_nz^{n-1}}
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    If $f$ is holomorphic in its domain, then the coefficients of the power
+    series expansion of $f$, at some point $z_0$ in the domain of $f$ are given
+    by
+    \begin{equation*}
+        a_n=\frac{f^{(n)}(z_0)}{n!}
+    \end{equation*}
+\end{corollary}
+
+\begin{definition}
+    Let $f:U \xrightarrow{} \C$ a complex function on an open domain $U$ of
+    $\C$. If  $g$ is an holomorphic function such that  $g'=f$, then we call
+    $g$ a  \textbf{primitive} of $f$.
+\end{definition}
+
+\begin{example}\label{example_2.9}
+    the function $\frac{1}{z}$ is analytic on the domain $\com{\C}{\{0\}}$; the
+    punctured complex plane. Indeed, for $z_0 \neq 0$, we get the power series
+    expansion of $\frac{1}{z}$ at $z_0$ to be
+    \begin{equation*}
+        \frac{1}{z}=\frac{1}{z_0}(1-\frac{1}{z_0}(z-z_0)+)
+    \end{equation*}
+    which converges on the open ball $B(0,r)$. Hence $\frac{1}{z}$ has a
+    primitive on $B(z_0,r)$, which we may denote as $\log{z}$.
+\end{example}
