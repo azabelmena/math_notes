@@ -1,1 +1,215 @@
-\section{Operations on Power Series}
+\section{Properties on Power Series}
+
+\begin{theorem}\label{2.3.1}
+    Let $f(z)$ and $g(z)$ be formal power series which converge absolutely on
+    the open ball $B(0,r)$, $r>0$. Then  $f+g$, $fg$, and $\a f$, where  $\a
+    \in\C$, also converge on  $B(0,r)$. Moreover, we have
+    \begin{enumerate}
+        \item[(1)] $(f+g)(z)=f(z)+g(z)$
+
+        \item[(2)] $(fg)(z)=f(z)g(z)$
+
+        \item[(3)] $(\a f)(z)=\a f(z)$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Let $f(z)=\sum{a_nz^n}$ and let $g(z)=\sum{b_nz^n}$. Then
+    $fg(z)=\sum{c_nz^n}$, where $c_n=\sum_{k=0}^n{a_kb_{n-k}}$. Now, let
+    $0<r<s$, then there exists a  $C>0$ such that for al  $n \in \Z^+$,  $|a_n|
+    \leq \frac{C}{s^n}$, and $|b_n| \leq \frac{C}{s^n}$. So we have
+    \begin{equation*}
+        |c_n| \leq \sum{|a_kb_{n-k}|} \leq (n+1)\frac{C^2}{^n}
+    \end{equation*}
+    notice that
+    \begin{equation*}
+        \lim{\sqrt[n]{(n+1)C}}-1
+    \end{equation*}
+    so that $\limsup{\sqrt[n]{|c_n|}}=\frac{1}{s}$ for all $s<r$. Thus we have
+    \begin{equation*}
+        \limsup{\sqrt[n]{|c_n|}} \leq \frac{1}{r}
+    \end{equation*}
+    and so $fg$ converges absolutely on  $B(0,r)$. Notice also that
+    $\sum{|a_k||b_{n-k}||z|^n}$ also converges as well.
+
+    Now, let $f_N(z)=a_0+a_1z+\dots+a_Nz^N$ and $g_N(z)=b_0+b_1z+\dots+b_Nz^N$
+    be polynomials in $z$ over  $\C$ of degree $N$ (i.e. the terms of $f$ and
+    $g$ of order less than  $N$). Then we get $f(z)=\lim{f_N(z)}$ and
+    $g(z)=\lim{g_N(z)}$ as $N \xrightarrow{} \infty$, moreover
+    \begin{equation*}
+        |(fg)_N(z)-f_N(z)g_N(z)| \leq \sum_{n=N+1}^\infty{\sum_{k=0}^n{|a_k||b_{n-k}||z|^n}}
+    \end{equation*}
+    which converges, that is, $(fg)(z)=\lim{f_Ng_n}=f(z)g(z)$.
+\end{proof}
+
+\begin{theorem}\label{2.3.2}
+    Let $f(z)=\sum{a_nz^n}$ and $g(z)=b_nz^n$. Then the following are true
+    \begin{enumerate}
+        \item[(1)] If $f$ is nonconstant and convergent with radius of
+            convergence $r>0$ and $f(0)=0$, then there exists an $s>0$ for which
+             $f(z) \neq 0$ whenever $|z| \leq s$, provided  $z \neq 0$.
+
+         \item[(2)] If $f$ and  $g$ converge, with $f(x)=g(x)$ for all $x$ in an
+             infinite set having  $0$ as a limit point, then  $f(z)=g(z)$ for
+             all $z$; i.e.  $a_n=b_n$ for all $n \in \Z^+$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Write $f(z)=amz^m+A=a_mz^m(1+b_1z+b_2z^2+\dots)=a_mz^m(1+h(z))$ where $a_m
+    \neq 0$, and  $h(z)=b_1z+b_2z^2+\dots$ a power series having radius of
+    convergence $r>0$ and $0$ constant term. Then for  $|z|$ small,  $|h(z)|$ is
+    small, and hnece $1+h(z) \neq 0$. Now, if $z \neq 0$, then  $a_mz^m \neq 0$
+    and we are done with the first assertion.
+
+    Now, let $h(t)=f(t)-g(t)=\sum{(a_n-b_n)t^n}$. Let $S$ have an infinite set
+    having  $0$ as a limit point. Then for every  $x \in S$,  $h(x)=0$, by
+    above, we get that $h(z)=0(z)=0+0z+0z^2+\dots$; i.e. $a_n-b_n=0$ for all  $n
+    \in \Z^+$, and we are done with the second assertion.
+\end{proof}
+
+\begin{example}\label{example_2.6}
+    \begin{enumerate}
+        \item[(1)] There exists at most one convergent power series
+            $f(z)=\sum{a_nz^n}$ for which $f(x)=e^x$ for all $x \in [-\e,\e]$,
+            given some $\e>0$. Then any extension of  $e^x$ to  $\C$ is unique,
+            morever, the series $\exp{z}=\sum{\frac{z^n}{n!}}$ coincides with
+            that extension, i.e. $\exp{z}=e^z$.
+
+            Moreover, we have that
+            \begin{equation*}
+                \exp{iz}=\sum{\frac{(iz)^n}{n!}}
+            \end{equation*}
+            so that $\exp{iz}=C(z)+iS(z)$, where $S(z)$ and $C(z)$ were defined
+            in example \ref{example_2.3}. It can also be shown that $C(z)$ and
+            $S(z)$ coincide with expanding $\cos{\th}$ and $\sin{\th}$ to $\C$;
+            i.e. $C(z)=\cos{z}$ and $S(z)=\sin{z}$.
+
+            In fact, if $f(z)$ and $g(z)$ are power series, with constant term
+            $0$, then  $(\exp{f(z)})(\exp{g(z)})=\exp{(f(z)+g(z))}$. Indded, by
+            defition, we have that
+            \begin{equation*}
+                \exp{(f(z)+g(z))}=\sum{\frac{(f(z)+g(z))^n}{n!}}
+            \end{equation*}
+            On the other hand, we get
+            \begin{equation*}
+                (\exp{f(z)})(\exp{g(z)})=
+                \sum_{n=0}^\infty{\sum_{k=0}^n{\frac{f(z)^ng(z)^{n-k}}{k!(n-k)!}}}
+                =\sum{\frac{(f(z)+g(z))^n}{n!}}
+            \end{equation*}
+            Taking $f(z)=z$ and $g(w)=w$ (i.e. the constant series
+            $0+1z+0z^2+\dots$ and $0+1w+w^2+\dots$). We get
+            $(\exp{z})(\exp{w})=\exp{(z+w)}$; and we get the familiar properties
+            for $e^x$ extended to the complex function  $\exp{z}=e^z$.
+
+        \item[(2)] Let $C(z)$ and $S(z)$ the power series for which
+            $\exp{z}=C(z)+iS(z)$. Notice that the series $S(z)^2+C(z)^2$ has
+            radius of convergence $1$, indeed,  $S(z)^2+C(z)^z=1$, since there
+            exists at most one series with this property, the series
+            $1+0z+0z^2+\dots$. Thus  $\sin{z}$ and $\cos{z}$ have the property
+            that $\sin^2{z}+\cos^2{z}=1$.
+
+        \item[(3)] Consider the binomial series $B(z)=\sum{{\a \choose n}z^n}$,
+            for $\a=\frac{1}{m}$, $m \in \Z^+$. Then $B(z)$ has radius of
+            convergence $r=1$. Moreover, by some elementary calculus, it can be
+            shown that
+            \begin{equation*}
+                B(z)^m=z+x \text{ for all } x \in \R \text{ small enough}
+            \end{equation*}
+            Thus $B(z)^m=1+z$, and so the series $(1+z)^\frac{1}{m}$ converges
+            whenever $|z|<1$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $f(z)=\sum{a_nz^n}$ be a formal power series, and let
+    $\phi(z)=\sum{c_nz^n}$ a formal power series with nonnegative real
+    coefficients. We say that  $f$ is  \textbf{dominated} by $\phi$ if $|a_n|
+    \leq c_n$ for al  $n \in \Z^+$. We write  $f=O(\phi)$, or $f \preceq \phi$.
+\end{definition}
+
+\begin{lemma}\label{lemma_2.3.3}
+    If $\phi$ and  $\psi$ are power series with nonnegative real coefficients,
+    and let $f(z)$ and $g(z)$ be formal power series. Then if $f \preceq \phi$
+    an $g \preceq \psi$, then
+    \begin{equation*}
+        f+g \preceq \phi+\psi \text{ and } fg \preceq \phi\psi
+    \end{equation*}
+\end{lemma}
+
+\begin{theorem}\label{2.3.4}
+    Let $f(z)$ be a convergent power series with radius of convergence $r>0$ and
+    nonzero constant term. Let  $g$ be the inverse of $f$. Then $g$ is also
+    convergent with nonzero radius of convergence.
+\end{theorem}
+\begin{proof}
+    Without loss of generality, suppose that the constant term of $f$ is  $1$.
+    That is
+    \begin{equation*}
+        f(z)=1+a_1z+a_2z^2+\dots=1-h(z)
+    \end{equation*}
+    where $h(z)$ is a power series with constant term $0$. Then there exists an
+     $A>0$ such that  $|a_n| \leq A$ for all  $n \geq 1$. Choosing  $A$ large
+     enough, choose  $C=1$. Then
+     \begin{equation*}
+         \frac{1}{f(z)}=\frac{1}{1-h(z)}=1+h(z)+h(z)^2+\dots
+     \end{equation*}
+     But $h(z)$ is dominated by the series $\sum{A^nz^n}=\frac{Az}{1-Az}$. SO
+     that $\frac{1}{f(z)}=g(z)$ satisfies
+     \begin{equation*}
+        g(z) \preceq 1+\frac{Az}{1-Az}+(\frac{Az}{1-Az})^2+\dots
+        =\frac{1}{1-\frac{Az}{1-Az}}=(1-Az)(1+2Az+(2Az)^2+\dots)
+     \end{equation*}
+     and
+     \begin{equation*}
+        \frac{1}{1-\frac{Az}{1-Az}}=(1-Az)(1+2Az+(2Az)^2+\dots) \preceq
+        (1+Az)(1+2Az+(2Az)^2+\dots)
+     \end{equation*}
+     That is, $g(z)$ is dominated by a convergent power series; hence $g$
+     converges and has nonzero radius of convergence.
+\end{proof}
+
+\begin{theorem}\label{2.3.5}
+    Let $f(z)=\sum{a_nz^n}$ and $h(z)=\sum{b_nz^n}$ be convergent power series
+    where the constant term of $h$ is  $0$. If  $f$ is absolutely convergent
+    whenever  $|z| \leq r$, given $r>0$, and there is an  $s>0$ for which
+    \begin{equation*}
+        \sum{|b_n|s^n} \leq r
+    \end{equation*}
+    then the formal power series $f \circ h(z)=\sum{a_n(\sum{b_kz^k})^n}$
+    converges absolutely whenever $|z| \leq s$.
+\end{theorem}
+\begin{proof}
+    Let $g(z)=\sum{c_nz^n}$. Then
+    \begin{equation*}
+        g(z) \preceq \sum{|a_n|(\sum{|b_k|})^n}
+    \end{equation*}
+    by hypothesis, we have that $\sum{|a_n|(\sum{|b_k|})^n}$ converges
+    absolutely whenever $|z| \leq s$, so that  $g$ does as well.
+
+    Now, let  $f_N(z)=a_0+a_1z+\dots+a_{N-1}z^{N-1}$ a polynomial of degree
+    $N-1$. Observe then that
+    \begin{equation*}
+        f \circ h(z)-f_N \circ h(z) \preceq \sum{|a_n|(\sum{|b_k|})^n}
+    \end{equation*}
+    so that $f \circ h(z)=g(z)$. By absolute convergence, given $\e>0$, there is
+    an $N_0>0$ such that
+    \begin{equation*}
+        |g(z)-f_N \circ h(z)|<\e \text{ whenever } N \geq N_0 \text{ and } |z|
+        \leq s
+    \end{equation*}
+    Since $f_N \xrightarrow{} f$ as $N \xrightarrow{} \infty$ on the open ball
+    $B(0,r)$, choose $N_0$ large enough so that $|f_N \circ h(z)-f \circ
+    h(z)|<\e$ for all $N \geq N$; i.e.  $|g(z)-f \circ h(z)|<2\e$.
+\end{proof}
+
+\begin{example}\label{exmaple_2.7}
+    \begin{enumerate}
+        \item[(1)] Let $m \in \Z^+$ and  $h(z)$ a convergent power series with
+            constant term $0$. We take the  $m$-th root $\sqrt[m]{1+h(z)}$
+            using the binomial series with $\a=\frac{1}{m}$. Thus
+            $B \circ h(z)=B(h(z))$ converges.
+
+        \item[(2)] Define $f(w)=\sum_{n=1}^\infty{(-1)^{n-1}\frac{w^n}{n}}$.
+            Define $\log{z}$ for all $|z-1|<1$ by $\log{z}=f(z-1)$. It can be
+            shown that $\exp{(\log{z})}=z$.
+    \end{enumerate}
+\end{example}

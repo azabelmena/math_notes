@@ -1,5 +1,8 @@
 \section{Convergent Power Series}
 
+For the remainder of this chapter, we consider only formal power series if $z$
+over  $\C$; i.e. all power series in  $\C[[z]]$.
+
 \begin{definition}
     Let $\{z_n\}_{n \in \Z^+}$ a sequence of complex numbers, and consider the
     series $\sum_{n=0}^\infty{z_n}$. We define the \textbf{$n$-th partial sum}
@@ -162,6 +165,139 @@
             \frac{c_{n+1}}{c_n}=\frac{r}{n+1}
         \end{equation*}
         Taking $n \geq 2r$, notice that  $\frac{c_{n+1}}{c_n} \leq \frac{1}{n}$
-        so that $c_{n+1} \leq \frac{1}{2}c_n$ for $n$ large enough
+        so that $c_{n+1} \leq \frac{1}{2}c_n$ for $n$ large enough. Therefore
+        there exists  an $n_0$ such that
+        \begin{equation*}
+            c_n \leq \frac{C}{2^{n-n_0}} \text{ for some constant } C
+        \end{equation*}
+        whenever $n \geq n_0$. Comparing this with the geometric series, we get
+        absolute and uniform convergence as was required. Moreover, notice that
+        the series $\exp{z}$ defines a continuous function on all of $\C$.
+
+    \item[(2)] Take the series $S(z)=\sum{(-1)^n\frac{2^{2n+1}}{(2n+1)!}}$ and
+        $C(z)=\sum{(-1)^n\frac{2^{2n}}{(2n)!}}$. Both $S(z)$ and $C(z)$ converge
+        absolutely and uniformly for all $|z| \leq r$. Moreover, they define
+        continuous functions on al of  $\C$.
     \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{2.2.10}
+    Let $\sum{a_nz^n}$ a power series. If it does not converge absolutely for
+    all $z \in \C$, then there exists a real number $r>0$ such that
+    $\summ{a_nz^n}$ converges absolutely whenever $|z| \leq r$.
+\end{theorem}
+\begin{proof}
+    Suppose that $\sum{a_nz^n}$ does not converge absolutely for all $z \in \C$.
+    Let  $r=\sup_{s \geq 0}{\{s\}}$ where $\sum{a_ns^n}$ converges. Then notice
+    that $\sum{|a_n||z|^n}$ diverges wheneer $|z|>r$ and converges when  $|z|<r$,
+    by the comparison test.
+\end{proof}
+
+\begin{definition}
+    The \textbf{radius of convergence} of a power series $\sum{a_nz^n}$ is a
+    number $r>0$ for which the series converges absolutely whenever $|z|<r$, and
+    diverges whenever $|z|>r$. $\sum{a_nz^n}$ converges absolutely for all $z
+    \in \C$, then we write  $r=\infty$. We call  $\sum{a_nz^n}$ a
+    \textbf{convergent power series} if $r \neq 0$, and we say that it
+    \textbf{converges} on an open ball $B(0,r)$.
+\end{definition}
+
+\begin{theorem}\label{2.2.11}
+    Let $\sum{a_nz^n}$ a convergent power series with radius of convergence $r$.
+    Then
+    \begin{equation*}
+        \frac{1}{r}=\limsup{\sqrt[n]{|a_n|}}
+    \end{equation*}
+    If $r=0$, then the sequence of points $\{\sqrt[n]{a_n}\}$ is not bounded.
+\end{theorem}
+\begin{proof}
+    Let $t=\limsup{\sqrt[n]{|a_n|}}$, suppose first that $t \neq 0$ and that  $t
+    \neq \infty$. Given  $\e>0$, there is a finite number of points  $n \in
+    \Z^+$ for which $\sqrt[n]{|a_n|} \geq t+\e$. Thus, for all but finitely many
+    $n$, we get $|a_n|<(t+\e)^n$, and $\sum{a_nz^n}$ converges if
+    $|z|<\frac{1}{t+\e}$. By comparison with the geometric series, we conclude
+    that $r \geq \frac{1}{t+\e}$ for all $\e>0$; that is
+    \begin{equation*}
+        r \geq \frac{1}{t}
+    \end{equation*}
+
+    Conversely, given $\e>0$, there exist infinitely many  $n \in \Z^+$ such
+    that  $\sqrt[]{|a_n|} \geq t-\e$, and hence $|a_n| \geq (t-\e)^n$. So we get
+    that $\sum{a_nz^n}$ does not converge if $r=\frac{1}{t-\e}$, and its radius
+    of convergence satisfies $r \leq \frac{1}{t-\e}$ for all $\e>0$. That is
+    \begin{equation*}
+        r \leq \frac{1}{t}
+    \end{equation*}
+    and equality is established.
+\end{proof}
+\begin{corollary}
+    If $\lim{\sqrt[n]{|a_n|}}=t$ exists, then $r=\frac{1}{t}$.
+\end{corollary}
+\begin{corollary}
+    If $\sum{a_nz^n}$ has radius of convergence $r>0$, then there exists a
+    $C>0$ such that if  $A>\frac{1}{r}$, then $|a_n| \leq CA^n$ for all  $n$.
+\end{corollary}
+
+\begin{example}\label{example_2.4}
+    \begin{enumerate}
+        \item[(1)] The radius of convergence of the series $\sum{n!z^n}$ is
+            $r=0$, since $\sqrt[n]{n!}$ is unbounded as $n \xrightarrow{}
+            \infty$.
+
+        \item[(2)] The radius of convergence for the series
+            $\exp{z}=\sum{\frac{z^n}{n!}}$ is $r=\infty$, as
+            $\sqrt[n]{\frac{1}{n!}} \xrightarrow{} 0$ as $n \xrightarrow{}
+            \infty$. That is, the series $\exp{z}$ converges on all of $\C$.
+
+        \item[(3)] The radius of convergence of $\sum{\frac{n!}{n^n}}z^n$ is
+            $r=e$, where $e$ is Euler's constant. Observe that
+            $\lim{\frac{n!}{n^n}}=\frac{1}{e}$.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}[The Ratio Test]\label{2.2.12}
+    If $\{a_n\}$ is a sequence of positive real numbers, for which
+    $\lim{\frac{a_{n+1}}{a_n}}=A$ exists, then $\lim{\sqrt[n]{a_n}}=A$.
+\end{theorem}
+\begin{proof}
+    Suppose that $A>0$, given  $\e>0$, take  $n_0$ such that $A-\e \leq
+    \frac{a_{n+1}}{a_n} \leq A+\e$, for all $n \geq n_0$. Without loss of
+    generality, suppose that $\e<A$, so that  $A-\e>0$. THen
+    \begin{equation*}
+        a_n=a_1\prod_{k=1}^{n_0-1}{\frac{a_k+1}{a_k}}\prod_{k=n_0}^{n}{\frac{a_k+1}{a_k}}
+    \end{equation*}
+    By induction, there exists constants $C_1(\e)$ and $C_2(\e)$ suc that
+    \begin{equation*}
+        C_1(\e)(A-\e)^{n-n_0} \leq a_n \leq C_2(\e)(A+\e)^{n-n_0}
+    \end{equation*}
+    Put $C_1'(\e)=C_1(\e)(A-\e)^{-n_0}$ nad $C_2'(\e)=C_2(\e)(A+\e)^{-n_0}$,
+    then
+    \begin{equation*}
+        (A-\e)\sqrt[n]{C_1'(\e)} \leq \sqrt[n]{a_n} \leq (A+\e)\sqrt[n]{C_2'(\e)}
+    \end{equation*}
+    Then, there exists $N \geq n_0$ such that $\sqrt[n]{C_1'(\e)}=1+\d_1(n)$,
+    with $|\d_1(n)| \leq \frac{\e}{A-\e}$ and  $\sqrt[n]{C_2'(\e)}=1+\d_2(n)$
+    and $|\d_2(n)| \leq \frac{\e}{A+\e}$ for all  $n \geq N$. Then
+    \begin{equation*}
+        A-\e+\d_1(n)(A-\e) \leq \sqrt[n]{a_n} \leq A+\e+\d_2(n)(A+\e)
+    \end{equation*}
+    which shows that
+    \begin{equation*}
+        |\sqrt[n]{a_n}-A|<2\e
+    \end{equation*}
+    For the case that $A=0$, it is easy.
+\end{proof}
+
+\begin{example}\label{example_2.5}
+    Let $a \neq 0$ a complex number. We define the  \textbf{binomial
+    coefficient} of $\a$  \textbf{choose} $n$, where $n \in \Z^+$ to be
+    \begin{equation*}
+        {\a \choose n}=\frac{\a(\a-1)\dots(\a-n+1)}{n!}
+    \end{equation*}
+    and we define the \textbf{binomial sereies}
+    \begin{equation*}
+        (1+z)^\a=\sum{{\a \choose n}z^} \text{ where } {\a \choose 0}=1
+    \end{equation*}
+    By the ratio test, we get that $r=1$ if  $\a$ is not an integer greater than
+     $0$.
 \end{example}
