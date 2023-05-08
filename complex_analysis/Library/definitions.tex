@@ -1,10 +1,5 @@
-\renewcommand{\proofname}{demostraci\'on}
-\renewcommand{\qedsymbol}{$\blacksquare$}
-\renewcommand{\bar}[1]{\overline{#1}}
-\renewcommand{\epsilon}{\varepsilon}
-
 \newcommand{\ita}[1]{\textit{#1}}
-\newcommand{\com}[2]{#1\backslash#2}
+\newcommand{\com}[2]{#1 \backslash #2}
 \newcommand{\oneton}{\{1,2,3,...,n\}}
 \newcommand\idea[1]{\begin{gather*}#1\end{gather*}}
 \newcommand\ef{\ita{f} }
@@ -13,15 +8,22 @@
 \newcommand\inv[1]{#1^{-1}}
 \newcommand\setb[1]{\{#1\}}
 \newcommand\en{\ita{n }}
-\newcommand{\vbrack}[1]{\langle #1 \rangle}
+\newcommand{\vbrack}[1]{\langle #1\rangle}
+\renewcommand{\bbar}[1]{\underline{#1}}
 \DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\Span}{span}
-\DeclareMathOperator{\Char}{char}
-\DeclareMathOperator{\Int}{Int}
-\DeclareMathOperator{\cl}{cl}
 \DeclareMathOperator{\diam}{diam}
-\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\Int}{int}
 \DeclareMathOperator{\re}{Re}
 \DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\Jac}{Jac}
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand*{\proofname}{Proof}
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}

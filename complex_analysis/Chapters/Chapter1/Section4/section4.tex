@@ -1,116 +1,202 @@
-%----------------------------------------------------------------------------------------
-%	SECTION 1.4
-%----------------------------------------------------------------------------------------
-
-\section{The Complex Field}
+\section{Splitting Fields}
 
 \begin{definition}
-    We define a \textbf{complex number} to be a pair of real numbers  $(a,b)$. We denote the 
-    set of all comlex numbers by $\C$. We define the \textbf{addition} and $\textbf{multiplication}$ of 
-    complex numbers to be the binary operations $+:\C \rightarrow \C$ and $\cdot: \C \rightarrow \C$ such that 
-        \begin{align*}
-            (a,b)+(c,d) &= (a+c,b+d) \\
-            (a,b)(c,d) &= (ac-bd,ad+bc) \\
-        \end{align*}
-        Lastly, we define $i$ to be the complex number such that  $i=(0,1)$.
+    Let $K$ be an extension of a field  $F$. We say a polynomial  $f$ over  $F$
+     \textbf{splits completely} over $K$ if  $f$ factors into linear factors
+     over  $K$. If  $f$ splits completely over  $K$, and in no other proper
+     subfield, then we say  $K$ is the  \textbf{splitting field} of $f$ over
+     $F$.
 \end{definition}
 
 \begin{theorem}\label{1.4.1}
-    $\C$ forms a field together with  $+$ and  $\cdot$.
-\end{theorem}
-
-\begin{theorem}\label{1.4.2}
-    For $(a,0),(b,0) \in C$,  $(a,0)+(b,0)=(a+b,0)$, and $(a,0)(b,0)=(ab,o)$.
+    If $f$ is a polynomial over a field  $F$, then there exists a splitting
+    field  $K$ of  $f$ over  $F$.
 \end{theorem}
 \begin{proof}
-    This is a straightforward application of the addition and multiplication of 
-    complex numbers.
+    Let $E$ an extension of  $F$ with  $[E:F]=n$. By induction on $n$, for
+    $n=1$, we take  $E=F$ and we are done. Now, for  $n \geq 1$, suppose the
+    irreducible factors of  $f$ are of $\deg=1$. Then $f$ has all its roots in
+    $F$, and hence splits completely over $F$. Then take $E=F$. On the other
+    hand, if  $f$ has at least one irreducible factor of $\deg \geq 2$, then
+    there is an extension $E_1$ of $F$ for which $f$ has the factor $(x-\a)$ for
+    some root $\a$. Then $f(x)=(x-\a)f_1(x)$ where $\deg{f_1}=n-1$. Therefore by
+    the induction hypothesis, there is an extension $E$ of  $E_1$ containing all
+    the roots of $f_1$. Hence, it contains all the roots of $f$ and  $f$ splits
+    completely over  $E$.
+
+    Now, let $K$ be the intersection of all subfields of $E$ for which $f$
+    splite; i.e. all subfields containing the roots of $f$. Then by definition,
+     $K$ is the splitting field of  $f$ over  $F$.
 \end{proof}
+
+\begin{definition}
+    If $K$ is an algebraic extesnion of  $F$ such that it is the splitting field
+    for a collection of polynomials over  $F$, then we say that  $K$ is a
+     \textbf{normal extension} of $F$.
+\end{definition}
+
+\begin{example}\label{example_1.11}
+    \begin{enumerate}
+        \item[(1)] The splitting field of $x^2-2$ over  $\Q$ is  $\Q(\sqrt{2})$,
+            since $x^2-2=(x+\sqrt{2})(x-\sqrt{2})$ and $\pm{\sqrt{2}} \in
+            \Q(\sqrt{2})$ and $[\Q(\sqrt{2}):\Q]=2$, so there is no other
+            subfield in between.
+
+        \item[(2)] The splitting field for
+            $(x^2-2)(x^2-3)=(x+\sqrt{2})(x-\sqrt{2})(x+\sqrt{3})(x-\sqrt{3})$ is
+            $\Q(\sqrt{2},\sqrt{3})$. Now, $[\Q(\sqrt{2},\sqrt{3}):Q]=4$ and the
+            lattice of fields is
+            \[\begin{tikzcd}
+                & {\Q(\sqrt{2},\sqrt{3})} \\
+                {\Q(\sqrt{2})} & {\Q(\sqrt{6})} & {\Q(\sqrt{3})} \\
+                & {\mathbb{Q}}
+                \arrow["2", no head, from=1-2, to=2-2]
+                \arrow["2", no head, from=2-2, to=3-2]
+                \arrow["2"', no head, from=3-2, to=2-3]
+                \arrow["2"', no head, from=2-3, to=1-2]
+                \arrow["2"', no head, from=1-2, to=2-1]
+                \arrow["2"', no head, from=2-1, to=3-2]
+             \end{tikzcd}\]
+
+         \item[(3)] Let $\xi=i\frac{\sqrt{3}}{2}$. Notice that $x^3-2$ factors
+             into
+             $x^3-2=(x-\sqrt[3]{2})(x+\sqrt[3]{2}(-1+\xi))(x+\sqrt[3]{2}(-1-\xi))$.
+             Now, $-1+\xi,-1-\xi \notin \Q(\sqrt[3]{2})$, so $\Q(\sqrt[3]{2})$
+             is not the splitting field for $x^3-2$. Let  $K$ be the splitting
+             field of  $x^3-2$. Then  $K$ conmtains $-1 \pm \xi$, so that
+             $i\sqrt{3} \in K$. Thus
+             \begin{equation*}
+                 K=\Q(\sqrt[3]{2},i\sqrt{3})
+             \end{equation*}
+             Moreover, $[\Q(\sqrt[3]{2},i\sqrt{3}):\Q(\sqrt[3]{2})] \geq 2$
+             and since $\Q(\sqrt[3]{2})$ is not the splitting field,
+             $[\Q(\sqrt[3]{2},i\sqrt{3}):\Q(\sqrt[3]{2})]=2$. Hence
+             $[\Q(\sqrt[3]{2},i\sqrt{3}):\Q]=6$. We have the following lattice.
+             \[\begin{tikzcd}
+                & {\Q(\sqrt[3]{2},i\sqrt{3})} \\
+                && {\Q(\sqrt[3]{2})} & {\Q(\sqrt[3]{2}(-1+\xi))} & {\Q(\sqrt[3]{2}
+                    (-1-\xi))} \\
+                {\mathbb{Q}(i\sqrt{3})} \\
+                & {\mathbb{Q}}
+                \arrow[no head, from=1-2, to=3-1]
+                \arrow[no head, from=3-1, to=4-2]
+                \arrow[no head, from=4-2, to=2-4]
+                \arrow[no head, from=2-4, to=1-2]
+                \arrow[no head, from=1-2, to=2-3]
+                \arrow[no head, from=2-3, to=4-2]
+                \arrow[no head, from=1-2, to=2-5]
+                \arrow[no head, from=2-5, to=4-2]
+            \end{tikzcd}\]
+
+        \item[(4)] Notice that $x^4+4=(x^2+2x+2)(x^2-2x+2)$ over $\Q$ which is
+            irreducible by Eisenstein's criterion. Using the quadratic formula,
+            we get $\pm{1}$ and $\pm{i}$ as the roots, moreover, notice that
+            $\pm{1},\pm{i} \in \Q(i)$ and since $[\Q(i):\Q]=2$ there are no
+            subfields between $\Q$ and  $\Q(i)$ so that $\Q(i)$ is the splitting
+            field of $x^4+4$ over  $\Q$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{1.4.2}
+    A splitting field of a polynomial of degree $n$ over a field  $F$ is of
+    degree at most  $n!$ over  $F$.
+\end{lemma}
+\begin{proof}
+    Let $f \in F[x]$ a polynomial of $\deg{f}=n$. Adjoining one root of $f$ to
+    $F$, we have an extension $\faktor{F_1}{F}$ of degree $[F_1:F]=n$. Now,$f$
+    over $F_1$ has at leas one linear factor, and so any root of $f$ satisfies a
+    polynomial of degree $n-1$. Hence proceeding inductively gives the result.
+\end{proof}
+
+\begin{example}\label{example_1.12}
+    Consider the polynomial $x^n-1$ over  $\Q$. Then the roots of  $x^n-1$ are
+    of the form  $\xi$ where  $\xi^n=1$. Notice, that in  $\C$,
+    $\xi=e^{\frac{2i\pi}{n}}$, so that $\C$ contains a splitting field of
+    $x^n-1$. Hence  $\Q(\xi) \subseteq \C$ is a splitting field of $x^n-1$ over
+     $\Q$. Notice that the set of all roots $\xi$ of  $x^n-1$ forms a cyclic
+     group generated by $\xi$.
+\end{example}
+
+\begin{definition}
+    Consider a field $F$ and the polynomial $x^n-1$ over $F$. We call the roots
+     $\xi$ of  $x^n-1$, where  $\xi^n=1$ the  \textbf{primitive $n$-th roots of
+     unity} over $F$. We call  $F(\xi)$ the \textbf{cyclotomic field} over $F$.
+\end{definition}
+
+\begin{example}\label{exampl_1.13}
+    Let $p$ be a prime, and consider the splitting field $x^p-2$ over  $\Q$. If
+     $\a$ is a root, then $\a^p=2$ so that $(\xi\a)^p=2$ where $\xi$ is a
+     primitive  $p$-th root of unity over  $\Q$. So the roots of $x^2-2$ are
+     \begin{equation*}
+         \sqrt[p]{2}    \text{ and }  \xi\sqrt[p]{2}
+     \end{equation*}
+     Notice that $\frac{\xi\sqrt[p]{2}}{\sqrt[p]{2}}=\xi$ so the splitting field
+     contains $\Q(\xi,\sqrt[p]{2})$, Moreover, $\Q(\xi,\sqrt[p]{2})$ contains
+     all the roots of $x^p-2$ so that  $\Q(\xi,\sqrt[p]{2})$ is the splitting
+     field of $x^p-2$ over  $\Q$.
+
+     Notice, that  $\Q(\xi) \subseteq \Q(\xi,\sqrt[p]{2})$ so that
+     $[\Q(\xi,\sqrt[p]{2}):\Q(\xi)] \leq p$. not, since $\Q(\sqrt[p]{2})$ is
+     also a subfield, we get $[\Q(\xi,\sqrt[p]{2}):Q] \leq p(p-1)$. Since
+     $(p,p-1)=1$ (i.e. they are coprime), we have
+     $p(p-1)|[\Q(\xi,\sqrt[p]{2}):\Q]$ so that $[p]{2}):\Q]=p(p-1)$. We have the
+     follwing lattice.
+     \[\begin{tikzcd}
+        & {\mathbb{Q}(\xi,\sqrt[p]{2})} \\
+        {\mathbb{Q}(\xi)} && {\mathbb{Q}(\sqrt[p]{2})} \\
+        & {\mathbb{Q}}
+        \arrow[no head, from=1-2, to=2-1]
+        \arrow[no head, from=2-1, to=3-2]
+        \arrow[no head, from=3-2, to=2-3]
+        \arrow[no head, from=2-3, to=1-2]
+     \end{tikzcd}\]
+\end{example}
 
 \begin{theorem}\label{1.4.3}
-    $i^2=-1$.
+    Let $\phi:F \xrightarrow{} F'$ a field isomorphism. Let $f$ and  $f'$
+    polynomials over  $F$ and  $F'$, where  $f'$ is obtained by applying  $\phi$
+    to the coefficients of  $f$. Let  $E$ and  $E'$ be splitting fields of $f$
+    and  $f'$ over $F$ and $F'$, respectively. Then $\phi$ extends to an
+    isomorphism betweenn $E$ and $E'$; i.e. $E \simeq E'$.
+    \[\begin{tikzcd}
+        E & {E'} \\
+        F & {F'}
+        \arrow[from=1-1, to=1-2]
+        \arrow["\phi", from=2-1, to=2-2]
+        \arrow[no head, from=1-2, to=2-2]
+        \arrow[no head, from=1-1, to=2-1]
+        \end{tikzcd}\]
 \end{theorem}
 \begin{proof}
-    $i^2=(0,1)(0,1)=(0-1,1-1)=(-1,0)=-1$.		
+    Let $\deg{f}=n$. By induction on $n$. If  $f$ has all its roots in $F$, $f$
+    splits completely over  $F$, and  $f'$ over  $F'$. Then take  $E=F$ and
+    $E'=F'$ and we are done for $n=1$.
+
+    Now, for  $n \geq 1$, suppose the theorem is true. Let $p$ an irreducible
+    factor of $f$, and $p'$ an irreducible factor of  $f'$. If  $\a$ and  $\a'$
+    are roots of  $p$ and  $p'$, respectively, then extend $\phi$ to  $F(\a)$
+    and $F'(\a')$. Then $f(x)=(x-\a)f_1(x)$ and $f'(x)=(x-\a')f_1'(x)$; with
+    $\deg{f_1}=\deg{f_1'}=n-1$. Then let $E$ the splitting field of $f_1$ over
+    $F(\a)$, and $E'$ the splitting field of  $f_1'$ over $F'(\a')$
+    \[\begin{tikzcd}
+        E & {E'} \\
+        {F(\alpha')} & {F'(\alpha')} \\
+        F & {F'}
+        \arrow["\phi"', from=3-1, to=3-2]
+        \arrow[from=2-1, to=2-2]
+        \arrow[from=1-1, to=1-2]
+        \arrow[no head, from=1-1, to=2-1]
+        \arrow[no head, from=2-1, to=3-1]
+        \arrow[no head, from=1-2, to=2-2]
+        \arrow[no head, from=2-2,to=3-2]
+     \end{tikzcd}\]
+     The the roots of $f_1$ and  $f_1'$ are in  $E$ and  $E'$, respectively, and
+     hence so are the roots of $f$ and  $f'$. Then by the induction hypothesis,
+     we can extend  $\phi$ to  $E$ and  $E'$ so that  $E \simeq E'$.
 \end{proof}
-
-\begin{theorem}\label{1.4.4}
-    Let $(a,b) \in \C$, then  $(a+b)=a+ib$.
-\end{theorem}
+\begin{corollary}
+    Any two splitting fields of a given polynomial over a field are isomorphic.
+\end{corollary}
 \begin{proof}
-    $(a,b)=(a,0)+(0,b)=(a,0)+(0,1)(b,0)=a+ib$.	
-\end{proof}
-
-\begin{definition}
-    Let $a,b \in \R$, and let  $z \in \C$ such that  $z=a+ib$. We define the  \textbf{complex 
-    conjugate} of $z$ to be the complex number  $\bar{z}=a-ib$. Moreover, we define the 
-    \textbf{real part} of  $z$ to be $a$, and the \textbf{imaginary part} of  $z$ to be $b$, 
-    and we denote them $a=\re{z}$,  $b=\im{z}$
-\end{definition}
-
-\begin{theorem}\label{1.4.5}
-    Let $z, w \in \C$. Then 
-        \begin{enumerate}[label=(\arabic*)]
-            \item $\overline{z+w}=\bar{z}+\bar{w}$.
-
-            \item $\overline{zw}=\bar{z}\bar{w}$.
-
-            \item $z+\bar{z}=2\re{z}$ and  $z-\bar{z}=2i\im{z}$.
-
-            \item $z\bar{z}$ is a nonegative real number.
-        \end{enumerate}
-\end{theorem}
-\begin{proof}
-    Let $z=a+ib$, and let  $w=c+id$. Then $z+w=(a+c)+i(b+d$, so  $\overline{z+w}=(a+b)
-    -i(b+d)=(a-ib)+(c-id)=\bar{z}+\bar{w}$; similarly, we get  $\overline{zw}=\bar{z}\bar{w}$. 
-    Moreover, we have  $(a+ib)+(a-ib)=2a$, and  $(a+ib)-(a-ib)=2ib$, we also have that 
-    $z\bar{z}=(a+ib)(a-ib)=a^2+b^2 \geq 0$, and $z\bar{z}=0$ if and only if $a=b=0$.
-\end{proof}
-
-\begin{definition}
-    Let $z \in \C$. We define the  \textbf{modulus} of  $z$ to be  $|z|=\sqrt{z\bar{z}}$.
-\end{definition}
-\begin{remark}
-    $|z|$ exists and is unique.
-\end{remark}
-
-\begin{theorem}\label{1.4.6}
-    Let $z,w \in \C$, then:
-        \begin{enumerate}[label=(\arabic*)]
-            \item $|z| \geq 0$ and  $|z|=0$ if and only if $z=0$.
-
-            \item  $|\bar{z}|=|z|$.
-
-            \item $|zw|=|z||w|$.
-
-            \item  $\re{z} \leq |z|$.
-
-            \item  $|z+w+ \leq |z|+|w|$.
-        \end{enumerate}
-\end{theorem}
-\begin{proof}
-    Let $z=a+ib$, and  $w=c+id$. Then  $|z|=\sqrt{a^2+b^2} \geq 0$, and  $|z|=0$ if 
-    and only if  $a,b=0$. Moreover,  $|\bar{z}|=|a+i(-b)|=\sqrt{a^2+(-b)^2}=\sqrt{a^2+b^2}=|z|$. 
-    We also habe $|zw|^2=(a^2+b^2)(c^2+d^)=|z|^2|w|^2$, likewise,  $\|re{z}|=|a+i0|=
-    \sqrt{a^2} \leq \sqrt{a^2+b^2}$. Finally we prove $(5)$.
-
-    We have  $|z+w|^2=(x+w)(\bar{z}+\bar{w})=z\bar{z}+\bar{z}w+\bar{w}z+w\bar{w}= 
-    |z|^2+w\re{z\bar{w}}+|w|^2 \leq |z|^2+2|s\bar{w}|+|w|^2=(|z|+|w|)^2$.
-\end{proof}
-
-\begin{theorem}[The Cauchy Schwarz Inequality]\label{1.4.7}
-    Let $a_i,b_i \in \C$, for  $1 \leq i \leq n$. Then:
-         \begin{equation}
-             |\sum_{i=1}^{n}{a_i\bar{b_i}}| \leq \sum_{i = 1}^{n}{|a_i|^2}\sum_{i=1}^{n}{|b_j|^2}		
-        \end{equation}
-\end{theorem}
-\begin{proof}
-    Let $A=\sum{a_j|^2}$,  $B=\sum{|b_i|^2}$, and $C=\sum{a_i\bar{b_i}}$. If  $B=0$, then 
-     $b_i=0$ for  $1 \leq i \leq n$, and we are done; so suppose that  $B>0$. Then
-        \begin{align*}
-            \sum{|Ba_j-Cb_j|^2} &= \sum{(Ba_j-Cb_j)(B\bar{a_j}-\bar{Cb_j})} \\
-                             &= B\sum{|a_j|^2}-B\bar{C}\sum{a_j\bar{b_j}-BC\sum{\bar{a_j}b_j}}+|C^2|\sum{|b_j|^2} \\
-                             &= (B^2A-B|C|^2)=B(AB-|C|^2) \geq 0 \\
-        \end{align*}
-    Since $B>0$, we get  $|C|^2 \leq AB$ as required.
+    Take $\phi$ to be the identity map.
 \end{proof}

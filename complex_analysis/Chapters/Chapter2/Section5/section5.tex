@@ -1,98 +1,263 @@
-\section{Differentiation of Power Series}
+\section{Continuity and Uniform Convergence in $\C$}
 
 \begin{definition}
-    Let $B(0,r)$ be an open ball in $\C$ with  $r>0$. A function $f$ on $B(0,r)$
-    for which there exists a convergent power series $\sum{a_nz^n}$ or radius of
-    convergence greater than or equal $r$ for which
+    Let $(X,d)$ and $(Y,\rho)$ be metric spaces, and $f:X \xrightarrow{} Y$ a
+    function. We say that $f$ is \textbf{continuous} at a point $a \in X$ if for
+    every  $\e>0$, there is a  $\d>0$ for which
     \begin{equation*}
-        f(z)=\sum{a_nz^n}
+        \rho(f(x),y)<\e \text{ whenever } 0<d(x,a)<\d
     \end{equation*}
-    is said to \textbf{admit a power series expansion} on $B(0,r)$. We define
-    the \textbf{formal derived series} of $\sum{a_nz^n}$ to be the series
+    for some $y \in Y$ and we write $\lim_{x \xrightarrow{} a}{f(x)}=y$, or
+    simply $f \xrightarrow{} y$. If $f$ is continuous at every point in  $X$, we
+    say that  $f$ is  \textbf{continuous} on $X$  (or simply that $f$ is
+    \textbf{continuous}).
+\end{definition}
+
+\begin{lemma}\label{2.5.1}
+    Let $X$ and  $Y$ be metric spaces. If  $f:X \xrightarrow{} Y$ is a function,
+    then the following statements are equivalent for any $a \in X$ with
+    $y=f(a)$.
+    \begin{enumerate}
+        \item[(1)] $f$ is continuous at  $a$.
+
+        \item[(2)] For any $\e>0$  $\inv{f}(B(y,\e))$ contains a ball centered
+            about $a$.
+
+        \item[(3)] If $\{x_n\}$ is a sequence of points of $X$ converging to
+            $a$, then the sequence $\{f(x_n)\}$ converges to $y$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}\label{2.5.2}
+    Let $X$ and  $Y$ be metric spaces, and  $f:X \xrightarrow{} Y$ a function.
+    The following statements are equivalent.
+    \begin{enumerate}
+        \item[(1)] $f$ is continuous on  $X$.
+
+        \item[(2)] For any open set $U$ of  $Y$,  $\inv{f}(U)$ is open in $X$.
+
+        \item[(3)] For any closed set $V$ of  $Y$, $\inv{f}(V)$ is closed in
+            $X$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}\label{2.5.3}
+    Let $f:X \xrightarrow{} \C$ and $g:X \xrightarrow{} \C$ be complex-valued
+    functions. If $f$ and $g$ are continuous, then for every $\a,\b \in \C$, we
+    have
+    \begin{enumerate}
+        \item[(1)] $\a f+\b g$ is continuous.
+
+        \item[(2)] $fg$ is continuous, and  $\frac{f}{g}$ is continuous provided
+            $g(z) \neq 0$ for all $z \in X$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}\label{2.5.4}
+    If $f:X \xrightarrow{} Y$ and $g:Y \xrightarrow{} Z$ are continuous, then $g
+    \circ f:X \xrightarrow{} Z$ is continuous.
+\end{lemma}
+
+\begin{definition}
+    We call a function $f:X \xrightarrow{} Y$ \textbf{uniformly continuous} if
+    for every $\e>0$, there is a  $\d>0$, depending on  $\e$, such that
     \begin{equation*}
-        \sum{na_nz^{n-1}}
+        \rho(f(x),f(y))<\e \text{ whenever } d(x,y)<\d
+    \end{equation*}
+    We call $f$  \textbf{Lipschitz continuous} if there exists an $M>0$ such
+    that
+    \begin{equation*}
+        \rho(f(x),f(y))=Md(x,y) \text{ for all } x,y \in X
     \end{equation*}
 \end{definition}
 
-\begin{theorem}\label{2.5.1}
-    Of $f(z)$ is a complex valued function admiting a power series expansion of
-    radius of convergence $r>0$. Then the following are true.
+\begin{lemma}\label{2.5.5}
+    Lipschitz continuous functions are uniformly continuous, and uniformly
+    contiuous functions are continuous.
+\end{lemma}
+
+\begin{definition}
+    Let $X$ be a metric space, and  $A \subseteq X$ a nonempty subset. We define
+    the  \textbf{distance} from a point $x \in X$ to  $A$ to be
+    \begin{equation*}
+        d(x,A)=\inf{\{d(x,a) : a \in A\}}
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{2.5.6}
+    Let $X$ a metric space, and  $A \subseteq X$ nonempty. The following are
+    true.
     \begin{enumerate}
-        \item[(1)] The formal derived series of the power series expansion of
-            $f$ is convergent, with the same radius of convergence.
+        \item[(1)] $d(x,A)=d(x,\cl{A})$.
 
-        \item[(2)] If $f$ is holomorphic on $B(0,r)$, then the complex
-            derivative of $f$ on  $B(0,r)$ admits as power series expansion, the
-            formal derived series of the power series expansion of $f$; that is
-            if  $f(z)=\sum{a_nz^n}$, then
-            \begin{equation*}
-                f'(z)=\sum{nz_nz^n}
-            \end{equation*}
+        \item[(2)] $d(x,A)=0$ if, and only if $x \in \cl{A}$.
+
+        \item[(3)] $|d(x,A)-d(y,A)| \leq d(x,y)$ for all $x,y \in X$.
     \end{enumerate}
-\end{theorem}
+\end{lemma}
 \begin{proof}
-    Observe that we have $\limsup{\sqrt[n]{|a_n|}}=\frac{1}{r}$, but that
-    $\limsup{\sqrt[n]{|na_n|}}=\limsup{\sqrt[n]{n}\sqrt[n]{|a_n|}}$. Then the
-    sequences $\{\sqrt[n]{|a_n|}\}$ and $\{\sqrt[n]{|na_n|}\}$ have the same
-    limit superior; so that $\limsup{\sqrt[n]{|na_n|}}=\frac{1}{r}$. Now, since
-    the power series expansion of $f$ converges, and has the same radius of
-    convergence as its formal derived series, then the formal derived series
+    Let $A \subseteq B$. Then by definition,  $d(x,B) \leq d(x,A)$, so that
+    $d(x,\cl{A}) \leq d(x,A)$. Now, if $\e>0$, there is a  $y \in \cl{A}$ for
+    which $d(x,y) \leq d(x,\cl{A})+\frac{\e}{2}$, and there exists an $a \in A$
+    with  $d(y,a)<\frac{\e}{2}$. Then
     \begin{equation*}
-        \sum{na_nz^{n-1}}
+        |d(x,y)-d(x,a)|<d(y,a)<\frac{\e}{2}
     \end{equation*}
-    also converges on the same radius.
+    by the triangle inequality. Then $d(x,a)<d(x,y)+\frac{\e}{2}$ so that
+    $d(x,A)<d(x,\cl{A})+\frac{\e}{2}$. That is $d(x,A) \leq d(x,\cl{A})$.
 
-    Now, let $|z|<r$ and  $\d>0$, such that  $|z|+\d<r$. Cisider  $h \in \C$
-    such that  $|h|<\d$, then we have
-    $f(z+h)=\sum{a_n(z+h)^n}=\sum{a_n(z^n+nz^{n-1}h+h^2p_n(z,h))}$, where
+    Now, if $x \in \cl{A}$, then $d(x,\cl{A})=d(x,A)=0$. Conversly, if
+    $d(x,A)=0$, then consider the decreasing sequence $\{a_n\}$ of $A$ such that
+    $\lim{d(x,a_n)}=d(x,A)$. Then $\lim{d(x,a_n)}=0$ so that $\lim{a_n}=x$, so
+    that $x \in \cl{A}$.
+
+    Finally, we have for $a \in A$ that  $d(x,a) \leq d(x,y)+d(y,a)$, so that
+    $d(x,A) \leq \inf{\{d(x,y)+d(y,a) : a \in A\}}=d(x,y)+d(y,A)$. This gives
+    $d(x,A)-d(y,A) \leq d(x,y)$. Similar reasoning also gives $d(y,A)-d(x,A)
+    \leq d(x,y)$ so that
     \begin{equation*}
-        p_n(z,h)=\sum_{k=2}^n{{n \choose k}z^{n-k}h^{k-2}}
-    \end{equation*}
-    Then we have the estimate
-    \begin{equation*}
-        |p_n(z,h)|=\sum_{k=2}^n{{n \choose k}\d^{k-2}|z|^{n-k}}=p(|z|,\d)
-    \end{equation*}
-    Subtracting $f(z)$, we get
-    \begin{equation*}
-        f(z+h)-f(z)-\sum{na_nz^{n-1}h}=h^2\sum{a_np_n(z,h)}
-    \end{equation*}
-    The series are absolutely convergent so that
-    \begin{equation*}
-        \frac{f(z+h)-f(z)}{h}-\sum{na_nz^{n-1}}=h\sum{a_np_n(z,h)}
-    \end{equation*}
-    Then for $|h|<\d$, we have
-    \begin{equation*}
-        |\sum{a_np_n(z,h)}| \leq \sum{|a_n||P_n(z,h)|)} \leq
-        \sum{|a_n|p_n(|z|,\d)}
-    \end{equation*}
-    Multiplying by $h$, and as  $h \xrightarrow{} 0$ we get
-    $\lim{|h\sum{a_np_n(z,h)}|}=0$. Therefore
-    \begin{equation*}
-        f'(z)=\sum{na_nz^{n-1}}
+        |d(x,A)-d(y,A)| \leq d(x,y) \text{ for all } x,y \in X
     \end{equation*}
 \end{proof}
 \begin{corollary}
-    If $f$ is holomorphic in its domain, then the coefficients of the power
-    series expansion of $f$, at some point $z_0$ in the domain of $f$ are given
-    by
-    \begin{equation*}
-        a_n=\frac{f^{(n)}(z_0)}{n!}
-    \end{equation*}
+    The function $f:X \xrightarrow{} \R$ defined by $f(x)=d(x,A)$ is Lipschitz
+    continuous.
 \end{corollary}
 
+\begin{theorem}\label{2.5.7}
+    Let $f:X \xrightarrow{} Y$ be continuous. Then following are true.
+    \begin{enumerate}
+        \item[(1)] If $X$ is compact, then so is  $f(X)$.
+
+        \item[(2)] If $X$ is connected, so is  $f(X)$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Without loss of generality, suppose $f(X)=Y$. If $X$ is compact, et
+    $\{y_n\}$ a sequence in $Y$. Then for every  $n \geq 1$, there is a sequence
+    of points  $\{x_n\}$ of $X$ with  $f(x_n)=y_n$, and $\{x_{n_k}\}
+    \xrightarrow{} x$. If $y=f(x)$, then by continuity, $\{y_{n_k}\}
+    \xrightarrow{} y$ so that $Y$ is also compact.
+
+    Now, if  $X$ is connected, let  $S \subseteq Y$ a nonempty set wich is both
+    open and closed. Then  $\inv{f}(S) \neq \emptyset$ and $\inv{f}(S)$ is also
+    open and closed, so that $X=\inv{f}(S)$ by connectivity. This makes $S=Y$,
+    and so  $Y$ must also be continuous.
+\end{proof}
+\begin{corollary}
+    If $K$ is compact or connected in  $X$, then  $f(K)$ is compact or connected
+    in $Y$.
+\end{corollary}
+\begin{corollary}
+    If $f:X \xrightarrow{} \R$ is continuous, and $X$ is connected, then  $f(X)$
+    is an interval.
+\end{corollary}
+
+\begin{theorem}[The Intermediate Value Theorem]\label{2.5.8}
+    If $f[a,b] \xrightarrow{} \R$ is continuous, with $f(a) \leq c \leq f(b)$,
+    then there is an $x \in [a,b]$ with $f(x)=c$.
+\end{theorem}
+\begin{corollary}
+    If $K \subseteq X$ is compact, then there exist  $x_0,y_0 \in K$ with
+    $f(x_0)=\sup{\{f(x) : x \in K\}}$ and $f(y_0)=\inf{\{f(y) : y \in K\}}$.
+\end{corollary}
+\begin{corollary}
+    If $K \subseteq X$ is nonempty, and  $x \in X$, there is a  $y \in K$ for
+    which $d(x,y)=d(x,K)$.
+\end{corollary}
+\begin{proof}
+    Define $f:X \xrightarrow{} \R$ by $f(y)=d(x,y)$. Then $f$ is continuous, and
+    by above, assumes a minimum value  $y in K$. Then $f(y) \leq f(x)$ for all
+    $x \in K$, so that  $d(x,y)=d(x,K)$ by definition.
+\end{proof}
+
+\begin{theorem}\label{2.5.9}
+    Let $f:X \xrightarrow{} Y$ be continuous. If $X$ is compact, then  $f$ is
+    uniformly continuous.
+\end{theorem}
+\begin{proof}
+    Let $\e>0$ and suppose there is no such  $\d>0$ for which the statement
+    holds. Then each  $\d=\frac{1}{n}$ in particular fais. Then there exist
+    $x_n,y_n \in X$ with  $d(x_n,y_n)<\frac{1}{n}$, but where
+    $\rho(f(x_n),f(y_n)) \geq \e$. Now, since $X$ is compact, there is a
+    subsequence  $\{x_{n_k}\}$ of $\{x_n\}$ converging to a point $x \in X$.
+    Now,  $d(x,y_{n_k}) \leq d(x,x_{n_k})+\frac{1}{n_k}$ which goes to $0$ as
+    $k \xrightarrow{} \infty$. SO $\{y_{n_k}\} \xrightarrow{} x$. But if,
+    $y=f(x)$, and $y=\lim{f(x_{n_k})}=\lim{f(y_{n_k})}$, then we get
+    \begin{equation*}
+        \e \leq \rho(f(x_{n_k}),f(y_{n_k})) \leq
+        \rho(f(x_{n_k}),y)+\rho(y,f(y_{n_k}))=0
+    \end{equation*}
+    which is a contradiction since $\e>0$.
+\end{proof}
+
 \begin{definition}
-    Let $f:U \xrightarrow{} \C$ a complex function on an open domain $U$ of
-    $\C$. If  $g$ is an holomorphic function such that  $g'=f$, then we call
-    $g$ a  \textbf{primitive} of $f$.
+    If $A,B \subseteq X$ are nonempty subsets of a metric space  $X$, we define
+    the  \textbf{distance} between $A$ and $B$ to be
+    \begin{equation*}
+        d(A,B)=\inf{\{d(a,b) : a \in A, b \in B\}}
+    \end{equation*}
 \end{definition}
 
-\begin{example}\label{example_2.9}
-    the function $\frac{1}{z}$ is analytic on the domain $\com{\C}{\{0\}}$; the
-    punctured complex plane. Indeed, for $z_0 \neq 0$, we get the power series
-    expansion of $\frac{1}{z}$ at $z_0$ to be
+\begin{theorem}\label{2.5.10}
+    let $A$ and  $B$ be disjoint subsets of a metric space  $X$; with  $B$
+    closed, and  $A$ compact. Then  $d(A,B)>0$.
+\end{theorem}
+\begin{proof}
+    Define $f:X \xrightarrow{} \R$ by $f(x)=d(x,B)$. Since $A$ and  $B$ are
+    disjoint, and  $B$ is closed, $f(a)>0$ for all $a \in A$. Moreover, since
+    $A$ is compact, there is an  $a \in A$ for which  $0<f(a)=\inf{\{f(x) : x
+    \in A\}}=d(A,B)$.
+\end{proof}
+
+\begin{definition}
+    Let $X$ be a set, and $(Y,\rho)$ a metric space; and let $\{f_n\}$ a
+    sequence of functions from $X$ to  $Y$. We say that  $\{f_n\}$
+    \textbf{converges uniformly} if for every $\e>0$, there is an  $N>0$,
+    dependent on  $\e$ such that
     \begin{equation*}
-        \frac{1}{z}=\frac{1}{z_0}(1-\frac{1}{z_0}(z-z_0)+)
+        \rho(f(x),f_n(x))<\e \text{ whenever } n \geq N
     \end{equation*}
-    which converges on the open ball $B(0,r)$. Hence $\frac{1}{z}$ has a
-    primitive on $B(z_0,r)$, which we may denote as $\log{z}$.
-\end{example}
+    for all $x \in X$. We write $\{f_n\} \xrightarrow{\text{uniformly}} f$, or
+    just $\{f_n\} \xrightarrow{} f$.
+\end{definition}
+
+\begin{theorem}\label{2.5.11}
+    If $f_n:X \xrightarrow{} Y$ is continuous for each $n \geq 1$, and
+    $\{f_n\} \xrightarrow{\text{uniformly}} f$, then $f$ is also continuous.
+\end{theorem}
+\begin{proof}
+    Fix $x_0 \in X$ and let $\e>0$. Since  $\{f_n\} \xrightarrow{} f$, there is
+    a function $f_n$ for which  $\rho(f(x),f_n(x))<\frac{\e}{3}$ for every $x
+    \in X$. Since  $f_n$ is continuous, there is a  $\d>0$ such that
+    \begin{equation*}
+        \rho(f_n(x_0),f_n(x))<\frac{\e}{3} \text{ whenever } d(x,x_0)<\d
+    \end{equation*}
+    Therefore, if $d(x_0,x)<\d$ we have
+    \begin{equation*}
+        \rho(f(x_0),f(x)) \leq
+        \rho(f(x_0),f_n(x_0))+\rho(f_n(x_0),f_n(x))+\rho(f_n(x),f(x))<
+        \frac{\e}{3}+\frac{\e}{3}+\frac{\e}{3}=\e
+    \end{equation*}
+    so that $f$ is continuous.
+\end{proof}
+
+\begin{theorem}[The Weierstrass $M$-test]\label{2.5.12}
+    Let $u_n:X \xrightarrow{} \C$ be a function such that $\|u_n(x)\| \leq M_n$, for
+    all $x \in X$, and suppose that the sum $\sum{M_n}$ is finite. THen $\sum{u_n}$
+    is uniformly convergent.
+\end{theorem}
+\begin{proof}
+    Let $f_n(x)=u_1(x)+\dots+u_n(x)$. Then for $n>m$,
+    $\|f_n(x)-f_m(x)\|=\|u_{m+1}(x)+\dots+u_n(x)\| \leq \sum_{k=m+1}^n{M_k}$.
+    Since $\sum{M_k}$ is finite, this sum converges, so that $\{f_n\}$ is
+    Cauchy in $\C$. That is, there exists a  $\xi \in \C$ for which  $\{f_n(x)\}
+    \xrightarrow{} \xi$. Define then $f(x)=\xi$, then $f:X \xrightarrow{} \C$ is
+    a function with
+    \begin{equation*}
+        \|f(x)-f_n(x)\|=\|u_{m+1}(x)+\dots+u_n(x)\| \leq \sum_{k=m+1}^n{\|u_k(x)\|}
+        \leq \sum_{k=m+1}^n{M_k}
+    \end{equation*}
+    Then for every $\e>0$, there is an  $N>0$ such that  $\sum{M_k}<\e$,
+    whenever $n \geq N$. THus  $\|f(x)-f_n(x)\|<\e$ for all $x \in X$.
+\end{proof}

@@ -1,154 +1,137 @@
-\section{Formal Power Series}
+\section{Metric Spaces}
 
 \begin{definition}
-    Let $F$ be a field, we define the set  $F[[x]]$ of all series of the form
-    \begin{equation*}
-        f(x)=\sum_{n=0}^\infty{a_0x^n}, \text{ where } a_0, \dots, a_n ,\dots \in F
-    \end{equation*}
-    the set of \textbf{formal power series} over $F$. We call the elements of
-    $F[[x]]$ \textbf{formal power series}.
+    A \textbf{metric space} is a set $X$ together with a map  $d:X \times X
+    \xrightarrow{} \R$ such that for all $x,y,z \in X$
+    \begin{enumerate}
+        \item[(1)] $d(x,y) \geq 0$ and $d(x,y)=0$ if, and only if $x=y$.
+
+        \item[(2)] $d(x,y)=d(y,x)$.
+
+        \item[(3)] $d(x,y) \leq d(x,z)+d(z,y)$ (The Triangle Inequality).
+    \end{enumerate}
+    We call $d$ a  \textbf{metric} on $X$. If  $x \in X$, and  $r>0$, we define
+    the  \textbf{open ball} centered about $x$ of  \textbf{radius} $r$ to be the
+    set  $B(x,r)=\{y \in X : d(x,y)<r\}$. We define the \textbf{closed ball}
+    centered about $x$ of radius  $r$ to be the set  $\bar{B}(x,y)=\{y \in X :
+    d(x,y) \leq r\}$.
 \end{definition}
-
-\begin{definition}
-    Let $f(x)=\sum_{n=0}^\infty{a_0x^n}$ a formal power series over a field $F$.
-    We define the  \textbf{order} of $f$ to be the smallest integer  $n$ for
-    which $a_n \neq 0$, and write  $\ord{f}=n$. We call the term $a_0$ of $f$
-    the  \textbf{constant term} of $f$.
-\end{definition}
-
-\begin{lemma}\label{2.1.1}
-    Let $F$ be a field, and define the operations $+$ and $\cdot$ on  $F$ by
-    \begin{align*}
-        f(x)+g(x) &= \sum_{n=0}^\infty{c_nx^n} \text{ where }c_n=a_n+b_n   \\
-        f(x)g(x) &= \sum_{n=0}^\infty{d_nx^n}
-                    \text{ where }c_n=\sum_{k=0}^n{a_kb_{n-k}}   \\
-    \end{align*}
-    Where $f(x)=\sum_{n=0}^\infty{a_nx^n}$ and $g(x)=\sum_{n=0}^\infty{b_nx^n}$
-    are formal power series over $F$. Then  $F[[x]]$ forms a commutative ring
-    under $+$ and  $\cdot$.
-\end{lemma}
-\begin{corollary}
-    Define the action $F \times  F[[x]] \xrightarrow{} F[[x]]$ by
-    \begin{equation*}
-        \a f(x)=\sum_{n=0}^\infty{(\a a_n)x^n}
-    \end{equation*}
-    Then $F[[x]]$ is an $F$-module under this action.
-\end{corollary}
-
-\begin{lemma}\label{2.1.2}
-    Let $f(x)=\sum_{n=0}^\infty{a_nx^n}$ and $g(x)=\sum_{n=0}^\infty{b_nx^n}$ be
-    formal power series over a field $F$. Then  $\ord{fg}=\ord{f}+\ord{g}$.
-\end{lemma}
-
-\begin{definition}
-    Let $f \in F[[x]]$ be a formal power series over a field  $F$. We say that a
-    formal power series  $g \in F[[x]]$ is an \textbf{inverse} of $f$ if
-    $fg=1$.
-\end{definition}
-
-\begin{lemma}\label{2.1.3}
-    If $f(x)=\sum_{n=0}^\infty{a_nx^n}$ is a formal power series over a field
-    $F$, with nonzero constant term, then there exists an inverse of $f$.
-\end{lemma}
-\begin{proof}
-    Consider the series $\inv{a_0}f(x)$ instead of $f$. Reacall also that the
-    geometric series
-    \begin{equation*}
-        \frac{1}{1-r}=1+r+r^2+\dots
-    \end{equation*}
-    is a formal power series in $r$ over $F$. Then $(1-r)(1+r+r^2+\dots)=1$.
-    Now, let $f(x)=1-h(x)$, where $h(x)=-(a_1x+a_2x^2+\dots)$ and consider
-    $\phi(h)=1+h+h^2+\dots$. Observbe that $\ord{h^n} \geq n$ sicne
-    $h^n=(-1)a_1^nx^n+\dots$. Thus, if $m>n$, then  $h^m$ has all coefficients
-    of order less than  $n$ equal to  $0$, and the $n$-th coefficient of $\phi$
-    is the $n$-th coefficient of the sum
-    \begin{equation*}
-        1+h+h^2+\dots+h^n
-    \end{equation*}
-    Then, we get by the above geometric series that
-    \begin{equation*}
-        (1-h(x))\phi(h)=(1-h(x))(1+h+h(x)^2+\dots)=1+\dots=1
-    \end{equation*}
-\end{proof}
 
 \begin{example}\label{example_2.1}
-    Let $\cos{x}=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\dots$. By lemma \ref{2.1.3},
-    since $\cos{x}$ has nonzero constant term, it has an invers
-    $g(x)=\frac{1}{\cos{x}}$. Notice that
-    \begin{align*}
-        \frac{1}{1-\frac{x^2}{2!}+\frac{x^4}{4!}-\dots} &= 1+(\frac{x^2}{2!}-
-        \frac{x^4}{4!}+\dots)+(\frac{x^2}{2!}-\frac{x^4}{4!}+\dots)^2+\dots \\
-            &= 1+\frac{x^2}{2!}-\frac{x^4}{4!}+\dots+\frac{x^4}{(2!)^2} \\
-            &= 1+\frac{x^2}{2!}+(-\frac{1}{24}+\frac{1}{4})x^2+\dots
-    \end{align*}
-    Which gives coefficients of $g(x)$ up to order $4$.
+    \begin{enumerate}
+        \item[(1)] The metric $d(x,y)=\|z-w\|$ makes $\R$ and  $\C$ into metric
+            spaces. In fact,  $d$ defines the norm on  $\C$, i.e.
+            $\|z\|=d(z,0)$.
+
+        \item[(2)] If $X$ is a metric space with metric  $d$, and  $Y \subsete
+            X$, then  $d$ makes  $Y$ into a metric space.
+
+        \item[(3)] Define $d(x+iy,a+ib)=\|x-a\|+\|y-b\|$. Then $(\C,d)$ is a
+            metric space. We call $d$ the  \textbf{taxicab metric}.
+
+        \item[(4)] Define $d(x+iy,a+ib)=\max{\{\|x-a\|,\|y-b\|\}}$. Then
+            $(\C,d)$ is a metric space. We call $d$ the  \textbf{square metric}.
+
+        \item[(5)] Let $X$ be any set, and define  $d:X \times X \xrightarrow{}
+            \R$ by
+            \begin{equation*}
+                d(x,y)=\begin{cases}
+                    1, \text{ if } x \neq y \\
+                    0, \text{ if } x=y
+                \end{cases}
+            \end{equation*}
+        Then $d$ is a metric on  $X$. Notice also that for any  $\e>0$, that
+        $B(x,\e)=\{x\}$ if $\e \leq 1$, and  $B(x,\e)=X$ if $\e>1$.
+
+    \item[(6)] Define $d$ on  $\R^n$ by
+        \begin{equation*}
+            d(x,y)=\sqrt{\sum_{i=1}^n{(x_i-y_i)^2}}
+        \end{equation*}
+        Then $d$ is a metric on $\R^n$ defining the general norm. That is
+        $\|x\|=d(x,0)$.
+
+    \item[(7)] Let $S$ and let  $B(S)$ the set of all complex valued functions
+        $f:S \xrightarrow{} \C$ such that $\|f\|_\infty=\sup{\{\|f(s\|) : s \in
+        S\}}$ is finite. That is, $B(S)$ is the set of all complex valued
+        functions whose image is contained within a disk of finite radius.
+        Define $d$ on  $B(S)$ by $d(f,g)=\|f-g\|_\infty$. Let $f,g,h \in B(S)$.
+        Then
+        \begin{equation*}
+            \|f(s)-g(s)\|=\|(f(s)-h(s))-(h(s)-g(s))\| \leq
+            \|f(s)-h(s)\|+\|h(s)-g(s)\|
+        \end{equation*}
+        taking least upper bounds, we get
+        \begin{equation*}
+            \|f-g\|_\infty \leq \|f-h\|_\infty+\|h-g\|_\infty
+        \end{equation*}
+    \end{enumerate}
 \end{example}
 
 \begin{definition}
-    Let $f(x)=\sum_{n=0}^\infty{a_nx^n}$ a power series over a field $F$, and
-    let $h(x)=c_1x+\dots$ a power series of order greater than $1$. We define
-    the  \textbf{substitute} of $h$ in  $f$ to be the power series
-    \begin{equation*}
-        f \circ h(x)=a_0+a_1h(x)+a_2h(x)^2+\dots
-    \end{equation*}
+     Let $X$ be a metric space together with metric $d$. We call a subset $U$ of
+     $X$  \textbf{open} if there exists an $\e>0$ for which  $B(x,\e) \subseteq
+     U$ for every $x \in U$.
 \end{definition}
-
-\begin{definition}
-    Let $f(x)=\sum_{n=0}^\infty{a_nx^n}$ and $g(x)=\sum_{n=0}^\infty{b_nx^n}$ be
-    power series over a field $F$. We call  $f$ \textbf{congruent} to $g$
-    \textbf{modulo} $x^n$ if  $a_k=b_k$ for all  $k \in \faktor{\Z}{n\Z}$. That
-    is, $f$ and $g$ have the same coeficients of terms of order up to $n-1$. We
-    write $f \equiv g \mod{x^2}$.
-\end{definition}
-
-\begin{lemma}\label{2.1.4}
-    Congruence of power series modulo $x^n$ defines an equivalence relation.
-\end{lemma}
-
-\begin{lemma}\label{2.1.5}
-    If $f_1 \equiv f_2 \mod{x^n}$ and $g_1 \equiv g_2 \mod{x^n}$, then $f_1+g_1
-    \equiv f_2g_2 \mod{x^n}$ and $f_1g_1 \equiv f_2g_2 \mod{x^n}$. Moreover, if
-    $h_1$ and $h_2$ are formal power series with zero constant term, and $h_1
-    \equiv h_2 \mod{x^n}$, then $f_1 \circ h_1 \equiv f_1 \circ h_2 \mod{x^n}$.
-\end{lemma}
-\begin{proof}
-    We prove for substitutions of $h_1$ in $f_1$ only. Let $p_1$ and $p_2$
-    polynomials of degree $\deg=n-1$ such thta  $f_1 \equiv p_1(x) \mod{x^n}$
-    and $f_2 \equiv p_2(x) \mod{x^n}$. By hypothesis, we get $p_1 \equiv p_2
-    \mod{x^n}$, and since $\deg{p_1},\deg{p_2}=n-1$, this makes $p_1=p_2$.
-    Then $f_1 \circ h \equiv p_1 \circ h=p_2 \circ h \equiv f_2 \circ h$. Now,
-    let $q(x)$ the polynomial of degree $n-1$  such that $h_1 \equiv h_2 \equiv
-    q(x) \mod{x^n}$Writing $p(x)=a_0+a_1x+\dots+a_{n-1}x^{n-1}$. Then we get
-    $p_1 \circ h_1 \equiv p_2 \circ h_2 \mod{x^n}$ and we are done.
-\end{proof}
-\begin{corollary}
-    Two power series $f$ and $g$ are equal if, and only if $f \equiv g
-    \mod{x^n}$ for all $n \in \Z^+$.
-\end{corollary}
-\begin{corollary}
-    $(f_1+f_2) \circ h=(f_1 \circ h)+(f_2 \circ h)$, and $(f_1f_2) \circ h=(f_1
-    \circ h)(f_2 \circ h)$. That is, composition of power series distributes
-    over the addition and multiplication of power series.
-\end{corollary}
-\begin{corollary}
-    Provided that $\ord{f_2}=0$, then
-    \begin{equation*}
-        \Big{(}\frac{f_1}{f_2}\Big{)} \circ h=\frac{f_1 \circ h}{f_2 \circ h}
-    \end{equation*}
-\end{corollary}
 
 \begin{example}\label{example_2.2}
-    Considre the power series for $\frac{1}{\sin{x}}$. We have by definition
-    that
-    \begin{equation*}
-        \sin{x}=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\dots
-        =x(1-\frac{x^2}{3!}+\frac{x^4}{5!})
-    \end{equation*}
-    so that
-    \begin{equation*}
-        \frac{1}{\sin{x}}=\frac{1}{x(1-\frac{x^2}{3!}+\frac{x^4}{5!})}=
-        \frac{1}{x}(1+\frac{x^2}{3!}-\frac{x^4}{5!}+
-        \Big{(}\frac{x^2}{3!}\Big{)}^2+\dots)=
-        \frac{1}{x}+\frac{x}{3!}+\Big{(}\frac{1}{(3!)^2}-\frac{1}{5!}\Big{)}x^3+\dots
-    \end{equation*}
+    $U=\{z \in \C : a< \re{z}<b\}$ is open in $\C$, but  $U=\{z \in \C :
+    \re{z}<0\}$ is not, as $B(0,\e) \notin U$ no matter how small we make $\e$.
+\end{example}
+
+\begin{theorem}\label{2.1.1}
+    Let $X$ be a metric space with metric  $d$. Then $X$ is a topological space
+    whose open sets are those subsets of  $X$ containing $\e$-balls for every
+    element, and for $\e>0$.
+\end{theorem}
+
+\begin{definition}
+    We call a subset $V$ of a metrix space $(X,d)$ \textbf{closed} if
+    $\com{X}{V}$ is open in $X$.
+\end{definition}
+
+\begin{lemma}\label{2.1.2}
+    If $(X,d)$ is a metric space, then it is a topology by closed sets.
+\end{lemma}
+
+\begin{definition}
+    Let $A \subseteq X$ where $X$ is a metric space. We define the
+    \textbf{interior} of $A$ to be the union of all open sets contained in $A$,
+    and write $\Int{A}$. We define the \textbf{closure} of $A$ to be the
+    intersection of all closed sets containing  $A$ and write  $\cl{A}$. We
+    define the \textbf{boundry} of $A$ to be  $\partial{A}=\cl{A} \cap
+    \cl{(\com{X}{A})}$.
+\end{definition}
+
+\begin{example}\label{example_2.3}
+    We have $\Int{\Q(i)}=\emptyset$ and $\cl{\Q(i)}=\C$.
+\end{example}
+
+\begin{lemma}\label{2.1.3}
+    Let $X$ be a metric space and  $A,B \subeteq X$. Then the following are true
+    \begin{enumerate}
+        \item[(1)] $A$ is open if, and only if  $A=\Int{A}$.
+
+        \item[(2)] $A$ is closed if, and only if  $A=\cl{A}$.
+
+        \item[(3)] $\Int{A}=\com{X}{\cl{(\com{X}{A})}}$,
+            $\cl{A}=\com{X}{\Int{(\com{X}{A})}}$, and
+            $\partial{A}=\com{\cl{A}}{\Int{A}}$.
+
+        \item[(4)] $\cl{(A \cup B)}=\cl{A} \cup \cl{B}$.
+
+        \item[(5)] $x_0 \in \Int{A}$ if, and only if there is an $\e>0$ for
+            which  $B(x_0,\e) \subseteq A$.
+
+        \item[(6)] $x_0 \in \cl{A}$ if, and only if for every $\e>0$, $B(x_0,\e)
+            \cap A=\emptyset$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{definition}
+    A subset $A$ of a metric space $X$ is \textbf{dense} in $X$ if  $\cl{A}=X$.
+\end{definition}
+
+\begin{example}\label{example_2.4}
+    $\Q$ is dense in  $\R$, notice that  $\cl{\Q}=\R$. Moreover, $\Q(i)$ is
+    dense in $\C$.
 \end{example}

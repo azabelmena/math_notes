@@ -1,303 +1,160 @@
-\section{Convergent Power Series}
-
-For the remainder of this chapter, we consider only formal power series if $z$
-over  $\C$; i.e. all power series in  $\C[[z]]$.
+\section{Connectedness in $\C$}
 
 \begin{definition}
-    Let $\{z_n\}_{n \in \Z^+}$ a sequence of complex numbers, and consider the
-    series $\sum_{n=0}^\infty{z_n}$. We define the \textbf{$n$-th partial sum}
-    to be
-    \begin{equation*}
-        s_n=\sum_{k=1}^n{z_k}
-    \end{equation*}
-    and we say that the series \textbf{converges} if there exists a $w \in \C$
-    for which  $\lim{\{s_n\}}=w$ as $n \xrightarrow{} \infty$. We call $w$ the
-    \textbf{sum} of the series.
+    We say a metric space $X$ is connected provided there are no disjoint
+    nonempty open sets  $A,B \subseteq X$ for which  $X=A \cup B$.
 \end{definition}
 
-\begin{lemma}\label{lemma_2.2.1}
-    Let $A=\sum{\a_n}$ and $B=\sum{\b_n}$ be convergent series with $n$-th
-    partial sums  $s_n$ and  $t_n$. Then the sum and product of  $A$ and  $B$
-    converge, with
-    \begin{equation*}
-        A+B=\sum{(\a_n+\b_n)} \text{ and } AB=\lim_{n \xrightarrow{} \infty}{\{s_nt_n\}}
-    \end{equation*}
+\begin{lemma}\label{2.2.1}
+    A metric space $X$ is connected if its only closed and open sets are the
+    emtpyset and itself.
 \end{lemma}
-
-\begin{definition}
-    Let $\sum{\a_n}$ a series of complex numbers. We say that $\sum{\a_n}$
-    \textbf{converges absolutely} if the series of real numbers $\sum{|\a_n|}$
-    converges.
-\end{definition}
-
-\begin{lemma}\label{2.2.2}
-    If $\sum{\a_n}$ is a series of complex numbers which converges absolutely,
-    then it converges.
-\end{lemma}
-\begin{proof}
-    Let $s_n=\sum_{k=1}^n{\a_k}$, then for $m \leq n$, notice that
-    $s_n-s_m=\a+{m_1}+\dots+\a_n$, hence $|s_n-s_m| \leq
-    \sum_{k=m+1}^n{|\a_k|}$. By absolute convergence, let $\e>0$ then there
-    exists an  $N>0$ such that  $\sum{|\a_k|}<\e$ whenever $m,n \geq N$. Thus
-    $|s_n-s_m|<\e$ which makes  $\sum{\a_n}$ converge.
-\end{proof}
-
-\begin{lemma}\label{2.2.3}
-    Let $\sum{c_n}$ be a convergent series of real numbers greater than $0$. If
-    $\{\a_n\}$ is a sequence of complex numbers such that $|\a_n|<c_n$ for all
-    $n \in \Z^+$, then  $\sum{\a_n}$ converges absolutely.
-\end{lemma}
-\begin{proof}
-    Notice that the partial sums $\sum_{k=1}^n{c_n}$ are bounded, hence
-    $\sum{|\a_n|} \leq \sum{c_k}$.
-\end{proof}
-
-\begin{lemma}\label{2.2.4}
-    Let $\{\a_n\}$ a sequence of complex numbers. Then the following are true
-    \begin{enumerate}
-        \item[(1)] If $\sum{\a_n}$ is absolutely convergent, then the series
-            obtained by permuting terms is absolutely convergent, with the same
-            limit.
-
-        \item[(2)] If $\sum_{n=1}^\infty{(\sum_{m=1}^n{\a_{mn}})}$ is absolutely
-            convergent, then so is the series
-            $\sum_{m=1}^n{(\sum_{n=1}^\infty{\a_{mn}})}$, and they converge to
-            the same limit.
-    \end{enumerate}
-\end{lemma}
-
-\begin{definition}
-    Let $S \subseteq \C$, and let $f$ be a bounded complex valued function on
-    $S$. We define the \textbf{sup norm} of $f$ on  $S$ to be
-    \begin{equation*}
-        \|f\|_S=\sup_{z \in S}{\{|f(z)|\}}
-    \end{equation*}
-\end{definition}
-
-\begin{lemma}\label{2.2.5}
-    Let $S \subseteq \C$. The sup norm of a complex valued function on $S$
-    defines a metric on $\C$.
-\end{lemma}
-
-\begin{definition}
-    Let $\{f_n\}_{n \in \Z^+}$ a sequence of complex valued functions on a set
-    $S \subseteq \C$. We say that the  $\{f_n\}$ \textbf{converges uniformly} on
-    $S$ if there exists a bounded complex valued function $f$ on $S$ such that
-    for all $\e>0$, there is an $N>0$ for which
-    \begin{equation*}
-        \|f_n-f\|_S<\e \text{ whenever } n \geq N
-    \end{equation*}
-    We call $\{f_n\}$ \textbf{Cauchy} if for every $\e>0$ there is an  $N>0$ for
-    which
-    \begin{equation*}
-        \|f_n-f_m\|_S<\e \text{ whenever } n,m \geq N
-    \end{equation*}
-\end{definition}
-
-\begin{theorem}\label{2.2.6}
-    Let $\{f_n\}$ be a sequence of complex valued functions on a set $S
-    \subseteq \C$. If  $\{f_n\}$ is Cauchy, then it converges uniformly.
-\end{theorem}
-\begin{proof}
-    We have for all $z \in S$, take  $f(z)=\lim{f_n(z)}$ as $n \xrightarrow{}
-    \infty$. Then for $\e>0$ there is an  $N>0$ for which  $|f_n(z)-f_m(z)|<\e$
-    for al $z \in S$ and  $m,n \geq N$. Now, for  $n \geq N$, take $m(n) \geq N$
-    large enough so that $|f(z)-f_{m(n)}(z)|<\e$. Then we get that
-    \begin{equation*}
-        |f(z)-f_n(z)| \leq
-        |f(z)-f_{m(n)}(z)|+|f_{m(n)}(z)-f_n(z)|<\e+\|f_{m(n)}-f_n\|<2\e
-    \end{equation*}
-\end{proof}
-\begin{corollary}
-    If $\{f_n\}$ is bounded for all $n \in \Z^+$, then so is  $f$.
-\end{corollary}
-
-\begin{definition}
-    We say a series of complex valued functions on a domain $S \subseteq \C$,
-    $\sum{f_n}$ \textbf{converges uniformly} if the sequence $\{s_n\}$ of $n$-th
-    partial sums converges uniformly. We say that  $\sum{f_n}$ \textbf{converges
-    absolutely} if for all $z \in S$,  $\sum{|f_n(z)|}$ converges.
-\end{definition}
-
-\begin{theorem}[The Comparison Test]\label{2.2.7}
-    Let $\{c_n\}$ be a sequence of real numbers greater than $0$ such that
-    $\sum{c_n}$ converges. Let $\{f_n\}$ a sequence of complex valued functions
-    on a domain $S \subseteq \C$ such that  $\|f_n\|_S \leq c_n$ for all  $n \in
-    \Z^+$. Then the series $\sum{f_n}$ converges uniformly, and converges
-    absolutely.
-\end{theorem}
-\begin{proof}
-    Let $m \leq n$. Then  $\|s_n-s_m\| \leq \sum_{k=m+1}^n{\|f_k\|_S} \leq
-    \sum{c_k}$. Since $\sum{c_k}$ converges, the uniform and absolute convergnce
-    of $\sum{f_n}$ follows.
-\end{proof}
-
-\begin{theorem}\label{2.2.8}
-    Let $S \subseteq \C$ and  $\{f_n\}$ a sequence of continuous complex valued
-    functions on $S$. If  $\{f_n\}$ converges unifromly to a complex valued
-    function $f$ on  $S$, then  $f$ is also continuous.
-\end{theorem}
-\begin{proof}
-    let $\a \in S$ and  $n$ be large enough such that  $\|f-f_n\|_S<\e$ for some
-     $\e>0$. By the continuity of  $f_n$ at  $\a$, choose  $\d>0$ such that
-     $|f_n(z)-f_n(\a)|<\e$ whenever $|z-\a|<\d$. Then observe that
-     \begin{equation*}
-         |f(z)-f(\a)| \leq
-         |f(z)-f_n(z)|+|f_n(z)-f_n(\a)|+|f_n(\a)-f(\a)|<2\|f-f_n\|+\e<3\e
-     \end{equation*}
-\end{proof}
-
-\begin{theorem}\label{2.2.9}
-    Let $\{a_n\}$ a sequence of complex numbers, and let $r>0$ such that
-    $\sum{|a_n|r^n}$ converges. Then the power series $\sum{a_nz^n}$ converges
-    absolutely and converges uniformly whenever $|z| \leq r$.
-\end{theorem}
-
-\begin{example}\label{example_2.3}
-    \begin{enumerate}
-        \item[(1)] Let $r>0$ and consider the series
-            \begin{equation*}
-                \exp{z}=\sum_{n=0}^\infty{\frac{z^n}{n!}}
-            \end{equation*}
-        Then $\exp{z}$ converges absolutely and uniformly whenever $|z| \leq
-        r$. Indeed, let $c_n=\frac{r^n}{n!}$, then
-        \begin{equation*}
-            \frac{c_{n+1}}{c_n}=\frac{r}{n+1}
-        \end{equation*}
-        Taking $n \geq 2r$, notice that  $\frac{c_{n+1}}{c_n} \leq \frac{1}{n}$
-        so that $c_{n+1} \leq \frac{1}{2}c_n$ for $n$ large enough. Therefore
-        there exists  an $n_0$ such that
-        \begin{equation*}
-            c_n \leq \frac{C}{2^{n-n_0}} \text{ for some constant } C
-        \end{equation*}
-        whenever $n \geq n_0$. Comparing this with the geometric series, we get
-        absolute and uniform convergence as was required. Moreover, notice that
-        the series $\exp{z}$ defines a continuous function on all of $\C$.
-
-    \item[(2)] Take the series $S(z)=\sum{(-1)^n\frac{2^{2n+1}}{(2n+1)!}}$ and
-        $C(z)=\sum{(-1)^n\frac{2^{2n}}{(2n)!}}$. Both $S(z)$ and $C(z)$ converge
-        absolutely and uniformly for all $|z| \leq r$. Moreover, they define
-        continuous functions on al of  $\C$.
-    \end{enumerate}
-\end{example}
-
-\begin{theorem}\label{2.2.10}
-    Let $\sum{a_nz^n}$ a power series. If it does not converge absolutely for
-    all $z \in \C$, then there exists a real number $r>0$ such that
-    $\summ{a_nz^n}$ converges absolutely whenever $|z| \leq r$.
-\end{theorem}
-\begin{proof}
-    Suppose that $\sum{a_nz^n}$ does not converge absolutely for all $z \in \C$.
-    Let  $r=\sup_{s \geq 0}{\{s\}}$ where $\sum{a_ns^n}$ converges. Then notice
-    that $\sum{|a_n||z|^n}$ diverges wheneer $|z|>r$ and converges when  $|z|<r$,
-    by the comparison test.
-\end{proof}
-
-\begin{definition}
-    The \textbf{radius of convergence} of a power series $\sum{a_nz^n}$ is a
-    number $r>0$ for which the series converges absolutely whenever $|z|<r$, and
-    diverges whenever $|z|>r$. $\sum{a_nz^n}$ converges absolutely for all $z
-    \in \C$, then we write  $r=\infty$. We call  $\sum{a_nz^n}$ a
-    \textbf{convergent power series} if $r \neq 0$, and we say that it
-    \textbf{converges} on an open ball $B(0,r)$.
-\end{definition}
-
-\begin{theorem}\label{2.2.11}
-    Let $\sum{a_nz^n}$ a convergent power series with radius of convergence $r$.
-    Then
-    \begin{equation*}
-        \frac{1}{r}=\limsup{\sqrt[n]{|a_n|}}
-    \end{equation*}
-    If $r=0$, then the sequence of points $\{\sqrt[n]{a_n}\}$ is not bounded.
-\end{theorem}
-\begin{proof}
-    Let $t=\limsup{\sqrt[n]{|a_n|}}$, suppose first that $t \neq 0$ and that  $t
-    \neq \infty$. Given  $\e>0$, there is a finite number of points  $n \in
-    \Z^+$ for which $\sqrt[n]{|a_n|} \geq t+\e$. Thus, for all but finitely many
-    $n$, we get $|a_n|<(t+\e)^n$, and $\sum{a_nz^n}$ converges if
-    $|z|<\frac{1}{t+\e}$. By comparison with the geometric series, we conclude
-    that $r \geq \frac{1}{t+\e}$ for all $\e>0$; that is
-    \begin{equation*}
-        r \geq \frac{1}{t}
-    \end{equation*}
-
-    Conversely, given $\e>0$, there exist infinitely many  $n \in \Z^+$ such
-    that  $\sqrt[]{|a_n|} \geq t-\e$, and hence $|a_n| \geq (t-\e)^n$. So we get
-    that $\sum{a_nz^n}$ does not converge if $r=\frac{1}{t-\e}$, and its radius
-    of convergence satisfies $r \leq \frac{1}{t-\e}$ for all $\e>0$. That is
-    \begin{equation*}
-        r \leq \frac{1}{t}
-    \end{equation*}
-    and equality is established.
-\end{proof}
-\begin{corollary}
-    If $\lim{\sqrt[n]{|a_n|}}=t$ exists, then $r=\frac{1}{t}$.
-\end{corollary}
-\begin{corollary}
-    If $\sum{a_nz^n}$ has radius of convergence $r>0$, then there exists a
-    $C>0$ such that if  $A>\frac{1}{r}$, then $|a_n| \leq CA^n$ for all  $n$.
-\end{corollary}
-
-\begin{example}\label{example_2.4}
-    \begin{enumerate}
-        \item[(1)] The radius of convergence of the series $\sum{n!z^n}$ is
-            $r=0$, since $\sqrt[n]{n!}$ is unbounded as $n \xrightarrow{}
-            \infty$.
-
-        \item[(2)] The radius of convergence for the series
-            $\exp{z}=\sum{\frac{z^n}{n!}}$ is $r=\infty$, as
-            $\sqrt[n]{\frac{1}{n!}} \xrightarrow{} 0$ as $n \xrightarrow{}
-            \infty$. That is, the series $\exp{z}$ converges on all of $\C$.
-
-        \item[(3)] The radius of convergence of $\sum{\frac{n!}{n^n}}z^n$ is
-            $r=e$, where $e$ is Euler's constant. Observe that
-            $\lim{\frac{n!}{n^n}}=\frac{1}{e}$.
-    \end{enumerate}
-\end{example}
-
-\begin{theorem}[The Ratio Test]\label{2.2.12}
-    If $\{a_n\}$ is a sequence of positive real numbers, for which
-    $\lim{\frac{a_{n+1}}{a_n}}=A$ exists, then $\lim{\sqrt[n]{a_n}}=A$.
-\end{theorem}
-\begin{proof}
-    Suppose that $A>0$, given  $\e>0$, take  $n_0$ such that $A-\e \leq
-    \frac{a_{n+1}}{a_n} \leq A+\e$, for all $n \geq n_0$. Without loss of
-    generality, suppose that $\e<A$, so that  $A-\e>0$. THen
-    \begin{equation*}
-        a_n=a_1\prod_{k=1}^{n_0-1}{\frac{a_k+1}{a_k}}\prod_{k=n_0}^{n}{\frac{a_k+1}{a_k}}
-    \end{equation*}
-    By induction, there exists constants $C_1(\e)$ and $C_2(\e)$ suc that
-    \begin{equation*}
-        C_1(\e)(A-\e)^{n-n_0} \leq a_n \leq C_2(\e)(A+\e)^{n-n_0}
-    \end{equation*}
-    Put $C_1'(\e)=C_1(\e)(A-\e)^{-n_0}$ nad $C_2'(\e)=C_2(\e)(A+\e)^{-n_0}$,
-    then
-    \begin{equation*}
-        (A-\e)\sqrt[n]{C_1'(\e)} \leq \sqrt[n]{a_n} \leq (A+\e)\sqrt[n]{C_2'(\e)}
-    \end{equation*}
-    Then, there exists $N \geq n_0$ such that $\sqrt[n]{C_1'(\e)}=1+\d_1(n)$,
-    with $|\d_1(n)| \leq \frac{\e}{A-\e}$ and  $\sqrt[n]{C_2'(\e)}=1+\d_2(n)$
-    and $|\d_2(n)| \leq \frac{\e}{A+\e}$ for all  $n \geq N$. Then
-    \begin{equation*}
-        A-\e+\d_1(n)(A-\e) \leq \sqrt[n]{a_n} \leq A+\e+\d_2(n)(A+\e)
-    \end{equation*}
-    which shows that
-    \begin{equation*}
-        |\sqrt[n]{a_n}-A|<2\e
-    \end{equation*}
-    For the case that $A=0$, it is easy.
-\end{proof}
 
 \begin{example}\label{example_2.5}
-    Let $a \neq 0$ a complex number. We define the  \textbf{binomial
-    coefficient} of $\a$  \textbf{choose} $n$, where $n \in \Z^+$ to be
-    \begin{equation*}
-        {\a \choose n}=\frac{\a(\a-1)\dots(\a-n+1)}{n!}
-    \end{equation*}
-    and we define the \textbf{binomial sereies}
-    \begin{equation*}
-        (1+z)^\a=\sum{{\a \choose n}z^} \text{ where } {\a \choose 0}=1
-    \end{equation*}
-    By the ratio test, we get that $r=1$ if  $\a$ is not an integer greater than
-     $0$.
+    Consider the space $X=\{z \in \C : \|z\|<1\} \cup \{z \in \C : \|z-3\|<1\}$.
+    Let $A=\{z \in \C : \|z\|<1\}$ and $B=\{z \in \C : \|z-3\|<1\}$. Then then
+    both $A$ and $B$ are open in  $X$. Moreover,  $A$ is also closed in $X$ as
+    $B=\com{X}{A}$. So $X$ is not connected.
 \end{example}
+
+\begin{lemma}\label{2.2.2}
+    A space $X \subseteq X$ is connected if, and only if it is an interval.
+\end{lemma}
+\begin{proof}
+    Suppose that $X=[a,b]$, where $a,b \in \R$ and  $a<b$. Let  $A \subseteq X$
+    be open, with  $a \in A$ and  $b \in B$ and where $X \neq A$. Then there is
+    an $\e>0$ for which  $[a,a+\e) \subseteq A$. Let $r=\sup{\{\e : [a,a+\e)
+    \subseteq A\}}$. If $a \leq x <a+r$, putting  $h=a+(r-x)>0$ there is an $\e
+    > 0$ for which  $r-h<\e<r$ and $[a,a+\e) \subseteq A$. However, $a \leq
+    a+(r-h)<a+\e$ putting $x \in A$. So that  $[a,a+r) \subseteq A$. Now, if
+    $a+r \in A$, then by the openness of  $A$, there is a  $\d>0$ with
+    $[a+r,a+r+\d] \subseteq A$, which puts $[a+r,a+r+\d) \subseteq A$. But that
+    contradicrts that $r$ is a least upper boundl; so $a+r \notin A$.
+
+    Now, if $A$ were closed, then  $a+r \in B=\com{X}{A}$, which is open, so
+    that there is a $\d>0$ such that  $(a+r-\d,a+r) \subseteq B$, which
+    contradicts that $[a,a+r) \subseteq A$.
+\end{proof}
+\begin{remark}
+    Note that the first part of this proof lacks the proof for the other types
+    of intervals.
+\end{remark}
+
+\begin{definition}
+    Let $z,w \in \C$. We define the  \textbf{staight line segment} $[z,w]$
+    from $z$ to  $w$ to be the set
+    \begin{equation*}
+        [z,w]=\{tw+(1-t)z : 0 \leq t \leq 1\}
+    \end{equation*}
+    A \textbf{polygon} from $z$ to  $w$ is defined to be the set
+    \begin{equation*}
+        P[z,w]=\bigcup_{k=1}^n{[z_k,w_k]}
+    \end{equation*}
+    where $z_1=z$,  $w_n=w$, and  $z_{k+1}=w_k$ for all $1 \leq k \leq n-1$.
+    When the endpoints of the polygon are understood, we may simply just write
+    $P$, or we enumerate the points of $P$ as  $P=[z,z_2, \dots, z_n,w]$.
+\end{definition}
+
+\begin{theorem}\label{2.2.3}
+    An open set $U$ of  $\C$ is connected if, and only if for all  $z,w \in U$,
+    there exists a polygon $P[z,w]$ from $z$ to  $w$ contained in $U$.
+\end{theorem}
+\begin{proof}
+    Let $P[z,w] \subseteq U$ be the given polygon. Suppose that $U$ were not
+    connected. Then there exist disjoint nonempty open sets $Z$ and $W$ of $U$
+    (as a subspace of $\C$) for which $U=Z \cup W$. Let  $z \in Z$ and $w \in
+    W$. Consider the case for when $P[z,w]=[z,w]$. Define $S=\{s \in [0,1] :
+    sw+(1-s)z \in A\}$ and $T=\{s \in [0,1] : sw+(1-s)z \in B\}$. Then notice
+    that $S$ and $T$ are disjoint, and that $S \cup T=[0,1]$. Moreover, they are
+    open subsets of the interval $[0,1] \subseteq \R$; but $[0,1]$ is connected
+    in $\R$, which is a contradiction. Therefore  $U$ must be connected.
+
+    On the otherhand, let  $w \in Z$ and let  $P=[z,z_2, \dotsm z_n,w] \subseteq
+    U$ SInce $U$ is open, there is an $\e>0$ such that  $B(w,\e) \subseteq U$.
+    Now, if $u \in B(w,\e)$, then $[w,u] \subseteq B(w,\e) \subseteq U$, so the
+    polygon $Q=P \cup [w, u] \subseteq U$. Hence $B(w,\e) \subseteq Z$, which
+    makes $Z$ oepn. On the otherhand, consider  $u \in \com{U}{Z}$, and let
+    $\e>0$ such that $B(u,\e) \subseteq U$. Then there is a $w \in Z \cap
+    B(u,\e)$. Construct, then a polygon $P[z,u]$ so that $B(u,\e) \cap Z$ is
+    empty. That is, $B(u,\e) \subseteq \com{U}{Z}$ making $\com{U}{Z}$ open, and
+    hence $Z$ closed.
+\end{proof}
+\begin{corollary}
+    If $U \subseteq \C$ is an open and connected set, then for all  $z,w \in U$,
+    there is a polygon  $P[z,w]$ in $U$ made up of straight line segments
+    parallel to either the real axis, or the imaginary axis.
+\end{corollary}
+
+\begin{definition}
+    Let $X$ be a metric space. We call a subset  $C \subset X$ a
+    \textbf{connected component} if it is maximally connected in $X$.
+\end{definition}
+
+\begin{example}\label{example_2.6}
+    \begin{enumerate}
+        \item[(1)] $A$ and  $B$ in example \ref{example_2.5} are connected
+            components.
+
+        \item[(2)] Let $X=\{\frac{1}{k} : k \in \Z^+\} \cup \{0\}$. Then every
+            connected component is a point of $x$, and vise versa; with, the
+            exception of $0$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{2.2.4}
+    Let $X$ be a metric space with  $x_0 \in X$. If $\{D_j\}$ is a collection of
+    connected subsets of $X$, such that  $x_0 \in D_j$, then the union
+    $D=\bigcup{D_j}$ is connected.
+\end{lemma}
+\begin{proof}
+    Let $A \subseteq D$, which is a metric space, for which  $A$ is both open
+    and closed, and nonempty. Then  $A \cap D_j$ is open and closed for all
+    $j$. Now, since  $D_j$ is connected, either  $A \cap D_j=\emtyset$, or  $A
+    \cap D_j=D_j$. Since  $A$ is nonempty, we must have the latter case. Then
+    there exists at least one index $k$ for which $A \cap D_k=D_k$. Then if
+    $x_0 \in A$, $x_0 \in A \cap D_k$ so that $x_0 \in D_k$ making $A \cap
+    D_j=D_j$ for all  $j$ or  $D_j \subseteq A$. In either case, we get  $D=A$.
+\end{proof}
+
+\begin{theorem}\label{2.2.5}
+    The connected components of a metric space partition the space.
+\end{theorem}
+\begin{proof}
+    Let $\Dc$ the collection of all connected subsets of  $X$ containing a point
+     $x_0 \in X$. Then $\Dc$ is nonempty by definition, and by hypothesis, we
+     have that  $C=\bigcup{D_j}$ is connected, and that $x_0 \in C$.
+
+     Now, suppose that $C \subseteq D$ for some connected st $D$. Then  $x_0 \in
+     D$ so that $D \in \Dc$, and hence $D \subseteq C$. This makes $C=D$, and
+     hence  $C$ is a connected component of  $X$. This then implies that
+     $X=\bigcup{C_j}$ where $\{C_j\}$ is the collection of connected components
+     of $X$.
+
+     Now, consider  $\{C_j\}$, and suppose that for distinct components $C_1$
+     and $C_2$, that there is an $x_0 \in C_1 \ca C_2$. Then $x_0 \in C_1$, and
+     $x_0 \in C_2$ so that $C_1=C_1 \cup C_2=C_2$, which is a contradiction.
+     Therefore the connected components are pairwise disjoint.
+\end{proof}
+
+\begin{lemma}\label{2.2.6}
+    If $X$ is a connected metric space with  $A \subseteq X$, and  $A \subseteq
+    B \subseteq \cl{A}$, then $B$ is also connected.
+\end{lemma}
+\begin{corollary}
+    Connected components of a metric space are closed.
+\end{corollary}
+
+\begin{theorem}\label{2.2.7}
+    If $U$ is open in  $\C$, then  $U$ has countably many connected components;
+    each of which is open.
+\end{theorem}
+\begin{proof}
+    Let $C \subseteq U$ a connected component, with  $x_0 \in C$. Since $U$ is
+    open, there is an  $\e>0$ for which  $B(x_0,\e) \subseteq U$. Then $B(x_0,
+    \e) \cup C$ is connected so that $B(x_0,\e) \cup C=C$, so that $B(x_0,\e)
+    \subseteq C$. This makes each $C$ open.
+
+    Now, let  $S=\{a+ib \in \Q(i) : a+ib \in U\}$. Then $S$ is countable by the
+    density of  $\Q(i)$ in $\C$, and each connected component of $U$ contains a
+    point of $S$. This implies there are countably many such components.
+\end{proof}

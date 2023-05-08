@@ -1,53 +1,101 @@
-%----------------------------------------------------------------------------------------
-%	SECTION 1.5
-%----------------------------------------------------------------------------------------
-
-\section{Euclidean Spaces}
+\section{Algebraic Closures.}
 
 \begin{definition}
-    Let $k \in \Z^+$, and let $\R^k$ be the set of all ordered  $k$-tuples  
-    $(x_1,x_2, \dots, x_k)$, with $x_i \in \R$ for  $1 \leq i \leq k$. We call $\R^k$ 
-    the \textbf{Euclidean space} of \textbf{dimension} $k$; more simply  the \textbf{Euclidean k-space}.
-    We call elements of  $\R^k$  \textbf{vectors} or \textbf{points}; and we define 
-    \textbf{vector addition} and \textbf{scalar multiplication} to be:
-        \begin{align*}
-            (x_1, \dots, x_k)+(y_1, \dots, y_k) &= (x_1+y_1, \dots, x_k+y_k) \\
-            \alpha(x_1, \dots, x_k) &= (\alpha x_1, \dots, \alpha x_k) \\
-        \end{align*}
-        for $(x_1, \dots, x_k),(y_1, \dots, y_k) \in \R^k$ and $\alpha \in \R$.
+    We define the \textbf{algebraic closure} of a field $F$ to be the algebraic
+    extension, $\cl{F}$, over $F$ for which every polynomial over  $F$ splits.
+    We call a field  $K$  \textbf{algebraically closed} if every polynomial over
+    $K$ has at least one root in  $K$.
 \end{definition}
 
-\begin{theorem}\label{1.5.1}
-    $\R^k$ forms a vector space together with vector addition and scalar multiplication.
-\end{theorem}
-
-\begin{definition}
-    Let $x,y \in \R^k$. We define the \textbf{inner product} of  $x$ and  $y$ to be the 
-    binary operation $\vbrack{,}: \R^k \cross \R^k \rightarrow \R$ such that
-        \begin{equation*}
-            \vbrack{x,y}=\sum_{i=1}^{k}{x_iy_i}
-        \end{equation*}
-        We define the  \textbf{norm} of  $x$ to be  $||x||=\sqrt{\vbrack{x,x}}=\sqrt{\sum{x_i^2}}$.
-\end{definition}
-
-\begin{theorem}\label{1.5.2}
-    Let $x,y \in \R^k$, and  $\alpha \in \R$. Then:
-         \begin{enumerate}[label=(\arabic*)]
-             \item $||x|| \geq 0$ and $||x||=0$ if and only if $x_i=0$ for all $1 \leq i \leq k$.
-
-             \item $||\alpha x||=|\alpha|||x||$.
-
-             \item $||\vbrack{x,y}|| \leq ||x||||y||$.
-
-             \item $||x+y|| \leq ||x||+||y||$, and $||x-z|| \leq ||x-y||+||y-z||$
-        \end{enumerate}
-\end{theorem}
+\begin{lemma}\label{1.5.1}
+    A field $K$ is algebraically closed if, and only if every polynomial over
+    $K$ has all of its roots in  $K$.
+\end{lemma}
 \begin{proof}
-    $(1)$ follows by definition of the norm. We also have that  $||\alpha x||=\sqrt{\sum{\alpha^2x_i^2}}
-    =\sqrt{\alpha^2}\sqrt{\sum{x_i^2}}=|\alpha|||x||$.
+    Certainly, if a polynomial $f$ over  $K$ contains all of its roots in  $K$,
+    then  $K$ is algebraically closed, by definition.
 
-    Now by the Cauchy Schwarz inequality, we have that $||\vbrack{x,y}||^2=\sum{x_i^2y_i^2} 
-    \leq \sum{x_i^2}\sum{y_i^2}=||x||||y||$. Finally we have that $||x+y||=\vbrack{x+y,x+y}=
-    \vbrack{x,x}+2\vbrack{x,y}+\vbrack{y,y } \leq ||x||^2+2||x||||y||+||y^2||=(||x||+||y||)^2$, 
-    the last result follows immediately.
+    Now, suppose that  $K$ is algebraically closed, and let  $f$ a polynomial
+    over  $K$. Then  $f$ contains at least one root in $K$. Hence
+    $f(x)=(x-\a)f_1(x)$ for some root $\a$ of $f$, and where $f_1 \in K[x]$. But
+    then by definition again, $f_1$ contains at least one root in $K$. Hence,
+    we proceed until we exhaust all the roots of  $f$, and obtain that every
+    root of  $f$ lies in  $K$.
 \end{proof}
+\begin{corollary}
+    $K$ is algebraically closed if, and only if  $\cl{K}=K$.
+\end{corollary}
+
+\begin{lemma}\label{1.5.2}
+    Let $F$ be a field, and  $\cl{F}$ its algebraic closure. Then $\cl{F}$ is
+    algebraically closed; i.e. $\cl{(\cl{F})}=\cl{F}$.
+\end{lemma}
+\begin{proof}
+    Let $f \in \cl{F}[x]$, and $\a$ a root of  $f$. Then  $\a$ generates all of
+     $\cl{F}(\a)$, making $\cl{F}$ algebraic over $F$. Hence  $\a$ is algebraic
+     over  $F$, but  $\a \in \cl{F}$, so that $\cl{(\cl{F})}=\cl{F}$.
+\end{proof}
+
+\begin{lemma}\label{1.5.3}
+    For every field $F$, there exists an algebraically closed set containing
+    $F$.
+\end{lemma}
+\begin{proof}
+    Consider the polynomial ring $F[\dots, x_n, \dots]$ where $f(x_n)$ is a
+    nonconstant polynomial over $f$. Consider the ideal  $(f)$. Then, if
+    $(f)=(1)$, then
+    \begin{equation*}
+        g_1f_1(x_1)+\dots+g_nf_n(x_n)=1
+    \end{equation*}
+    where $g_i \in F[x_i]$. Then we get
+    \begin{equation*}
+        g_1(x_1, \dots, x_m)f_1(x_1)+\dots+g_n(x_1, \dots, x_m)f_n(x_n)=1
+    \end{equation*}
+    Now, let $F'$ an extension of  $F$ containing a root  $\a_i$ of  $f_i$. Then
+    we observe that  $0=1$ in the above equation which is a blatant
+    contradiciton. S o $(f)$ must be a proper ideal.
+
+    Now, by Zorn's lemma, there exists a maximal ideal $M$ containing $I$. Then
+    the quotient
+    \begin{equation*}
+        K_1=\faktor{F[\dots, x_n, \dots]}{M}
+    \end{equation*}
+    is a field containing an imbedding of $F$. Moreover,  $f$ has a root in
+    $K_1$, so that $f(x_n) \in  (f) \subseteq M$. Then $K_1$ is a field in which
+    every polynomial over $F$ has a root. Proceeding as before with  $K_1$, we
+    obtain $K_2$ in which every polynomial over $K_1$ has a root. Hence,
+    proceeding recursively, we obtain the sequence
+    \begin{equation*}
+        F=K_0 \subseteq K_1 \subseteq K_n \subseteq \dots
+    \end{equation*}
+    in which everypolynomial over $K_n$ has all its roots in $K_{n+1}$. Now, let
+    \begin{equation*}
+        K=\bigcup{K_n}
+    \end{equation*}
+    Then $F \subseteq K$, and every polynomial over $K$ has a root in  $K_N$,
+    for  $N$ large enough; but  $K_N \subseteq K$, so that  $K$ is algebraically
+    closed.
+\end{proof}
+
+\begin{lemma}\label{1.5.4}
+    Let $K$ be algebraically closed, and let  $F \subseteq K$. Then the
+    collection of elements of the algbraic closure $\cl{F}$ of $K$ that are
+    algebraic over $F$ is an algebraic closure of $F$.
+\end{lemma}
+\begin{proof}
+    By definition, $\faktor{\cl{F}}{F}$ is algebraic. Then every polynomial $f$
+    over  $F$ splits over  $K$ into linear factors $(x-\a)$, where $\a$ is a
+    root of $f$. So  $\a$ is algebraic over  $F$, and hence  $\a \in \cl{F}$.
+    then all linear factors have a coefficient in $\cl{F}$, so that $f$ splits
+    completely over  $\cl{F}$.
+\end{proof}
+\begin{corollary}
+    Algebraic closures are unique up to isomorphism.
+\end{corollary}
+
+\begin{theorem}[The Fundamental Theorem of Algebra]\label{1.5.5}
+    $\C$ is algebraically closed.
+\end{theorem}
+\begin{corollary}
+    $\C$ contains the an algebraic closuder of any of its subfields.
+\end{corollary}
