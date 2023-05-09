@@ -243,7 +243,187 @@
     $\exp{z}=\sum{\frac{z^n}{n!}}$ is analytic on all of $\C$.
 \end{example}
 
-%\begin{lemma}\label{3.2.5}
-    %If $U$ is open and connected in $\C$, and $f:U \xrightarrow{} \C$ is complex
-    %differentiable on $U$ with  $f'(z)=0$, then $f$ is constant.
-%\end{lemma}
+\begin{lemma}\label{3.2.5}
+    If $U$ is open and connected in $\C$, and $f:U \xrightarrow{} \C$ is complex
+    differentiable on $U$ with  $f'(z)=0$, then $f$ is constant.
+\end{lemma}
+\begin{proof}
+    Take $z_0 \in U$ and let $\w_0=f(z_0)$. Take $A=\{z \in U : f(z)=\w_0\}$.
+    And pick a point $z \in U$. Let  $\{z_n\}$ a sequence of points in $A$
+    converging to $z$; i.e. $\{z_n\} \xrightarrow{} z$. Since $f(z_n)=\w_0$ for
+    all $n \geq 0$, and if  $f$ is continuous, we have  $f(z)=\w_0$ which makes
+    $z \in A$, and  $A$ is closed in $U$.
+
+    Now, let $a \in A$ and take $e>A$ such that $B(a,\e) \subseteq U$. If $z \in
+    B(a,\e)$, let
+    \begin{equation*}
+        g(z)=f(tz+(1-t)a) \text{ where } 0 \leq t \leq 1
+    \end{equation*}
+    Then
+    \begin{equation*}
+        \frac{g(t)-g(s)}{t-s}=\frac{g(t)-g(s)}{(t-s)z+(s-t)a}\frac{(t-s)z+(s-t)a}{t-a}
+    \end{equation*}
+    thus, if $t \xrightarrow{} s$ we get
+    \begin{equation*}
+         g'(s)=\lim{\frac{g(t)-g(s)}{t-s}}=f'(sz+(1-s)a)(z-a)=0 \text{ for all }
+         0 \leq s \leq 1
+    \end{equation*}
+    This makes $g$ constant, so that $f(z)=g(1)=g(0)=f(a)=\w_0$ and hence
+    $B(a,\e) \susbeteq A$ which makes $A$ open. Therefore  $A=U$ and this makes
+     $f$ constant on  $U$.
+\end{proof}
+
+\begin{example}\label{example_3.4}
+    \begin{enumerate}
+        \item[(1)] Differentiating $f'(z)=\exp{z}$ we get
+            \begin{equation*}
+                f'(z)=\sum{\frac{n}{n!}z^{n-1}}=\sum{\frac{z^{n-1}}{(n-1)!}}=
+                \sum{\frac{z^n}{n!}}
+            \end{equation*}
+            which makes $f'(z)=f(z)$. Taking $e^z=\exp{z}$, that is
+            \begin{equation*}
+                \frac{d}{dz}{e^z}=e^z
+            \end{equation*}
+
+            Now, take $g(z)=e^ze^{a-z}$. Then $g'(z)=e^ze^{a-z}-e^ze^{a-z}=0$ so
+            that $g$ is constant, and $g(z)=\w$ for all $z \in \C$. Taking
+            $e^0=1$, we get $\w=g(0)=e^a$; moreover that $e^ze^{a-z}=a^a$. This
+            shows that
+            \begin{equation*}
+                e^{a+b}=e^ae^b \text{ and } e^ze^{-z}=1 \text{ for all } a,b,z
+                \in \C
+            \end{equation*}
+            and that
+            \begin{equation*}
+                e^{-z}=\frac{1}{e^z}
+            \end{equation*}
+            since $e^z \neq 0$ for all $z \in \C$.
+
+            Moreover, notice that by the power series expansion, we have
+            \begin{equation*}
+                \bar{\sum{\frac{z^n}{n!}}}=\sum{\frac{\bar{z}^n}{n!}}
+            \end{equation*}
+            so that
+            \begin{equation*}
+                \bar{\exp{z}}=\exp{\bar{z}}
+            \end{equation*}
+            Now, if $\th \in \R$, notice that
+            $|e^{i\th}|=e^{i\th}e^{-i\th}=e^0=1$ and
+            $|e^z|^2=e^ze^{\bar{z}}=e^{z+\bar{z}}=2\re{z}$, and
+            $|\exp{z}|=\exp{2\re{z}}$.
+
+        \item[(2)] Define the follwing series $\sin{z}$ and $\cos{z}$ by
+            \begin{align*}
+                \sin{z} &=
+                            z-\frac{z^3}{3!}+\frac{z^5}{5!}+\dots+(-1)^n\frac{z^{2n-1}}{(2n-1)!}    \\
+                \cos{z} &=
+                            1-\frac{z^2}{2!}+\frac{z^4}{4!}+\dots+(-1)^n\frac{z^{2n}}{(2n)!}    \\
+            \end{align*}
+            Then it can be shown that $\sin{z}$ and $\cos{z}$ are convergent
+            power series with radius of convergence $R=\infty$, so that they
+            are also analytic on all of  $\C$. Differentiating the power series,
+            we find that
+            \begin{equation*}
+                \frac{d}{dz}{\sin{z}}=\cos{z} \text{ and }
+                \frac{d}{dz}{\cos{z}}=-\sin{z}
+            \end{equation*}
+            We can also find that
+            \begin{equation*}
+                \sin{z}=\frac{e^{iz}-e^{-iz}}{2} \text{ and }
+                \cos{z}=\frac{e^{iz}+e^{-iz}}{2}
+            \end{equation*}
+            which shows that
+            \begin{equation*}
+                \cos^2{z}+\sin^2{z}=1
+            \end{equation*}
+
+            In partiuclar if $\th \in \R$, we get
+            $e^{i\th}=\cos{\th}+i\sin{\th}$, and hence, for all $z \in \Z$, we
+            get $z=|z|e^{i\th}$ where $\th=\arg{z}$. Since
+            $\exp{(a+b)}=(\exp{a})(\exp{b})$, we find that
+            $\arg{\exp{z}}=\im{z}$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    We call a complex valued function $f$ on $\C$ \textbf{periodic}, if there
+    exists a $c \in \C$ such that  $f(z+c)=f(z)$ for all $z \in \C$. We call $c$
+    the \textbf{period} of $f$.
+\end{definition}
+
+\begin{example}\label{example_3.5}
+    If $c$ is the period of  $\exp{z}$, then $\exp{z}=\exp{(z+c)}=e^ze^c$,
+    implying that $\exp{c}=1$. Thus $\re{c}=0$, and so $c=i\th$ for some  $\th
+    \in \R$. Now, observe that
+    \begin{equation*}
+        \exp{c}=\exp{i\th}=\sin{\th}+i\sin{\th}=1
+    \end{equation*}
+    which makes $\th=2\pi k$, and hence $c=2i\pi k$, where $k \in \Z$.
+\end{example}
+
+\begin{example}[The Complex Logarithm]\label{example_3.6}
+    Define $\log{w}$ such that $w=\exp{z}$ whenever $z=\log{w}$. Since $\exp{z}
+    \neq 0$ for all $z \in \C$,  $\log{0}$ is undefined. Now, let $\exp{z}=w$,
+    where $w \neq 0$, if  $z=x+iy$, then  $|w|=e^x$ and  $y=\arg{w}+2\pi k$ for
+    some $k \in \Z$. So the set of solutions to  $\exp{z}$ is given by all
+    $\log{|w|}+(\arg{w}+2\pi k)$. Notice then that $\log{|w|}$ defines the
+    natural logarithm of $|w|$ by definition of  $\exp{z}$.
+\end{example}
+
+\begin{definition}
+    We define a \textbf{region} of $\C$ to be an open and connected set of
+    $\C$.
+\end{definition}
+
+\begin{definition}
+    Let $U$ be a region of  $\C$, and let  $f:U \xrightarrow{} \C$ a continuous
+    complex valued function such that $z=\exp{f(z)}$. Then we call $f$ a
+    \textbf{branch of the logarithm}.
+\end{definition}
+
+\begin{lemma}\label{3.2.6}
+    If $U$ is a region in  $\C$, and  $f$ is a branch of the logarithm in  $U$,
+    then then any other branch of logarithm is of the form
+    \begin{equation*}
+        f(z)+2i\pi k \text{ where } k \in \Z^+
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $f$ be a branch of the logarithm in  $U$ and let  $k \in \Z$. Take
+    $g(z)=f(z)+2i\pi k$. Then $\exp{g}=\exp{f}=z$ so that $g$ is also a branch
+    of the logarithm.
+
+    Conversely, suppose that $f$ and $g$ are both branches of the logarithm;
+    then $g(z)=f(z)+2i\pi k$, for some $k$ (not necessarrily an integer). Now,
+    define
+    \begin{equation*}
+        h(z)=\frac{1}{2i\pi}(g(z)-f(z))
+    \end{equation*}
+    Then $h$ is continuous on  $U$, and  $h(U) \subseteq \Z$. Now, since $U$ is
+    connected, then so is $h(U)$. Noticing that $h(z)=k$, this makes $k \in \Z$,
+    and we are done.
+\end{proof}
+
+\begin{definition}
+    Let $U=\com{\C}{\R_{\leq 0}}$; that is, the complex numbers $\C$ slit about
+    the negative real axis. Notice that  $U$ is connected, and that
+    $z=re^{i\th}$ where $r=|z|$ and $-\pi < \th < \pi$. Define
+    $f(z)=\log{r}+i\th$. Since $f$ is the sum of two continuous functions, i.e;
+     $\log{r}$ for all $r \in \com{\R}{\{0\}}$ and the map $\th \xrightarrow{}
+     i\th$, we get that $f$ is continuous on  $U$. Therefore  $f$ defines a
+     branch of the logarithm
+\end{definition}
+
+\begin{lemma}\label{3.2.7}
+    Let $U$ and  $V$ be open in  $\C$. Let  $f:U \xrightarrow{} \C$ and $g:V
+    \xrightarrow{} \C$ be continuous complex valued functions with $f(U)
+    \subseteq V$ and $g \circ f(z)=z$. Then if $g$ is complex differentiable on
+    $V$, $f$ is complex differentiable on  $U$, with
+    \begin{equation*}
+        f'(z)=\frac{1}{g' \circ f(z)}
+    \end{equation*}
+\end{lemma}
+%\begin{proof}
+    %Fix $z_0 \in U$ and let $h \in \C$ such that  $h \neq 0$ and  $h+z_0 \in U$.
+    %Then notice that $z_0=g \circ f(z_0)$ and $z_0+h$
+%\end{proof}
