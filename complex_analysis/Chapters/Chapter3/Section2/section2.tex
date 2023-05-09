@@ -423,7 +423,187 @@
         f'(z)=\frac{1}{g' \circ f(z)}
     \end{equation*}
 \end{lemma}
-%\begin{proof}
-    %Fix $z_0 \in U$ and let $h \in \C$ such that  $h \neq 0$ and  $h+z_0 \in U$.
-    %Then notice that $z_0=g \circ f(z_0)$ and $z_0+h$
-%\end{proof}
+\begin{proof}
+    Fix $z_0 \in U$ and let $h \in \C$ such that  $h \neq 0$ and  $h+z_0 \in U$.
+    Then notice that $z_0=g \circ f(z_0)$ and $z_0+h=g \circ f(z_0+h)$. This
+    makes $f(z_0) \neq f(z_0+h)$. Now, observe that
+    \begin{equation*}
+        \frac{g \circ f(z+h_0)-g \circ f(z_0)}{h}=
+        \frac{g \circ f(z+h_0)-g \circ
+        f(z_0)}{f(z_0+h)-f(z_0)}\frac{f(z_0+h)-f(z_0)}{z-z_0}=1
+    \end{equation*}
+    Now, taking the limit of both sides as $h \xrightarrow{} 0$, we get $g'
+    \circ f(z_0)f'(z_0)=1$, and $f'(z_0)$ exists since $g' \circ f(z_0) \neq 0$.
+\end{proof}
+\begin{corollary}
+    If $g$ is analytic on  $V$, then  $f$ is analyitic on  $U$.
+\end{corollary}
+\begin{corollary}
+    If $U$ is a connected; i.e. a region, and $f$ is a branch of the logarithm
+    on  $U$, then  $f$ is analytic.
+\end{corollary}
+\begin{proof}
+    Observe by definition that $z=\exp{f(z)}$.
+\end{proof}
+
+\begin{definition}
+    We define the \textbf{principle branch of the logarithm} on
+    $\com{\C}{\R_{\leq 0}}$ to be the complex function
+    $\log:\com{\C}{\R_{\leq 0}} \xrightarrow{} \C$ defined by
+    \begin{equation*}
+        \log{z}=\log{r}+i\th \text{ where }z=r\exp{i\th}
+    \end{equation*}
+\end{definition}
+
+\begin{definition}
+    If $f$ is a branch of the logarithm on some region  $U$, and if  $b \in \Z$.
+    The \textbf{branch} of $bf(z)$ to be a complex function $g:U \xrightarrow{}
+    \C$ defined by $g(z)=exp{bf(z)}$. We write $g(z)=z^b$, when the branch $f$
+    is the principle branch of the logarithm.
+\end{definition}
+
+\begin{lemma}\label{3.2.8}
+    Let $U$ be a region, and  $f$ a branch of the logarithm and let  $b \in \Z$.
+    Then the branch of  $bf(z)$, $g(z)=\exp{bf(z)}$ is analytic.
+\end{lemma}
+\begin{corollary}
+    The branch $z^b$ of  $\log{z}$ is analytic.
+\end{corollary}
+
+\begin{definition}
+    Let $u:\R \times \R \xrightarrow{} \R$ and $v:\R \times \R \xrightarrow{}
+    \R$ be realvalued functions. We define the \textbf{Cauchy Riemann equations}
+    to be the systems of equations
+    \begin{align*}
+        \frac{\partial{u}}{\partial{x}}-\frac{\partial{v}}{\partial{y}} &= 0 \\
+        \frac{\partial{u}}{\partial{y}}+\frac{\partial{v}}{\partial{x}} &= 0 \\
+    \end{align*}
+\end{definition}
+
+\begin{lemma}\label{3.2.9}
+    Let $f:U \xrightarrow{} \C$ a complex valued function with
+    $f(z)=f(x+iy)=u(x,y)+iv(x,y)$. Then if $f$ is analytic, we have
+    \begin{equation*}
+        f'(z)=\frac{\partial{u}}{\partial{x}}(x,y)+i\frac{\partial{v}}{\partial{x}}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    We evaluate $f'(z)$ as $h \xrightarrow{} 0$ along the real axis $\R$ of
+    $\C$.
+\end{proof}
+
+\begin{lemma}\label{3.2.10}
+    Let $f:U \xrightarrow{} \C$ a complex valued function with
+    $f(z)=f(x+iy)=u(x,y)+iv(x,y)$. Then if $f$ is analytic, we have
+    \begin{equation*}
+        f'(z)=\frac{\partial{v}}{\partial{y}}(x,y)-i\frac{\partial{u}}{\partial{y}}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    We evaluate $f'(z)$ as $h \xrightarrow{} 0$ along the imaginary axis $i\R$
+    of $\C$.
+\end{proof}
+
+\begin{theorem}\label{3.2.11}
+    Let $u(z)=u(x,y)$ and $v(z)=v(x,y)$, where $z=x+iy$ be real valued
+    functions on a region $U$ with continuous partial derivarives. If $f:U
+    \xrightarrow{} \C$ is a complex valued function such that
+    $f(z)=u(x,y)+iv(x,y)$, then $f$ is analytic on $U$ if, and only if $u$ and
+    $v$ satisfy the Cauchy Riemann equations.
+\end{theorem}
+\begin{proof}
+    Suppose that $u$ and  $v$ satisfy the Cauchy Riemann equations, and let
+    $B(z,r) \subseteq U$. If $h=s+it \oin B(0,r)$, then
+    \begin{equation*}
+        u(x+s,y+t)-u(x,y)=(u(x+s,y+t)-u(x,y+t))+(u(x,y+t)-u(x,y))
+    \end{equation*}
+    By the mean value theorem for real valued functions, we have that there
+    exist $s_1, t_1 \in B(0,r)$ with $|s_1|<|s|$ and $|t_1|<|t|$ for which
+    \begin{equation*}
+        u(x+s,y+t)-u(x,y+t)=u_x(x+s_1,y+t)s
+    \end{equation*}
+    and
+    \begin{equation*}
+        u(x,y+t)-u(x,y+t)=u_y(x,y+t)t
+    \end{equation*}
+    Letting
+    \begin{equation*}
+        \phi(s,t)=(u(x+s,y+y)-u(x,y))-(u_x(x,y)s-u_y(x,y)t)
+    \end{equation*}
+    Then
+    \begin{equation*}
+        \frac{\phi(s,t)}{s+it}=\frac{s}{s+it}(u_x(x+s_1,y+t)-u_x(x,y))+
+        \frac{t}{s+it}(u_y(x,y+t_1)-u_y(x,y))
+    \end{equation*}
+    Now, since $|s| \leq |s+it|$ and  $|t| \leq |s+it|$, and  $u_x$ and  $u_y$
+    are continuous, we get
+    \begin{equation*}
+        \lim_{s+it \xrightarrow{} 0}{\frac{\phi(s,t)}{s+it}}=0
+    \end{equation*}
+    So that
+    \begin{equation*}
+        u(x+s,y+t)-u(x,y)=u_x(x,y)s+u_y(x,y)t+\phi(s,t)
+    \end{equation*}
+    Similarly, for $v$ we get
+    \begin{equation*}
+        v(x+s,y+t)-v(x,y)=v_x(x,y)s+v_y(x,y)t+\psi(s,t)
+    \end{equation*}
+    where
+    \begin{equation*}
+        \lim_{s+it \xrightarrow{} 0}{\frac{\psi(s,t)}{s+it}}=0
+    \end{equation*}
+
+    Notice then that
+    \begin{equation*}
+        \frac{f(z+(s+it))-f(z)}{s+it}=u_x(x,y)+iv(x,y)+\frac{\phi(s,t)+i\psi(s,t)}{s+it}
+    \end{equation*}
+    Taking $s+it \xrightarrow{} 0$, makes $f$ complex differentiable on $U$ with
+    $f'(z)=u_x(x,y)+iv(x,t)$. Since $u_x$ and  $v_x$ are continuous, so is  $f$,
+    which makes  $f$ analytic.
+
+    Conversely, if we suppose that  $f$ is analytic, then by lemma \ref{3.2.9}
+    and lemma \ref {3.2.10}, we get
+    \begin{equation*}
+        \frac{\partial{u}}{\partial{x}}(x,y)+i\frac{\partial{v}}{\partial{x}}=
+        \frac{\partial{v}}{\partial{y}}(x,y)-i\frac{\partial{u}}{\partial{y}}
+    \end{equation*}
+    which shows that $u$ and  $v$ satisfy the Cauch Riemann equations.
+\end{proof}
+
+\begin{definition}
+    We call a real valued function $u:\R \times \R \xrightarrow{} \R$
+    \textbf{harmonic} if
+    \begin{equation*}
+        \frac{\partial^2{u}}{\partial{x}^2}+\frac{\partial^2{u}}{\partial{y}^2}=0
+    \end{equation*}
+    If $v:\R \times \R \xrightarrow{} \R$ is a real valued function, and $f$ is
+    a complex valued function for which  $f(z)=u(x,y)+iv(x,y)$, then we call
+    $v$ the  \textbf{harmonic conjugate} of $u$.
+\end{definition}
+
+\begin{example}\label{example_3.7}
+    The function $u(x,y)=\log{\sqrt{x^2+y^2}}$ is harmonic.
+\end{example}
+
+\begin{theorem}\label{3.2.12}
+    Let $U$ be an open ball, or $\C$. If $u:U \xrightarrow{} \C$ is harmonic,
+    then $u$ has a harmonic conjugate.
+\end{theorem}
+\begin{proof}
+    Let $U=B(0,R)$ for $0 \leq R \leq \infty$, and let  $u:U \xrightarrow{} \C$
+    be harmonic. Define
+    \begin{equation*}
+        v(x,y)=\int_0^y{u_x(x,t) \ dt}+\phi(x)
+    \end{equation*}
+    wheere $\phi$ is determined by taking  $v_x+u_y=0$. Then differentiating
+    both sides, and by Leibniz's rule for differentiating under the integral,
+    we have
+    \begin{align*}
+        v_x(x,y) &= \int_0^y{u_{xx}(x,t) \ dt}+\phi'(t) \\
+                 &= -\int_0^y{u_{xx}(x,t) \ dt}+\phi'(x)    \\
+                 &= -u_y(x,y)+u_y(x,0)+phi'(x)  \\
+    \end{align*}
+    and $\phi'(x)=u_y(x,0)$. Then $u$ and  $v=\int_0^y{u_x(x,t) \ dt}-
+    \int_0^x{u_y(s,0) \ ds}$ satisfy the Cauchy Riemann equations. This makes
+    $v$ a harmonic conjugate.
+\end{proof}
