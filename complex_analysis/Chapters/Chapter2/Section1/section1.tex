@@ -19,17 +19,21 @@
 
 \begin{example}\label{example_2.1}
     \begin{enumerate}
-        \item[(1)] The metric $d(x,y)=\|z-w\|$ makes $\R$ and  $\C$ into metric
-            spaces. In fact,  $d$ defines the norm on  $\C$, i.e.
-            $\|z\|=d(z,0)$.
+        \item[(1)] The metric $d(x,y)=\|z-w\|$ defined by
+            $\|z-w\|=\sqrt{(x_1-x_2)^2+(y_1-y_2)}$, where $z=x_1+iy_1$ and
+            $w=x_2+iy_2$ makes $\R$ and  $\C$ into metric spaces. In fact,
+            $d$ defines the norm on  $\C$, i.e. $\|z\|=d(z,0)$. In $\R$,
+            $\| \cdot \|$ is the absolute value. We denote howerver
+            $\| \cdot \|=| \cdot |$ is $\C$ as well, when we are talking about
+            the norm of a complex number.
 
-        \item[(2)] If $X$ is a metric space with metric  $d$, and  $Y \subsete
+        \item[(2)] If $X$ is a metric space with metric  $d$, and  $Y \subseteq
             X$, then  $d$ makes  $Y$ into a metric space.
 
-        \item[(3)] Define $d(x+iy,a+ib)=\|x-a\|+\|y-b\|$. Then $(\C,d)$ is a
+        \item[(3)] Define $d(x+iy,a+ib)=|x-a|+|y-b|$. Then $(\C,d)$ is a
             metric space. We call $d$ the  \textbf{taxicab metric}.
 
-        \item[(4)] Define $d(x+iy,a+ib)=\max{\{\|x-a\|,\|y-b\|\}}$. Then
+        \item[(4)] Define $d(x+iy,a+ib)=\max{\{|x-a|,|y-b|\}}$. Then
             $(\C,d)$ is a metric space. We call $d$ the  \textbf{square metric}.
 
         \item[(5)] Let $X$ be any set, and define  $d:X \times X \xrightarrow{}
@@ -51,7 +55,7 @@
         $\|x\|=d(x,0)$.
 
     \item[(7)] Let $S$ and let  $B(S)$ the set of all complex valued functions
-        $f:S \xrightarrow{} \C$ such that $\|f\|_\infty=\sup{\{\|f(s\|) : s \in
+        $f:S \xrightarrow{} \C$ such that $\|f\|_\infty=\sup{\{|f(s|) : s \in
         S\}}$ is finite. That is, $B(S)$ is the set of all complex valued
         functions whose image is contained within a disk of finite radius.
         Define $d$ on  $B(S)$ by $d(f,g)=\|f-g\|_\infty$. Let $f,g,h \in B(S)$.

@@ -32,30 +32,30 @@
 
 \begin{definition}
     Let $z=a+ib \in \C$. We define the \textbf{norm} (or \textbf{modulus}) of
-    $z$ to be  $\|z\|=\sqrt[]{a^2+b^2}$. We define the complex
+    $z$ to be  $|z|=\sqrt[]{a^2+b^2}$. We define the complex
     \textbf{conjugate} of $z$ to be  $\bar{z}=a-ib$.
 \end{definition}
 
 \begin{lemma}\label{1.1.2}
-    For every $z \in \C$,  $\|z\|^2=z\bar{z}$.
+    For every $z \in \C$,  $|z|^2=z\bar{z}$.
 \end{lemma}
 \begin{proof}
     Let $z=a+ib$. Then $\bar{z}=a-ib$, and so
-    $z\bar{z}=(a+ib)(a-ib)=a^2+b^2=(\sqrt[]{a^2+b^2})^2=\|z\|^2$.
+    $z\bar{z}=(a+ib)(a-ib)=a^2+b^2=(\sqrt[]{a^2+b^2})^2=|z|^2$.
 \end{proof}
 \begin{corollary}
-    If $z \neq 0$, then $\inv{z}=\frac{1}{z}=\frac{\bar{z}}{\|z\|^2}$.
+    If $z \neq 0$, then $\inv{z}=\frac{1}{z}=\frac{\bar{z}}{|z|^2}$.
 \end{corollary}
 \begin{proof}
     The relation follows from above, and it remains to show that it is indeed
     the inverse element. Notice that if $z \in \C$ is nonzero, then
-    $z\frac{\bar{z}}{\|z\|^2}=\frac{z\bar{z}}{\|z\|^2}=\frac{\|z\|^2}{\|z\|^2}=1$.
+    $z\frac{\bar{z}}{|z|^2}=\frac{z\bar{z}}{|z|^2}=\frac{|z|^2}{|z|^2}=1$.
 \end{proof}
 
 \begin{example}\label{example_1.1}
     \begin{enumerate}
         \item[(1)] Let $z=a+ib$. Then we get that
-            $\frac{1}{z}=\frac{\bar{z}}{\|z\|}$ has real part
+            $\frac{1}{z}=\frac{\bar{z}}{|z|}$ has real part
             $\re{\frac{1}{z}}=\frac{a}{a^2+b^2}$ and imaginary part
             $\im{\frac{1}{z}}=-\frac{b}{a^2+b^2}$.
 
@@ -75,8 +75,8 @@
             \mod{4}$.
             respectively.
 
-        \item[(7)] $\|-2+i\|=\sqrt[]{5}$, and
-            $\|(2+i)(4+i3)\|=\|5+i10\|=5\sqrt[]{5}$.
+        \item[(7)] $|-2+i|=\sqrt[]{5}$, and
+            $|(2+i)(4+i3)|=|5+i10|=5\sqrt[]{5}$.
     \end{enumerate}
 \end{example}
 
@@ -89,7 +89,7 @@
         \item[(2)] $\bar{(z+w)}=\bar{z}+\bar{w}$ and $\bar{zw}=\bar{z} \
             \bar{w}$.
 
-        \item[(3)] $\|\bar{z}\|=\|z\|$.
+        \item[(3)] $|\bar{z}|=|z|$.
     \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -112,20 +112,20 @@
     \end{equation*}
     so that $\bar{z+w}=\bar{z}+\bar{w}$ and $\bar{zw}=\bar{z} \ \bar{w}$.
 
-    Now, we have that $\|zw\|^2=(zw)\bar{zw}=(zw)(\bar{z} \
-    \bar{w})=(z\bar{z})(w\bar{w})=\|z\|^2\|w\|^2$. Taking square roots, we get
+    Now, we have that $|zw|^2=(zw)\bar{zw}=(zw)(\bar{z} \
+    \bar{w})=(z\bar{z})(w\bar{w})=|z|^2|w|^2$. Taking square roots, we get
     the result
     \begin{equation*}
-        \|zw\|=\|z\|\|w\|
+        |zw|=|z||w|
     \end{equation*}
-    Finally, notice that $\|z\|^2=z\bar{z}=\bar{z} \ \bar{\bar{z}}=\|\bar{z}\|$.
+    Finally, notice that $|z|^2=z\bar{z}=\bar{z} \ \bar{\bar{z}}=|\bar{z}|$.
 \end{proof}
 \begin{corollary}
     The following are also true; provided $w \neq 0$.
     \begin{enumerate}
         \item[(1)] $\bar{(\frac{z}{w})}=\frac{\bar{z}}{\bar{w}}$.
 
-        \item[(2)] $\|\frac{z}{w}\|=\frac{\|z\|}{\|w\|}$
+        \item[(2)] $|\frac{z}{w}|=\frac{|z|}{|w|}$
     \end{enumerate}
 \end{corollary}
 \begin{corollary}
@@ -134,16 +134,16 @@
     \begin{enumerate}
         \item[(1)] $\bar{z}=\bar{z_1}+\dots+\bar{z_n}$.
 
-        \item[(2)] $\|w\|=\|w_1\| \dots \|w_n\|$.
+        \item[(2)] $|w|=|w_1| \dots |w_n|$.
     \end{enumerate}
 \end{corollary}
 \begin{proof}
     We prove both results by induction on $n$. For  $n=2$, we have already shown
-    that  $\bar{z}=\bar{z_1}+\bar{z_2}$ and $\|w\|=\|w_1\|\|w_2\|$. Now, for
+    that  $\bar{z}=\bar{z_1}+\bar{z_2}$ and $|w|=|w_1||w_2|$. Now, for
     all $n \geq 2$, suppose that both
     \begin{align*}
         \bar{z} &=  \bar{z_1}+\dots+\bar{z_n}   \\
-        \|w\|   &=  \|w_1\| \dots \|w_n\|   \\
+        |w|   &=  |w_1| \dots |w_n|   \\
     \end{align*}
     Then let $z'=z+z_{n+1}$ and $w'=ww_{n+1}$ for $z_{n+1},w_{n+1} \in \C$. Then
     we have that
@@ -158,7 +158,7 @@
     \end{equation*}
     and that
     \begin{equation*}
-        \|w'\|=\|ww_{n+1}\|=\|w\|\|w_{n+1}\|=\|w_1\| \dots \|w_n\| \|w_{n+1}\|
+        |w'|=|ww_{n+1}|=|w||w_{n+1}|=|w_1| \dots |w_n| |w_{n+1}|
     \end{equation*}
     which completes the proof.
 \end{proof}
@@ -178,31 +178,31 @@
 \begin{lemma}\label{1.1.5}
     The following are true for all $z,w \in \C$.
     \begin{enumerate}
-        \item[(1)] $\|z+w\|^2=\|z\|^2+2\re{z\bar{w}}+\|w\|^2$.
+        \item[(1)] $|z+w|^2=|z|^2+2\re{z\bar{w}}+|w|^2$.
 
-        \item[(2)] $\|z-w\|^2=\|z\|^2-2\re{z\bar{w}}+\|w\|^2$.
+        \item[(2)] $|z-w|^2=|z|^2-2\re{z\bar{w}}+|w|^2$.
 
-        \item[(3)] $\|z+w\|^2+\|z-w\|^2=2(\|z\|^2+\|w\|^2)$.
+        \item[(3)] $|z+w|^2+|z-w|^2=2(|z|^2+|w|^2)$.
     \end{enumerate}
 \end{lemma}
 \begin{proof}
     We first notice that
-    $\|z+w\|^2=(z+w)\bar{(z+w)}=(z+w)(\bar{z}+\bar{w})=z\bar{z}+z\bar{w}+w\bar{z}+
-    w\bar{w}=\|z\|^2+z\bar{w}+w\bar{z}+\|w\|^2$. Now, let $z=a+ib$ and
+    $|z+w|^2=(z+w)\bar{(z+w)}=(z+w)(\bar{z}+\bar{w})=z\bar{z}+z\bar{w}+w\bar{z}+
+    w\bar{w}=|z|^2+z\bar{w}+w\bar{z}+|w|^2$. Now, let $z=a+ib$ and
     $w=c+id$. Then we have
     \begin{align*}
         (a+ib)(c-id)    &=  (ac+bd)-i(ad-bc)    \\
         (c+id)(a-ib)    &=  (ac+bd)+i(ad-bc)    \\
     \end{align*}
     so that $z\bar{w}+w\bar{z}=2(ac+bd)=2\re{z\bar{w}}$, and we are done. To get
-    the identity for $\|z-w\|^2$, we simply replace $w$ by  $-w$, and use the
+    the identity for $|z-w|^2$, we simply replace $w$ by  $-w$, and use the
     above argument.
 
-    Now, we have that  $\|z+w\|^2=\|z^2\|+2\re{z\bar{w}}+\|w\|^2$, and
-    $\|z-w\|^2=\|z^2\|-2\re{z\bar{w}}+\|w\|^2$, so that adding them together,
+    Now, we have that  $|z+w|^2=|z^2|+2\re{z\bar{w}}+|w|^2$, and
+    $|z-w|^2=|z^2|-2\re{z\bar{w}}+|w|^2$, so that adding them together,
     the terms $2\re{z\bar{w}}$ cancel out and we are left with
     \begin{equation*}
-        \|z+w\|^2+\|z-w\|^2=2(\|z\|^2+\|w\|^2)
+        |z+w|^2+|z-w|^2=2(|z|^2+|w|^2)
     \end{equation*}
 \end{proof}
 

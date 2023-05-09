@@ -12,10 +12,10 @@
     Identify $\C$ with the plane $\R^2$ as a subset of $\R^3$. Then  $\C$ cuts
     the sphere  $S^2$ along the equator. Now, let  $N=(0,0,1)$ be the noth pole
     of $S^2$. For  $z \in \C$, let  $L_z$ the line passing through $z$ and $N$,
-    and hence cuts  $S^3$ at exactly one point  $Z \neq N$. If  $\|z\|>1$,  $Z$
-    is in the northern hemisphere of  $S^2$, and if  $\|z\|<1$, then  $Z$ is in
-    the southern hemisphere. If  $\|z\|=1$, then  $Z=z$. Then notice that as
-    $\|z\| \xrightarrow{} \infty$, then $Z \xrightarrow{} N$; and so identify
+    and hence cuts  $S^3$ at exactly one point  $Z \neq N$. If  $|z|>1$,  $Z$
+    is in the northern hemisphere of  $S^2$, and if  $|z|<1$, then  $Z$ is in
+    the southern hemisphere. If  $|z|=1$, then  $Z=z$. Then notice that as
+    $|z| \xrightarrow{} \infty$, then $Z \xrightarrow{} N$; and so identify
     $N$ with  $\infty$ in  $\C_\infty$.
 
     Now, let  $z=x+iy$ and  $Z=(x_1,x_2,x_3)$ a point on $S^2$. Then
@@ -25,17 +25,17 @@
     \end{equation*}
     Then we get
     \begin{equation*}
-        1=(1-t)^2\|z\|^2+t^2
+        1=(1-t)^2|z|^2+t^2
     \end{equation*}
     Taking $t \neq 1$ so that  $z \neq \infty$
     \begin{equation*}
-        Z=\Big{(}\frac{2x}{\|z\|^2+1},\frac{2y}{\|z\|^2+1},
-        \frac{\|z\|^2-1}{\|z\|^2+1}\Big{)}
+        Z=\Big{(}\frac{2x}{|z|^2+1},\frac{2y}{|z|^2+1},
+        \frac{|z|^2-1}{|z|^2+1}\Big{)}
     \end{equation*}
     additionally
     \begin{equation*}
-        Z=\Big{(}\frac{z+\bar{z}}{\|z\|^2+1},-i\frac{z-\bar{z}}{\|z\|^2+1},
-        \frac{\|z\|^2-1}{\|z\|^2+1}\Big{)}
+        Z=\Big{(}\frac{z+\bar{z}}{|z|^2+1},-i\frac{z-\bar{z}}{|z|^2+1},
+        \frac{|z|^2-1}{|z|^2+1}\Big{)}
     \end{equation*}
     Taking $Z \neq N$ and  $t=x_1$, we also get by definition of $L_z$, that
     \begin{equation*}
@@ -54,12 +54,12 @@
     \end{equation*}
     Using the previous derivations of the components of $Z$, we finally obtain
     \begin{equation*}
-        d(z,w)=\frac{z\|z-w\|}{\sqrt[]{(\|z\|^2+1)(\|w\|^2+1)}} \text{ for all }
+        d(z,w)=\frac{z|z-w|}{\sqrt[]{(|z|^2+1)(|w|^2+1)}} \text{ for all }
         z,w \in \C
     \end{equation*}
     When $w=\infty$, we have
     \begin{equation*}
-        d(z,\infty)=\frac{z}{\sqrt[]{\|z\|^2+1}}
+        d(z,\infty)=\frac{z}{\sqrt[]{|z|^2+1}}
     \end{equation*}
     Then $d$ is the required homeomorphism.
 \end{proof}
