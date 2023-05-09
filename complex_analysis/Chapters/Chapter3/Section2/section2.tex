@@ -1,1 +1,249 @@
-%\section{Analytic Functions}
+\section{Analytic Functions}
+
+\begin{definition}
+    Let $U$ be an open set in  $\C$, and  $f:U \xrightarrow{} \C$ a complex
+    valued function. We call $f$  \textbf{complex differentiable} at a point
+    $z_0 \in U$ if
+    \begin{equation*}
+        f'(z_0)=\lim_{h \xrightarrow{} 0}{\frac{f(z_0+h)-f(z_0)}{h}}=
+        \lim_{z \xrightarrow{} z_0}{\frac{f(z)-f(z_0)}{z-z_0}}
+    \end{equation*}
+    exists, and we call $f'(z_0)$ the \textbf{complex derivative} of $f$ at
+    $z_0$. We call $f$  \textbf{complex differentiable} on $U$ if it is complex
+    differentiable at every point  $z_0 \in U$, and the value $f'(z_0)$ defines
+    a function $f':U \xrightarrow{} \C$ called the \textbf{complex derivative}
+    of $f$ on  $U$. If  $f$ is complex differentiable on $U$, and  $f'$ exists
+    on $U$ and is continuous, then we call $f$ \textbf{continuously
+    differentiable}, and say it is of class $C^1$.
+\end{definition}
+
+\begin{definition}
+    Let $U$ be an open set of $\C$, and let $f:U \xrightarrow{} \C$ be a
+    continuously differentiable complex valued function; i.e. of class $C^1$. We
+    define the \textbf{$n$-th derivative} of $f$ recuresively as
+    \begin{enumerate}
+        \item[(1)] $f^{(0)}(z)=f$ and $f^{(1)}=f'(z)$.
+
+        \item[(2)] $f^{(n+1)}(z)=(f^{(n)})'(z)$, provided $f^{(n)}(z)$ exists.
+    \end{enumerate}
+    We say that $f$ is \textbf{$n$-th differentiable} if $f^{(n)}$ exists. We
+    say that $f$ is \textbf{$q$-smooth} if $f^{(q)}(z)$ exists for some $q \geq
+    0$, and  $f^{(q)}$ is continuous, and we call $f$ of class $C^q$. We call
+    $f$  \textbf{smooth} if $f^{(n)}(z)$ exists and is continuous for any $n$,
+    and we call  $f$ of class  $C^\infty$.
+\end{definition}
+
+\begin{lemma}\label{3.2.1}
+    If $f:U \xrightarrow{} \C$ is a complex valued function, complex
+    differentiable at a point $z_0 \in U$, then $f$ is continuous on  $U$.
+\end{lemma}
+\begin{proof}
+    We have
+    \begin{equation*}
+        |f(z)-f(z_0)|=\Big{|} \frac{f(z)-f(z_0)}{z-z_0} \Big{|}|z-z_0|
+    \end{equation*}
+    Taking $z \xrightarrow{} z_0$, we see that $|f(z)-f(z_0)| \xrightarrow{}
+    |f'(z_0)| \cdot 0=0$.
+\end{proof}
+\begin{corollary}
+    If $f$ is $n$-th differentiable, for all $n \in \Z^+$, then $f$ is of class
+    $C^\infty$.
+\end{corollary}
+
+\begin{definition}
+    We call a complex valued function $f:U \xrightarrow{} \C$, on an open set
+    $U$ of $\C$, \textbf{analytic} on $U$ if it is of class  $C^1$ on  $U$.
+\end{definition}
+
+\begin{theorem}\label{3.2.2}
+    Let $U$ be open in  $\C$, and let  $f:U \xrightarrow{} \C$ and $g:U
+    \xrightarrow{} \C$ analytic on $U$. Then
+    \begin{enumerate}
+        \item[(1)] $f+g$ is analytic on  $U$ with $(f+g)'(z)=f'(z)+g'(z)$.
+
+        \item[(2)] $fg$ is analytic on  $U$, with
+            $(fg)'(z)=f'(z)g(z)+f(z)g'(z)$.
+
+        \item[(3)] For any $\a \in \C$,  $\a f$ is analytic on  $U$ with $(\a
+            f)'(z)=\a f'(z)$.
+    \end{enumerate}
+\end{theorem}
+\begin{corollary}
+    $\frac{f}{g}$ is analytic on $U$, provided that  $g(z) \neq 0$ for all $z
+    \in U$, and
+    \begin{equation*}
+        \Big{(} \frac{f}{g} \Big{)}'(z)=\frac{f'(z)g(z)-f(z)g'(z)}{g(z)^2}
+    \end{equation*}
+\end{corollary}
+
+\begin{theorem}[The Chain Rule]\label{3.2.3}
+    Let $U$ and  $V$ be open in $\C$. Let $f:U \xrightarrow{} \C$ be analytic on
+    $U$ and let  $g:V \xrightarrow{} \C$ be analytic on $V$, with  $f(U)
+    \subseteq V$. Then $g \circ f$ is analytic on $U$, with
+    \begin{equation*}
+        (g \circ f)'(z)=g' \circ f(z)f'(z)
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Fix $z_0 \in U$, and let $r>0$ such that the open ball $B(z_0,r)$ is
+    contained in $U$; i.e. that  $B(z_0,r) \subseteq U$. It suffices to show that
+    if $0<|h_n|<r$, where the sequence $\{h_n\} \xrightarrow{} 0$ as $n
+    \xrightarrow{} \infty$, then
+    \begin{equation*}
+        \lim{\frac{g \circ f(z_0+h_n)-g \circ f(z_0)}{h_n}}
+    \end{equation*}
+    exists and equals $g' \circ f(z_0)f'(z_0)$.
+
+    Suppose first that $f(z_0) \neq f(z_0+h_n)$ for all $n \in \Z^+$. Then we
+    have
+    \begin{equation*}
+        \frac{g \circ f(z_0+h_n)-g \circ f(z_0)}{h_n}=
+        \frac{g \circ f(z_0+h_n)-g \circ f(z_0)}{f(z_0+h_n)-f(z_0)} \cdot
+        \frac{f(z_0+h_n)-f(z_0)}{h_n}
+    \end{equation*}
+    Since $\lim{(f(z_0+h)-f(z_0))}=0$, we get
+    \begin{equation*}
+        \lim{\frac{g \circ f(z_0+h_n)-g \circ f(z_0)}{h_n}}=g' \circ f(z_0)f'(z_0)
+    \end{equation*}
+
+    Now, suppose that $f(z_0)=f(z_0+h_n)$ for infinitely many $n$. Write
+    $\{h_n\}=\{k_n\} \cup \{l_n\}$, where $f(z_0) \neq f(z_0+k_n)$ and
+    $f(z_0)=f(z_0+l_n)$ for all $n$. Since $f$ is analytic, and hence complex
+    differentiable
+    \begin{equation*}
+        f'(z_0)=\lim{\frac{f(z_0+h_n)-f(z_0)}{l_n}}=0
+    \end{equation*}
+    so that
+    \begin{equation*}
+        \lim{\frac{g \circ f(z_0+l_n)+g \circ f(z_0)}{l_n}}=0
+    \end{equation*}
+    Now, by above we also get that
+    \begin{equation*}
+        \lim{\frac{g \circ f(z_0+k_n)+g \circ f(z_0)}{k_n}}=g' \circ f(z_0)f'(z_0)
+    \end{equation*}
+    so that $g' \circ f(z_0)f'(z_0)=0$.
+\end{proof}
+
+\begin{definition}
+    Let $A \subseteq \C$ an arbitrary set of  $\C$. We call a complex valued
+    function $f$ \textbf{analytic} on $A$ if it is analytic on some open set of
+     $\C$ containing  $A$.
+\end{definition}
+
+\begin{theorem}\label{3.2.4}
+    Let $f(z)=\sum{a_n(z-z_0)^n}$ a convergent power series with radius of
+    convergence $R>0$. Then the following are true.
+    \begin{enumerate}
+        \item[(1)] The series $\sum{\frac{n!}{(n-k)!}a_n(z-z_0)^{n-1}}$
+            converges with radius of convergence $R$.
+
+        \item[(2)] $f$ is smooth on the ball  $B(z_0,R)$ with
+            \begin{equation*}
+                f^{(n)}(z)=\sum{\frac{n!}{(n-k)!}a_n(z-z_0)^{n-1}}
+            \end{equation*}
+
+        \item[(3)] For all $n \geq 0$
+            \begin{equation*}
+                a_n=\frac{f^{(n)}(z_0)}{n!}
+            \end{equation*}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Suppose without loss of generality that $z_0=0$. Then it is sufficient to
+    show that $f'$ exists and has the power series  $\sum{na_nz^{n-1}}$. We have
+    by definition that
+    \begin{equation*}
+        \frac{1}{R}=\limsup{\sqrt[n]{|a_n|}}
+    \end{equation*}
+    Now, by L'\^opital's rule, we have
+    \begin{equation*}
+        \lim{\frac{\log{n}}{n-1}}=0
+    \end{equation*}
+    so that $\lim{\sqrt[n-1]{n}}=1$. Let
+    \begin{equation*}
+        \frac{1}{R'}=\limsup{\sqrt[n-1]{|a_n|}}
+    \end{equation*}
+    Then $R'$ is the radius of convergence of the series
+    \begin{equation*}
+        \sum{na_nz^{n-1}}
+    \end{equation*}
+    Notice that $\sum{a_nz^{n-1}}=\sum{a_{n+1}z^n}$, so that
+    \begin{equation*}
+        z\sum{a_{n+1}z^n}+a_0=\sum{a_nz^n}
+    \end{equation*}
+    Now, if $|z|<R$, and  $z \neq 0$, then  $\sum{|a_nz^n|}=\frac{1}{|z|}$.
+    Moreover,
+    \begin{equation*}
+        \sum{|a_nz^n|}+\frac{1}{|z|}a_0<\infty
+    \end{equation*}
+    which makes $R \leq R'$. Therefore  $R=R'$, and so the series
+    $\sum{na_nz^{n-1}}$ converges and has radius of convergence $R$.
+
+    Now, for $|z|<R$, put  $g(z)=\sum{na_nz^{n-1}}$ and
+    $s_n(z)=\sum_{k=0}^n{a_kz^n}$ and $R(z)=\sum_{k=n+1}^\infty{a_kz^k}$. Let $w
+    \in B$. Let  $w \in B(0,R)$, the open ball of radius $R$ about $0$, and fix
+    $r$ such that $|w|<r<R$. Let $\d>0$ such that the closed ball
+    $\bar{B}(w,\d)$ of radius $\d$ about  $w$ is contained in  $B(0,R)$; that
+    is, $\bar{B}(w,\d) \subseteq B(0,R)$. Let $z \in B(w,\d)$, then we see that
+    \begin{equation*}
+        \frac{f(z)-f(w)}{z-w}-g(w)=\Big{(} \frac{s_n(z)-s_n(w)}{z-w}-s'(w) \Big{)}
+        +s_n'(w)-g(w)+\frac{R_n(z)-R_n(w)}{z-w}
+    \end{equation*}
+    So that
+    \begin{equation*}
+        \frac{f(z)-f(w)}{z-w}-g(w)=\frac{1}{z-w}\sum_{k=n+1}^\infty{a_k(z^k-w^k)}
+    \end{equation*}
+    However, notice that
+    \begin{equation*}
+        \Big{|} \frac{z^k-w^k}{z-w}
+        \Big{|}=|z^{k-1}+z^{k-2}w+\dots+zw^{k-2}+w^{k-1}| \leq kr^{k-1}
+    \end{equation*}
+    Hence
+    \begin{equation*}
+    \Big{|} \frac{R_n(z)-R_n(w)}{z-w} \Big{|} \leq
+    \sum_{k=n+1}^\infty{|a_k|kr^{k-1}}
+    \end{equation*}
+    Since $r<R$,  $\sum{|a_k|kr^{k-1}}$ converges so that for any $\e>0$, there
+    is an  $N_1 \in \Z^+$ such that
+    \begin{equation*}
+        \Big{|} \frac{R_n(z)-R_n(w)}{z-w} \Big{|}<\frac{\e}{3}
+    \end{equation*}
+    whenever $n \geq N_1$ and for all $z \in B(w,\d)$. Also, notice that
+    $\lim{s_n'(w)}=g(w)$, and that there exists an $N_2 \in \Z^+$ such that
+    \begin{equation*}
+        |s_n'(w)-g(w)|<\frac{\e}{3}
+    \end{equation*}
+    whenever $n \geq N_2$. Now, let $N=\max{\{N_1,N_2\}}$ and choose $\d>0$ such
+    that
+    \begin{equation*}
+        \Big{|} \frac{s_n(z)-s_n(w)}{z-w} \Big{|}<\frac{\e}{3}
+    \end{equation*}
+    whenever $0<|z-w|<\d$. Then
+    \begin{equation*}
+        \Big{|} \frac{f(z)-f(w)}{z-w}-g(w) \Big{|}<\e
+    \end{equation*}
+    whenever $0<|z-w|<\d$. Therefore  $f'(z)=g(z)$.
+
+    Finally, observe that $f(0)=f^{(0)}(0)=a_0$. Using the power series
+    \begin{equation*}
+        f^{(n)}(z)=\sum{\frac{n!}{(n-k)!}a_nz^{n-k}}
+    \end{equation*}
+    we find that
+    \begin{equation*}
+        f^{(n)}(0)=n!a_n
+    \end{equation*}
+    and we are done.
+\end{proof}
+\begin{corollary}
+    If $f(z)=\sum{a_n(z-z_0)^n}$ is a convergent power series with radius of
+    convergence $R>0$, then $f$ is analytice on the open ball $B(z_0,R)$.
+\end{corollary}
+
+\begin{example}\label{example_3.3}
+    $\exp{z}=\sum{\frac{z^n}{n!}}$ is analytic on all of $\C$.
+\end{example}
+
+%\begin{lemma}\label{3.2.5}
+    %If $U$ is open and connected in $\C$, and $f:U \xrightarrow{} \C$ is complex
+    %differentiable on $U$ with  $f'(z)=0$, then $f$ is constant.
+%\end{lemma}
