@@ -1,1 +1,86 @@
 \section{M\"obius Transformations}
+
+\begin{definition}
+    We define a \textbf{path} on $\C$ to be a continnuous complex valued
+    functiom $\y:[a,b] \xrightarrow{} \C$. We call $\y(a)$ the \textbf{initial
+    point} of $\y$ and $\y(b)$ the \textbf{end point} of $\y$. Moreover wecall
+    $\y$ \textbf{piecewise $C^1$} if there exists a partition
+    $P=\{a=t_0<\dots<t_n=b\}$ of $[a,b]$ such that $\y$ is  $C^1$ on each
+    $[t_i,t_{i+1}]$ for all $0 \leq i \leq n-1$.
+\end{definition}
+
+\begin{definition}
+    We call a complex valued function $S$ on $C_\infty$, defined by
+    \begin{equation*}
+        S(z)=\frac{az+b}{cx+d} \text{ where } a,b,c,d \in \C
+    \end{equation*}
+    a \textbf{M\"obius transformation} if $ad-cd \neq 0$.
+\end{definition}
+
+We have the following results for M\"obius transformations.
+
+\begin{theorem}\label{3.3.1}
+    The set of all M\"obius transformations forms a group under function
+    compositon.
+\end{theorem}
+\begin{proof}
+    Since $\circ$ is associative, it suffices to show the identity, closure, and
+    inverse laws. Indeed, notice that the function
+    \begin{equation*}
+        I=\frac{1z+0}{0z+1}=z
+    \end{equation*}
+    is a M\"obius transformation, and that for any M\"obius transformation, $S$,
+    $S=S \circ I=I \circ S$.
+
+    Now, Let $S$ and $T$ be M\"obius transformations. Then
+    \begin{equation*}
+        S(z)=\frac{az+b}{cz+d} \text{ and } T(z)=\frac{fz+g}{hz+l}
+    \end{equation*}
+    for $a,b,c,d,f,g,h,l \in \C$. Then we get
+    \begin{equation*}
+        S \circ T(z)=\frac{aT(z)+b}{cT(z)+b}
+    \end{equation*}
+    and since $T(z) \in \C_\infty$, for all values of $\z$, then $S \circ T$ is a
+    M\"obius transformation.
+
+    Finally, let
+    \begin{equation*}
+        \inv{S}(z)=\frac{dz-b}{cz-a}
+    \end{equation*}
+    Then $S \circ \inv{S}=\inv{S} \circ S(z)=I(z)$, and we are done.
+\end{proof}
+
+\begin{definition}
+    Let $a \in \C$. We call a M\"obius trasnsformation of the form $T(z)=z+a$ a
+    \textbf{translation} of $z$ by  $a$. We call a M\"obius transformation
+    $D(z)=az$ a \textbf{dilation} of $z$ by  $a$.  Let $0 \leq t \leq 2\pi$.
+    Then we call the M\"obius transformation  $R(z)=e^{it}z$ a \textbf{rotation}
+    of $z$ about  $t$, and we call the M\"obius transformation
+    $S(z)=\frac{1}{z}$ an \textbf{inversion} of $z$.
+\end{definition}
+
+\begin{lemma}\label{3.3.2}
+    If $S$ is a M\"obius transformation, then  $S$ is the composition of
+    translations, dilations, and inversions.
+\end{lemma}
+\begin{proof}
+    Let
+    \begin{equation*}
+        S(z)=\frac{az+b}{cz+d}
+    \end{equation*}
+    Suppose that $c=0$, so that  $S(z)=\frac{a}{d}z+b$. Then $S=S_2 \circ S_1$
+    where $S_1(z)$ is a translation by $b$ and $S_2(z)$ is a dilation by
+    $\frac{a}{d}$.
+
+    Now, if $c \neq 0$, then let  $S_1(z)=z+\frac{d}{c}$,
+    $S_2(z)=\frac{1}{z}$, $S_3(z)=\frac{bc-ad}{c^2}z$ and
+    $S_4(z)=z+\frac{a}{c}$. Then $S=S_4 \circ S_3 \circ S_2 \circ S_1$.
+\end{proof}
+\begin{corollary}
+    Rotations are compositions of translations, dilations, and inversions.
+\end{corollary}
+
+\begin{definition}
+    Let $S$ be a M\"obius transformation. We cal a point $z \in \C$ a
+    \textbf{fixed point} of $S$ if  $S(z)=z$.
+\end{definition}
