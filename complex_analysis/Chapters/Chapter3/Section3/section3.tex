@@ -84,3 +84,83 @@ We have the following results for M\"obius transformations.
     Let $S$ be a M\"obius transformation. We cal a point $z \in \C$ a
     \textbf{fixed point} of $S$ if  $S(z)=z$.
 \end{definition}
+
+\begin{lemma}\label{3.3.3}
+    If
+    \begin{equation*}
+        S(z)=\frac{az+b}{cz+d}
+    \end{equation*}
+    is a M\"obius transformation, and $z$ is a fixed point, then
+    $cz^2+(d-a)z-b=0$ and $S$ has at most two fixed points; unless it is the
+    identity transformation.
+\end{lemma}
+\begin{proof}
+    Suppose that $S \neq I$, and consider the equation
+    \begin{equation*}
+        z=\frac{az+b}{cz+d}
+    \end{equation*}
+    to obtain a quadratic polynomial over $\C$, which has at most two roots in
+    $\C$.
+\end{proof}
+
+\begin{lemma}\label{3.3.4}
+    Let $S$ be a M\"obius transformation on  $\C_\infty$, and let  $a,b,c,d \in
+    \C_\infty$ distinct points with  $\a=S(a)$, $\b=S(b)$ and $\y=S(c)$. If $T$
+    is another M\"obius transformation with this property, then  $S=T$.
+\end{lemma}
+\begin{proof}
+    Notice by hypothesis that the transformation $\inv{T} \circ S$ has $a$,
+    $b$, and  $c$ as fixed points, which forces  $\inv{T} \circ S=I$.
+\end{proof}
+
+\begin{definition}
+    Let $z_2,z_3,z_4 \in \C_\infty$ and define the M\"obius transformation
+    $S:\C_\infty \xrightarrow{} \C_\infty$ by
+    \begin{align*}
+        S(z)    &=  \frac{\Big{(} \frac{z-z_3}{z-z_4} \Big{)}}{\Big{(}
+                        \frac{z_2-z_3}{z_2-z_4} \Big{)}} \text{ if } z_2,z_3,z_4
+                                \in C   \\
+        S(z)    &= \frac{z-z_3}{z-z_4} \text{ if } z_2=\infty   \\
+        S(z)    &= \frac{z_2-z_4}{z-z_4} \text{ if } z_3=\infty   \\
+        S(z)    &= \frac{z_2-z_3}{z_2-z_3} \text{ if } z_4=\infty   \\
+    \end{align*}
+    and where $S(z_2)=1$, $S(z_3)=0$, and $S(z_4)=\infty$. Then if $z_1 \in
+    \C_\infty$, we define the \textbf{cross ratio}, $(z_1,z_2,z_3,z_4)$ of $z_1$
+    to be $S(z_1)$.
+\end{definition}
+
+\begin{example}\label{example_3.8}
+    $(z_2,z_2,z_3,z_4)=1$, $(z_3,z_2,z_3,z_4)=0$, and $(z_4,z_2,z_3,z_4)=0$, by
+    definition. Now, if $M$ is aany M\"obius transformation, and  $w_2,w_3,w_4$
+    are points on $M$ such that $M(w_1)=1$, $M(w_3)=0$, and $M(w_4)=\infty$,
+    then $M(z)=(z,w_2,w_3,w_4)$.
+\end{example}
+
+\begin{theorem}\label{3.3.5}
+    IF $z_2,z_3,z_4 \in \C_\infty$ are distinct points, and $T$ is a M\"obius
+    transformation, then  $(z,z_2,z_3,z_4)=(T(z),T(z_2),T(z_3),T(z_4))$ for all
+    $z \in \C_\infty$. That is, the cross ratio is invariant under
+    transformations.
+\end{theorem}
+\begin{proof}
+    Let $S=(z,z_2,z_3,z_4)$, then $S$ is a M\"obius transformation. Now, if
+    $M=S \circ \inv{T}$, then $M(T(z_2))=1$, $M(T(z_3))=0$, and
+    $M(T(z_4))=\infty$, which makes $S \circ \inv{T}=(z,T(z_2),T(z_3),T(z_4))$.
+\end{proof}
+
+\begin{lemma}\label{3.3.6}
+    If $z_2,z_3,z_4 \in \C_\infty$ and $w_2,w_3,w_4 \in \C_\infty$ are all
+    distinct points, then there exists one, and only one M\"obius transformation
+    $S$ for which $S(z_2)=w_2$, $S(z_3)=w_3$, and $S(z_4)=w_4$.
+\end{lemma}
+\begin{proof}
+    Let $T(z)=(z,z_2,z,3,z_4)$ and $M=(z,w,2,w,3,w_4)$. Put $S=\inv{M} \circ T$.
+    Then $s(Z_2)=w_2$, $S(z_3)=z_3$,and $S(z_4)=w_4$. Now, if $R$ is another
+    M\"obius transformation having this property, then  $\inv{R} \circ S$ has
+    $3$ fixed points, which makes $\inv{R} \circ S=I$.
+\end{proof}
+
+\begin{lemma}\label{3.3.7}
+    Let $z_1,z_2,3,z_4 \in \C_\infty$ be distinct points. Then
+    $(z,1,z_2,z_3,z_4) \in \R$ if, and only if all the points lie on a circle.
+\end{lemma}
