@@ -119,7 +119,7 @@ We have the following results for M\"obius transformations.
     \begin{align*}
         S(z)    &=  \frac{\Big{(} \frac{z-z_3}{z-z_4} \Big{)}}{\Big{(}
                         \frac{z_2-z_3}{z_2-z_4} \Big{)}} \text{ if } z_2,z_3,z_4
-                                \in \C   \\
+                                \in C   \\
         S(z)    &= \frac{z-z_3}{z-z_4} \text{ if } z_2=\infty   \\
         S(z)    &= \frac{z_2-z_4}{z-z_4} \text{ if } z_3=\infty   \\
         S(z)    &= \frac{z_2-z_3}{z_2-z_3} \text{ if } z_4=\infty   \\
@@ -321,33 +321,6 @@ We have the following results for M\"obius transformations.
             Taking $S(z)=\frac{z_2}{z-i}$, and $R(z)=\frac{z-1}{z+1}$, then the
             analytic function
             \begin{equation*}
-                g(z)=\frac{e^z-1}{e^z+1}
             \end{equation*}
-            maps the strip $\{z \in \C : \Im{z}<\frac{\pi}{2}\}$ onto $B(0,1)$.
-
-        \item[(2)] Let $U_1$ and $U_2$ be regions in $\C$, and we would like to
-            find an analytic functnion $f:U_1 \xrightarrow{} U_2$ such that
-            $f(U_1)=f(U_2)$. Now, map $U_1$ and $U_2$ onto the ball $B(0,1)$ via
-            a M\"obius transformation. If this is possible, then we can obtain
-            $f$ by taking the composition of two analytic functions  $f_1 \circ
-            \inv{f_2}$.
-
-        \item[(3)] Let $U$ be the region insid the intersection of two circles
-            $\Gamma_1$ and $\Gamma_2$; intersecting at ppints $a,b \in \C$, with
-             $a \neq b$. Let  $L$ be the line segment $[a,b]$ with the
-             orientation $(\infty,b,a)$ an dlet
-             \begin{equation*}
-                 T(z)=(z,\infty,b,a)=\frac{z-a}{b-a}
-             \end{equation*}
-             Then $T$ maps  $L$ onto the closed interval $[0,1]$, and since $T$
-             maps circles onto circles, $T$ maps $\Gamma_1$ onto $\Gamma_2$
-             through the points $0$ and  $\infty$. SO that $T(\Gamma_1)$ and
-             $T(\Gamma_2)$ are straight lines in $\C_\infty$. By the orientation
-             principle we get  $T(U)=\{\w \in \C : -\a<\arg{\w}<\a\}$ for some
-             $\a>0$, or  $T(U)$ is the complement of a closed sector.
-
-             Now, let $f_1(z)=e^{it}z^a$, with $a$ an appropriate power and let
-             $f_2(z)=\frac{z-1}{z+1}$. Then $f_1 \circ f_2$ takes $U$ onto
-             $B(0,1)$.
     \end{enumerate}
 \end{example}
