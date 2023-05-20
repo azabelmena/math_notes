@@ -1,4 +1,4 @@
-\section{The Path Integral}
+\section{Functions of Bounded Variation and The Riemann-Stieltjes Integral}
 
 \begin{definition}
     Let $a,b \in \R$ with  $a<b$. A complex valued function $\y:[a,b]
@@ -110,3 +110,117 @@
     \end{equation*}
     for any $\t_k \in [t_k,t_{k+1}]$.
 \end{theorem}
+\begin{proof}
+    Since $f$ is continuous on  $[a,b]$ it is uniformly continuous on $[a,b]$.
+    Then, by induction, choose $\d_1>\d_2>\dots$ such that if $|s-t|<\d_n$, then
+     $|f(s)-f(t)|<\frac{1}{m}$ for every $m \in \Z^+$. Now, let  $\Pc_m$ be the
+     collection of all partitions $P$ of $[a,b]$ with $\|P\|<\d_m$. Then
+     $\Pc_{m+1} \subseteq \Pc_m$ for every $m \in \Z^+$. Define now
+      \begin{equation*}
+          F_m=\cl{\Big{\{}\sum_{k=0}^{n-1}{f(\t_k)|\y(t_{k+1}-\y(t_k))|} :
+          P \in \Pc_m\Big{\}}}
+      \end{equation*}
+      then we claim that $F_{m+1} \subseteq F_m$ for every $m \in \Z^+$ and that
+      $\diam{F_m} \leq \frac{2}{m}V(\y)$.
+
+      Since $P_{m+1} \subseteq P_m$ then $F_{m+1} \subseteq F_m$. Now, let
+      $P=\{a= t_0<\dots<t_m=b\}$ a partition and take
+      \begin{equation*}
+          S(P)=\sum_{k=0}^{n-1}{f(\t_k)|\y(t_{k+1})-\y(t_k)|} \text{ where }
+          \t_k \in [t_k,t_{k+1}]
+      \end{equation*}
+      Fix $m \geq 1$, then  $P \in \Pc_m$. Letting  $Q$ be a refinement of  $P$.
+      Suppose then that $Q=P \cup \{t'\}$, and let $1 \leq p \leq m$ such that
+      $t_p<t'<t_{p+1}$. If  $t_p \leq \s
+      \leq t' \leq \s' \leqt_{p+1}$, and
+      \begin{equation*}
+          S(Q)=\sum_{k \neq p}{(f(\s_k)(\y(t_{k+1})-\y(t_k)))}+
+          f(\s)(\y(t')-\y(t_p))+f(\s')(\y(t_{p+1})-\y(t_p))
+      \end{equation*}
+      since $|f(\t)-f(\s)|<\frac{1}{m}$ whenever $|\t-\s|<\d_m$, we find that
+       \begin{equation*}
+           |S(P)-S(Q)| \leq \frac{1}{m}V(\y)
+      \end{equation*}
+      Letting $P,R \subseteq \Pc_m$ and taking  $Q=P \cup R$, we get
+      \begin{equation*}
+          |S(P)-S(Q)| \leq \frac{2}{m}V(\y)
+      \end{equation*}
+      and we get the diameter of $F_m$.
+
+      Now, by Cantor's theorem, there exists a unique  $I \in F_m$ for every
+      $m \in \Z^+$. If  $\e>0$ let  $m>\frac{2}{\e}V(\y)$ so that
+      $\e>\frac{2}{m}V(\y) \geq \diam{F_m}$. Since $I \in F_m$, and $F_m
+      \subseteq B(I,\e)$, taking $\d=\d_m$ gives us the final result.
+\end{proof}
+
+\begin{definition}
+    Let $y:[a,b] \xrightarrow{} \C$ be a function of bounded variation, and
+    suppose that $f:[a,b] \xrightarrow{} \C$ is a continuous complex valued
+    function. We define the \textbf{Riemann-Stieltjes integral} of $f$ with
+    respect to  $\y$ over $[a,b]$ to be the unique $I \in \C$ such that for
+    every  $\e>0$, there is a $\d>0$ and partition $P$ of $[a,b]$ with
+    $\|P\|<\d$ for which
+    \begin{equation*}
+        \Big{|} I-\sum_{k=0}^n{f(\t_k)(\y(t_{k+1}-\y(t_k)))} \Big{|}<\e
+    \end{equation*}
+    for any $\t_k \in [t_k,t_{k+1}]$. We write
+    \begin{equation*}
+        I=\int_a^b{f(t) \ d\y(t)}
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}\label{4.1.7}
+    Let $f:[a,b] \xrightarrow{} \C$ and $g:[a,b] \xrightarrow{} \C$ continuous
+    complex valued funtions, and let $\y:[a,b] \xrightarrow{} \C$ and $\s:[a,b]
+    \xrightarrow{} \C$ of bounded variation on $[a,b]$. Then for every $\a,\b
+    \in \C$
+    \begin{enumerate}
+        \item[(1)] $$\int_a^b{(\a{f}\b{g}) \ d\y(t)}=\a\int_a^b{f \
+            d\y}+\b\int_a^b{g \ d\y}$$
+
+        \item[(2)] $$\int_a^b{f \ d{(\a\y+\b\s)}}=\a\int_a^b{f \
+            d\y}+\b\int_a^b{f \ d\s}$$
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}\label{4.1.8}
+    Let $\y:[a,b] \xrightarrow{} \C$ be of bounded variation and let $f:[a,b]
+    \xrightarrow{} \C$ a continuous complex valued function. If
+    $a=t_0<\dots<t_n=b$ is a partition of $[a,b]$ then
+    \begin{equation*}
+    \int_a^b{f \ d\y}=\sum_{k=0}^{n-1}{\int_{t_k}^{t_{k+1}}{f \ d\y}}
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}\label{4.1.9}
+    If $\y:[a,b] \xrightarrow{} \C$ is piecewise $C^1$ f bounded variation, and
+     $f:[a,b] \xrightarrow{} \C$ is a continuous complex valued function, then
+     \begin{equation*}
+         \int_a^b{f \ d\y}=\int_a^b{f(t)\y'(t) \ dt}
+     \end{equation*}
+\end{theorem}
+\begin{proof}
+    Suppose without loss of generality, that $\y$ is of class  $C^1$, and that
+    $\y([a,b]) \subseteq \R$. Let $\e>0$ and choose a  $\d>0$ such that for any
+    partition  $P=\{a=t_0<\dots<t_n=b\}$ of $[a,b]$ with $\|P\|<\d$ then
+    \begin{equation*}
+        \Big{|} \int_a^b{f \ d\y}-\sum_{k=0}^{n-1}{f(\t_k)(\y(t_{k+1})-\y(t_k))} \Big{|}
+        < \frac{\e}{2}
+    \end{equation*}
+    and
+    \begin{equation*}
+        \Big{|} \int_a^b{f(t)\y'(t) \ dt}-
+        \sum_{k=0}^{n-1}{f(\t_k)\y'(\t_k)(t_{k+1}-t_k)} \Big{|} < \frac{\e}{2}
+    \end{equation*}
+    Then, by the mean value theorem for real valued derivatives, there exists a
+    $\t'_k \in [t_k,t_{k+1}]$ such that
+    $\y(t_{k+1})-\y(t_k)=\y'(\t'_k)(t_{k+1}-t_k)$, and we have
+    \begin{equation*}
+        \sum_{k=0}^{n-1}{f(\t_k)(\y(t_{k+1})-\y(t_k))}=
+        \sum_{k=0}^{n-1}{f(\t'_k)\y'(\t'_k)(t_{k+1}-t_k)}
+    \end{equation*}
+    which gives us
+    \begin{equation*}
+        \Biog{|} \int_a^b{f(t) \ d\y}-\int_a^b{f(t)\y'(t) \ dt} \Big{|}
+    \end{equation*}
+\end{proof}
