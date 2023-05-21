@@ -1,1 +1,265 @@
-%\section{Power Series Representations of Analytic Functions}
+\section{Analytic Functions}
+
+\begin{definition}
+    Let $f:U \xrightarrow{} \C$ be a complex valued function on an open set $U$
+    of  $\C$. We call $f$ \textbf{analytic} at $z_0$ if $f$ has a power series
+    representation converging on the open ball  $B(z_0,R)$, with $R>0$; that is,
+    \begin{equation*}
+        f(z)=\sum_{n=0}^\infty{a_n(z-z_0)^n} \text{ for all } |z-z_0|<R
+    \end{equation*}
+    and $R$ is the radius of convergence of the series. We call $f$
+    \textbf{analytic} on $U$ if it is analytic at ever point of  $U$. We call
+    $f$  \textbf{entire} if it is analytic on all $\C$.
+\end{definition}
+
+\begin{theorem}[Leibniz's Rule]\label{theorem_4.3.1}
+    Let $\phi:[a,b] \times [c,d] \xrightarrow{} \C$ be a continuous complex
+    valued function, and define $g:[c,d] \xrightarrow{} \C$ by
+    \begin{equation*}
+        g(t)=\int_a^b{\phi(s,t) \ ds}
+    \end{equation*}
+    Then $g$ is continous, moreover if  $D_t{\phi}$ exists and is continuous on
+    $[a,b] \times [c,d]$, then $g$ is of class  $C^1$ and
+    \begin{equation*}
+        g'(t)=\int_a^b{D_t{\phi(s,t)} \ ds}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    That $\phi$ is continuous implies that  $g$ is continuous. Now, fix
+    $t_0 \in [c,d]$ and let $\e>0$, and let  $\phi_t=D_t{\phi}$. Since $\phi_t$
+    is continuous it is uniformly continuous on $[a,b] \times [c,d]$, thus,
+    there exists a $\d>0$ for which  $|\phi_t(s',t')-\phi_t(s,t)|<\e$ whenever
+    $(s-s')^2+(t-t')^2<\d^2$. In particular, we have
+    $|\phi_t(s,t)-\phi(s,t_0)|<\e$ whenever $|t-t_0|<\d$ and $a \leq s \lea b$.
+    Then we get
+    \begin{equation*}
+        \Big{|} \int_{t_0}^t{\phi_t(s,\t)-\phi_t(s,t_0) \ dt} \Big{|}<\e|t-t_0|
+    \end{equation*}
+    whenver $|t-t_0|<\d$, for $s$ fixed. Now, let
+    \begin{equation*}
+        \Phi(t)=\phi(s,t)-\phi_t(s,t_0)
+    \end{equation*}
+    then $\Phi$ is a primitive of  $\phi_t(s,t)-\phi_t(s,t_0)$. Thus, by the
+    fundamental theorem of calculus, it follows that
+    \begin{equation*}
+        |\phi(s,t)-\phi(s,t_0)-(t-t_0)\phi_t(s,t_0)|<\e|t-t_0|
+    \end{equation*}
+    for every $s \in [a,b]$, when $|t-t_0|<\e$. This gives
+    \begin{equation*}
+        \Big{|} \frac{g(t)-g(t_0)}{t-t_0}-\int_a^b{\phi_t(s,t_0) \ ds} \Big{|}
+        \leq \e(b-a)
+    \end{equation*}
+    whenever $0<|t-t_0|<\d$. Since $g$ is differentiable and  $D_t(\phi)$ is
+    continuous, we get that $g'$ is continuous.
+\end{proof}
+
+\begin{example}\label{example_4.2}
+    Let $\phi(s,t)=\frac{e^{is}}{e^{is}-tz} \ ds$ for $0 \leq t \leq 1$ and  $0
+    \leq s \leq 2\pi$. Let  $|z|<1$. Then  $\phi$ is of class $C^1$. Then
+    \begin{equation*}
+        g(t)=\int_0^{2\pi}{\frac{e^{is}}{e^{is}-tz} \ ds}
+    \end{equation*}
+    Then $g(0)=2\pi$, and now
+    \begin{equation*}
+        g'(t)=\int_0^{2\pi}{\frac{ze^{is}}{(e^{is}-tz)^2} \ ds}
+    \end{equation*}
+    with $t$ fixed. Then
+    \begin{equation*}
+        \Phi(s)=\frac{iz}{e^{is}-tz}
+    \end{equation*}
+    has as derivative
+    \begin{equation*}
+        \Phi'(s)=\frac{ze^{is}}{(e^{is}-tz)^2}
+    \end{equation*}
+    hence $g'(z)=\Phi(2\pi)-\Phi(0)=0$ making $g$ constant. Hence  $g(1)=2\pi$
+    and we get
+    \begin{equation*}
+        \int_0^{2\pi}{\frac{e^{is}}{e^{is}-tz} \ ds}=2\pi
+    \end{equation*}
+    for all $|z|<1$.
+\end{example}
+
+\begin{lemma}\label{4.3.2}
+    Let $f:U \xrightarrow{} \C$ be holomorphic on an open set $U$ of  $\C$, and
+    suppose that  $\bar{B}(z_0,r) \subseteq U$ with $r>0$. If
+    $\y(t)=z_0+re^{it}$ on $0 \leq t \leq 2\pi$, then
+    \begin{equation*}
+        f(z)=\frac{1}{2i\pi}\int_\y{\frac{f(w)}{w-z} \ dw}
+    \end{equation*}
+    for every $|z-z_0|<r$
+\end{lemma}
+\begin{proof}
+    Consider $U_1=\{\frac{z-z_0}{r} : z \in U\}$ and let $g(z)=f(z_0+rz)$. Then
+    without loss of generality, suppose that $z_0=0$, and $r=1$, so that we work
+    with the unit ball  $B(0,1)$.
+
+    Fix $|z|<1$ and let
+    \begin{equation*}
+        \phi(s,t)=\frac{f((1-t)z+te^{is})e^{is}}{e^{is}-z}-f(z)
+    \end{equation*}
+    for all $0 \leq t \leq 1$, and  $0 \leq s \leq 2\pi$. Notice that
+    $|(1-t)z+te^{is}| \leq 1$ so that $g$ is of class  $C^1$.
+
+    Now, we have
+    \begin{equation*}
+        g(0)=\int_0^{2\pi}{\phi(s,0) \
+        ds}=f(z)\int_0^{2\pi}{\frac{e^{is}}{e^{is}-z} \ ds}-2\pi{f(z)}=0
+    \end{equation*}
+    so that we get
+    \begin{equation*}
+        \int_0^{2\pi}{\frac{e^{is}}{e^{is}-z} \ ds}=2\pi
+    \end{equation*}
+    now, by leibniz's rule, we get
+    \begin{equation*}
+        g'(t)=\int_0^{2\pi}{D_t{\phi(s,t)} \ ds}
+    \end{equation*}
+    however, for $0 \leq t \leq 1$, we have
+    \begin{equation*}
+        \Phi(s)=-i\frac{f(z+t(e^{is}-z))}{t}
+    \end{equation*}
+    is a primitive of $D_t{\phi}$, and that $g'(t)=\Phi(2\pi)-\Phi(0)=0$ for all
+    $0 \leq t \leq 1$, which makes  $g$ constant. So we get
+    \begin{equation}
+        f(z)=\int_0^{2\pi}{\frac{f(e^{is})e^{is}}{e^{is}-z} \ ds}
+        =\frac{1}{2i\pi}\int_\y{\frac{f(w)}{w-z} \ dw}
+    \end{equation}
+\end{proof}
+
+\begin{lemma}\label{4.3.3}
+    Let $\y$ be a rectifiable path in  $\C$. Then, if $\{f_n\}$ is a sequence of
+    continuous complex valued functions, defined on $\{\y\}$, converging
+    uniformly to a continuous complex valued function $f$ defined on $\{\y\}$,
+    then we have
+    \begin{equation*}
+        \int_\y{f_n}=\int_\y{f}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\e>0$. Then there exists an $N \in \Z^+$ such that
+    \begin{equation*}
+        |f_n(z)-f(z)|<\frac{\e}{V(\y)}
+    \end{equation*}
+    for ever $z \in \{\y\}$, and $n \geq N$. Then we get
+    \begin{equation*}
+        \Big{|} \int_\y{f_n}-\int_{y}{f} \Big{|}=
+        \Big{|} \int_\y{(f_n-f)} \Big{|} \leq
+        \int_\y{|f_n(z)-f(z)| \ |dz|} \leq \frac{\e}{V(\y)}V(\y) \leq \e
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}\label{4.3.4}
+    Let $f:U \xrightarrow{} \C$ be a complex valued function on an open set $U$
+    of $\C$. Then  $f$ is holomorphic if, and only if it is analyitic.
+\end{theorem}
+\begin{proof}
+    It was shown by theorem \ref{3.2.4} that functions which are analytic on
+    their domain are holomorphic on their domain. It remains to show the
+    converse.
+
+    Suppose first that $f$ is holomorphic. Let $0<r<R$ so that  $\bar{B}(z_0,r)
+    \subseteq B(z_0,R)$ and take $y(t)=z_0+re^{it}$ on $0 \leq t \leq 2\pi$.
+    Then we have that
+    \begin{equation*}
+        f(z)=\frac{1}{2i\pi}\int_\y{\frac{f(w)}{w-z} \ dw} \text{ for all }
+        |z-z_0|<r
+    \end{equation*}
+    since $w \in \{\y\}$, and $|z-z_0|<r$, we have
+    \begin{equation*}
+        \frac{|f(w)||z-z_0|^n}{|w-z_0|^{n+1}} \leq
+        \frac{M}{r}\Big{(} \frac{z-z_0}{r} \Big{)}^n
+    \end{equation*}
+    with $M=\max{\{|f(w)|\}}$ for all $|w-z_0|<r$. Then we get
+    \begin{equation*}
+        \frac{|z-z_0|}{r}<1
+    \end{equation*}
+    so by the Weierstrass $M$-test, the series
+    \begin{equation*}
+        \sum_{n=0}^\infty{f(z)\frac{(z-z_0)^n}{(w-z_0)^{n+1}}}
+    \end{equation*}
+    converges uniformly on $\{\y\}$. Using a geometric series, we get
+    \begin{equation*}
+        \frac{1}{w-z_0}=\frac{1}{1-\frac{z-z_0}{w-z_0}}=
+        \frac{1}{w-z_0}\sum_{n=0}^\infty{\Big{(} \frac{z-z_0}{w-z_0} \Big{)}^n}
+    \end{equation*}
+    Since $|z-z_0|<r$. Now, multiplying both sides by $(\frac{f(z)}{2i\pi})$ and
+    integrating along the circle defined by $|w-z_0|<r$ gives us $f(z)$. Now, by
+    lemma \ref{4.3.3}, and integrating under the sum, we get
+    \begin{equation*}
+        f(z)=\sum_{n=0}^\infty{a_n(z-z_0)^n}
+    \end{equation*}
+    where
+    \begin{equation*}
+        a_n=\frac{1}{2i\pi}\int_\y{\frac{f(w)}{(w-z_0)^{n+1}} \ dw}
+    \end{equation*}
+    Therefore, $f$ converges for  $|z-z_0|<r$, and moreover each $a_n$ is
+    independent of the path $\y$, so that we get the required power series
+    converging on  $|z-z_0|<R$.
+\end{proof}
+\begin{corollary}
+    If $f$ is analytic on $U$, then for every $z_0 \in U$ with $|z-z_0|<R$,
+    \begin{equation*}
+        f(z)=\sum_{n=0}^\infty{a_n(z-z_0)^n}
+    \end{equation*}
+    where the radius of convergence $R>0$ is gven by the distance between $z_0$
+    and $\partial{U}$.
+\end{corollary}
+\begin{corollary}
+    Analytic functions are of class $C^\infty$.
+\end{corollary}
+\begin{corollary}
+    If $f$ is analytic on $U$ and $\bar{B}(z_0,r) \subseteq U$, then
+    \begin{equation*}
+        f^{(n)}(z_0)=\frac{n!}{2i\pi}\int_\y{\frac{f(w)}{(w-z)^{n+1}} \ dw}
+    \end{equation*}
+    where $\y(t)=z_0+re^{it}$ on $0 \leq t \leq 2\pi$.
+\end{corollary}
+\begin{corollary}
+    A function is entire if and only if it is holomorphic on all $\C$.
+\end{corollary}
+\begin{remark}
+    This theorem shows that the definitions for analytic functions and
+    holomorphic functions are equivalent. Therefore, we make the convention of
+    calling functions holomorphic when we want to refer to their differential
+    properties, and analytic when we want to refer to them as power series
+    expansions.
+\end{remark}
+
+\begin{theorem}[Cauchy's Estimate]\label{4.3.5}
+    Let $f:U \xrightarrow{} \C$ be analytic on an open set $U$ of  $\C$, whose
+    power series expansion converges on the ball $B(z_0,R)$. If there is
+    an $M>0$ such that  $|f(z)| \leq M$ for every $z \in B(z_0,R)$, then
+    \begin{equation*}
+        |g^{(n)}(z_0)| \leq \frac{n!M}{R^n}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    By the above corollory, we have
+    \begin{equation*}
+        |f^{(n)}(z_0)| \leq
+        \frac{n!}{2\pi}\int_\y{\Big{|} \frac{f(w)}{(w-z)^N{n+1}} \Big{|} \ dw}
+        \leq \frac{n!}{2\pi}\frac{M}{R^{n+1}}2\pi{r}=\frac{n!M}{R^n}
+    \end{equation*}
+\end{proof}
+
+\begin{lemma}\label{4.3.6}
+    Let $f:U \xrightarrow{} \C$ be analytic on an open set $U$ of  $\C$, and
+    suppose that $\y$ is a closed rectifiable path on the ball $B(z_0,R)$, with
+    $R>0$ the radius of convergence of $f$ at $z_0$. Then $f$ has a primitive
+    and
+    \begin{equation*}
+        \int_\y{f}=0
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    We have that
+    \begin{equation*}
+        f(z)=\sum{a_n(z-z_0)^n} \text{ for all } |z-z_0|<R
+    \end{equation*}
+    Let
+    \begin{equation*}
+        F(z)=\sum{\frac{a_n}{n+1}(z-z_0)^{n+1}}
+    \end{equation*}
+    Since $\sqrt{n+1} \xrightarrow{} 1$ as $n \xrightarrow{} \infty$, $F$ has
+    the same radius of convergenc of  $F$, and hence converges on the ball
+    $B(z_0,R)$. Moreover, notice that $F'=f$ for every  $|z-z_0|<R$.
+\end{proof}

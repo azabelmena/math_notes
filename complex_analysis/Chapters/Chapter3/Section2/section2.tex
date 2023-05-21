@@ -1,4 +1,4 @@
-\section{Analytic Functions}
+\section{Holomorphic Functions}
 
 \begin{definition}
     Let $U$ be an open set in  $\C$, and  $f:U \xrightarrow{} \C$ a complex
@@ -52,24 +52,24 @@
 
 \begin{definition}
     We call a complex valued function $f:U \xrightarrow{} \C$, on an open set
-    $U$ of $\C$, \textbf{analytic} on $U$ if it is of class  $C^1$ on  $U$.
+    $U$ of $\C$, \textbf{holomorphic} on $U$ if it is of class  $C^1$ on  $U$.
 \end{definition}
 
 \begin{theorem}\label{3.2.2}
     Let $U$ be open in  $\C$, and let  $f:U \xrightarrow{} \C$ and $g:U
-    \xrightarrow{} \C$ analytic on $U$. Then
+    \xrightarrow{} \C$ holomorphic on $U$. Then
     \begin{enumerate}
-        \item[(1)] $f+g$ is analytic on  $U$ with $(f+g)'(z)=f'(z)+g'(z)$.
+        \item[(1)] $f+g$ is holomorphic on  $U$ with $(f+g)'(z)=f'(z)+g'(z)$.
 
-        \item[(2)] $fg$ is analytic on  $U$, with
+        \item[(2)] $fg$ is holomorphic on  $U$, with
             $(fg)'(z)=f'(z)g(z)+f(z)g'(z)$.
 
-        \item[(3)] For any $\a \in \C$,  $\a f$ is analytic on  $U$ with $(\a
+        \item[(3)] For any $\a \in \C$,  $\a f$ is holomorphic on  $U$ with $(\a
             f)'(z)=\a f'(z)$.
     \end{enumerate}
 \end{theorem}
 \begin{corollary}
-    $\frac{f}{g}$ is analytic on $U$, provided that  $g(z) \neq 0$ for all $z
+    $\frac{f}{g}$ is holomorphic on $U$, provided that  $g(z) \neq 0$ for all $z
     \in U$, and
     \begin{equation*}
         \Big{(} \frac{f}{g} \Big{)}'(z)=\frac{f'(z)g(z)-f(z)g'(z)}{g(z)^2}
@@ -77,9 +77,9 @@
 \end{corollary}
 
 \begin{theorem}[The Chain Rule]\label{3.2.3}
-    Let $U$ and  $V$ be open in $\C$. Let $f:U \xrightarrow{} \C$ be analytic on
-    $U$ and let  $g:V \xrightarrow{} \C$ be analytic on $V$, with  $f(U)
-    \subseteq V$. Then $g \circ f$ is analytic on $U$, with
+    Let $U$ and  $V$ be open in $\C$. Let $f:U \xrightarrow{} \C$ be holomorphic on
+    $U$ and let  $g:V \xrightarrow{} \C$ be holomorphic on $V$, with  $f(U)
+    \subseteq V$. Then $g \circ f$ is holomorphic on $U$, with
     \begin{equation*}
         (g \circ f)'(z)=g' \circ f(z)f'(z)
     \end{equation*}
@@ -108,7 +108,7 @@
 
     Now, suppose that $f(z_0)=f(z_0+h_n)$ for infinitely many $n$. Write
     $\{h_n\}=\{k_n\} \cup \{l_n\}$, where $f(z_0) \neq f(z_0+k_n)$ and
-    $f(z_0)=f(z_0+l_n)$ for all $n$. Since $f$ is analytic, and hence complex
+    $f(z_0)=f(z_0+l_n)$ for all $n$. Since $f$ is holomorphic, and hence complex
     differentiable
     \begin{equation*}
         f'(z_0)=\lim{\frac{f(z_0+h_n)-f(z_0)}{l_n}}=0
@@ -126,7 +126,7 @@
 
 \begin{definition}
     Let $A \subseteq \C$ an arbitrary set of  $\C$. We call a complex valued
-    function $f$ \textbf{analytic} on $A$ if it is analytic on some open set of
+    function $f$ \textbf{holomorphic} on $A$ if it is analytic on some open set of
      $\C$ containing  $A$.
 \end{definition}
 
@@ -236,11 +236,11 @@
 \end{proof}
 \begin{corollary}
     If $f(z)=\sum{a_n(z-z_0)^n}$ is a convergent power series with radius of
-    convergence $R>0$, then $f$ is analytice on the open ball $B(z_0,R)$.
+    convergence $R>0$, then $f$ is holomorphic on the open ball $B(z_0,R)$.
 \end{corollary}
 
 \begin{example}\label{example_3.3}
-    $\exp{z}=\sum{\frac{z^n}{n!}}$ is analytic on all of $\C$.
+    $\exp{z}=\sum{\frac{z^n}{n!}}$ is holomorphic on all of $\C$.
 \end{example}
 
 \begin{lemma}\label{3.2.5}
@@ -314,14 +314,14 @@
 
         \item[(2)] Define the follwing series $\sin{z}$ and $\cos{z}$ by
             \begin{align*}
-                \sin{z} &=
-                            z-\frac{z^3}{3!}+\frac{z^5}{5!}+\dots+(-1)^n\frac{z^{2n-1}}{(2n-1)!}    \\
-                \cos{z} &=
-                            1-\frac{z^2}{2!}+\frac{z^4}{4!}+\dots+(-1)^n\frac{z^{2n}}{(2n)!}    \\
+                \sin{z} &= z-\frac{z^3}{3!}+\frac{z^5}{5!}+\dots+
+                            (-1)^n\frac{z^{2n-1}}{(2n-1)!}    \\
+                \cos{z} &=  1-\frac{z^2}{2!}+\frac{z^4}{4!}+\dots+
+                            (-1)^n\frac{z^{2n}}{(2n)!}    \\
             \end{align*}
             Then it can be shown that $\sin{z}$ and $\cos{z}$ are convergent
             power series with radius of convergence $R=\infty$, so that they
-            are also analytic on all of  $\C$. Differentiating the power series,
+            are also holomorphic on all of  $\C$. Differentiating the power series,
             we find that
             \begin{equation*}
                 \frac{d}{dz}{\sin{z}}=\cos{z} \text{ and }
@@ -436,11 +436,11 @@
     \circ f(z_0)f'(z_0)=1$, and $f'(z_0)$ exists since $g' \circ f(z_0) \neq 0$.
 \end{proof}
 \begin{corollary}
-    If $g$ is analytic on  $V$, then  $f$ is analyitic on  $U$.
+    If $g$ is holomorphic on  $V$, then  $f$ is analyitic on  $U$.
 \end{corollary}
 \begin{corollary}
     If $U$ is a connected; i.e. a region, and $f$ is a branch of the logarithm
-    on  $U$, then  $f$ is analytic.
+    on  $U$, then  $f$ is holomorphic.
 \end{corollary}
 \begin{proof}
     Observe by definition that $z=\exp{f(z)}$.
@@ -464,10 +464,10 @@
 
 \begin{lemma}\label{3.2.8}
     Let $U$ be a region, and  $f$ a branch of the logarithm and let  $b \in \Z$.
-    Then the branch of  $bf(z)$, $g(z)=\exp{bf(z)}$ is analytic.
+    Then the branch of  $bf(z)$, $g(z)=\exp{bf(z)}$ is holomorphic.
 \end{lemma}
 \begin{corollary}
-    The branch $z^b$ of  $\log{z}$ is analytic.
+    The branch $z^b$ of  $\log{z}$ is holomorphic.
 \end{corollary}
 
 \begin{definition}
@@ -482,7 +482,7 @@
 
 \begin{lemma}\label{3.2.9}
     Let $f:U \xrightarrow{} \C$ a complex valued function with
-    $f(z)=f(x+iy)=u(x,y)+iv(x,y)$. Then if $f$ is analytic, we have
+    $f(z)=f(x+iy)=u(x,y)+iv(x,y)$. Then if $f$ is holomorphic, we have
     \begin{equation*}
         f'(z)=\frac{\partial{u}}{\partial{x}}(x,y)+i\frac{\partial{v}}{\partial{x}}
     \end{equation*}
@@ -494,7 +494,7 @@
 
 \begin{lemma}\label{3.2.10}
     Let $f:U \xrightarrow{} \C$ a complex valued function with
-    $f(z)=f(x+iy)=u(x,y)+iv(x,y)$. Then if $f$ is analytic, we have
+    $f(z)=f(x+iy)=u(x,y)+iv(x,y)$. Then if $f$ is holomorphic, we have
     \begin{equation*}
         f'(z)=\frac{\partial{v}}{\partial{y}}(x,y)-i\frac{\partial{u}}{\partial{y}}
     \end{equation*}
@@ -508,7 +508,7 @@
     Let $u(z)=u(x,y)$ and $v(z)=v(x,y)$, where $z=x+iy$ be real valued
     functions on a region $U$ with continuous partial derivarives. If $f:U
     \xrightarrow{} \C$ is a complex valued function such that
-    $f(z)=u(x,y)+iv(x,y)$, then $f$ is analytic on $U$ if, and only if $u$ and
+    $f(z)=u(x,y)+iv(x,y)$, then $f$ is holomorphic on $U$ if, and only if $u$ and
     $v$ satisfy the Cauchy Riemann equations.
 \end{theorem}
 \begin{proof}
@@ -559,9 +559,9 @@
     \end{equation*}
     Taking $s+it \xrightarrow{} 0$, makes $f$ complex differentiable on $U$ with
     $f'(z)=u_x(x,y)+iv(x,t)$. Since $u_x$ and  $v_x$ are continuous, so is  $f$,
-    which makes  $f$ analytic.
+    which makes  $f$ holomorphic.
 
-    Conversely, if we suppose that  $f$ is analytic, then by lemma \ref{3.2.9}
+    Conversely, if we suppose that  $f$ is holomorphic, then by lemma \ref{3.2.9}
     and lemma \ref {3.2.10}, we get
     \begin{equation*}
         \frac{\partial{u}}{\partial{x}}(x,y)+i\frac{\partial{v}}{\partial{x}}=
