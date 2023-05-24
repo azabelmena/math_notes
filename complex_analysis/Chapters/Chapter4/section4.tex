@@ -1,1 +1,174 @@
 \section{Roots of Analytic Functions}
+
+\begin{definition}
+    If $f:U \xrightarrow{} \C$ is an analytic function, and $z_0 \in U$,
+    satisfies $f(z_0)=0$, then we call $z_0$ a \textbf{root} (or \textbf{zero})
+    of $f$, of \textbf{multiplicity} $m \geq 1$. provided that
+    $f(z)=(z-z_0)^mg(z)$ where $g:U \xrightarrow{} \C$ is an analytic function
+    such that $g(z_0) \neq 0$.
+\end{definition}
+
+\begin{lemma}\label{4.4.1}
+    If $f$ is an entire function, then
+    \begin{equation*}
+        f(z)=\sum_{n=0}^\infty{a_nz^n}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since $f$ is entire, it is analytic on all  $\C$ by definition, and hence
+    has a power series expansion about the point $0 \in \C$.
+\end{proof}
+
+\begin{theorem}[Liouville's Theorem]\label{4.4.2}
+    Bounded entire functions are constant.
+\end{theorem}
+\begin{proof}
+    Let $f$ be an entire function, and  $M>0$ such that  $|f(z)| \leq M$ for all
+    $z \in \C$. Now, since  $f$ is entire, it is analytic about any open ball
+    $B(z_0,R)$, and by Cauchy's estimate, we have
+    \begin{equation*}
+        |f'(z)| \leq \frac{M}{R}
+    \end{equation*}
+    Then as $R \xrightarrow{} \infty$, $|f'(z)| \xrightarrow{} 0$ making
+    $f'(z)=0$ for all $z \in \C$, and hence making $f$ constant.
+\end{proof}
+
+\begin{theorem}[The Fundamental Theorem of Algebra]\label{4.4.3}
+    Any nonconstant polynomial over $\C$ has atleast one root in  $\C$.
+\end{theorem}
+\begin{proof}
+    Let $p(z)$ be a nonconstant polynomial over $\C$, and suppose there exists
+    no roots of  $p$ in  $\C$; that is,  $p(z) \neq 0$ for all $z \in \C$. Now,
+    let  $q(z)=\frac{1}{p(z)}$. Since $p$ is a polynomial, it is entire, and our
+    hypothesis on  $p$ makes  $q$ entire as well. Moreover,  $\lim{|p(z)|}
+    \xrightarrow{} \infty$ as $|z| \xrightarrow{} \infty$, so that $\lim{|q(z)|}
+    \xrightarrow{} 0$. Since  $q$ is continuous on the closed ball
+    $\bar{B}(0,R)$, there is an $M>0$ for which  $|q(z)| \leq M$ for all $z \in
+    \bar{B}(0,R)$, so that $q$ is constant by Liouville's theorem. Therefore,
+    $p$ must also be constant, which contradicts our assumption on  $p$.
+    Therefore,  $p$ must have atleast one root in  $\C$.
+\end{proof}
+\begin{corollary}
+    If $\a_1, \dots, \a_n$ are roots of $p(z)$, of multiplicities $k_1, \dots,
+    k_n$, then $p(z)=(z-\a_1)^{k_1} \dots (z-\a_n)^{k_n}$, where
+    $\deg{p}=k_1+\dots,k_n$.
+\end{corollary}
+
+\begin{example}\label{example_4.3}
+    Let $f(z)=\cos{\frac{1+z}{1-z}}$ on the ball $B(0,1)$. Then
+    $\frac{1+z}{1-z}$ maps $B(0,1)$ onto the half plane $H^+=\{z \in \ :
+    \re{z}>0\}$. Then the roots of $f$ are given by
+    \begin{equation*}
+        \frac{n\pi-1}{n\pi+1}
+        1 \mod{2}
+    \end{equation*}
+    for all $n \in \Z^+$ and $n$ odd. So $f$ has infinitely many roots in  $\C$,
+    however, notice that as  $n \xrightarrow{} \infty$, $\frac{n\pi-1}{n\pi+1}
+    \xrightarrow{} 1 \notin B(0,1)$.
+\end{example}
+
+\begin{theorem}\label{4.4.4}
+    Let $U$ be a region of  $\C$, and let  $f:U \xrightarrow{} \C$ be analytic
+    on $U$. Then the following are equivalent.
+    \begin{enumerate}
+        \item[(1)] $f(z)=0$ for all $z \in U$.
+
+        \item[(2)] There exists a $z_0 \in U$ for which $f^{(n)}(z_0)=0$ for all
+            $n \geq 0$.
+
+        \item[(3)] The set of roots of $f$ has a limit point in  $U$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    First suppose that $f(z)=0$ on its domain. Then $f^{(n)}(z)=0$ for every $z
+    \in U$, and  $f$ admits all of its roots as limit points of the set  $Z=\{z
+    \in \C : f(z)=0\}$.
+
+    Now, suppose that the set $Z$ of roots of of $f$ admits a limit point $z_0
+    \in U$. Let $R>0$ such that  $B(z_0,R) \susbeteq U$. Now, since $f$ is
+    continuous, we get  $f(z_0)=0$. Now, let $n \in \Z^+$ such that
+    $f^{(i)}(z_0)=0$ for all $1 \leq i \leq n-1$, and  $f^{(n)} \neq 0$.
+    Expanding $f$ as a power series about $z_0$ gives
+    \begin{equation*}
+        f(z)=\sum{a_n(z-z_0)^n}
+    \end{equation*}
+    for all $|z-z_0|<R$,. Now, if
+    \begin{equation*}
+        g(z)=\sum_{k \neq m}{a_n(z-z_0)^{k-n}}
+    \end{equation*}
+    then $g$ is analytic on the ball  $B(z_0,R)$, and $f(z)=(z-z_0)^ng(z)$, with
+    $g(z_0)=an_n \neq 0$. Then fnd $0<r<R$ such that  $g(z) \neq 0$ for all
+    $|z-z_0|<r$. Since $z_0$ is a limit point of the set $Z$, there is a $w \in
+    Z$ for which $f(w)=n$ and $0<|w-z_0|<r$, so that $(w-z_0)^ng(w)=0$, which
+    makes $g(w)=0$, which is a contradiction. Hence $f^{(n)}(z_0)=0$.
+
+    Conversely, let $Z^{(n)}=\{z_0 \in U : f^{(n)}(z)=0 \text{ for all } n \geq
+    0\}$, and suppose that there exists a point $z_0 \in U$ for which
+    $f^{(n)}(z_0)=0$ for all such $n$; that is, that  $Z^{(n)}$ is nonempty.
+    Since $U$ is connected,  $Z^{(n)}$ is open in $U$. Now, let  $z \in
+    \cl{Z^{(n)}}$, and choose a sequence $\{z_k\}_{k \in \Z^+}$ of points of
+    $Z^{(n)}$, such that $\{z_k\} \xrightarrow{} z$ as $k \xrightarrow{}
+    \infty$; that is, $z$ is a limit point of  $Z^{(n)}$. Since $f^{(n)}$ is
+    continuous, by the sequential criterion, we get
+    \begin{equation*}
+        f^{(n)}(z)=\lim{f^{(n)}(z_k)}=0
+    \end{equation*}
+    so that $z \in Z^{(n)}$, and $Z^{(n)}$ contains a limit point. This makes
+    $Z^{(n)}$ closed, and hence $Z^{(n)}=U$ by the connectedness of $U$. So that
+     $f(z)=0$ for all $z \in U$.
+\end{proof}
+\begin{corollary}
+    If $f$ and  $g$ are analytic on a region  $U$, then $f(z)=g(z)$ for every $z
+    \in U$ if, and only if the set $Z=\{z \in U : f(z)=g(z)\}$ contains a limit
+    point in $U$.
+\end{corollary}
+\begin{proof}
+    Consider the analytic function $f-g$.
+\end{proof}
+\begin{corollary}
+    If $f$ is analytic on a region  $U$ such that $f$ is not identically $0$,
+    then for every  $z_0 \in U$ with $f(z_0)=0$, there exists an $n \in \Z^+$
+    and an analytic function  $g:U \xrightarrow{} \C$ such that $g(z_0) \neq 0$
+    and $f(z)=(z-z_0)^ng(z)$
+\end{corollary}
+\begin{proof}
+    Let $n \geq 1$, the largest such integer for which  $f^{(k)}(z_0)=0$ for all
+    $0 \leq k \leq n$. Define
+    \begin{equation*}
+        g(z)=\frac{f(z)}{(z-z_0)^n}
+    \end{equation*}
+    for all $z \neq z_0$, and
+    \begin{equation*}
+        g(z_0)=\frac{f^{(n)}(z_0)}{n!}
+    \end{equation*}
+    when $z=z_0$. Then $g$ is analytic on  $\com{U}{\{z_0\}}$, then by the above
+    theorem, $g$ is analytic in all of  $U$.
+\end{proof}
+
+\begin{theorem}[The Maximum Modulus Theorem]\label{4.4.5}
+    Let $U$ be a region, and $f:U \xrightarrow{} \C$ analytic on $U$ such that
+    there exists a $z_0 \in U$ with $|f(z)| \leq |f(z_0)|$ for all $z \in U$.
+    Then  $f$ is constant.
+\end{theorem}
+\begin{proof}
+    Let $\bar{B}(z_0,r)$ a closed ball in $U$ for  $0 \leq r$, and let
+    $\y(t)=z_0+re^{it}$ on $0 \leq t \leq 2\pi$. Then we have
+    \begin{equation*}
+        |f(z_0)|=\frac{1}{2i\pi}\int_\y{\frac{f(w)}{w-z_0} \ dw}=
+        \frac{1}{2i\pi}\int_0^{2\pi}{f(z_0+re^{it}) \ dt}
+    \end{equation*}
+    Then we get
+    \begin{equation*}
+        |f(z_0)| \leq
+        \Big{|} \frac{1}{2i\pi}\int_0^{2\pi}{f(z_0+re^{it}) \ dt} \Big{|} \leq
+        \int_0^{2\pi}{|f(z_0+re^{it})| \ dt} \leq |f(z_0)|
+    \end{equation*}
+    since $|f(z_0+re^{it})| \leq |f(z_0)|$, we get
+    \begin{equation*}
+        \int_0^{2\pi}{|f(z_0)|-|f(z_0+re^{it})| \ dt}=0
+    \end{equation*}
+    which makes $|f(z_0)|=f(z_0+re{it})$, for all $0 \leq t \leq 2\pi$. Then
+    $f$ maps any ball  $B(z_0,R)$ of $U$ into the circle described by
+    $|z|=|\a|$ for some  $\a \in \C$, with $f(z_0)=\a$. Thus $f$ is constant on
+     $B(z_0,R)$. In particularm $f(z)=\a$ for every $|z-\a|<R$.
+\end{proof}
