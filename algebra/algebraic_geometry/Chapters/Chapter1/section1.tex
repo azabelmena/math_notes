@@ -29,8 +29,8 @@
     \begin{equation*}
         Z(T)=\bigcap_{f \in T}{Z(f)}
     \end{equation*}
-    Now, if $I=(f_1, \dots, f_r)$ is an ideal of  $k[x_1, \dots, x_n]$ generated
-    by $T$, then we write  $Z(T)=Z(I)=Z(f_1, \dots, f_r)$.
+    Now, if $\af=(f_1, \dots, f_r)$ is an ideal of  $k[x_1, \dots, x_n]$ generated
+    by $T$, then we write  $Z(T)=Z(\af)=Z(f_1, \dots, f_r)$.
 \end{definition}
 
 \begin{definition}
@@ -66,7 +66,7 @@
 
 \begin{definition}
     We define the \textbf{Zariski topology} on affine $n$-space  $\A^n$ to be
-    the topology on $\A^n$ whose open sets are complements of algebraic sets.
+    the topology on $\A^n$ whose closed sets are the algebraic sets of $\A^n$.
 \end{definition}
 
 \begin{example}\label{example_1.2}
@@ -79,9 +79,8 @@
     \end{equation*}
     where $c,a_1, \dots, a_n \in k$. Then $Z(f)=\{a_1, \dots, a_n\}$, so that
     the algebraic sets of $\A^1$ are the emptyset, itself, and finite subsets.
-    Thus the Zariski topology on  $\A^1$ consists of complements of finite sets,
-     the emptyset, and $\A^1$ itself. Notice that this topology is not
-     Hausdorff.
+    Thus the Zariski topology on  $\A^1$ consists of finite sets, the emptyset,
+    and $\A^1$ itself. Notice that this topology is not Hausdorff.
 \end{example}
 
 \begin{definition}
@@ -110,3 +109,141 @@
     subset of $\A^1$ under the Zariski topology. We define an open set of an
     affine variety to be a  \textbf{quasi-affine variety}.
 \end{definition}
+
+\begin{definition}
+    We define the \textbf{ideal} of a subset $Y$ in  $\A^n$, to be the set
+    \begin{equation*}
+        I(Y)=\{f \in k[x_1, \dots, x_n] : f(P)=0 \text{ for all } P \in Y\}
+    \end{equation*}
+    where $k$ is an algebraically closed field.
+\end{definition}
+
+\begin{theorem}[Hilbert's Nullstellensatz]\label{1.1.2}
+    Let $k$ be an algebraically closed field and $\af$ an ideal of $k[x_1, \dots,
+    x_n]$, and let $f \in k[x_1, \dots, x_n]$ be a polynomial vanishing at all
+    points of $Z(\af)$. Then there exists an $r \in \Z^+$ for which  $f^r \in
+    \af$.
+\end{theorem}
+
+\begin{lemma}\label{1.1.3}
+    The followin are true for any algebraically closed field $k$.
+    \begin{enumerate}
+        \item[(1)] If $T_1,T_2 \subseteq k[x_1, \dots, x_n]$ with $T_1 \subseteq
+            T_2$, then $Z(T_2) \substeq Z(T_2)$.
+
+        \item[(2)] If $Y_1,Y_2 \subseteq \A^n$ with $Y_1 \subseteq Y_2$, then
+            $I(Y_2) \subseteq I(Y_1)$.
+
+        \item[(3)] For any $Y_1, Y_2 \subseteq \A^n$, $I(Y_1 \cup Y_2)=I(Y_1)
+            \cap I(Y_2)$.
+
+        \item[(4)] For any ideal $\af$ of  $k[x_1, \dots, x_n]$,
+            $I(Z(J))=\sqrt{\af}$, where
+            \begin{equation*}
+                \sqrt{\af}=\{f \in k[x_1, \dots, x_n] : f^r \in J \text{ for
+                    some } r \in \Z^+\}
+            \end{equation*}
+
+        \item[(5)] For every $Y \subseteq \A^n$,  $Z(I(Y))=\cl{Y}$ in the
+            Zariski topology.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Let $T_1 \subseteq T_2$ be subsets of $k[x_1, \dots, x_n]$, and choose a
+    polynomial $f \in T_1$, and a point $P \in Z(T_2)$. We have by inclusion
+    that $f \in T_2$, and that $f(P)=0$. Now since $f \in T_1$, this puts $P \in
+    Z(T_1)$ and we get the required inclusion. The proof for statement (2) is
+    identical.
+
+    Now, let $P \in Y_1 \cup Y_2$, and choose a polynomial $f \in I(Y_1) \cap
+    I(Y_2)$. Then we have that the point $P$ is either contained in  $Y_1$ or
+    $Y_2$ (or both), so that $f(P)=0$, which makes $I(Y_1 \cup Y_2) \subseteq
+    I(Y_1) \cap I(Y_2)$. Conversely, if $f \in I(Y_1) \cap I(Y_2)$, then for any
+    points $P \in Y_1 \cup Y_2$, $f(P)=0$, which puts $f \in I(Y_1 \cup Y_2)$.
+
+    For part (4), notice this is a direct consequence of Hilbert's
+    Nullstellensatz. Now, for part (5), notice that $Y \subseteq Z(I(Y))$, which
+    is a closed set in the Zariski topology, so that $\cl{Y} \subseteq Z(I(Y))$.
+    Now, let $W$ be a closed set in  $\A^n$, containing $Y$. Then we have
+    $W=Z(\af)$, for some ideal $af$ of  $k[x_1, \dots, x_n]$, so that $Y \subseteq
+    Z(\af)$. Then by part (2), observe that $I(Y) \subseteq I(Z(\af))$, but $\af
+    \subseteq I(Z(\af))$, so by part (1), we have $Z(I(Y)) \subseteq Z(\af)$. This
+    makes $Z(I(Y))=\cl{Y}$.
+\end{proof}
+\begin{corollary}
+    There exists a 1--1, inclusion reversing, corresponedece of algebraic sets
+    of $\A^n$ onto radical ideals in $k[x_1, \dots, x_n]$; given by the maps
+    \begin{equation*}
+        \begin{array}{lcl}
+            Y   &   \xrightarrow{}  &   I(Y)    \\
+            \af   &   \xrightarrow{}  &   Z(\af)    \\
+        \end{array}
+    \end{equation*}
+    Moreover, an algebraic set in $\A^n$ is irreducible if, and only if its
+    ideal in $k[x_1, \dots, x_n]$ is prime.
+\end{corollary}
+\begin{proof}
+    Notice that parts (1), (2), and (3) of the above lemma provide the required
+    correspondence.
+
+    Now, suppose that $Y$ is irreducible in  $\A^n$, and take  $fg \in I(Y)$.
+    Then $Y \subseteq Z(fg)=Z(f) \cup Z(g)$, so that
+    \begin{equation*}
+        Y=(Y \cap Z(f)) \cup (Y \cap Z(g))
+    \end{equation*}
+    which is the union of two closed sets in $\A^n$. Now, since $Y$ is
+    irreducible, we get that either  $Y=Y \cap Z(f)$, or $Y=Y \cap Z(g)$; in
+    either case, $Y \subseteq Z(f)$, or $Y \subseteq Z(g)$. This puts either $f
+    \in I(Y)$, or $g \in I(Y)$, which makes the ideal $I(Y)$ prime.
+
+    Conversely if $\pf$ is a prime ideal, let  $Z(\pf)=Y_1 \cup Y_2$, then
+    $\pf=I(Y_1) \cap I(Y_2)$, so that either $\pf=I(Y_1)$ or $\pf=I(Y_2)$,
+    since $\pf$ is prime. This makes  $Z(\pf)=Y_1$ or $Z(\pf)=Y_2$,  which makes
+    $Z(\pf)$ irreducible in $\A^n$.
+\end{proof}
+
+\begin{example}\label{example_1.4}
+    Consider $k$ to be an algebraically closed field.
+    \begin{enumerate}
+        \item[(1)] Notice that $\A^n$ maps to the ideal $(0)$ in $k[x_1, \dots,
+            x_n]$, which is a prime ideal. This makes $\A^n$ irreducible by
+            the corollary to lemma \ref{1.1.3}.
+
+        \item[(2)] Let $f \in k[x,y]$ be an irreducible polynomial. Then $f$
+            generates the prime ideal  $(f)$ in $k[x,y]$, since $k[x,y]$ is a
+            UFD. Thus the zero set $Y=Z(f)$ is irreducible, and closed in
+            $\A^n$; hence it is an affine variety. We call $Y$ an
+            \textbf{affine curve} in $\A^n$ defined by the equation $f(x,y)=0$
+            of \textbf{degree} $\deg{f}=d$. Now, moregenerally, if $f$ is an
+            irreducible polynomial in $k[x_1, \dots, x_n]$, then we call the
+            affine variety $Y=Z(f)$ a \textbf{surface} in $n=3$ and a
+            \textbf{hypersurface} in $n>3$.
+
+        \item[(3)] A maximal ideal $\mf$ of $k[x_1, \dots, x_n]$ correspondes to
+            a minimal affine variety of $\A^n$, which are the point-sets $\{P\}$
+            of $\A^n$; where  $P=(a_1, \dots, a_n)$. Thus every maximal ideal of
+            $k[x_1, \dots, x_n]$ is of the form $M=(x_1-a_1, \dots,x_n-a_n)$ for
+            some $a_1, \dots, a_n \in k$.
+
+        \item[(4)] Consider the field $\R$ which is algebraically closed, and
+            the curve defined by $x^2+y^2+1=0$ in $\A^2(\R)$. Notice that this
+            curve is irreducible, but has no points in $\A^2$  (i.e. no roots
+            in $\R$). This shows that if the field $k$ is no algebraically
+            closed, then the above results do not hold in general.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $k$ be an algebraically closed field, and $Y$ an affine algebraic set of
+     $\A^n$. We definen the \textbf{affine coordinate ring} of $Y$ to be the
+     factor ring
+     \begin{equation*}
+         A(Y)=\faktor{k[x_1, \dots, x_n]}{I(Y)}
+     \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{1.1.4}
+    If $Y$ is an affine variety, then  $A(Y)$ is an integral domain. Moreover,
+    there exists a 1--1 correspondence of finitely generated $k$-algebras onto
+    affine coordinate rings of affine varieties.
+\end{lemma}
