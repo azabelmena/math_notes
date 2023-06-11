@@ -1,0 +1,179 @@
+\section{The Topology of $\R$}
+
+\begin{definition}
+    We call a set $U$ of  $\R$  \textbf{open} proveded for all $x \in U$, there
+    exists an  $r>0$ for which the open interval  $(x-r,x+r) \subseteq U$.
+\end{definition}
+
+\begin{example}\label{example_1.1}
+    For $a<b$ the open interval $(a,b)$ is open in $\R$. Let  $x \in (a,b)$ and
+    take $r=\min{\{x-a,b-x\}}$, then $(x-r,x+r) \subseteq (a,b)$. Similarly the
+    intervals $(a,\infty)$, $(-\infty,b)$, and $(-\infty,\infty)$ are also open
+    in $\R$.
+\end{example}
+
+\begin{lemma}\label{1.2.1}
+    The set $\R$ of real numbers forms a topology under the open sets of  $\R$.
+\end{lemma}
+
+\begin{lemma}\label{1.2.2}
+    Every nonempty open set in $\R$ is the disjoint union of a countable
+    collection of open sets in  $\R$.
+\end{lemma}
+\begin{proof}
+    Let $U$ be a nonempty open set in  $\R$, and take  $x \in U$. There there is
+    a  $y>x$ for which  $(x,y) \subseteq U$, and a $z<x$ for which  $(z,x)
+    \subseteq U$. Now, define
+    \begin{align*}
+        a_x &=  \inf{\{z : (z,x) \subseteq U\}} \\
+        b_x &=  \sup{\{y : (x,y) \subseteq U\}} \\
+    \end{align*}
+    and take
+    \begin{equation*}
+        I_x=(a_x,b_x)
+    \end{equation*}
+    Then $I_x$ is an open interval containing  $x$. Now, we claim that  $I_x
+    \subseteq U$, but that  $a_x,b_x \notin U$. Indeed, take  $w \in I_x$, with
+     $x<w<b_x$, then there is a  $y>w$ for which  $(x,y) \subseteq U$, so that
+     $w \in U$.
+
+     Now, suppose that  $b_x \in U$, then for some  $r>0$,  $(b_x-r,b_x+r)
+     \subseteq U$, so that $(x,b_x+r) \subseteq U$, which contradicts that $b_x$
+     is a least upper bound. Similar reasoning yields that  $a_x \notin U$.
+
+     Now, consider the collection $\{I_x\}_{x \in U}$. Then we have that
+     \begin{equation*}
+         U=\bigcup{I_x}
+     \end{equation*}
+     moreover, this union is disjoint since $a_x,b_x \notin U$ for each  $x$.
+     Now, observe that by the density of  $\Q$ in  $\R$, there exists a rational
+      $q_x \in \Q$ for which  $q_x \in I_x$. This gives us a 1--1 correspondence
+      of the collection  $\{I_x\}$ onto $\Q$, which makes  $\{I_x\}$ countable.
+\end{proof}
+
+\begin{definition}
+    For a set $E$ of real numbers, we call a point  $x \in \R$ a  \textbf{limit
+    point} of $E$ provided every open interval containing  $x$ contains a point
+    in  $E$. We call the set of all limit points of  $E$, together with $E$ the
+    \textbf{closure} of $E$ and denote it  $\cl{E}$. We call $E$
+    \textbf{closed} if $E=\cl{E}$.
+\end{definition}
+
+\begin{lemma}\label{1.2.3}
+    For every set $E$ of  $\R$, the closure of  $E$ is closed. Morevoer,
+    $\cl{E}$ is the smallest closed set containing $E$.
+\end{lemma}
+\begin{proof}
+    Let $x$ be a linit point of  $\cl{E}$, and consider an open interval $I_x$
+    containing  $x$. Then there exists an  $x' \in \cl{E} \cap I_x$. Since $x'$ is a
+    limit point of $E$, and $x' \in I_x$, we get a $x \in E \cap I_x''$. Therefore
+    every open interval that contains $x$ also contains a point of  $E$. This
+    makes $x \in \cl{E}$, and hence $\cl{E}$ is closed.
+\end{proof}
+
+\begin{lemma}\label{1.2.4}
+    A set of $\R$ is open if and only if its complement in  $\R$ is closed.
+\end{lemma}
+\begin{proof}
+    Suppose that $E \subseteq \R$ is open , and let  $x$ be a limit point of
+    $\com{\R}{E}$. Then $x \notin E$, since otherwise there is an open interval
+    containing  $x$, contained in  $E$, and hence disjoint from  $\com{\R}{E}$.
+    Therefore $x \in \com{\R}{E}$ which makes $\com{\R}{E}$ closed.
+\end{proof}
+\begin{corollary}
+    A set $\R$ is closed if, and only if its complement in  $\R$ is open.
+\end{corollary}
+\begin{proof}
+    By DeMorgan's laws.
+\end{proof}
+
+\begin{definition}
+    We call a collection $\{E_\l\}$ of sets of $\R$ a  \textbf{cover} for a set
+    $E$ of  $\R$ if  $E \subseteq \bigcupE_\l$. If each  $E_\l$ is open, we call
+    the collection $\{E_\l\}$ an \textbf{open cover}. We call a set $E$ of  $\R$
+     \textbf{compact} if each open cover of $E$ has a finite subcover of  $E$.
+\end{definition}
+
+\begin{theorem}[Heine-Borel]\label{1.2.5}
+    If $F$ is a closed bounded set in  $\R$, then  $F$ is compact.
+\end{theorem}
+\begin{proof}
+    Consider first the case where $F=[a,b]$, for $a<b$, the closed bounded
+    interval from  $a$ to  $b$. Let  $\Fc$ be an open cover of  $[a,b]$, and
+    define
+    \begin{equation*}
+        E=\{x \in [a,b] : [a,x] \text{ can be covered by a finite subcollection
+        of } \Fc\}
+    \end{equation*}
+    Notice then that $a \in E$, so that  $E$ is nonempty. Moreover,  $E$ is
+    bounded above, so by the completeness of  $\R$,  $c=\sup{E}$ exists in
+    $[a,b]$. Now, then, there exists a set $U\ in \Fc$ such that  $c \in U$.
+    Since  $U$ is open (well $\Fc$ is an open cover), there exists an $\e>0$ for
+    which the interval  $(c-\e,c+\e) \subseteq U$. Now, $c-\e$ is not an
+    upperbound of $E$ by definition of $c$, so there is an $x \in E$ with
+    $c-\e<x$. Now, threre is a finite subcollection  $\{U_i\}_{i=1}^k$ of open
+    sets in $\Fc$ covering  $[a,x]$, consequently the collectuion $\{U_i\} \cup
+    U$ covers $[a,c+\e]$, so that $c=b$. That is $[a,b]$ has a finite subcover
+    of $\Fc$, so that  $[a,b]$ is compact.
+
+    Now, let $F$ be any closed and bounded set, and let  $\Fc$ be an open cover
+    of  $F$. Since  $F$ is bounded, we have $F \subseteq [a,b]$ for some $a<b$,
+    and the set $U=\com{\R}{F}$ is open. Now, let $\Fc'=\Fc \cup U$. Since
+    $\Fc$ covers $F$,  $\Fc'$ covers  $[a,b]$. By the compactness of $[a,b]$, we
+    obtain the compactness of $F$.
+\end{proof}
+
+\begin{theorem}[The Nested Set Theorem]\label{1.2.6}
+    Let $\{F_n\}$ a countable descending collection of closed sets of $\R$, for
+    which  $F_1$ is bounded. Then the intersection
+    \begin{equation*}
+        \bigcap{F_n}
+    \end{equation*}
+    is nonempty.
+\end{theorem}
+\begin{proof}
+    Suppose to the contrary that the intersection $F=\bigcap{F_n}$ is empty.
+    Then for every  $x \in \R$, there is an  $n \in \Z^+$ for which  $x \notin
+    F_n$. That is,  $x \in U_n=\com{\R}{F_n}$, and $\R=\bigcup{U_n}$. Now, since
+    each $F_n$ is closed, each  $U_n$ is open, making  $\{U_n\}$ an open cover
+    of $\R$, and hence  $F_1$. Then by the theorem of Heine-Borel, $F_1$ is
+    compact, and there is an $N \in \Z^+$ for which
+    \begin{equation*}
+        F_1 \subseteq \bigcup_{n=1}^N{U_n}
+    \end{equation*}
+    since $\{F_n\}$ is a descending collection, the collection of open sets
+    $\{U_n\}$ is an ascending collection. Thus we have
+    \begin{equation*}
+        \bigcup_{n=1}^N{U_n}=U_n=\com{\R}{F_N}
+    \end{equation*}
+    making $F_1 \subseteq \com{\R}{F_N}$, which contradicts that $F_n \subseteq
+    F_1$ is nonempty
+\end{proof}
+
+\begin{definition}
+    Let $X$ be a set. We call a collection  $\Ac$ of subsetes of  $X$ a
+    \textbf{$\s$-algebra} of $X$ provided
+    \begin{enumerate}
+        \item[(1)] $X \in \Ac$ and  $\emptyset \in \Ac$.
+
+        \item[(2)] $\Ac$ is closed under complements in  $X$.
+
+        \item[(3)] $\Ac$ is closed under countable unions.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}\label{example_1.2}
+    The collections $\{\emptyset,X\}$ and $2^X$ are  $\s$-algebras on  $X$.
+\end{example}
+
+\begin{lemma}\label{1.2.7}
+    Let $\Fc$ be a collection of subsets of a set  $X$. Then the intersection
+    $\Ac$ of all  $\s$-algebras of  $X$ containing  $\Fc$ is a  $\s$-algebra
+    containing  $\Fc$. Moreover, it is the smallest such  $\s$-algebra of $X$
+    containing  $\Fc$.
+\end{lemma}
+
+\begin{definition}
+    We define the collection $\Bc$ of \textbf{Borel sets} of $\R$ to be the
+    smallest  $\s$-algebra of  $\R$ containing all open sets of  $\R$.
+\end{definition}
