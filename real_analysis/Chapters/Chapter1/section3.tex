@@ -1,1 +1,236 @@
-%\section{Sequences in $\R$}
+\section{Sequences in $\R$}
+
+\begin{definition}
+    We define a \textbf{sequence} of real numbers to be a real-valued function
+    $f:\Z^+ \xrightarrow{} \R$ where $f(n)=a_n$, for some $a_n \in \R$. We
+    denote sequences by  $\{a_n\}$. We call a sequence $\{a_n\}$ of real numbers
+    \textbf{bounded} provided there exists an $M \geq 0$ for which  $|a_n| \leq
+    M$ for all  $n \in \Z^+$. We say the sequence  $\{a_n\}$ is \textbf{monotone
+    increasing} if $a_n \leq a_{n+1}$ for all $n \in \Z^+$, and we call it
+    \textbf{monotone decreasing} if the sequence $\{-a_n\}$ is monotone
+    increasing.
+\end{definition}
+
+\begin{definition}
+    We say a sequence $\{a_n\}$ of real numbers \textbf{converges} to a real
+    numbers $a\ in \R$ if for every  $\e>0$, there is an  $N \in \Z^+$ for which
+    \begin{equation*}
+        |a_n-a|<\e \text{ whenever } n \geq N
+    \end{equation*}
+    and we write $\{a_n\} \xrightarrow{} a$ as $n \xrightarrow{} \infty$, or
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{a_n}=a
+    \end{equation*}
+    We call $a$ the  \textbf{limit} of the sequence.
+\end{definition}
+
+\begin{lemma}\label{1.3.1}
+    Suppose a sequence $\{a_n\}$ of real numbers converges to some $a \in ]\R$.
+    Then this limit is unique and  $\{a_n\}$ is bounded. Moreover, for every $M
+    \in \R$, if  $a_n \geq M$, then  $a \geq M$.
+\end{lemma}
+
+\begin{theorem}[The Monotone Convergence Theorem]\label{1.3.2}
+    A monotone sequence of real numbers converges if, and only if it is bounded.
+\end{theorem}
+\begin{proof}
+    Suppoe, without loss of generality, that $\{a_n\}$ is a monotone increasing
+    function; and that $\{a_n\} \xrightarrow{} a$ as $n \xrightarrow{} \infty$.
+    Then by lemma \ref{1.3.1}, $\{a_n\}$ must be bounded.
+
+    Conversely, suppose that $\{a_n\}$ is monotone increasing and bounded. By
+    the completeness of $\R$, we have the set
+    \begin{equation*}
+        \Sc=\{a_n : n \in \Z^+\}
+    \end{equation*}
+    has a least upper bounde $a=\sup{\Sc}$. Now, let $\e>0$, then since  $\Sc$
+    has a least upper bound,  $a_n \leq a$ for all  $n \in \Z^+$, and  $a-\e$ is
+    not an upper bound of  $\Sc$. Hence, there is an  $N \in \Z^+$ for whcih
+    $A_N>a-\e$. Since  $\{a_n\}$ is monotone increasingm we gave $a_n>a-\e$ for
+    all  $n \geq N$, so that
+    \begin{equation*}
+        |a-a_n|<\e
+    \end{equation*}
+    this makes $\{a_n\} \xrightarrow{} a$.
+\end{proof}
+
+\begin{theorem}[Bolzano-Weierstrass]\label{1.3.3}
+    Every bounded sequence of real numbers has a convergent subsequence.
+\end{theorem}
+\begin{proof}
+    Let $\{a_n\}$ be a bounded sequence of real numbers. Choose an $M>0$ for
+    which  $|a_n| \leq M$, for all $n \in \Z^+$. Now, define
+    \begin{equation*}
+        E_n=\cl{\{a_j\}_{j \geq n}}
+    \end{equation*}
+    Then $E_n \subseteq [-M,M]$, moreover, each $E_n$ is closed and $\{E_n\}$ is a
+    descending collection of closed sets in which $E_1$ is bounded. Therefore by
+    the nested set theorem, the intersection
+    \begin{equation*}
+        E=\bigcap{E_n}
+    \end{equation*}
+    is nonempty. Choose then a point $a \in E$. Then for every  $k \in \Z^+$,
+    $a$ is a limiti point of  $E_k$, and hence for infinitely many  $j \geq n$,
+    we have  $A_j \in (a-\frac{1}{k},a+\frac{1}{k})$. Hence, proceeding
+    inductively, choose a strictly increasing sequence $\{n_k\}$ such that
+    \begin{equation*}
+        |a-a_{n_k}|<\frac{1}{k}
+    \end{equation*}
+    By the Archimedean principle of $\R$,  $\{a_{n_k}\} \xrightarrow{} a$ as $k
+    \xrightarrow{} \infty$.
+\end{proof}
+
+\begin{definition}
+    We call a sequence $\{a_n\}$ of real numbers \textbf{Cauchy} if for every
+    $\e>0$, there is an  $N \in \Z^+$ for which
+    \begin{equation*}
+        |a_m-a_n|<\e \text{ whenever } m,n \geq N
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}[Cauchy's Convergence Criterion]\label{1.3.4}
+    A sequence of real numbers converges if, and only if it is Cauchy.
+\end{theorem}
+\begin{proof}
+    SUppose that $\{a_n\} \xrightarrow{} a$. Then observe that for all $m,n \in
+    \Z^+$, that
+    \begin{equation*}
+        |a_m-a_n| \leq |a_m-a|+|a-a_n|
+    \end{equation*}
+    now, let $\e>0$ and choose  $N \in \Z^+$ for whic  $|a_n-a|M<\frac{\e}{2}$
+    whenever $n \geq N$. Then observe that whenever $m,n \geq N$, we get
+    \begin{equation*}
+        |a_m-a_n| \leq |a_m-a|+|a-a_n|<\frac{\e}{2}+\frac{\e}{2}=\e
+    \end{equation*}
+    which makes $\{a_n\}$ Cauchy.
+
+    Conversely, suppose the sequence $\{a_n\}$ is Cauchy. We claim that
+    $\{a_n\}$ is bounded. Let $\e=1$ and choose $N \in \Z^+$ such that if  $m,n
+    \geq N$, then  $|a_m-a_n|<1$. Notice then that
+    \begin{equation*}
+        |a_n| \leq |a_n-a_N|+|a_N| \leq 1+|a_N| \text{ for all } n \geq N
+    \end{equation*}
+    Now, define $M=\max{\{|a_1|, \dots, |a_N|\}}$. Then $|a_n| \leq M$ for all
+    $n \in \Z^+$ and  $\{a_n\}$ is bounded. By the theorem of
+    Bolzano-Weierstrass, $\{a_n\}$ has a convergent subsequence $\{a_{n_k}\}
+    \xrightarrow{} a$. Now, let $\e>0$; since  $\{a_n\}$ is Cauchy, choose an $N
+    \in \Z^+$ such that  $|a_m-a_|<\frac{\e}{2}$ whenever $m,n \geq N$. In
+    particular, we have whenever  $n_k \geq N$,
+    \begin{equation*}
+        |a_n-a_{n_k}|<\frac{\e}{2}
+    \end{equation*}
+    so that
+    \begin{equation*}
+        |a_n-a| \leq |a_n-a_{n_k}|+|a_{n_k}-a|<\e
+    \end{equation*}
+    which makes $\{a_n\} \xrightarrow{} a$.
+\end{proof}
+
+\begin{theorem}\label{1.3.5}
+    Let $\{a_n\}$ and $\{b_n\}$ be convergent sequences of real numbers, with
+    $\{a_n\} \xrightarrow{} a$ and $\{b_n\} \xrightarrow{} b$. The for all
+    $\a,\b \in \R$, we have the sequence $\{\a a_n+\b b_n\}$ is convergent, and
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\a a_n+\b b_n}=\a a+\b b
+    \end{equation*}
+    Moreover, if $a_n \leq b_n$ for all  $n$, then  $a \leq b$.
+\end{theorem}
+\begin{proof}
+    Observe that
+    \begin{equation*}
+        |(\a a_n+\b b_n)-(\a a+\b b)| \leq |\a||a_n-a|+|\b||b_n-b|
+    \end{equation*}
+    for all $n \in \Z^+$. Let  $\e>0$ and choose  $N \in \Z^+$ such that
+    \begin{equation*}
+        |a-a_n|<\frac{\e}{2+2|\a|} \text{ and } |b-b_n|<\frac{\e}{2+2|\b|}
+        \text{ for all } n \geq N
+    \end{equation*}
+    Then
+    \begin{equation*}
+        |(\a a_n+\b b_n)-(\a a+\b b)|<\e
+    \end{equation*}
+
+    Now, suppose that $a_n \leq b_n$ for all $n \in \Z^+$, and consider the
+    sequence $\ c_n\}$ where $c_n=b_n-a_n$, and let $c=b-a$. Then $c_n \geq 0$,
+    and by the  inearity proved above, $\{c_n\} \xrightarrow{} c$. Now, let
+    $\e>0$, then there is an  $N \in \Z^+$ such that  $-\e<c-c_n<\e$ for all  $n
+    \geq N$. In particular,  $0 \leq c_N<c+\e$, and since  $c>-\e$, we get that
+     $c \geq 0$.
+\end{proof}
+
+\begin{definition}
+    We say a sequence $\{a_n\}$ \textbf{converges to infinity} if for every $M
+    \in \R$, there is an $N \in \Z^+$ for which
+    \begin{equation*}
+        a_n \geq M \text{ for all } n \geq N
+    \end{equation*}
+    and we write $\{a_n\} \xrightarrow{} \infty$. We say that $\{a_n\}$
+    \textbf{converges to minus infinity} if the sequence $\{-a_n\}$ converges to
+    infinity, and we write $\{a_n\} \xrightarrow{} -\infty$.
+\end{definition}
+
+\begin{definition}
+    Let $\{a_n\}$ be a sequence of real numbers. We define the \textbf{limit
+    superior} of $\{a_n\}$ to be
+    \begin{equation*}
+        \limsup{\{a_n\}}=\lim_{n \xrightarrow{} \infty}{(\sup{\{a_k :k \geq n\}})}
+    \end{equation*}
+    Similarly, we define the \textbf{limit inferior} of $\{a_n\}$ to be
+    \begin{equation*}
+        \liminf{\{a_n\}}=\lim_{n \xrightarrow{} \infty}{(\inf{\{a_k :k \geq n\}})}
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{1.3.6}
+    Let $\{a_n\}$ and $\{b_n\}$ be sequences of real numbers. Then the following
+    are true.
+    \begin{enumerate}
+        \item[(1)] $\limsup{\{a_n\}}=l \in \R$ if, and only if there is
+            infinitely many  $n \in \Z^+$ for which  $a_n>l-\e$ and only
+            finitely many $n \in \Z^+$ for which $a_n>l+\e$.
+
+        \item[(2)] $\limsup{\{a_n\}}=\infty$ if and only if $\{a_n\}$ is not
+            bounded above.
+
+        \item[(3)] $\limsup{\{a_n\}}=-\liminf{\{-a_n\}}$
+
+        \item[(4)] $\{a_n\} \xrightarrow{} a \in \R_\infty$ if and only if
+            \begin{equation*}
+                \limsup{\{a_n\}}=\liminf{\{a_n\}}=a
+            \end{equation*}
+
+        \item[(5)] If $a_n \leq b_n$ for all  $n \in \z^+$, then
+            \begin{equation*}
+                \limsup{\{a_n\}} \leq \liminf{\{b_n\}}
+            \end{equation*}
+    \end{enumerate}
+\end{lemma}
+
+\begin{definition}
+    Let $\{a_n\}$ be a sequence of real numbers. We define the \textbf{$n$-th
+    partial sum} of $\{a_n\}$ to be
+    \begin{equation*}
+        s_n=\sum_{k=1}^n{a_k}
+    \end{equation*}
+    We call a sum $\sum{a_n}$ \textbf{summable} to a \textbf{sum} $s \in \R$ if
+    the sequence $\{s_n\} \xrightarrow{} s$; that is the sequence of $n$-th
+    partial sums of the sequence  $\{a_n\}$ converges to $s$ as  $n
+    \xrightarrow{} \infty$.
+\end{definition}
+
+\begin{lemma}\label{1.3.7}
+    Let $\{a_n\}$ be a sequence of areal numbers. The following are true.
+    \begin{enumerate}
+        \item[(1)] The sum $\sum{a_n}$ is summable if, and only if for every
+            $\e>0$, there is an  $N \in \Z^+$ such that
+            \begin{equation*}
+                \Big{|} \sum_{n=1}^{m+n}{a_k} \Big{|}<\e \text{ for all } n \geq
+                N \text{ and some } m \in \Z^+
+            \end{equation*}
+
+        \item[(2)] If the sum $\sum{|a_n|}$ is summable, then so is $\sum{a_n}$.
+
+        \item[(3)] If $a_n \geq 0$, then  $\sum{a_n}$ is summable if, and only
+            if the sequence of $n$-th partial sums of $\{a_n\}$ is bounded.
+    \end{enumerate}
+\end{lemma}
