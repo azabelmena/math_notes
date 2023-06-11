@@ -256,3 +256,180 @@
     there exists a 1--1 correspondence of finitely generated $k$-algebras onto
     affine coordinate rings of affine varieties.
 \end{lemma}
+
+\begin{definition}
+    We call a topological space X \textbf{Noetherian} if it satisfies
+    the descending chain condition on closed sets; that is, if
+    \begin{equation*}
+        \dots \subseteq Y_2 \subseteq Y_1
+    \end{equation*}
+    is a descending chain of closed sets in $X$, then there exists an  $r \in
+    \Z^+$ for which  $Y_r=Y_{r+1}=\dots$
+\end{definition}
+
+\begin{example}\label{example_1.5}
+    Let $\dots \subseteq Y_2 \subseteq Y_1$ be a descending chain of closed sets
+    in $\A^n$. Then  $I(Y_1) \subseteq I(Y_2) \subseteq \dots$ is an ascending
+    chain of ideals of $k[x_1, \dots, x_n]$. Since $k[x_1, \dots, x_n]$ is
+    Noetheria, we get an $r \in \Z^+$ for which  $I(Y_r)=I(Y_{r+1})=\dots$.
+    Since $Y_r=Z(I(Y_r))$, this makes $Y_r=Y_{r+1}=\dots$. This makes $\A^n$ a
+    Noetherian space.
+\end{example}
+
+\begin{lemma}\label{lemma_1.1.5}
+    If $X$ is a Noetherian space, then every nonempty closed set  $Y$ in  $X$
+    can be written as a finite union of irreducible closed sets of  $X$; i.e.
+    \begin{equation*}
+        Y=\bigcup_{i=1}^r{Y_i}
+    \end{equation*}
+    where each $Y_i$ is closed and irreducible in $X$. Moreover, if $Y_i
+    \not\subseteq Y_j$ for all  $i \neq j$, then this representation is unique.
+\end{lemma}
+\begin{proof}
+    Let $\Cc$ be the collections of nonempty closed sets in  $X$, which are not
+    expressable as a finite union of closed irreducible sets in  $X$. Suppose
+    that $\Cc$ is nonempty. Since $X$ is Noetherian, $\Cc$ contains a minimal
+    elements $Y$. Then by definition, we have $Y=Y_1 \cup Y_2$ where $Y_1$ and
+    $Y_2$ are closed sets; and by the minimality of $Y$, they can be expressed
+    as a finite union of closed irreducible sets in $X$. This makes $Y$ a finite
+    union of closed irreducible sets of  $X$, which means  $Y \notin \Cc$; a
+    contradiction of our assumption that  $Y$ is the minimal element. Therefore
+     $\Cc$ must be empty, and every closed set  $Y$ is the finite union of
+     closed irreducible sets in  $X$.
+
+     Now, let  $Y=\bigcup_{i=1}^r{Y_i}$ where each $Y_i$ is closed and
+     irreducible in  $X$; and suppose that for each  $i \neq j$,  $Y_i
+     \notsubseteq Y_j$. Let
+     \begin{equation*}
+         Y=\bigcup_{j=1}^s{Z_j}
+     \end{equation*}
+     another representation of $Y$ as a finite union of closed irreducible sets
+     in  $X$. Notice that that  $Z_1 \subseteq Y_1 \cup \dots Y_r$, so that
+     \begin{equation*}
+         Z_1=\bigcup_{i=1}^r{(Z_1 \cap Y_i)}
+     \end{equation*}
+     since $Z_1$ is irreducible, we get $Z_1 \subseteq Y_i$ for some $i$, and
+     $Y_1 \subseteq Z_j$ for some $j$. This gives that $Y_1=Z_j$. Now, let
+     $Z=(\com{Y}{Y_1})^-$ then $Z=Y_2 \cup \dots \cup Y_r$, and $Z=Z_2 \cup
+     \dots \cup Z^s$. Proceeding inductively gives us the desired uniqueness.
+\end{proof}
+\begin{corollary}
+    Every affine algebraic set in $\A^n$ can be uniquely expressed as a finite
+    union of affine varieties, no one containing the other.
+\end{corollary}
+
+\begin{definition}
+    We define the \textbf{dimension} of a topological space $X$ to be the
+    suprememum on all integers  $n \geq 0$ for which there is a chain
+    \begin{equation*}
+        Z_0 \subseteq \dots \subseteq Z_n
+    \end{equation*}
+    of distinct irreducible closed sets in $X$, we write  $\dim{X}=n$.
+\end{definition}
+
+\begin{example}\label{example_1.6}
+    The dimension of $\A^1$ under the Zariski topology is  $\dim{\A^1}=1$, since
+    the only irreducible closed sets are $\A^1$ and point-sets.
+\end{example}
+
+\begin{definition}
+    Let $A$ be a ring. We define the  \textbf{height} of a prime ideal $\pf$ to
+    be the suprememum on all integeres  $n \geq 0$ for which there exists a
+    chain
+    \begin{equation*}
+        \pf_0 \subseteq \dots \pf_n=\pf
+    \end{equation*}
+    of distinct prime ideals, and write $\height{\pf}=n$. We define the
+    \textbf{Krull-dimension}of $A$ to be
+    \begin{equation*}
+        \dim{A}=\sup_{\pf \subseteq A}{\{\height{\pf}\}}
+    \end{equation*}
+    where the suprememum is taken over all prime ideals of $A$.
+\end{definition}
+
+\begin{lemma}\label{1.1.6}
+    If $Y$ is an affine algebraic set, then  $\dim{Y}=\dim{A(Y)}$; that is, the
+    dimension of $Y$ is the dimension of the affine coordinate ring of  $Y$.
+\end{lemma}
+\begin{proof}
+    SUppose that $Y$ is an affine algebraic set in  $\A^n$, then the affine
+    varieties of  $Y$ correspond to the prime ideals of  $k[x_1, \dots, x_n]$
+    containing $I(Y)$. This in turn correspond to the prime ideals of $A(Y)$.
+    Hence $\dim{Y}$ is the length of the longest chain of prime ideals in
+    $A(Y)$, which is $\dim{A(Y)}$ by definition of the Krull-dimension.
+\end{proof}
+
+\begin{theorem}\label{1.1.7}
+    Let $k$ be a field and  $B$ an integral domain which is a finitely generated
+     $k$-algebra. Then the following are true
+     \begin{enumerate}
+         \item[(1)] $\dim{B}$ is the transcendence degree of the factor field
+             $K(B)$ of $B$ over  $k$.
+
+         \item[(2)] For every prime ideal $\pf$ in  $B$
+             \begin{equation*}
+                 \height{\pf}+\dim{\faktor{B}{\pf}}=\dim{B}
+             \end{equation*}
+     \end{enumerate}
+\end{theorem}
+
+\begin{lemma}\label{1.1.8}
+    $\dim{\A^n}=n$.
+\end{lemma}
+\begin{proof}
+    We have that $A(\A^n)$ is an integral domnain, so by theorem \ref{1.1.7}, the
+    transcendence degree of $K(\A^n)$ of $\A^n$ over $k$ is $n$, so that
+    $\dim{\A^n}=\dim{A(\A^n)}=n$.
+\end{proof}
+
+\begin{lemma}\label{1.1.9}
+    If $Y$ is a quasi-affinee varaiety, then  $\dim{Y=\dim{(\cl{Y})}}$.
+\end{lemma}
+\begin{proof}
+    Let $Z_0 \subseteq \subseteq Z_n$ be a chain of distinct closed irreducible
+    sets of $Y$. Then  $\cl{Z_0} \subseteq \dots \subseteq \cl{Z_n}$ is a chain
+    of closed irreducible sets in $\cl{Y}$ (not necessarily distinct), so that
+    $\dim{Y} \leq \dim{(\cl{Y})}$.
+
+    Now, $\dim{Y}$ is finite, so choose a maximal chain $Z_0 \subseteq \dots
+    \subseteq Z_n$ for which $\dim{Y}=n$. Then $Z_0$ must be a point and
+    $P:\cl{Z_0} \subseteq \dots \subseteq \cl{Z_n}$ is also a maximal chain. Now,
+    this maximal chain corresponds to a maximal ideal $\mf$ of the affine
+    coordinate ring  $A(\cl{Y})$ of $\cl{Y}$. Then $\cl{Z_i}$ corresponds to a
+    prime ideal in $\mf$, so that  $\height{\mf}=n$. Now, we have that $P$ is a
+    point in affine space, and since
+    \begin{equation*}
+        \faktor{A(\cl{Y})}{\mf} \simeq k
+    \end{equation*}
+    we get $n=\dim{A(\cl{Y})}=\dim{(\cl{Y})}$, so that $\dim{Y}=\dim{(\cl{Y})}$.
+\end{proof}
+
+\begin{theorem}[Krull's Hauptidealsatz]\label{1.1.10}
+    Let $A$ be a Noetherian ring and $f \in A$ be an element which is neither a
+    unit, nor a zero divisor. Then every minimal prime ideal $\pf$ containing
+    $f$ has $\height{\pf}=1$.
+\end{theorem}
+
+\begin{lemma}\label{1.1.11}
+    A Noetherian integral domain is a unique factorization domain if, and only
+    if every prime ideal of  $\height=1$ is a principle ideal.
+\end{lemma}
+
+\begin{lemma}\label{1.1.12}
+    An affine variety $Y$ of  $\A^n$ has dimension $n-1$ if and only if it is
+    the zero set $Z(f)$ of a single irreducible polynomial $f \in k[x_1, \dots,
+    x_n]$.
+\end{lemma}
+\begin{proof}
+    Notice that if $f \in k[x_1, \dots, x_n]$ is irreducible, then the set
+    $Y=Z(f)$ is an affine variety and its ideal is the prime ideal $(f)$ of
+    height $1$. Hence, by theorem \ref{1.1.7} we have
+    \begin{equation*}
+        \dim{Y}=n-1
+    \end{equation*}
+
+    Conversely, if $Y$ is an affine variety of dimension  $n-1$, it corresponds
+    to an ideal of height $1$. Now, we have that $k[x_1, \dots, x_n]$ is a UFD,
+    so this prime ideal is a principle ideal and generated by a nonconstant
+    polynomial $f$. This makes  $Y=Z(f)$.
+\end{proof}
