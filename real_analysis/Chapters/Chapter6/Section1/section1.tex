@@ -1,0 +1,99 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{The Derivative of Real valued Functions.}
+
+\begin{definition}
+    Let $f:[a,b] \rightarrow \R$ be a realvalued function defined on  $[a,b]$. The \textbf{derivative} 
+    of $f$ at a point  $x \in (a,b)$ is the function $f':(a,b) \rightarrow \R$ defined by
+        \begin{equation}
+            f'(x)=\lim_{t \rightarrow x}{\frac{f(t)-f(x)}{t-x}}
+        \end{equation}
+        If $f'$ is defined at $x \in [a,b]$, then we say that $f$ is \textbf{differentiable} at $x$,
+        and if $f'$ is  defined for all $x \in (a,b)$, we say that $f$ is \textbf{differentiable} 
+        on $(a,b)$.
+\end{definition}
+
+\begin{theorem}\label{6.1.1}
+    Let $f:[a,b] \rightarrow \R$ be a realvalued function. If  $f$ is differentiable at a point 
+    $x \in (a,b)$, then $f$ is continuous.
+\end{theorem}
+\begin{proof}
+    As $t \rightarrow x$, we get $|f(t)-f(x)|=|\frac{f(t)-f(x)}{t-x}||t-x| \rightarrow f'(x)0=0$, 
+    thus $f(t) \rightarrow f(x)$.
+\end{proof}
+
+\begin{theorem}\label{6.1.2}
+    Suppose $f,g:[a,b] \rightarrow  \R$ are realvalued functiond differentiable at a point 
+    $x \in (a,b)$. Then $f+g$,  $fg$, and  $ \frac{f}{g}$ are differentiable at $x$, and 
+    as $t \rightarrow x$:
+        \begin{enumerate}[label=(\arabic*)]
+            \item $(f+g)'=f'+g'$.
+
+            \item $(fg)'=f'g+fg'$.
+
+            \item  $(\frac{f}{g})'=\frac{f'g-fg'}{g^2}$, provided that $g(x) \neq 0$.
+        \end{enumerate}
+\end{theorem}
+\begin{proof}
+    $(1)$ follows directly from the definiton. Now notice that $fg(t)-fg(x)=f(t)(g(t)-g(x))+
+    g(t)(f(t)+f(x))$, then dividing by  $t-x$, the result follows by definition.
+
+    Now also notice that $ \frac{\frac{f}{g}(t)-\frac{f}{g}(x)}{t-x}=\frac{1}{g(t)g(x)}
+    (g(x)\frac{f(t)-f(x)}{t-x}-f(x)\frac{g(t)-g(x)}{t-x})$, and the result again follows by 
+    definition.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}[label=(\arabic*)]
+        \item The derivative of constant functions are alway $0$, and the derivative of the 
+            identity function is always $1$.
+
+        \item Let  $f(x)=x^n$, for  $n \in \Z$, and  $x \neq 0$ for  $n<0$, then  $f$ 
+            is differentiable and  $f'(x)=nx^{n-1}$.
+
+        \item Polynomial functions are differentiable, and so are rational functions  $ \frac{p}{q}$, 
+            provided that $q \neq 0$.
+    \end{enumerate}		
+\end{example} 
+
+\begin{theorem}[Caratheodory's Theorem]\label{6.1.3}
+    Let $f:[a,b] \rightarrow \R$ be a continuous realvalued function. Then  $f$ is differentiable at 
+    a point  $x \in (a,b)$ if and only if there is a continuous function $\phi:(a,b) \rightarrow \R$ 
+    such that $f(t)-f(x)=\phi(t)(t-x)$; moreover, $\phi=f'$.
+\end{theorem}
+\begin{proof}
+    Suppose $f'$ exists at  $x$, and define  $\phi:(a,b) \rightarrow \R$ by  $\phi(t)=\frac{f(t)-f(x)}{t-x}$ 
+    when $t \neq x$, and $\phi(t)=f'(x)$ at  $t=x$. Then by the contiunity of  $f$, $\phi$ is 
+    continuous at  $x$, moreover, at  $t \neq x$ we see that  $f(t)-f(x)=\phi(t)(x-t)$.
+
+    Conveersesly, sup[ose there is a  $\phi$, continuous at $x$ such that  $f(t)-f(x)=\phi(t)(x-t)$, 
+    then clearly, $\lim{\phi}=f'(x)$ as $t \rightarrow x$, and since  $\phi$ is continuous, $\phi(x)=f'(x)$.
+\end{proof}
+
+\begin{theorem}[The Chain Rule]\label{6.1.4}
+    Suppose that $f:[a,b] \rightarrow \R$ and  $g:I \rightarrow \R$ are continuous, where  $f([a,b]) 
+    \subseteq I \subseteq [a,b]$, and suppose that $f$ is differentiable at  $x$, and that $g$ 
+    is differentiable at $f(x)$. Then  $g \circ g$ is differentiable at  $x$, and  $(g \circ f)'=(g' \circ f)f'$.
+\end{theorem}
+\begin{proof}
+    We have by Caratheodory's theorem that  $f(t)-f(x)=(t-x)(f'(x)-u(t))$, and 
+    $g(s)-g(y)=(s-y)(g'(y)-v(s))$. Then letting $y=f(x)$, and  $s \rightarrow y$ as  $t \rightarrow x$, 
+    we see that  $u,v \rightarrow 0$, and we get that  $g(f(t))-g(f(x))=g'(f(t)f(t))-g'(f(x))f(x)$, 
+    dividing by  $t-x$ give the desired result.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Let $f(x)=\sin{\frac{1}{x}}$ at $x \neq 0$, and  $f(x)=0$ at  $x=0$. We 
+            have at $x \neq 0$, that  $f'(x)=\sin{\frac{1}{x}}-\frac{1}{x}\cos{\frac{1}{x}}$, but 
+            at $x=0$, we must appeal to the definition, and we get  $f(t)=\sin{\frac{1}{t}}$, which 
+            diverges at $t \rightarrow 0$, thus  $f'(0)$ does not exist. 
+
+        \item Let $f(x)=x^2\sin{\frac{1}{x}}$ at $x \neq 0$, and  $f(x)=0$ at  $x=0$. For 
+            $x \neq 0$, we get  $f'(x)=2x\sin{\frac{1}{x}}-\cos{\frac{1}{x}}$, and at $x = 0$, 
+            we notice that  $|t\sin{\frac{1}{t}}| \leq |t|$, so by the sandwhich theorem, $f'(0)=0$ 
+            as  $t \rightarrow 0$.
+    \end{enumerate}		
+\end{example} 

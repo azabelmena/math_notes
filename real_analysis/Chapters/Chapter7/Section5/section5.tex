@@ -1,0 +1,55 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{Rectifiable Curves.}
+
+\begin{definition}
+    We call a continuous mapping $\gamma:[a,b] \rightarrow \R^k$ a
+    \textbf{curve} in $\R^k$, on  an interval $[a,b]$. If  $\gamma$ is 1-1, we
+    call the curve an \textbf{arc}, and we call  $\gamma$ a \textbf{closed
+    curve} if  $\gamma(a)=\gamma(b)$.
+
+    Now, for each partition $P$ of  $[a,b]$, and for  $\gamma$ a curve on
+    $[a,b]$, and let:
+        \begin{equation}
+            \Lambda(\gamma,P)=\sum_{i=1}^{n}{||\gamma(x_i)-\gamma(x_{i-1})||}		
+        \end{equation}
+    We deefine the \textbf{length} of $\gamma$ to be :
+        \begin{equation}
+            \Lambda(\gamma)=\sup_{P}{\Lambda(\gamma,P)}		
+        \end{equation} 
+        If $\gamma$ is of finite length  (i.e. $\Lambda(\gamma)<\infty$), then
+        we call $\gamma$ a \textbf{rectifiable} curve.
+\end{definition}
+
+\begin{theorem}\label{7.5.1}
+    Let $\gamma$ be a differentiable curve on  $[a,b]$, if  $\gamma'$ is
+    continuous, then  $\gamma$ is rectifiable and
+        \begin{equation}
+            \Lambda(\gamma)=\int_{a}^{b}{||\gamma'|| dt}		
+        \end{equation} 
+\end{theorem}
+\begin{proof}
+    If $a \leq x_{i-1}<x_i \leq b$, then
+    $||\gamma(x_i)-\gamma(x_{i-1})||=||\int_{x_{i-1}}^{x_i}{\gamma' dt}|| \leq
+    \int_{x_{i-1}}^{x_i}{||\gamma'|| dt}$, by the Fundamental theorem of
+    calculus, thus $\Lambda(\gamma,P) \leq \int_{a}^{b}{||\gamma'|| dt}$ 
+    for every partition $P$ of  $[a,b]$, then cinsequently, we have
+    $\Lambda(\gamma)=\int{||\gamma'|| dt}$. Consequently, $\gamma$ is
+    rectifiable.
+
+    Now let  $\epsilon>0$, since  $\gamma'$ is uniformly continuous on  $[a,b]$,
+    there is a  $\delta>0$ such that  $||\gamma'(s)-\gamma'(t)||<\epsilon$
+    whenever  $|s-y|<\delta$ for  $s,t \in [a,b]$. Let $P$ be a partition of
+    $[a,b]$, with  $\Delta{x_i}<\delta$ for all  $i$, and it  $x_{i-1} \leq t
+    \leq x_i$, we have  $||\gamma'(t)|| \leq ||\gamma'(x_i)||+\epsilon$, hence:
+        \begin{align*}
+            \int_{x_{i-1}}^{x_i}{||\gamma'||\Delta{x_i}} &\leq ||\gamma'(x_i)||\Delta{x_i}+\epsilon\Delta{x_i} \\ 
+                &= ||\int_{x_{i-1}}^{x_i}{(\gamma'(t)+\gamma'(x_i)-\gamma'(t))}||+\epsilon\Delta{x_i} \\
+                &\leq ||\int_{x_{i-1}}^{x_i}{\gamma' dt}||+||\int_{x_{i-1}}^{x_i}{(\gamma'(x_i)-\gamma'(t)) dt}||+\epsilon\Delta{x_i} \\
+                & \leq ||\gamma(x_i)-\gamma(x_{i-1})||+2\epsilon\Delta{x_i} \\
+        \end{align*}
+    Thus, $\int_{a}^{b}{||\gamma'|| dt} \leq \Lambda(\gamma,P)+2\epsilon(b-a)$, 
+    so for  $\epsilon$ small enough, we get that  $\int{||\gamma'||} \leq \Lambda(\gamma)$.
+\end{proof}

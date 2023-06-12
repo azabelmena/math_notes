@@ -1,0 +1,156 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.1
+%----------------------------------------------------------------------------------------
+
+\section{$\sigma$-algebras of Lebesuge Measurable Sets}
+
+\begin{definition}
+    We say a set $E$ is  \textbf{measurable} if for any $A \subseteq \R$, then:
+    \begin{equation*}
+        m^*(A)=m^*(A \cap E)+m*(A \cap (\com{A}{E}))
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{8.2.1}
+    A set $E$ is measurable if, and only if  $m^*(A) \geq m^*(A \cap E) +m^*(A
+    \cap (\com{\R}{E}))$.
+\end{lemma}
+
+\begin{lemma}\label{8.2.2}
+    Any set of outer measure $0$ is measurable.
+\end{lemma}
+\begin{proof}
+    Let $E$ be a set of measure  $0$, and let  $A \subseteq \R$. Notice that  $A
+    \cap E \subseteq E$ and  $A \cap (\com{\R}{E}) \subseteq A$. Then by
+    monotonicity, $m^*(A \cap E) \leq m^*(E)=0$ and $m^*(A \cap (\com{\R}{E}))
+    \leq m^*(A)$. Then we get that $m^*(A) \geq m^*(A \cap E)+m^*(A \cap
+    (\com{\R}{E}))$.
+\end{proof}
+\begin{corollary}
+    Countable sets are measurable.
+\end{corollary}
+
+\begin{lemma}\label{8.2.3}
+    Unions of a finite collection of measurable sets is measurable.
+\end{lemma}
+\begin{proof}
+    By induction, for $n=2$, let  $E_1$ and $E_2$ be measurable. Then for any $A
+    \subseteq \R$, we get  $m^*(A)=m^*(A \cap E_1)+m^*(A \cap (\com{\R}{E_1}))=
+    m^*(A \cap (\com{\R}{E_1}) \cap E_2)+m^*(A \cap (\com{\R}{E_1}) \cap
+    (\com{\R}{E_2}))$. Notice that $A \cap (\com{\R}{E_1}) \cap
+    (\com{\R}{E_2})=A \cap \com{{\R}}{(E_1 \cup E_2)}$, and that $(A \cap E_1)
+    \cup (A \cap \com{\R}{E_1} \cap E_2)=A \cap (E_1 \cup E_2)$. Then we get
+    that
+    \begin{equation*}
+        m^*(A) \geq m^*(A \cap (E_1 \cup E_2))+m^*(A \cap \com{\R}{(E_1 \cup E_2)})
+    \end{equation*}
+    This makes $E_1 \cup E_2$ measurable.
+
+    Now, suppose that for $n \geq 2$ the collection $\{E_i\}_{i=1}^n$ of
+    measurable set has measurable union. Consider now the collection $\{E_i\}
+    \cup E_{n+1}$, where $E_{n+1}$ is also measurable. By hypothesis, we have :
+    \begin{equation*}
+        m^*(A) \geq m^*(A \cap \bigicup_{i=1}^{n+1}{E_i}) + m^*(A \cap
+        \com{\R}{(\bigicup_{i=1}^{n+1}{E_i})})
+    \end{equation*}
+    therefore the collection $\{E_i\}_{i=1}^{n+1}$ of measurable sets has
+    measurable union.
+\end{proof}
+
+\begin{lemma}\label{8.2.4}
+    Let $\{E_i\}_{i=1}^{n}$ be a collection of mutually disjoint measurable
+    sets. Then for any $A \subseteq \R$:
+    \begin{equation*}
+        m^*(A \cap \bigcup_{i=1}^n{E_i})=\sum_{i=1}^n{m^*(A \cap E_i)}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    By induction on $n$, we have  $m^*(A \cap E_1)=\sum_{i=1}{1}{m^*(A \cap
+    E)i)}$. Now, suppose that for $n \geq 1$, that
+    \begin{equation*}
+        m^*(A \cap \bigcup_{i=1}^n{E_i})=\sum_{i=1}^n{m^*(A \cap E_i)}
+    \end{equation*}
+    consider then the collection $\{E_i\} \cup E_{n+1}$ where $E_{n+1}$ is
+    measurable and mutually disjoint from all $E_i$ for  $1 \leq i \leq n$.
+    Notice that $(A \cap \bigcup{E_i}) \cap E_{n+1}=A \cap E_{n+1}$ and that $A
+    \cap \bigcup_{i=1}^{n+1}{E_i} \cap \com{\R}{E_{n+1}}=A \cap \bigcup{E_i}$.
+    Then by hypothesis, we have:
+    \begin{equation*}
+        m^*(A \cap \bigcup_{i=1}^{n+1}{E_i})=m^*(A \cap E_{n+1})+m^*(A \cap
+    \bigcup_{i=1}^n{E_i})=m^*(A \cap E_{n+1})+\sum{m^*(A \cap
+    E_i)}=\sum_{i=1}^{n+1}{m^*(A \cap E_i)}
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    A collection of subsets of $\R$ is called an  \textbf{algebra} if it
+    contains $\R$, and it is closed under complements and finite unions.
+\end{definition}
+
+\begin{theorem}\label{8.2.5}
+    The collection of all measurable sets in $\R$ forms an algebra.
+\end{theorem}
+\begin{proof}
+    By lemma \ref{8.1.3}, we have that this collection is closed under finite
+    unions. Also observe that if $E$ is measruable, then  $m^*(A)=m^*(A \cap
+    E)+m^*(A \cap \com{\R}{E})$ implies that $m^*(A)=m^*(A \cap
+    \com{\R}{E})+m^*(A \cap \com{\R}{(\com{\R}{E})})$. This makes $\com{\R}{E}$
+    measurable. Lastly we see that $m^*(A)=m^*(A \cap \R)+m^*(A \cap
+    \com{\R}{\R})=m^*(A) + m^*(\emptyset)$, so that $\R$ is measurable.
+    Therefore the collection of all measurable sets in  $\R$ is measurable.
+\end{proof}
+\begin{corollary}
+    The collection of all measruable sets in $\R$ is closde under finite
+    intersections.
+\end{corollary}
+
+\begin{lemma}\label{8.2.6}
+    The union of a countable collection of measurable sets is measurable.
+\end{lemma}
+\begin{proof}
+    Let $E=\bigcup{E_n}$ where $\{E_n\}_{n \in \Z^+}$ is a countable collection
+    of measurable sets. Let $A \subseteq \R$, and for  $n \in \Z^+$, define
+    $F_n=\bigcup_{k=1}^n{E_k}$. By lemma \ref{8.2.3}, $F_n$ is measurable for
+    all  $n$ and  $\com{\R}{E} \subseteq \com{\R}{F_n}$. Then we have taht
+    $m^*(A \cap F_n)+m^*(A \cap \com{\R}{F_n}) \geq m^*(A \cap F_n)+m^*(A \cap
+    \com{\R}{E})$. By lemma \ref{8.2.4}, we get that $m^*(A \cap
+    F_n)=\sum_{k=1}^n{E_k}$, thus we get that $m^*(A) \geq \sum{E_k}+m^*(A \cap
+    \com{\R}{E})$. By countable subadditivity, this gives us $m^*(A) \geq m^*(A
+    \cap E)+m^*(A \cap \com{\R}{E})$. Therefore $E$ is measurable.
+\end{proof}
+
+\begin{lemma}\label{8.2.7}
+    Every real interval is measurable.
+\end{lemma}
+\begin{proof}
+    Since the collection of all measurable sets form an algebra, in fact they
+    form a $\sigma$-algebra, it suffices to show that  $(a,\infty)$ and
+    $(-\infty,a)$ are measurable for all $a \in \R$.
+
+    Let  $A \subseteq \R$, and suppose that  $a \notin A$ without loss of
+    generality. Consider any countable collection  $\{I_n\}$ of open and bounded
+    intervals covering $A$; and define  $I'_n=I_n \cap (-\infty,a)$ and
+    $I''_n=I_n \cap (a,\infty)$. Now, $I'_n$ and  $I''_n$ are open intervals
+    with $l(I_n)=l(I'_n)+l(I''_n)$ for all $n$. Since  $\{I_n\}$ is countable,
+    so are the collections $\{I'_n\}$ and $\{I''_n\}$. They also cover subsets
+    $A_1,A_2 \subseteq A$. Then $m^*(A_1)=\sum{l(I'_n)}$ and
+    $m^*(A_2)=\sum{l(I''_n)}$, so tht $m^*(A_1)+m^*(A_2) \leq
+    \sum{(l(I'_n)+l(I''_n))} \leq \sum{l(I_n)}$. This makes $(a,\infty)$ and $
+    (-\infty,a)$ measurable.
+\end{proof}
+\begin{corollary}
+    Any open set in $\R$ is measurable.
+\end{corollary}
+
+\begin{theorem}\label{8.2.8}
+    The collection of al measurable sets containes the Borel algebra.
+\end{theorem}
+
+\begin{lemma}\label{8.2.9}
+    Measurable sets are translation invariant.
+\end{lemma}
+\begin{proof}
+    Let $E$ be a measurable set and let  $A \subseteq \R$ and  $y \in \R$. Then
+     $m^*(A)=m^*(\com{A}{y})=m^*((\com{A}{y}) \cap E)+m^*((\com{A}{y}) \cap
+     \com{\R}{E})=m^*(A \cap E+y)+m^*(A \cap \com{\R}{(E+y)})$.
+\end{proof}

@@ -1,0 +1,99 @@
+%----------------------------------------------------------------------------------------
+%	SECTION 1.2
+%----------------------------------------------------------------------------------------
+
+\section{Fields}
+
+\begin{definition}
+    A \textbf{field} is a set $F$, together with binary operations  $+$ and  $\cdot$ (called 
+    \textbf{addition} and \textbf{multiplication}, respectively) such that:
+        \begin{enumerate}[label=(\arabic*)]
+            \item $F$ forms an abelian group under  $+$.
+
+            \item $F \backslash \{0\}$ forms an abelian group under $\cdot$ (where $0$ is the 
+                additive identity of  $F$).
+
+            \item $\cdot$ distributes over  $+$.
+        \end{enumerate}
+\end{definition}
+
+We now state the following propositions without proof.
+
+\begin{proposition}\label{1.2.1}
+    For all $x,y,x \in F$:
+        \begin{enumerate}[label=(\arabic*)]
+            \item $x+y=x+y$ implies $y=z$
+
+            \item  $x+y=x$ implies  $y=0$
+
+            \item  $x+y=0$ implies  $y=-x$
+
+            \item  $-(-x)=x$.
+        \end{enumerate}
+\end{proposition}
+
+\begin{proposition}\label{1.2.2}
+    For all $x,y,x \in F \backslash \{0\}$:
+        \begin{enumerate}[label=(\arabic*)]
+            \item $xy=xy$ implies $y=z$
+
+            \item  $xy=x$ implies  $y=1$
+
+            \item  $xy=1$ implies  $y=x^{-1}$
+
+            \item  $(x^{-1})^{-1}=x$.
+        \end{enumerate}
+\end{proposition}
+
+\begin{proposition}\label{1.2.3}
+    For all $x,y,x \in F$:
+        \begin{enumerate}[label=(\arabic*)]
+            \item $0x=0$
+
+            \item  $x \neq 0$ and $y \neq 0$ implies $xy \neq 0$
+
+            \item  $(-x)y=-(xy)=x(-y)$
+
+            \item  $(-x)(-y)=xy$.
+        \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+    An \textbf{ordered field} is a field $F$ that is also an ordered set, such that:
+        \begin{enumerate}[label=(\arabic*)]
+            \item $x+y<x+z$ whenever $y<z$, for  $x,yz,z \in F$
+
+            \item $xy>0$ whenever  $x>0$ and  $y>0$, for  $x,y \in F$.
+        \end{enumerate}
+\end{definition}
+
+
+\begin{proposition}\label{1.2.4}
+    Let $F$ be an ordered field, then for any  $x,y,z \in F$, the following hold: 
+         \begin{enumerate}[label=(\arabic*)]
+             \item $x>0$ implies $-x<0$.
+
+             \item If $x>0$  and $y<z$, then $xy<xz$.
+
+             \item If $x<0$  and $y<z$, then $xz<xy$.
+
+             \item If $x \neq 0$, then $x^2>0$, in particular, $1>0$.
+
+             \item $0<x<y$ implies that $0<y^{-1}<x^{-1}$.
+        \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}[label=(\arabic*)]
+        \item If $x>0$, then  $0=x+(-x)>0+(-x)$, so  $-x<0$.
+
+        \item We have $0<z-y$, so  $0<x(z-y)=xz-xy$, so $xy<xz$.
+
+        \item Do the same as  $(2)$,, multiplying  $z-y$ by  $-x$.
+
+        \item If  $x>0$, we are done. Now suppose that  $x<0$, then  $-x>0$, so 
+            $(-x)(-x)=xx=x^2>0$; in particular, we also have that  $1 \neq 0$, and 
+             $1=1^2$, so  $1>0$.
+
+         \item We have  $0<xy^{-1}<yy^{-1}=1$, then  $0<x^{-1}xy^{-1}=y^{-1}<x^{-1}1=x^{-1}$
+    \end{enumerate}		
+\end{proof}
