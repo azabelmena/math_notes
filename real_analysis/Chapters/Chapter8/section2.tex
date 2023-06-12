@@ -1,1 +1,196 @@
 \section{The Lebesgue Outer Measure}
+
+\begin{definition}
+    Let $I \subseteq \R$ be an interval. We define the  \textbf{length} $l(I)$,
+    of $I$ to be  $\infty$ if  $I$ is unbounded, and the difference of its
+    endpoints otherwise.
+\end{definition}
+
+\begin{definition}
+    Let $\{I_k\}$ be a countable collection of open bounded intervals covering a
+    set $A \subseteq \R$. We define the  \textbf{Lebesgue outer measure} of $A$
+    to be
+    \begin{equation*}
+        m^\ast(A)=\inf{\Big{\{} \sum_{k=1}^\infty{l(I_k)} :
+        A \subseteq \bigcup_{k=1}^\infty{I_k} \Big{\}}}
+    \end{equation*}
+\end{definition}
+
+We now go over some basic properties of the Lebesgue outer measure.
+
+\begin{lemma}\label{8.2.1}
+    For any set $A \subseteq \R$,  $m^\ast(A) \geq 0$; in particular,
+    $m^\ast(\emptyset)=0$.
+\end{lemma}
+\begin{proof}
+    By definition, since $l(I_k) \geq 0$, each $\sum{l(I_k)} \leq 0$. This makes
+    $m^\ast(A) \geq 0$ for any $\{I_k\}$ a countable cover of $A$ by bounded
+    open intervals.
+
+    Notice that $\emptyset \subseteq (-\e,\e)$ for some $\e>0$, and that this
+    covers $\emptyset$, so that $m^\ast(\emptyset)=l((-\e,\e))=2\e$. Then
+    choosing $\e$ small enough gives us  $m^\ast(\emptyset)=0$.
+\end{proof}
+
+\begin{lemma}[Monotonicity]\label{8.2.2}
+    The Lebesgue Outer Measure is monoton; that is, if $A \subseteq B$, then
+    \begin{equation*}
+        m^\ast(A) \leq m^\ast(B)
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\{I_k\}$ be a countable cover of $B$ by bounded open intervals. Then
+    notice that  $\{I_k\}$ covers $A$ as well. Now, let
+    \begin{align*}
+        E   &=  \Big{\{} \sum_{k=1}^\infty{l(I_k)} : A \subseteq
+                            \bigcup_{k=1}^\infty{I_k} \Big{\}}  \\
+        F   &=  \Big{\{} \sum_{k=1}^\infty{l(I_k)} : B \subseteq
+                            \bigcup_{k=1}^\infty{I_k} \Big{\}}  \\
+    \end{align*}
+    Then since $A \subseteq B$, $F \subseteq E$. Therefore, we get that
+    \begin{equation*}
+        \inf{E}=m^\ast(A) \leq m^\ast(B)=\inf{F}
+    \end{equation*}
+\end{proof}
+
+\begin{lemma}\label{8.2.3}
+    Countable sets have Lebesgue outer measure $0$.
+\end{lemma}
+\begin{proof}
+    Let $C$ be a countable set, and  $C=\{c_k\}_{k \in \Z^+}$ an enumeration for
+    $C$. Let $\e>0$, then for every  $k \in \Z^+$, define the interval
+    \begin{equation*}
+        I_k=(c_k-\frac{\e}{2^{k+1}}, c_k+\frac{\e}{2^{k+1}})
+    \end{equation*}
+    Then $\{I_k\}$ is a countable cover of $C$ by bounded open intervals. Thus
+    we get
+    \begin{equation*}
+        0 \leq m^\ast(C) \leq \sum_{k=1}^\infty{l(I_k)}=\sum{\frac{\e}{2^k}}=\e
+    \end{equation*}
+    Therefore taking $\e$ small enough, we get  $0 \leq m^\ast(C) \leq 0$, and
+    equality is established.
+\end{proof}
+
+\begin{lemma}\label{8.2.4}
+    Let $I \subseteq \R$ be an interval. Then  $m^\ast(I)=l(I)$.
+\end{lemma}
+\begin{proof}
+    Consider first that $I=[a,b]$, a closed bounded interval, where $a<b$. Let
+    $\e>0$, then we have that  $[a,b] \subseteq (a-\e,b+\e)$, so that by
+    monotonicity
+    \begin{equation*}
+        m^\ast([a,b]) \leq l((a-\e,b+\e))=b-a+2\e
+    \end{equation*}
+    Then for $\e$ small enough, this shows that
+    \begin{equation*}
+        m^\ast([a,b]) \leq b-a
+    \end{equation*}
+
+    Now, let $\{I_k\}$ be a countable cover of $[a,b]$ by bounded open
+    intervals. Then since $[a,b]$ is compact (by Heine-Borel), there is a finite
+    subcover $\{I_k\}_{k=1}^n$ of $[a,b]$. Now, since $a \in
+    \bigcup_{k=1}^n{I_k}$, there is atleast one interval $I_k$ containing $a$;
+    denote it $ (a_1,b_1)$. Now, $a_1<a<b_1$. If $b_1 \geq b$, then we are done
+    as
+    \begin{equation*}
+        \sum_{k=1}^n{l(I_k)} \geq b_1-a_1>b-a
+    \end{equation*}
+    Otherwise, $b_1 \in [a,b)$, and since $b_1 \notin (a_1,b_1)$, there is an
+    interval $(a_2,b_2)$, distinct from $(a_1,b_1)$, containing $b_1$. Now, if
+    $b_2 \geq b$, we are done. Otherwise, proceeding recursively, we obtain a
+    subcollection $\{(a_k,b_k)\}_{k=1}^N$ of $\{I_k\}_{k=1}^n$ for which
+    \begin{equation*}
+        a_1<a \text{ and } a_{k+1}<b_k \text{ for all } 1 \leq k \leq N-1
+    \end{equation*}
+    The process of selecting such a subcollection must terminate, which leaves
+    us with $b_N>b$, so that
+    \begin{equation*}
+        \sum_{k=1}^n{l(I_k)} \geq \sum_{k=1}^N{l((a_k,b_k))}=
+        (b_N-a_N)+\dots+(b_1-a_1) \geq b_N-a_1>b-a
+    \end{equation*}
+    INdeed, we get
+    \begin{equation*}
+        \sum_{k=1}^n{l(I_k)} \geq b-a
+    \end{equation*}
+    so that $m^\ast([a,b])=b-a$.
+
+    Now, suppose that $I$ is any bounded interval. Then for  $\e>0$, there
+    exist closed bounded interval $J_1$ and $J_2$ such that
+    \begin{equation*}
+        J_1 \subseteq I \subseteq J_2
+    \end{equation*}
+    and
+    \begin{equation*}
+        l(I)-\e<l(J_1) \leq l(I) \leq l(J_2)<l(I)+\e
+    \end{equation*}
+    By the monotonicity, and the above discussion of closed bounded intervals,
+    we get
+    \begin{equation*}
+        l(I)-\e<m^\ast(J_1) \leq m^\ast(I) \leq m^\at(J_2)<l(I)+\e
+    \end{equation*}
+    Therefore, for $\e$ small enough, we get that $m^\ast(I)=l(I)$.
+
+    Finally, suppose that $I$ is an unbounded interval. Then for every  $n \in
+    \Z^+$, there is an interval  $J$ with  $l(J)=n$. So that
+    \begin{equation*}
+        n=m^\ast(J) \leq m^\ast(I)
+    \end{equation*}
+    This makes $m^\ast(I)=l(I)=\infty$, by definition of $l(I)$.
+\end{proof}
+
+\begin{lemma}[Translation Invariance]\label{8.2.5}
+    The Lebesgue outer measure is translation invariant; that is, if $A
+    \subseteq \R$, and  $y \in \R$,
+    \begin{equation*}
+        m^\ast(A+y)=m^\ast(A)
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\{I_k\}$ be a countable cover of $A$ by open bounded intervals. Then
+    the collection  $\{I_k+y\}$ is a countable cover of the set $A+y$ by open
+    bounded intervals. Moreover, notice that $l(I_k)=l(I_k+y)$. This gives us
+    \begin{equation*}
+        \sum{l(I_k)}=\sum{l(I_k+y)}
+    \end{equation*}
+    and we are done.
+\end{proof}
+
+\begin{lemma}[Countable Subadditivity]\label{8.2.6}
+    The Lebesgue outer measure is countable subadditive; that is, if $\{E_k\}$
+    is a countable collection of subsets of $\R$, then
+    \begin{equation*}
+        m^\ast\Big{(} \bigcup{E_k} \Big{)} \leq \sum{m^\ast(E_k)}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\{E_k\}$ be a countable collection of subsets of $\R$, and let
+    \begin{equation*}
+        E=\bgicup{E_k}
+    \end{equation*}
+    If at least one of the $E_k$ has  $m^\ast(E_k)=\infty$, then we are done.
+    Suppose then that $m^\ast(E_k)$ is finite for all $k \in \Z^+$. Then for
+    each  $E_k$, there is a countable cover  $\{I_{k,i}\}_{i \in \Z^+}$ by
+    bounded open intervals for which
+    \begin{equation*}
+        \bigcup{l(I_{k,i})}<m^\ast(E_k)+\frac{\e}{2^k}
+    \end{equation*}
+    Now, consider the countable collection
+    \begin{equation*}
+        \{I_{k,i}\}_{k,i \in \Z^+}=\bigcup_{k \in \Z^+}{\{I_{k,i}\}}_{i \in \Z^+}
+    \end{equation*}
+    Then $\{I_{k,i}\}_{k,i \in \Z^+}$ is a countable cover of $E$ by bounded
+    open intervals. We get
+    \begin{equation*}
+        m^\ast(E) \leq
+        \sum_{k \in \Z^+}{\Big{(} \sum_{i \in \Z^+}{l(I_{k,i})} \Big{)}}<
+        \sum_{k \in \Z^+}{(m^\ast(E_k)+\frac{\e}{2^k})}=
+        \Big{(} \sum{m^\ast(E_k)} \Big{)}+\e
+    \end{equation*}
+    Taking $\e>0$ small enough, gives us the required subadditivity.
+\end{proof}
+\begin{corollary}
+    The Lebesgue outer measure is finitely subadditive.
+\end{corollary}
+\begin{proof}
+    Recall that finite collections of sets are countable.
+\end{proof}
