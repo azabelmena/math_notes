@@ -33,6 +33,12 @@
     by $T$, then we write  $Z(T)=Z(\af)=Z(f_1, \dots, f_r)$.
 \end{definition}
 
+\begin{example}\label{example_1.2}
+    We have $\A^n=Z(0)$, and by convention, we also take $\A^n=Z(\emptyset)$. In
+    similar fashion, we have $\emptyset=Z(1)$, and $\emptyset=Z(k[x_1, \dots,
+    x_n])$.
+\end{example}
+
 \begin{definition}
     Let $k$ be an algebraically closed field. We call a subset $Y$ of $\A^n$ an
     \textbf{algebraic set} if there exists some $T \subseteq k[x_1, \dots, x_n]$
@@ -44,13 +50,13 @@
      $\A^n$ into a topology under closed sets.
 \end{lemma}
 \begin{proof}
-    Let $\A^n=Z(0)$ and $\emptyset=Z(1)$. Then $\A^n$ and $\emptyset$ are both
-    algebraic. Now, let  $X$ and  $Y$ be algebraic, then there are $S,T$ such
-    that  $X=Z(S)$ and $Y=Z(T)$. Now, let $P \in X \cup Y$, then $P$ is a zero
-    of any polynomial $f \in ST$, conversly, suppose that $P \in Z(ST)$ where $P
-    \notin Y$. There exists a polynomial  $f \in S$ with $f(P) \neq 0$. Now, for
-    any $g \in T$, we have that if $fg(P)=0$, then $g(P)=0$, so that $P \in S$.
-    Therefore we have  $X \cup Y=Z(ST)$, making $X \cup Y$ algebraic. So that
+    Notice that $\A^n=Z(0)$ and $\emptyset=Z(1)$. Then $\A^n$ and $\emptyset$
+    are both algebraic. Now, let  $X$ and  $Y$ be algebraic, then there are $S,T$
+    such that  $X=Z(S)$ and $Y=Z(T)$. Now, let $P \in X \cup Y$, then $P$ is a
+    zero of any polynomial $f \in ST$, conversly, suppose that $P \in Z(ST)$ where
+    $P \notin Y$. There exists a polynomial  $f \in S$ with $f(P) \neq 0$. Now,
+    for any $g \in T$, we have that if $fg(P)=0$, then $g(P)=0$, so that $P \in
+    S$. Therefore we have  $X \cup Y=Z(ST)$, making $X \cup Y$ algebraic. So that
     the collection of algebraic sets is closed under finite intersection.
 
     Lastly, consider a collection $\{Y_\alpha\}$ of algebraic sets, where
@@ -69,18 +75,28 @@
     the topology on $\A^n$ whose closed sets are the algebraic sets of $\A^n$.
 \end{definition}
 
-\begin{example}\label{example_1.2}
-    Consider the Zariski topology on affine $1$-space  $\A^1$. Now, since $k[x]$
-    is a PID,  every algebraic set of $\A^1$ is the set of zeros of preciesly
-    one polynomial. Moreover, by the algebraic closure of  $k$, for any nonzero
-    polynomial  $f$ over  $k$, we have
-    \begin{equation*}
-        f(x)=c(x-a_1) \dots (x-a_n)
-    \end{equation*}
-    where $c,a_1, \dots, a_n \in k$. Then $Z(f)=\{a_1, \dots, a_n\}$, so that
-    the algebraic sets of $\A^1$ are the emptyset, itself, and finite subsets.
-    Thus the Zariski topology on  $\A^1$ consists of finite sets, the emptyset,
-    and $\A^1$ itself. Notice that this topology is not Hausdorff.
+\begin{example}\label{example_1.3}
+    \item[(1)] Consider the Zariski topology on affine $1$-space  $\A^1$. Now, since
+        $k[x]$ is a PID,  every algebraic set of $\A^1$ is the set of zeros of
+        preciesly one polynomial. Moreover, by the algebraic closure of  $k$,
+        for any nonzero polynomial  $f$ over  $k$, we have
+        \begin{equation*}
+            f(x)=c(x-a_1) \dots (x-a_n)
+        \end{equation*}
+        where $c,a_1, \dots, a_n \in k$. Then $Z(f)=\{a_1, \dots, a_n\}$, so
+        that the algebraic sets of $\A^1$ are the emptyset, itself, and finite
+        subsets. Thus the Zariski topology on  $\A^1$ consists of finite sets,
+        the emptyset, and $\A^1$ itself. Notice that this topology is not Hausdorff.
+
+    \item[(2)] Consider the field $\C$ of complex numbers. Then the Zariski
+        topology has as closed sets all algebraic sets of  $\A^n(\C)$; i.e. all
+        sets of zeros of polynomials in $\C$. Now, by the fundamental theorem of
+        algebra, these closed stets are finite. Consider then the polynomials
+        $f(z)=z^2+1$, and $g(z)=z^3-iz^2+25z+-i25$ in $\C$. Then notice that
+        $(\com{\C}{Z(f)}) \cap (\com{\C}{Z(g)})=Z(f) \cup Z(g)=\{i,-i,i25,
+        -i25\}$. In general for an algebraically closed fiedl $k$, zero sets of
+        polynomials over $k$ are not disjoint; so that the Zariski topology on
+        $\A^n(k)$ is not Hausdorff.
 \end{example}
 
 \begin{definition}
@@ -90,7 +106,7 @@
      emptyset is not irreducible.
 \end{definition}
 
-\begin{example}\label{example_1.3}
+\begin{example}\label{example_1.4}
     \begin{enumerate}
         \item[(1)] Notice that the affine space $\A^1$ is irreducible. We have
             the only closed sets are finite sets, and since  $k$ is
@@ -202,7 +218,7 @@
     $Z(\pf)$ irreducible in $\A^n$.
 \end{proof}
 
-\begin{example}\label{example_1.4}
+\begin{example}\label{example_1.5}
     Consider $k$ to be an algebraically closed field.
     \begin{enumerate}
         \item[(1)] Notice that $\A^n$ maps to the ideal $(0)$ in $k[x_1, \dots,
@@ -267,7 +283,7 @@
     \Z^+$ for which  $Y_r=Y_{r+1}=\dots$
 \end{definition}
 
-\begin{example}\label{example_1.5}
+\begin{example}\label{example_1.6}
     Let $\dots \subseteq Y_2 \subseteq Y_1$ be a descending chain of closed sets
     in $\A^n$. Then  $I(Y_1) \subseteq I(Y_2) \subseteq \dots$ is an ascending
     chain of ideals of $k[x_1, \dots, x_n]$. Since $k[x_1, \dots, x_n]$ is
@@ -327,7 +343,7 @@
     of distinct irreducible closed sets in $X$, we write  $\dim{X}=n$.
 \end{definition}
 
-\begin{example}\label{example_1.6}
+\begin{example}\label{example_1.7}
     The dimension of $\A^1$ under the Zariski topology is  $\dim{\A^1}=1$, since
     the only irreducible closed sets are $\A^1$ and point-sets.
 \end{example}
