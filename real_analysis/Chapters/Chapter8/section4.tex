@@ -1,1 +1,131 @@
-%\section{Outer and Inner Approximations}
+\section{Outer and Inner Approximations}
+
+\begin{theorem}[The Outer Approximation Theorem]\label{8.4.1}
+    LEt $E \subseteq \R$. Then the following are true.
+    \begin{enumerate}
+        \item[(1)] $E$ is measurable.
+
+        \item[(2)] For every $\e>0$, there is an open set  $U$, containing  $E$
+            for which $m^\ast(\com{U}{E})<\e$
+
+        \item[(3)] There exists a $G_\d$ set  $G$, containing $E$ for which
+            $m^\ast(\com{G}{E})=0$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Suppose that $E$ is measurable, and let  $\e>0$. IF  $m^\ast(E)$ is finite,
+    then by definition of outer measure, there exists a countable collection of
+    open bounded intervals $\{I_k\}$ covering $E$, for which
+    \begin{equation*}
+        \sum{l(I_k)}<m^\ast(E)+\e
+    \end{equation*}
+    Define now, $U=\bigcup{I_k}$, then $U$ is open in  $\R$, and  $E \subseteq
+    \R$. Again, by the definition of outer measure, we have
+    \begin{equation*}
+        m^\ast(U) \leq \sum{l(I_k)}<m^\ast(E)+\e
+    \end{equation*}
+    so that
+    \begin{equation*}
+        m^\ast(U)-m^\ast(E)<\e
+    \end{equation*}
+    Now, since $E$ is measurable, and  $E \subseteq U$, by the excision property
+    we get $m^\ast(\com{U}{E})<\e$.
+
+    Now, if $m^\ast(E)$ is infinite, then there exists a disjoint countable
+    collection $\{E_k\}$ of measurable sets, each of finite outer measure, for
+    which $E=\bigcup{E_k}$. Then for any $k \in \Z^+$, there exists an open set
+     $U_k$ with  $E_k \subseteq U_k$ for which
+     \begin{equation*}
+         m^\ast(\com{U_k}{E_k})<\frac{\e}{2^k}
+     \end{equation*}
+     Now, let $U=\bigcup{U_k}$, so that $U$ is open and  $E \subseteq U$.
+     Moreover, we get $\com{U}{E} \subseteq \bigcup{\com{U_k}{E_k}}$; therefore,
+     by monotonicity, we get
+     \begin{equation*}
+         m^\ast(\com{U}{E}) \leq
+         \sum{m^\ast(\com{U_k}{E_k})}<\sum{\frac{\e}{2^k}}=\e
+     \end{equation*}
+
+     Now, suppose that the second assertion holds for $E$. Then for any  $k \in
+     \Z^+$, choose an open set  $U_k$ containing  $E$ for which
+     \begin{equation*}
+         m^\ast(\com{U_k}{E})<\frac{1}{k}
+     \end{equation*}
+     Define $G=\bigcap{U_k}$. Then $G$ is a $G_\d$ set and $E \subseteq G$.
+     Moreover, for each $k$, we have $\com{G}{E} \subseteq \com{U_k}{E}$ so by
+     monotonicity
+     \begin{equation*}
+         m^\ast(\com{G}{E}) \leq m^\ast(\com{U_k}{E})<\frac{1}{k}
+     \end{equation*}
+     Then as $k \xrightarrow{} \infty$, $m^\ast(\com{G}{E}) \xrightarrow{} 0$.
+
+     Finally, suppose that the third assertion holds for $E$. Now, since sets of
+     measure  $0$ are measurable, and  $G_\d$ are measurable, we get
+     \begin{equation*}
+         E=G \cap \com{\R}{(\com{G}{E})}
+     \end{equation*}
+     is measurable, by theorem \ref{8.3.6}.
+\end{proof}
+
+\begin{theorem}[The Inner Approximation Theorem]\label{8.4.1}
+    LEt $E \subseteq \R$. Then the following are true.
+    \begin{enumerate}
+        \item[(1)] $E$ is measurable.
+
+        \item[(2)] For every $\e>0$, there is an closed set $F$, contained in $E$
+            for which $m^\ast(\com{E}{F})<\e$
+
+        \item[(3)] There exists a $F_\s$ set  $F$, contained in $E$ for which
+            $m^\ast(\com{E}{F})=0$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    This follows by DeMorgan's laws on the outer approximation theorem.
+\end{proof}
+
+\begin{theorem}\label{8.4.3}
+    LEt $E$ be measurable of finite outer measure. Then for every  $\e>0$, there
+    exists a finite disjoint collection of open intervals  $\{I_k\}_{k=1}^n$ for
+    which if $U=\bigcup_{k=1}^n{I_k}$, then
+    \begin{equation*}
+        m^\ast(\com{E}{U})+m^\ast(\com{U}{E})<\e
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Since $E$ is measurable, there exists an open set  $V$, containing  $E$ and
+    for which
+    \begin{equation*}
+        m^\ast(\com{V}{E})<\frac{\e}{2}
+    \end{equation*}
+    Then by the excision property, we observe that since $E$ has finite outer
+    measure, then $V$ must also have finite outer measure. Now, let
+    $V=\bigcup{I_k}$ where $\{I_k\}$ is a countable disjoint collection of open
+    intervals. Therefore, by lemma \ref{8.3.3}, and monotonicity we get
+    \begin{equation*}
+        \sum_{k=1}^n{l(I_k)}=m^\ast\Big{(} \bigcup_{k=1}^n{I_k} \Big{)} \leq
+        m^\ast(V)
+    \end{equation*}
+    Then as $n \xrightarrow{} \infty$, we see the sum $\sum{l(I_k)}$ is finite.
+    Then choosing $n \in \Z^+$ for which
+    \begin{equation*}
+        \sum_{k=n+1}^{\infty}{l(I_k)}<\frac{\e}{2}
+    \end{equation*}
+    and defining
+    \begin{equation*}
+        U=\bigcup_{k=1}^n{I_k}
+    \end{equation*}
+    we get $\com{U}{E} \subseteq \com{V}{E}$ so by monotonicity,
+    \begin{equation*}
+        m^\ast(\com{U}{E}) \leq m^\ast(\com{V}{E})<\frac{\e}{2}
+    \end{equation*}
+    on the other hand, since $E \subseteq V$, we get  $\com{E}{U} \subseteq
+    \com{V}{U}=\bigcup_{k=n+1}^\infty{I_k}$. Therefore by definition of outer
+    measure
+    \begin{equation*}
+        m^\ast(\com{E}{U}) \leq \sum_{k=n+1}^\infty{l(I_k)}<\frac{\e}{2}
+    \end{equation*}
+    This gives us
+    \begin{equation*}
+        m^\ast(\com{U}{E})+m^\ast(\com{E}{U})<\frac{\e}{2}+\frac{\e}{2}=\e
+    \end{equation*}
+\end{proof}

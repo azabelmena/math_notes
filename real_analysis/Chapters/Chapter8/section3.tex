@@ -1,1 +1,201 @@
 \section{Lebesgue Measurable Sets}
+
+\begin{definition}
+    A set $E$ of  $\R$ is said to be  \textbf{measurable} if for any set $A
+    \subseteq \R$, we have
+    \begin{equation*}
+        m^\ast(A)=m^\ast(A \cap E)+m^\ast(A \cap (\com{\R}{E}))
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{8.3.1}
+    A set $E$ is measurable if for any $A \subseteq \R$, we have
+    \begin{equation*}
+        m^\ast(A) \geq m^\ast(A \cap E)+m^\ast(A \cap (\com{\R}{E}))
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    This follows by finite subadditivity, notice that both $A \cap E \subseteq
+    A$ and $A \cap (\com{\R}{E}) \subseteq A$, and that $A=(A \cap E) \cup (A
+    \cap (\com{\R}{E}))$. Thus
+    \begin{equation*}
+        m^\ast(A) \leq m^\ast(A \cap E)+m^\ast(A \cap (\com{\R}{E}))
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    A set $E$ is measurable if, and only if  $\com{\R}{E}$ is measurable.
+\end{corollary}
+
+\begin{lemma}\label{8.3.2}
+    Any set of Lebesgue outer measure $0$ is measurable.
+\end{lemma}
+\begin{proof}
+    Let $E$ be a set with  $m^\ast(E)=0$, and let $A \subseteq \R$. Then we have
+     $A \cap E \subseteq E$ and  $A \cap (\com{\R}{E}) \subseteq A$, so that by
+     monotonicity
+     \begin{equation*}
+         m^\ast(A \cap E) \leq m^\ast(E)=0 \text{ and }
+         m^\ast(A \cap (\com{\R}{E})) \leq m^\ast(A)
+     \end{equation*}
+     Adding both reltions gives us the result.
+\end{proof}
+\begin{corollary}
+    Countable sets are measurable.
+\end{corollary}
+
+\begin{lemma}\label{8.3.3}
+    The union of a finite collection of measurable sets is measurable.
+\end{lemma}
+\begin{proof}
+    Let $E_1$ and $E_2$ be measurable and $A \subseteq \R$. Then
+    \begin{align*}
+        m^\ast(A)   &=  m^\ast(A \cap E_1)+m^\ast(A \cap (\com{\R}{E_1}))   \\
+                 &=  m^\ast(A \cap E_1)+m^\ast((A \cap E_1) \cap E_2)+m^\ast((A \cap
+                    (\com{\R}{E_1})) \cap (\com{\R}{E_2}))  \\
+    \end{align*}
+    Now, we have that
+    \begin{equation*}
+        (A \cap (\com{\R}{E_1})) \cap (\com{\R}{E_2})=A \cap \com{\R}{(E_1 \cup
+        E_2)} \text{ and }
+        (A \cap E_1) \cup (A \cap (\com{\R}{E_1}) \cap E_2)=A \cap (E_1 \cup E_2)
+    \end{equation*}
+    which gives us
+    \begin{equation*}
+        m^\ast(A) \geq m^\ast(A \cap (E_1 \cup E_2))+m^\ast(A \cap \com{\R}{(E_1
+        \cup E_2)})
+    \end{equation*}
+    which makes the union $E_1 \cup E_2$ measurable. Extending the argument for
+    arbitrary $n \in \Z^+$ by induction gives us the result.
+\end{proof}
+
+\begin{lemma}\label{8.3.4}
+    Let $A$ be a set and  $\{E_k\}_{k=1}^n$ a disjoint collection of measurable
+    sets. Then
+    \begin{equation*}
+        m^\ast\Big{(} A \cap \Big{(} \bigcup_{k=1}^n{E_k} \Big{)} \Big{)}=
+        \sum_{k=1}^n{m^\ast(A \cap E_k)}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    By induction on $n$, for $n=1$, we are done. Now, suppose that our assertion
+    holds for all $n \geq 1$, and consider the finite disjoint collection
+    $\{E_k\}_{k=1}^{n+1}$. The since this collection is disjoint, we have
+    \begin{equation*}
+        A \cap \Big{(} \bigcup_{k=1}^{n+1}{E_k} \Big{)} \cap E_{n+1}=
+        A \cap E_{n+1}
+    \end{equation*}
+    and
+     \begin{equation*}
+        A \cap \Big{(} \bigcup_{k=1}^{n+1}{E_k} \Big{)} \cap (\com{\R}{E_{n+1}})=
+        A \cap \Big{(} \bigcup_{k=1}^{n}{E_k} \Big{)}
+    \end{equation*}
+    By the measurability of $E_{n+1}$,, we get that
+    \begin{equation*}
+        m^\ast\Big{(} A \cap \Big{(} \bigcup_{k=1}^{n+1}{E_k} \Big{)} \Big{)}=
+        m^\ast(A \cap E_{n+1})+\sum_{k=1}^n{m^\ast(A \cap E_k)}=
+        \sum_{k=1}^{n+1}{m^\ast(A \cap E_k)}
+    \end{equation*}
+\end{proof}
+
+\begin{lemma}\label{8.3.5}
+    Countable unions of measurable sets are measurable.
+\end{lemma}
+\begin{proof}
+    Let $\{E_k\}$ be a countable collection of measurable sets, and
+    $E=\bigcup{E_k}$ the countable union; suppose further without loss of
+    generality that the collection $\{E_k\}$ is a disjoint collection. Let $A
+    \subseteq \R$, and  $n \in \Z^+$ and define
+    \begin{equation*}
+        F_n=\bigcup_{k=1}^n{E_k}
+    \end{equation*}
+    Then $F$ is measurable since it is a finite union of measurable sets and
+    $\com{\R}{E} \subseteq \com{\R}{F}$, moreover, we have
+    \begin{equation*}
+        m^\ast(A)=m^\ast(A \cap E_n)+m^\ast(A \cap (\com{\R}{F})) \geq
+        m^\ast(A \cap F_n)+m^\ast(A \cap (\com{\R}{E}))
+    \end{equation*}
+    Now, by the lemma \ref{8.3.4}, we have that
+    \begin{equation*}
+        m^\ast(A \cap F)=\sum_{k=1}^n{m^\ast(A \cap E_k)}
+    \end{equation*}
+    so that
+    \begin{equation*}
+        m^\ast(A) \geq \sum_{k=1}^n{{m^\ast(A \cap E_k)+m^\ast(A \cap
+        (\com{\R}{E}))}}
+    \end{equation*}
+    Now, choosing $n \in \Z^+$ large enough, we get
+    \begin{equation*}
+        m^\ast(A) \geq \sum{{m^\ast(A \cap E_k)+m^\ast(A \cap
+        (\com{\R}{E}))}}
+    \end{equation*}
+    so that $m^\ast(A) \geq m^\ast(A \cap E)+m^\ast(A \cap (\com{\R}{E}))$
+\end{proof}
+
+\begin{theorem}\label{8.3.6}
+    The measurable sets of $\R$ form a  $\s$-algebra on  $\R$.
+\end{theorem}
+
+\begin{lemma}\label{8.3.7}
+    Every interval is measurable.
+\end{lemma}
+\begin{proof}
+    It suffices to show that the intervals of the form $(a,\infty)$ are
+    measurable. Let $A \subseteq \R$, and suppose that  $a \notin A$. Now, let
+    $\{I_k\}$ be a couintable collection of open bounded intervals covering $A$.
+    Now, define
+    \begin{equation*}
+        A'=A \cap (-\infty,a) \text{ and } A''=A \cap (a,\infty)
+    \end{equation*}
+    and
+    \begin{equation*}
+        I_k'=I_k \cap (-\infty,a) \text{ and } I''_k=I_k \cap (a,\infty)
+    \end{equation*}
+    Then the $I_k'$ and  $I_k''$ are intervals with $l(I_k)=l(I_k')+l(I_k'')$.
+    Moreover, the countable collections $\{I_k'\}$ and $\{I_k''\}$ form open
+    covers of $A'$ and  $A''$ respectively. Therefore, by the definition of
+    outer measure, we get
+    \begin{equation*}
+        m^\ast(A') \leq \sum{l(I_k')} \text{ and } m^\ast(A'') \leq \sum{l(I_k'')}
+    \end{equation*}
+    so that
+    \begin{equation*}
+        m^\ast(A')+m^\ast(A'') \leq \sum{l(I_k)}
+    \end{equation*}
+    which makes $(a,\infty)$ measurable.
+\end{proof}
+\begin{corollary}
+    Every Borel set of $\R$ is measurable.
+\end{corollary}
+\begin{corollary}
+    $G_\d$ sets and  $F_\s$ sets are measurable.
+\end{corollary}
+
+\begin{lemma}\label{8.3.8}
+    Translates of measurable sets are measurable.
+\end{lemma}
+\begin{proof}
+    Let $E$ be measurable, and  $y \in \R$, and let  $A \subseteq \R$. We have
+    by the measurability of  $E$, and by translation invariance of outer measure
+    that
+    \begin{align*}
+        m^\ast(A)   &=  m^\ast(\com{A}{y})  \\
+                 &=m^\ast((\com{A}{y}) \cap E)+m^\ast((\com{A}{y}) \cap
+                     (\com{\R}{E})) \\
+                 &= m^\ast(A \cap (E+y))+m^\ast(A \cap \com{\R}{(E+y)})
+    \end{align*}
+\end{proof}
+
+\begin{lemma}[The Excision Property]\label{8.3.9}
+    If $A$ is a measurable set of finite outer measure contained in a set  $B$
+    of  $\R$, then
+    \begin{equation*}
+        m^\ast(\com{B}{A})=m^\ast(B)-m^\ast(A)
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    We have that
+    \begin{equation*}
+        m^\ast(B)=m^\ast(B \cap A)+m^\ast(B \cap (\com{\R}{A}))
+        =m^\ast(A)+m^\ast(\com{B}{A})
+    \end{equation*}
+\end{proof}
