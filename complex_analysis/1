@@ -52,37 +52,5 @@
     Since zeros of holomorphic functions are isolated, choose an $\e>0$ such
     that  $\e<\frac{1}{2}R$, and $f(z)=\a$ has no solutions $a$ with
     $0<|z-a|<2\e$, and $f'(z) \neq 0$ if $0<|z-a|<2\e$ (observe that if $a$ has
-    multiplicity $m \geq 2$, then  $f'(a)=0$). Now, let
-    $\y(t)=a+\e{e^{2i\pi{t}}}$ on $0 \leq t \leq 1$ and let  $\s=f \cirs \y$.
-    Now, we have that  $a \notin \{\s\}$ so that there is a $\d>0$ such that
-    $B(a,\d) \cap \{\s\}$ is empty. That is $B(a,\d)$ is contained in a
-    component of $\com{\C}{\{\s\}}$, so that $|\a-\xi|<\d$ implies
-    \begin{equation*}
-        W(\s,\a)=W(\s,\xi)=\sum_{k=1}^p{W(\y,z_k(\xi))}
-    \end{equation*}
-    Now, we also have that $W(\y,z)$ is either $0$ or $1$, so that there exist
-    exactly $m$ solutions to the equation  $f(z)=\xi$ inside of $B(a,\e)$.
-    Moreover, since $f' \neq 0$ on  $0<|z-a|<2\e$, these roots are simple.
+    multiplicity $m \geq 2$, then  $f'(a)=0$).
 \end{proof}
-
-\begin{definition}
-    Let $U$ be an open set of  $\C$. We call a function  $f:U \xrightarrow{} \C$
-    an \textbf{open map} in $\C$ if  $f(U)$ is open in $\C$. Given an open map
-    $f:U \xrightarrow{} \C$, if $f$ is 1--1, we define the  \textbf{inverse} of
-    $f$ to be function $\inv{f}:\C \xrightarrow{} U$ defined by $\inv{f}(w)=z$
-    whenever $f(z)=w$.
-\end{definition}
-
-\begin{theorem}[The Open Mapping Theorem]\label{4.7.3}
-    Let $G$ be a region in  $\C$, and  $f$ a nonconstant function holomorphic on
-     $G$. Then  $f$ is an open map; that is, whenever $U$ is open in $G$, $f(U)$
-     is open in $\C$.
-\end{theorem}
-\begin{corollary}
-    If $f:G \xrightarrow{} \C$ is a 1--1 and holomorphic on $G$, with
-    $f(G)=\Omega$, then the inverse $\inv{f}:\Omega \xrightarrow{} \C$ is
-    holomorphic on $\Omega$ with
-    \begin{equation*}
-        (\inv{f})'(z)=\frac{1}{f'(z)}
-    \end{equation*}
-\end{corollary}
