@@ -1,0 +1,153 @@
+\section{Homotopy and Cauchy's Theorem}
+
+\begin{definition}
+    Let $\y_0:[0,1] \xrightarrow{} G$ and $\y_1:[0,1] \xrightarrow{} G$ be closed
+    rectifiable paths on a region $G$. We say that $\y_0$ is \textbf{homotopic}
+    to $\y_1$ in $G$ if there exists a continuous complex valued function
+    $\Gamma:[0,1] \times [0,1] \xrightarrow{} G$ such that
+    \begin{equation*}
+        \Gamma(s,0)=\y_0(s) \text{ and } \Gamma(s,1)=\y_1(s) \text{ for all } 0
+        \leq s \leq 1
+    \end{equation*}
+    and
+    \begin{equation*}
+        \Gamma(0,t)=\Gamma(1,t) \text{ for all } 0 \leq t \leq 1
+    \end{equation*}
+    We call $\Gamma$ a  \textbf{homotopy} between $\y_0$ and $\y_1$, and write
+    $\Gamma:\y_0 \sim \y_1$; or simply $\y_0 \sim \y_1$.
+\end{definition}
+
+\begin{lemma}\label{4.6.1}
+    Homotopy between paths is an equivalence relation.
+\end{lemma}
+\begin{proof}
+    Let $G$ be a region. For any closed rectifiable path $\y$, the identity
+    function $I:[0,1] \times [0,1]  \xrightarrow{} G$ defined by  $I(s,t)=\y(s)$
+    for all $0 \leq s, \leq 1$ defines a homotopy between $\y$ and itself.
+
+    Now, let $\y_0$ and $\y_1$ be closed rectifiable paths, and suppose that
+    $\Gamma:\y_0 \sim \y_1$. Let $\Lambda:[0,1] \times [0,1] \xrightarrow{} G$
+    be defined by
+    \begin{equation*}
+        \Lambda(s,t)=\Gamma(s,1-t)
+    \end{equation*}
+    Then we have that $\Lambda(s,0)=\y_1(s)$, $\Lambda(s,1)=\y_0(s)$, and that
+    $\Lmabda(0,t)=\Lambda(1,t)$. Moreover, since $\Gamma$ is continuous, so is
+    $\Lambda$. Hence  $\Lambda: \y_1 \sim \y_0$.
+
+    Now, suppose that for closed rectifiable paths $\y_0$, $\y_1$, and $\y_2$,
+    that $\Gamma: \y_0 \sim \y_1$, and $\Lambda:\y_1 \sim \y_2$. Define then
+    $\Phi:[0,1] \times [0,1] \xrightarrow{} G$ by
+    \begin{equation*}
+        \Phi(s,t)=\begin{cases}
+            \Gamma(s,2t), \text{ if } 0 \leq t \leq \frac{1}{2} \\
+            \Lambda(s,2t-1), \text{ if } \frac{1}{2} \leq t \leq 1
+        \end{cases}
+    \end{equation*}
+    By the pasting lemma from topology, we get that $\Phi$ is continuous.
+    Moreover, we have $\Phi(s,0)=\Gamma(s,0)=\y_0$, and
+    $\Phi(s,1)=\Lambda(s,1)=\y_2$, and that $\Phi(0,t)=\Phi(1,t)$ for all $0
+    \leq t \leq 1$. Therefore  $\Phi: \y_0 \sim \y_2$.
+\end{proof}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{Figures/Chapter4/homotopy.eps}
+    \caption{The transitivity of homotopy between the paths $\y_0$, $\y_1$, and
+    $\y_2$.}
+    \label{figure_4.3}
+\end{figure}
+
+\begin{definition}
+    We call a region $G$ of  $\C$  \textbf{convex} if for any two points $a,b
+    \in G$, then line segment  $[a,b] \subseteq G$. We call $G$  \textbf{star
+    shaped} if there exists a point $a \in G$ such that for any  $z \in G$, the
+    line segment $[a,z] \subseteq G$.
+\end{definition}
+
+\begin{lemma}\label{4.6.2}
+    Let $G$ be a star shaped region. If  $\y_0$ is homotopic to a constant curve
+    defined by some  $a \in G$, then every closed rectifiable curve is homotopic
+    to  $\y_0$.
+\end{lemma}
+\begin{proof}
+    Let $a \in G$, and suppose without loss of generality that  $\y_0$ is the
+    constant curve defined by $a$; i.e.  $\y_0(s)=a$ for all $0 \leq s \leq 1$.
+    Let  $\y_1$ be a closed rectifiable path in $G$, and take $\Gamma:[0,1]
+    \times [0,1] \xrightarrow{} G$ defined by
+    \begin{equation*}
+        \Gamma(s,t)=t\y_1(s)+(1-t)\y_0
+    \end{equation*}
+    since $G$ is star shaped; in particular, about  $a$, we see that  $\Gamma:
+    \y_1 \simn \y_0$.
+\end{proof}
+
+\begin{definition}
+    We call a closed rectifiable path $\y$ in a region $G$
+    \textbf{nullhomotopic} if it is homotopic to a constant curve in $G$. We
+    write  $\y \sim 0$.
+\end{definition}
+
+\begin{theorem}\label{4.6.3}
+    If $\y_0$ and $\y_1$ are closed rectifiable curves in a region $G$, and $f$
+    is a function analytic on $G$, then
+    \begin{equation*}
+    \int_{\y_0}{f}=\int_{\y_1}{f}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $I=[0,1]$ and $\Gamma:I \times I \xrightarrow{} G$ a homotopy between
+    $\y_0$ and $\y_1$. Then since $\Gamma$ is continuous, and  $I \times I$ is
+    compact,  $\Gamma$ is uniformly continuous, and  $F(I \times I) \subseteq G$
+    is also compact. Thus
+    \begin{equation*}
+        r=d(\Gamma(I \times I), \com{\C}{G})>0
+    \end{equation*}
+    and there exists an $n \in \Z^+$ such that if
+    \begin{equation*}
+        (s-s')^2+(t-t')^2<\frac{4}{n^2}
+    \end{equation*}
+    then
+    \begin{equation*}
+        |\Gamma(s,t)-\Gamma(s',t')|<r
+    \end{equation*}
+
+    Now, let $Z_{j,k}=\Gamma(\frac{j}{n},\frac{k}{n})$, for all $0 \leq j,k \leq
+    n$, and put  $J_{j,k}=[\frac{j}{n},\frac{j+1}{n}] \times
+    [\frac{k}{n},\frac{k+1}{n}]$ for all $0 \leq j,k \leq n-1$. Then
+    $\diam{J_{j,k}}=\frac{\sqrt{2}}{n}$  and $\Gamma(J_{j,k}) \subseteq
+    B(Z_{j,k},r)$
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.5]{Figures/Chapter4/cauchy_2.eps}
+        \caption{The polygon $P_{j,k}$.}
+        \label{figure_4.4}
+    \end{figure}
+
+    Now, letting $P_{j,k}=[Z_{j,k}, Z_{j+1,k}, Z_{j+2,k}, Z_{j+2,k+1},
+    Z_{j+1,k+1}, Z_{j,k+1}, Z_{j,k}]$ a closed polygon described in figure
+    \ref{figure_4.4}, sicne open balls are convex, we have  $P_{j,k} \subseteq
+    B(Z_{j,k},r)$. However, also notice that if $f$ is any function analytic on
+     $G$, then
+     \begin{equation*}
+         \int_{P_{j,k}}{f}=0
+     \end{equation*}
+
+     Now, let $Q_k=[Z_{0,k}, \dots, Z_{n,k}]$ a closed polygon, observe that for
+     any function $f$ analytic on $G$, we have
+     \begin{equation*}
+         \int_{\y_0}{f}=\int_{Q_0}{f}
+     \end{equation*}
+     Indeed, let $\s_j(s)=\y_0(s)$ for all $\frac{j}{n} \leq s \leq
+     \frac{j+1}{n}$. Then the path $\s_j+[Z_{j+1,0},Z_{j,0}]$ is a closed
+     rectifiable path in the open ball $B(Z_{j,0},r) \subseteq G$. Hence we get
+     \begin{equation*}
+         \int_{\s_j}{f}=-\int_{[Z_{j+1,0},Z_{j,0}]}{f}=
+         \int_{[Z_{j,0},Z_{j+1,0}]}{f}
+     \end{equation*}
+     Then adding both sides of this equation for $0 \leq j \leq n$ gives us the
+     above assertion. By similar reasoning, we also find that
+     \begin{equation*}
+     \end{equation*}
+\end{proof}
