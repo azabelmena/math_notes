@@ -1,1 +1,141 @@
 \section{The Borel-Cantelli Lemma}
+
+\begin{definition}
+    We define the \textbf{Lebesgue measure} $m$ to be the restriction of the
+    Lebesgue outer measure to the $\s$-algebra of measurable sets of $\R$. That
+    is, if $E \subseteq \R$ is measurable, then
+    \begin{equation*}
+        m(E)=m^\ast(E)
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{8.5.1}
+    The Lebesgue measure is countable additive. That is, if $\{E_k\}$ is a
+    countable disjoint collection of measurable sets, then
+    \begin{equation*}
+        m\Big{(} \bigcup{E_k} \Big{)}=\sum{m(E_k)}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\{E_k\}$ be a countable disjount collection of measurable sets, and let
+    $E=\bigcup{E_k}$. Then $E$ is also measurable, and we hve by countable
+    subadditivity
+    \begin{equation*}
+        m(E) \leq \sum{m(E_k)}
+    \end{equation*}
+    Now, by lemma \ref{8.3.4}, for each $n \in \Z^+$, we have
+    \begin{equation*}
+        m\Big{(} \bigcup_{k=1}^n{E_k} \Big{)}=\sum_{k=1}^n{E_k}
+    \end{equation*}
+    and that
+    \begin{equation*}
+        \bigcup_{k=1}^n{E_k} \subseteq E
+    \end{equation*}
+    Thus, by monotonicity, we have
+    \begin{equation*}
+        \sum_{k=1}^n{m(E_k)} \leq m(E)
+    \end{equation*}
+    Now, since $n$ is arbitary, choosing  $n$ large enough, we get
+    \begin{equation*}
+        \sum{m(E_k)} \leq m(E)
+    \end{equation*}
+    and so equality is established.
+\end{proof}
+
+\begin{theorem}[Continuity of Measure]\label{8.5.2}
+    The following is true for the Lebesgue measure.
+    \begin{enumerate}
+        \item[(1)] IF $\{A_k\}$ is an ascending collection of measurable sets,
+            then
+            \begin{equation*}
+                m\Big{(} \bigcup{A_k} \Big{)}=\lim_{k \xrightarrow{} \infty}{m(A_k)}
+            \end{equation*}
+
+        \item[(2)] If $\{B_k\}$ is a descending collection of measurable sets,
+            and $m(B_1)$ is finite, then
+            \begin{equation*}
+                m\Big{(} \bigcap{B_k} \Big{)}=\lim_{k \xrightarrow{} \infty}{m(B_k)}
+            \end{equation*}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Let $A=\bigcup{A_k}$. First, suppose that there is a $k_0 \in \Z^+$ for
+    which $m(A_{k_0})=\infty$. THen $m(A)=\infty$, and so $m(A_k)=\infty$ for
+    all $k \geq k_0$, and we are done. Now, suppose that $m(A_k)$ is finite for
+    all $k \in \Z^+$. Define
+    \begin{equation*}
+        A_0=\emptyset \text{ and } C_{k+1}=\com{A_{k+1}}{A_k}
+        \text{ for all } k \geq 1
+    \end{equation*}
+    Since $\{A_k\}$ is an ascending collection, the collection $\{C_k\}$ is
+    disjoint, and we have
+    \begin{equation*}
+        A=\bigcup{A_k}=\bigcup{C_k}
+    \end{equation*}
+    Then, by the countable additivity of the Lebesgue measure, we get
+    \begin{equation*}
+        m(A)=\sum{m(\com{A_{k+1}}{A_k})}
+    \end{equation*}
+    and by excision, we get
+    \begin{align*}
+        \sum{m(\com{A_{k+1}}{A_k})} &=  \sum{(m(A_{k+1})-m(A_k))}   \\
+                                &= \lim_{n \xrightarrow{} \infty}
+                                    \sum_{k=0}^{n-1}{(m(A_{k+1})-m(A_k))}   \\
+                                &=  \lim_{n \xrightarrow{} \infty}{(m(A_n)-m(A_0))}
+    \end{align*}
+    Now, since $m(A_0)=m(\emptyset)=0$, we get that
+    \begin{equation*}
+        m(A)=\lim_{k \xrightarrow{} 0}{m(A_k)}
+    \end{equation*}
+
+    Now, let $B=\bigcap{B_k}$, and suppose that $m(B_1)$ is finite. Define
+    \begin{equation*}
+        D_k=\com{B_1}{B_k} \text{ for all } k \in \Z^+
+    \end{equation*}
+    Since $\{B_k\}$ is a descending collection, $\{D_k\}$ is an ascending
+    collection. By the above assertion, we get
+    \begin{equation*}
+        m\Big{(} \bigcup{D_k} \Big{)}=\lim_{k \xrightarrow{} \infty}{m(D_k)}
+    \end{equation*}
+    Now, by DeMorgan's laws, we have
+    \begin{equation*}
+        \bigcup{D_k}=\com{B_1}{\Big{(} \bigcap{B_k} \Big{)}}
+    \end{equation*}
+    so that by the excision property
+    \begin{equation*}
+        m\Big{(} \com{B_1}{\Big{(} \bigcap{B_k} \Big{)}} \Big{)}=
+        \lim_{k \xrightarrow{} \infty}{(m(B_1)-m(B_k))}
+    \end{equation*}
+    by the excision property on the left hand side of the equation, we get
+    \begin{equation*}
+        m(B_1)-m(B)=m(B_1)-\lim_{k \xrightarrow{} \infty}{m(B_k)}
+    \end{equation*}
+    which gives us the result.
+\end{proof}
+
+\begin{definition}
+    We say that a property on a Lebesgue measurable set $E$ of  $\R$ holds
+    \textbf{almost everywhere} provided there exists a subsete $E_0 \subseteq E$
+    of $m(E_0)=0$ for which the property holds for all $x \in \com{E}{E_0}$.
+\end{definition}
+
+\begin{lemma}[The Borel-Cantelli Lemma]\label{8.5.3}
+    Let $\{E_k\}$ be a countable collection of measurable sets for which
+    $\sum{m(E)}_k$ is finite. Then almost all  $x \in \R$ belong to at most
+    finitely many $E_k$.
+\end{lemma}
+\begin{proof}
+    Let $E=\bigcup_{k=n}^\infty{E_k}$, then $E$ is measurable. By subadditivity
+    \begin{equation*}
+        m(E) \leq \sum_{k=n}^\infty{m(E_k)}<\infty
+    \end{equation*}
+    Therefore, by the continuity of measure, we have
+    \begin{equation*}
+        m\Big{(} \bigcap_{n=1}^\infty{E} \Big{)}=
+        \lim_{n \xrightarrow{} \infty}{m(E)} \leq
+        \lim_{n \xrightarrow{} \infty}{\sum_{k=1}^n{m(E_k)}}=0
+    \end{equation*}
+    Therefore, almost all $x \in \R$ fail to belong to
+    $\bigcap_{n=1}^\infty{E}$, and so must belong to at most finitely many
+    $E_k$.
+\end{proof}
