@@ -1,1 +1,87 @@
 \section{Nonmeasurable Sets}
+
+\begin{definition}
+    We call a set $E$ of $\R$ \textbf{nonmeasurable} if it is not a measurable
+    set.
+\end{definition}
+
+\begin{lemma}\label{8.6.1}
+    Let $E$ be a bnounded measurable set, and suppose there exists a bounded
+    countably infinite set of reals $\Lambda$ for which the collection of
+    translates  $\{\l+E\}$ is disjoint. Then $m(E)=0$.
+\end{lemma}
+\begin{proof}
+    SInce translates of measurable sets are measurable, by countable additivity
+    \begin{equation*}
+        m\Big{(} \bigcup_{\l \in \Lambda}{(\l+E)} \Big{)}=
+        \sum_{\l \in \Lambda}{m(\l+E)}=
+        \sum_{\l \in \Lambda}{m(E)}
+    \end{equation*}
+    Now, since both $E$ and  $\Lambda$ are bounded, then the union
+    \begin{equation*}
+        \bigcup_{\l \in \Lambda}{(\l+E)}
+    \end{equation*}
+    is also bounded, and has finite measure. Thus, for each $l \in \Lambda$,
+    $m(\l+E)=m(E)$ is finite. Additionally, by translation invariance,
+    $m(\l+E)=m(E)>0$, and since $\Lambda$ is countably infinite, we must have
+    $m(E)=0$.
+\end{proof}
+
+\begin{definition}
+    LEt $E \subseteq \R$ be an arbitrary set. We call two points  $x,y \in E$
+     \textbf{rationally equivalent} in $E$ provided  $x-y \in \Q$. We write  $x
+     \sim y$.
+\end{definition}
+
+\begin{lemma}\label{8.6.2}
+    For any set $E \subseteq \R$, rational equivalence defines an equivalence
+    relation on $E$.
+\end{lemma}
+\begin{proof}
+    We have that for any $x \in E$,  $x-x_=0 \in \Q$, so that $x \sim x$. Now,
+    let $x,y \in E$ with $x \sim y$. Then  $x-y \in \Q$, and since $\Q$ is a
+    field, $-(x-y)=y-x \in \Q$ so that $y \sim x$. Finally, let $x,y,z \in E$
+    with $x \sim y$ and $y \sim z$. Then $x-y,y-z \in \Q$, and again since $\Q$
+    is a field, $(x-y)+(y-z)=x-z \in \Q$ which makes $x \sim z$.
+\end{proof}
+
+\begin{definition}
+    Let $E$ be a nonempty set of  $\R$. We define a  \textbf{choice set} for
+    rational equivalence on $E$ to be a set  $\Cc_E$ consisting of exactly one
+    member of each equivalence class in  $\faktor{E}{\sim}$; such that
+    \begin{enumerate}
+        \item[(1)] For all $x,y \in \Cc_E$,  $x \not\sim y$.
+
+        \item[(2)] For every $x \in E$, there exists a $c \in \Cc_E$ such that
+            $x=c+q$ for some  $q \in \Q$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Vitali's Theorem]\label{8.6.3}
+    Any set $E$ with positive outer measure contains a nonmeasurable set.
+\end{theorem}
+\begin{proof}
+    By countable subadditivity, suppose that $E$ is bounded. Now, let  $\Cc_E$
+    be a choice set of rational equivalence on $E$ (which exists by the axiom of
+    choice). Then we claim that $\Cc_E$ is nonmeasurable.
+
+    Indeed, suppose that $\Cc_E$ is measurable, and let $\Lambda$ be any
+    countably infinite set of rationals. Then the collection  $\{\l+\Cc_E\}$ is
+    disjoint and $m(\lamda+\Cc_E)=m(\Cc_E)=0$, by lemma \ref{8.6.1}. Then, by
+    translatio invariance, and countable additivity, we have
+    \begin{equation*}
+        m\Big{(} \bigcup_{\l \in \Lambda}{\l+\Cc_E} \Big{)}=
+        \sum_{\l \in \Lambda}{m(\l+\Cc_E)}=\sum_{\l \in \Lambda}{m(\Cc_E)}=0
+    \end{equation*}
+
+    Now, since $E$ is bounded,  $E \subseteq [-b,b]$ for some $b \in \R$.
+    Choose, then a set  $\Lambda_0=[-2b,2b] \cap \Q$. Then $\Lambda_0$ is
+    bounded and countably infinite. Now, if $x \in E$, then there is a  $c \in
+    \Cc_E$ for which  $x=c+q$ for some  $q \in \Q$. But  $x,c \in [-b,b]$, so
+    that $x,c \in [-2b,2b]$. Thus
+    \begin{equation*}
+        E \subseteq \bigcup_{\l \in \Lambda_0}{(\l+\Cc_E)}
+    \end{equation*}
+    but $m^\ast(E)>0$, and $m(\Cc_E)=0$, which is a contradiction! Therefore,
+    $\Cc_E$ cannot be measurable.
+\end{proof}
