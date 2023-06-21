@@ -1,88 +1,203 @@
-\section{The Nilradical and Jacobson Radical}
-
-\begin{theorem}[The Binomial Theorem]\label{1.5.1}
-    Let $A$ be a commutative ring with identity. Then for all  $x,y \in A$, and
-     $n \in \Z^+$
-     \begin{equation*}
-         (x+y)^n=\sum_{r+s=n}{{n \choose r}x^ry^s}
-     \end{equation*}
-\end{theorem}
-
-\begin{lemma}\label{1.5.2}
-    Let $A$ be a commutative ring with identity, and $\Rf$ the set of all
-    nilpotent elements of $A$. Then $\Rf$ is an ideal of $A$.
-\end{lemma}
-\begin{proof}
-    If $x \in \Rf$, then there is an  $n \in \Z^+$ for which  $x^n=0$, notice
-    that this also implies that  $(-x)^n=0$, so that $-x \in \Rf$. Now, let $x,y
-    \in \Rf$. Then for some $m,n \in \Z^+$, we have $x^m=0$ and $y^n=0$.
-    Consider then $(x+y)^{m+n-1}$. By the binomial theorem, we have
-     \begin{equation*}
-         (x+y)^n=\sum_{r+s=m+n-1}{{m+n-1 \choose r}x^ry^s}
-     \end{equation*}
-     Now, since $r+s=m+n-1$, notice that either  $r<m$, or  $s<n$, but not both.
-     This makes  $x^ry^s=0$ for all  $r,s$, so that  $(x+y)^{m+n-1}=0$. This
-     makes $\Rf$ a subgroup of  $A$. Lastly, notice that if  $a \in A$, and  $x
-     \in \Rf$, then for some  $n \in \Z^+$,  $ax^n=(ax)^n=0$, which makes $\Rf$
-     an ideal.
-\end{proof}
-\begin{corollary}
-    $\faktor{A}{\Rf}$ has no nonzero nilpotent elements.
-\end{corollary}
-\begin{proof}
-    Let $x \in A$ be nilpotent, then $x \in \Rf$, so that $x+\Rf=\Rf$ in
-    $\faktor{A}{\Rf}$. Therefore, the only nilpotent element of
-    $\faktor{A}{\Rf}$ is $\Rf$ itself.
-\end{proof}
+\section{Eculidian Domains.}
 
 \begin{definition}
-    We define the \textbf{nilradical} of a commutative ring $A$, with identity,
-    to be the ideal, $\Nil{A}$, consisting of all nilpotent elements of $A$.
+    Let $A$ be a commutative ring identity. We call a map  $N:A \xrightarrow{} \N$,
+    with $N(0)=0$ a \textbf{norm}, or, \textbf{degree}. If $N(a) \geq 0$, for all
+    $a \in A$, then we call $N$ \textbf{nonnegative} If $N(a)>0$ for all $a \in A$
+    then we call  $N$ \textbf{positive}.
 \end{definition}
 
-\begin{lemma}\label{5.1.3}
-    Let $A$ be a commutative ring with identity. Then $\Nil{A}$ is the
-    intersection of all prime ideals of $A$; i.e.
+\begin{definition}
+    Let $A$ be a commutative ring with identity, and  $N:A \xrightarrow{} \N$ a
+    norm. We say thay $A$ is a \textbf{Euclidean domain} if for all $a,b \in A$,
+    with $b \neq 0$, there exist elements  $q,r \in A$ such that
     \begin{equation*}
-        \Nil{A}=\bigcap_{\pf \subseteq A}{\pf} \text{ where } \pf \text{ is a
-        prime ideal of } A
+        a=qb+r \text{ where } r=0 \text{ or } N(r)<N(b)
     \end{equation*}
+    We call $q$ the  \textbf{quotient} and $r$ the  \textbf{remainder} of $a$
+    when  \textbf{divided} by $b$.
+\end{definition}
+
+\begin{example}\label{2.1}
+    \begin{enumerate}
+        \item[(1)] Let $k$ be any field, and  $N:k \xrightarrow{} \N$ defined by
+            $N(a)=0$ for all $a \in k$. Then  $N$ makes  $k$ into a Euclidean
+            domain. Take  $a,b \in k$, with  $b \neq 0$, and  $q=a\inv{b}$. Then
+            $a=qb+r$ where  $r=0$.
+
+        \item[(2)] The integers $\Z$ is a Euclidean domain with norm $N(a)=|a|$,
+            the absolute value of $a$. In fact, the motivation for Euclidean
+            rings comes from the division theorem, or Euclid's theorem for
+            integers.
+
+        \item[(3)] Let $k$ be a field, and consider  $k[x]$. Let $N:k[x]
+            \xrightarrow{} \N$ be defined by $N:f \xrightarrow{} \deg{f}$. Then
+            f$ is a Euclidean domain. If  $k$ is not a field, then it is not
+            necesarily true that $k[x]$ be a Euclidean domain.
+
+        \item[(4)] Let $D \in \Z^+$ be squarefree, and consider  $\Z[\sqrt{D}]$.
+            Define $N:\Z[\sqrt{D}]=\N$ to be the absolute value of the field
+            norm, that is $N(a+b\sqrt{D})=\|a+b\sqrt{D}\|^2=a^2+Db^2$. We notice
+            that $\Z[\sqrt{D}]$ is an integral domain, but it is not a Euclidean
+            domain. This depends on our choice of $D$. Let  $D=-1$ so tha t
+            $\sqrt{D}=i$, and $i^2=-1$. Then the Gaussian integers, $\Z[i]$, is
+            a Euclidean domeain. Let $x=a+ib$,  $y=c+id$ with  $y \neq 0$. In
+            $\Q[i]$, the field of fractions, we have that $\frac{x}{y}=r+is$,
+            where
+            \begin{equation*}
+                r=\frac{ac+bd}{\|y\|^2} \text{ and } s=\frac{bc-ad}{\|y\|^2}
+            \end{equation*}
+            Now, let $p$ and  $q$ be the integers closest to $r$ and $s$,
+            respectively so that
+            \begin{equation*}
+                |r-p| \leq \frac{1}{2} \text{ and } |s-q| \leq \frac{1}{2}
+            \end{equation*}
+            Let $w=(r-p)+i(s-q)$, and take $z=wy$. Then we have  $z=x-(p+iq)y$,
+            so that $x=(p+iq)y+z$, moreover, we have $N(w)=(r-p)^2+(q-s)^2 \leq
+            \frac{1}{4}+\frac{1}{4}=\frac{1}{2}$. Since $\|\cdot\|$ is
+            multiplicative, we have
+            \begin{equation*}
+                N(w)N(y) \leq \frac{1}{2}N(y)
+            \end{equation*}
+            which makes $\Z[i]$ into a Euclidean domain.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{2.1.1}
+    Every ideal in a Euclidean domain $A$, is a principle ideal.
 \end{lemma}
 \begin{proof}
-    Let $\Rf$ be the intersection of all prime ideals of $A$. Suppose that  $x
-    \in A$ is nilpotent. Then $x^n=0$ for some $n \in \Z^+$, so that  $x^n \in
-    \pf$. Since $\pf$ is prime, $x \in \pf$, which puts $x \in \Rf$.
+    If $I=(0)$, we are done. Now, let $N:A \xrightarrow{} \N$ be the norm of $A$,
+    and consider the image $N(I)=\{N(a) : a \in I\}$. By the well ordering
+    principle, $N(I)$ has a minimum element $N(d)$ for some $d \neq 0$ in  $I$
+    Notice that  $(d) \subseteq I$. Now, let $a \in I$. Since $A$ is a Euclidean
+    domain, there exist $q,r \in A$ for which
+    \begin{equation*}
+        a=qd+r \text{ where } r=0 \text{ or } N(r)<N(d)
+    \end{equation*}
+    Then notice that
+    \begin{equation*}
+        r=a-qd
+    \end{equation*}
+    putting $r \in I$ and  $N(r) \in N(I)$. Since $N(d)$ is the minimum element,
+    we must have $r=0$ so that  $a=qd$, which puts  $a \in (d)$. Therefore
+    $I=(d)$, making $I$ principle.
+\end{proof}
 
-    Conversely, suppose that  $x \in A$ is not nilpotent, and let $\Sigma$ be
-    the set of all ideals $\af$ for which $x \notin \af$. Notice that since $0$
-    is nilpotent in $A$, $0 \in \Sigma$, so that $\Sigma$ is nonempty.
-    Therefore, by Zorn's lemma, $\Sigma$ has a maximal element $\pf$. We claim
-    that this $\pf$ is prime. Suppose that  $a,b \notin \pf$, then  $\pf
-    \subseteq \pf+(a)$ and $\pf \not\subseteq \pf+(b)$. So $\pf+(a), \pf+(b)
-    \notin \Sigma$, by the maximality of $\pf$. This puts  $x^m \in \pf+(a)$ and
-    $x^n \in \pf+(b)$, for some $n,m \in \Z^+$. Thus  $x^{m+n} \in \pf+(ab)
-    \not\subseteq \Sigma$. Therefore, $ab \notin \pf$, which makes $\pf$ a prime
-    ideal for which $x \notin \pf$; i.e. $x \notin \Rf$.
+\begin{example}\label{2.2}
+    \begin{enumerate}
+        \item[(1)] The polynomial ring $\Z[x]$ is not a Euclidean domain. The
+            ideal $(2,x)$ is not principle.
+
+        \item[(2)] Consider $\Z[\sqrt{-5}]$, i.e. $D=-5$. Suppose the ideal
+            $(3,2+\sqrt{-5})$ is a principle ideal, that is
+            $(3,2+\sqrt{5})=(a+b\sqrt{-5})$ for some $a,b \in \Z$. Then we get
+            that $3=x(a+b\sqrt{-5})$ and $2+\sqrt{-5}=y(a+b\sqrt{-5})$. Then
+            notice that $N(x)=a^2+5b^2=9$, and since  $a^2+5b^2 \in \Z^+$, we
+            must have that $a^2+5b^2=1,3,9$.
+            \begin{enumerate}
+            \item[(i)] If $a^2+5b^2=9$, then $N(x)=1$ making $x=\pm 1$ and
+                $a+b\sqrt{-5}=\pm3$, which cannot happen since $2+\sqrt{-5}$ is
+                not divisible by $3$.
+
+            \item[(ii)] the equation $a^2+5b^2=3$ cannot happen since it has no
+                integer solutions. This makes
+
+            \item[(iii)] $a^2+b\sqrt{5}=1$, which makes
+                $(a+\sqrt{-5})=\Z[\sqrt{-5}]$, moreover, we get the equation
+                $3x+y(2+\sqrt{-5})=1$ for any $x,y \in \Z[\sqrt{-5}]$.
+                Multplying both sides by $2-\sqrt{-5}$, we get that
+                $3|(2-\sqrt{-5})$ which is impossible.
+            \end{enumerate}
+            In all three cases, we were led to an impossibility, hence
+            $\Z[\sqrt{-5}]$ cannot be a Euclidean domain.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $A$ be a commutative ring with identity, and  $a,b \in A$ with $b \neq 0$.
+    We say that $b$ \textbf{divides} $a$ if there is an  $x \in A$ for which  $a=bx$.
+    We write  $b|a$. We also say that $a$ is a \textbf{multiple} of $b$.
+\end{definition}
+
+\begin{definition}
+    Let $A$ be a commutative ring with identity. We call a nonzero element
+    $d \in A$ a \textbf{greatest common divisor} of elements $a,b \in A$ if
+    \begin{enumerate}
+        \item[(1)] $d|a$ and  $d|b$.
+
+        \item[(2)] If $c \in A$ is nonzero such that  $c|a$ and  $c|b$, then
+            $c|d$.
+    \end{enumerate}
+    We write $d=(a,b)$.
+\end{definition}
+
+\begin{lemma}\label{2.1.2}
+    Let $A$ be a commutative ring with identity. For any $a,b \in A$ a nonzero
+    element $d \in A$ is the greatest common divisor if
+    \begin{enumerate}
+        \item[(1)] $(a,b) \subseteq (d)$.
+
+        \item[(2)] If $c \in A$ is nonzero with $(a,b) \subseteq (c)$, then $(d)
+            \subseteq (c)$.
+    \end{enumerate}
+    In particular, $d=(a,b)$.
+\end{lemma}
+\begin{proof}
+    The first two statements follow from definition, and the last follows lemma
+    \ref{2.1.1}.
+\end{proof}
+
+\begin{lemma}\label{2.1.3}
+    If $A$ is a commutative ring with identity, and $a,b \in A^\ast$, such that
+    $(a,b)=(d)$ for some $d \in A^\ast$, then $d$ is the greatest common divisor
+    of $a$ and $b$.
+\end{lemma}
+
+\begin{lemma}\label{2.1.4}
+    Let $A$ be an inetegral domain. If $c,d \in A$ generate the same principle
+    ideal, i.e. $(d)=(c)$, then $d=uc$ for some unit  $u \in A$.
+\end{lemma}
+\begin{proof}
+    If $c=0$ or  $d=0$, we are done. Suppose then that  $c,d \neq 0$. Since
+    $(d)=(c)$, we have that $d=xc$ and $c=yd$ for some  $x,y \in A$. Then
+    $d=(xy)d$, which makes $d(1-xy)=0$. Since $d \neq 0$, we get $xy=1$, making
+     $x$ and $y$ units of $A$.
 \end{proof}
 
 \begin{definition}
-    We define the \textbf{Jacobson radical} of a commutative ring $A$, with
-    identity, to be the intersection of all maximal ideals of $A$. We denote it
-    by  $\Jac{A}$.
+    We call an integral domain in which every principle ideal is generated by
+    two elements a \textbf{Bezout domain}.
 \end{definition}
 
-\begin{lemma}\label{1.5.4}
-    Let $A$ be a commutative ring with identity. Then  $x \in \Jac{A}$ if, and
-    only if $1-xy$ is a unit in $A$ for some $y \in A$.
+\begin{lemma}\label{2.1.5}
+    Every Euclidean domain is a Bezout domain.
 \end{lemma}
-\begin{proof}
-    Suppose that $x \in \Jac{A}$, but that $1-xy$ is not a unit of $A$. Then by
-    lemma \ref{1.4.2}, we have $(1-xy) \subseteq \mf$ for some maximal ideal
-    $\mf$ of $A$; hence $1-xy \in \mf$. However, since $x \in \Jac{A}$, then $xy
-    \in \mf$, which puts $1 \in \mf$, so that $\mf=(1)$ which contradicts that
-    $\mf$ is maximal. Therefore,  $1-xy$ must be a unit.
 
-    Conversely, suppose that  $x \in \mf$ for some maximal ideal $\mf$ of $A$.
-    THen  $(\mf,x)=(1)$ so that $u+xy=1$ for some  $u \in \mf$ and  $y \in A$.
-    This makes  $1-xy \in \mf$ so that $1-\mf$ is not a unit.
+\begin{theorem}[The Extended Euclidean Algorithm]\label{2.1.6}
+    Let $A$ be a Euclidean and $a,b \neq 0$ elements of  $A$. Let  $d=r_n$ be
+    the least nonzero remainder obtained by dividing $a$ from $b$ recursively
+    $n+1$ times. Then
+    \begin{enumerate}
+        \item[(1)] $d=(a,b)$ is the greatest common divisor of $a$ and  $b$.
+
+        \item[(3)] There exist $x,y \in A$ for which  $ax+by=d$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    By lemma \ref{2.1.1}, we get that the ideal $(a,b)$ is principle, so there
+    exists a greatest common divisor of $a$ and  $b$. Now, let  $d=r_n$ be
+    obtained by dividing $a$ and $b$ recursively $(n+1)$ times. Then the
+    $(n+1)^{st}$ equation gives $r_{n-1}=q_{n+1}r_n$, so that $r_n|r_{n-1}$.
+    Now, by induction on $n$ if  $r_n|r+{k+1}$ and $r_n|r_k$ then the
+    $(k+1)^{st}$ equation gives $r_{k-1}=q_{k+1}r_k+r_{k+1}$, which implies that
+    $r_n|r_{k-1}$. Therefore we get in the $1^{st}$ equation that $r_n|b$, and in
+    the $0^{th}$ that $r_n|a$. That is,  $d|a$ and  $d|b$.
+
+    Now, notice that $r_0 \in (a,b)$ and that $r_1=b-qr_0 \in (b,r_0) \subseteq
+    (a,b)$. By induction on $r_n$, if  $r_{k-1},r_n \in (a,b)$ then
+    \begin{equation*}
+        r_{k+1}=r_{k-1}-q_{k+1}r_k \in (r_{k-1},r_n) \subseteq (a,b)
+    \end{equation*}
+    which puts $r_n \in (a,b)$ making $d=(a,b)$ the greatest common divisor.
 \end{proof}
