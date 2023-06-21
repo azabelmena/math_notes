@@ -1,40 +1,36 @@
-%----------------------------------------------------------------------------------------
-%	SECTION 1.1
-%----------------------------------------------------------------------------------------
-
 \section{Definitions and Examples.}
 \label{section1}
 
 \begin{definition}
-    A \textbf{commutative ring} $R$ is a set together with two binary operations
+    A \textbf{commutative ring} $A$ is a set together with two binary operations
     $+:(a,b) \xrightarrow{} a+b$ and $\cdot:(a,b) \xrightarrow{} ab$ called
     \textbf{additon} and \textbf{multiplication} such that:
     \begin{enumerate}
-        \item[(1)] $R$ is an Abelian group over $+$, where we denote the
-            identity element as $0$ and the inverse of each $a \in R$ as $-a$.
+        \item[(1)] $A$ is an Abelian group over $+$, where we denote the
+            identity element as $0$ and the inverse of each $a \in A$ as $-a$.
 
-        \item[(2)] For any $a,b \in R$,  $ab \in R$ and $a(bc)=(ab)c$. That is,
-            $R$ is closed under multiplication, and  multiplication is
+        \item[(2)] For any $a,b \in A$,  $ab \in A$ and $a(bc)=(ab)c$. That is,
+            $A$ is closed under multiplication, and  multiplication is
             associative.
 
         \item[(3)] $a(b+c)=ab+ac$ and $(a+b)c=ac+bc$.
 
-        \item[(4)] $ab=ba$ for all  $a,b \in R$.
+        \item[(4)] $ab=ba$ for all  $a,b \in A$.
     \end{enumerate}
-     If there exists an element $1 \in R$ such that  $a1=1a=R$, then we call
-     $R$ a ring with \textbf{identity}. If $1=0$, we call  $R$ the  \textbf{zero
-     ring} and write $R=0$.
+     If there exists an element $1 \in A$ such that  $a1=1a=A$, then we call
+     $A$ a ring with \textbf{identity}. If $1=0$, we call  $A$ the  \textbf{zero
+     ring} and write $A=0$.
 \end{definition}
 
 \begin{definition}
     A commutative ring $k$ with identity $1 \neq 0$ is called a
     \textbf{field} if for all $a \in k$, where  $a \neq 0$, there exists
-    a $b \in R$ such that $ab=1$.
+    a $b \in A$ such that $ab=1$.
 \end{definition}
 
 \begin{lemma}\label{1.1.1}
-    Let $R$ be a commutative ring with identity. Then the following are true for
-    all $a,b \in R$.
+    Let $A$ be a commutative ring with identity. Then the following are true for
+    all $a,b \in A$.
     \begin{enumerate}
         \item[(1)] $0a=a0=0$.
 
@@ -53,11 +49,11 @@
         \item[(2)] Notice that $b-b=0$, so $a(b-b)=ab+a(-b)=0$, so that
             $a(-b)=-(ab)$. The same argument with $(a-a)b$ gives $(-a)b=-(ab)$.
 
-        \item[(3)] By the inverse laws of addition in $R$, we have
+        \item[(3)] By the inverse laws of addition in $A$, we have
             $-(a(-b))=-(-(ab))$, so that $(-a)(-b)=ab$.
 
-    \item[(4)] Suppose $R$ has identity $1 \neq 0$, and suppose there is an
-        element $2 \in R$ for which  $2a=a2=a$ for all $a \in R$. Then we have
+    \item[(4)] Suppose $A$ has identity $1 \neq 0$, and suppose there is an
+        element $2 \in A$ for which  $2a=a2=a$ for all $a \in A$. Then we have
         that $1 \cdot 2=1$ and  $1 \cdot 2=2$, making  $1=2$; so  $1$ is unique.
         Now, we have that $a+(-a)=0$, so that $1(a+(-a))=1a+1(-a)=1a+(-a)=0$ So
         $(-a)=-(1a)=(-1)a$ by (2).
@@ -65,40 +61,40 @@
 \end{proof}
 
 \begin{definition}
-    Let $R$ be a ring. We call an element  $a \in R$ a  \textbf{zero divisor} if
+    Let $A$ be a ring. We call an element  $a \in A$ a  \textbf{zero divisor} if
     $a \neq 0$ and there exists an element  $b \neq 0$ such that  $ab=0$.
-    Similarly, we call $a \in R$ a \textbf{unit} if there is a $b \in R$ for
+    Similarly, we call $a \in A$ a \textbf{unit} if there is a $b \in A$ for
     which  $ab=ba=1$. We call an element $a$  \textbf{nilpotent} if there exists
     some $n \in \Z^+$ for which $x^n=0$.
 \end{definition}
 
 \begin{definition}
-    Let $R$ be a ring. We call the set of all units in  $R$ the \textbf{group
-    of units} and denote it $\Uc(R)$, or $R^\ast$.
+    Let $A$ be a ring. We call the set of all units in  $A$ the \textbf{group
+    of units} and denote it $\Uc(A)$, or $A^\ast$.
 \end{definition}
 
 \begin{lemma}\label{1.1.3}
-    Let $R$ be a commutative ring with identity $1 \neq 0$. Then the group of units
-    $\Uc(R)$ forms an Abelian group under multiplication.
+    Let $A$ be a commutative ring with identity $1 \neq 0$. Then the group of units
+    $\Uc(A)$ forms an Abelian group under multiplication.
 \end{lemma}
 \begin{proof}
-    Let $a,b \in R$ be units in $R$. Then there are $c,d \in R$ for which
+    Let $a,b \in A$ be units in $A$. Then there are $c,d \in A$ for which
     $ac=ca=1$ and  $bd=db=1$. Consider then $ab$. Then  $ab(dc)=a(bd)c=ac=1$ and
-    $(dc)ab=d(ca)b=db=1$ so that $ab$ is also a unit in $R$. Moreover $R^\ast$
+    $(dc)ab=d(ca)b=db=1$ so that $ab$ is also a unit in $A$. Moreover $\Uc(A)$
     inherits the associativity of  $\cdot$ and $1$ serves as the identity
-    element of $R^\ast$. Lastly, if $a \in R^\ast$ is a unit there is a $b
-    \in R$ for which $ab=ba=1$. This also makes $b$ a unit in $R$, and the
-    inverse of $a$. Now, since $R$ is a commutative ring, the multiplication in
-     $\Uc(R)$ is commutative, making $\Uc(R)$ Abelian.
+    element of $A^\ast$. Lastly, if $a \in A^\ast$ is a unit there is a $b
+    \in A$ for which $ab=ba=1$. This also makes $b$ a unit in $A$, and the
+    inverse of $a$. Now, since $A$ is a commutative ring, the multiplication in
+     $\Uc(A)$ is commutative, making $\Uc(A)$ Abelian.
 \end{proof}
 \begin{corollary}
     $a$ is a zero divisor if, and only if it is not a unit.
 \end{corollary}
 \begin{proof}
-    Suppose that $a \neq 0$ is a zero divisor. Then there is a  $b \in R$ such
-    that $b \neq 0$ and $ab=0$. Then for any $v \in R$,  $v(ab)=(va)b=0$ so that
+    Suppose that $a \neq 0$ is a zero divisor. Then there is a  $b \in A$ such
+    that $b \neq 0$ and $ab=0$. Then for any $v \in A$,  $v(ab)=(va)b=0$ so that
     $a$ cannot be a unit. On the other hand let  $a$ be a unit, and  $ab=0$ for
-    some  $b \neq 0$. Then there is a  $v \in R$ for which
+    some  $b \neq 0$. Then there is a  $v \in A$ for which
     $v(ab)=(va)b=1b=b=0$. Then $b=0$ which is a contradiction.
 \end{proof}
 \begin{corollary}
@@ -117,16 +113,16 @@
     Any finite integral domain is a field.
 \end{lemma}
 \begin{proof}
-    Let $R$ be a finite integral domain and consider the map on $R$, by $x
-    \xrightarrow{} ax$. By above, this map is 1--1, moreover since $R$ is
-    finite, it is also onto. So there is a $b \in R$ for which $ab=1$, making
-    $a$ a unit. Since $a$ is abitrarily chosen, this makes $R$ a field.
+    Let $A$ be a finite integral domain and consider the map on $A$, by $x
+    \xrightarrow{} ax$. By above, this map is 1--1, moreover since $A$ is
+    finite, it is also onto. So there is a $b \in A$ for which $ab=1$, making
+    $a$ a unit. Since $a$ is abitrarily chosen, this makes $A$ a field.
 \end{proof}
 \begin{corollary}
     If $k$ is a field it is a (not necessarily finite) integral domain.
 \end{corollary}
 
 \begin{definition}
-    A \textbf{subring} of a ring $R$ is a subgroup of $R$ closed under
+    A \textbf{subring} of a ring $A$ is a subgroup of $A$ closed under
     multiplication.
 \end{definition}
