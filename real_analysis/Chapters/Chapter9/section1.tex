@@ -1,1 +1,220 @@
-\section{Operations on Lebesgue Measurable Functions}
+\section{Properties of Lebesgue Measurable Functions}
+
+\begin{lemma}\label{9.1.1}
+    Let $f$ a realvalued function on a measurable domain $E$. Then the following
+    statements are equivalent for any $c \in \R$.
+    \begin{enumerate}
+        \item[(1)] $\inv{f}((c,\infty))=\{x \in E : f(x)>c\}$ is measurable.
+
+        \item[(2)] $\inv{f}([c,\infty))=\{x \in E : f(x)\geq c\}$ is measurable.
+
+        \item[(3)] $\inv{f}((-\infty,c))=\{x \in E : f(x)<c\}$ is measurable.
+
+        \item[(4)] $\inv{f}((-\infty,c])=\{x \in E : f(x) \leq c\}$ is measurable.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    It suffices to show that statements (1) and (2) are equivalent. Suppose that
+    (1) holds. Notice that
+    \begin{equation*}
+        \inv{f}([c,\infty))=\bigcap_{k=1}^\infty{\{x \in E : f(x)>c-\frac{1}{k}\}}
+    \end{equation*}
+    which is a countable intersection of measurable sets, which makes
+    $\inv{f}([c,\infty))$ measurable. Conversely, if (2) holds, then we have
+    \begin{equation*}
+        \inv{f}((c,\infty))=\bigcup_{k=1}^\infty{\{x \in E : f(x) \geq
+        c-\frac{1}{k}\}}
+    \end{equation*}
+    which is a countable union of measurable sets, which makes
+    $\inv{f}((c,\infty))$ measurable.
+\end{proof}
+\begin{corollary}
+    If $f$ is a realvalued function on a measurable domain $E$, then for any $c
+    \in \R$
+    \begin{equation*}
+        \inv{f}(c)=\{x \in E : f(x)=c\}
+    \end{equation*}
+    is measurable.
+\end{corollary}
+\begin{proof}
+    Take $c \in \R$. Then  $\inv{f}([c,\infty))$ and $\inv{f}((-\infty,c])$ are
+    measurable, hence so is their intersection, which is $\inv{f}(c)$.
+\end{proof}
+\begin{corollary}
+    If $f$ is an extended realvalued function, then  $\inv{f}(\infty)$ is
+    measurable.
+\end{corollary}
+\begin{proof}
+    Notice that
+    \begin{equation*}
+        \inv{f}(\infty)=\{x \in E : f(x)>k\}
+    \end{equation*}
+    so that $\inv{f}(\infty)$ is measurable by the above lemma.
+\end{proof}
+
+\begin{definition}
+    We call a real-valued function $f$ on a measurable domain $E$
+    \textbf{Lebesgue measurable} if for any $c \in \R$ and $I$ a bounded
+    interval of the form  $(c,\infty)$, $(-\infty,c)$, $[c,\infty)$, or
+    $(-\infty,c]$, then $\inv{f}(I)$ is measurable.
+\end{definition}
+
+\begin{lemma}\label{9.1.2}
+    Let $f$ be a realvalued function defined on a measurable domain  $E$. Then
+    $f$ is Lebesgue measurable if, and only if for any  $U$ open in $\R$,
+    $\inv{f}(U)$ is measurable.
+\end{lemma}
+\begin{proof}
+    Let $U$ be open in  $\R$, and $\inv{f}(U)$ be measurable. Since $(c,\infty)$
+    is open, then $\inv{f}((c,\infyy))$ is measurable by hypothesis, which makes
+    $f$ measurable.
+
+    Conversely, suppose that $f$ is measurable, and let  $U$ be open in  $\R$.
+    Then
+    \begin{equation*}
+        U=\bigcup{I_k}
+    \end{equation*}
+    where $\{I_k\}$ is a countable collection of open bounded intervals.
+    Moreover, we have each $I_k=A_k \cap B_k$ where  $A_k=(a_k,\infty)$ and
+    $B_k=(-\infty,b_k)$. Since $f$ is measurable, then  $\inv{f}(A_k)$ and
+    $\inv{f}(B_k)$ are measurable. Hence
+    \begin{equation*}
+        \inv{f}(U)=\inv{f}\Big{(} \bigcup{(A_k \cap B_k)} \Big{)}=
+        \bigcup{\inv{f}(A_k) \cap \inv{f}(B_k)}
+    \end{equation*}
+    which is a countable union of measurable sets, which makes $\inv{f}(U)$
+    measurable.
+\end{proof}
+\begin{corollary}
+    If $f$ is continuous on its domain, then it is measurable.
+\end{corollary}
+\begin{proof}
+    Let $f$ be continuous on $E$, and let $U$ be open. Then  $\inv{f}(U)$ is
+    open and $\inv{f}(U)=E \cap V$ with some $V$ open in  $\R$. Now, $E$ and $V$
+    are measurable sets, which makes  $\inv{f}(U)$ measurable.
+\end{proof}
+
+\begin{lemma}\label{9.1.3}
+    Monotone functions defined on an interval are measurable.
+\end{lemma}
+
+\begin{lemma}\label{9.1.4}
+    Let $f$ and $g$ be extended realvalued functions on a measurable domain $E$.
+    Then the following are true.
+    \begin{enumerate}
+        \item[(1)] If $f$ is Lebesgue measurable, and $f=g$ almost everywhere on
+            $E$, then $g$ is Lebesgue measurable.
+
+        \item[(2)] If $D$ is a measurable subset of  $E$, then  $f$ is
+            Lebesgue measurable if, and  only if $f$ is Lebesgue measurable when
+            restricted to $D$ and to  $\com{E}{D}$; i.e. both $f|_D$ and
+            $f|_{\com{E}{D}}$ are Lebesgue measurable.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Suppose that $f$ is measurable and that $f=g$ almost everywhere on $E$. Let
+    $A=\{x\ in E : f(x) \neq g(x)\}$. Then notice that
+    \begin{equation*}
+        \inv{g}((c,\infty))=\{x \in A : g(x)>c\} \cup ((\{x \in E : f(x)>c\})
+        \cap (\com{E}{A}))
+    \end{equation*}
+    Now, since $f=g$ almost everywhere on $E$, then  $m(A)=0$, so that the set
+    $\{x \in A : g(x)>c\}$ is measurable. Now, $\inv{f}((c,\infty))$ is
+    measurable since $f$ is measurable, which makes  $\inv{g}((c,\infty))$
+    measurable.
+
+    Now, let $D \subseteq E$ a measurable subset. Observe that for every  $c \in
+    \R$
+    \begin{equation*}
+        \inv{f}((c,\infty))=\{x \in D : f(x)>c\} \cup \{x \in \com{E}{D} :
+        f(x)>c\}
+    \end{equation*}
+    hence the equivalence is proved.
+\end{proof}
+
+\begin{theorem}\label{9.1.5}
+    Let $f$ and  $g$ be Lebesgue measruable functions defined on a measurable
+    domain $E$, and finite almost everywhere on  $E$. Then for all  $\a, \b \in
+    \R$
+    \begin{enumerate}
+        \item[(1)] $\a{f}+\b{g}$ is Lebesgue measurable.
+
+        \item[(2)] $fg$ is Lebesgue measurable.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Suppose, without loss of generality, that $f$ and  $g$ are finite on all of
+     $E$. Now, for $\a=0$, we have that $\a{f}=0$ is measurable. Now, if $\a
+     \neq 0$, observe that
+     \begin{equation*}
+         \inv{(\a{f})}((c,\infty))= \begin{cases}
+                                    \{x \in E : f(x)>\frac{c}{\a}\}, \a>0   \\
+                                    \{x \in E : f(x)<\frac{c}{\a}\}, \a<0   \\
+                                \end{cases}
+     \end{equation*}
+     Now, since $f$ is measurable, both these sets are measurable. This makes
+     $\a{f}$ measurable. Now, consider the function $f+g$. If  $f(x)+g(x)<c$ for
+     all $x \in E$, then  $f(x)<c-g(x)$. Now, by the density of $\Q$ in  $\R$,
+     there is a rational  $q \in \Q$ for which  $f(x)<q<c-g(x)$. Thus
+     \begin{equation*}
+         \inv{(f+g)}((c,\infty))=\bigcup_{q \in \Q}{(\inv{g}((-\infty,c-q)) \cap
+         \inv{f}(-\infty,q))}
+     \end{equation*}
+     By the countability of $\Q$ we have a countable union of measurable sets,
+     which makes $\inv{(f+g)}((c,\infty))$ measurable. Hence $f+g$ is
+     measurable.
+
+     Lastly, notice that $fg=\frac{1}{2}((f+g)^2-f^2-g^2)$. It suffices to show
+     then that $f^2$ is measurable. For  $c \geq 0$, we have that
+     \begin{equation*}
+         \inv{(f^2)}((c,\infty))=\{x \in E : f(x)>\sqrt{c}\} \cup \{x \in E :
+         f(x)<-\sqrt{c}\}
+     \end{equation*}
+     and for $c<0$, we have  $\inv{(f^2)}((c,\infty))=\{x \in E : f^2(x)>c\}=E$.
+     In either case we get measurable sets, which makes $f^2$ measurable.
+\end{proof}
+
+\begin{example}\label{example_9.1}
+    Consider the strictly increasing function $\psi$ on  $[0,1]$ defined by
+    $\psi(x)=\phi(x)+x$, where $\phi$ is the Cantor-Lebesgue function. Then
+    there exists a measurable subset $A$ of $[0,1]$ for which $\psi(A)$ is
+    nonmeasurale. Now, extend $\psi$ to the continuous function  $\Psi:\R
+    \xrightarrow{} \R$. Then $\inv{\Psi}$ is continuous, and hence measurable.
+    Now, consider the function
+    \begin{equation*}
+        \chi_A(x)=  \begin{cases}
+                     1, \text{ if } x \in A \\
+                     0, \text{ if } x \notin A \\
+                 \end{cases}
+    \end{equation*}
+    and take $f(x)=\chi_A \circ \inv{\Psi}(x)$. We claim that $f$ is not a
+    measurable function. Take  $I$ an open interval with  $1 \in I$ and  $0
+    \notin I$. Then $\inv{f}(I)=\Psi(\inv{\chi_A}(I))=\Psi(A)=\psi(A)$ which is
+    not measurable. Hence $f$ fails to be a measurable function. In general,
+    compostions of Lebesgue measurable functions need not be Lebesgue measurable.
+\end{example}
+
+\begin{theorem}\label{9.1.6}
+    Let $g$ be a lebesgue measurable function on a domain  $E$, and let  $f$ be a
+    continuous realvalued function on all  $\R$. Then  $f \circ g$ is Lebesgue
+    measurable on  $E$.
+\end{theorem}
+\begin{proof}
+    Let $U$ be open in  $\R$. Then  $\inv{(f \circ g)}(U)=\inv{g}(\inv{f}(U))$.
+    Now, since $f$ is continuous, we get  $f(U)$ is open in $\R$, and since  $g$
+    is measurable, this makes  $\inv{g}(\inv{f}(U))$ measurable by lemma
+    \ref{9.1.2}. Therefore $f \circ g$ is Lebesgue measurable.
+\end{proof}
+\begin{corollary}
+    $|f|^p$ is Lebesgue measurable for any  $p>0$.
+\end{corollary}
+
+\begin{lemma}\label{9.1.7}
+    Let $\{f_k\}_{k=1}^n$ be a finite sequence of Lebesgue measurable functions
+    on a common measurable domain $E$. Then the functions
+    \begin{align*}
+        \bar{f}(x)  &=  \max{\{f_1(x), \dots, f_n(x)\}} \\
+        \bbar{f}(x)  &=  \min{\{f_1(x), \dots, f_n(x)\}} \\
+    \end{align*}
+    are Lebesgue measurable.
+\end{lemma}
