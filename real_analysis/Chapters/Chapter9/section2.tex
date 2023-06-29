@@ -1,1 +1,141 @@
-%\section{Simple Approximation}
+\section{Simple Approximation}
+
+\begin{definition}
+    Let $\{f_n\}$ be a sequence of realvalued functions on a measurable domain
+    $E$, and let  $f$ be a function on  $E$, and let  $A \subseteq E$. We say
+    that $\{f_n\}$ \textbf{converges pointwise} to $f$ on  $A$ if
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{f_n(x)}=f(x) \text{ for all } x \in A
+    \end{equation*}
+    We say taht $\{f_n\}$ \textbf{converges uniformly} to $f$ on  $A$ provided
+    for all $\e>0$, there is an  $N \in \Z^+$ for which
+    \begin{equation*}
+        ||f(x)-f_n(x)|<\e \text{ for all } n \geq N
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{9.2.1}
+    Let $\{f_n\}$ be a sequence of measurable functions on a domain $E$,
+    converging pointwise almost everywhere to a realvalued function  $f$ on $E$.
+    Then  $f$ is measurable.
+\end{lemma}
+\begin{proof}
+    Let $E_0 \subseteq E$ have measure $m(E_0)=0$, and let $\{f_n\}$ converge
+    pointwise to $f$ on  $\com{E}{E_0}$. Then $f$ is measurable if, and only if
+    $f|_{E_0}$ and $f|_{\com{E}{E_0}}$ are measurable. Suppose, then, that
+    $\{f_n\}$ converges pointwise to $f$ on all  $E$.
+
+    Now, fix $c \in \R$ and observe that for every  $x \in E$, that
+    $\lim{f_n(x)}=f(x)$ as $n \xrightarrow{} \infty$. Thus  $f(x)<c$ if, and
+    only if there exists $n,k \in \Z^+$ for which
+    \begin{equation*}
+        f_j(x)<c-\frac{1}{n} \text{ for all } j \geq k
+    \end{equation*}
+    Now, since $f_j$ is measurable, we get  $\inv{f_j}((-\infty,c-\frac{1}{n}))$
+    is measurable, hence the intersection
+    \begin{equation*}
+        F_k=\bigcap_{k \neq j}{\inv{f_j}((-\infty,c-\frac{1}{n}))}
+    \end{equation*}
+    is measurable. Notice then that $\inv{f}((-\infty,c))=\bigcup_{k}{F_k}$.
+\end{proof}
+
+\begin{definition}
+    Let $A$ be any set of  $\R$. We define the  \textbf{characteristic function}
+    of $A$ to be the realvalued function  $\chi_A:\R \xrightarrow{} \{0,1\}$
+    defined by
+    \begin{equation*}
+        \chi_A(x)=  \begin{cases}
+                     1, \text{ if } x \in A \\
+                     0, \text{ if } x \notin A \\
+                 \end{cases}
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{9.2.2}
+    If $A$ is a measurable set of  $\R$, then  $\chi_A$ is Lebesgue measurable.
+\end{lemma}
+
+\begin{definition}
+    We call a realvalued funtion $\phi$ defined on a measurable set $E$
+    \textbf{simple} if it takes only finitely many values. If $\phi$ takes the
+    values $c_1, \dots, c_n$; i.e. $\phi(E)=\{c_1, \dots, c_n\}$, then we define
+    \begin{equation*}
+        \phi(x)=\sum_{k=1}^n{c_k\chi_{E_k}(x)} \text{ where } E_k=\inv{\phi}(c_k)
+    \end{equation*}
+    the \textbf{canonical representation} of $\phi$.
+\end{definition}
+
+\begin{lemma}\label{9.2.3}
+    Simple functions are Lebesgue measurable.
+\end{lemma}
+
+\begin{lemma}[The Simple Approximation Lemma]\label{9.2.4}
+    Let $f$ be a measurable function bounded on a measurable $E$. T hen for
+    every $\e>0$, there exists simple function $\phi_\e$ and $\psi_\e$ on  $E$
+    such that
+    \begin{equation*}
+        \phi_\e(x) \leq f(x) \leq \psi_\e(x) \text{ and }
+        0 \leq \psi_\e(x)-\phi_\e(x)<\e
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $(c,d)$ be an open bounded intervale containing $f(E)$, and let
+    \begin{equation*}
+        P:\{c=y_0< \dots < y_n=d\}
+    \end{equation*}
+    a partition of the closed bounded interval $[c,d]$ such that
+    \begin{equation*}
+        y_{k+1}-y_k<\e \text{ for all } 0 \leq k \leq n-1
+    \end{equation*}
+    Define $I_k=[y_k,y_{k+1})$ and $E_k=\inv{f}(I_k)$ for all $0 \leq k \leq
+    n-1$. Since each $I_k$ is an interval, and $f$ is measurable, then each
+    $E_k$ is measurable. Now, define
+    \begin{equation*}
+        \phi_\e(x)=\sum_{k=1}^n{y_k\chi_{E_k}} \text{ and }
+        \psi_\e(x)=\sum_{k=1}^n{y_{k+1}\chi_{E_k}}
+    \end{equation*}
+    Then $\phi_\e$ and $\psi_\e$ are simple functions on  $E$. Now, for each $xc
+    \in E$, we have that  $f(E) \subseteq (c,d)$, so taht there exists a unique
+    $0 \leq k \leq n-1$ fr which $y_k \leq f(x) \leq y_{k+1}$, so that
+    \begin{equation*}
+        y_k=\phi_\e(x) \leq f(x) \leq \psi_\e(x)
+    \end{equation*}
+    Moreover, we have that $y_{k+1}-y_k=\psi_\e(x)-\phi_\e(x)<\e$.
+\end{proof}
+
+\begin{theorem}[The Simple Approximation Theorem]\label{9.2.5}
+    An extended realvalued function $f$ on a measurable domain $E$ is measurable
+    if, and only if there exists a sequence  $\{\phi_n\}$ of simple functions on
+    $E$, converging pointwise to  $f$ such that
+    \begin{equation*}
+        |\phi_n(x)| \leq |f(x)| \text{ for all } n \i \Z^+
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Since simple functions are measurable, if $\{\phi_n\}$ converges pointwise
+    to $f$ on  $E$, then  $f$ must also be measurable by lemma \ref{9.2.1}.
+
+    Now, suppose that $f$ is measurable, and that  $f(x) \geq 0$ for all $x \in
+    E$. Let  $n \in \Z^+$, and define  $E_n=\inv{f}((-\infty,n])$. Then $E_n$ is
+    measurable, and  $f|_{E_n}$ is a nonnegative bounded measurable function. By
+    the simple approximation lemma, choosing $\e=\frac{1}{n}$, slect simple
+    functions $\phi_n$ and  $\psi_n$ on  $E$ such that
+    \begin{equation*}
+        \phi_n(x) \leq f(x) \leq \psi_n(x) \text{ and }
+        0 \leq \psi_n(x)-\phi_n(x)<\frac{1}{n} \text{ on } E_n
+    \end{equation*}
+    Now, extend $\phi_n$ to a function  $\Phi_n$ on all of  $E$ such that
+    $\Phi_n(x)=n$ if $f(x)>n$. Then $\Phi_n$ is simple, on  $E$ and
+    \begin{equation*}
+        0 \leq \Phi_n(x) \leq f(x) \text{ on } E
+    \end{equation*}
+    Now, we claim that the sequence $\{\psi_n\}$ converges to $f$ pointwise on
+    $E$. Indded, let  $x \in E$, if  $f(x)$ is finite, choose an $N \in \Z^+$
+    such that  $f(x)<N$, then
+    \begin{equation*}
+        0 \leq f(x)-\Phi_n(x)<\frac{1}{n} \text{ for all } n \geq N
+    \end{equation*}
+    so that $\{\psi_n\} \xrightarrow{} f$ as $n \xrightarrow{} \infty$. Now, if
+    $f(x)=\infty$, then $\Phi_n(x)=n$ for all $n \in \Z^+$ so that  $\{\phi_n\}
+    \xrightarrow{} f$ as $n \xrightarrow{} \infty$.
+\end{proof}
