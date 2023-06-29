@@ -1,1 +1,133 @@
-%\section{Theorems of Littlewood, Egoroff, and Lusin}
+\section{Theorems of Littlewood, Egoroff, and Lusin}
+
+\begin{lemma}\label{9.3.1}
+    Let $E$ be a measurable set having finite measure, and let  $\{f_n\}$ a
+    sequence of measurable functions on $E$ converging pointwise to a realvalued
+    function  $f$ on  $E$. Then for all  $\n>0$ and  $\d>0$, there exists a
+    measurable subset  $A$ of $E$ and an  $N \in \Z^+$ for which
+    \begin{equation*}
+        |f(x)-f_n(x)|<\n \text{ on } A \text{ for all } n \geq N \text{ and }
+        m(\com{E}{A})<\d
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since $f$ is realvulued and measurable (by lemma \ref{9.2.1}), the set
+    \begin{equation*}
+        \{x \in E : |f(x)-f_n(x)|<\n\}
+    \end{equation*}
+    is measurabe. Hence, the union
+    \begin{equation*}
+        E_n=\{x \in E : |f(x)-f_n(x)|<\n \text{ for all } k \geq n\}
+    \end{equation*}
+    is measurable. Then $\{E_n\}$ is an ascending collection of measurable sets
+    with
+    \begin{equation*}
+        E=\bigcup{E_n}
+    \end{equation*}
+    Now, since  $\{f_n\}$ converges to $f$ pointwise, by the continuity of
+    measure, we conclude that
+    \begin{equation*}
+        m(E)=\lim_{n \xrightarrow{} \infty}{m(E_n)}
+    \end{equation*}
+    Since $m(E)$ is finite, choose an $N \in \Z^+$ for which  $m(E_N)>m(E)$-\e,
+    and define $A=E_n$. Then by excision, we get  $m(\com{E}{A})=m(E)-m(A)<\e$.
+\end{proof}
+
+\begin{theorem}[Egoroff's Theorem]\label{9.3.2}
+    Let $E$ be a measurable set with finite measure, and let  $\{f_n\}$ a
+    sequence of measurable functions on $E$ converging pointwise to a realvalued
+    function  $f$ on $E$. Then for each $\e>0$, there exists a closed subset $F$
+    of $E$ for which $\{f_n\}$ converges uniformly to $f$ on $F$, and
+    $m(\com{E}{F})<\e$.
+\end{theorem}
+\begin{proof}
+    For every $n \in \Z^+$, let $A_n$ be a measurable subset of $E$, and let
+    $N(n) \in \Z^+$ such that
+    \begin{equation*}
+        |f(x)-f_k(x)|<\frac{1}{n} \text{ on } A_n \text{ for all } k \geq N(n)
+        \text{ and where } m(\com{E}{A_n})<\frac{\e}{2^{n+1}}
+    \end{equation*}
+    Define
+    \begin{equation*}
+        A=\bigcap_{n=1}^\infty{A_n}
+    \end{equation*}
+    Then by DeMorgan's laws and countable subadditivity
+    \begin{equation*}
+        m(\com{E}{A})=\sum_{n=1}^\infty{m(\com{E}{A_n})}<
+        \sum_{n=0}^\infty{\frac{\e}{2^{n+1}}}<\frac{\e}{2}
+    \end{equation*}
+
+    Now, let $\e>0$ and choose an $n_0 \in \Z^+$ such that $\frac{1}{n_0}<\e$.
+    Then
+    \begin{equation*}
+        |f(x)-f_k(x)|<\frac{1}{n_0} \text{ on } A \text{ for all } k \geq N(n_0)
+    \end{equation*}
+    Now, since $A \subseteq A_{n_0}$, and our hypothesis on $n_0$, we get
+    \begin{equation*}
+        |f(x)-f_k(x)|<\e \text{ on } A \text{ for all } k \geq N(n_0)
+    \end{equation*}
+    so that $\{f_n\}$ converges uniformly to $f$ on  $A$ with
+    $m(\com{E}{A})<\frac{\e}{2}$. Now, by the inner approximation theorem,
+    choose an $F \susbeteq A$, closed, for which  $m(\com{A}{F})<\frac{\e}{2}$.
+    Then
+    $m(\com{E}{F})<m(\com{E}{A})+m(\com{A}{F})<\frac{\e}{2}+\frac{\e}{2}=\e$. So
+    that $\{f_n\}$ converges uniformly to $f$ on  $F$.
+\end{proof}
+
+\begin{theorem}[Littlewood's Theorem]\label{9.3.3}
+    Let $f$ be a simple function on a measurable set $E$. Then for every
+    $\e>0$, there eixsts a continuous function  $g$ on  $\R$ and a closed subset
+    $F$ of $E$ such that $f=g$ on  $F$ and  $m(\com{E}{F})<\e$.
+\end{theorem}
+\begin{proof}
+    Let $\{a_1, \dots a_n\}$ the distinct values taken on by $f$, taken on the
+    sets $E_1, \dots, E_n$, respectively. Then $\{E_k\}_{k=1}^n$ is a finite
+    disjoint collection of measurable sets whose union is $E$, since each $a_i$
+    is disjoint. Now, choose closed sets $F_1, \dots, F_n$ such that for all $1
+    \leq k \leq n$, $F_k \subseteq E_k$ and $m(\com{E_k}{F_k})<\frac{\e}{n}$.
+    Then
+    \begin{equation*}
+        F=\bigcup_{k=1^n}{F_n}
+    \end{equation*}
+    is closed and since $\{E_k\}_{k=1}^n$ is a disjoint collection, we get
+    \begin{equation*}
+        m(\com{E}{F})=\sum_{k=1}^n{m(\com{E_k}{F_k})}
+    \end{equation*}
+
+    Now, define $g:F \xrightarrow{} \R$ to take $g(x)=a_k$ for all $x \in F_k$,
+    for all  $1 \leq k \leq n$. Since $\{F_k\}$ is a disjoint collection, $g$ is
+    well defined. Moreover,  $g$ is continuous on $F$. Then for every  $x \in
+    F_i$, there exists an interval  $I$, containing  $x$, and disjoint from the
+    union $\bigcup_{k \neq i}{F_k}$. Thus $g$ is constant on  $F \cap I$. Now,
+    extend  $g$ to a continuous function  $G:\R \xrightarrow{} \R$. Since
+    $G(x)=a_k$ on each $F_k$, and  $m(\com{E_k}{F_k})<\frac{\e}{n}$, we get
+    $f=G$ on $F$ where $m(\com{E}{F})<\e$.
+\end{proof}
+
+\begin{theorem}[Lusin's Theorem]\label{9.3.4}
+    Let $f$ be a measurable function on a measurable set $E$. Then for every
+    $\e>0$, there eixsts a continuous function  $g$ on  $\R$ and a closed subset
+    $F$ of $E$ such that $f=g$ on  $F$ and  $m(\com{E}{F})<\e$.
+\end{theorem}
+\begin{proof}
+    Consider first when $E$ has finite measure. By the simple approximation
+    theorem (theorem \ref{9.2.5}), there exists a sequence $\{f_n\}$ of simple
+    functions on $E$, converging pointwise to  $f$ on  $E$. Let  $n \in \Z^+$,
+    then byt Littlewood's theorem, choose a  $g_n$ continuous on  $\R$ and a
+    closed subset $F_n$ of  $E$ for which  $f=g_n$ on  $F_n$ and
+    $m(\com{E}{F_n})<\frac{\e}{2^{n+1}}$. By Egoroff's theorem, there exists a
+    closed set $F_0 \subseteq E$ such that $\{f_n\}$ converges uniformly to $f$
+    on  $F_0$, with $m(\com{E}{F_0})<\frac{\e}{22}$. Define then
+    \begin{equation*}
+        F=\bigcap_{n=0}^\infty{F_n}
+    \end{equation*}
+    Then $F$ is closed and by DeMorgan's laws,
+    \begin{equation*}
+        m(\com{E}{F}) \leq \frac{\e}{2}+\sum_{n=0}^\infty{\frac{\e}{2^{n+1}}}=\e
+    \end{equation*}
+    Now, each $f_n$ is continuous on  $F$, and since $F \subseteq F_n$, and
+    $f=g_n$ on  $f_n$, we get  $\{f_n\}$ converges uniformly to $f$ on $F$,
+    since $F \subseteq F_0$. Moreover, $f|_F$ is continuous on  $F$, thus choose
+    a continuous function  $g:\R \xrightarrow{} \R$ such that $f=g$ on  $F$, and
+    we are done.
+\end{proof}
