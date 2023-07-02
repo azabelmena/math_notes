@@ -1,1 +1,101 @@
 \section{The Argument Principle}
+
+\begin{definition}
+    Let $U$ be an open set of  $\C$. We call a complex-valued function $f$ on
+    $U$ \textbf{meromorphic} on $U$ if it is analytic on $U$, except at poles.
+\end{definition}
+
+\begin{theorem}[The Argument Principle]\label{5.3.1}
+    Let $f$ be a meromorphic function on an open set  $U$ of  $\C$, with poles
+    $p_1, \dots, p_m$, and zeros $z_1, \dots, z_n$; counted according to
+    multiplicity. If $\y$ is a closed rectifiable nullhomologous path in  $U$,
+    with $p_1, \dots, p_m,z_1, \dots, z_n \notin \{\y\}$, then
+    \begin{equation*}
+        \frac{1}{2i\pi}\int_\y{\frac{f'}{f}}=
+        \sum_{k=1}^n{W(\y,z_k)}-\sum_{j=1}^m{W(\y,p_j)}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    If $f$ is meromorphic on $U$, with a zero of order $m$ at the point  $z=a$,
+    so that  $f(z)=(z-a)^mg(z)$ with $g$ analytic $g(a) \neq 0$, then we have
+    \begin{equation*}
+        \frac{f'(z)}{f(z)}=\frac{m}{z-a}+\frac{g'(z)}{g(z)}
+    \end{equation*}
+    where $\frac{g'}{g}$ is analytic near $z=a$. Now, if  $f$ has a pole  $z=a$,
+    of order  $m$, so that $f(z)=(z-a)^{-m}g(z)$ with $g$ analuytic and $g(a)
+    \neq 0$, then we get
+    \begin{equation*}
+        \frac{f'(z)}{f(z)}=-\frac{m}{z-a}+\frac{g'(z)}{g(z)}
+    \end{equation*}
+    where $\frac{g'}{g}$ is analytic near $z=a$. By induction on the number of
+    poles and the number of zeros of $f$, we get
+    \begin{equation*}
+        \frac{f'(z)}{f(z)}=
+        \sum_{k=1}^n{\frac{1}{z-z_k}}-\sum_{j=1}^m{\frac{1}{z-p_j}}+\frac{g'(z)}{g(z)}
+    \end{equation*}
+    where $\frac{g'}{g}$ is analytic near each zero and each pole. Cauchy's
+    theorem then gives the result.
+\end{proof}
+
+\begin{theorem}\label{5.3.2}
+    Let $f$ be meromorphic on a region  $U$, with  zeros $z_1, \dots, z_n$ and
+    poles $p_1, \dots, p_m$; counted according to multiplicity. If $g$ is
+    analyitic on  $U$, and  $\y$ is a closed rectifiable nullhomologous path in
+     $U$, for which  $z_1, \dots,z_n, p_1, \dots, p_m \notin \{\y\}$, then
+     \begin{equation*}
+         \frac{1}{2i\pi}\int_\y{g\frac{f'}{f}}=
+         \sum_{k=1}^n{g(z_i)W(\y,z_i)}-\sum_{j=1}^m{g(p_j)W(\y,p_j)}
+     \end{equation*}
+\end{theorem}
+
+\begin{lemma}\label{5.3.3}
+    Let $f$ be analytico on an open set containing the ball  $\bar{B}(a,R)$, for
+    some $R>0$, and suppose that  $f$ is 1--1 on the open ball  $B(a,R)$. If
+    $\Omega=f(B(a,R))$, and $\y$ is the circle described by $|z-a|=R$, then
+    $\inv{f}(\w)$ is defined for all $\w \in \Omega$, and
+    \begin{equation*}
+        \inv{f}(\w)=\frac{1}{2i\pi}\int_\y{\frac{zf'(\w)}{f(z)-\w} \ dz}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since $f$ is 1--1 on  $B(a,R)$, it has an analytic inverse. Now, if
+    $|z-a|<R$, and  $\xi=f(z) \in \Omega$, then $f(w)-\xi$ has one, and only one
+    zero in $B(a,R)$. Choose then $g(w)=w$, then by the argument principle, we
+    get
+    \begin{equation*}
+        z=\frac{1}{2i\pi}\int_\y{\frac{wf'(w)}{f(w)-\xi} \ dw}
+    \end{equation*}
+    where $\y:|z-a|=R$. Thus, take $z=\inv{f}(w)$.
+\end{proof}
+
+\begin{theorem}[Rouch\'e's Theorem]\label{5.3.4}
+    Suppose $f$ and  $g$ are functions meromorphic in a neighborhood of
+    $\bar{B}(a,R)$, for some $R>0$, with no zeros, or poles on the circle
+    $\y:|z-a|=R$. Then if $Z_f$ and  $Z_g$ are the number zeros of  $f$ and  $g$
+    respectively, and  $P_f$ and  $P_g$ are the number poles of  $f$ and  $g$,
+    respectively, and if $|f(z)+g(z)|<|f(z)|+|g(z)|$ on $\y$, then
+    \begin{equation*}
+        Z_f-P_f=Z_g-P_g
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    By hypothesis, we have that
+    \begin{equation*}
+        \Big{|} \frac{f(z)}{g(z)}+1 \Big{|}<\Big{|} \frac{f(z)}{g(z)} \Big{|}+1
+    \end{equation*}
+    on $\y$. Now, let  $\l(z)=\frac{f(z)}{g(z)}$. If $\l$ is a positive real
+    number, then
+    \begin{equation*}
+        \l+1<\l+1
+    \end{equation*}
+    which is impossible. Thus the merormorphic function $\l$ maps  $\y$ onto
+    $\com{\C}{[0,\infty)}$. Now, let $L(z)$ be the branch of the logarithm on
+    $\com{\C}{[0,\infty)}$, then $L(\lambda(z))$ is a well defined primative for
+    the function $\frac{\lambda'(z)}{\lambda}$ in a neighborhood of $\y$. Thus
+    we get by Cauchy's theorem.
+    \begin{equation*}
+        \frac{1}{2i\pi}\int_\y{\frac{\l'}{\l}}=
+        \frac{1}{2i\pi}\int_\y{\Big{(} \frac{f'}{f}-\frac{g'}{g} \Big{)}}=
+        (Z_f-P_f)-(Z_g-P_g)=0
+    \end{equation*}
+\end{proof}
