@@ -16,8 +16,8 @@
 
             \item If $f \leq g$ on  $[a,b]$, then:
                     \begin{equation}
-                        \int_{a}^{b}{f} d\alpha \leq \int_{a}^{b}{g d\alpha}		
-                    \end{equation} 
+                        \int_{a}^{b}{f} d\alpha \leq \int_{a}^{b}{g d\alpha}
+                    \end{equation}
 
             \item If $c \in (a,b)$ and  $f$  then:
                     \begin{equation}
@@ -32,8 +32,8 @@
                 $\alpha_2$ on $[a,b]$, and $c>0$, then:
                     \begin{equation}
                         \int_{a}^{b}{f} d(\alpha_1+\alpha_2)=\int_{a}^{b}{f}
-                        d\alpha_1+\int_{a}^{b}{f} d\alpha_2 
-                    \end{equation} 
+                        d\alpha_1+\int_{a}^{b}{f} d\alpha_2
+                    \end{equation}
         \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -58,9 +58,9 @@
             partition of $[c,b]$, and let  $P=P_1 \cup P_2$ be a partition of
             $[a,b]$. SInce  $f$ is intergrable on  $[a,b]$, there is an
             $\epsilon>0$ such that  $U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$, by
-            theorem \ref{7.1.3}, we have that $L(f,P_1,\alpha) \leq L(f,P,\alpha) 
-            \leq U(f,P,\alpha) \leq U(f,P_1,\alpha)$ and $L(f,P_2,\alpha) \leq L(f,P,\alpha) 
-            \leq U(f,P,\alpha) \leq U(f,P_2,\alpha)$, thus we get 
+            theorem \ref{7.1.3}, we have that $L(f,P_1,\alpha) \leq L(f,P,\alpha)
+            \leq U(f,P,\alpha) \leq U(f,P_1,\alpha)$ and $L(f,P_2,\alpha) \leq L(f,P,\alpha)
+            \leq U(f,P,\alpha) \leq U(f,P_2,\alpha)$, thus we get
             $U(f,P_1,\alpha)-L(f,P_2,\alpha)<\epsilon$ and
             $U(f,P_2,\alpha)-L(f,P,\alpha)<\epsilon$, thus $f$ is integrable on
             $[a,c]$ and on $[c,b]$.
@@ -76,7 +76,7 @@
             that
                 \begin{equation}
                     -M(\alpha(b)-\alpha(a)) \leq U(f,P,\alpha)-L(f,P,\alpha)<\epsilon \leq M(\alpha(b)-\alpha(a))
-                \end{equation} 
+                \end{equation}
                 which goves us for arbitrarily small $\epsilon$,  $|\int{f}|
                 \leq M(\alpha(b)-\alpha(a))$.
 
@@ -87,16 +87,16 @@
                 L(f,P_2,\alpha_2)<\frac{\epsilon}{2}$, then we have by the
                 previous inequalities that:
                     \begin{equation*}
-                        U(f,P,\alpha_1+\alpha_2)-L(f,P,\alpha_1+\alpha_2) 
+                        U(f,P,\alpha_1+\alpha_2)-L(f,P,\alpha_1+\alpha_2)
                         \leq (U(f,P_1,\alpha_1)+U(f,P_2,\alpha_2))
                         -(L(f,P_1,\alpha_1)+L(f,P_2,\alpha_2))<\epsilon
-                    \end{equation*} 
+                    \end{equation*}
                 Thus, $f$ is integrable with respect to  $\alpha_1+\alpha_2$.
                 Now again, by the similar reasoning used in parts $(1)$ and
                 $(3)$, we get that
                 $\int{f}\d(\alpha_1+\alpha_2)=\int{f} d\alpha_1+\int{f}
                 d\alpha_2$.
-    \end{enumerate}	
+    \end{enumerate}
 \end{proof}
 \begin{corollary}
     $\int{cf} d\alpha=c\int{f} d\alpha$ and $\int{f} d(c\alpha)=c\int{f} d\alpha$
@@ -111,7 +111,7 @@
             \item $|f|$ is integrable with respect to  $\alpha$ on  $[a,b]$ and:
                 \begin{equation}
                     |\int_{a}^{b}{f} d\alpha| \leq \int_{a}^{b}{|f|} d\alpha
-                \end{equation} 
+                \end{equation}
         \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -128,7 +128,11 @@
 \end{proof}
 
 \begin{definition}
-    We define the \textbf{unit step function} $I: \R \rightarrow \{0,1\}$ to be
+    Let $\psi$ be a real-valued function on an interval $[a,b]$. We call $\psi$
+    a  \textbf{step function} provided there is a partition
+    $P=\{a=x_0<\dots<x_n=b\}$ of $[a,b]$, and real numbers $c_1, \dots, c_n$
+    such that $\psi(x)=c_i$  if $x_i<x<x_{i+1}$ for all $0 \leq i \leq n-1$. We
+    define the \textbf{unit step function} $I: \R \rightarrow \{0,1\}$ to be
     $I(x)=1$ if  $x>0$ and  $I(x)=0$ if  $x \leq 0$.
 \end{definition}
 
@@ -163,12 +167,12 @@
         \begin{equation*}
             |\sum{f(s_i) \Delta{\alpha_i}}-\sum{f(s_i)\alpha'(t_i) \Delta{x_i}}|
             \leq M\epsilon
-        \end{equation*} 
+        \end{equation*}
         in particular, $\sum{f(s_i) \Delta{x_i}} \leq U(f,\alpha',P)+M\epsilon$,
         hence we get  $U(f,P,\alpha) \leq U(f\alpha',P)+M\epsilon$, hence we
         have:
             \begin{equation*}
-                |\bar{\int}{f} d\alpha-\bar{\int}{f\alpha'} dx| \leq M\epsilon		
+                |\bar{\int}{f} d\alpha-\bar{\int}{f\alpha'} dx| \leq M\epsilon
             \end{equation*}
         for small enough $\epsilon$, $\bar{\int}{f} d\alpha=\bar{\int}{f\alpha'} dx$.
         We get an analogoues result for lower sums.
@@ -189,7 +193,7 @@
     on  $[A,B]$, and
         \begin{equation}
             \int_{A}^{B}{g} d\beta=\int_{a}^{b}{f} d\alpha
-        \end{equation} 
+        \end{equation}
 \end{theorem}
 \begin{proof}
     For each partition $P$ of  $[a,b]$, construct a partitoon  $Q$ of  $[A,B]$
@@ -204,6 +208,6 @@
     Let $\alpha(x)=x$ and  $\beta=\phi$, and suppose that  $\phi'$ is Riemann
     integrable on  $[A,B]$. Then:
         \begin{equation}
-            \int_{a}^{b}{f} dx=\int_{A}^{B}{(f\circ \phi)\phi' dy}		
-        \end{equation} 
+            \int_{a}^{b}{f} dx=\int_{A}^{B}{(f\circ \phi)\phi' dy}
+        \end{equation}
 \end{corollary}
