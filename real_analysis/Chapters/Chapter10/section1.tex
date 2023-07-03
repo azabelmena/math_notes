@@ -1,2 +1,373 @@
 \section{The Lebesgue Integral of Bounded Measurable Functions over Sets of
 Finite Measure}
+
+We begin this chapter with an example of the deficiencies of the Riemann
+integral. For the who chapter, we denot the Riemann integral of a real-valued
+function $f$ to be
+\begin{equation*}
+    (R)\int{f}
+\end{equation*}
+
+\begin{example}\label{example_10.1}
+    \begin{enumerate}
+        \item[(1)] Define $f$ on  $[0,1]$ to be $f(x)=1$ if $x \in \Q$, and
+            $f(x)=0$ if $x \in \com{\R}{\Q}$. That is, $f=\chi_\Q$ on $[0,1]$.
+            Let $P$ a partition of  $[0,1]$, then by the density of $\Q$ and
+            $\com{\R}{\Q}$ in $\R$ we have
+            \begin{equation*}
+                L(f,P)=0 \text{ and } U(f,P)=1
+            \end{equation*}
+            so that
+            \begin{equation*}
+                \bbar{(R)\int_0^1}{f}=0 \text{ and } \bar{(R)\int_0^1}{f}=1
+            \end{equation*}
+            Thus, $f$ is not Riemann integrable. We call  $f$
+            \textbf{Dirichlet's function}.
+
+        \item[(2)] Let $\{q_k\}$ an enumeration of $\Q$ in $[0,1]$, and define
+            $f_n$ on  $[0,1]$ to be $f_n(x)=1$ if $x=q_k$ for any  $1 \leq k
+            \leq n$, and  $f(x)=0$ otherwise. Then each $f_n$ is a step
+            function, and hence Riemann integrable. However, notice that
+            $\{f_n\} \xrightarrow{} f$, the Dirichlet function, which is not
+            Riemann integrable. That is, we have a sequence of Riemann
+            integrable functions (with $|f_n| \leq 1$ for each $n$) converging
+            to a non-Riemann integrable function.
+    \end{enumerate}
+\end{example}
+
+This example illustrates the short comings of the Riemann-Stieltjes integral, in
+which not every function is integrable. Moreover, givena sequence of Reimann
+integrable functions, we cannot justify the passage of a limit under the
+integal.
+
+It becomes now necessary to define an alternative integral, using measure, for
+which we can get the above properties.
+
+\begin{definition}
+    For a simple function $f$ on a set  $E$ of finite measure, and canonical
+    representation $f(x)=\sum_{i=1}^n{a_i\chi_{E_i}}$, we define the
+    \textbf{integral} of $f$ over  $E$ to be
+    \begin{equation*}
+        \int_E{f \ dm}=\sum_{i=1}^n{a_im(E_i)} \text{ where } \inv{f}(a_i)=E_i
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{10.1.1}
+    Let $\{E_i\}_{i=1}^n$ be a finite disjoint collection of measurable subsets
+    of a set $E$ of finite measure, and let $f$ be a simple function with
+    \begin{equation*}
+        f(x)=\sum_{i=1}^n{a_i\chi_{E_i}} \text{ where } \inv{f}(a_i)=E_i
+    \end{equation*}
+    where each $a_i$ is not necessarily distinct. Then
+    \begin{equation*}
+        \int_E{f}=\sum_{i=1}^n{a_im(E_i)}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    If each $a_i$ is distinct, then we have the canonical representation of
+    $f$, and the result follows directly under definition. Hence, suppose not
+    all the  $a_i$ are distinct, and let $f$ have the canonical representation
+    \begin{equation*}
+        f(x)=\sum_{j=1}^m{\l_j\chi_{A_j}} \text{ where } \inv{f}(\l_j)=A_j
+    \end{equation*}
+    Then by definition, we have
+    \begin{equation*}
+        \int_E{f}=\sum_{j=1}^m{\l_jm(A_j)}
+    \end{equation*}
+    Now, let $I_j$ be the index set of  $i$ in which  $a_i=\l_j$. Then notice
+    that  $\bigcup{I_j}=\{1, \dots, n\}$, and is a disjoint union. Then by
+    finite additivity of measure, we have
+    \begin{equation*}
+        m(A_j)=\sum_{i \in I_j}{m(E_i)} \text{ for all } 1 \leq j \leq m
+    \end{equation*}
+    Therefore
+    \begin{equation*}
+        \int_E{f}=\sum_{j=1}^m{\l_jm(A_j)}=\sum_{j=1}^m{\l_j\sum_{i \in
+        I_j}{m(E_i)}}=\sum_{i=1}^n{a_im(E_i)}
+    \end{equation*}
+    and we are done.
+\end{proof}
+
+\begin{lemma}\label{10.1.2}
+    Let $f$ and  $g$ be simple functions defined on a set  $E$ of finite
+    measure. Then for any  $\a,\b \in \R$
+    \begin{equation*}
+        \int_E{\a{f}+\b{g} \ dm}=\a\int_E{f \ dm}+\b\int_E{g \ dm}
+    \end{equation*}
+    Moreover, if $f \leq g$ on  $E$, then
+    \begin{equation*}
+        \int_E{f} \leq \int_E{g}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Choose a finite disjoint measurable cover $\{E_i\}_{i=1}^n$ of $E$ such that
+     $f$ and  $g$ are constant on each  $E_i$. Let  $f$ and  $g$ take on the
+     values  $a_i$ and  $b_i$, respectively, for all  $1 \leq i \leq n$. Then by
+     lemma \ref{10.1.1}
+     \begin{equation*}
+         \int_E{f}=\sum_{i=1}^n{a_im(E_i)} \text{ and }
+         \int_E{g}=\sum_{i=1}^n{b_im(E_i)}
+     \end{equation*}
+     Now, notice that since $f$ and  $g$ are simple, then for  $\a,\b \in \R$,
+     the function  $\a{f}+\b{g}$ is simple, and takes on the values
+     $\a{a_i}+\b{b_i}$ for all $1 \leq i \leq n$. Therefore, by definition of
+     the integral of a simple function, we have
+     \begin{align*}
+         \int_E{\a{f}+\b{g} \ dm}    &= \sum_{i=1}^n{(\a{a_i}+\b{b_i})m(E_i)} \\
+                                  &=  \a\sum_{i=1}^k{a_im(E_i)}+
+                                        \b\sum_{i=1}^k{b_im(E_i)}   \\
+                                  &=  \a\int_E{f \ dm}+\b\int_E{g \ dm} \\
+     \end{align*}
+
+     Now, let $h=g-f$. Then  $h$ is a simple function, and hence by linearity,
+     we have
+     \begin{equation*}
+         \int_E{f}-\int_E{g}=\int_E{f-g}=\int_E{h} \geq 0
+     \end{equation*}
+\end{proof}
+
+\begin{definition}
+    Let $f$ be a bounded measurable realvalued function on a set  $E$ of finite
+    measure. We define the  \textbf{upper Lebesgue integral} of $f$ over  $E$ to
+    be
+    \begin{equation*}
+        \bar{\int_E}{f}=\sup{\Big{\{} \int_E{\phi} : \phi \text{ is a simple
+                    function and } \phi \leq f \Big\}{}}
+    \end{equation*}
+    We define the \textbf{lower Lebesgue integral} of $f$ over  $E$ to be
+    \begin{equation*}
+        \bbar{\int_E}{f}=\inf{\Big{\{} \int_E{\phi} : \phi \text{ is a simple
+                    function and } f \leq \phi \Big\}{}}
+    \end{equation*}
+    We call $f$  \textbf{Lebesgue integrable} if
+    \begin{equation*}
+        \bar{\int_E}{f}=\bbar{\int_E}{f}=\int_E{f}
+    \end{equation*}
+    and call the value in which the upper and lower Lebesgue integrals coincide
+    the \textbf{Lebesgue integral}.
+\end{definition}
+
+\begin{theorem}\label{10.1.3}
+    Let $f$ be a bounded realvalued function on a closed bounded interval
+    $[a,b]$. Then if $f$ is Riemann integrable, it is Lebesgue integrable.
+    Moreover, the two integrals coincide.
+\end{theorem}
+\begin{proof}
+    If $f$ is Riemann integrable, then we have
+    \begin{equation*}
+        \bar{(R)\int_a^b}{f}=\bbar{(R)\int_a^b}{f}
+    \end{equation*}
+    Notice now that
+    \begin{align*}
+        \bar{(R)\int_E}{f} &=  \sup{\Big{\{} \int_E{\phi} : \phi \text{ is a
+                    step function and } \phi \leq f \Big\}{}}   \\
+        \bbar{(R)\int_E}{f} &=  \sup{\Big{\{} \int_E{\phi} : \phi \text{ is a
+                    step function and } f \leq \phi \Big\}{}}   \\
+    \end{align*}
+    Now, step functions are simple functions, so these definitions for the upper
+    and lower Riemann-Stieltjes integrals coincides with the definitions for the
+    upper and lower Lebesgue integrals.
+\end{proof}
+
+\begin{example}\label{example_10.2}
+    Lebesgue integrable functions need not be Riemann integrable. Consider again
+    Dirichlet's function $f$ on $[0,1]$. We have that $f$ is Lebesgue integrable
+    with
+    \begin{equation*}
+        \int_{[0,1]}{f}=\int{1 \times \chi_\Q \ dm}=1 \times m(\Q)=0
+    \end{equation*}
+    However, it was shown in example \ref{example_10.1} that $f$ is not Riemann
+    integrable.
+\end{example}
+
+\begin{theorem}\label{10.1.4}
+    Let $f$ be a bounded measurable function on a set  $E$ of finite
+    measure. Then $f$ is Lebesgue integrable over $E$.
+\end{theorem}
+\begin{proof}
+    Let $n \in \Z^+$, by the simple approximation theorem, and choosing
+    $\e=\frac{1}{n}$, there exist simple functions $\phi_n$ and  $\psi_n$ for
+    which
+    \begin{equation*}
+        \phi_n(x) \leq f(x) \leq \psi_n(x) \text{ and }
+        0 \leq \psi_n(x)-\phi_n(x) \leq \frac{1}{n} \text{ on } E
+    \end{equation*}
+    Then we get
+    \begin{equation*}
+        0 \leq \int_E{\psi_n}-\int_E{\phi_n}=\int_E{\psi_n-\phi_n} \leq
+        \frac{1}{n}m(E)
+    \end{equation*}
+    Now, notice also that
+    \begin{equation*}
+        0 \leq \bbar{\int_E}{f}-\bar{\int_E}{f} \leq
+        \int_E{\psi_n}-\int_E{\psi_n}\leq \frac{1}{n}m(E)
+    \end{equation*}
+    Since $n$ is arbitrary, this establishes equlity of the integrals.
+\end{proof}
+
+\begin{theorem}\label{10.1.5}
+    Let $f$ and  $g$ be bounded measurable functions on a set  $E$ of finite
+    measure. Then for any  $\a,\b \in \R$
+    \begin{equation*}
+        \int_E{\a{f}+\b{g} \ dm}=\a\int_E{f \ dm}+\b\int_E{g \ dm}
+    \end{equation*}
+    Moreover, if $f \leq g$ on  $E$, then
+    \begin{equation*}
+        \int_E{f} \leq \int_E{g}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Notice that since $f$ and  $g$ are bounded and measurable on $E$, then so is
+    $\a{f}+\b{g}$. This makes $\a{f}+\b{g}$ Lebesgue integrable on $E$. Now, let
+    $\psi$ a simple function; then so is  $\a\psi$ for $\a \neq 0$. So, for
+    $\a>0$ we have
+    \begin{equation*}
+        \int_E{\a{f}}=\inf_{\psi \geq \a{f}}{\Big{\{} \int_E{\psi} \Big{\}}}=
+        \a\inf_{\frac{\psi}{\a} \geq {f}}{\Big{\{} \int_E{\frac{\psi}{\a}} \Big{\}}}=
+        \a\int_E{f}
+    \end{equation*}
+    Similarly, for $\a<0$, we have
+    \begin{equation*}
+        \int_E{\a{f}}=\inf_{\psi \leq \a{f}}{\Big{\{} \int_E{\psi} \Big{\}}}=
+        \a\inf_{\frac{\psi}{\a} \leq {f}}{\Big{\{} \int_E{\frac{\psi}{\a}} \Big{\}}}=
+        \a\int_E{f}
+    \end{equation*}
+    Thus $\int_E{\a{f}}=\a\int_E{f}$. Now, let $\psi_1$  and $\psi_2$ be simple
+    functions for which $f \leq \psi_1$ and $g \leq \spi_2$. Then
+    $\psi_1+\psi_2$ is a simple function with $f+g \leq \psi_1+\psi_2$. Then we
+    get
+    \begin{equation*}
+        \int_E{f+g \ dm} \leq \int_E{\psi_1+\psi_2 \ dm}\int_E{\psi_1  \ dm}+
+                        \int_E{\psi_2 \ dm}
+    \end{equation*}
+    which makes
+    \begin{equation*}
+        \int_E{f+g \ dm} \leq \int_E{f \ dm}+\int_E{g \ dm}
+    \end{equation*}
+    Conversely, if $\phi_1$  and $\phi_2$ are simple functions for which
+    $\psi_1 \leq f$ and $\spi_2 \leq g$. Then $\phi_1+\phi_2$ is a simple
+    function with $\phi_1+\phi_2 \leq f+g$. Therefore,
+    \begin{equation*}
+        \int_E{\phi_1+\phi_2 \ dm}\int_E{\phi_1  \ dm}+ \int_E{\phi_2 \ dm} \leq
+        \int_E{f+g \ dm}
+    \end{equation*}
+    so that
+    \begin{equation*}
+         \int_E{f \ dm}+\int_E{g \ dm} \leq \int_E{f+g \ dm}
+    \end{equation*}
+    and linearity is established.
+
+    Finally, letting $h=g-f$, we obtain monotonicity from lineaerity.
+\end{proof}
+\begin{corollary}
+    If $A$ and  $B$ are disjoint measurable subsets of $E$, then
+    \begin{equation*}
+        \int_{A \cup B}{f}=\int_A{f}+\int_{B}{f}
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    Botth $f\chi_A$ and  $f\chi_B$ are bounded measurable functions, hence so is
+     $f\chi_A+f\chi_B$. Moreover, since  $A$ and  $B$ are disjoint, we have
+     $f\chi_{A \cup B}=f\chi_A+f\chi_B$. Now, observe that if $E_1$ is a
+     measurble subset of $E$, then
+     \begin{equation*}
+         \int_{E_1}{f}=\int_E{f\chi_{E_1}}
+     \end{equation*}
+     Therefore, we get
+     \begin{equation*}
+         \int_{A \cup B}{f}=\int_E{f\chi_{A \cup B}}=
+         \int_E{f\chi_A}+\int_E{f\chi_B}=\int_A{f}+\int_B{f}
+     \end{equation*}
+\end{proof}
+\begin{corollary}
+    \begin{equation*}
+        \Big{|} \int_E{f} \Big{|} \leq \int_E{|f|}
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    We have that $|f|$ is a bounded measurable function, and hence is Lebesgue
+    integrable. Notice also that  $-|f| \leq f \leq |f|$, so that
+    \begin{equation*}
+        -\int_E{|f|} \leq \int_E{f} \leq \int_E{|f|}
+    \end{equation*}
+    which gives us the result.
+\end{proof}
+
+\begin{lemma}\label{10.1.6}
+    If $\{f_n\}$ is a sequence of bounded measurable functions, converging
+    uniformly to a realvalued function $f$, on a set $E$ of finite measure, then
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{f_n}}=\int_E{f}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since $\{f_n\} \xrightarrow{} f$ uniformly on $E$, then $\{f_n\}
+    \xrightarrow{} f$ pointwise on $f$, which makes  $f$ measurable. Moreover,
+    since each  $f_n$ is bounded as well,  $f$ must also be bounded. Now, let
+    $\e>0$ and choose  $N \in \Z^+$ for which
+    \begin{equation*}
+        |f-f_n|<\frac{\e}{m(E)} \text{ on }  E \text{ whenever } n \geq N
+    \end{equation*}
+    Then
+    \begin{equation*}
+        \Big{|} \int_E{f}-\int_E{f+n} \Big{|}=
+        \Big{|} \int_E{f-f_n} \Big{|} \leq \int_E{|f-f_n|} \leq
+        \frac{\e}{m(E)}m(E)=\e
+    \end{equation*}
+    and we are done.
+\end{proof}
+
+\begin{example}\label{example_10.3}
+    Let $n \in \Z^+$, and define $f_n$ on $0,1$ by
+    \begin{equation*}
+        f_n(x)= \begin{cases}
+                    0, \text{ if } x \geq \frac{2}{n}   \\
+                    n, \text{ if } x=\frac{1}{n}    \\
+                    0, \text{ if } x=0
+                \end{cases}
+    \end{equation*}
+    and let $f$ be linear on  $[0,\frac{1}{n}]$ and $[\frac{1}{n},\frac{2}{n}]$.
+    Observe then that $\int_0^1{f_n}=1$ for every $n \in \Z^+$. Now, define
+    $f(x)=0$ for all $x \in [0,1]$, then observe that $\{f_n\} \xrightarrow{} f$
+    pointwise as $n \xrightarrow{} \infty$, however
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_0^1{f_n}} \neq \int_0^1{f}
+    \end{equation*}
+    That is, pointwise convergence of a sequence of functions is not enough for
+    passage of a limit under the Lebesgue integral. In fact, lemma \ref{10.1.6}
+    tells us that the sequence needs to at least be unifomrly convergent.
+\end{example}
+
+\begin{theorem}[The Bounded Convergence Theorem]\label{10.1.7}
+    Let $\{f_n\}$ be a uniformly pointwise bounded sequence of measurable
+    functions on a set $E$ of finite measure. If $\{f_n\}$ converges pointwise
+    to a measurable function $f$ on $E$, then
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{f_n}}=\int_E{f}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Since $\{f_n\}$ is uniformly pointwise bounded, there is an $M \geq 0$ for
+    which  $|f_n| \leq M$ for all $n \in \Z^+$. Now, let $A$ be a measurable
+    subset of  $E$, and choose an index $n \in \Z^+$. Then we habe
+    \begin{equation*}
+        \int_E{f_n}-\int_E{f}=\int_E{(f_n-f)}=
+        \int_E{(f_n-f)}+\int_{\com{E}{A}}{f_n}+\int_{\com{E}{A}}{f}
+    \end{equation*}
+    Thus
+    \begin{equation*}
+        \Big{|} \int_E{f_n-f} \Big{|} \leq \int_A{|f_n-f|}+2M+m(\com{E}{A})
+    \end{equation*}
+    Now, let $\e>0$. By Egoroff's theorem, $\{f_n\} \xrightarrow{} f$
+    uniformly, on $A$ and  $m(\com{E}{A})<\frac{\e}{4M}$, by uniform
+    convergence, there is an $N \in \Z^+$ for which
+    \begin{equation*}
+        |f_n-f|<\frac{\e}{2m(E)} \text{ on } A \text{ whenever } n \geq N
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+        \Big{|} \int_E{f_n-f} \Big{|} \leq
+        \frac{\e}{2M(E)}m(A)+2M+m(\com{E}{A})<\e
+    \end{equation*}
+    and we are done.
+\end{proof}
