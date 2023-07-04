@@ -1,1 +1,274 @@
 \section{The Lebesgue Integral of Measurable Nonnegative Functions}
+
+\begin{definition}
+    We say a measurable function $f$ on a set $E$ \textbf{vanishes} outside a
+    set of finite measure provided there is a subset $E_0$ of $E$ of finite
+    measure for which $f(x)=0$ for all $x \in \com{E}{E_0}$. We define the
+    \textbf{support} of $f$ to be the set
+    \begin{equation*}
+        \supp{f}=\{x \in E : f(x) \neq 0\}
+    \end{equation*}
+    We say that $f$ is of  \textbf{finite support} if $m(\supp{f})$ is finite.
+\end{definition}
+
+\begin{lemma}\label{10.2.1}
+    A measurable function $f$ on a set $E$ vanishes outside a set of finite
+    measure if, and only if it is of finite support.
+\end{lemma}
+\begin{proof}
+    exercise
+\end{proof}
+
+\begin{definition}
+    We define the \textbf{Lebesgue integral} of a nonnegative measurable
+    function $f$ on $E$ to be
+    \begin{equation*}
+        \int_E{f \ dm}=
+        \sup{\Big{\{} \int_E{h \ dm} : h \text{ is bounded, of finite support,
+        and } 0 \leq h \leq f \Big{\}}}
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}[Chebychev's Inequality]\label{10.2.2}
+    Let $f$ be a nonnegative measurable function on a set $E$. Then for all
+    $\l>0$,
+    \begin{equation*}
+        \l{m(E_\l)} \leq \int_E{f \ dm}
+    \end{equation*}
+    where $E_\l=\{x \in E : f(x) \geq \l\}$.
+\end{theorem}
+\begin{proof}
+    Suppose first that $E$ has infinite measure, and for  $n \in \Z^+$, define
+    $E_{\l,n}=E_\l \cap [-n,n]$. Define also $\psi_n=\l\chi_{E_{\l,n}}$. Then
+    $\psi$ is a bounded measurable function of finite support and for which
+    \begin{equation*}
+        \l{m(E_{\l,n})}=\int_E{\psi}
+    \end{equation*}
+    and $0 \leq \psi_n \leq f$. Then by the continuity of measure, we get
+    \begin{equation*}
+        \l{m(E_\l)}=
+        \l\lim_{n \xrightarrow{} \infty}{m(E_{\l,n})}=
+        \lim_{n \xrightarrow{} \infty}{\int_E{\psi}} \leq \int_E{f}
+    \end{equation*}
+
+    Now, suppose that $m(E)$ is finite, and define $h=\l\chi_{E_\l}$. Then $h$
+    is a bounded measurable function of finite support, with  $0 \leq h \leq f$,
+    thus, by definition
+    \begin{equation*}
+        \l{m(E_\l)}=\int_E{h} \leq \int_E{f}
+    \end{equation*}
+\end{proof}
+
+\begin{lemma}\label{10.2.3}
+    Let $f$ be a nonnegative measurable function on  $E$. Then
+    \begin{equation*}
+        \int_E{f}=0 \text{ if, and only if } f=0 \text{ almost everywhere on } E
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Suppose first that $\int_E{f}=0$. By Chebychev's inequality, for any $n \in
+    \Z^+$, define  $E_{\frac{1}{n}}=\{x \in E : f(x) \geq \frac{1}{n}\}$ and
+    $E_0=\lim{\{E_n\}}$ as $n \xrightarrow{} \infty$. By countable additivity,
+    we get that $m(E_0)=0$, which makes $f=0$ on  $\com{E}{E_0}$.
+
+    Conversely, suppose that $f=0$ almost everywhere on  $E$. Let  $\phi$ be a
+    simple function, and  $h$ a bounded measurable function of finite support.
+    Then  $0 \leq \phi \leq h \leq f$. Then by hypothesis, $\phi=0$ almost
+    everywhere on  $E$, so that $\int_E{\phi}=0$. This implies that $h=0$ almost
+    everywhere on $E$ as well, so that  $\int_E{h}=0$, which implies that
+    $\int_E{f}=0$.
+\end{proof}
+
+\begin{theorem}\label{10.2.4}
+    Let $f$ and  $g$ be nonnegative measurable functions on a set  $E$. Then for
+    all  $\a>0$,  $\b>0$
+    \begin{equation*}
+        \int_E{\a{f}+\b{g} \ dm}=\a\int_E{f \ dm}+\b\int_E{g \ dm}
+    \end{equation*}
+    Moreover, if $f \leq g$ on  $E$, then
+    \begin{equation*}
+        \int_E{f} \leq \int_E{g}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    For $\a>0$, we have that  $0 \leq h  \leq f$ if, and only if  $0 \leq \a{h}
+    \leq \a{f}$. Therefore, by the linearity of the Lebesgue integral for
+    bounded functions, we have
+    \begin{equation*}
+        \int_E{\a{f}}=\a\int_E{f}
+    \end{equation*}
+
+    Now, let $h$ and  $k$ be bounded measurable functions of finite support, for
+    which  $0 \leq h \leq f$ and  $0 \leq k \leq g$. Then  $h+k$ is a bounded
+    measurable function of finite support with  $0 \leq h+k \leq f+g$. Hence
+    \begin{equation*}
+        \int_E{(h+k)}=\int_E{h}+\int_E{k} \leq \int_E{f+g}
+    \end{equation*}
+    That is, by definition,
+    \begin{equation*}
+        \int_E{f}+\int_E{g} \leq \int_E{(f+g)}
+    \end{equation*}
+
+    Now, by definition of $\int_E{(f+g)}$ as a least upper bound on integrals of
+    nonnegative bounded measurable functions of finite support, less than or
+    equal to $f+g$, let $l$ be a bounded measurable function of finite support,
+    for which  $0 \leq l \leq f+g$. Now, define
+    \begin{align*}
+        h   &=  \min{\{f,l\}}   \\
+        k   &= l-f
+    \end{align*}
+    on $E$. Then for  $x \in E$, if  $l(x) \leq f(x)$, $k(x)=0 \leq g(x)$. If
+    $l(x)>f(x)$, then $k(x)=l(x)-f(x) \leq g(x)$, in either case, $0 \leq k \leq
+    g$. Now, we have that both  $h$ and  $k$ are bounded measurable functions of
+    finite support, in which  $0 \leq h \leq f$ and  $0 \leq k \leq g$. so that
+    \begin{equation*}
+        \int_E{l}=\int_E{h}+\int_E{k} \leq \int_E{f}+\int_E{g}
+    \end{equation*}
+    which establishes the equality.
+
+    Finally, if $h$ is a bounded measurable function of finite support, for
+    which  $0 0\leq h \leq f$, then if $f \leq g$, we get $0 \leq h \leq g$ so
+    that
+    \begin{equation*}
+        \int_E{h} \leq \int_E{g}
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}\label{10.2.5}
+    Let $f$ be a nonnegative measurable function on a set $E$ and let  $A$ and
+    $B$ be disjoint measurable subsets of $E$. Then
+    \begin{equation*}
+        \int_{A \cup B}{f \ dm}=\int_A{f \ dm}+\int_B{f \ dm}
+    \end{equation*}
+    Moreover, if $E_0$ is a subset of $E$ of measure $m(E_0)=0$, then
+    \begin{equation*}
+        \int_E{f}=\int_{\com{E}{E_0}}{f}
+    \end{equation*}
+\end{theorem}
+
+\begin{lemma}[Fatou's Lemma]\label{10.5.6}
+    Let $\{f_n\}$ be a sequence of nonnegative measurable functions on a set
+    $E$, converging pointwise, almost eveyrhwere to a nonnegative measurable
+    function $f$ on $E$. Then
+    \begin{equation*}
+        \int_E{f} \leq \liminf{\int_E{f_n}}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Suppose, without loss of generality that $\{f_n\} \xrightarrow{} f$
+    pointwise on all of $E$. Then $f$ is nonnegative and measurable since each
+    $f_n$ is nonnegative and measurable. Now, let  $h$ be a bounded measurable
+    function of finite support for which  $0 \leq h \leq f$ on  $E$; and choose
+    an  $M \geq 0$ for which  $|h| \leq M$ on  $E$. Since $h$ is of finite
+    support we have $m (E_0)=0$, where $E_0=\supp{h}$. Let $n \in \Z^+$, and
+    define $h_n$ on $E$ by $h_n=0$ on $\com{E}{E_0}$. Then for any $x \in E$,
+    since  $h \leq f$, and $\{f_n\} \xrightarrow{} f$, then $\{h_n\} \xrightarrow{}
+    h$ pointwise on $E$. By the bounded convergence theorem, applied to the
+    uniformly bounded sequence $\{h_n|_{E_0}\}$ we observe that
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{h_n}}=
+        \lim_{n \xrightarrow{} \infty}{\int_{E_0}{h_n}}=
+        \int_{E_0}{h}=\int_E{h}
+    \end{equation*}
+
+    Now, observe that $h_n \leq f_n$, and by definition,
+    \begin{equation*}
+        \int_E{h_n} \leq \int_E{f}
+    \end{equation*}
+    thus
+    \begin{equation*}
+        \int_E{h}=
+        \lim_{n \xrightarrow{} \infty}\int_E{h_n} \leq
+        \liminf{\int_E{f_n}}
+    \end{equation*}
+\end{proof}
+
+\begin{example}\label{example_10.4}
+    \begin{enumerate}
+        \item[(1)] Define $f_n=n\chi_{(0,\frac{1}{n})}$. Then $\{f_n\}
+            \xrightarrow{} f=0$ pointwise on $(0,1]$, but
+            \begin{equation*}
+                \int_E{f}=0<1=\lim_{n \xrightarrow{} \infty}{\int_E{f_n}}
+            \end{equation*}
+
+        \item[(2)] Define $g_n=\chi_{(n,n+1)}$. Then $\{g_n\} \xrightarrow{} 0$
+            pointwise on all of $\R$, however
+            \begin{equation*}
+                \int_E{g}=0<1=\lim_{n \xrightarrow{} \infty}{\int_E{g_n}}
+            \end{equation*}
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}[The Monotone Convergence Theorem]\label{10.2.7}
+    Let $\{f_n\}$ be an increasing sequence of nonnegative measurable functions
+    on a set $E$ converging pointwise almost everywhere to a nonnegative
+    measurable function $f$ on  $E$. Then
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}\int_E{f}=\int_E{f}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    By Fatou's lemma, we have $\int_E{f} \leq \liminf{\int_E{f}}$. Now, for any
+    $n \in \Z^+$,  $f_n \leq f$ almost everywhere on  $E$, so by monotonicity
+    \begin{equation*}
+        \int_E{f_n} \leq \int_E{f}
+    \end{equation*}
+    Therefore
+    \begin{equation*}
+        \limsup{\int_E{f_n}} \leq \int_E{f}
+    \end{equation*}
+    which establishes the equality.
+\end{proof}
+\begin{corollary}
+    Let $\{u_n\}$ be a sequence of nonnegative functions on a set $E$ such that
+    \begin{equation*}
+        f=\sum{u_n} \text{ almost everywhere on } E
+    \end{equation*}
+    Then
+    \begin{equation*}
+        \int_E{f}=\sum{\int_E{u_n}}
+    \end{equation*}
+\end{corollary}
+
+\begin{definition}
+    We call a nonnegative measurable function $f$ on a set  $E$
+    \textbf{Lebesgue integrable} on $E$ provided that
+    \begin{equation*}
+        \int_E{f} \text{ is finite}
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{10.2.8}
+    If $f$ is a nonnegative measurable function on a set  $E$, Lebesgue
+    integrable on  $E$, then  $f$ is finite almost everywhere on  $E$.
+\end{lemma}
+\begin{proof}
+    Let $n \in \Z^+$, and define  $E_n=\{x \in E : f(x) \geq n\}$, and
+    $E_\infty=\lim{\{E_n\}}$ as $n \xrightarrow{} \infty$. Then, by Chebychev's
+    inequality, we have
+    \begin{equation*}
+        nm(E_\infty) \leq nm(E_n) \leq \int_E{f}
+    \end{equation*}
+    and since $\int_E{f}$ is finite, we get $m(E_\infty)=0$.
+\end{proof}
+
+\begin{lemma}[Beppo Levi's Lemma]\label{10.2.9}
+    Let $\{f_n\}$ be an increasing sequence of nonnegative meaurable functions
+    on a set $E$. If the sequence of integrals  $\{\int_E{f_n}\}$ is bounded,
+    then $\{f_n\}$ converges pointwise to a nonnegative measurable function $f$,
+    finite almost everywhere on $E$, and
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{f_n}}=\int_E{f}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since $\{f_n\}$ is a sequence of extended realvalued functions on $E$,
+    define the extended realvalued function $f$, pointwise on  $E$, by
+    \begin{equation*}
+        f(x)=\lim_{x \xrightarrow{} \infty}{f(x)}
+    \end{equation*}
+    By the monotone convergence theorem, we get the $\{\int_E{f_n}\}
+    \xrightarrow{} \int_E{f}$, and since the sequence $\{\int_E{f_n}\}$ is
+    bounded, $\int_E{f}$ is finite. By lemma \ref{10.2.8}, this makes $f$
+    Lebesgue integrable on $E$, and hence finite almost everywhere on  $E$.
+\end{proof}
