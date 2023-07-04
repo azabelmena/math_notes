@@ -1,1 +1,180 @@
 \section{The General Lebesgue Integral}
+
+\begin{definition}
+    Let $f$ be an extended real-valued function on a set  $E$. We define the
+     \textbf{postive part} of $f$ to be the function
+     \begin{equation*}
+         f^+(x)=\max{\{f(x),0\}}
+     \end{equation*}
+     and we define the \textbf{negative part} of $f$ to be the function
+     \begin{equation*}
+         f^-(x)=\max{\{-f(x),0\}}
+     \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{10.3.1}
+    An extended real-valued function $f$ on a set  $E$ is measurable if, and only
+    if  $f^+$ and  $f^-$ are measurable. Moreover  $f^+$ and  $f^-$ are
+    nonnegative.
+\end{lemma}
+
+\begin{lemma}\label{10.3.2}
+    Let $f$ be a measurable function on a set  $E$. Then  $f^+$ and  $f^-$ are
+    Lebesgue integrable over  $E$ if, and only if  $|f|$ is Lebesgue integrable
+    over  $E$.
+\end{lemma}
+\begin{proof}
+    Notice that $|f|-=f^++f^-$. Hence if  $f^+$ and  $f^-$ are Lebesgue
+    integrable, then so is  $|f|$. Moreover, if  $|f|$ is Lebesgue integrable,
+    then observe that  $0 \leq f^+ \leq |f|$ and  $0 \leq f^- \leq |f|$. By the
+    monotonicity of the Lebesgue integral for nonnegative measurable functions,
+     $f^+$ and  $f^-$ are integrable.
+\end{proof}
+
+\begin{definition}
+    We call a measurable function $f$ on a set  $E$  \textbf{Lebesgue
+    integrable} on $E$ provided that  $|f|$ is Lebesgue integrable on  $E$. We
+    define the \textbf{Lebesgue integral} of $f$ on $E$ to be
+    \begin{equation*}
+        \int_E{f \ dm}=\int_E{f^+ \ dm}-\int_E{f^- \ dm}
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{10.3.3}
+    Let $f$ be a measurable function on a set  $E$. If  $f$ is Lebesgue
+    integrable on  $E$, then  $f$ is finite almost everywhere on  $E$, and for
+    any $E_0 \subseteq E$, with $m(E_0)=0$
+    \begin{equation*}
+        \int_E{f}=\int_{\com{E}{E_0}}{f}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    If $f$ is integrable on $E$, then so is  $|f|$ by definition. That makes
+    $|f|$ finite alomst everywhere on  $E$, and hence  $f$ must also be finite
+    almost everywhere on  $E$.
+\end{proof}
+
+\begin{definition}
+    We say that a real-valued function $f$ on a set  $E$ is  \textbf{dominated}
+    by a real-valued function $g$ on  $E$ if $|f| \leq g$ on $E$.
+\end{definition}
+
+\begin{theorem}[The Integral Comparison Test]\label{10.3.4}
+    Let $f$ be a measurable function on a set $E$, and let  $g$ be a nonnegative
+    Lebesgue integrable function dominating  $f$. Then  $f$ is integrable and
+    \begin{equation*}
+        \Big{|} \int_E{f} \Big{|} \leq \int_E{|f|}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    By the monotonicity of the Lebesgue integral for nonnegative measurable
+    functions, if $|f| \leq g$, and  $g$ is integrable, then  $|f|$ is
+    integrable, which makes  $f$ integrable. Now, we also have that
+    \begin{equation*}
+        \Big{|} \int_E{f} \Big{|}=
+        \Big{|} \int_E{f^+}-\int_E{f^-} \Big{|} \leq
+        \int_E{f^+}+\int_E{f^-}=\int_E{|f|}
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}\label{10.3.5}
+    Let $f$ and  $g$ be measurable functions on a set  $E$. If $f$ and  $g$ are
+    integrable, then for any  $\a,\b \in \R$,  $\a{f}+\b{g}$ is Lebesgue
+    integrable, and
+    \begin{equation*}
+        \int_E{\a{f}+\b{g} \ dm}=\a\int_E{f \ dm}+\b\int_E{g \ dm}
+    \end{equation*}
+    Moreover, if $f \leq g$ on  $E$, then
+    \begin{equation*}
+        \int_E{f} \leq \int_E{g}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    If $\a>0$, then  $(\a{f})^+=\a{f^+}$ and $(\a{f})^-=\a{f^-}$. If $\a<0$,
+    then $(\a{f})^+=-\a{f^-}$ and $(\a{f})^-=-\a{f^+}$. In either case, since
+    $f$ is integrable, we observe that  $\int_E{\a{f}}=\a\int_E{f}$.
+
+    Now, we also have that $|f|$ and  $|g|$ are integrable so that  $|f|+|g|$ is
+    integrable, and since  $|f+g| \leq |f|+|g|$, by the monotonicity of the
+    Lebesgue integral for nonnegative functions,  $|f+g|$ is integrable, which
+    makes $f+g$ integrable. Moreover,  $f$ and  $g$ are finite almost everywhere
+    on  $E$, hence so is $f+g$. Excise a set of measure zero from $E$ and suppose
+    that  $f$ and  $g$ are finite on all of  $E$. Notice that
+    \begin{equation*}
+        (f+g)^+-(f+g)^-=f+g=(f^+-f^-)+(g^+-g^-)
+    \end{equation*}
+    so that
+    \begin{equation*}
+        (f+g)^++f^-+g^-=(f+g)^-+f^++g^+
+    \end{equation*}
+    Now, since $f$ and $g$, and $f+g$ are integrable, the integrals of these
+    functions are finite, so that we obtain
+    \begin{equation*}
+        \int_E{f+g \ dm}=\int_E{f \ dm}+\int_E{g \ dm}
+    \end{equation*}
+
+    Now, suppose that $f \leq g$ on  $E$, and define  $h=g-f$. Then  $h$ is a
+    nonnegative measurable function, so that
+    \begin{equation*}
+        \int_E{g}-\int_E{f}=\int_E{(g-f)}=\int_E{h} \geq 0
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    Let $f$ be a Lebesgue integrable function on a set $E$, and let $A$ and  $B$
+    disjoint measurable subsets of  $E$. Then
+    \begin{equation*}
+        \int_{A \cup B}{f \ dm}=\int_A{f \ dm}+\int_B{f \ dm}
+    \end{equation*}
+\end{corollary}
+
+\begin{theorem}[The Lebesgue Dominated Convergence Theorem]\label{10.3.6}
+    Let $\{f_n\}$ a sequence of measurable functions on a set $E$, converging
+    pointwise to a measurable function  $f$ on  $E$. If  $g$ is a Lebesgue
+    integrable function on  $E$, dominating each $f_n$, then $f$ is Lebesgue
+    integrable on  $E$, and
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{f_n}}=\int_E{f}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Since $|f_n| \leq g$ for all  $n \in \Z^+$, we have that $|f| \leq g$, and
+    since $g$ is integrable, we get  $|f|$ integrable, and hence  $f$ must be
+    integrable. Now, excise a countable collection of sets of measure zero from
+    $E$, and by countable additivity, suppose that  $f$ is finite on  $E$ and
+    $f_n$ is finite on  $E$ for each  $n \in \Z^+$. Then  $g-f$ is a well
+    defined function, and so is  $g-f_n$, for all  $n \in \Z^+$. Moreover, they
+    are nonnegative measurable functions, and  $\{g-f_n\} \xrightarrow{} g-f$
+    pointwise almost everywhere on $E$. By Fatou's lemma
+    \begin{equation*}
+        \int_E{f+g \ dm} \leq \liminf{\int_E{g-f_n \ dm}}
+    \end{equation*}
+    and by linearity
+    \begin{equation*}
+        \int_E{g \ dm}-\int_E{f \ dm} \leq
+        \int_E{g \ dm}-\limsup{\int_E{f_n \ dm}}
+    \end{equation*}
+    So that
+    \begin{equation*}
+        \limsup{\int_E{f_n}} \leq \int_E{f}
+    \end{equation*}
+    Now, making the same argument with the sequence $\{g+f_n\}$ yields
+    \begin{equation*}
+        \int_E{f} \leq \liminf{\int_E{f_n}}
+    \end{equation*}
+    which gives the equality.
+\end{proof}
+
+\begin{theorem}[The General Dominated Convergence Theorem]\label{10.3.7}
+    Let $\{f_n\}$ a sequence of measurable functions on a set $E$ converging
+    pointwise almost everywhere on $E$. Suppose there is a sequence $\{g_n\}$ of
+    nonnegative measurable functions on $E$, such that each  $g_n$ dominates
+    each  $f_n$, and converging pointwise almost everywhere to $g$ on  $E$. Then
+    if
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E}{g_n}=\int_E{g} \text{ is finite}
+    \end{equation*}
+    then
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{f_n}}=\int_E{f}
+    \end{equation*}
+\end{theorem}
