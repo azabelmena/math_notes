@@ -1,1 +1,105 @@
-%\section{Countable Additivity and Continuity of the Lebesgue Integral}
+\section{Countable Additivity and Continuity of the Lebesgue Integral}
+
+\begin{theorem}[Countable Additivity of The Lebesgue Integral]\label{10.4.1}
+    Let $f$ be a Lebesgue integrable function on a set  $E$, and let $\{E_n\}$
+    be a disjoint cover of $E$ by countable many measurable subsets of  $E$. Then
+    \begin{equation*}
+        \int_E{f \ dm}=\sum_{n=0}^\infty{\int_{E_n}{f \ dm}}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    For $n \in \Z^+$, define  $f_n=f\chi_n$, where $\chi_n$ is the
+    characteristic function on the measurable union  $\bigcup_{k=1}^{n}{E_k}$.
+    Then $f_n$ is a measurable function on  $E$, and  $|f_n| \leq |f|$. Moreover,
+    notice that  $\{f_n\} \xrightarrow{} f$, so by the Lebesgue dominated
+    convergence theorem
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{f_n}}=\int_E{f}
+    \end{equation*}
+    Moreover, since the collection $\{E_n\}$ is disjoint
+    \begin{equation*}
+        \int_E{f_n}=\sum_{k=1}^n{\int_{E_k}}{f}
+    \end{equation*}
+    so taking limits on boths sides gives us
+    \begin{equation*}
+        \int_E{f}=\sum_{n=1}^\infty{\int_{E_n}{f}}
+    \end{equation*}
+\end{proof}
+
+Before we prove the continuity of integration of the Lebesgue integral, we prove
+a prelimanry result.
+
+\begin{lemma}\label{10.4.2}
+    Let $f$ be a Lebesgue integrable function on a set $E$. If $A$ is a
+    measurable subset of  $E$, then
+    \begin{equation*}
+        \int_{\com{E}{A}}{f \ dm}=\int_E{f \ dm}-\int_A{f \ dm}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Notice that $E=A \cup \com{E}{A}$, so that
+    \begin{equation*}
+        \int_E{f}=\int_A{f}+\int_{\com{E}{A}}{f}
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}[Continuity of The Lebesgue Integral]\label{10.4.3}
+    If $f$ is a Lebesgue integrable function on a set  $E$, then the following
+    are true
+    \begin{enumerate}
+        \item[(1)] If $\{E_n\}$ is an ascending collection of measurable subsets
+            of $E$, then
+            \begin{equation*}
+                \int_{\bigcup{E_n}}{f \ dm}=
+                \lim_{n \xrightarrow{} \infty}{\int_{E_n}{f \ dm}}
+            \end{equation*}
+
+        \item[(2)] If $\{E_n\}$ is a descending collection of measurable subsets
+            of $E$, then
+            \begin{equation*}
+                \int_{\bigcap{E_n}}{f \ dm}=
+                \lim_{n \xrightarrow{} \infty}{\int_{E_n}{f \ dm}}
+            \end{equation*}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    The proof proceeds identically as in theorem \ref{8.5.2}. Define
+    $E_0=\emptyset$, and $A_{k+1}=\com{E_{k+1}}{E_k}$. Since $\{E_n\}$ is an
+    ascending collection of measurabel sets, then $\{A_n\}$ is a disjoint
+    countable collection of measurable sets, and $E=\bigcup{A_n}$, then by the
+    countable additivity of the Lebesgue measure,
+    \begin{equation*}
+        \int_E{f}=\sum{\int_{A_k}{f}}=
+        \sum{\int_{\com{E_{k+1}}{E_k}}{f}}=
+        \sum{\Big{(} \int_{E_{k+1}}{f}-\int_{E_k}{f} \Big{)}}
+    \end{equation*}
+    Taking limits
+    \begin{equation*}
+        \int_E{f}=
+        \lim_{n \xrightarrow{} \infty}
+                {\sum_{k=0}^{n-1}{\Big{(} \int_{E_{k+1}}{f}-\int_{E_k}{f} \Big{)}}}=
+                \lim_{n \xrightarrow{} \infty}
+                    {\Big{(} \int_{E_n}{f}-\int_{E_0}{f} \Big{)}}=
+                \lim_{n \xrightarrow{} \infty}{\int_{E_n}{f}}
+    \end{equation*}
+    since $\int_{E_0}{f}=0$.
+
+    Now, suppose that $\{E_n\}$ is a descending collection. Then define the
+    countable collection of measurable sets $\{B_k\}$ by $B_k=\com{E_1}{E_k}$
+    for all $k \in \Z^+$. Then $\{B_k\}$ is an ascending collection of
+    measurable sets, and by DeMorgan's laws, we have
+    \begin{equation*}
+        \bigcup{B_k}=\com{E_1}{\bigcap{E_k}}
+    \end{equation*}
+    Therefore,
+    \begin{equation*}
+        \int_{\bigcup{B_k}}=\int_{E_1}-\int_{\bigcap{E_k}}{f}
+    \end{equation*}
+    On the otherhand, by the above argument for ascending collections of
+    measurable subset of $E$,
+    \begin{equation*}
+        \int_{\bigcup{B_k}}{f}=
+        \int_{E_1}{f}-\lim_{k \xrightarrow{} \infty}{\int_{E_k}{f}}
+    \end{equation*}
+    Equating the two gives us the result.
+\end{proof}
