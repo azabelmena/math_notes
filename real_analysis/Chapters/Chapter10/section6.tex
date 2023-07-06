@@ -1,1 +1,113 @@
 \section{Convergence in Measure}
+
+\begin{definition}
+    Let $\{f_n\}$ be a sequence of measurable functions, finite almost
+    everywhere on a set $E$, and let  $f$ be a measurable function finite almost
+    everywhere on  $E$. We say that  $\{f_n\}$ \textbf{converges in measure} to
+    $f$ on  $E$ if for any  $\n>0$,
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}m(\{x \in E : |f_n(x)-f(x)|>\n\})=0
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{10.6.1}
+    Suppose that $E$ is a set of finite measure, and let  $\{f_n\}$ a sequence
+    of measurable functions, finite almost everywhere on $E$, converging in
+    pointwise almost everywhere to a measurable function finite almost everywhere
+    on  $E$. Then  $\{f_n\}$ converges in measure to $f$ on  $E$.
+\end{lemma}
+\begin{proof}
+    Since $\{f_n\} \xrightarrow{} f$ pointwise almost everywhere on $E$,  $f$ is
+    measurable. Now, let  $\n>0$ and  $\e>0$. By  Egoroff's theorem, there is a
+    measurable subset $F$ of  $E$, with $m(\com{E}{F})<\e$, such that $\{f_n\}
+    \xrightarrow{} f$ uniformly on $E$. Therefore, there is an  $N \in \Z^+$ for
+    which
+    \begin{equation*}
+        |f_n(x)-f(x)|<\n \text{ on } F \text{ for all } n \geq N
+    \end{equation*}
+    Thus, taking $A=\{x \in E : |f_n(x)-f(x)|>\n\}$, notice that $A \subseteq
+    \com{E}{F}$, which gives us the result.
+\end{proof}
+
+\begin{example}\label{example_10.7}
+    Consider the sequence $\{I_n\}$ of subintervals of $[0,1]$ given by the
+    terms
+    \begin{equation*}
+        [0,1], [0,\frac{1}{2}], [\frac{1}{2},1], [0,\frac{1}{3}],
+        [\frac{1}{3},\frac{2}{3}], [\frac{2}{3},1], [0,\frac{1}{4}],
+        [\frac{1}{4},\frac{2}{4}], [\frac{2}{4}, \frac{3}{4}], [\frac{3}{4},1],
+        \dots
+    \end{equation*}
+    Define $f_n=\chi_{I_n}|_{[0,1]}$, and let $f(x)=0$ for all $x \in [0,1]$.
+    Observe that $\{l(I_n)\} \xrightarrow{} 0$ as $n \xrightarrow{} \infty$,
+    since for all $m \in \Z^+$
+    \begin{equation*}
+        \text{ if } n>1+\dots+m \text{ then } l(I_n)<\frac{1}{m}
+    \end{equation*}
+    Let $A=\{x \in [0,1] : |f_n(x)-f(x)|>\n\}$. Then $A \subseteq I_n$, so that
+    \begin{equation*}
+        0 \leq
+        \lim_{n \xrightarrow{} \infty}{m(A)} \leq
+        \lim_{n \xrightarrow{} \infty}{l(I_n)}=0
+    \end{equation*}
+    therefore, $\{f_n\} \xrightarrow{} f$ in measure. However, notice that there
+    is no $x \in [0,1]$, for hwich $\{f_n\} \xrightarrow{} f$ pointwise on
+    $[0,1]$.
+\end{example}
+
+\begin{theorem}[Riesz's Theorem]\label{10.6.2}
+    Let $\{f_n\}$ be a sequence of measurable functions on a set $E$, converging
+    in measure to a measurable function  $f$ on  $E$. Then there exists a
+    subsetquence  $\{f_{n_k}\}$ converging pointwise almost everywhere to $f$ on
+     $E$.
+\end{theorem}
+\begin{proof}
+    be definition of convergence in measure, there is a strictly increasing
+    sequence of postive integers, $\{n_k\}$ for which $m(E_k)<\frac{1}{2^k}$,
+    for all $j \geq n_k$, and where  $E_k=\{x \in E :
+    |f_j(x)-f(x)|>\frac{1}{k}\}$. Therefore, the sum of the measures of
+    $E_k$, i.e.  $\sum{m(E_k)}$, is finite. By the Borel-Cantelli lemma, for
+    almost all $x \in E$, there is a  $K(x) \in \Z^+$ such that $x \notin E_k$
+    if  $k \geq K(x)$. That is,
+    \begin{equation*}
+        |f_{n_k}(x)-f(x)| \leq \frac{1}{k} \text{ for all } k \geq K(x)
+    \end{equation*}
+    Therefore,
+    \begin{equation*}
+        \lim_{k \xrightarrow{} \infty}{f_{n_k}(x)}=f(x)
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    Let $\{f_n\}$ be a sequence of nonnegative Lebesgue integrable functions on
+    a set $E$. Then
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{f_n}}=0 \text{ if, and only if }
+        \{f_n\} \xrightarrow{} 0 \text{ in meausure, and } \{f_n\} \text{ is
+        uniformly integrable and tight on } E
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    Suppose that the sequence $\{\int_E{f_n}\} \xrightarrow{} 0$ as $n
+    \xrightarrow{} \infty$. Then $\{f_n\}$ is uniformly integrable and tight on
+    $E$. Now,let  $E_\n =\{x \in E : f_n(x) \geq \n\}$. Then by Chebychev's
+    inequality, we have
+    \begin{equation*}
+        \n{m(E)} \leq \int_E{f_n}
+    \end{equation*}
+    Thus
+    \begin{equation*}
+        0 \leq
+        \n\lim_{n \xrightarrow{} \infty}{m(E_\n)} \leq
+        \lim_{n \xrightarrow{} \infty}{\int_E{f_n}}=0
+    \end{equation*}
+    so that $\{f_n\} \xrightarrow{} 0$ in measure on $E$.
+
+    Conversely, suppose that  $\{f_n\} \xrightarrow{} 0$ in measure on $E$, but
+    that there is an  $\e_0>0$ and a subsequence $\{f_{n_k}\}$, for which
+    \begin{equation*}
+        \int_E{f_{n_k}} \geq \e_0 \text{ for all } k \in \Z^+
+    \end{equation*}
+    By Riesz's theorem $\{f_n\} \xrightarrow{} f$ pointwise almost everywhere on
+    $E$, moreover,  $\{f_{n_k}\}$ is uniformly integrable and tight on $E$. By
+    Vitali's convergence theorem, we obtain a contradiction.
+\end{proof}
