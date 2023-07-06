@@ -1,1 +1,251 @@
-%\section{Vitali's Convergence Theorem}
+\section{Vitali's Convergence Theorems}
+
+\begin{lemma}\label{10.5.1}
+    Let $E$ be a set of finite measure, and  $\d>0$. Then $E$ is the disjoint
+    union of finitely many measurable subsets, each of which having measure less
+    than $\d$.
+\end{lemma}
+\begin{proof}
+    By the continuity of measure, $\lim{\com{E}{[-n,n]}}=m(\emptyset)=0$, as $n
+    \xrightarrow{} \infty$. Now, choose an $n_0 \in \Z^+$ for which
+    $m(\com{E}{-n_0,n_0})<\d$. Choosing a fine enough partition of $[n_0,n_0]$,
+    observe that $E \cap [-n_0,n_0]$ is a disjoint union of a finite collection
+    of measurable subsets, each having measure less than $\d$.
+\end{proof}
+
+\begin{lemma}\label{10.5.2}
+    Let $f$ be a measurable function on a set $E$. If  $f$ is Lebesgue integrable
+    on $E$, then for any  $\e>0$ there exists a  $\d>0$ for which
+     \begin{equation*}
+         \text{ if } A \subseteq E \text{ is measurable and }
+         m(A)<\d \text{ then } \int_A{|f|}<\e
+     \end{equation*}
+     If $E$ is of finite measure, then the converse of this statement holds.
+\end{lemma}
+\begin{proof}
+    Suppose that $f$ is nonnegative on  $E$, and that  $f$ is Lebesgue
+    integrable on  $E$. Then there is a bounded measurable function $f_\e$ on
+    $E$ for which
+    \begin{equation*}
+        0 \leq f_\e \leq f \text{ and } 0 \leq \int_E{f}-\int_E{f_\e}<\frac{\e}{2}
+    \end{equation*}
+    Since $f$ is nonnegative  $f-f_\e \geq 0$. Now, if  $A$ is a measurable
+    subset of  $E$, then
+    \begin{equation*}
+        \int_A{f}-\int_A{f_\e}=\int_A{(f-f_\e)} \leq \int_E{(f-f_\e)}=
+        \int_E{f}-\int_E{f_\e}<\frac{\e}{2}
+    \end{equation*}
+    Since $f_\e$ is bounded, choose an $M>0$ for which $0 \leq f_\e<M$ on $E$.
+    Then
+    \begin{equation*}
+        \int_A{f}<\int_A{f_n}+\frac{\e}{2}<Mm(A)
+    \end{equation*}
+    choosing $\d=\frac{\e}{2M}$ gives us the result.
+
+    Conversely, suppose that $E$ has finite measure, and that for every $\e>0$,
+    there is a $\d>0$ for which
+     \begin{equation*}
+         \text{ if } A \subseteq E \text{ is measurable and }
+         m(A)<\d \text{ then } \int_A{f}<\e
+     \end{equation*}
+     for any measurable function $f$. By lemma \ref {10.5.1},
+     $E=\bigcup_{k=1}^N{E_k}$ where $m(E_k)<\d$ for each $1 \leq k \leq n$, and
+     some $N \in \Z^+$, and where the union is disjoint. Then
+     \begin{equation*}
+         \sum_{k=1}^N{\int_{E_k}{f}}<N
+     \end{equation*}
+     Thus, if $h$ is a nonnegative measurable function of finite support, with
+     $0 \leq h \leq f$ on  $E$, then  $\int_E{h}<N$, which makes $f$ Lebesgue
+     integrable.
+\end{proof}
+
+\begin{definition}
+    We call a collection $\Fc$ of measurable functions defined on a set  $E$
+     \textbf{uniformly integrable} on $E$ if for every $\e>0$, there is a $\d>0$
+     such that for any $f \in \Fc$
+     \begin{equation*}
+         \text{ if } A \subseteq E \text{ is measurable and }
+         m(A)<\d \text{ then } \int_A{f}<\e
+     \end{equation*}
+\end{definition}
+
+\begin{example}\label{example_10.5}
+    Let $g$ be a nonnegative function on  $E$ and define $\Fc$ the collection of
+    all measurable functions on  $E$, dominated by  $g$. Then  $\Fc$ is
+    uniformly integrable on  $E$; indeed
+    \begin{equation*}
+        \int_E{|f|} \leq \int_E{g} \text{ for any } f \in \Fc
+    \end{equation*}
+\end{example}
+
+\begin{lemma}\label{10.5.3}
+    If $\{f_k\}_{k=1}^n$ is a finite collection of Lebesgue integrable functions
+    on a set $E$, then $\{f_k\}$ is uniformly integrable.
+\end{lemma}
+\begin{proof}
+    Let $\e>0$, for  $1 \leq k \leq n$, by lemma \ref{10.5.2}, there exists a
+    $\d_k>0$ for which given any measurable subset $A \subseteq E$, with
+    $m(A)<\d$, then $\int_A{|f_k|}<\e$. Then take $\d=\min{\{\d_1, \dots,
+    \d_n\}}$. This makes $\{f_k\}$ uniformly integrable.
+\end{proof}
+
+\begin{theorem}[Vitali's Convergence Theorem]\label{10.5.4}
+    Let $E$ be a set of finite measure, and suppose that $\{f_n\}$ is a sequence
+    of measurable functions uniformly integrable on $E$, which converges
+    pointwise to almost everywhere to a measurable function  $f$ on $E$. Then
+    $f$ is Lebesgue integrable on $E$, and
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{f_n \ dm}}=\int_E{f \ dm}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $\e=1$, and choose  $\d_0>0$. If $E$ is of finite measure, then
+    $E=\bigcup_{k=1}^N{E_k}$ where $m(E_k)<\d_0$ for all $1 \leq k \leq N$, and
+     $N \in \Z^+$, and where the union is disjoint. then
+     \begin{equation*}
+         \int_E{|f_n|}=\sum_{k=1}^N{\int_{E_k}{|f_n|}}<N
+     \end{equation*}
+     By Fatou's lemma,
+     \begin{equation*}
+         \int_E{|f|} \leq \liminf{\int_E{|f_n|}} \geq N
+     \end{equation*}
+     this makes $|f|$ integrable, and hence  $f$ integrable.
+
+     Now, excise from $E$, possibly, a set of measure $0$, and suppose that
+     $\{f_n\} \xrightarrow{} f$ pointwise on all $E$. Suppose also that  $f$ is
+     real-valued. Then
+     \begin{align*}
+         \Big{|} \int_E{f_n}-\int_E{f} \Big{|}  &=
+        \Big{|} \int_E{f_n-f} \Big{|} \leq \int_E{|f_n-f|}
+         =\int_{\com{E}{A}}{|f_n-f|}+\int_A{|f_n-f|} \\
+        &\leq \int_{\com{E}{A}}{|f_n-f|}+\int_A{|f_n|}+\int_A{|f|}
+     \end{align*}
+     where $A$ is some measurable subset of $E$. Let $\e>0$. Then there exists a
+     $\d>0$ such that
+     \begin{equation*}
+         \int_A{|f_n|}<\frac{\e}{3}
+     \end{equation*}
+     for any measurable subset of $E$ of measure less than $\d$. By Fatou's
+     lemma, we also have
+     \begin{equation*}
+         \int_A{|f|}<\frac{\e}{3}
+     \end{equation*}
+     for any measurable subset of $E$ of measure less than $\d$. Now, since
+     $f$ is  real-valued, and $E$ has finite measure, by Egoroff's theorem,
+     there is a measurable subset $E_0$ of $E$ with $m(E)<\d$ and for which
+     $\{f_n\} \xrightarrow{} f$ uniformly on $\com{E}{E_0}$. Choose, then, an $N
+     \in \Z^$ for which
+     \begin{equation*}
+         |f_n-f|<\frac{\e}{3m(E)} \text{ on } \com{E}{E_0} \text{ for all } n
+         \geq N
+     \end{equation*}
+     Then observe that
+     \begin{equation*}
+         \Big{|} \int_E{f_n}-\int_E{f} \Big{|}<
+         \frac{\e}{3m(E)}m(\com{E}{E_0})+\frac{\e}{3}+\frac{\e}{3} \leq \e
+     \end{equation*}
+     and we are done.
+\end{proof}
+
+\begin{theorem}\label{10.5.5}
+    Let $E$ be a set of finite measure, and  $\{h_n\}$ a sequence of nonnegative
+    Lebesgue integrable functions covnerging pointwise almost everywhere to $0$
+    on  $E$. Then
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{h_n}}=0 \text{ if, and only if }
+        \{h_n\} \text{ is uniformly integrable on } E
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    If $\{h_n\}$ is uniformly integrable on $E$, then by Vital's convergence
+    theorem, $\lim{\int_E{h_n}}=0$ as $n \xrightarrow{} \infty$. Conversely, if
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}\int_E{h_n}=0
+    \end{equation*}
+    let $\e>0$ and choose an  $N \in \Z^+$ such that  $\int_E{h_n}<\e$ for any
+    $n \geq N$. Since  $h_n$ is nonnegative on  $E$, if  $A$ is ameasurable
+    subset of  $E$, and  $n \geq N$, then  $\int_A{h_n}<\e$. Thus the collection
+    $\{h_n\}_{n=1}^{N-1}$ is uniformly integrable on $E$. Since  $N$ was chose
+    arbitrarily, this makes the sequence $\{h_n\}$ uniformly integrable on $E$.
+\end{proof}
+
+\begin{example}\label{example_10.6}
+    Let $f_n=\chi_{[n,n+1]}$ on $\R$, then  $\{f_n\}$ is uniformly integrable on
+    $\R$, and $\{f_n\} \xrightarrow{} f$ pointwise on $\R$, where $f(x)=0$ for
+    all $x \in \R$. However, notice
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty{\int_\R}{f_n}}=1 \neq 0=\int_\R{f}
+    \end{equation*}
+    That is, for Vitali's convergence theorem to work, we must have a set of
+    finite measure. There exists a general form of this theorem however.
+\end{example}
+
+\begin{lemma}\label{10.5.6}
+    Let $f$ be a Lebesgue integrable function on  $E$. Then for any  $\e>0$,
+    there is a subsete $E_0$ of $E$, of finite measure for which
+    \begin{equation*}
+        \int_{\com{E}{E_0}{|f|}}<\e
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\e>0$, if  $f$ is Lebesgue integrable, then so is  $|f|$, and hence,
+    there is a bounded measurable function  $g$ on  $E$, vanishing outside of
+    $E_0$, for which $0 \leq  g \leq |f|$. Moreover, $\int_E{|f|}-\int_E{g}<\e$.
+    Therefore
+    \begin{equation*}
+        \int_{\com{E}{E_0}}{|f|}=\int_{\com{E}{E_0}}{(|f|-g)} \leq
+        \int_E{(|f|-g)}<\e
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    We call a collection $\Fc$ of measurable functions on a set  $E$
+    \textbf{tight} on $E$ if for any  $\e>0$, there is a measurable subset $E_0$
+    of $E$, of finite measure, for which
+    \begin{equation*}
+        \int_{\com{E}{E_0}}{|f| \ dm}<\e \text{ for all } f \in \Fc
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}[Vitali's General Convergence Theorem]\label{10.5.7}
+    Let $\{f_n\}$ be a sequence of measurable functions on a set $E$, uniformly
+    integrable, and tight on $E$. If  $\{f_n\}$ converges pointwise almost
+    everywhere on $E$, to a measurable function $f$, then $f$ is Lebesgue
+    integrable and
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}\int_E{f_n \ dm}=\int_E{f \ dm}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $\e>0$, by the tightness of $\{f_n\}$, there is a measurable subset
+    $E_0$ of $E$ of finite measure, for which
+    \begin{equation*}
+        \int_{\com{E}{E_0}}{|f|}<\frac{\e}{4} \text{ for all } n \in \Z^+
+    \end{equation*}
+    By Fatou's lemma, $\int_E{|f|} \leq \frac{\e}{4}$, so that $f$ is Lebesgue
+    integrable on  $\com{E}{E_0}$. Then by the linearity and monotonicity of the
+    Lebesgue integral,
+    \begin{equation*}
+        \Big{|} \int_{\com{E}{E_0}}{(f_n-f)} \Big{|} \leq
+        \int_{\com{E}{E_0}}{|f_n|}+\int_{\com{E}{E_0}}{|f|}<\frac{\e}{2}
+    \end{equation*}
+    Since $E_0$ has finite measure, and $\{f_n\}$ is uniformly integrable, by
+    Vitali's convergence theorem, $f$ is integrable on $E_0$. Choose, then an $N
+   \in \Z^+$ for which
+    \begin{equation*}
+        \Big{|} \int_{E_0}(f_n-f) \Big{|}<\frac{\e}{2} \text{ for all } n \geq N
+    \end{equation*}
+    Then $f$ is integrable on  $E$, and
+    \begin{equation*}
+        \Big{|} \int_E{(f_n-f)} \Big{|}<\e \text{ for all } n \geq N
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    Let $\{h_n\}$ be a sequence of nonnegative integrable functions on $E$, and
+    suppose that  $\{h_n\} \xrightarrow{} 0$ pointwise almost everywhere on $E$.
+    Then
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{h_n}}=0 \text{ if, and only if }
+        \{h_n\} \text{ is uniformly integrable and tight on } E
+    \end{equation*}
+\end{corollary}
