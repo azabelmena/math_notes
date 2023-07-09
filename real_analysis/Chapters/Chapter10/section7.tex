@@ -1,1 +1,180 @@
 \section{Characterizations of Riemann and Lebesgue Integrability}
+
+\begin{lemma}\label{10.7.1}
+    Let $\{\phi_n\}$ and $\{\psi_n\}$ be sequences of Lebesgue integrable
+    functions on a set $E$, such that  $\{\phi_n\}$ is increasing, and $\{\psi_n\}$
+    is decreasing. Let $f$ be a real-valued function on $E$ such that
+    \begin{equation*}
+        \phi_n \leq f \leq \psi_n \text{ on } E \text{ for all } n \in \Z^+
+    \end{equation*}
+    If
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{\psi_n-\phi_n \ dm}}=0
+    \end{equation*}
+    Then $\{\phi_n\}$ and $\{\psi_n\}$ converge pointwise almost everywhere to
+    $f$ on  $E$. Moreover,  $f$ is Lebesgue integrable on  $E$ with
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_e{\phi_n \ dm}}=
+        \lim_{n \xrightarrow{} \infty}{\int_e{\psi_n \ dm}}=
+        \lim_{n \xrightarrow{} \infty}{\int_e{f \ dm}}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    For each $x \in E$, define  $\phi'(x)=\lim{\phi_n(x)}$ and
+    $\spi'(x)=\lim{\psi_n}$ as $n \xrightarrow{} \infty$ ($\phi'$ and $\psi'$
+    are not derivatives). Then $\phi'$ and  $\psi'$ are well defined fuinctions
+    and they are measurable since the sequences $\{\phi_n\}$ and $\{\psi_n\}$
+    consist of Lebesgue measurable functions. Moreover,
+    \begin{equation*}
+        \phi_n \leq \phi' \leq f \leq \psi' \leq \psi_n
+    \end{equation*}
+    On $E$ for all  $n \in \Z^+$. Then
+    \begin{equation*}
+        0 \leq  \int_E{(\psi'-\phi')} \leq \int_E{(\psi_n-\phi_n)}
+    \end{equation*}
+    then
+    \begin{equation*}
+        0 \leq  \int_E{(\psi'-\phi')} \leq
+        \lim_{n \xrightarrow{} \infty}{\int_E{(\psi_n-\phi_n)}}=0
+    \end{equation*}
+    Since $\psi'-\phi' \geq 0$, and  $\int_E{(\psi'-\phi')}=0$, we get
+    $\psi'=\phi'$ almost everywhere on  $E$. Moreover, since  $\phi' \leq f \leq
+    \psi'$, this makes  $\phi'=\psi'=f$ almost everywhere on  $E$, so that we
+    have pointwise convergence.
+
+    Now, observe that $0 \leq f-\phi_n \leq \psi_n-phi_n$ and $\psi_n$ and
+    $\phi_n$ are integrable by hypothesis. Then by monotonicity of the Lebesgue
+    integral
+    \begin{equation*}
+        0 \leq \int_E{f \ dm}-\int_E{\phi_n \ dm}=\int_E{f-\phi_n \ dm} \leq
+        \int_E{\psi_n-\phi_n \ dm}
+    \end{equation*}
+    so that the sequences $\{\int_E{\phi_n}\}$ and $\{\int_E{\psi_n}\}$ converge
+    to $\int_E{f}$.
+\end{proof}
+
+\begin{theorem}\label{1.7.2}
+    Let $f$ be a bounded function on a set $E$, of finite measure. Then $f$ is
+    Lebesgue integrable if and only if  $f$ is Lebesgue measurable.
+\end{theorem}
+\begin{proof}
+    It was shown in theorem \ref{10.1.4}, that if $f$ is bounded and Lebesgue
+    measurable, then it is Lebesgue integrable. Now, suppose that for $f$
+    bounded, that $f$ is Lebesgue integrable. Then there exists sequences of
+    simple functions  $\{\phi_n\}$ and $\{\psi_n\}$ for which
+    \begin{equation*}
+        \phi_n \leq f \leq \psi_n \text{ on } E \text{ for all } n \in \Z^+
+    \end{equation*}
+    and where
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{\psi_n-\phi_n \ dm}}=0
+    \end{equation*}
+    By monotoniocity of the Lebesgue integral, and possibly, replaceing $\phi_n$
+    with $\max{\{\phi_n\}}$ and $\psi_n$ with  $\min{\{\psi_n\}}$ for all $n \in
+    \Z^+$, suppose that  $\{\phi_n\}$ is an increasing sequence, and that
+    $\{\psi_n\}$ is a decreasing sequence. Then by lemma \ref{10.7.1},
+    $\{\phi_n\} \xrightarrow{} f$ and $\{\psi_n\} \xrightarrow{} f$ pointwise
+    almost everywhere on $E$. Since each  $\phi_n$ and  $\psi_n$ are measurable,
+    this makes  $f$ measurable.
+\end{proof}
+
+\begin{definition}
+    Let $[a,b]$ a closed bounded interval, and $P$ a partition of  $[a,b]$. We
+    define the \textbf{gap} of $P$ to be the maximum distatance between any two
+    consecutive points of $P$, and we denote it $\gap{P}$.
+\end{definition}
+
+\begin{theorem}[Lebesgue's Theorem]\label{10.7.3}
+    Let $f$ be a bounded real-valued function on a close bounded interval
+    $[a,b]$. Then $f$ is Riemann integrable on  $[a,b]$ if, and only if $f$ is
+    continuous almost everywhere on $[a,b]$.
+\end{theorem}
+\begin{proof}
+    We denote the Riemann integral of a real-valued function $f$ by
+    $(R)\int{f}$. Suppose then, that $f$ is Riemann integrable, then there exist
+    sequences of partitions  $\{P_n\}$ and $\{Q_n\}$ for which
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{U(f,P_n)-L(f,Q_n)}=0
+    \end{equation*}
+    Now, under refinements, $U(f,P_n)$ decreases, and $L(f,Q_n)$ increases.
+    Suppose then that $P_{n+1}$ is a refinement of $P_n$, and take  $P_n=Q_n$.
+    Define  $\phi_n$ the lower step function associated with $f$ with resepct to
+    $P_n$ and $\psi$ the upper step function associated with $f$ with resepct to
+    $P_n$. Then by definition of the Riemann integral,
+    \begin{equation*}
+        L(f,P_n)=(R)\int_a^b{\phi_n(x) \ dx} \text{ and }
+        U(f,P_n)=(R)\int_a^b{\psi_n(x) \ dx}
+    \end{equation*}
+    for all $n \in \Z^+$. Then $\{\phi_n\}$ and $\{\psi_n\}$ are sequences of
+    Lebesgue integrable step functions (since they are step function) such that
+    \begin{equation*}
+        \phi_n \leq f \leq \psi_n \text{ on } E \text{ for all } n \in Z^+
+    \end{equation*}
+    Moreover, $\{\phi_n\}$ is an increasing sequence, and $\{\psi_n\}$ is a
+    decreasing sequence. Moreover,
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_E{\psi_n-\phi_n \ dm}}=0
+    \end{equation*}
+    Therefore, by lemma \ref{10.7.1}, $\{\phi_n\} \xrightarrow{} f$ and
+    $\{\psi_n\} \xrightarrow{} f$ pointwise almost everywhere on $[a,b]$.
+
+    Now, let $E$ be the set of points $x \in [a,b]$ for which $\lim{\phi_n(x)}
+    \neq f(x)$ and $\lim{\psi_n(x)} \neq f(x)$ as $n \xrightarrow{} \infty$.
+    Choose an $n_0 \in \Z^+$, for which
+    \begin{equation*}
+        f(x_0)-\e<\phi_n(x_0) \leq f(x_0) \leq \psi_n(x_0)<f(x_0)+\e
+        \text{ for all } n \geq n_0 \text{ and some } x_0 \in [a,b]
+    \end{equation*}
+    Notice that $x_0$ is not a partition point of $P_{n_0}$ for any partition
+    $P_{n_0}$, hence, choose a $\d>0$ such that the open interval
+    $(x_0-\d,x_0+\d)$ is contained in an open interval $I_{n_0}$ deteremined by
+    $P_{n_0}$ (i.e. $(x_0-\d,x_0+\d) \subseteq I_{n_0}$). Then if $|x-x_0|<\d$,
+    \begin{equation*}
+        \phi_{n_0}(x) \leq f(x) \leq \psi_{n_0}(x)
+    \end{equation*}
+    so that
+    \begin{equation*}
+        |f(x)-f(x_0)|<\e \text{ whenever } |x-x_0|<\d
+    \end{equation*}
+    This makes $f$ continuous at  $x_0$. That is, $m(E)=0$.
+
+    Conversely, suppose that $f$ is continuous almost everywhere on $[a,b]$. Let
+    $\{P_n\}$ a sequence of partitions of $[a,b]$ for which $\lim{\gap{P_n}}=0$
+    as $n \xrightarrow{} \infty$. Let $\phi_n$ and $\psi_n$ be the lower and
+    upper step functions associated with  $f$ with respect to $P_n$,
+    respectively. Let $x_0 \in [a,b]$ not a partition point of $[a,b]$ and let
+    $\e>0$ and  $\d>0$ be such that
+    \begin{equation*}
+        f(x_0)-\frac{\e}{2}<f(x)<f(x_0)+\frac{\e}{2} \text{ whenever }
+        |x-x_0|<\d
+    \end{equation*}
+    choose an $N \in \Z^+$ for which  $\gap{P_n}<\d$ for all $n \geq N$. Then if
+     $I_n$ is the open interval determined by  $P_n$, containing  $x_0$, then
+     $I_n \subseteq (x_0-\d,x+\d_0)$. Then
+     \begin{equation*}
+        f(x_0)-\frac{\e}{2} \leq \phi_n(x)<f(x)<\psi_n(x_0) \leq f(x_0)+\frac{\e}{2}
+     \end{equation*}
+     therefore
+     \begin{equation*}
+         0 \leq \psi_n(x_0)-f(x_0)<\e \text{ and }
+         0 \leq f(x_0)-\phi_n(x_0)<\e \text{ for all } n \geq N
+     \end{equation*}
+     That is, $\{\phi_n\} \xrightarrow{} f$ and $\{\psi_n\} \xrightarrow{} f$
+     pointwise on on the set of points of the open interval $(a,b)$ at which $f$
+     is continuous. Now, we also have that since  $f$ is bounded, so is each
+     $\phi_n$ and $\psi_n$. Therefore, by the bounded convergence theorem
+     (theorem \ref{10.1.7}), and recalling that the Lebesgue integral and
+     Riemann integral conincide for step functions
+     \begin{equation*}
+         \lim_{n \xrightarrow{} \infty}{(R)\int_a^b{\psi_n(x)-\phi_n(x) \ dx}}=0
+     \end{equation*}
+     That is,
+     \begin{equation*}
+         \lim_{n \xrightarrow{} \infty}{U(f,P_n)-L(f,P_n)}=0
+     \end{equation*}
+     which makes
+     \begin{equation*}
+         \bbar{(R)\int_a^b}{f(x) \ dx}=\bar{(R)\int_a^b}{f(x) \ dx}
+     \end{equation*}
+     That is, $f$ is Riemann integrable.
+\end{proof}
