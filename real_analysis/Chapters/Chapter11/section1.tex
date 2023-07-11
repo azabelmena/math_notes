@@ -1,1 +1,211 @@
 \section{Differentiation of Monotone Functions}
+
+\begin{definition}
+    A collection $\Ic$ of closed bounded nondegenerate intervals is said to be a
+     \textbf{Vitali covering} of a set $E$ provided for any  $x \in E$ and $\e>0$,
+     there is an  $I \in \Ic$ for which $x \in I$, and  $l(I)<\e$.
+\end{definition}
+
+\begin{lemma}[Vatali's Covering Lemma]\label{11.1.1}
+    Let $E$ be a set of finite outer measure, and $\Ic$ a Vitali covering of
+    $E$. Then for every $\e>0$, there is a finite subcollection
+    $\{I_k\}_{k=1}^n$ of $\Ic$ for which
+    \begin{equation*}
+        m^\ast\Big{(} \com{E}{\bigcup_{k=1}^n{I_n}} \Big{)}<\e
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since $E$ has finite outer measure, there is an open set $U$, containing
+    $E$, with finite measure. Since  $\Ic$ is a Vitali covering of  $E$, suppose
+    that each  $I \in \Ic$ is contained in  $U$. Then by countable additivity
+    and the monotonicity of measure, provided the collection $\{I_k\}^_k=1^n$ is
+    a disjoint collection
+    \begin{equation*}
+        \sum_{k=1}^n{l(I_k)} \leq m(U)
+    \end{equation*}
+    so the sum of the lenghts of each $I_k$ is finite. Moreover, since each
+    $I_k$ is closed, then
+    \begin{equation*}
+        \com{E}{\bigcup_{k=1}^n{I_k}} \subseteq \bigcup_{I \in \Ic_n}{I}
+    \end{equation*}
+    where $\Ic_n=\{I \in \Ic : I \cap \bigcup_{k=1}^n{I_k} \text{ is
+    nonempty}\}$. Now, if there is a finite disjoint collection of $\Ic$
+    vcovering  $E$, we are done. Otherwise, by induction, choose a disjoint
+    countable collection  $\{I_k\}_{k=1}^n$ of closed bounded intervals for
+    which
+    \begin{equation*}
+        \com{E}{\bigcup_{k=1}^n{I_k}} \subseteq \bigcup_{k=n+1}^\infty{5I_k}
+    \end{equation*}
+    where $5I_k$ is the closed bounded itnerval whose midpoint is that of
+    $I_k$, and for which  $l(5I_k)=5l(I_k)$. Let $I_1 \in \Ic$, and for some $n
+    \in \Z^+$, choose  $\{I_k\}_{k=1}^n$. Since $\com{E}{\bigcup{I_k}}$ is
+    nonempty, we have that $\Ic_n$ is nonempty. Moreover, the least upper bound
+     $s_n$ of lengths of  $I \in \Ic_n$ is finite since  $m(U)$ is a finite
+     upper bound on these lenghts. Choose, then $I_{n+1} \in \IC_n$ for which
+     $l(I_{n+1})>\frac{5\e}{2}$. Then $\{I_k\}$ is countable disjoint
+     subcollection of $\Ic$ for which
+     \begin{equation*}
+         l(I_{n+1})>\frac{l(I)}{2} \text{ if } I \in \Ic \text{ and }
+         I \cap \bigcup_{k=1}^n{I_k} \text{ is nonempty}
+     \end{equation*}
+
+     We claim that the sequence $\{l(I_k)\} \xrightarrow{} 0$ as $k
+     \xrightarrow{} \infty$. Fix $n \in \Z^+$, and let  $x \in
+     \com{E}{\bigcup{I_k}}$. Then there is an $I \in \Ic$ containing  $x$ and
+     disjoint from  $\bigcup_{k=1}^n{I_k}$. Now, for some $N \in \Z^+$, there is
+     an  $I_N$ for which  $I \cap I_k$ is nonempty for all  $k \geq N$;
+     othewise, we'd have  $l(I_k)>\frac{l(I)}{2}$ for all $k$, which cannot
+     happen. Then  $N>n$ since  $I \cap \bigcup_{k=1}^{N-1}{I_k}$ is nonempty.
+     Moreover, $l(I_N)>\frac{l(I)}{2}$. Since $x \in I$, and  $x \in I \cap
+     I_N$, the distance from $x$ to the midpoint of  $I_N$ is less that
+     $\frac{5}{2}l(I_N)$ so that $x \in 5I_N$. This puts  $x \in
+     \bigcup_{k=n+1}^\infty{5I_k}$. Now, let $\e>0$, then there is an  $n \in
+     \Z^+$ for which
+     \begin{equation*}
+         \sum{l(I_k)}<\frac{\e}{5}
+     \end{equation*}
+     by countable additivity and monotonicity, we obtain the result.
+\end{proof}
+
+\begin{definition}
+    Let $f$ be a realvalued function, and  $x$ a point in the interior of the
+    domain of  $f$. We define the  \textbf{upper derivative} of $f$ at  $x$ to
+    be
+    \begin{equation*}
+        \bar{D}{f(x)}=\lim_{h \xrightarrow{} 0}
+        \Big{(}\sup_{0<|t| \leq h}{\Big{\{} \frac{f(x+t)-f(x)}{t}\Big{\}}} \Big{)}
+    \end{equation*}
+    We define the \textbf{lower derivative} of $f$ at $x$ to be
+    \begin{equation*}
+        \bbar{D}{f(x)}=\lim_{h \xrightarrow{} 0}
+        \Big{(}\inf_{0<|t| \leq h}{\Big{\{} \frac{f(x+t)-f(x)}{t}\Big{\}}} \Big{)}
+    \end{equation*}
+    We call $f$  \textbf{differentiable} at $x$ provided
+    $\bar{D}{f(x)}=\bbar{D}{f(x)}$, and denote the \textbf{derivative} of $f$ at
+     $x$ by  $D{f(x)}=f'(x)$.
+\end{definition}
+
+\begin{lemma}\label{11.1.2}
+    Let $f$ be an increasing function on a closed bounded interval  $[a,b]$.
+    Then for any $\a \in \R$
+    \begin{equation*}
+        \a{m^\ast(E_\a)} \leq f(b)-f(a)
+    \end{equation*}
+    where $E_\a=\{x \in (a,b) : \bar{D}{f(x)} \geq \a\}$. Moreover,
+    $m^\ast(E_\infty)=0$, where $E_\infty=\{x \in (a,b) :
+    \bar{D}{f(x)}=\infty\}$.
+\end{lemma}
+\begin{proof}
+    Let $\a>0$, and choose an  $\a' \in (0,\a)$ and let $\Ic$ the collection of
+    closed bounded intervals $[c,d]$, contained in $[a,b]$, for which $f(d)-f(c)
+    \geq \a'(d-c)$. Since $\bar{D}{f(x)} \geq \a$ on $E_\a$,  $\Ic$ is a Vitali
+    covering of  $E_\a$. By Vitali's covering lemma, there is a finite disjoint
+    subcollection $\{[c_k,d_k]\}_{k=1}^n$ of $\Ic$, and an $\e>0$, for which
+    \begin{equation*}
+        m^\ast\Big{(} \com{E}{\bigcup_{k=1}^n{[c_k,d_k]}} \Big{)}<\e
+    \end{equation*}
+    Now, $E_\a \subseteq \bigcup{[c_k,d_k]} \cup
+    (\com{E}{\bigcup_{k=1}^n{[c_k,d_k]}})$, by the finite subadditivity of
+    outer measure,
+    \begin{equation*}
+        \a'm^\ast(E_\a)<\a'\sum_{k=1}^n{(d_k-c_k)}+\e \leq
+        \sum_{k=1}^n{(f(d_k)-f(c_k))}+\e
+    \end{equation*}
+
+    Since $f$ is increasing on  $[a,b]$, and $\{[c_k,d_k]\}_{k=1}^n$ is disjoint,
+    \begin{equation*}
+        \sum_{k=1}^n{f(d_k)-f(c_k)} \leq f(b)-f(a)
+    \end{equation*}
+    Therefore for every $\e>0$, and  $\a' \in (0,\a)$
+    \begin{equation*}
+        \a'm^\ast(E_\a) \leq f(b)-f(a)+\frac{\e}{\a'}j
+    \end{equation*}
+    Moreover, notice for $n \in \Z^+$, that $E_\infty \subseteq E_n$ so that
+    $m^\ast(E_\infty) \leq m^\ast(E_\a)\leq \frac{1}{n}(f(b)-f(a))$.
+\end{proof}
+
+\begin{theorem}[Lebesgue]\label{11.1.3}
+    If $f$ is a monotone function on an open interval  $(a,b)$, then $f$ is
+    differentiable almost everywhere on  $(a,b)$.
+\end{theorem}
+\begin{proof}
+    Suppose that $f$ is monotone increasing and that  $(a,b)$ is bonded. If not,
+    then express $(a,b)$ as the union of an ascending collection of open bounded
+    intervals and use the countable additivity of measure. Now, let $E_{\a,\b}=
+    \{x \in (a,b) : \bar{D}{f(x)}>\a>\b>\bbar{D}{f(x)}\}$, where $\a,\b \in \Q$.
+    Then the set of points at which $\bar{D}{f(x)}>\bbar{D}{f(x)}$ is
+    \begin{equation*}
+        E=\bigcup_{\a,\b}{E_{\a,\b}}
+    \end{equation*}
+    which is a countable union. Therefore, by countable subadditivity of outer
+    measure, it suffices to show that $m^\ast(E_{\a,\b})=0$. let $\a>\b$.
+    Let $\e>0$ and choose an open set  $U$ for which  $E_{\a,\b}
+    \subseteq U \subseteq (a,b)$, and $m(U)<m^\ast(E_{\a,\b})+\e$. Let $\Ic$ the
+    collection of open bounded intervals  $[c,d]$, contained in $U$ for which
+    \begin{equation*}
+        f(d)-f(c)<\b(d-c)
+    \end{equation*}
+    Since $\bbar{D}{f(x)}<\b$ on $E_{\a,\b}$, $\Ic$ is a Vitali cover of  $E$.
+    Then by Vitali's covering lemma, there is a finite disjoint subcollection
+    $\{[c_k,d_k]\}_{k=1}^n$ of $\Ic$, and an $\e>0$ for which
+    \begin{equation*}
+        m^\ast\Big{(} \com{E_{\a,\b}}{\bigcup_{k=1}^n{[c_k,d_k]}} \big{)}<\e
+    \end{equation*}
+    Then by the choice of each $[c_k,d_k]$, and by the inclusion of $E_{\a,\b}$
+    in $U$, by lemma \ref{11.1.2} appleid to $f|_{[c_k,d_k]}$,
+    \begin{equation*}
+        \a{m^\ast(E_{\a,\b} \cap [c_k,d_k])} \leq f(d_k)-f(c_k)
+    \end{equation*}
+    Therefore $\a{m^\ast(E_{\a,\b})} \leq \b{m^\ast(E_{\a,\b})}+\e$ for all
+    $\e>0$. This makes  $m^\ast(E_{\a,\b})$ finite, and since $\frac{\b}{\a}<1$,
+    $m^\ast(E_{\a,\b})=0$.
+\end{proof}
+
+\begin{definition}
+    Let $f$ be integrable on the closed bounded interval  $[a,b]$, and extend
+    $f$ to take the value $f(b)$ on $(b,b+1]$. For $0 \leq h \leq 1$, we define
+    the  \textbf{divided difference function} $\Diff_h{f}$ and the
+    \textbf{average value} function $\Av_h{f}$ to be
+    \begin{equation*}
+        \Diff_h{f(x)}=\frac{f(x+h)-f(x)}{h} \text{ and }
+        \Av_h{f(x)}=\frac{1}{h}\int_x^{x+h}{f(t) \ dt} \text{ for all } x \in
+        [a,b]
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{11.1.4}
+    Let $f$ be integrable on the closed bounded interval  $[a,b]$, and extend
+    $f$ to take the value $f(b)$ on $(b,b+1]$. Then for $0 \leq h \leq 1$
+    \begin{equation*}
+        \int_u^v{\Diff_h{f(x)} \ dx}=\Av_f{f(v)}-\Av_h{f(u)}
+    \end{equation*}
+\end{lemma}
+\begin{corollary}
+    Let $f$ be an increasing function on the closed interval  $[a,b]$. Then
+    $\D{f}$ is integrable on $[a,b]$, and
+    \begin{equation*}
+        \int_a^b{D{f(x)} \ dx} \leq f(b)-f(a)
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    Since $f$ is increasing on  $[a,b]$ it is measurable, hence $\Diff_h{f}$ is
+    measurable. By Lebesgu's theorem (theorem \ref{11.1.3}), $f$ is
+    differentiable almost everywhere on $(a,b)$. Therefore,
+    $\{\Diff_{\frac{1}{h}}{f(x)}\}$ is a sequence of nonnegative measurable
+    functions converging pointwise almost everywhere to $D{f(x)}$ on $[a,b]$. By
+    Fatou's lemma,
+    \begin{equation*}
+        \int_a^b{D{f(x)} \ dx} \leq \liminf{\int_a^b{\Diff_{\frac{1}{h}}{f(x)} \
+        dx}}
+    \end{equation*}
+    as $n \xrightarrow{} \infty$. Then for every $n \in \Z^+$, since  $f$ is
+    increasing,
+    \begin{equation*}
+        \int_a^b{\Diff_{\frac{1}{h}}{f(x)} \ dx}=n\int_a^b{f(x) \
+        dx}-n\int_a^{a+\frac{1}{h}}{f(x) \ dx} \leq f(b)-f(a)
+    \end{equation*}
+    so that
+    \begin{equation*}
+        \limsup{\int_a^b{\Diff_{\frac{1}{h}}{f(x)} \ dx}} \leq f(b)-f(a)
+    \end{equation*}
+\end{proof}
