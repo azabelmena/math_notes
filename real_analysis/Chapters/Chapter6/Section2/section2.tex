@@ -5,38 +5,38 @@
 \section{Mean Value Theorems.}
 
 \begin{definition}
-    Let $f:X \rightarrow \R$ be defined on a metric space $X$. We say that  $f$ has a 
-    \textbf{local maximum} at a point  $p \in X$, if  there is a $\delta>0$ for which  $f(q) \leq f(p)$ 
-    whenever  $d(q,p)<\delta$. Likewise $f$ has a \textbf{local minimum} at a point  $p \in X$, 
-    if  there is a $\delta>0$ for which  $f(q) \leq f(p)$ whenever  $d(q,p)<\delta$. We call 
+    Let $f:X \rightarrow \R$ be defined on a metric space $X$. We say that  $f$ has a
+    \textbf{local maximum} at a point  $p \in X$, if  there is a $\delta>0$ for which  $f(q) \leq f(p)$
+    whenever  $d(q,p)<\delta$. Likewise $f$ has a \textbf{local minimum} at a point  $p \in X$,
+    if  there is a $\delta>0$ for which  $f(q) \leq f(p)$ whenever  $d(q,p)<\delta$. We call
     local maxima and local minumums \textbf{local extrema}.
 \end{definition}
 
 \begin{theorem}\label{6.2.1}
-    Let $f:[a,b] \rightarrow \R$ be a realvalued function, and suppose that  $f$ has a local 
+    Let $f:[a,b] \rightarrow \R$ be a realvalued function, and suppose that  $f$ has a local
     extremum at  $x \in (a,b)$. If $f'$ exists, then  $f'(x)=0$.
 \end{theorem}
 \begin{proof}
-    Suppose, without loss of generality that $f$ has a local maximum at  $x$. Choosse  $\delta>0$ 
-    such that $a<x-\delta<x<x+\delta<b$. Then if  $x-\delta<t<x$, we have  $|t-x+\delta|<\delta$, so  $f(t) \leq f(x)$, 
-    thus  $\frac{f(t)-f(x)}{t-x} \leq 0$. Similarly, for $x<t<x+\delta$, we get $\frac{f(t)-f(x)}{t-x} \geq 0$, 
+    Suppose, without loss of generality that $f$ has a local maximum at  $x$. Choosse  $\delta>0$
+    such that $a<x-\delta<x<x+\delta<b$. Then if  $x-\delta<t<x$, we have  $|t-x+\delta|<\delta$, so  $f(t) \leq f(x)$,
+    thus  $\frac{f(t)-f(x)}{t-x} \leq 0$. Similarly, for $x<t<x+\delta$, we get $\frac{f(t)-f(x)}{t-x} \geq 0$,
     hence, as $t \rightarrow x$, we get  $0 \leq f'(0) \leq 0$, thus  $f'(x)=0$.
 \end{proof}
 
 \begin{theorem}[The Generalized Mean Value Theorem]\label{6.2.2}
-    If $f,g:[a,b] \rightarrow \R$ are continuous on  $[a,b]$, and differentiable on  $(a,b)$, then 
+    If $f,g:[a,b] \rightarrow \R$ are continuous on  $[a,b]$, and differentiable on  $(a,b)$, then
     there is a point  $x \in (a,b)$ such that $(f(b)-f(a))g('x)=(g(b)-g(a))f'(x)$.
 \end{theorem}
 \begin{proof}
-    Let $h(t)=(f(b)-f(a))g('x)-(g(b)-g(a))f'(x)$, for $t \in [a,b]$, then $h$ is continuous on 
-    $[a,b]$, and differentiable on  $(a,b)$, moreover, we have  $h(b)=f(b)g(a)-f(a)g(b)=h(b)$. Now 
-    if  $h$ is constant, then $h'=0$ for all  $t$ and we are done., Now suppose that  $h(a) \leq h(t)$, 
-    and let  $x \in (a,b)$, be a local minimum of $h$, then  $h'(x)=0$, and we are done; the same 
+    Let $h(t)=(f(b)-f(a))g('x)-(g(b)-g(a))f'(x)$, for $t \in [a,b]$, then $h$ is continuous on
+    $[a,b]$, and differentiable on  $(a,b)$, moreover, we have  $h(b)=f(b)g(a)-f(a)g(b)=h(b)$. Now
+    if  $h$ is constant, then $h'=0$ for all  $t$ and we are done., Now suppose that  $h(a) \leq h(t)$,
+    and let  $x \in (a,b)$, be a local minimum of $h$, then  $h'(x)=0$, and we are done; the same
     result follows for local minima of  $h$.
 \end{proof}
 
 \begin{corollary}[The Mean Value Theorem]
-    LEt $f:[a,b] \rightarrow \R$ be continuous on  $[a,b]$, and differentiable on  $(a,b)$. Then 
+    LEt $f:[a,b] \rightarrow \R$ be continuous on  $[a,b]$, and differentiable on  $(a,b)$. Then
     there is an $x \in (a,b)$ such that $f(b)-f(a)=(b-a)f'(x)$.
 \end{corollary}
 \begin{proof}
@@ -44,19 +44,19 @@
 \end{proof}
 
 \begin{theorem}\label{6.2.3}
-    Suppose that $f:[a,b] \rightarrow \R$ is differentiable on  $(a,b)$. Then the following hold 
+    Suppose that $f:[a,b] \rightarrow \R$ is differentiable on  $(a,b)$. Then the following hold
     for all $x \in (a,b)$:
-         \begin{enumerate}[label=(\arabic*)]
-             \item If $f' \geq 0$, then $f$ is monotonically increasing.
+         \begin{enumerate}
+             \item[(1)] If $f' \geq 0$, then $f$ is monotonically increasing.
 
-             \item If  $f'=0$, then  $f$ is constant.
+             \item[(2)] If $f'=0$, then  $f$ is constant.
 
-             \item If  $f' \leq 0$, then  $f$ is monotonically decreasing.
+             \item[(3)] If  $f' \leq 0$, then  $f$ is monotonically decreasing.
         \end{enumerate}
 \end{theorem}
 \begin{proof}
-    Let $x_1,x_2 \in (a,b)$, then by the mean value theorem, there is an $x \in (x_1,x_2)$ 
-    such that $f(x_2)-f(x_1)=(x_2-x_1)f'(x)$. Then if $f'(x)=0$, we get  $f(x_2)=f(x_1)$, and that 
-    $f$ is constant. If $f'(x) \geq 0$, we get  $f(x_2) \geq f(x_1)$, making $f$ monotonically increasing, 
+    Let $x_1,x_2 \in (a,b)$, then by the mean value theorem, there is an $x \in (x_1,x_2)$
+    such that $f(x_2)-f(x_1)=(x_2-x_1)f'(x)$. Then if $f'(x)=0$, we get  $f(x_2)=f(x_1)$, and that
+    $f$ is constant. If $f'(x) \geq 0$, we get  $f(x_2) \geq f(x_1)$, making $f$ monotonically increasing,
     similarly, if  $f'(x) \leq 0$, we get  $f$ monotonically decreasing.
 \end{proof}

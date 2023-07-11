@@ -5,58 +5,58 @@
 \section{Discontinuities.}
 
 \begin{definition}
-    Let $X$ and  $Y$ be metric spaces, and let  $f:E \rightarrow Y$ for $E \subseteq X$. 
-    If there is a point $x\ in E$ for which  $f$ is not continuous, we say that  $f$ is 
-    textbf{discontinuous} at $x$, and we say that  $f$ has a \textbf{discontinuity} at 
+    Let $X$ and  $Y$ be metric spaces, and let  $f:E \rightarrow Y$ for $E \subseteq X$.
+    If there is a point $x\ in E$ for which  $f$ is not continuous, we say that  $f$ is
+    textbf{discontinuous} at $x$, and we say that  $f$ has a \textbf{discontinuity} at
     $x$.
 \end{definition}
 
 \begin{definition}
-    Let $f$ be defined on  $(a,b)$, and let  $x$ be such that  $a \leq x<b$. We write 
+    Let $f$ be defined on  $(a,b)$, and let  $x$ be such that  $a \leq x<b$. We write
     $f(x+)=q$ if $f(t_n) \rightarrow q$ for all sequences  $\{t_n\}$ in  $(x,b)$ such that
-    $t_n \rightarrow x$. Similarly, if  $x$ is such that  $a<x \leq b$, we write  $f(x-)=q$ if 
-    $f(t_n) \rightarrow q$ for all  sequences $\{t_n\}$ in  $(a,x)$ such that $t_n \rightarrow x$. 
-    We call  $f(x+)$ and  $f(x-)$ the \textbf{right handed limit} and \textbf{left handed limit} of  $f$ 
-    at  $x$ respectively, and write  $\lim_{t \rightarrow x^+}{f}=f(x+)$ and  $lim_{t \rightarrow x^-}{f}=f(x-)$. 
+    $t_n \rightarrow x$. Similarly, if  $x$ is such that  $a<x \leq b$, we write  $f(x-)=q$ if
+    $f(t_n) \rightarrow q$ for all  sequences $\{t_n\}$ in  $(a,x)$ such that $t_n \rightarrow x$.
+    We call  $f(x+)$ and  $f(x-)$ the \textbf{right handed limit} and \textbf{left handed limit} of  $f$
+    at  $x$ respectively, and write  $\lim_{t \rightarrow x^+}{f}=f(x+)$ and  $lim_{t \rightarrow x^-}{f}=f(x-)$.
 \end{definition}
 
 \begin{theorem}\label{5.5.1}
-    If $x \in (a,b)$, then $\lim{f}$ exists as $t \rightarrow x$ if and only if, 
+    If $x \in (a,b)$, then $\lim{f}$ exists as $t \rightarrow x$ if and only if,
     $f(x+)=f(x-)=lim{f}$.
 \end{theorem}
 \begin{proof}
-    Suppose that $\lim{f}$ exists, by the uniqueness of the limit, and the sequential criterion, 
-    we get that $f(x+)=f(x-)=\lim{f}$. Conversely, suppose that  $f(x+)=f(x-)=q$. Then 
-    $f(t_n) \rightarrow q$ for all sequences $\{t_n\}$ in $(x,b)$ and $(a,x)$, then  $f(t_n) \rightarrow q$ 
-    for all sequences  $\{t_n\}$ in  $(a,b)$, thus by the sequential criterion again, $\lim{f}$ 
+    Suppose that $\lim{f}$ exists, by the uniqueness of the limit, and the sequential criterion,
+    we get that $f(x+)=f(x-)=\lim{f}$. Conversely, suppose that  $f(x+)=f(x-)=q$. Then
+    $f(t_n) \rightarrow q$ for all sequences $\{t_n\}$ in $(x,b)$ and $(a,x)$, then  $f(t_n) \rightarrow q$
+    for all sequences  $\{t_n\}$ in  $(a,b)$, thus by the sequential criterion again, $\lim{f}$
     exists, and $\lim{f}=q$.
 \end{proof}
 
 \begin{definition}
-    Let $f$ be defined on  $(a,b)$. If  $f$ is discontinuous at a point  $x$, and 
-    $f(x+)$ and  $f(x-)$ exists, we say that  $f$ has a \textbf{removable discontinuity} at  $x$, 
+    Let $f$ be defined on  $(a,b)$. If  $f$ is discontinuous at a point  $x$, and
+    $f(x+)$ and  $f(x-)$ exists, we say that  $f$ has a \textbf{removable discontinuity} at  $x$,
     otherwise, we say the  $f$ has an \textbf{infinite discontinuity}.
 \end{definition}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item The function $f(x)=1$ for  $x \in \Q$ and  $f(x)=0$ for  $x \in \com{\R}{\Q}$ has 
+    \begin{enumerate}
+        \item[(1)] The function $f(x)=1$ for  $x \in \Q$ and  $f(x)=0$ for  $x \in \com{\R}{\Q}$ has
             an infinite discontinuity at every point $x$.
 
-        \item The function $f(x)=x$ for  $x \in \Q$ and  $f(x)=0$ for  
-            $x \in \com{\R}{\Q}$ is continuous at $x=0$, and has an infinite 
+        \item[(2)] The function $f(x)=x$ for  $x \in \Q$ and  $f(x)=0$ for
+            $x \in \com{\R}{\Q}$ is continuous at $x=0$, and has an infinite
             discontinuity at every other point $x$.
 
-        \item The function $f(x)=\sin{\frac{1}{x}}$ for  $x \neq 0$ and  $f(x)=0$ for $x=0$, 
+        \item[(3)] The function $f(x)=\sin{\frac{1}{x}}$ for  $x \neq 0$ and  $f(x)=0$ for $x=0$,
             has an infinite discontinuity at $x=0$.
 
-        \item The function $f(x)=x+2$ for  $-3<x<-2$ and  $0 \leq x<1$ and  $f(x)=-x-2$ for 
-            $-2 \leq x<0$ has a removable discontinuity at  $x=0$, and is continuous everywhere 
+        \item[(4)] The function $f(x)=x+2$ for  $-3<x<-2$ and  $0 \leq x<1$ and  $f(x)=-x-2$ for
+            $-2 \leq x<0$ has a removable discontinuity at  $x=0$, and is continuous everywhere
             else.
-    \end{enumerate}		
-\end{example} 
+    \end{enumerate}
+\end{example}
 
-\begin{remark} 
-    The discontinuities in examples $(1)$ and  $(2)$ are the result of  $\Q$ and  
+\begin{remark}
+    The discontinuities in examples $(1)$ and  $(2)$ are the result of  $\Q$ and
     $\com{\R}{\Q}$ being dense in  $\R$.
 \end{remark}

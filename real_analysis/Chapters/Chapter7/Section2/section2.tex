@@ -7,28 +7,28 @@
 \begin{theorem}\label{7.2.1}
     Let $f$ and  $g$ be realvaulued functions integrable with respect to
     $\alpha$ over  an interval $[a,b]$. Then:
-        \begin{enumerate}[label=(\arabic*)]
-            \item $f+g$ and  $cf$
+        \begin{enumerate}
+            \item[(1)] $f+g$ and  $cf$
                     \begin{equation}
                         \int_{a}^{b}{f+g}d\alpha =
                         \int_{a}^{b}{f}d\alpha+\int_{a}^{b}{g}d\alpha
                     \end{equation}
 
-            \item If $f \leq g$ on  $[a,b]$, then:
+                \item[(2)] If $f \leq g$ on  $[a,b]$, then:
                     \begin{equation}
                         \int_{a}^{b}{f} d\alpha \leq \int_{a}^{b}{g d\alpha}
                     \end{equation}
 
-            \item If $c \in (a,b)$ and  $f$  then:
+                \item[(3)] If $c \in (a,b)$ and  $f$  then:
                     \begin{equation}
                         \int_{a}^{c}{f} d\alpha+\int_{c}^{b}{f} d\alpha=\int_{a}^{b}{f} d\alpha
                     \end{equation}
 
-            \item If $|f| \leq M$ on  $[a,b]$, then:
+                \item[(4)] If $|f| \leq M$ on  $[a,b]$, then:
                     \begin{equation}
                         |\int_{a}^{c}{f} d\alpha| \leq M(\alpha(b)-\alpha(a))
                     \end{equation}
-            \item If $f$ is intergrable with respect to  $\alpha_1$, and
+                \item[(5)] If $f$ is intergrable with respect to  $\alpha_1$, and
                 $\alpha_2$ on $[a,b]$, and $c>0$, then:
                     \begin{equation}
                         \int_{a}^{b}{f} d(\alpha_1+\alpha_2)=\int_{a}^{b}{f}
@@ -37,8 +37,8 @@
         \end{enumerate}
 \end{theorem}
 \begin{proof}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $P$ be a partition of  $[a,b]$, then
+    \begin{enumerate}
+        \item[(1)] Let $P$ be a partition of  $[a,b]$, then
             $L(f,P,\alpha)+L(f,P,\alpha) \leq L(f+g,P,\alpha) \leq
             U(f+g,P,\alpha) \leq U(f,P,\alpha)+U(g,P,\alpha)$. Now let
             $\epsilon>0$, there are partitions $P_1$, $P_2$, with $P=P_1 \cup
@@ -50,11 +50,11 @@
             $\int{f+g} \leq \int{f}+\int{g}$. Doing the same with $L$, we get
             $\int{f}+\int{g} \leq \int{f+g}$, a nd we are done.
 
-        \item If $f \leq g$, then  $0 \leq g-f$, and we have by part  $(1)$ that
+        \item[(2)] If $f \leq g$, then  $0 \leq g-f$, and we have by part  $(1)$ that
             $g-f$ is intergrable, and that  $0 \leq \int{g-f}=\int{g}-\int{f}$,
             wich gives us the established inequality.
 
-        \item Let  $P_1$ be a ppartition of $[a,c]$, and let  $P_2$ be a
+        \item[(3)] Let  $P_1$ be a ppartition of $[a,c]$, and let  $P_2$ be a
             partition of $[c,b]$, and let  $P=P_1 \cup P_2$ be a partition of
             $[a,b]$. SInce  $f$ is intergrable on  $[a,b]$, there is an
             $\epsilon>0$ such that  $U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$, by
@@ -71,7 +71,7 @@
             \int_{a}^{c}{f}\int_{c}^{b}{f}$. With $L$ we get the reverse
             inequality, and we are done.
 
-        \item  We have that $-M \leq f \leq M$, now let  $P$ be a partition of
+        \item[(4)] We have that $-M \leq f \leq M$, now let  $P$ be a partition of
             $[a,b]$, and let  $\epsilon>0$. Since  $f$ is integrable, we have
             that
                 \begin{equation}
@@ -105,22 +105,22 @@
 \begin{theorem}\label{7.2.2}
     If $f$ and  $g$ are integrable with respect to  $\alpha$ on an interval
     $[a,b]$, then:
-        \begin{enumerate}[label=(\arabic*)]
-            \item $fg$ is integrable with respect to  $\alpha$ on  $[a,b]$.
+        \begin{enumerate}
+            \item[(1)] $fg$ is integrable with respect to  $\alpha$ on  $[a,b]$.
 
-            \item $|f|$ is integrable with respect to  $\alpha$ on  $[a,b]$ and:
+            \item[(2)] $|f|$ is integrable with respect to  $\alpha$ on  $[a,b]$ and:
                 \begin{equation}
                     |\int_{a}^{b}{f} d\alpha| \leq \int_{a}^{b}{|f|} d\alpha
                 \end{equation}
         \end{enumerate}
 \end{theorem}
 \begin{proof}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Take $\phi(t)=t^2$, then by theorem \ref{7.1.10}, $\phi \circ
+    \begin{enumerate}
+        \item[(1)] Take $\phi(t)=t^2$, then by theorem \ref{7.1.10}, $\phi \circ
             f=f^2$ is integrable; then notice that $4fg=(f+g)^2-(f-g)^2$ is
             integrable, hence, so is  $fg$.
 
-        \item Take $\phi(t)=|t|$, then again by theorem \ref{7.1.10},  $\phi
+        \item[(2)] Take $\phi(t)=|t|$, then again by theorem \ref{7.1.10},  $\phi
             \circ f=|f|$ is integrable. Furthermore, choose  $c=\pm1$ such that
             $0 \leq c\int{f}$, since  $cf \leq |f|$, we have that
             $|\int{f}|=c\int{f}=\int{cf} \leq \int{|f|}$.

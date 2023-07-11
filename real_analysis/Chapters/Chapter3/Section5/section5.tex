@@ -6,33 +6,33 @@
 
 \begin{theorem}\label{3.5.1}
     Let $n, p \in \Z^+$. Then the following hold as  $n \rightarrow \infty$.
-        \begin{enumerate}[label=(\arabic*)]
-            \item $\lim{\frac{1}{n^p}}=0$.
+        \begin{enumerate}
+            \item[(1)] $\lim{\frac{1}{n^p}}=0$.
 
-            \item $\lim{\sqrt[p]{n}}=1$.
+            \item[(2)] $\lim{\sqrt[p]{n}}=1$.
 
-            \item $\lim{\sqrt[n]{n}}=1$.
+            \item[(3)] $\lim{\sqrt[n]{n}}=1$.
 
-            \item If $\alpha \in \R$, then  $\lim{\frac{n^{\alpha}}{(1+p)^n}}=0$.
+            \item[(4)] If $\alpha \in \R$, then  $\lim{\frac{n^{\alpha}}{(1+p)^n}}=0$.
 
-            \item If $|x|<1$, then  $\lim{x^n}=0$.
+            \item[(5)] If $|x|<1$, then  $\lim{x^n}=0$.
         \end{enumerate}
 \end{theorem}
 \begin{proof}
-   \begin{enumerate}[label=(\arabic*)]
-       \item Let $n>\sqry[p]{\frac{1}{\epsilon}}$; then $|\frac{1}{n^p}|<\epsilon$.
+   \begin{enumerate}
+       \item[(1)] Let $n>\sqry[p]{\frac{1}{\epsilon}}$; then $|\frac{1}{n^p}|<\epsilon$.
 
-       \item If $p=1$, we are done. If  $p>1$, let  $x_n=\sqrt[n]{p}-1$, then  $x_n>0$. 
-           By the binomial theorem, $1+nx_n \leq (1+x_n)^p=p$, hence $0 \leq x_n \leq \frac{p-1}{p}$. 
+       \item[(2)] If $p=1$, we are done. If  $p>1$, let  $x_n=\sqrt[n]{p}-1$, then  $x_n>0$.
+           By the binomial theorem, $1+nx_n \leq (1+x_n)^p=p$, hence $0 \leq x_n \leq \frac{p-1}{p}$.
            Now if $1>p>0$, then  $ \frac{1}{p}>0$, so we notice that $0 \leq \frac{1}{x_n} \leq \frac{1}{\frac{p-1}{n}}$.
 
-       \item Let $x_n=\sqrt[n]{n}-1$, then  $x_n \geq 0$, then by the binomial theorem again, 
+       \item[(3)] Let $x_n=\sqrt[n]{n}-1$, then  $x_n \geq 0$, then by the binomial theorem again,
            $n=(1+x_n)^n \geq \frac{n(n-1)}{2}x_n^2$, then $0 \leq x_n \leq \sqrt{\frac{2}{n-1}}$.
 
-       \item Let $k \in \Z^+$ such that  $k>\alpha$. Then  $n>2k$,let  $(1+p)^n> {n \choose k}p^k>
-           \frac{n^kp^k}{2^kk!}$. So $0<\frac{n^{\alpha}}{(1+p)^n}<\frac{2^kk!}{p^k}n^{\alha-k}$, since 
+       \item[(4)] Let $k \in \Z^+$ such that  $k>\alpha$. Then  $n>2k$,let  $(1+p)^n> {n \choose k}p^k>
+           \frac{n^kp^k}{2^kk!}$. So $0<\frac{n^{\alpha}}{(1+p)^n}<\frac{2^kk!}{p^k}n^{\alha-k}$, since
            $\alpha-k<0$,  $n^{\alpha-k} \rightarrow 0$ and we are done.
 
-       \item Take  $\alpha=0$, and let  $x=\frac{1}{1+p}$, then the result follow.
-   \end{enumerate} 		
+       \item[(5)] Take  $\alpha=0$, and let  $x=\frac{1}{1+p}$, then the result follow.
+   \end{enumerate}
 \end{proof}

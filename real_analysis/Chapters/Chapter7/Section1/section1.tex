@@ -7,7 +7,7 @@
 \begin{definition}
     Let $[a,b]$ be an interval. A \textbf{partition} of $[a,b]$ is a set of
     points  $P=\{x_0,x_1, \dots, x_n\}$ such that $a=x_0<x_1< \dots <x_n=b$, and
-    we write $\Delta{x_i}=x_i-x_{i-1}$. Now let  $f:[a,b] \rightarrow \R$ be a bounded 
+    we write $\Delta{x_i}=x_i-x_{i-1}$. Now let  $f:[a,b] \rightarrow \R$ be a bounded
     realvalued function, and for each partition $P$ of  $[a,b]$ let
     $M_i=\sup{f}$ and  $m_i=\inf_{f}$ for all  $x_{i-1} \leq x \leq x_i$. We
     define the \textbf{upper Riemann sum} and the \textbf{lower Riemmann sum} to
@@ -15,21 +15,21 @@
        \begin{align}
            U(f,P) &= \sum_{i=1}^{n}{M_i\Delta{x_i}} \\
            L(f,P) &= \sum_{i=1}^{n}{m_i\Delta{x_i}}
-       \end{align}   
+       \end{align}
     respectively. We also define the \textbf{upper Riemann integral} and the
-    \textbf{lower Riemann integral} of $f$ over  $[a,b]$ to be: 
+    \textbf{lower Riemann integral} of $f$ over  $[a,b]$ to be:
        \begin{align}
            \bar{\int_{a}^{b}}{f(x)}dx=\inf{U(f,P)} \\
            \bbar{\int_{a}^{b}}{f(x)}dx=\sup{L(f,P)}
        \end{align}
     Respectively.
-    
+
     If $\bar{\int_{a}^{b}}{f}=\bbar{\int_{a}^{b}}{f}$, then we say that  $f$ is
     \textbf{Riemann integrable} on  $[a,b]$, and we its value the
-    \textbf{Riemann integral}, and denote it to be: 
+    \textbf{Riemann integral}, and denote it to be:
         \begin{equation}
             \int_{a}^{b}{f(x)}dx=\bar{\int_{a}^{b}}{f(x)}dx=\bbar{\int_{a}^{b}}{f(x)}dx
-        \end{equation} 
+        \end{equation}
 \end{definition}
 
 \begin{lemma}\label{7.1.1}
@@ -58,9 +58,9 @@ about the Riemann integral.
     and let  $P$ be a partition of  $[a,b]$ and let
     $\Delta{\alpha_i}=\alpha(x_i)-\alpha(x_{i-1})$. For any realvalued, bounded
     function on  $[a,b]$, defined the \textbf{upper sum} and the \textbf{lower
-    sum} of $f$ with respect to  $P$ and  $\alpha$ to be: 
+    sum} of $f$ with respect to  $P$ and  $\alpha$ to be:
         \begin{align}
-            U(f,P,\alpha) &= \sum_{i=1}^{n}{M_i\Delta{\alpha_i}} \\		
+            U(f,P,\alpha) &= \sum_{i=1}^{n}{M_i\Delta{\alpha_i}} \\
             L(f,P,\alpha) &= \sum_{i=1}^{n}{m_i\Delta{\alpha_i}}
         \end{align}
         Where $M_i=\sup{f}$ and  $m_i=\inf{f}$ for all  $x_{i-1} \leq x \leq
@@ -68,7 +68,7 @@ about the Riemann integral.
         integral} of $f$ with respect to  $\alpha$ on  $[a,b]$ to be:
             \begin{align}
                 \bar{\int_{a}^{b}}{f(x)}d\alpha=\inf{U(f,P,\alpha)} \\
-                \bbar{\int_{a}^{b}}{f(x)}d\alpha=\sup{L(f,P,\alpha)}	
+                \bbar{\int_{a}^{b}}{f(x)}d\alpha=\sup{L(f,P,\alpha)}
             \end{align}
             If $\bar{\int_{a}^{b}}{f}d\alpha=\bbar{\int_{a}^{b}}{f}d\alpha$, we
             call the value:
@@ -84,7 +84,7 @@ about the Riemann integral.
     Let $\alpha(x)=\alpha$, be defined over  $[a,b]$. Then  $\alpha$ is
     monontonically increasing, and our definititions reduces to those for the
     Riemann integral. Here  $U(f,P,x)=U(f,P)$ and  $L(f,P,x)=L(F,P)$.
-\end{example} 
+\end{example}
 
 We are now in a position to investigate the properties of integrability, in the
 Riemann-Stieltjes sense.
@@ -116,7 +116,7 @@ Riemann-Stieltjes sense.
     $L(f,P,\alpha) \leq L(f,Q,\alpha)$ and  $U(f,Q,\alpha) \leq U(f,P,\alpha)$.
 \end{theorem}
 \begin{proof}
-    Let $Q=P \cup \{x'\}$ and suppose that  $x_{i-1} \leq x' \leq x_i$.  Let 
+    Let $Q=P \cup \{x'\}$ and suppose that  $x_{i-1} \leq x' \leq x_i$.  Let
     $w_1=\inf{f}$ for $x_{i-1} \leq x \leq x'$ and let $w_2=\inf{f}$ for $x'
     \leq x \leq x_i$. Then $m_i \leq w_1,w_2$, thus
     $L(f,Q,\alpha)-L(f,P,\alpha)=(w_1-m_i)(\alpha(b)-\alpha(a))-(w_2-m_i)(\alpha(b)-\alpha(a))
@@ -124,7 +124,7 @@ Riemann-Stieltjes sense.
 \end{proof}
 \begin{corollary}
     $L(f,P,\alpha)$ is monontonically increasing and  $U(f,P,\alpha)$ is
-    monontonically decreasing.		
+    monontonically decreasing.
 \end{corollary}
 \begin{proof}
     We note that if $Q$ is a refinment of  $P$, then  $|P| \leq |Q|$, the result
@@ -154,8 +154,8 @@ Riemann-Stieltjes sense.
     A realvalued function $f$ is integrable over an interval  $[a,b]$ if and
     only if for $\epsilon>0$, there is a partition $P$ such that:
         \begin{equation}
-            U(f,P,\alpha)-L(f,P,\alpha)<\epsilon		
-        \end{equation} 
+            U(f,P,\alpha)-L(f,P,\alpha)<\epsilon
+        \end{equation}
 \end{theorem}
 \begin{proof}
     For every $P$, we have that  $L(f,P,\alpha) \leq \bbar{\int}{f} \leq
@@ -163,10 +163,10 @@ Riemann-Stieltjes sense.
     $U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$, then we get that:
         \begin{equation}
             0 \leq
-            \bar{\int_{a}^{b}}{f}d\alpha-\bbar{\int_{a}^{b}}{f}d\alpha<\epsilon		
-        \end{equation} 
+            \bar{\int_{a}^{b}}{f}d\alpha-\bbar{\int_{a}^{b}}{f}d\alpha<\epsilon
+        \end{equation}
     implying integrablity for small enough $\epsilon$.
-    
+
     Conversely, suppose that $\bar{\int}{f}=\bbar{\int}{f}$. Let  $\epsilon>0$.
     Then there are partitions  $P_1$ and $P_2$ such that
     $U(f,P_2,\alpha)-{\int}{f}<\frac{\epsilon}{2}$ and
@@ -177,36 +177,36 @@ Riemann-Stieltjes sense.
 
 \begin{theorem}\label{7.1.6}
     The following hold:
-        \begin{enumerate}[label=(\arabic*)]
-            \item If $U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$ for some
+        \begin{enumerate}
+            \item[(1)] If $U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$ for some
                 $\epsilon>0$ and some $P$, then it holds, with the same
                 $\epsilon$, for every refinment of  $P$.
 
-            \item If $U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$ for $P=\{x_0, \dots,
+            \item[(2)] If $U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$ for $P=\{x_0, \dots,
                 x_n\}$, and if $s_i,t_i \in [x_{i-1},x_i]$, then:
                    \begin{equation}
                        \sum_{i=1}^{n}{|f(s_i)-f(t_i)|\Delta\alpha_i}<\epsilon
-                   \end{equation}  
+                   \end{equation}
 
-               \item If $f$ is integrable with respect to  $\alpha$ on  $[a,b]$,
-                   and  $(2)$ holds, then: 
+               \item[(3)] If $f$ is integrable with respect to  $\alpha$ on  $[a,b]$,
+                   and  $(2)$ holds, then:
                    \begin{equation}
-                       |\sum_{i=1}^{n}{f(t_i)\Delta{\alpha_i}}-\int_{a}^{b}{f}d\alpha|<\epsilon		
-                   \end{equation} 
+                       |\sum_{i=1}^{n}{f(t_i)\Delta{\alpha_i}}-\int_{a}^{b}{f}d\alpha|<\epsilon
+                   \end{equation}
         \end{enumerate}
 \end{theorem}
 \begin{proof}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Theorem \ref{7.1.3} implies this.
+    \begin{enumerate}
+        \item[(1)] Theorem \ref{7.1.3} implies this.
 
-        \item If $U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$, we have that
+        \item[(2)] If $U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$, we have that
             $f(s_i),f(t_i) \in [m_i,M_i]$, hence $|f(s_i)-f(t_i)| \leq M_i=m_i$,
             thus we get that  $\sum{|f(s_i)-f(t_i)|\Delta{\alpha_i}} \leq U(f,P,\alpha)-L(f,P,\alpha)<\epsilon$
 
-        \item We have $L(f,P,\alpha) \leq \sum{f(t_i)\Delta{\alpha_i}} \leq
+        \item[(3)] We have $L(f,P,\alpha) \leq \sum{f(t_i)\Delta{\alpha_i}} \leq
     U(f,P,\alpha)$, and  $L(f,P,\alpha) \leq \int{f}d\alpha_i \leq
             U(f,P,\alpha)$, taking differences, we get the following.
-    \end{enumerate}		
+    \end{enumerate}
 \end{proof}
 
 \begin{theorem}\label{7.1.7}
@@ -282,7 +282,7 @@ Riemann-Stieltjes sense.
     whenever  $|s-t|<\delta$, for  $s,t \in [m,M]]$.
 
     Now since $f$ is integrable, there is a partition  $P$ of  $[a,b]$ such that
-    $U(f,P, \alpha)-L(f,P,\alpha)<\delta^2$. Let  $M_i=\sup{f}$, $m_i=\inf{f}$ and 
+    $U(f,P, \alpha)-L(f,P,\alpha)<\delta^2$. Let  $M_i=\sup{f}$, $m_i=\inf{f}$ and
     $M_i'=\sup{h}$, $m_i'=\inf{h}$ for all  $x_{i-1} \leq x \leq x_i$. Now
     divide  $\{1, \dots, n\}$ into two sets  $A$ and  $B$ such that  $i \in A$
     if  $M_i-m_i<\delta$ and  $i \in B$ if  $M_i-m_i>\delta$  (then $A$ and  $B$
@@ -294,7 +294,7 @@ t \leq M$.
     \end{equation*}
     so $\sum{\Delta{\alpha_i}}<\delta$. Then
         \begin{align*}
-            U(h,P,\alpha)-L(h,P,\alpha) &= \sum_{i \in A}{(M_i'-m_i')\Delta{\alpha_i}}+\sum_{i \in B}{(M_i'-m_i')\Delta{\alpha_i}} \\ 
+            U(h,P,\alpha)-L(h,P,\alpha) &= \sum_{i \in A}{(M_i'-m_i')\Delta{\alpha_i}}+\sum_{i \in B}{(M_i'-m_i')\Delta{\alpha_i}} \\
                               &\leq \epsilon(\alpha(b)-\alpha(a))+2K\delta \\
                               &<\epsilon(\alpha(b)-\alpha(a)+2K)
         \end{align*}

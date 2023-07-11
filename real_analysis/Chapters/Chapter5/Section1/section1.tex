@@ -5,110 +5,110 @@
 \section{Limits of Functions.}
 
 \begin{definition}
-    Let $X$, and  $Y$ be metric spaces, and let  $E \subseteq X$, and let  $f:E \rightarrow Y$ be a 
-    function. We say that $f$ \textbf{converges} to a point $q \in Y$, as $x$ \textbf{approaches} a 
-    limit point $p \in X$ if for every  $\epsilon>0$, there is a  $\delta>0$ for which 
-    $d_Y(f(x),q)<\epsilon$, whenever $0<d_X(x,p)<\delta$. We say that  $q$ is the  \textbf{limit} of $f$ 
-    at  $p$ and we write  $f \rightarrow q$ as  $x \rightarrow p$, and  $\lim_{x \rightarrow p}{f(x)}=q$, or more 
+    Let $X$, and  $Y$ be metric spaces, and let  $E \subseteq X$, and let  $f:E \rightarrow Y$ be a
+    function. We say that $f$ \textbf{converges} to a point $q \in Y$, as $x$ \textbf{approaches} a
+    limit point $p \in X$ if for every  $\epsilon>0$, there is a  $\delta>0$ for which
+    $d_Y(f(x),q)<\epsilon$, whenever $0<d_X(x,p)<\delta$. We say that  $q$ is the  \textbf{limit} of $f$
+    at  $p$ and we write  $f \rightarrow q$ as  $x \rightarrow p$, and  $\lim_{x \rightarrow p}{f(x)}=q$, or more
     simply, $\lim{f}=q$.
 \end{definition}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $X=Y=\R$, under the absolute value  $|\cdot|$, and let  $I \subseteq \R$ be 
-            an interval, and $f:I \rightarrow \R$. Then  $f$ has a limit  $L$ as  $x$ approaches 
-            a limit point  $c \in \R$ if for every  $\epsilon>0$, there is a  $\delta>0$ such that 
-            $|f(x)-L|<\epsilon$ whenever  $0<|x-c|<\delta$. We call functions that map into $\R$ 
+    \begin{enumerate}
+        \item[(1)] Let $X=Y=\R$, under the absolute value  $|\cdot|$, and let  $I \subseteq \R$ be
+            an interval, and $f:I \rightarrow \R$. Then  $f$ has a limit  $L$ as  $x$ approaches
+            a limit point  $c \in \R$ if for every  $\epsilon>0$, there is a  $\delta>0$ such that
+            $|f(x)-L|<\epsilon$ whenever  $0<|x-c|<\delta$. We call functions that map into $\R$
             \textbf{real valued}.
 
-        \item Let $X=Y=\C$, under the modulus  $|\cdot|$, and let  $D \subseteq \R$ be 
-            an domain, and $f:D \rightarrow \R$. Then  $f$ has a limit  $L$ as  $z$ approaches 
-            a limit point  $w \in \R$ if for every  $\epsilon>0$, there is a  $\delta>0$ such that 
-            $|f(x)-L|<\epsilon$ whenever  $0<|z-w|<\delta$. We call functions that map into $\C$ 
+        \item[(2)] Let $X=Y=\C$, under the modulus  $|\cdot|$, and let  $D \subseteq \R$ be
+            an domain, and $f:D \rightarrow \R$. Then  $f$ has a limit  $L$ as  $z$ approaches
+            a limit point  $w \in \R$ if for every  $\epsilon>0$, there is a  $\delta>0$ such that
+            $|f(x)-L|<\epsilon$ whenever  $0<|z-w|<\delta$. We call functions that map into $\C$
             \textbf{complex valued}.
 
-        \item Let $X=Y=\R^k$, under the norm  $||\cdot||$, and let  $D \subseteq \R^k$ be 
-            an domain, and $f:D \rightarrow \R^k$. Then  $f$ has a limit  $L$ as  $x$ approaches 
-            a limit point  $c \in \R^k$ if for every  $\epsilon>0$, there is a  $\delta>0$ such that 
-            $||f(x)-L||<\epsilon$ whenever  $0<||x-c||<\delta$. We call functions that map into $\R^k$ 
+        \item[(3)] Let $X=Y=\R^k$, under the norm  $\|\cdot\|$, and let  $D \subseteq \R^k$ be
+            an domain, and $f:D \rightarrow \R^k$. Then  $f$ has a limit  $L$ as  $x$ approaches
+            a limit point  $c \in \R^k$ if for every  $\epsilon>0$, there is a  $\delta>0$ such that
+            $||f(x)-L||<\epsilon$ whenever  $0<||x-c||<\delta$. We call functions that map into $\R^k$
             \textbf{vector valued}.
-    \end{enumerate}		
-\end{example} 
+    \end{enumerate}
+\end{example}
 
 \begin{theorem}[The Sequential Criterion]\label{4.1.1}
-    Let $X$ and  $Y$ be metric spaces, and let  $E \subseteq X$, and  $f:E \rightarrow Y$ be a function, 
-    and  $p \in E$ be a limit point. Then  $\lim{f(x)}=q$ as  $x \rightarrow p$ if and only if 
-    $\lim{f(x_n)}=q$ as  $n \rightarrow \infty$ for any sequence  $\{x_n\} \in E$, such 
+    Let $X$ and  $Y$ be metric spaces, and let  $E \subseteq X$, and  $f:E \rightarrow Y$ be a function,
+    and  $p \in E$ be a limit point. Then  $\lim{f(x)}=q$ as  $x \rightarrow p$ if and only if
+    $\lim{f(x_n)}=q$ as  $n \rightarrow \infty$ for any sequence  $\{x_n\} \in E$, such
     that  $x_n \neq p$ and  $\lim{x_n}=p$.
 \end{theorem}
 \begin{proof}
-    Suppose that $\lim{f(x)}=q$ as  $x \rightarrow p$, and choose  $\{x_n\} \subseteq E$ such that 
-    $x_n \neq p$ and  $\lim{x_n}=p$ as  $n \rightarrow \infty$. Then for  $\epsilon>0$, there is a  $\delta>0$ 
-    such that  $d_Y(f(x),q)<\epsilon$ whenever  $0<d_X(x,p)<\delta$, and since  $d_X(x_n,p)<\delta$ 
-    whenever $n \geq N$ for some  $N>0$, we have  $d_Y(f(x_n),q)<\epsilon$ whenever  $d_X(x_n,p)<\delta$. 
+    Suppose that $\lim{f(x)}=q$ as  $x \rightarrow p$, and choose  $\{x_n\} \subseteq E$ such that
+    $x_n \neq p$ and  $\lim{x_n}=p$ as  $n \rightarrow \infty$. Then for  $\epsilon>0$, there is a  $\delta>0$
+    such that  $d_Y(f(x),q)<\epsilon$ whenever  $0<d_X(x,p)<\delta$, and since  $d_X(x_n,p)<\delta$
+    whenever $n \geq N$ for some  $N>0$, we have  $d_Y(f(x_n),q)<\epsilon$ whenever  $d_X(x_n,p)<\delta$.
 
-    Conversely, suppose that $\lim{f} \neq q$, that is for some  $\epsilon>0$,  $d_Y(f(x),q)>\ \geq \epsilon$ 
-    whenevr  $d_X(x,p)<\delta$ for all  $\delta>0$. Then choose  $\delta=\frac{1}{n}$, for $n \in \Z^+$, 
+    Conversely, suppose that $\lim{f} \neq q$, that is for some  $\epsilon>0$,  $d_Y(f(x),q)>\ \geq \epsilon$
+    whenevr  $d_X(x,p)<\delta$ for all  $\delta>0$. Then choose  $\delta=\frac{1}{n}$, for $n \in \Z^+$,
     then we have $\lim{x_n}=p$, but  $\lim{f(x_n)} \neq q$.
 \end{proof}
 
-The importance of the sequential criterion is that it lets us translate theorems about limits 
+The importance of the sequential criterion is that it lets us translate theorems about limits
 of sequences into theorems about limits of functions.
 
 \begin{corollary}
-    If $f$ has a limit at  $p$, then the limit of  $f$ is unique.		
+    If $f$ has a limit at  $p$, then the limit of  $f$ is unique.
 \end{corollary}
 
 \begin{definition}
-    Letting $f,g:E \rightarrow Y$, we define the  \textbf{sum}, \textbf{product}, \textbf{scalar product} and the 
+    Letting $f,g:E \rightarrow Y$, we define the  \textbf{sum}, \textbf{product}, \textbf{scalar product} and the
     \textbf{quotient} of $f$ and  $g$ to be the functions from  $E$ into  $Y$:
-         \begin{enumerate}[label=(\arabic*)]
-             \item $f+g(x)=f(x)+g(x)$.
+         \begin{enumerate}
+             \item[(1)] $f+g(x)=f(x)+g(x)$.
 
-             \item $fg(x)=f(x)g(x)$.
+             \item[(2)] $fg(x)=f(x)g(x)$.
 
-             \item $(\lambda f)(x)=\lambda f(x)$ for $\lambda \in X$.
+             \item[(3)] $(\lambda f)(x)=\lambda f(x)$ for $\lambda \in X$.
 
-             \item $\frac{f}{g}(x)=\frac{f(x)}{g(x)}$, provided that $g(x) \neq 0$.
+             \item[(4)] $\frac{f}{g}(x)=\frac{f(x)}{g(x)}$, provided that $g(x) \neq 0$.
         \end{enumerate}
 \end{definition}
 
-It is well known that the set of all functions from $E$ into  $Y$ form an algebra under 
+It is well known that the set of all functions from $E$ into  $Y$ form an algebra under
 these operations.
 
  \begin{theorem}\label{5.1.2}
-     Let $E \subseteq X$ a metric space, and let $p \in E$ be a limit point. Let $f,g:E \rightarrow Y$ 
-     be functions, such that $\lim{f}=A$ and $\lim{g}=B$ as $x \rightarrow p$. Then the following 
+     Let $E \subseteq X$ a metric space, and let $p \in E$ be a limit point. Let $f,g:E \rightarrow Y$
+     be functions, such that $\lim{f}=A$ and $\lim{g}=B$ as $x \rightarrow p$. Then the following
      hold as $x \rightarrow p$.
-        \begin{enumerate}[label=(\arabic*)]
-            \item $\lim{(f+g)}=\lim{f}+\lim{g}=A+B$.
+        \begin{enumerate}
+            \item[(1)] $\lim{(f+g)}=\lim{f}+\lim{g}=A+B$.
 
-            \item $\lim{fg}=\lim{f}\lim{g}=AB$.
+            \item[(2)] $\lim{fg}=\lim{f}\lim{g}=AB$.
 
-            \item $\lim{\frac{f}{g}}=\frac{\lim{f}}{\lim{g}}=\frac{A}{B}$, provided that 
+            \item[(3)] $\lim{\frac{f}{g}}=\frac{\lim{f}}{\lim{g}}=\frac{A}{B}$, provided that
                 $B \neq 0$.
         \end{enumerate}
 \end{theorem}
 
 \begin{corollary}
     The following hold:\
-        \begin{enumerate}[label=(\arabic*)]
-            \item $\lim{\lambda f}=\lambda\lim{f}=\lambda A$, and \lim{(\lambda+f)}=
-                \lambda+\lim{f}=\lambda+A. 
+        \begin{enumerate}
+            \item[(1)] $\lim{\lambda f}=\lambda\lim{f}=\lambda A$, and \lim{(\lambda+f)}=
+                \lambda+\lim{f}=\lambda+A.
 
-            \item \lim{\frac{1}{f(x)}}=\frac{1}{\lim{f}}=\frac{1}{A}, provided that $A \neq 0$.
+            \item[(2)] \lim{\frac{1}{f(x)}}=\frac{1}{\lim{f}}=\frac{1}{A}, provided that $A \neq 0$.
 
         \end{enumerate}
 \end{corollary}
 
 \begin{theorem}[The Sandwich Theorem]\label{5.1.3}
-    Let $f$, $g$, and  $h$ be real valued functions defined on $\R$ such that  
-    $lim{f}=\lim{g}=A$ as  $x \rightarrow p$, and suppose that  $f(x) \leq h(x) 
+    Let $f$, $g$, and  $h$ be real valued functions defined on $\R$ such that
+    $lim{f}=\lim{g}=A$ as  $x \rightarrow p$, and suppose that  $f(x) \leq h(x)
     \leq g(x)$ for all  $x \in \R$. Then $\lim{h}=A$ as  $x \rightarrow p$.
 \end{theorem}
 
 \begin{corollary}
-    Let $f,g$ be real valued functions defined on  $\R$ such that  $0 \leq f(x) \leq g(x)$ 
+    Let $f,g$ be real valued functions defined on  $\R$ such that  $0 \leq f(x) \leq g(x)$
     for all $x \in \R$. Then if  $g \rightarrow 0$ as  $x \rightarrow p$, then  $f \rightarrow 0$.
 \end{corollary}
 
