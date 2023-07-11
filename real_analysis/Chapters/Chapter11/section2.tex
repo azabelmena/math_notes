@@ -1,1 +1,118 @@
-%\section{Functions of Bounded Variation}
+\section{Functions of Bounded Variation}
+
+\begin{definition}
+    Let $f$ be a real-valued function defined on a closed bounded interval
+    $[a,b]$, and let $P=\{a=x_0<\dots<x_n=b\}$ a partition of $[a,b]$. We define
+    the \textbf{variation} of $f$ with respect to  $P$ to be
+    \begin{equation*}
+        v(f,P)=\sum_{k=0}^{n-1}{|f(x_{i+1})-f(x_i)|}
+    \end{equation*}
+    We define the \textbf{total variation} of $f$ on  $[a,b]$ to be
+    \begin{equation*}
+        V(f)=\sup{\{v(f,P) : P \text{ is a partition of } [a,b]\}}
+    \end{equation*}
+    We call $f$ a function of \textbf{bounded variation} if $V(f)$ is finite.
+\end{definition}
+
+\begin{example}\label{example_11.1}
+    \begin{enumerate}
+        \item[(1)] Monotone increasing functions are of bounded variation, with
+            $V(f)=f(b)-f(a)$. Indeed, let $f$ be monotone increasing on
+            $[a,b]$, and let $P=\{a=x_0<\dots<x_n=b\}$ a partition of $[a,b]$.
+            Then
+            \begin{equation*}
+                v(f,P)=\sum_{k=0}^{n-1}{|f(x_{i+1})-f(x_i)|}=
+                \sum_{k=0}^{n-1}{f(x_{i+1})-f(x_i)}=f(b)-f(a)
+            \end{equation*}
+
+        \item[(2)] Lipschitz functions are of bounded variation, and $V(f) \leq
+            c(b-a)$ where $|f(x)-f(y)| \leq c|x-y|$ for all $x,y \in [a,b]$.
+            Indeed, let $f$ be Lipschitz on  $[a,b]$ and
+            $P=\{a=x_0<\dots<x_n=b\}$ a partition of $[a,b]$. Then
+            \begin{equation*}
+                v(f,P)=\sum_{k=0}^{n-1}{|f(x_{i+1})-f(x_i)|} \leq
+                c\sum_{k=0}^{n-1}{|x_{i+1}-x_i|}=c(b-a)
+            \end{equation*}
+            so that $c(b-a)$ is an upperbound of $v(f,P)$.
+
+        \item[(3)] Define $f$ on  $[0,1]$ by
+            \begin{equation*}
+                f(x)=   \begin{cases}
+                            x\cos{\frac{\pi}{2x}}, \text{ if } 0<x \leq 1   \\
+                            0, \text{ if } x=0  \\
+                        \end{cases}
+            \end{equation*}
+            Then $f$ is continuous on  $[0,1]$, but it is not of bounded
+            variation. Indeed, for $n \in \Z^+$ let $P_n=\{0, \frac{1}{2n},
+            \frac{1}{2n-1}, \dots, \frac{1}{3}, \frac{1}{2}, 1\}$ a partition of
+            $[0,1]$. Then
+            \begin{equation*}
+                v(f,P_n)=1+\frac{1}{2}+\dots+\frac{1}{n}
+            \end{equation*}
+            which diverges as $n \xrightarrow{} \infty$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{11.2.1}
+    Let $f$ be a function of bounded variation on a closed bounded interval
+    $[a,b]$. Then
+    \begin{equation*}
+        f(x)=(f(x)+V(f|_{[a,x]}))-V(f|_{[a,x]}) \text{ for all } x \in [a,b]
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Observe that the total variation of $f$ defines a real-valued function on
+    $\R$. hence,  $x \xrightarrow{} V(f|_{[a,x]})$ defines a real-valued function
+    on $[a,b]$. Observe also that if $c \in (a,b)$, and $P$ is a partition of
+    $[a,b]$, and $Q=P \cup \{c\}$ is the refinement of $P$ obtained by adjoining
+     $c$ to  $P$, then by the triangle inequality,  $v(f,P) \leq v(f,Q)$. Thus,
+     by definition, the total variation $V(f)$ can be taken over partitions
+     containing a point $c$. Now, let  $P_1$ and $P_2$ partitions of $[a,c]$ and
+     $[c,b]$, respectively, with $P=P_1 \cup P_2$. Then
+     \begin{equation*}
+         v(f,P)=v(f|_{[a,c]},P_1)+v(f|_{[c,b]},P_2)
+     \end{equation*}
+     so that
+     \begin{equation*}
+         V(f)=V(f|_{[a,c]})+V(f|_{[c,b]})
+     \end{equation*}
+     Therefore, if $f$ is of bounded variation,  $V(f|_{[a,x]})-V(f|_{[a,y]})=
+     V(f|_{[x,y]}) \geq 0$ for all $a \leq x<y \leq b$. Taking  $P=\{x,y\}$ the
+     coarsest possible partition of $[x,y]$, we have
+     \begin{equation*}
+         f(x)-f(y) \leq |f(x)-f(y)|=v(f|_{[x,y]},P) \leq V(f|_{[x,y]})=
+         V(f|_{[a,x]})+V(f|_{[a,y]})
+     \end{equation*}
+     which gives us the desired result.
+\end{proof}
+\begin{corollary}
+    If $f$ is of bounded variation, then $V(f(x))$ is an increasing function.
+\end{corollary}
+
+\begin{theorem}[Jordan's Theorem]\label{11.2.2}
+    A real-valued function $f$ on a closed bounded interval  $[a,b]$ is of
+    bounded variation on $[a,b]$ if, and only if it can be expressed as the
+    difference of two increasing functions.
+\end{theorem}
+\begin{proof}
+    Suppose that $f$ is of bounded variation; then lemma \ref{11.2.1} gives $f$
+    as the difference of two increasing functions. Conversely, suppose that
+    $f=g-h$ where  $g$ and  $h$ are increasing on  $[a,b]$. Then $g$ and  $h$
+    are of bounded variation; moreover, we have for any parition
+    $P=\{a=x_0<\dots<x_n=b\}$ of $[a,b]$
+    \begin{align*}
+        v(f,P)  &=  \sum_{k=0}^{n-1}{|f(x_{i+1})-f(x_i)|}   \\
+                &=  \sum_{k=0}^{n-1}{|(g(x_{i+1})-g(x_i))+(h(x_{i+1})-h(x_i))|} \\
+                &\leq \sum_{k=0}^{n-1}{|g(x_{i+1})-g(x_i)|}+
+                    \sum_{k=0}^{n-1}{|h(x_{i+1})-h(x_i)|} \\
+                &= \sum_{k=0}^{n-1}{g(x_{i+1})-g(x_i)}+
+                    \sum_{k=0}^{n-1}{h(x_{i+1})-h(x_i)} \\
+                &= (g(b)-g(a))-(h(b)-h(a))
+    \end{align*}
+    This makes $f$ of bounded variation.
+\end{proof}
+\begin{corollary}
+    If $f$ is a function of bounded variation on $[a,b]$, then $f$ is
+    differentiable almost everywhere on $[a,b]$, and $D{f}$ is integrable on
+    $[a,b]$.
+\end{corollary}
