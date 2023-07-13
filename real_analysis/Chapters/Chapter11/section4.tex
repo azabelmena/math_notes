@@ -1,1 +1,201 @@
-\section{Differentiating Indefinite Lebesgue Integrals}
+\section{The Fundamental Theorem of Calculus for Lebesgue Integrals}
+
+\begin{theorem}[The Fundamental Theorem of Calculus for the Lebesgue
+    Integral]\label{11.4.1}
+    Let $f$ be absolutely continuous on the closed bounded interval  $[a,b]$.
+    Then $f$ is differentiable almost everywhere on  $(a,b)$, and $D{f}$ is
+    Lebesgue integrable on $[a,b]$, moreover
+    \begin{equation*}
+        \int_a^b{D{f(x)} \ dm}=f(b)-f(a)
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Since
+    \begin{equation*}
+        \int_a^b{\Diff_h{f(x)} \ dm}=\Av_h{f(b)}-\Av_h{f(a)}
+    \end{equation*}
+    notice that
+    \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_a^b{\Diff_{\frac{1}{n}}{f(x)} \ dm}}=
+        f(b)-f(a)
+    \end{equation*}
+    Moreover, $f$ is the difference of increasing functions defined on  $[a,b]$,
+    hence, by Lebesgue's theorem (theorem \ref{11.1.3}), $f$ is differentiable
+    almost everywhere on  $(a,b)$. Therefore, $\{\Diff_{\frac{1}{n}}{f}\}
+    \xrightarrow{} D{f}$ almost everywhere on $[a,b]$. Additionall,y we have
+    that $\{\Diff_{\frac{1}{n}}{f}\}$ is uniformly integrable on $[a,b]$, so by
+     Vital'is convergence theorem
+     \begin{equation*}
+        \lim_{n \xrightarrow{} \infty}{\int_a^b{\Diff_{\frac{1}{n}}{f(x)} \ dm}}=
+        \int_a^b{D{f(x)} \ dm}
+     \end{equation*}
+     by passage of the limit under the integral.
+\end{proof}
+
+\begin{definition}
+    We call a realvalued function $f$ on the closed bounded interval $[a,b]$ the
+    \textbf{indefinite Lebesgue integral} of a Lebesgue integrable function $g$
+    on $[a,b]$, provided
+    \begin{equation*}
+        f(x)=f(a)+\int_a^x{g(t) \ dm} \text{ for all } x \in [a,b]
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}\label{11.4.2}
+    A function on a closed bounded interval $[a,b]$ is absolutely continuous if,
+    and only if it is an indefinite Lebesgue integral on $[a,b]$.
+\end{theorem}
+\begin{proof}
+    Suppose that $f$ is absolutely continuous on  $[a,b]$. Then for all $x \in
+    [a,b]$, $f$ is also absolutely continuous on the closed bounded subinterval
+     $[a,x]$. Hence, by the fundamental theorem of calculus for the Lebesgue
+     integral,
+     \begin{equation*}
+         f(x)=f(a)+\int_a^x{D{f(t)} \ dm}
+     \end{equation*}
+     which makes $f$ an indefinite Lebesgue integral (in particular, for $D{f}$).
+
+     Conversely, suppose that $f$ is the indefinite Lebesgue integral for some
+     Lebesgue integrable function $g$ on $[a,b]$. Let $\{(a_k,b_k)\}_{k=1}^n$ be
+     a finite disjoint collection of open subintervals of $(a,b)$, and take
+     \begin{equation*}
+         E=\bigcup_{k=1}^n{(a_k,b_k)}
+     \end{equation*}
+     Then by monotonicity, and additivity over domains,
+     \begin{equation*}
+         \sum_{k=1}^n{|f(b_k)-f(a_k)|}=
+         \sum_{k=1}^n{\Big{|} \int_{a_k}^{b_k}{g(t) \ dm} \Big{|}} \leq
+         \sum_{k=1}^n{\int_{a_k}^{b_k}{|g(t)| \ dm}}=\int_E{|g(t)| \ dm}
+     \end{equation*}
+     Now, let $\e>0$, since  $|g|$ is integrable on  $[a,b]$, there exists a
+     $\d>0$ such that
+     \begin{equation*}
+         \int_E{|g(t)| \ dm}<\e \text{ if } E \subseteq [a,b] \text{ is
+         measurable with } m(E)<\d
+     \end{equation*}
+     Then the above equation gives us the required criterion for $\d$ to respond
+     to  $\e$.
+\end{proof}
+\begin{corollary}
+    Let $f$ be monotone on the closed bounded interval  $[a,b]$. Then $f$ is
+    absolutely continuous if, and only if
+    \begin{equation*}
+        \int_a^b{D{f(x)} \ dm}=f(b)-f(a)
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    Suppose that $f$ is absolutely continuous, then the fundamental theorem of
+    calculus for Lebesgue integrals gives us the resulty, regardless of
+    monotonicity. Conversely, suppose that $f$ is monotone increasing, and that
+    \begin{equation*}
+        \int_a^b{D{f(x)} \ dm}=f(b)-f(a)
+    \end{equation*}
+    Then let $x \in [a,b]$, we have
+    \begin{equation*}
+        \int_a^b{D{f(x)} \ dm}-(f(b)-f(a))=
+        \Big{(} \int_a^x{D{f(t)} \ dm}-(f(x)-f(a)) \Big{)}+
+        \Big{(} \int_x^b{D{f(t)} \ dm}-(f(b)-f(x)) \Big{)}=0
+    \end{equation*}
+    Now, both of the summands $\int_a^x{D{f(t)} \ dm}-(f(x)-f(a)) \leq 0$ and
+    $\int_x^b{D{f(t)} \ dm}-(f(b)-f(x)) \leq 0$, and since they sum $0$, they
+    must both be equal to  $0$; that is
+    \begin{equation*}
+        f(x)=f(a)+\int_a^x{D{f(t)} \ dm}
+    \end{equation*}
+    which makes $f$ an indefinite Lebesgue integral, and hence, absolutely
+    continuous.
+\end{proof}
+
+\begin{lemma}\label{11.4.3}
+    Let $f$ be Lebesgue integrable on a closed bounded interval  $[a,b]$. Then
+    $f=0$ almost everywhere on $[a,b]$ if, and only if
+    \begin{equation*}
+        \int_{x_1}^{x_2}{f(x) \ dm}=0 \text{ for every open subinterval }
+        (x_1,x_2) \text{ of } [a,b]
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    If $f=0$ almost everywhere on  $[a,b]$, then for any open subinterval
+    $(x_1,x_2)$ of $[a,b]$, we get $\int_{x_1}^{x_2}{f}=0$. Conversely, suppose
+    that for any open subinterval $(x_1,x_2)$ of $[a,b]$, that
+    \begin{equation*}
+        \int_{x_1}^{x_2}{f(x) \ dm}=0
+    \end{equation*}
+    Notice that $\int_E{f}=0$ for any open set $E$ contained in  $[a,b]$, hence
+    for any $G_\d$ set  $G$ contained in,  $\int_G{f}=0$. Now, we also have that
+    every measurable subset of $[a,b]$ is of the form $\com{G}{E_0}$, where $G$
+    is a  $G_\d$ set, and  $m(E_0)=0$. Let $E^+=\{x \in [a,b] : f(x) \geq 0\}$
+    and $E^-=\{x \in [a,b] : f(x) \leq 0\}$. Then  $E^+$ and  $E^-$ are
+    measurable and
+    \begin{equation*}
+        \int_a^b{f^+(x) \ dm}=\int_{E^+}{f(x) \ dm}=0 \text{ and }
+        \int_a^b{f^-(x) \ dm}=\int_{E^-}{f(x) \ dm}=0
+    \end{equation*}
+    so that $f^+$ and  $f^-$ vanish almost everywhere on $[a,b]$, hence $f$ must
+    also vanish almost everywhere on  $[a,b]$.
+\end{proof}
+
+\begin{theorem}\label{11.3.4}
+    Let $f$ be Lebesgue integrable on a closed bounded interval $[a,b]$. Then
+    \begin{equation*}
+        D{\int_a^x{f(t)} \ dm}=f(x) \text{ almost everywhere on } (a,b)
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Define $F$ on  $[a,b]$ by
+    \begin{equation*}
+        F(x)=\int_a^x{f(x) \ dm} \text{ for all } x \in [a,b]
+    \end{equation*}
+    Then $F$ is an indefinite Lebesgue integral, and hence, is absolutely
+    continuous. This makes  $F$ differentiable almost everywhere on  $(a,b)$. We
+    now wish to show that $D{F}-f$ vanishes almost everywhere on $(a,b)$. Let
+    $(x_1,x_2)$ be an open subinterval of $[a,b]$, then
+    \begin{align*}
+        \int_{x_1}^{x_2}{D{F(t)}-f(t) \ dm} &=
+                \int_{x_1}^{x_2}{D{F(t)} \ dm}-\int_{x_1}^{x_2}{f(t) \ dm}  \\
+                &= F(x_2)-F(x_1)-\int_{x_1}^{x_2}{f(t) \ dt}    \\
+                &= \int_a^{x_2}{f(t) \ dm}-\int_a^{x_1}{f(t) \ dm}
+                            -\int_{x_1}^{x_2}{f(t) \ dt}=0    \\
+    \end{align*}
+\end{proof}
+
+\begin{definition}
+    We call a function of bounded variation \textbf{singular} if its derivative
+    vanishes almost everywhere on its domain.
+\end{definition}
+
+\begin{lemma}\label{11.3.5}
+    An absolutely continuous function is singular if, and only if it is
+    constant.
+\end{lemma}
+\begin{proof}
+    Exercise.
+\end{proof}
+
+\begin{lemma}\label{11.3.6}
+    Let $f$ be a function of bounded variation on a closed bounded interval
+    $[a,b]$. Then there exists an absolutely continuous function $g$ on
+    $[a,b]$, and a singular function $h$ on  $[a,b]$ for which
+    \begin{equation*}
+        f=g+h
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Since $f$ is of bounded variation on  $[a,b]$, $D{f}$ is integrable on
+    $[a,b]$. Define then
+    \begin{equation*}
+        g(x)=\int_a^x{D{f(t)} \ dm} \text{ and }
+        h(x)=f(x)-\int_a^x{D{f(t)} \ dm} \text{ for all } x \in [a,b]
+    \end{equation*}
+    Then $f=g+h$ on $[a,b]$. Notice now that $g$ is an indefinite Lebesgue
+    integral, and hence is absolutely continuous. Moreover, by theorem
+    \ref{11.4.4},  $D{h}=0$ almost everywhere on $[a,b]$, which makes $h$
+    singular.
+\end{proof}
+
+\begin{definition}
+    Let $f$ be a function of bounded variation on a closed bounded interval
+    $[a,b]$. We call the expression of $f=g+h$, where $g$ is an abosultely
+    continuous function, and  $h$ is singular the  \textbf{Lebesgue
+    decomposition} of $f$. We call  $h$ the  \textbf{singular part} of $f$.
+\end{definition}
