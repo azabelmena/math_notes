@@ -1,1 +1,171 @@
 \section{Convex Functions}
+
+\begin{definition}
+    We call a realvalued function $f$ on an open interval $(a,b)$
+    \textbf{convex} if for any $x,y \in (a,b)$,
+    \begin{equation*}
+        f(tx+(1-t)y) \leq tf(x)+(1-t)f(y) \text{ for all } 0 \leq t \leq 1
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{11.5.1}
+    If $f$ is differentiable on $(a,b)$, and has increasing derivative, then $f$
+    is convex.
+\end{lemma}
+\begin{proof}
+    Let $x_1,x_2 \in (a,b)$ with $x_1<x_2$, and take $x \in (x_1,x_2)$. It
+    suffices to show that
+    \begin{equation*}
+        (f(x)-f(x_1))(x_2-x) \leq (f(x_2)-f(x))(x-x_1)
+    \end{equation*}
+    Now, by the mean value theorem, there exist $c_1 \in (x_1,x)$ and $c_2 \in
+    (x,x_2)$ for which $f'(c_1)(x_1-x)=f(x)=f(x)-f(x_1)$ and $f'(c_2)(x_2-x)=
+    f(x_2)-f(x)$. Now, since $f'$ is increasing, and $x_1<x_2$, we get $c_1 \leq
+    c_2$ so that $f'(c_1) \leq f'(c_2)$ which gives us the convexity of $f$.
+\end{proof}
+\begin{corollary}
+    If $f$ is convex, it has a nonnegative second derivative defined on $(a,b)$.
+\end{corollary}
+
+\begin{example}\label{example_11.4}
+    The functions $f(x)=x^p$ on $(0,\infty)$ for $p \geq 1$, $f(x)=e^{ax}$ on
+    $(-\infty,\infty)$, and $f(x)=\log{\frac{1}{x}}$ on $(0, \infty)$ are all
+    convex since they have nonnegative second derivatives.
+\end{example}
+
+\begin{lemma}[The Chordal Slope Lemma]\label{11.5.2}
+    Let $f$ be a convex function on the open interval $(a,b)$. If $x_1<x<x_2$ and
+    $p_1=(x_1,f(x_1))$, $p=(x,f(x))$, and $p_2=(x_2,f(x_2))$, then the slope of
+    the line $\bar{p_1p}$ is less than or equal to the slope of the line
+    $\bar{p_1p_2}$, which is less than the slop of the line $\bar{pp_2}$
+\end{lemma}
+\begin{proof}
+    Since $f$ is convex, we have
+    \begin{equation*}
+        (f(x_1)-f(x))(x_2-x_1) \leq (f(x_2)-f(x_1))(x_1-x)  \text{ for }
+        x_1<x<x_2
+    \end{equation*}
+    and
+    \begin{equation*}
+        (f(x_2)-f(x_1))(x_2-x) \leq (f(x_2)-f(x))(x_2-x_1)  \text{ for }
+        x_1<x<x_2
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    Let $f$ be a realvalued function on an open interval $(a,b)$. We define the
+    \textbf{left-handed derivative} of $f$ at a point  $x \in (a,b)$ to be
+    \begin{equation*}
+        f'(x-)=\lim_{h \xrightarrow{} 0-}{\frac{f(x+h)-f(x)}{h}}
+    \end{equation*}
+    we define the \textbf{right-handed derivative} of $f$ at a point $x \in
+    (a,b)$ to be
+    \begin{equation*}
+        f'(x+)=\lim_{h \xrightarrow{} 0+}{\frac{f(x+h)-f(x)}{h}}
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{11.5.3}
+    A realvalued function $f$ on an open interval  $(a,b)$ is differentiable on
+    $(a,b)$ if, and only if for every  $x \in (a,b)$, $f'(x-)$ and $f'(+)$ exist
+    and are finite, and $f'(x+)=f'(x-)$.
+\end{lemma}
+
+\begin{lemma}\label{11.5.4}
+    Let $f$ be a convex function on the open interval $(a,b)$. Then $f$ has
+    left-handed and right-handed derivatices for all $x \in (a,b)$. Moreover,
+    for all $u,v \in (a,b)$, with $u<v$
+    \begin{equation*}
+        f'(u-) \leq f'(u+) \leq \frac{f(v)-f(u)}{v-u} \leq f'(v-) \leq f'(v+)
+    \end{equation*}
+\end{lemma}
+\begin{corollary}
+    Let $f$ be convex on  $(a,b)$, then $f$ is Lipschitz continuous on $(a,b)$.
+\end{corollary}
+\begin{proof}
+    For $c \leq u<v \leq d$, we have
+    \begin{equation*}
+        f'(c+) \leq f'(u+) \leq \frac{f(v)-f(u)}{v-u} \leq f'(v-) \leq f'(d-)
+    \end{equation*}
+    Take $M=\max{\{|f'(c+)|,|f'(d-)|\}}$. Then we have
+    \begin{equation*}
+        |f(v)-f(u)| \leq M|v-u| \text{ for all } u,v \in [c,d]
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    Let $f$ be convex on $(a,b)$, then $f$ is absolutely continuous on $(a,b)$.
+\end{corollary}
+\begin{proof}
+    Since $f$ is convex, it is Lipschitz, which makes is absolutely continuous
+    on its domain.
+\end{proof}
+
+\begin{theorem}\label{11.5.5}
+    A convex function on an open interval is differentiable almost everywhere on
+    its domain. Moreover, its derivative is increasing.
+\end{theorem}
+\begin{proof}
+    Let $f$ be convex on the open interval $(a,b)$. Then the functions
+    \begin{equation*}
+        D^-{f}x \xrightarrow{} f'(x-) \text{ and } D^+{f}:x \xrightarrow{} f'(x+)
+    \end{equation*}
+    are increasing realvalued functions on $(a,b)$, and hence are continuous
+    almost everywhere on on $(a,b)$. Thereofore, except for a countable subset
+    $\Cc$ of $(a,b)$, $D^-{f}$ and $D^+{f}$ are continuous. Now, let $x_0 \in
+    \com{(a,b)}{\Cc}$ and choose a sequence of $\{x_n\}$ real numbers of
+    $(a,b)$, greater than $x_0$, convergin to $x_0$. Then $f'(x_0-) \leq
+    f'(x_0+) \leq f'(x_0-)$, so that $f'(x_0-)=f'(x_0+)$, and so $f$ is
+    differentiable at $x_0$. That is, $f$ is differentiable almost everywhere on
+     $(a,b)$.
+
+     Now, let $u,v \in \com{(a,b)}{\Cc}$, with $u<v$. Then
+     \begin{equation*}
+         f'(u) \leq \frac{f(v)-f(u)}{v-u} \leq f'(v)
+     \end{equation*}
+     which makes $f'$ increasing.
+\end{proof}
+
+\begin{definition}
+    Let $f$ be a convex function on an open interval $(a,b)$, and let $x_0 \in
+    (a,b)$. Then for any $m \in \R$, we call the line described by
+    $y=m(x-x_0)+f(x_0)$, passing through the point $(x_0,f(x_0))$ a
+    \textbf{supporting line} of $f$ at $x_0$, provided that
+    \begin{equation*}
+        f(x) \geq m(x-x_0)+f(x_0) \text{ for all } x \in (a,b)
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}[Jensen's Inequality]\label{11.5.6}
+    Let $g$ be a convex function defined on all $\R$, and let $f$ be integrable
+    on the closed bounded interval $[0,1]$. Then
+    \begin{equation*}
+        g\Big{(} \int_0^1{f(x) \ dx} \Big{)} \leq \int_0^1{g \circ f(x) \ dx}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Define
+    \begin{equation*}
+        \a=\int_0^1{f(x) \ dx}
+    \end{equation*}
+    and choose $m$ to be between  $g'(x_0-)$ and $g'(x_0+)$. Then the line
+    described by $y=m(t-\a)+g(\a)$ is a supporting line of $g$ at $\a$; that is
+    \begin{equation*}
+        g(t) \geq m(t-\a)+g(\a) \text{ for all } t \in \R
+    \end{equation*}
+    Now, since $f$ is integrable on $[0,1]$, it is finite almost everywhere on
+    $[0,1]$. Hence, taking $t=f(x)$, we get
+    \begin{equation*}
+        g(f(x)) \geq m(f(x)-\a)+g(\a) \f(x)
+    \end{equation*}
+    Integrating on both sides of the inequality, and by monotonicity of the
+    Lebesgue integral,
+    \begin{align*}
+        \int_0^1{g(f(x)) \ dx}  &\geq   \int_0^1{m(f(x)-\a)+g(\a) \ dx} \\
+                             &= m\Big{(} \int_0^1{f(x) \ dx}-\a \Big{)}+g(\a)  \\
+                             &= g(\a)   \\
+    \end{align*}
+\end{proof}
+\begin{corollary}
+    $g \circ f$ is measurable if  $g$ is convex on its domain, and  $f$ is
+    Lebesgue integrable on its domain.
+\end{corollary}
