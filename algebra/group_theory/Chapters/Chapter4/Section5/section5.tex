@@ -7,7 +7,7 @@
 \end{definition}
 
 \begin{definition}
-    If $G$ is a group of order  $p^rm$, where  $p$ is prime, and  $p \not| m$
+    If $G$ is a group of order  $p^rm$, where  $p$ is prime, and  $p \not{|} m$
     for  $m,r \in \Z^+$, then we call a subgroup of $G$ a \textbf{Sylow
     $p$-subgroup} (or \textbf{$p$-Sylow}) of $G$ if it has order $p^r$. We
     denote the set of all Sylow $p$-subgroups of $G$ by  $\Syl{(p,G)}$. We
@@ -58,17 +58,17 @@
     $\faktor{P}{N}$ exists, then $\ord{P}=|\faktor{P}{N}|\ord{N}=p^r$ making $P$
     a $p$-Sylow in $G$.
 
-    Now, suppose that  $p \not| \ord{Z(G)}$, and let $g_1, \dots, g_l$ be the
+    Now, suppose that  $p \nmid \ord{Z(G)}$, and let $g_1, \dots, g_l$ be the
     representatives of distinct noncentral conjugacy classes of $G$. Then by the
     class equation:
     \begin{equation*}
         \ord{G}=\ord{Z(G)}+\sum_{i=1}^l{[G:C(g_i)]}
     \end{equation*}
     Now, if $p|\sum{[G:C(g_i)]}$, since $p|\ord{G}$ we must also have
-    $p|\ord{Z(G)}$, which cannot happen by assumption; therefore $p \not|
-    \sum{[G:C(g_i)]}$. There is then some $1 \leq i \leq l$ for which  $p \not|
+    $p|\ord{Z(G)}$, which cannot happen by assumption; therefore $p \nmid
+    \sum{[G:C(g_i)]}$. There is then some $1 \leq i \leq l$ for which  $p \nmid
     [G:C(g_i)]$, so that $\ord{C(g_i)}=p^rk$ for some $k \in \Z^+$, where  $p
-    \not| k$. Since  $g_i \notin Z(G)$ for all $i$, and $\ord{C(g_i)}<\ord{G}$,
+    \nmd k$. Since  $g_i \notin Z(G)$ for all $i$, and $\ord{C(g_i)}<\ord{G}$,
     by hypothesis $C(g_i)$ has a $p$-Sylow, $P$, making  $P$ a $p$-Sylow of $G$.
     Therefore $\Syl{(p,G)} \neq \emptyset$.
 
@@ -160,7 +160,7 @@
 \begin{example}\label{4.12}
     Let $G$ a finite group of order $n$, and  $p$ a prime.
     \begin{enumerate}
-        \item[(1)] If $p \not| n$, then the Sylow $p$-subgroup of $G$ is
+        \item[(1)] If $p \nmid n$, then the Sylow $p$-subgroup of $G$ is
             trivial. Otherwise, if  $n=p^r$ for some  $r \in \Z^+$, then $G$ is
             the unique Sylow $p$-subgroup of itself, by maximality.
 

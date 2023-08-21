@@ -1,0 +1,33 @@
+\documentclass[12pt, twoside]{book}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,graphicx,mathtools,hyperref}
+\usepackage{quiver}
+\usepackage{faktor}
+%\usepackage{wrapfig}
+\input{Library/Fonts/BlackboardBold}
+\input{Library/Fonts/MathCalligraphy}
+\input{Library/Fonts/MathFrak}
+\input{Library/definitions}
+\input{Library/styles}
+
+\title{Algebraic Geometry.}
+\author{Alec Zabel-Mena}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\input{Chapters/Chapter1/chapter1.tex}
+
+\nocite{*}
+
+\bibliography{references.bib}
+\bibliographystyle{ieeetr}
+
+\end{document}
