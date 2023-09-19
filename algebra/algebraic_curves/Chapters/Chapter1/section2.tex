@@ -20,6 +20,7 @@
 \end{definition}
 
 \begin{example}\label{example_2.1}
+    The following curves in figure \ref{figure_1.1} define algebraic sets.
     \begin{figure}[h]
         \centering
         \includegraphics[scale=0.5]{Figures/Chapter1/hyperplanes.eps}
@@ -90,3 +91,75 @@
      $0$-th coefficient $1$ so that it has not points  $P \in \A^n$ as roots.
      That is  $V(1)=\emptyset$.
 \end{proof}
+\begin{corollary}
+    Finite unions of algebraic sets are algebraic.
+\end{corollary}
+
+\begin{example}\label{example_1.2}
+    \begin{enumerate}
+        \item[(1)] Let $k$ be a field, and consider  $\A^1(k)$. Let $f \in k[x]$
+           be a polynomial of degree $n$. Then $f$ has at most $n$ roots in $k$.
+           Now, if  $\af$ is an ideal in $k$, since $k$ is a PID, we also get
+           $\af=(f)$ for some $f \in k[x]$. That is $|V(\af)| \leq n$, and so
+           any algebraic set in $\A^1(k)$ is necessarily finite, except,
+           possibly $\A^1(k)$.
+
+       \item[(2)] Let $k$ be a finite field with  $p^m$ elements, where  $p,m
+           \in \Z^+$ and $p$ is prime. Then $k$ is the splitting field of the
+           polynomial $f(x_n)=x_n^{p^m}-x_n$ over the finite field $\F_p$.
+           Suppose then that there is no set $S$ of polynomials in $k[x_1,
+           \dots, x_n]$ for which $X=V(S)$, for some $X \in \A^n(k)$. Choose
+           then a point $P \in X$ and a polynomial $g \in S$. Then we have
+           $g(x_1, \dots,x_n)=g_1(\tilde{X})x_n+\dots+g_n(\tilde{X})x_n$. Notice
+           that if $P$ is a root of $f$; i.e. $P \in V(f)$; i.e. $P^{p^m}-P=0$,
+           then since $P^{p^m}-P$ is a generator for $k$ as a multiplicative
+           group, it generates $S$. That is, $S$ must contain the point $P$ as a
+           root for $g$, notice  $P^{p^m}=P$ so that
+           $g(P)=g_1(P)P+\dots+g_n(P)P=0$ in $k$. This contradicts that $X \neq
+           V(S)$. This makes every set of $\A^n(k)$ algebraic for any finite
+           field.
+
+       \item[(3)] By the corollory to lemma \ref{1.2.1}, we have that finite
+           unions of algebraic sets are algebraic. Now, consider the field $\Q$,
+           and let $f_q(x)=x+\frac{q}{2}$ in $\Q[x]$. We have that there are $X
+           \subseteq \A^1(\Q)$ algebraic, ini where $X=V(f_q)$. Notice however,
+           that the polynomial
+           \begin{equation*}
+               f(x)=\prod_{q \in \Q}{f_q(x)}
+           \end{equation*}
+           has no roots in $\Q$, as that would imply that for some  $n \in
+           \Z^+$,  $\sqrt[n]{2} \in \Q$. That is, there is no $X \subseteq
+           \A^1(\Q)$ for which $X=V(\prod{f_q})=\bigcup{V(f_q)}$. In general,
+           the countable union of algebraic sets need not be algebraic.
+    \end{enumerate}
+\end{example}
+
+\begin{example}\label{example_1.3}
+    \begin{enumerate}
+        \item[(1)] Let $k$ be a field, and $X=\{(t,t^2,t^3) \in \A^3(k) : t \in
+            k\}$. If $k$ is finite, this is algebraic. Suppose that $k$ is
+            infinite, and consider the polynomial
+            $f(x_1,x_2,x_3)=x_1+x_2^2+x_3^3$. Notice that the point $0 \in X$ is
+            a root of $f$, and that if $P$ is a root of  $f$, then  $P \in X$.
+            That is, $X=V(f)$ making $X$ algebraic.
+
+        \item[(2)] Let $X=\{(\cos{t},\sin{t}) \in \A^2(\R) : t \in \R\}$.
+            Consider the polynomial $f(x,y)=x^2+y^2-1$. Since we have that
+            $\cos^2{t}+\sin^2{t}=1$, $X=V(f)$ and $X$ is algebraic.
+
+        \item[(3)] Let $X=\{(r,\sin{t}) \in \A^2(\R) : r=\sin{t}, t\ in \R \}$.
+            Consider the polynomial $f(x,y)=x-y$. Then $X=V(f)$.
+    \end{enumerate}
+\end{example}
+
+\begin{enumerate}
+    The following sets are not algebraic.
+    \begin{enumerate}
+        \item[(1)] $X=\{(x,y) \in \A^2(\R) : y=\sin{x}\}$.
+
+        \item[(2)] $X=\{(z,w) \in \A^2(\C) : |z|^2+|w|^2=1\}$, where
+            $|x+iy|^2=x^2+y^2$ for all $x,y \in \R$.
+
+        \item[(3)] $X=\{(\cos{t}, \sin{t}, t) \in \A^3(\R) : t \in \R\}$.
+    \end{enumerate}
+\end{enumerate}
