@@ -224,23 +224,3 @@
     is a root of $f$, then  $f$ has infinitely many roots. That is,  $V(f)$ is
     finite.
 \end{proof}
-
-\begin{lemma}\label{1.2.4}
-    Let $k$ be a field, and let  $X \subseteq \A^n(k)$ and $Y \subseteq \A^m(k)$
-    algebraic sets. Then $X \times Y$ is an algebraic set in  $\A^{n+m}(k)$.
-\end{lemma}
-\begin{proof}
-    Since $\A^m(k)$ and $\A^n(k)$ are cartesian products, we have that $\A^m(k)
-    \times \A^n(k)=\A^{m+n}(k)$. Then $X \times Y=(X,Y)$. Now, let $S \subseteq
-    k[x_1, \dots, x_m]$ and $T \subseteq k[x_1, \dots,x_n]$ such that $X=V(S)$
-    and $Y=V(T)$. Let $P \in X \times Y$, then  $P=(A,B)$ where $A=(a_1, \dots,
-    a_m)$ and $B=(b_1, \dots, b_n)$.  Let $f=f_1+\dots+f_d+\dots \in S$ and
-    $g=g_1+\dots+g_l \in T$. Consider then $f \times
-    g((x_1, \dots, x_m),(y_1, \dots, y_n))=f(x_1, \dots, x_m)g(y_1, \dots,
-    y_n)$. Since $f(A)=0$ and $g(B)=0$, then $f \times g(P)=f(A)g(B)=0$ so that
-    $P \in V(f) \times V(g)$. Conversely, let $P \in V(f) \times V(g)$. Then
-    $P=(A,B)$ where $A \in \A^m(k)$ and $B \in \A^n(k)$, and $f \times
-    g(P)=f(A)g(B)=0$. Since  $A \in V(f)$ and $B \in V(g)$, we get $f(A)=0$ and
-    $f(B)=0$, so that $P \in X \times Y$. This makes  $X \times Y=V(f) \times
-    V(g)$.
-\end{proof}
