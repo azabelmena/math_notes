@@ -1,1 +1,86 @@
 \section{Ideals}
+
+\begin{lemma}\label{1.3.1}
+    Let $k$ be a field, and  $X \times \A^n(k)$. Consider the set $I(X)=\{f \in
+    k[x_1, \dots, x_n] : f(P)=0 \text{ for all } P \in X\}$. Then $I(X)$ forms
+    an ideal of $k[x_1, \dots, x_n]$.
+\end{lemma}
+\begin{proof}
+    Let $f,g \in I(X)$. Then for all $P \in X$,  $f(P)=0$, and $g(P)=0$, so that
+    $f+g(P)=f(P)+g(P)=0$. Moreover, $-f(P)=0$ as well. So $I$ is a subgroup of
+    $k[x_1, \dots, x_n]$ under addition. Now, take $f \in I(X)$ and $g \in
+    k[x_1, \dots, x_n]$. Then $fg(P)=0$ for all $P \in X$ which makes  $I(X)$
+    into an ideal.
+\end{proof}
+
+\begin{definition}
+    Let $k$ be a field and  $X \subseteq \A^n(k)$. We define the \textbf{ideal}
+    of $X$ to be the ideal $I(X)=\{f \in k[x_1, \dots, x_n] : f(P)=0 \text{ for
+    all } P \in X\}$ of $k[x_1, \dots, x_n]$.
+\end{definition}
+
+\begin{lemma}\label{1.3.2}
+    Let $k$ be a field. The following are true for all $X,Y \subseteq \A^n(k)$
+    and for all $S \subseteq k[x_1, \dots, x_n]$.
+    \begin{enumerate}
+        \item[(1)] If $X \subseteq Y$, then $I(Y) \subseteq I(X)$.
+
+        \item[(2)] $I(\emptyset)=k[x_1, \dots, x_n]$ and $I(\A^n(k))=(0)$.
+
+        \item[(3)] $S \subseteq I(V(S))$ and $X \subseteq V(I(X))$.
+
+        \item[(4)] $V(I(V(S)))=V(S)$ and $I(V(I(X)))=I(X)$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Let $X,Y \subseteq \A^n(k)$, wiht $X \subseteq Y$. Let $f \in I(Y)$, then
+    for all $P \in Y$, $f(P)=0$. Now, since $P \in X$, we get for all $P \in X$
+    $f(P)=0$ so that $f \in I(X)$.
+
+    Observe now that the polynomial $1(x_1, \dots, x_n)=1$ has no points in
+    $\A^n(k)$ as roots, so that $I(\emptyset)=k[x_1, \dots, x_n]$. Likewise, for
+    the polynomial $0(x_1, \dots, x_n)=0$, every point in $\A^n(k)$ is a root,
+    so that $I(\A^n(k))=(0)$.
+
+    For the third assertion, let $S \subseteq k[x_1, \dots, x_n]$. If $f \in V(S)$,
+    then for every  $P \in V(S)$, $f(P)=0$, by definition. This makes $S
+    \subseteq I(V(S))$. Likewise, if $X \subseteq \A^n(k)$ and $P \in X$, then
+    for all $f \in I(X)$, $f(P)=0$, so that $P \in V(I(X))$.
+
+    Lastly, let $P \in V(S)$, and $f \in I(V(S))$. By definition, $f(P)=0$ so
+    that $V(S) \subseteq V(I(V(S)))$. Conversely, let $P \in V(I(V(S)))$ then
+    for every $f \in I(V(S))$, $f(P)=0$, which puts $P \in V(S)$ so that
+    $V(I(V(S))) \subseteq V(S)$. Likewise, by similar reasoning we conclude that
+    $I(V(I(X)))=I(X)$.
+\end{proof}
+\begin{corollary}
+    If $k$ is an infinite field, then for any  $a_1, \dots, a_n \in k$, $I(a_1,
+    \dots, a_n)=(x_1-a_1, \dots, x_n-a_n)$.
+\end{corollary}
+\begin{proof}
+    Let $f \in I(a_1, \dots, a_n)$. Since $k$ is infinite, and  $f(a_1, \dots,
+    a_n)=0$,
+    \begin{equation*}
+        f(x_1, \dots, x_n)=\sum{g_i(x_1, \dots, x_n)(x_i-a_i)}
+    \end{equation*}
+    so $f \in (x_1-a_1, \dots, x_n-a_n)$. Conversely, if $f \in (x_1-a_1, \dots,
+    x_n-a_n)$, we observe that $f \in I(a_1, \dots, a_n)$.
+\end{proof}
+
+\begin{definition}
+    Let $I$ be an ideal of a ring  $R$. We define the  \textbf{radical} of $I$
+    to be the set
+    \begin{equation*}
+        \Rad{I}=\{a \in R : a^n \in I, \text{ for some } n \in \Z^+\}
+    \end{equation*}
+    We call $I$ a \textbf{radical ideal} if $I=\Rad{I}$.
+\end{definition}
+
+\begin{lemma}\label{1.3.3}
+    Let $k$ be a field, then for any $X \subseteq \A^n(k)$, $I(X)$ is a radical
+    ideal.
+\end{lemma}
+\begin{proof}
+    For any $f \in I(X)$, notice that $f^n(P)=f(f^{n-1}(P))=\dots=
+    \underbrace{f(f(\dotsf(P)))}_{n\text{ times}}$
+\end{proof}
