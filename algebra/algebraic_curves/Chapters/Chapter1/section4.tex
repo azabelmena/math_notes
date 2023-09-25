@@ -1,1 +1,101 @@
 \section{Hilbert's Basis Theorem}
+
+\begin{definition}
+    We call a ring in which every ideal is finitely generated a
+    \textbf{Noetherian ring}.
+\end{definition}
+
+\begin{theorem}[Hilbert's Basis Theorem]\label{1.4.1}
+    If $R$ is a Noetherian ring, then so is the polynomial ring $R[x]$.
+\end{theorem}
+\begin{proof}
+    Let $\af$ be an ideal of  $R[x]$, and let $L$ be the set of all leading
+    coefficients of polyonimials in $\af$. Notice that since  $0 \in \af$, then  $0
+    \in L$, so that $L$ is nonempty. Moreover, let $f(x)=ax^d+\dots$ and
+    $g(x)=bx^e+\dots$ polynomials in $\af$ of degree  $\deg{f}=d$ and $\deg{g}=e$,
+    with leading coefficients $a, b \in R$. Then for any  $r \in R$, we have the
+    coefficient  $ra-b=0$, or  $ra-b$ is the leading coefficient of the
+    polynomial  $rx^ef-x^dg \in \af$. In either case, we get  $ra-b \in L$. This
+    makes  $L$ an ideal of  $R$. Now, since  $R$ is Noetherian  $L$ is finitely
+    generated ; let $L=(a_1, \dots, a_n)$. Then for every $1 \leq  i \leq n$,
+    let  $f_i \in \af$ the polynomial of degree  $\deg{f_i}=e_i$ whose leading
+    coefficient is $a_i$. Take, then  $N=\max{\{e_1, \dots, e_n\}}$. Then for
+    any $d \in \faktor{\Z}{N\Z}$, let $L_d$ be the set of all leading
+    coefficients of polynomials in  $\af$, of degree $d$, together with $0$. Let
+    $f_{di} \in \af$ a polynomial of degree $\deg{f_{di}}=d$ with leading
+    coefficient $b_{di}$. We wish to show that
+    \begin{equation*}
+        \af=(f_1, \dots, f_n) \cup (f_{d1}, \dots f_{nd})
+    \end{equation*}
+
+    Let $\af'=(f_1, \dots, f_n) \cup (f_{d1}, \dots f_{nd})$. By construction,
+    since the generators were chosen from $\af$,  $\af' \subseteq \af$. Now, if
+    $\af \neq \af'$. Then there is a nonzero polynomial $f \in \af$ of minimum degree
+     not contained in $\af'$  (i.e $f \notin \af'$). Let $\deg{f}=d$, and let $a$ be
+     the leading coefficient of  $f$. Suppose that  $d \geq N$. Since  $a \in
+     L$, $a$ is an  $R$-linear combination of the generators of  $L$; i.e.
+     \begin{equation*}
+         a=r_1a_1+\dots+r_na_n
+     \end{equation*}
+     where $r_1, \dots, r_n \in R$. Let
+     \begin{equation*}
+        g=r_1x^{d-e_1}f_1+\dots+r_nx^{d-e_n}f_n
+     \end{equation*}
+     then $g \in \af'$ and has degree $\deg{g}=d$ and leading coefficient $a$.
+     Hence  $f-g \in \af'$ is of smaller degree, and by the minimality of  $f$,
+     $f-g=0$, which makes  $f=g \in \af'$; a contradiction. THerefore $\af=\af'$
+
+     Now, if $d<N$, then  $a \in L_d$, and so is an  $R$-linear combniation of
+     generators of  $L_d$; that is
+     \begin{equation*}
+         a=r_1b_{d1}+\dots+r_nb_{dn}
+     \end{equation*}
+     where $r_1, \dots, r_n \in R$. Then let
+     \begin{equation*}
+         g=r_1f_{d1}+\dots+r_nf_{dn}
+     \end{equation*}
+     then $g \in \af'$ is a polynomial of degree  $\deg{g}=d$ and leading
+     coefficient $a$; which gives us the above contraditction.
+
+     Therefore, $\af=\af'$, and since $\af'$ is finitely generated,  $R[x]$ is
+     Noetherian.
+ \end{proof}
+ \begin{corollary}
+     Let $k$ be a field. Then the polynomial ring in  $n$ variables  $k[x_1,
+     \dots, x_n]$ is Noetherian.
+ \end{corollary}
+
+ \begin{theorem}\label{1.4.2}
+     Every algebraic set is the intersection of a finite number of
+     hypersurfaces.
+ \end{theorem}
+ \begin{proof}
+     Let $\af$ be an iddeal in the ring $k[x_1, \dots, x_n]$ for some field $k$,
+     and consider the set $V(\af)$. Since $k[x_1, \dots, x_n]$ is Noetherian,
+     then $\af=(f_1, \dots, f_n)$, so that
+     \begin{equation*}
+         V(\af)=V(f_1) \cap \dots \cap V(f_n)
+     \end{equation*}
+ \end{proof}
+
+ \begin{theorem}\label{1.4.3}
+     Let $\af$ be an ideal in a ring $R$, and consider the natural map $\pi:R
+     \xrightarrow{} \faktor{R}{\af}$. The following are true.
+     \begin{enumerate}
+         \item[(1)] For every ideal $\bf'$ of $\faktor{R}{\af}$,
+             $\inv{\pi}(\bf')=\bf$ is an ideal of $R$ containing $\af$.
+             Moreover, for any ideal $\bf$ of $R$ containing $\af$, then
+             $\pi(\bf)=\bf'$.
+
+         \item[(2)] The ideal $\bf'$ of $\faktor{R}{\af}$ is a radical ideal if,
+             and only if $\bf$ is a radical ideal in $R$.
+
+         \item[(3)] If $\bf$ is finitely generated in $R$, then $\bf'$ is
+             finitely generated in $\faktor{R}{\af}$. Moreover,
+             $\faktor{R}{\af}$ is Noetherian if $R$ is Noetherian.
+     \end{enumerate}
+ \end{theorem}
+ \begin{corollary}
+     Let $k$ be a field and $\af$ an ideal of $k[x_1, \dots, x_n]$. Any ring of
+     the form $\faktor{k[x_1, \dots, x_n]}{\af}$ is a Noetherian ring.
+ \end{corollary}
