@@ -7,7 +7,7 @@
     We call an algebraic set \textbf{irreducible} if it is not reducible.
 \end{definition}
 
-\begin{example}\label{example_1.7}
+\begin{example}\label{example_1.8}
     \begin{enumerate}
         \item[(1)] The algebraic sets defined by the equations $y^2=x^3-x$,
             $y^2=x^3+x^2$, and $z^2=x^2+y^2$ in $\A^2(\R)$ and $\A^3(\R)$,
@@ -19,7 +19,7 @@
 \end{example}
 
 \begin{lemma}\label{1.5.1}
-    An algebraic set is reducible if, and only if its ideal is prime.
+    An algebraic set is irreducible if, and only if its ideal is prime.
 \end{lemma}
 \begin{proof}
     Let $k$ be a field, and  $X \subseteq \A^n(k)$. Suppose that the ideal
@@ -37,6 +37,61 @@
     \not\in I(X)$. Then $f_1f_2 \in I(X)$, but $f_1,f_2 \not\in I(X)$, so that
     $I(X)$ is not prime.
 \end{proof}
+
+\begin{example}\label{example_1.9}
+    \begin{enumerate}
+        \item[(1)] Consider the polynomial $f(z,w)=w-z^2$ in $\C[z,w]$, and let
+            $g \in I(V(f))$. Then for every point $P \in V(f)$, $g(P)=0$.
+            Moreover, by the division theorem for polynomials, there
+            are polynomials $q,r \in
+            (\C[z])[w]$ for which
+            \begin{equation*}
+                g(z,w)=f(z,w)q(z,w)+r(z,w) \text{ where } r=0 \text{ or }
+                \deg_w{r} < \deg_w{f}
+            \end{equation*}
+            Notice that the degree of $r$ in  $w$,  $\deg_w{r}=0$ so that $r \in
+            \C[z]$. Now, since $g(P)=f(P)q(P)+r(P)=r(P)=0$, and $r$ is a
+            polynomial only in $z$, then $r(z,w)=r(z)=0$. That is
+            $g(z,w)=f(z,w)q(z,w)$ so that $g \in (f)$. This makes $I(V(f))=(f)$.
+            Lastly, notice that $\faktor{\C[z,w]}{(f)} \simeq \C[z]$ which is an
+            integral domain. This makes $(f)$ a prime ideal, and hence the
+            algebraic set $V(w-z^2)$ is irreducible.
+
+        \item[(2)] Let $f(z,w)=w^4-z^2$ and $g(z,w)=w^4-z^2w^2+zw^2-z^2$. Then
+            observe that
+            \begin{align*}
+                V(f,g)  &= V(f) \cap V(g) \\
+                        &=  (V(w^2-z) \cup V(w^2+z)) \cap
+                                (V(w+z) \cup V(w-z) \cup V(w^2+z)) \\
+                        &= V(w^2+z) \\
+            \end{align*}
+
+        \item[(3)] Consider the polynomial $f(x,y)=y^2+x^2(x-1)^2$. $f$ factors
+            into
+            \begin{equation*}
+                f(x,y)=(x^2-x-iy)(x^2-x+iy)
+            \end{equation*}
+            in $\C[x,y]$, where $i^2=-1$. This makes $f$ irreducible in $\R[x,y]$.
+            However, notice that $f(x,y)=0$ only at the points $(1,0)$ and
+            $(0,0)$, so that $|V(f)|=2$. This makes $V(f)$ reducible as an
+            algebraic set in $\A^2(\R)$.
+    \end{enumerate}
+\end{example}
+
+\begin{example}\label{example_1.10}
+    \begin{enumerate}
+        \item[(1)] Let $k$ be a finite field. Then very subset of $\A^n(k)$ is
+            an algebraic set, and so we can partition $\A^n(k)=X \cup Y$, where
+            $X$ and $Y$ are algebraic, and  $X \neq \A^n(k)$ and $Y \neq
+            \A^n(k)$. This makes $\A^n(k)$ reducible. One can also observe that
+            the ideal $(0)$ is not prime in $k[x_1, \dots, x_n]$ for finite
+            fields.
+
+        \item[(2)] Now, suppose that $k$ is an infinite field. Then the ideal
+            $(0)$ is prime in $k[x_1, \dots, x_n]$, so that $I(\A^n(k))=(0)$ is
+            prime. This makes $\A^n(k)$ irreducible.
+    \end{enumerate}
+\end{example}
 
 \begin{lemma}\label{1.5.2}
     Any collection of algebraic sets has a minimal member.
@@ -87,6 +142,26 @@
     already a disjoint union, this makes  $i=k$ so that $X_i=Y_j$ and $m=r$.
     Thus the decomposition of $X$ into mutually disjoint irreducible algebraic
     sets is unique.
+\end{proof}
+\begin{corollary}
+    If $X,Y \in \A^n$ are algebraic such that $X \subseteq Y$, then each
+    irreducible component of $X$ is contained in an irreducible component of
+    $Y$.
+\end{corollary}
+\begin{proof}
+    Let
+    \begin{align*}
+        X   &= \bigcup_{i=1}^m{X_i} \\
+        Y   &= \bigcup_{j=1}^n{Y_j} \\
+    \end{align*}
+    where $X_i$ and $Y_j$ are the irreducible components of  $X$ and  $Y$,
+    respectively for all  $1 \leq i \leq m$ and $1 \leq j \leq n$. Now, consider
+    the collection $\Sc$ of all irreducible components of $X$ not contained in
+    an irreducible component of $Y$ Then $\Sc$ has a minimal member  $X'$, such
+    that for every $1 \leq j \leq n$, $X' \not\subseteq Y_j$, then $X'
+    \not\subseteq Y$. Now, since $X'$ is an irreducible component, we get  $X'
+    \subseteq X \subseteq Y$, which is a contradicion. This makes $\Sc$ the
+    emptyset.
 \end{proof}
 
 \begin{definition}

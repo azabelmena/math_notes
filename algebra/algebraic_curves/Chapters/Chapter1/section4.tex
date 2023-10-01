@@ -69,12 +69,23 @@
     $\af \subseteq \af_m$. That is, $\af_n=\af_m$ for some  $n \geq m$; which
     makes $R$ Noetherian.
 \end{proof}
+\begin{corollary}
+    Every proper ideal of a Noetherian ring is contained in a maxima ideal.
+\end{corollary}
+\begin{proof}
+    Consider again the Noetherian ring $R$ from above. Let $\af$ be a proper ideal
+    of  $R$, and consider the collection $\Sc$ of proper ideals of $R$
+    containing  $\af$. Then $\Sc$ contains a maximal member $\bf$ with $\af
+    \subseteq \bf$. Now, sine $\bf$ is maximal in $\Sc$ there is no other proper
+    ideal $\bf'$ containing $\af$ for which $\bf \subseteq \bf' \subseteq R$.
+    This by definition makes $\bf$ a maximal ideal.
+\end{proof}
 
 \begin{example}\label{example_1.6}
     \begin{enumerate}
         \item[(1)] Every principle ideal domain (PID) is Noetherian, since any
-            collection of ideals has a maximal element. Moreover, lemma
-            \ref{1.7.5} states that PIDs satisfy the ascending chain condition.
+            collection of ideals has a maximal element. Moreover PIDs satisfy the
+            ascending chain condition.
 
         \item[(2)] The rings $\Z$, $\Z[i]$, and $k[x]$ (where $k$ is a field)
             are Noetherian.
@@ -83,6 +94,14 @@
             Noetheria, since the ideal $(x_1, x_2, \dots)$ is not finitely
             generated.
     \end{enumerate}
+\end{example}
+
+\begin{example}\label{example_1.6}
+    Let $k$ be any field, and consider the collection  $\Sc=\{(x_1-a_1), \dots,
+    (x_m-a_m)\}$ of ideals in $k[x_1, \dots, x_n]$. Then each $(x_i-a_i)$ is a
+    maxmial member of $\Sc$, however none of them are maximal ideals. Observe
+    the polynomial  $f(x_1, \dots, x_n)=(x_1-a_1) \dots (x_m-a_m)$. Then
+    $(x_i-a_i) \subseteq (f)$ for each $1 \leq i \leq m$.
 \end{example}
 
 \begin{definition}
