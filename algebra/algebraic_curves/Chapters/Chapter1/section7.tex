@@ -1,1 +1,98 @@
 \section{Hilbert's Nullstellensatz}
+
+\begin{theorem}[The Weak Nullstellensatz]\label{theorem_1.7.1}
+    Let $k$ be an algebraically closed field, then if $\af$ is a proper ideal of
+     $k[x_1, \dots, x_n]$, $V(\af)$ is nonempty.
+\end{theorem}
+\begin{proof}
+    Since any proper ideal is contained in a maximal ideal, and algebraic sets
+    of maximal ideals are minimal, suppose, without loss of generality, that
+    $\af$ is a maximal ideal in $k[x_1, \dots, x_n]$. Take $l=\faktor{k[x_1,
+    \dots x_n]}{\af}$. Since $\af$ is maximal, $l$ is a field, and $k \subseteq
+    l$ is a subfield. Now, suppose that $k=l$, then for every  $i$, there is an
+    element  $a_i \in k$ such that $x_i-a_i \in \af$. But $(x_1-a_1, \dots,
+    x_n-a_n)$ is a maximal ideal, so that $\af=(x_1-a_1, \dots, x_n-a_n)$ and
+    $V(\af)=V(x_1-a_1, \dots, x_n-a_n)$ which is nonempty.
+\end{proof}
+
+\begin{theorem}[Hilbert's Nullstellensatz]\label{theorem_1.7.2}
+    Let $k$ be an algebraically closed field, and  $\af$ an ideal of  $k[x_1,
+    \dots, x_n]$. Then $I(V(\af))=\Rad{\af}$.
+\end{theorem}
+\begin{proof}
+    We have that $\Rad{\af} \subseteq I(V(\af))$. Now, let $\af=(f_1, \dots,
+    f_r)$, since $k[x_1, \dots, x_n]$ is Noetherian, and let $g \in I(V(\af))$.
+    Let $\bf=(f_1, \dots, f_r,x_{n+1}g-1)$ an ideal of $k[x_1, \dots,
+    x_n,x_{n+1}]$. Then $\bf \subseteq \A^{n+1}(k)$ is empty, since $g$ vanishes
+    whenever all $f_i=0$. By the weak nullstellensats, this puts  $1 \in \bf$ so
+    that
+    \begin{equation*}
+        1=\sum{a_i(x_1, \dots, x_{n+1})f_i(x_1, \dots, x_{n+1})}+b(x_1, \dots,
+        x_{n+1})(x_{n+1}g(x_1, \dots, x_n)-1)
+    \end{equation*}
+    Letting $y=\frac{1}{x_{n+1}}$, we get
+    \begin{equation*}
+        y^n=\sum{c_i(x_1, \dots, x_{n+1})f_i(x_1, \dots, x_{n+1})}+d(x_1, \dots,
+        x_{n+1})(g(x_1, \dots, x_n)-y)
+    \end{equation*}
+    Substituting $g$ for $y$ gives us
+    \begin{equation*}
+        g^n=\sum{c_i(x_1, \dots, x_{n+1})f_i(x_1, \dots, x_{n+1})} \in \Rad{\af}
+    \end{equation*}
+    so that $I(V(\af)) \subseteq \Rad{\af}$, and we are done.
+\end{proof}
+\begin{corollary}
+    If $\af$ is a radical ideal in  $k[x_1, \dots, x_n]$, then $I(V(\af))=\af$.
+\end{corollary}
+\begin{corollary}
+    If $\af$ is a prime ideal in $k[x_1, \dots, x_n]$, the $V(\af)$ is
+    irreducible. Moreover, there is a 1--1 correspondence between prime ideals
+    of $k[x_1, \dots, x_n]$ and irreducible sets of $\A^n(k)$; where maximal
+    ideals correspond to points.
+\end{corollary}
+\begin{corollary}
+    For any $f \in k[x_1, \dots, x_n]$, if $f=f_1^{r_1} \dots f_m^{m_r}$ is the
+    decomposition of $f$ into irreducible factors, then  $V(f)=V(f_1) \cup \dots
+    V(f_m)$ is the decomposition of $f$ into irreducible components. Moreover,
+    there is a 1--1 correspondence between irreducible polynomials of  $k[x_1,
+    \dots, x_n]$, and irreducible hypersurfaces of $\A^n(k)$.
+\end{corollary}
+\begin{corollary}
+    If $\af$ is an ideal of  $k[x_1, \dots, x_n]$, then $V(\af)$ is finite, if,
+    and only if $\faktor{k[x_1,\dots,x_n]}{\af}$ is a finite dimensional vector
+    space over $k$, with
+    \begin{equation*}
+        |V(\af)| \leq \dim{\faktor{k[x_1,\dots,x_n]}{\af}}
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    Suppose that $l=\faktor{k[x_1,\dots,x_n]}{\af}$ is a finite dimensional
+    vector space over $k$, and let  $P_1, \dots, P_n \in V(\af)$. Choose
+    polynomials $f_1, \dots, f_m \in k[x_1, \dots, x_n]$ such that $f_i(P_j)=0$
+    for any $i \neq j$, and $f_i(P_i)=1$. Consider now the residue classes of
+    $f_i$ in $\af$, if
+    \begin{equation*}
+        \sum{\l_i(f_i+\af)}=0 \text{ where } \l \in k
+    \end{equation*}
+    We have $\sum{\l_if_i} \in \af$, so that
+    \begin{equation*}
+        \l_i=(\sum{\l_if_i})(P_i)=0
+    \end{equation*}
+    which makes the collection of vectors $\{f_i+\af\}$ linearly independent in
+    $l$. This makes $V(\af)$ finite with $|V(\af)|=m \leq \dim{l}$.
+
+    Conversely, suppose that $V(\af)$ is finite, and that $V(\af)=\{P_1, \dots,
+    P_m\}$, where $P_i=(a_{i1}, \dots, a_{im})$, and
+    \begin{equation*}
+        f_j(x_1, \dots, x_n)=\prod_{j=1}^m{(x_j-a_{ij})} \text{ in } k[x_1,
+        \dots, x_n]
+    \end{equation*}
+    Then $f_j \in I(V(\af))$, so that $f^N \in \af$ for some $N \in \Z^+$. Taking
+    $N$ large enough and $(f_j+\af)^N=0$, we get $(x_j+\af)^N$ is a $k$-linear
+    combination of the vectors $\{1, x_1+\af, \dots, (x_n+\af)^{rN-1}\}$. By
+    induction, we see that for any $s \geq N$, $(x_j+\af)^s$ is a $k$-linear
+    combination of the vectors $\{1+\af, \dots, (x_j+\af)^{rN-1}\}$. Then the
+    collection of vectors $\{(x_1+\af)^m_1, \dots, (x_n+\af)^{m_n}\}$, with
+    $m_i<rN$ generates $\faktor{k[x_1,\dots,x_n]}{\af}$ as a finite dimensional
+    vector space over $k$.
+\end{proof}
