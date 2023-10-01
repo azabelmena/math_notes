@@ -63,3 +63,42 @@
     that since $k$ is algebraically closed, and hence infinite, each $V(f_i)$ is
     infinite.
 \end{proof}
+
+\begin{example}\label{example_1.14}
+    \begin{enumerate}
+        \item[(1)] Consider $f(x,y)=x^2+y^2+1$ over $\R$. We have that $f$ is
+            irreducible, and that $V(f)$ is finite (in fact $V(f)=\emptyset$),
+            so that $I(V(f))=(f)$. Moreover, since $f$ has no roots in $\R$, we
+            observe that $(f)=(1)$. This result could've also been extracted
+            using the fact that $I(V(f))=I(\emptyset)=\R[x,y]=(1)$.
+
+        \item[(2)] Consider $X \subseteq \A^2(\R)$ an algebraic set. Then there
+            is some $S=(f_1, \dots, f_n) \in \R[x,y]$ for which $X=V(S)=V(f_1,
+            \dots, f_n)=V(f_1) \cap \dots \cap V(f_n)$. Now, by the above
+            corollories, and assuming that each $f_i$ is pairwise coprime,
+            $X=V(S)$ is a finite set of points. Take
+            \begin{equation*}
+                f(x,y)=\sum_{i=1}^n{f_i^2(x,y)}
+            \end{equation*}
+            which has finitely many roots as a polynomial in $\R[x][y]$, and as
+            a polynomial in $\R[y][x]$. Then $(f)=(f_1, \dots ,f_n)$ so that
+            $X=V(f)$. In geneal, we want to work over algebraically closed
+            fields to avoid this, since the intersections of hypersurfaces need
+            not be finite.
+    \end{enumerate}
+\end{example}
+
+\begin{example}\label{example_1.14}
+    \begin{enumerate}
+        \item[(1)] We have that $V(y^2-xy-x^2y+x^3)=V(x-y) \cup V(x^2+y)$ over
+            both $\R$ and $\C$.
+
+        \item[(2)] The set $V(y^2-x(x^2-1))$ is irreducible over both $\R$ and
+            $\C$ since the polynomial  $y^2-x(x^2-1)$ is an irreducible
+            polynomial over both $\R$ and  $\C$.
+
+        \item[(3)] $V(x^3+x-x^2y-y)$ is irreducible over $\R$, but
+            $V(x^3+x-x^2y-y)=V(x-i) \cup V(x+i) \cup V(x-y)$ over $\C$, where
+            $i^2=-1$.
+    \end{enumerate}
+\end{example}
