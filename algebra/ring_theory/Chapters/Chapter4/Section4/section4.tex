@@ -425,5 +425,317 @@
             \otimes_\Z \faktor{\Z}{n\Z}$ is cyclic and has order dividing $d$,
             by Lagrange's theorem its order is preciesly $d$. This proves the
             isomorphims.
+
+        \item[(5)] In $\faktor{\Q}{\Z} \otimes_\Z \faktor{\Q}{\Z}$, the simple
+            tensors have the form
+            \begin{equation*}
+                \frac{a}{b} \mod{\Z} \otimes \frac{c}{d} \mod{\Z}
+            \end{equation*}
+            Then
+            \begin{equation*}
+                \frac{a}{b} \otimes \frac{c}{d}=
+                d(\frac{a}{bd}) \otimes \frac{c}{d}=
+                \frac{a}{bd} \otimes d(\frac{c}{d})=
+                \frac{a}{bd} \otimes c=
+                \frac{a}{bd} \otimes 0=0
+            \end{equation*}
+            so that $\faktor{\Q}{\Z} \otimes \faktor{\Q}{\Z}=(0)$. Similarly, $A
+            \otimes_\Z B=(0)$ for any divisible Abelian group $A$, and any
+            torsion Abelian group $B$.
+
+        \item[(6)] We have $\Q \otimes_\Q \Q \simeq \Q \otimes_\Z \Q$ as left
+            $\Q$-modules, and $\C \otimes_\C \C \simeq \C \otimes_\R \C$ as left
+            $\C$-modules.
+
+        \item[(7)] Let $f:R \xrightarrow{} S$ be a ring homomorphism with
+            $f(1_R)=1_S$. Then the action $(s,r) \xrightarrow{} sf(r)$ gives $S$
+            the right $R$-module structure so that $S$ is an  $(S,R)$-bimodule.
+            Then for any left $R$-module  $N$, the tensor product $S \otimes_R
+            N$ is a left $R$-module obtained by \textbf{changing the base} from
+            $R$ to  $S$.
+
+        \item[(8)] Let $f:R \xrightarrow{} S$ a ring homomorphism with
+            $f(1_R)=1_S$, then $S \otimes_R R \simeq S$ as a left  $S$-module.
+            Consider now  $\phi:S \times R \xrightarrow{} S$ by $(s,r)
+            \xrightarrow{} sr$. Then $\phi$ is  $R$-balanced and
+            \begin{align*}
+                \phi(s_1+s_2,r) &=  \phi(s_1,r)+\phi(s_2,r) \\
+                \phi(sr,r') &=  \phi(s,rr') \\
+            \end{align*}
+            Now, there exists a group homomorphism $\Phi:S \otimes_R R
+            \xrightarrow{} S$ with $\Phi(s \otimes r)=sr$, since
+            \begin{equation*}
+                \Phi(s'(s \otimes r))=\Phi(ss' \otimes
+                r)=(ss')r=(s's)r=s'(sr)=s'\Phi(s \otimes r)
+            \end{equation*}
+            then $\Phi$ is also an $S$-module homomorphism. Now, take the map
+            $\Phi':S \xrightarrow{} S \otimes_R R$ by $s \xrightarrow{} s
+            \otimes 1$. THis map gives an inverse to $\Phi$, since  $\Phi \circ
+            \Phi'(s)=\Phi(s \otimes 1)=s$ and $\Phi' \circ \Phi(s \otimes
+            r)=\Phi'(sr)=sr \otimes 1=sr$. So that $\Phi' \circ \Phi=\Phi \circ
+            \Phi'=i$, the identity map.
+
+        \item[(9)] Let $R$ be a ring and  $I$ an ideal in  $R$. Let  $N$ be a
+            left  $R$ module, since  $\faktor{R}{I}$ is an $(\faktor{R}{I},
+            R)$-bimodule, $\faktor{R}{I} \otimes_R N$ is a left $\faktor{R}{I}$
+            module. Define now
+            \begin{equation*}
+                IN=\Big{\{} \sum{a_in_i} : a_i \in I, n_i \in N \Big{\}}
+            \end{equation*}
+            where the sums taken are finite. Then
+            \begin{equation*}
+                \faktor{R}{I} \otimes_R N \simeq \faktor{N}{IN}
+            \end{equation*}
+            Moreover, it is generated, as an Abelian group by the simple tensors
+            of the form
+            \begin{equation*}
+                (r \mod{I}) \otimes n=r(1 \otimes n)
+            \end{equation*}
+            That is, $1 \otimes n$ generates $\faktor{R}{I} \otimes_R N$ as an
+            $\faktor{R}{I}$-module for every $n \in N$.
+
+            Now, the map $n \xrightarrow{} 1 \otimes n$, takes $a_in_i
+            \xrightarrow{} 1 \otimes a_in_i=a_i \otimes n_i=0$, so that $IN$ is
+            in the kernel of this map. Thus, we have an  $R$-module homomorphism
+             $f$ from  $\faktor{N}{IN}$ onto $\faktor{R}{I} \otimes_R N$ with
+             $f(n)=1 \otimes n$. Then the map
+             \begin{eqnarray*}
+                 \faktor{R}{I} \times N & \xrightarrow{} & \faktor{R}{I}
+                                             \otimes_R N    \\
+                 (r,n)  & \xrightarrow{} &  rn \mod{IN} \\
+             \end{eqnarray*}
+             is a well defined $R$-balanced map. There there exists a group
+             homomorphism $g:\faktor{R}{I} \times_R N \xrightarrow{}
+             \faktor{N}{IN}$ with $g(r \otimes n)=rn \mod{IN}$. Then $fg=gf=i$,
+             wich makes  $f$ 1--1. Therefore
+             \begin{equation*}
+                 \faktor{N}{IN} \simeq \faktor{R}{I} \otimes_R N
+             \end{equation*}
     \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{4.4.8}
+    Let $R$ be a ring, and let $M,M'$ be right  $R$-modules, and let  $N,N'$ be
+    left  $R$ modules, and suppose that $\phi:M \xrightarrow{} M'$ and $\psi:N
+    \xrightarrow{} N'$ are $R$-module homomorphisms. Then the following are
+    true.
+    \begin{enumerate}
+        \item[(1)] There exists a unique group homomorphism $\phi \otimes \psi:
+            M \otimes_R N \xrightarrow{} M' \otimes_R N'$ such that for all $m
+            \in M$ and $n \in N$
+            \begin{equation*}
+                \phi \otimes \psi(m \otimes n)=\phi(m) \otimes \psi(n)
+            \end{equation*}
+
+        \item[(2)] If $M$ and $M'$ are  $(S,R)$-bimodules, for a given ring $S$,
+            and  $\phi$ is also an  $S$-module homomorphism, then $\phi \otimes
+            \psi$ is a homomorphism of left $S$-modules. In particular, if  $R$
+            is commutative, then  $\phi \otimes \psi$ is an  $R$-module
+            homomorphism for  $(R,R)$-bimodules.
+
+        \item[(3)] If $\l:M' \xrightarrow{} M''$ and $\m:N' \xrightarrow{} N''$
+            are $R$-module homomorphisms, then
+            \begin{equation*}
+                (\l \otimes \m) \circ (\phi \otimes \psi)=
+                (\l \circ \phi) \otimes (\m \circ \psi)
+            \end{equation*}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Consider the map $(m,n) \xrightarrow{} \phi(m) \otimes \psi(n)$ from $M
+    \times N \xrightarrow{} M' \otimes_R N'$. Since $\phi$ and $\psi$ are
+    $R$-module homomorphisms, this map is  $R$-balanced, and so by theorem
+    \ref{4.4.6}, assertion (1) follows.
+
+    Now, for assertion (2), notice that the left action of $S$ on $M$ and
+    $\phi$ being an $S$-module homomorphism gives  $\phi \otimes \psi(s(m
+    \otimes n))=s\phi(n) \otimes \psi()$. Since $\phi \otimes \psi$ is additive,
+    we get that  $\phi \otimes \psi$ is an  $S$-module homomorphism. Finally,
+    for assetion (3), the uniqueness condition of theorem \ref{4.4.6} gives us
+    the result.
+\end{proof}
+
+\begin{theorem}\label{4.4.9}
+    Let $R$, and  $T$ be rings, and let $M$ a right  $R$-module, let $N$ be
+    an  $(R,T)$-bimodule, and let $L$ be a left  $T$ module. Then there exists a
+    unique isomorphsim of Abelian groups, taking $(m \otimes n) \otimes l
+    \xrightarrow{} m \otimes (n \otimes l)$, for which
+    \begin{equation*}
+        (M \otimes_R N) \otimes_T L \simeq M \otimes_R (N \otimes_T L)
+    \end{equation*}
+    Moreover, if $M$ is an  $(S,R)$-bimodule for some ring $S$, then we have an
+    isomorphism of $S$-modules.
+\end{theorem}
+\begin{proof}
+    The $(R,T)$-bimodule structure of $N$ makes  $M \otimes_R N$ into a right
+    $T$-module, and  $N \otimes_T L$ into a left  $R$-module. Thus the
+    isomorphism is well defined. Now, for every  $l \in L$, fixed, the map
+    $(m,n) \xrightarrow{} m \otimes (n \otimes l)$ is $R$-balanced, and hence,
+    there is a homomorphism
+    \begin{eqnarray*}
+        M \otimes_R N & \xrightarrow{} & M \otimes_R (N \otimes_T L)    \\
+        (m,n)   & \xrightarrow{} & m \otimes (n \otimes l)  \\
+    \end{eqnarray*}
+    That is, we have a map
+    \begin{eqnarray*}
+        (M \otimes_R N) \times L & \xrightarrow{} & M \otimes_R (N \otimes_T L)    \\
+        (m \otimes n, l)   & \xrightarrow{} & m \otimes (n \otimes l)  \\
+    \end{eqnarray*}
+    which is also well defined. Moreover it is $T$-balanced, and so induces a
+    homomorphism
+    \begin{eqnarray*}
+        (M \otimes_R N) \otimes_T L & \xrightarrow{}    &   M \otimes_R (N
+                                                \otimes_T L)    \\
+        (m \otimes n) \otimes l & \xrightarrow{}    &   m \otimes (n \otimes l) \\
+    \end{eqnarray*}
+    By similar reasoning, we can construct the inverse of this map and establish
+    the isomorphism.
+
+    Now, suppose that $M$ is an  $(S,R)$-bimodule. THen for $s \in S$, and $t
+    \in T$, we have
+    \begin{equation*}
+        s((m \otimes n)t)=(s(m \otimes n))t
+    \end{equation*}
+    so $M \otimes_R N$ is an  $(S,T)$-bimodule. This makes $(M \otimes_R N)
+    \otimes_T L$ into a left $S$-module. Since  $N \otime_T L$ is a left
+    $R$-module, then  $M \otimes_R (N \otimes_T L)$ is a left $S$-module, and
+    the group isomorphism follows to be a homomorphism of  $S$-modules.
+\end{proof}
+\begin{corollary}
+    If $R$ is commutative, and $M$, $N$, and $L$ are  $R$-modules, then  $(M
+    \otimes N) \otimes L=M \otimes (N \otimes L)$ as $(R,R)$-bimodules.
+\end{corollary}
+
+\begin{definition}
+    Let $R$ be a commutative ring with identity, and let $M_1, \dots, M_n$, and
+    $L$ be $R$-modules with the standard $R$-module structure. A map  $\phi:M_1
+    \times \dots \times M_n \xrightarrow{} L$ is called \textbf{$n$-multilinear}
+    over $R$ if it is an  $R$-module homomorphism in each factor.
+\end{definition}
+
+\begin{lemma}\label{4.4.10}
+    Let $R$ be a commutative ring, and let  $M_1, \dots, M_n$, $L$ be
+    $R$-modules. Let $\i:M_1 \times \dots \times M_n \xrightarrow{} M_1 \otimes
+    \dots \otimes M_n$ be defined by $(m_1,\dots,m_n) \xrightarrow{} m_1 \otimes
+    \dots \otimes m_n$. The following are true.
+    \begin{enumerate}
+        \item[(1)] For every $R$-moduel homomorphism  $\Phi:M_1 \otimes \dots
+            \otimes M_n \xrightarrow{} L$, the map $\phi=\Phi \circ \i$ is
+            $n$-multilinear.
+
+        \item[(2)] If $\phi:M_1 \times \dots \times M_1 \xrightarrow{} L$ is
+            $n$-multilinear, then there exists a unique $R$-module homomorphism
+            $\Phi:M_1 \otimes \dots \otimes M_n \xrightarrow{} L$ for wich
+            $\phi=\Phi \circ \i$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{theorem}\label{4.4.11}
+    Let $R$ be a ring, and  $M$ and  $M'$ be right  $R$-modules, and let  $N$
+    and  $N'$ be left  $R$-modules. Then there exists unique group isomorphisms
+    for which
+    \begin{align*}
+        (M \oplus M') \otimes_R N &\simeq (M \otimes_R N) \oplus (M' \otimes_R N)   \\
+        M \otimes_R (N \oplus N') &\simeq (M \otimes_R N) \oplus (M \otimes_R N')   \\
+    \end{align*}
+    such that $(m,m') \otimes n \xrightarrow{} (m \otimes n, m' \otimes n)$ and
+    $m \otimes (n,n') \xrightarrow{} (m \otimes n, m \otimes n')$. If $M$ and
+    $M'$ are  $(S,R)$-bimodules, then the isomorphisms are isomorphism of
+    $S$-modules. If $R$ is commutative, then we have an isomorphism of
+    $R$-modules.
+\end{theorem}
+\begin{proof}
+    The map $(M \oplus M') \times N \xrightarrow{} (M \otimes_R N) \oplus (M'
+    \otimes_R N)$ defined by $((m,m'), n) \xrightarrow{} (m \otimes n, m'
+    \otimes n)$ is well define. Moreover, it is $R$-balanced, and hence induces
+    a homomorphism  $f:(M \oplus M') \otimes_R N \xrightarrow{} (M \otimes_R N)
+    \oplus (M' \otimes N)$ for which $f((m,m'),n)=(m \otimes n, m' \otimes n)$.
+    Consider now the $R$-balanced maps
+    \begin{eqnarray*}
+        M \times N & \xrightarrow{} &   (M \oplus M') \otimes_R N   \\
+        M' \times N & \xrightarrow{} &   (M \oplus M') \otimes_R N   \\
+    \end{eqnarray*}
+    given by
+    \begin{eqnarray*}
+        (m,n)   &   \xrightarrow{}  &   (m,0) \otimes n \\
+        (m',n)   &   \xrightarrow{}  &   (0,m') \otimes n \\
+    \end{eqnarray*}
+    Define now homomorphisms $M \otimes_R N \xrightarrow{} (M \oplus M') \otimes_R
+    N$ and $M' \otimes_R N \xrightarrow{} (M \oplus M') \otimes_R N$. Then we
+    get a homomorphism $g:(M \otimes_R N) \oplus (M' \otimes_R N) \xrightarrow{}
+    (M \oplus M') \otimes_R N$ with
+    \begin{equation*}
+        g((m \otimes n_1, m' \otimes n_2))=(m,0) \otimes n_1+(0,m') \otimes n_2
+    \end{equation*}
+    Then $fg=gf$, the identity map, and are  $S$-module homomorphisms when  $M$
+    and  $M'$ are $(S,R)$-bimodules. By similar reasoning, we get the same
+    results for the isomorphism $M \otimes_R (N \oplus N') &\simeq (M \otimes_R N)
+    \oplus (M \otimes_R N')$
+\end{proof}
+\begin{corollary}
+    $M \otimes_R \bigoplus{N_i} \simeq \bigoplus{(M \otimes_R N_i)}$.
+\end{corollary}
+\begin{corollary}
+    The module obtained from the free $R$-module $R^n$ by extension of scalars
+    from $R$ to $S$ is the free  $S$-module  $S^n$.
+\end{corollary}
+\begin{corollary}
+    If $R$ is commutative, and  $M \simeq R^s$, and  $N \simeq R^t$, the free
+    $R$-modules with bases $\{m_1, \dots, m_s\}$ and $\{n_1, \dots, n_t\}$,
+    respectively, then $M \otimes_R N$ is a free  $R$-module of rank  $st$ with
+    basis  $\{m_i \otimes n_j\}$ for all $1 \leq i \leq s$ and  $1 \leq j \leq
+    t$.
+\end{corollary}
+
+\begin{lemma}\label{4.4.12}
+    Let $R$ be a commutative ring, and  $M$ and  $N$ left  $R$-modules,
+    considered as $(R,R)$-bimodules. Then there exists a unique $R$-module
+    isomorphism, taking  $m \otimes n \xrightarrow{} n \otimes m$ for which
+    \begin{equation*}
+        M \otimes_R N \simeq N \otimes_R M
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    The map $M \times N \xrightarrow{} N \otimes M$ defined by $(m,n)
+    \xrightarrow{} n \otimes m$ is $R$-balanced, and so induces a unique
+    homomorphism $f:M \otimes N \xrightarrow{} N \otimes M$ by $m \otimes n
+    \xrightarrow{} n \otimes m$. Likewise, there exists a unique homomorphism
+    $f:N \otimes M \xrightarrow{} M \otimes N$ by $n \otimes m \xrightarrow{} m
+    \otimes n$, and $fg=gf=i$, the identity map.
+\end{proof}
+
+\begin{lemma}\label{4.4.13}
+    Let $R$ be a commutative ring, and  $A$ and  $B$  $R$-algebras. Then teh
+    multiplication
+    \begin{equation*}
+        (a \otimes b)(a' \otimes b)=aa' \otimes bb'
+    \end{equation*}
+    is well defined, and makes $A \otimes_R B$ into an  $R$-algebra.
+\end{lemma}
+\begin{proof}
+    Notice that by definition, $r(a \otimes b)=ra \otimes b=a \otimes br=(a
+    \otimes b)r$ for every $r \in R$, $a \in A$, and $b \in B$. Now, the map
+    $\phi:(A \times B) \times (A \times B) \xrightarrow{} A \otimes_R B$ defined
+    by $(a,b,a',b') \xrightarrow{} aa' \otimes bb'$ is multilinear over $R$.
+    Then there exists an  $R$-module homomorphism  $\Phi:(A \otimes_R B)
+    \otimes_R (A \otimes_R B) \xrightarrow{} A \otimes_R B$ taking $(a \otimes
+    b) \otimes (a' \otimes b') \xrightarrow{} aa' \otimes bb'$. This gives us a
+    bilinear map $\Phi:(A \otimes_R B) \otimes_R (A \otimes_R B) \xrightarrow{} A
+    \otimes_R B$ defined by $(a \otimes b, a' \otimes b') \xrightarrow{} aa'
+    \otimes bb'$. This makes multiplication well defined. Moreover, this
+    multiplication satisfies the distributive laws, so that $A \otimes_R B$ is
+    an  $R$-algebra.
+\end{proof}
+
+\begin{example}\label{example_4.12}
+    The tensor product $\C \otimes_\R \C \simeq \C^4$ is a free $\R$-module of
+    rank $4$, with the basis  $\{1 \otimes 1, 1 \otimes i, i \otimes 1, i
+    \otimes i\}$, where $i^2+1=0$. Moreover, this tensor product is a
+    commutative ring. Notice then that  $(i \otimes i)(i \otimes i)=i^2 \otimes
+    i^2=-1 \otimes -1=(-1)(-1) \otimes 1=1$ Then we have $(i \otimes i)(i
+    \otimes i+1)=0$ so that $\C \otimes_\R \C$ is not an integral domain. Now,
+    notce also that  $\C \otimes_\R \C$ is an  $\R$-algebra whose left and right
+    actions are the same. Then  $\C \otimes_\R \C$ is a left  $\C$-module, since
+     $\C$ is a  $(\C,\R)$-bimodule. Likewise, $\C \otimes_\R \C$ is aright  $\C$
+     module.
 \end{example}
