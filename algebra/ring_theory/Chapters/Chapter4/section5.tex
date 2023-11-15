@@ -270,7 +270,7 @@
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    Consider the diagram
+    We chase the elements of the following diagram.
     \begin{equation*}
         \begin{tikzcd}
             {(0)} & A & B & C & {(0)} \\
@@ -288,4 +288,27 @@
             \arrow["\alpha"', from=1-2, to=2-2]
         \end{tikzcd}
     \end{equation*}
+    Suppose that $\a$ and  $\y$ are 1--1, and choose an element $b \in
+    \ker{\b}$. Then $\b(b)=0$, and $\phi'\b(b)=0$. Moreover, since this diagram
+    commutes, we have that $\phi'\b=\y\phi$, so that $\phi'\b(b)=\y\phi(b)$,
+    which implies that $\phi(b)=0$, since $\y$ is 1--1. This makes $b \in
+    \ker{\phi}$. Now, since the sequences are also exact, we have
+    $\ker{\phi}=\psi(A)$, so that $b \in \psi(A)$. That is, there is an $a \in
+    A$ for wich $b=\psi(a)$. Now, by commutativity again, we have
+    $\b\psi=\psi'\a$. So  $\b\psi(b)=\b(b)=0$, which makes $\psi'\a(a)=0$, so
+    that $\a(a)=0$. Since $\a$ is 1--1, this makes $a=0$ and we get
+    $b=\psi(a)=0$ which makes $\ker{\b}=(0)$. That is, $\b$ is 1--1.
+
+    Now, suppose that $\a$ and $\y$ are onto, and let  $b' \in B'$. Then
+    $\phi'(b)=\y(c)$ for some $c \in C$; since $\y$ is onto. Now, by lemma
+    \ref{4.5.1} $\phi$ is onto, so there is a $b \in B$ for which $b=\y(c)$. By
+    the commutativity of the diagram $\phi'\b(b)=\y(\phi(b))=\y(c)=\phi'(b')$,
+    so $\phi'(b'-\b(b))=0$ which puts $b'-\b(b) \in \ker{\phi'}$. Now, by the
+    exactness of the sequences, $\ker{\phi'}=\psi'(A')$, so there is an $a' \in
+    A'$ for which $b'-\b(b)=\psi'(a)=a \in A$, since $\a$ is onto. Then $a \in
+    \ker{\phi'}$. Now, by commutativity, observe that
+    $\psi(a)=\psi(b'-\b(b))=0$, and since $\psi$ is 1--1, we get $b'-\b(b)=0$.
+    That is $b'=\b(b)$ and $\b(B)=B'$, which makes $\b$ onto. Lastly, observe
+    that if $\a$ and $\y$ are isomorphisms, then they are 1--1 and onto, which
+    makes $\b$ 1--1 and onto, and hence an isomorphism as well.
 \end{proof}
