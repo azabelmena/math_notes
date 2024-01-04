@@ -29,25 +29,13 @@
     $\inv{f}((c,\infty))$ measurable.
 \end{proof}
 \begin{corollary}
-    If $f$ is a measurable function on a measurable domain $E$, then for any $c
-    \in \R$
-    \begin{equation*}
-        \inv{f}(c)=\{x \in E : f(x)=c\}
-    \end{equation*}
-    is measurable.
-\end{corollary}
-\begin{proof}
-    Take $c \in \R$. Then  $\inv{f}([c,\infty))$ and $\inv{f}((-\infty,c])$ are
-    measurable, hence so is their intersection, which is $\inv{f}(c)$.
-\end{proof}
-\begin{corollary}
     If $f$ is an extended real-valued function, then  $\inv{f}(\infty)$ is
     measurable.
 \end{corollary}
 \begin{proof}
     Notice that
     \begin{equation*}
-        \inv{f}(\infty)=\{x \in E : f(x)>k\}
+        \inv{f}(\infty)=\bigcap_{k \in \Z^+}{\{x \in E : f(x)>k\}}
     \end{equation*}
     so that $\inv{f}(\infty)$ is measurable by the above lemma.
 \end{proof}
