@@ -1,0 +1,190 @@
+\section{Normed Vector Spaces of real-valued functions}
+\label{section_12.1}
+
+\begin{definition}
+  Let $\Fc$ be the collection of all extended real-valued functions on a
+  Lebesgue measurable set $E$, which are finite almost everywhere on $E$. We
+  call two functions $f,g \in \Ff$ \textbf{equivalent} if $f=g$ almost
+  everywhere on $E$, and write $f \simeq g$.
+\end{definition}
+
+\begin{lemma}\label{lemma_12.1.1}
+  The equivalence of extended real-valued function on $\Fc$ is an equivalence
+  relation.
+\end{lemma}
+\begin{proof}
+  We have that $f(x)=f(x)$ almost everwhere on $E$, and if  $f \simeq g$, thebn
+  $g \simeq f$. Now, let  $f \simeq g$, and  $g \simeq h$. Then  $f=g$ on
+  $\com{E}{E_0}$, and $g=h$ on  $\com{E}{E_1}$, where $m(E_0)=0$ and $m(E_1)=0$.
+  Then we have $f=h$ on  $\com{E}{(E_0 \cap E_1)}$, and since $E_0 \cap E_1
+  \subseteq E_0,E_1$, $m(E_0 \cap E_1)=0$, so that $f \simeq h$.
+\end{proof}
+
+\begin{theorem}\label{theorem_12.1.2}
+  The quotient space $\faktor{\Fc}{\simeq}$ is a vector space.
+\end{theorem}
+\begin{proof}
+  Let $[f], [g] \in \faktor{\Fc}{\simeq}$, and for $\a,\b \in \R$, define
+  $\a[f]+\b[g]=[\a{f}+\b{g}]$. Now, let $[f']=[f]$, and $[g']=[g]$. Then we have
+  that $f \simeq f'$ and  $g \simeq g'$, so that  $f=f'$ on $\com{E}{E_0}$ an
+  $g=g'$ on  $\com{E}{E_1}$, where $m(E_0)=0$ and $m(E_1)=0$. Then observe that
+  $\a{f}+\b{g}=\a{f'}+\b{g'}$ on $\com{E}{(E_0 \cap E_1)}$, where $m(E_0 \cap
+  E_1)=0$. This makes $\a{f}+\b{g} \simeq \a{f'}+\b{g'}$, so that
+  $[\a{f}+\b{g}]=[\a{f'}+\b{g'}]$, and so linear combinations are independent of
+  representatives. The rest of the vector space axioms can then be readily
+  verified.
+\end{proof}
+\begin{remark}
+  Since linear combinations are independent of representatives, we denote an
+  equivalence class $[f]$ of $\faktor{\Fc}{\simeq}$ by its representative, $f$.
+\end{remark}
+
+\begin{theorem}\label{theorem_12.1.3}
+  Let $1 \leq p <\infty$ and $E$ be a Lebesgue measurable set, and define
+  $L^p(E)$ the collection of all $f \in \faktor{\Ff}{\simeq}$ for which
+  \begin{equation*}
+    \int_E{|f|^p \ dm}<\infty
+  \end{equation*}
+  Then $L^p(E)$ is a subspace of $\faktor{\Fc}{\simeq}$.
+\end{theorem}
+\begin{proof}
+  Suppose that $f \simeq g$, so that  $f=g$ almost everywhere on  $E$. Then
+  \begin{equation}
+  \int_E{|f|^p \ dm}=\int_E{|g|^p \ dm}
+  \end{equation}
+  so that the elements of $L^p(E)$ are well defined.
+
+  Now, let $a,b \in \R$, then $|a+b| \leq |a|+|b| \leq 2\max{\{|a|,|b|\}}$.
+  Hence, we have
+  \begin{equation*}
+    \int_E{|af+bg|^p \ dm} \leq
+    2\Big{(} |a|^p\int_E{|f|^p \ dm}+|b|^p\int_E{|g|^p \ dm} \Big{)}<\infty
+  \end{equation*}
+  so that $af+bg \in L^p(E)$.
+\end{proof}
+\begin{corollary}
+  The set of all Lebesgue integrable functions form a vector space.
+\end{corollary}
+\begin{proof}
+  Notice that $L^1(E)$ is the set of all Lebesgue integrable functions.
+\end{proof}
+
+\begin{definition}
+  We call a real-valued function $f$ on a Lebesgue measurable set $E$
+  \textbf{essentially bounded} if there exists some $M \geq 0$ for which $|f|
+  \leq M$ almost everywhere on $E$; and wee call $M$ an \textbf{essential
+  upperbound} of $f$ on  $E$. We denote the set of all essentially bounded
+  functions on  $E$ by  $L^\infty(E)$.
+\end{definition}
+
+\begin{lemma}\label{lemma_12.1.4}
+  Let $E$ be a Lebesgue measurable set. Then $L^1(E)$ is a subspace of
+  $\faktor{\Fc}{\simeq}$.
+\end{lemma}
+\begin{proof}
+  If $f \simeq g$, then  $f=g$ almost everywhere on  $E$, so that if $|f| \leq
+  M$ almost everywhere on $E$, then $|g| \leq M$ almost everywhere on $E$, for
+  $M \geq 0$. Therefore the elements of $L^\infty(E)$ are well defined.
+
+  Now, let $f,g \in L^\infty(E)$. Then there are $M \geq 0$, and $N \geq 0$,
+  such that $|f| \leq M$ on $\com{E}{E_0}$ and $|g| \leq N$ on $\com{E}{E_1}$,
+  where $m(E_0)=0$ and $m(E_1)=0$. Let $a,b \in \R$. Then $|af+bg| \leq
+  |a||f|+|b||g| \leq |a|M+|b|N$ on $\com{E}{(E_0 \cap E_1)}$, and $m(E_0 \cap
+  E_1)=0$. So that $af+bg \in L^\infty(E)$.
+\end{proof}
+
+\begin{definition}
+  We define a \textbf{linear functional} to be an extended real-valued function
+  whose domain is a vector space of functions.
+\end{definition}
+
+\begin{defintion}
+  Let $V$ be a vector space. We call a linear functional  $\| \cdot \|$ on $V$
+  a \textbf{norm} if for all vectors $f,g \in V$, and any $\a \in \R$, the
+  following are true:
+  \begin{enumerate}
+    \item[(1)] $\|f+g\| \leq \|f\|+\|g\|$.
+
+    \item[(2)] $\|\a{f}\|=|\a|\|f\|$.
+
+    \item[(3)] $\|f\| \geq 0$, and $\|f\|=0$ if, and only if  $f=0$.
+  \end{enumerate}
+  We call a vector space together with a norm a \textbf{normed vector space}. We
+  call an element $f \in V$ a \textbf{unit} if $\|f\|=1$, and for $f \neq 0$, we
+  define the \textbf{normilazation} of $f$ to be the unit vector
+  $\frac{f}{\|f\|}$.
+\end{defintion}
+
+\begin{example}\label{example_12.1}
+  \begin{enumerate}
+    \item[(1)] Consider $f \in L^1(E)$, and define $\|f\|_1=\int_E{|f| \ dm}$.
+      Then $\| \cdot \|_1$ is a norm on  $L^1(E)$. Indeed, we have that
+      \begin{equation*}
+        \|f+g\|_1=\int_E{|f+g| \ dm} \leq \int_E{|f| \ dm}+\int_E{|g| \ dm}=
+        \|f\|_1+\|g\|_1
+      \end{equation*}
+      we also have for $\a \in \R$, that
+      $\|\a{f}\|_1=\int_E{|\a{f}|}=|\a|\int_E{|f|}$, so that
+      $\|\a{f}\|_1=|\a|\|f\|_1$. Lastly, observe that $\int_E{|f|} \geq 0$, and
+      that $\int_E{f}=0$ if, and only if $f=0$ almost everywhere on  $E$, so
+      that  $\|f\| \geq 0$, and $\|f\|=0$ if, and only if  $f=0$ almost
+      everywhere on  $E$.
+
+    \item[(2)] Let $f \in L^\infty(E)$. We define the \textbf{essential
+      supremum} $\|f\|_\infty$ of $f$ to be the greatest lowerbound of all
+      essential upperbounds of $f$ on $E$; that is
+      \begin{equation}
+        \|f\|_\infty=\inf{\{M : |f| \leq M \text{ almost everywhere on } E\}}
+      \end{equation}
+      We claim that $\| \cdot \|_\infty$ is a norm on  $L^\infty(E)$.
+
+      Let $f \in \L^\infty(E)$, and $\a \in \R$. Then for some $M \geq 0$, we
+      have $|\a{f}|=|\a||f| \leq |\a|M$ almost everywhere on $E$. Then by
+      definition of $\|f\|_\infty$, we have $\|\a{f}\|=|\a|\|f\|_\infty$.
+      Moreover, since $M \geq 0$, we have  $\|f\|_\infty \geq 0$. Now, observe
+      also that if $M=0$, then  $|f| \leq 0$, so that $|f|=0$ almost everywhere
+      on  $E$, so that $\|f\|=0$ if, and only if $f=0$ almost everywhere on
+      $E$.
+
+      Lastly, by definition, observe for some  $n \in \Z^+$, that
+      \begin{equation*}
+        |f| \leq \|f\|_\infty+\frac{1}{n} \text{ on } \com{E}{E_n}
+      \end{equation*}
+      where $m(E_n)=0$. Take $E_\infty=\bigcap{E_n}$, then as $ \xrightarrow{}
+      \infty$, $|f| \leq \|f\|_\infty$ on $\com{E}{E_\infty}$, and
+      $m(E_\infty)=0$. That is, $\|f\|_\infty$ is the smallest essential
+      upperbound of $f$. Now, let $f,g \in L^\infty(E)$, then
+      \begin{equation*}
+        |f+g| \leq |f|+|g| \leq \|f\|_\infty+\|g\|_\infty
+        \text{ almost everywhere on } E
+      \end{equation*}
+      therefore $\|f+g\|_\infty \leq \|f\|_\infty+\|g\|_\infty$.
+
+    \item[(3)] For $1 \leq p < \infty$, define $l^p$ to be the collection of all
+      real-valued sequences $\{a_n\}$ for which
+      \begin{equation*}
+        \sum_{n=1}^\infty{|a_n|^p}<\infty
+      \end{equation*}
+      Then $l^p$ is a vector space. Now, define $\|\{a_n\}\|_p$ by
+      \begin{equation*}
+        \|\{a_n\}\|=\sum_{n=1}^\infty{|a_n|^p}
+      \end{equation*}
+      then $\| \cdot \|_p$ defines a norm on $l^p$.
+
+    \item[(4)] Similarly define $l^\infty$ to be the collection of all bounded
+      real-valued sequences, and define  $\|\{a_n\}\|_\infty$ by
+      \begin{equation*}
+        \|\{a_n\}\|_\infty=\sup\{|a_n|\}
+      \end{equation*}
+      Then $\| \cdot \|_\infty$ is a norm on  $l^\infty$.
+
+    \item[(5)] Let $[a,b]$ a closed bounded interval of $\R$, where $a<b$, and
+      consider the vector space  $C[a,b]$ of all continuous real-valued
+      functions defined on $[a,b]$. By the extreme value theorem, an $f \in
+      C[a,b]$ takes a maximum value, so define $\|f\|_\max$ by
+      \begin{equation*}
+        \|f\|_{\max}=\max_{a \leq x \leq b}{\{|f(x)|\}}
+      \end{equation*}
+      Then $\|f\|_\max$ defines a norm on $C[a,b]$.
+  \end{enumerate}
+\end{example}
