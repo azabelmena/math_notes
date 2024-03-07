@@ -17,10 +17,10 @@
 
 \begin{theorem}[Hilbert's Nullstellensatz]\label{theorem_1.7.2}
     Let $k$ be an algebraically closed field, and  $\af$ an ideal of  $k[x_1,
-    \dots, x_n]$. Then $I(V(\af))=\Rad{\af}$.
+    \dots, x_n]$. Then $I(V(\af))=\sqrt{\af}$.
 \end{theorem}
 \begin{proof}
-    We have that $\Rad{\af} \subseteq I(V(\af))$. Now, let $\af=(f_1, \dots,
+    We have that $\sqrt{\af} \subseteq I(V(\af))$. Now, let $\af=(f_1, \dots,
     f_r)$, since $k[x_1, \dots, x_n]$ is Noetherian, and let $g \in I(V(\af))$.
     Let $\bf=(f_1, \dots, f_r,x_{n+1}g-1)$ an ideal of $k[x_1, \dots,
     x_n,x_{n+1}]$. Then $\bf \subseteq \A^{n+1}(k)$ is empty, since $g$ vanishes
@@ -37,9 +37,9 @@
     \end{equation*}
     Substituting $g$ for $y$ gives us
     \begin{equation*}
-        g^n=\sum{c_i(x_1, \dots, x_{n+1})f_i(x_1, \dots, x_{n+1})} \in \Rad{\af}
+        g^n=\sum{c_i(x_1, \dots, x_{n+1})f_i(x_1, \dots, x_{n+1})} \in \sqrt{\af}
     \end{equation*}
-    so that $I(V(\af)) \subseteq \Rad{\af}$, and we are done.
+    so that $I(V(\af)) \subseteq \sqrt{\af}$, and we are done.
 \end{proof}
 \begin{corollary}
     If $\af$ is a radical ideal in  $k[x_1, \dots, x_n]$, then $I(V(\af))=\af$.

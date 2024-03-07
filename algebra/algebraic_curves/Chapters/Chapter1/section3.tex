@@ -72,17 +72,17 @@
     $\af$
     to be the set
     \begin{equation*}
-        \Rad{\af}=\{a \in R : a^n \in \af, \text{ for some } n \in \Z^+\}
+        \sqrt{\af}=\{a \in R : a^n \in \af, \text{ for some } n \in \Z^+\}
     \end{equation*}
-    We call $I$ a \textbf{radical ideal} if $I=\Rad{I}$.
+    We call $I$ a \textbf{radical ideal} if $I=\sqrt{I}$.
 \end{definition}
 
 \begin{lemma}\label{1.3.3}
-    Let $R$ be a ring, and $\af$ an ideal of $R$. Then $\Rad{\af}$ is also an
+    Let $R$ be a ring, and $\af$ an ideal of $R$. Then $\sqrt{\af}$ is also an
     ideal of $R$.
 \end{lemma}
 \begin{proof}
-    Let $a,b \in \Rad{\af}$, then $a^m \in \af$ and $b^n \in \af$ for some $m,n
+    Let $a,b \in \sqrt{\af}$, then $a^m \in \af$ and $b^n \in \af$ for some $m,n
     \in \Z^+$. Now, observe that
     \begin{equation*}
         (a+b)^{m+n}=a^{m+n}+\sum_{i=1}^{m+n-2}{{m+n \choose
@@ -93,33 +93,33 @@
     \af$; on the otherhand, if $m \leq m+n-i$, then $a^ib^{m-n-i} \in \af$. This
     makes each $a^ib^{m-n-i} \in \af$, and that $(a+b)^{m+n} \in \af$. Also
     observe that if $a^n \in \af$, then $(-a)^n=-(a^n) \in \af$. So that
-    $\Rad{\af}$ is an additive subgroup of $R$.
+    $\sqrt{\af}$ is an additive subgroup of $R$.
 
-    Lastly, suppose that if $a \in \Rad{R}$, and $r \in R$, then we have
-    $(ra)^n=r^na^n \in \af$ for some $n \in \Z^+$. Thus $ra \in \Rad{\af}$. This
-    makes $\Rad{\af}$ an ideal of $R$.
+    Lastly, suppose that if $a \in \sqrt{R}$, and $r \in R$, then we have
+    $(ra)^n=r^na^n \in \af$ for some $n \in \Z^+$. Thus $ra \in \sqrt{\af}$. This
+    makes $\sqrt{\af}$ an ideal of $R$.
 \end{proof}
 \begin{corollary}
-    $\Rad{\af}$ is a radical ideal of $R$.
+    $\sqrt{\af}$ is a radical ideal of $R$.
 \end{corollary}
 \begin{proof}
-    Observe that $\Rad{\af} \subseteq \Rad{(\Rad{\af})}$. Now, let $a \in
-    \Rad{(\Rad{\af})}$, then $a^n \in \Rad{\af}$ for some $n \in \Z^+$, so that
+    Observe that $\sqrt{\af} \subseteq \sqrt{\sqrt{\af}}$. Now, let $a \in
+    \sqrt{\sqrt{\af}}$, then $a^n \in \sqrt{\af}$ for some $n \in \Z^+$, so that
     $(a^n)^m=a^{mn} \in \af$ for some $m \in \Z^+$. This makes $a \in
-    \Rad{\af}$. So $\Rad{(\Rad{\af})} \subseteq \Rad{\af}$. This makes
-    $\Rad{\af}$ radical.
+    \sqrt{\af}$. So $\sqrt{\sqrt{\af}} \subseteq \sqrt{\af}$. This makes
+    $\sqrt{\af}$ radical.
 \end{proof}
 
 \begin{lemma}\label{1.3.4}
     Any prime ideal in a ring $R$ is radical.
 \end{lemma}
 \begin{proof}
-    Let $\pf$ be a prime ideal. We have that $\pb \subseteq \Rad{\pf}$. Now, let
-    $a \in \Rad{\pf}$. Then for some $n \in \Z^+$, we have that $a^n \in \pf$.
+    Let $\pf$ be a prime ideal. We have that $\pf \subseteq \sqrt{\pf}$. Now, let
+    $a \in \sqrt{\pf}$. Then for some $n \in \Z^+$, we have that $a^n \in \pf$.
     Since $\pf$ is prime, either $a \in \pf$ or $a^{n-1} \in \pf$. If $a \in
     \pf$, we are done; otherwise we have $a^{n-1}=aa^{n-2} \in \pf$. Repeating
     this process recursively, we obtain that $a \in \pf$, so that
-    $\pf=\Rad{\pf}$.
+    $\pf=\sqrt{\pf}$.
 \end{proof}
 
 \begin{lemma}\label{1.3.5}
