@@ -136,12 +136,14 @@
 
 \begin{example}\label{example_1.6}
     \begin{enumerate}
-        \item[(1)] Let $k$ be a field, and $X=\{(t,t^2,t^3) \in \A^3(k) : t \in
-            k\}$. If $k$ is finite, this is algebraic. Suppose that $k$ is
-            infinite, and consider the polynomial
-            $f(x_1,x_2,x_3)=x_1+x_2^2+x_3^3$. Notice that the point $0 \in X$ is
-            a root of $f$, and that if $P$ is a root of  $f$, then  $P \in X$.
-            That is, $X=V(f)$ making $X$ algebraic.
+
+        \item[(1)] Let $k$ be a field, and  $X=\{(t,t^2,t^3) \in \A^3(k) : t \in
+          k\}$. If $k$ is finite, then this is an algebraic set. Suppose then
+          that  $k$ is infinite. Then consider the polynomials  $f(x,y,z)=x^2-y$
+          and $g(x,y,z)=x^3-z$. Then if $P=(x,y,z)$ is a point of $V(f,g)$, we
+          get that  $y=x^2$ and  $z=x^3$ so that  $P=(x,x^2,y^2) \in X$.
+          Conversely, we also have that $X \subseteq V(f,g)$, so that $X=V(f,g)$
+          which makes $X$ algebraic.
 
         \item[(2)] Let $X=\{(\cos{t},\sin{t}) \in \A^2(\R) : t \in \R\}$.
             Consider the polynomial $f(x,y)=x^2+y^2-1$. Since we have that
