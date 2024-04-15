@@ -1,0 +1,86 @@
+\section{Coordinate Rings and Polynomial Maps}
+
+\begin{definition}
+  An \textbf{affine variety} in $\A^(k)$ is an irreducible algebraic set in
+  $\A^n(k)$. If $V$ is an affine variety in  $\A^n(k)$, we define the
+  \textbf{coordinate ring} of $V$ to be the quotient ring:
+  \begin{equation*}
+    \Gamma(V)=\faktor{k[x_1, \dots, x_]}{I(V)}
+  \end{equation*}
+\end{definition}
+
+\begin{definition}
+  Let $V$ be an affine variety in  $\A^n(k)$, and let $\Fc(V,k)$ the set of all
+  functions $V \xrightarrow{} k$. We call a function $f \in \Fc(V,k)$ a
+  \textbf{polynomial function} if there exists a polynomial $F \in k[x_1, \dots,
+  x_n]$ such that $f(P)=F(P)$ for any point $P \in V$. We denote the collection
+  of all polynomial functions from $V \xrightarrow{} k$ by $\Pc(V,k)$.
+\end{definition}
+
+\begin{theorem}\label{theorem_2.1.1}
+  Let $V$ be an affine variety of  $\A^n(k)$. Then $\Pc(V,k)$ is a subring of
+  $\Fc(V,k)$; moreover two polynomials $F$ and $G$ over $k$ determine the same
+  polynomial function if, and only if $F-G \in I(V)$.
+\end{theorem}
+\begin{proof}
+  Let $f$ and  $g$ polynomial functions, the there exist polynomials $F,G$ over $k$
+  such that for any  $P \in V$, $f(P)=F(P)$ and $g(P)=G(P)$. This makes
+  $f+g(P)=F+G(P)$ and $fg(P)=FG(P)$ under the usual addition and multiplication
+  of polynomials. This makes $\Pc(V,k)$ a subring of $\Fc(V,k)$.
+
+  Now, let $F,G \in k[x_1, \dots, x_n]$ such that $F$ and  $G$ determine the
+  same polynomial function  $f$; i.e.. for every $P \in V$, $f(p)=F(P)$ and
+  $f(P)=G(P)$. Then $F-G(P)=0$ which makes $F-G \in I(V)$. Conversely, if $F-G
+  \in I(V)$, then for any $P \in V$, $F-G(P)=0$ so that $F(P)=G(P)$. By
+  definition this means that both $F$ and  $G$ determine the same polynomial
+  function.
+\end{proof}
+\begin{corollary}
+  $\Gamma(V) \simeq \Pc(V,k)$.
+\end{corollary}
+
+\begin{definition}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine varieties. We
+  call a map $\phi:V \xrightarrow{} W$ a \textbf{polynomial map} if there exist
+  polynomials $T_1, \dots, T_m \in k[x_1, \dots, x_n]$ such that
+  $\phi(P)=(T_1(P), \dots, T_m(P))$ for any point $P \in V$.
+\end{definition}
+
+\begin{lemma}\label{lemma_2.1.2}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ affine varieties. Let
+  $\phi:V \xrightarrow{} W$ be any function. Then there exists a map
+  $\Phi:\Fc(W,k) \xrightarrow{} \Fc(V,w)$ such that $\Phi=f \circ \phi$.
+  Moreover if $\phi$ is a polynomial map, then $\Phi(\Gamma(W)) \subseteq
+  \Gamma(V)$, and $\Phi$ restricts to a homomorphism  $\Gamma(W) \xrightarrow{}
+  \Gamma(V)$.
+\end{lemma}
+
+\begin{theorem}\label{theorem_2.1.3}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine varieties. Then
+  there is a natural 1--1 correspondence of functions $V
+  \xrightarrow{} W$ onto homomorphisms $\Gamma(W) \xrightarrow{} \Gamma(V)$.
+  Moreover any such function $V \xrightarrow{} W$ is the restriction of a
+  polynomial map $\A^n(k) \xrightarrow{} \A^m(k)$.
+\end{theorem}
+\begin{proof}
+  Let $\a:\Gamma(W) \xrightarrow{} \Gamma(V)$ a homomorphism and take $T_i \in
+  k[x_1, \dots, x_n]$, $1 \leq i \leq m$ and define $T=(T_1, \dots, T_m)$. Then
+  $T:\A^n(k) \xrightarrow{} \A^m(k)$ is a polynomial map by definition. Define
+  $\tilde{T}:\Gamma(\A^m) \xrightarrow{} \Gamma(\A^n)$; by lemma
+  \ref{lemma_2.1.2}, we have $\tilde{T}(\Gamma(\A^m(k))) \subseteq
+  \Gamma(\A^n(k))$. That is, for any $V \subseteq \A^n(k)$ and $W \subseteq
+  \A^m(k)$, we get $\tilde{T}(I(W)) \subseteq I(V)$. That is $T(V) \subseteq W$.
+  Therefore $T$ restricts to a polynomial map from  $V \xrightarrow{} W$. In
+  fact, it restricts preciesly to $\a$.
+\end{proof}
+
+\begin{definition}
+  We call a polynomial map $\phi:V \xrightarrow{} W$ an \textbf{isomorphism} if
+  there is a polynomial map $\psi:W \xrightarrow{} V$ such that $\psi \circ
+  \phi=\id_V$ and  $\phi \circ \psi=\id_W$.
+\end{definition}
+
+\begin{lemma}\ref{lemma_2.1.4}
+  Two affine varieties are isomorphic if, and only if their coordinate rings are
+  isomorphic.
+\end{lemma}
