@@ -1,11 +1,11 @@
 \section{Coordinate Rings and Polynomial Maps}
 
 \begin{definition}
-  An \textbf{affine variety} in $\A^(k)$ is an irreducible algebraic set in
+  An \textbf{affine variety} in $\A^n(k)$ is an irreducible algebraic set in
   $\A^n(k)$. If $V$ is an affine variety in  $\A^n(k)$, we define the
   \textbf{coordinate ring} of $V$ to be the quotient ring:
   \begin{equation*}
-    \Gamma(V)=\faktor{k[x_1, \dots, x_]}{I(V)}
+    \Oc(V)=\faktor{k[x_1, \dots, x_]}{I(V)}
   \end{equation*}
 \end{definition}
 
@@ -36,7 +36,7 @@
   function.
 \end{proof}
 \begin{corollary}
-  $\Gamma(V) \simeq \Pc(V,k)$.
+  $\Oc(V) \simeq \Pc(V,k)$.
 \end{corollary}
 
 \begin{definition}
@@ -50,28 +50,28 @@
   Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ affine varieties. Let
   $\phi:V \xrightarrow{} W$ be any function. Then there exists a map
   $\Phi:\Fc(W,k) \xrightarrow{} \Fc(V,w)$ such that $\Phi=f \circ \phi$.
-  Moreover if $\phi$ is a polynomial map, then $\Phi(\Gamma(W)) \subseteq
-  \Gamma(V)$, and $\Phi$ restricts to a homomorphism  $\Gamma(W) \xrightarrow{}
-  \Gamma(V)$.
+  Moreover if $\phi$ is a polynomial map, then $\Phi(\Oc(W)) \subseteq
+  \Oc(V)$, and $\Phi$ restricts to a homomorphism  $\Oc(W) \xrightarrow{}
+  \Oc(V)$.
 \end{lemma}
 
 \begin{theorem}\label{theorem_2.1.3}
   Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine varieties. Then
   there is a natural 1--1 correspondence of functions $V
-  \xrightarrow{} W$ onto homomorphisms $\Gamma(W) \xrightarrow{} \Gamma(V)$.
+  \xrightarrow{} W$ onto homomorphisms $\Oc(W) \xrightarrow{} \Oc(V)$.
   Moreover any such function $V \xrightarrow{} W$ is the restriction of a
   polynomial map $\A^n(k) \xrightarrow{} \A^m(k)$.
 \end{theorem}
 \begin{proof}
-  Let $\a:\Gamma(W) \xrightarrow{} \Gamma(V)$ a homomorphism and take $T_i \in
-  k[x_1, \dots, x_n]$, $1 \leq i \leq m$ and define $T=(T_1, \dots, T_m)$. Then
-  $T:\A^n(k) \xrightarrow{} \A^m(k)$ is a polynomial map by definition. Define
-  $\tilde{T}:\Gamma(\A^m) \xrightarrow{} \Gamma(\A^n)$; by lemma
-  \ref{lemma_2.1.2}, we have $\tilde{T}(\Gamma(\A^m(k))) \subseteq
-  \Gamma(\A^n(k))$. That is, for any $V \subseteq \A^n(k)$ and $W \subseteq
-  \A^m(k)$, we get $\tilde{T}(I(W)) \subseteq I(V)$. That is $T(V) \subseteq W$.
-  Therefore $T$ restricts to a polynomial map from  $V \xrightarrow{} W$. In
-  fact, it restricts preciesly to $\a$.
+  Let $\a:\Oc(W) \xrightarrow{} \Oc(V)$ a homomorphism and take $T_i \in
+  k[x_1, \dots, x_n]$, $1 \leq i \leq m$ such that $\a(x_i \mod{I(W)})=T_i
+  \mod{I(V)}$. Define $T=(T_1, \dots, T_m)$. Then $T:\A^n(k) \xrightarrow{}
+  \A^m(k)$ is a polynomial map by definition. Define $\tilde{T}:\Oc(\A^m)
+  \xrightarrow{} \Oc(\A^n)$; by lemma \ref{lemma_2.1.2}, we have
+  $\tilde{T}(\Oc(\A^m(k))) \subseteq \Oc(\A^n(k))$. That is, for any $V
+  \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$, we get $\tilde{T}(I(W)) \subseteq
+  I(V)$. That is $T(V) \subseteq W$. Therefore $T$ restricts to a polynomial map from
+  $V \xrightarrow{} W$. In fact, it restricts preciesly to $\a$.
 \end{proof}
 
 \begin{definition}
@@ -80,7 +80,7 @@
   \phi=\id_V$ and  $\phi \circ \psi=\id_W$.
 \end{definition}
 
-\begin{lemma}\ref{lemma_2.1.4}
+\begin{lemma}\label{lemma_2.1.4}
   Two affine varieties are isomorphic if, and only if their coordinate rings are
   isomorphic.
 \end{lemma}
