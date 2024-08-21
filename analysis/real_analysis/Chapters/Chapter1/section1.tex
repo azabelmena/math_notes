@@ -1,106 +1,102 @@
-%----------------------------------------------------------------------------------------
-%	SECTION 1.1
-%----------------------------------------------------------------------------------------
-
-\section{Ordered Sets}
+\section{Ordered Sets}\label{section_1.1}
 
 \begin{definition}
-    Let $S$ be any set. An \textbf{order} on $S$ is a relation  $<$ such that:
-        \begin{enumerate}
-            \item[(1)] For $x,y \in S$, one and only one of the following hold:
-                \begin{align*}
-                    x<y && x=y && y<x \\
-                \end{align*}
-            We call this property the \textbf{trichotomy law}
+  Let $S$ be any set. An \textbf{order} on $S$ is a relation  $<$ such that:
+  \begin{enumerate}
+    \item[(1)] For $x,y \in S$, one and only one of the following hold:
+      \begin{align*}
+        x<y && x=y && y<x \\
+      \end{align*}
 
-        \item[(2)] $<$ is transitive over $S$.
-        \end{enumerate}
-    We denote the relations $>$ and $\leq$ to mean $x>y$ if and only if $y<x$,
-    and $x \leq y$ if and only if $x<y$, or $x=y$. We call $S$ together with  $<$
-    an \textbf{ordered set}.
+    \item[(2)] $<$ is transitive over $S$; that is, for all $x,y,z \in S$ if
+      $x<y$ and $y<z$, then $x<z$.
+  \end{enumerate}
+  We denote the relations $>$ and $\leq$ to mean $x>y$ if and only if $y<x$,
+  and $x \leq y$ if and only if $x<y$, or $x=y$. We call $S$ together with  $<$
+  an \textbf{ordered set}.
 \end{definition}
 
 \begin{example}
-    Define $<$  on $\Q$ such that for $r,s \in \Q$, $r<s$ implies $<0s-r$.
+  Define $<$  on $\Q$ such that for $r,s \in \Q$, $r<s$ implies $<0s-r$.
 \end{example}
 
 \begin{definition}
-    Let $S$ be an ordered set, and let  $E \subseteq S$. We say that  $E$ is \textbf{bounded above}
-    there is some  $\beta \in S$ for which  $x \leq \beta$, for all $x \in E$. We say that $E$
-    is  \textbf{bounded below} if  $\beta \leq x$, for call  $x \in E$. We say an $\alpha \in S$ is a
-    \textbf{least upperbound} of  $E$, if  $\alpha$ is an upperbound of  $E$, and for all
-    other upperbounds,  $\gamma$, of  $E$,  $\alpha \leq \gamma$. Likewise,  $\alpha$ is a \textbf{greatest
-    lowerbound}  of $E$ if  $\alpha$ is a lowerbound of  $E$, and for all other lowerbounds
-    $\gamma$ of  $E$,  $\gamma \leq \alpha$. We denote the least upperbound, and greatest lowerbound
-    by  $\sup{E}$ and  $\inf{E}$, respectively.
+  Let $S$ be an ordered set, and let  $E \subseteq S$. We say that  $E$ is
+  \textbf{bounded above} there is some  $\beta \in S$ for which  $x \leq \beta$,
+  for all $x \in E$. We say that $E$ is  \textbf{bounded below} if  $\beta \leq x$,
+  for call  $x \in E$. We say an $\alpha \in S$ is a \textbf{least upper bound}
+  of  $E$, if  $\alpha$ is an upper bound of  $E$, and for all other upper bounds,
+  $\gamma$, of  $E$,  $\alpha \leq \gamma$. Likewise,  $\alpha$ is a \textbf{greatest
+  lower bound}  of $E$ if  $\alpha$ is a lower bound of  $E$, and for all other
+  lower bounds $\gamma$ of  $E$,  $\gamma \leq \alpha$. We denote the least upper
+  bound, and greatest lower bound by  $\sup{E}$ and  $\inf{E}$, respectively.
 \end{definition}
 
-\begin{lemma}\label{1.1.1}
-    Let $S$ be an ordered set, and let $E \subseteq S$. Then  $E$ has (if they exist) a
-    unique least upperbound, and a unique greatest lowerbound.
+\begin{lemma}\label{theorem_1.1.1}
+  Let $S$ be an ordered set, and let $E \subseteq S$. Then  $E$ has (if they
+  exist) a unique least upper bound, and a unique greatest lower bound.
 \end{lemma}
 \begin{proof}
-    Let $\alpha, \beta \in S$ be least upperbounds of $E$. Then by definition, we have that
-    $\alpha \leq \beta$, and  $\beta \leq \alpha$; thus by the trichotomy law,  $\alpha=\beta$. The proof is the same
-    for greatest lowerbounds.
+  Let $\alpha, \beta \in S$ be least upper bounds of $E$. Then by definition, we
+  have that $\alpha \leq \beta$, and  $\beta \leq \alpha$; therefore, $\a=\b$.
 \end{proof}
 
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $A=\{p \in \Q: p^2<2\}$, and $B=\{p \in \Q: p^2>2\}$. Clearly, we
-            have that every element of $B$ is an upperbound of $A$, and every element of
-             $A$ is a lowerbound of  $B$. Now take  $p \in \Q$ a positive rational, and
-             take  $q \in \Q$ such that $q=p-\frac{p^2-2}{p+2}$. Then $q^2-2=\frac{2(p^2-2)}{(p+2)^2}$.
-             Now if $p \in A$, then  $p^2-2<0$, which implies that  $p<q$, and $q^2<2$; thus
-             $A$ has no largest element; similarly, if  $p \in B$, then  $p^2-2>0$, which
-             implies that  $q<p$ and  $q^2>2$, which shows that  $B$ has no least element. Thus
-             $\sup{A}$ and  $\inf{B}$ do not exist in $\Q$.
+  \begin{enumerate}
+    \item[(1)] Let $A=\{p \in \Q: p^2<2\}$, and $B=\{p \in \Q: p^2>2\}$. Clearly,
+      we have that every element of $B$ is an upper bound of $A$, and every
+      element of $A$ is a lower bound of  $B$. Now take  $p \in \Q$ a positive
+      rational, and take  $q \in \Q$ such that $q=p-\frac{p^2-2}{p+2}$. Then
+      $q^2-2=\frac{2(p^2-2)}{(p+2)^2}$. Now if $p \in A$, then  $p^2-2<0$,
+      which implies that  $p<q$, and $q^2<2$; thus $A$ has no largest element;
+      similarly, if  $p \in B$, then  $p^2-2>0$, which implies that  $q<p$ and
+      $q^2>2$, which shows that  $B$ has no least element. Thus $\sup{A}$ and  $\inf{B}$ do not exist in $\Q$.
 
-         \item If  $\alpha = \sup{E} \in S$, it may or may not be that  $\alpha \in E$. Take
-             $E_1=\{r \in \Q: r<0\}$, and  $E_2=\{r \in \Q: r \leq 0\}$. Then $\sup{E_1}=
-             \sup{E_2}=0$, but $0 \notin E_1$, where as $0 \in E_2$
+    \item[(2)] If  $\alpha = \sup{E} \in S$, it may or may not be that  $\alpha
+      \in E$. Take $E_1=\{r \in \Q: r<0\}$, and  $E_2=\{r \in \Q: r \leq 0\}$.
+      Then $\sup{E_1}=\sup{E_2}=0$, but $0 \not\in E_1$, where as $0 \in E_2$
 
-         \item Consider the set $ \frac{1}{\Z^+}=\{\frac{1}{n}: n \in \Z^+\}$. By the
-             well ordering principle, $1$ is the least element, and is also an upperbound
-             of all  $ \frac{1}{n}$ for $n>1$. Now also notice that as $n$ gets arbitrarily
-             large, then  $ \frac{1}{n}$ gets arbitratirly small; that is to say $\frac{1}{n}$
-             ``tends'' to $0$, so  $\sup{\frac{1}{\Z^+}}=1 \in \frac{1}{\Z^+}$, and
-             $\inf{\frac{1}{\Z^+}}=0 \notin \frac{1}{\Z^+}$.
-    \end{enumerate}
+    \item[(3)] Consider the set $ \frac{1}{\Z^+}=\{\frac{1}{n}: n \in \Z^+\}$. By
+      the well ordering principle, $1$ is the least element, and is also an
+      upper bound of all  $ \frac{1}{n}$ for $n>1$. Now also notice that as $n$
+      gets arbitrarily large, then  $ \frac{1}{n}$ gets arbitratirly small;
+      that is to say $\frac{1}{n}$ ``tends'' to $0$, so  $\sup{\frac{1}{\Z^+}}=1
+      \in \frac{1}{\Z^+}$, and $\inf{\frac{1}{\Z^+}}=0 \not\in \frac{1}{\Z^+}$.
+  \end{enumerate}
 \end{example}
 
 \begin{definition}
-    We say an ordered set $S$ has the \textbf{least upperbound property}, if whenever
-    $E \subseteq S$, nonempty, and bounded above, then  $\sup{E} \in S$ exists; likewise, $S$ has
-    the \textbf{greatest lowerbound property} if whenever $E$ is nonempty, bounded below
-    then $\inf{E} \in S$ exists.
+  We say an ordered set $S$ has the \textbf{least upper bound property}, if
+  whenever $E \subseteq S$, nonempty, and bounded above, then  $\sup{E} \in S$
+  exists; likewise, $S$ has the \textbf{greatest lower bound property} if
+  whenever $E$ is nonempty, bounded below then $\inf{E} \in S$ exists.
 \end{definition}
 
 \begin{example}
-    \begin{enumerate}
-        \item[(1)] The set of all rationals $\Q$ does not have the least upperbound property, nor the
-    greatest lowerbound property, take $A$,  $B$ as in the previous example. Letting
-    $E=\{1, \frac{1}{2}, \frac{1}{4}\} \subseteq \frac{1}{\Z^+}$, we see that $\frac{1}{\Z^+}$
-    satisfies both properties, with $\sup{E}=1$, and  $\inf{E}=\frac{1}{4}$.
+  \begin{enumerate}
+    \item[(1)] The set of all rationals $\Q$ does not have the least upper
+      bound property, nor the greatest lower bound property, take $A$,  $B$
+      as in the previous example.
 
-    \item[(2)] Let $A \subseteq \R$ be nonempty, and be bounded below. Then by the greatest
-            lowerbound property,  $\alpha=\inf{A} \in \R$ exists; Then for all  $x \in A$,
-             $\alpha \leq x$, and for all other lowerbounds  $\gamma$,  $\gamma \leq \alpha$. Then
-              $-x \leq -\alpha$, and  $-\alpha \leq -\gamma$, then we see that  $-\gamma$ and  $-\alpha$
-              are upperounds of  $-A$, and that  $-\alpha$ is the least upperbound of $-A$
-    \end{enumerate}
-
+    \item[(2)] Let $A \subseteq \R$ be nonempty, and be bounded below. Then by
+      the greatest lower bound property,  $\alpha=\inf{A} \in \R$ exists; Then
+      for all  $x \in A$, $\alpha \leq x$, and for all other lower bounds  $\gamma$,
+      $\gamma \leq \alpha$. Then $-x \leq -\alpha$, and  $-\alpha \leq -\gamma$,
+      then we see that  $-\gamma$ and  $-\alpha$ are upperounds of  $-A$, and that
+      $-\alpha$ is the least upper bound of $-A$
+  \end{enumerate}
 \end{example}
 
-\begin{theorem}\label{1.1.2}
-    If $S$ is an ordered set with the least upperbound property, then $S$ also inherits
-    the greatest lowerbound property.
+\begin{theorem}\label{theorem_1.1.2}
+  If $S$ is an ordered set with the least upper bound property, then $S$ also
+  inherits the greatest lower bound property.
 \end{theorem}
 \begin{proof}
-    Let $B \subseteq S$, and let  $L \subseteq S$ be the set of all lowerbounds of $B$. Then we have
-    for any $y \in L$, $x \in B$, $y \leq x$. So every element of  $B$ is an upperbound of  $L$, and
-    $L$ is nonempty, hence $\alpha=\sup{L} \in S$ exists. Now if  $\gamma \leq \alpha$, then
-     $\gamma$ is not an upperbound of  $L$, hence  $\gamma \notin B$; thus  $\alpha \leq x$ for all
-      $x \in B$, so  $\alpha \in L$, and by definition of the greatest lowerbound, we get
-      $\alpha=\inf{B}$.
+  Let $B \subseteq S$, and let  $L \subseteq S$ be the set of all lower bounds
+  of $B$. Then we have for any $y \in L$, $x \in B$, $y \leq x$. So every
+  element of  $B$ is an upper bound of  $L$, and $L$ is nonempty, hence
+  $\alpha=\sup{L} \in S$ exists. Now if  $\gamma \leq \alpha$, then $\gamma$ is not
+  an upper bound of  $L$, hence  $\gamma \not\in B$; thus  $\alpha \leq x$ for
+  all $x \in B$, so  $\alpha \in L$, and by definition of the greatest lower
+  bound, we get $\alpha=\inf{B}$.
 \end{proof}

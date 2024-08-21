@@ -1,99 +1,96 @@
-%----------------------------------------------------------------------------------------
-%	SECTION 1.2
-%----------------------------------------------------------------------------------------
-
-\section{Fields}
+\section{Fields}\label{section_proposition_1.2}
 
 \begin{definition}
-    A \textbf{field} is a set $F$, together with binary operations  $+$ and  $\cdot$ (called
-    \textbf{addition} and \textbf{multiplication}, respectively) such that:
-        \begin{enumerate}
-            \item[(1)] $F$ forms an abelian group under  $+$.
+  A \textbf{field} is a set $F$, together with binary operations $+$ and $\cdot$
+  (called \textbf{addition} and \textbf{multiplication}, respectively) such that:
+  \begin{enumerate}
+    \item[(1)] $F$ forms an abelian group under  $+$.
 
-            \item[(2)] $F \backslash \{0\}$ forms an abelian group under $\cdot$ (where $0$ is the
-                additive identity of  $F$).
+    \item[(2)] $F \backslash \{0\}$ forms an abelian group under $\cdot$ (where
+      $0$ is the additive identity of  $F$).
 
-            \item[(3)] $\cdot$ distributes over  $+$.
-        \end{enumerate}
+    \item[(3)] $\cdot$ distributes over  $+$.
+  \end{enumerate}
 \end{definition}
 
 We now state the following propositions without proof.
 
-\begin{proposition}\label{1.2.1}
-    For all $x,y,x \in F$:
-        \begin{enumerate}
-            \item[(1)] $x+y=x+y$ implies $y=z$
+\begin{proposition}\label{proposition_proposition_1.2.1}
+  For all $x,y,x \in F$:
+  \begin{enumerate}
+    \item[(1)] $x+y=x+y$ implies $y=z$
 
-            \item[(2)] $x+y=x$ implies  $y=0$
+    \item[(2)] $x+y=x$ implies  $y=0$
 
-            \item[(3)] $x+y=0$ implies  $y=-x$
+    \item[(3)] $x+y=0$ implies  $y=-x$
 
-            \item[(4)] $-(-x)=x$.
-        \end{enumerate}
+    \item[(4)] $-(-x)=x$.
+  \end{enumerate}
 \end{proposition}
 
-\begin{proposition}\label{1.2.2}
-    For all $x,y,x \in F \backslash \{0\}$:
-        \begin{enumerate}
-            \item[(1)] $xy=xy$ implies $y=z$
+\begin{proposition}\label{proposition_proposition_1.2.2}
+  For all $x,y,x \in F \backslash \{0\}$:
+  \begin{enumerate}
+    \item[(1)] $xy=xy$ implies $y=z$
 
-            \item[(2)] $xy=x$ implies  $y=1$
+    \item[(2)] $xy=x$ implies  $y=1$
 
-            \item[(3)] $xy=1$ implies  $y=x^{-1}$
+    \item[(3)] $xy=1$ implies  $y=x^{-1}$
 
-            \item[(4)] $(x^{-1})^{-1}=x$.
-        \end{enumerate}
+    \item[(4)] $(x^{-1})^{-1}=x$.
+  \end{enumerate}
 \end{proposition}
 
-\begin{proposition}\label{1.2.3}
-    For all $x,y,x \in F$:
-        \begin{enumerate}
-            \item[(1)] $0x=0$
+\begin{proposition}\label{proposition_1.2.3}
+  For all $x,y,x \in F$:
+  \begin{enumerate}
+    \item[(1)] $0x=0$
 
-            \item[(2)] $x \neq 0$ and $y \neq 0$ implies $xy \neq 0$
+    \item[(2)] $x \neq 0$ and $y \neq 0$ implies $xy \neq 0$
 
-            \item[(3)] $(-x)y=-(xy)=x(-y)$
+    \item[(3)] $(-x)y=-(xy)=x(-y)$
 
-            \item[(4)] $(-x)(-y)=xy$.
-        \end{enumerate}
+    \item[(4)] $(-x)(-y)=xy$.
+  \end{enumerate}
 \end{proposition}
 
 \begin{definition}
-    An \textbf{ordered field} is a field $F$ that is also an ordered set, such that:
-        \begin{enumerate}
-            \item[(1)] $x+y<x+z$ whenever $y<z$, for  $x,yz,z \in F$
+  An \textbf{ordered field} is a field $F$ that is also an ordered set, such that:
+  \begin{enumerate}
+    \item[(1)] $x+y<x+z$ whenever $y<z$, for  $x,yz,z \in F$
 
-            \item[(2)] $xy>0$ whenever  $x>0$ and  $y>0$, for  $x,y \in F$.
-        \end{enumerate}
+    \item[(2)] $xy>0$ whenever  $x>0$ and  $y>0$, for  $x,y \in F$.
+  \end{enumerate}
 \end{definition}
 
 
-\begin{proposition}\label{1.2.4}
-    Let $F$ be an ordered field, then for any  $x,y,z \in F$, the following hold:
-         \begin{enumerate}
-             \item[(1)] $x>0$ implies $-x<0$.
+\begin{proposition}\label{proposition_1.2.4}
+  Let $F$ be an ordered field, then for any  $x,y,z \in F$, the following hold:
+  \begin{enumerate}
+    \item[(1)] $x>0$ implies $-x<0$.
 
-             \item[(2)] If $x>0$  and $y<z$, then $xy<xz$.
+    \item[(2)] If $x>0$  and $y<z$, then $xy<xz$.
 
-             \item[(3)] If $x<0$  and $y<z$, then $xz<xy$.
+    \item[(3)] If $x<0$  and $y<z$, then $xz<xy$.
 
-             \item[(4)] If $x \neq 0$, then $x^2>0$, in particular, $1>0$.
+    \item[(4)] If $x \neq 0$, then $x^2>0$, in particular, $1>0$.
 
-             \item[(5)] $0<x<y$ implies that $0<y^{-1}<x^{-1}$.
-        \end{enumerate}
+    \item[(5)] $0<x<y$ implies that $0<y^{-1}<x^{-1}$.
+  \end{enumerate}
 \end{proposition}
 \begin{proof}
-    \begin{enumerate}
-        \item[(1)] If $x>0$, then  $0=x+(-x)>0+(-x)$, so  $-x<0$.
+  \begin{enumerate}
+    \item[(1)] If $x>0$, then  $0=x+(-x)>0+(-x)$, so  $-x<0$.
 
-        \item[(2)] We have $0<z-y$, so  $0<x(z-y)=xz-xy$, so $xy<xz$.
+    \item[(2)] We have $0<z-y$, so  $0<x(z-y)=xz-xy$, so $xy<xz$.
 
-        \item[(3)] Do the same as  $(2)$,, multiplying  $z-y$ by  $-x$.
+    \item[(3)] Do the same as  $(2)$, multiplying  $z-y$ by  $-x$.
 
-        \item[(4)] If  $x>0$, we are done. Now suppose that  $x<0$, then  $-x>0$, so
-            $(-x)(-x)=xx=x^2>0$; in particular, we also have that  $1 \neq 0$, and
-             $1=1^2$, so  $1>0$.
+    \item[(4)] If  $x>0$, we are done. Now suppose that  $x<0$, then  $-x>0$, so
+      $(-x)(-x)=xx=x^2>0$; in particular, we also have that  $1 \neq 0$, and
+      $1=1^2$, so  $1>0$.
 
-         \item We have  $0<xy^{-1}<yy^{-1}=1$, then  $0<x^{-1}xy^{-1}=y^{-1}<x^{-1}1=x^{-1}$
-    \end{enumerate}
+    \item We have  $0<xy^{-1}<yy^{-1}=1$, then
+      $0<x^{-1}xy^{-1}=y^{-1}<x^{-1}1=x^{-1}$
+  \end{enumerate}
 \end{proof}
