@@ -1,1 +1,221 @@
-\section{Definitions and Equivalences of Boolean Functions}
+\section{Definitions and Equivalences of Boolean Functions}\label{section_1.1}
+
+\begin{definition}
+  Let $p,m, n \in \Z^+$, where $p$ is prime. By an \textbf{$(n,m,p)$-function},
+  we mean a function $F:\F_p^n \xrightarrow{} \F_p^m$. If $p=2$, we call $F$ an
+  \textbf{$(n,m)$-Boolean function}, or an \textbf{$S$-box}. If
+  $F(x_1, \dots, x_n)=(f_1(x_1, \dots, x_n), \dots, f_m(x_1, \dots, x_n))$, we
+  call each $f_i$ the \textbf{$i$-th coordinate} function of $F$.
+\end{definition}
+
+\begin{lemma}\label{lemma_1.1.1}
+  If $F$ is an  $(n,m,p)$-function, tthen $F$ can be represented uniquely as a
+  univariate polynomial over  $\F_{p^n}$ of the form:
+  \begin{equation}\label{equation_1.1}
+    F(x)=\sum_{i=0}^{p^n-1}{c_ix^i},  \text{ where } c_i \in \F_{p^n}
+    \text{ for all } 0 \leq i \leq p^n-1
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  Recall that $\F_p^r \simeq \F_{p^r}$ for any integer $r \in \Z^+$. Then any
+  $(n,m,p)$-function can be considered as a function taking elements of
+  $\F_{p^n}$ to elements of $\F_{p^n}$, so that there is a unique polynomial
+  representation of $F$ of the form in equation \ref{equation_1.1}.
+\end{proof}
+
+\begin{defintion}
+  Let $k$ be an integer where $0 \leq k \leq p^n-1$. We define the
+  \textbf{$p$-weight} of $k$ to be
+  \begin{equation}\label{equation_1.2}
+    w_p(k)=\sum_{s=0}^{n-1}{k_s} \text{ for all } 0 \leq k_s \leq p-1
+  \end{equation}
+  in the $p$-ary expansion  $\sum_{s=0}^{n-1}{p^sk_s}$. We define the
+  \textbf{algebraic degree} of an $(n,m,p)$-function $F$ to be
+  \begin{equation}\label{equation_2.3}
+    d^\circ(F)=\max{\{w_p(i) : c_i \neq 0 \text{ and } 0 \leq i \leq p^n-1\}}
+  \end{equation}
+  where $F$ is represented by equation \ref{equation_1.1}.
+\end{defintion}
+
+\begin{definition}
+  We call an $(n,n,p)$-function $F$ is called \textbf{linear} if $F$ can be
+  represented as a polynomial in $\F_{p^n}[x]$ of degree at most $n-1$. We call
+   $F$ \textbf{affine} if it is the sum of linear functions and a constant.
+\end{definition}
+
+\begin{definition}
+  We call an $(n,n,p)$-function \textbf{DEmbowski-Ostrom polynomial}, or
+  \textbf{DO-polynomial} if
+  \begin{equation}\label{equation_1.4}
+    F(x)=\sum_{0 \leq k,j<n}{a_{kj}x^{p^k+p^j}} \text{ where } a_{ij} \in
+    \F_{p^n}
+  \end{equation}
+  We call $F$ if it is the sum of  DO-polynomials and a constant.
+\end{definition}
+
+\begin{defintion}
+  Let $m$ be a positive divisor of $n$. We define the trace map
+  $\tr_n^m:\F_{p^n} \xrightarrow{} \F_{p^m}$ defined by:
+  \begin{equation*}
+    \tr_n^m(x)=x+x^{p^m}+ \dots +x^{p^{\frac{nm}{m-1}}}
+  \end{equation*}
+  When $m=1$, we write $\tr_n(x)$, when $n=2$, we write $\tr^m(x)$, and when
+  $n=2$ and $m=1$ we write $\tr(x)$.
+\end{defintion}
+
+\begin{lemma}\label{lemma_1.1.2}
+  Let  $F$ be an $(n,m,p)$-function, then there exists an $(n,n,p)$-function $G$
+  for which $F(x)=\tr_n^m(G(x))$. Moreover, any $(n,1,p)$-functioin $F$ can be
+  written in a nonunique way as $F(x)=\tr_n(G(x))$, where $G \in \F_{2^n}[x]$,
+  and the univariate representation can be written as:
+  \begin{equation}\label{equation_1.5}
+    F(x)=\sum_{j \in \Gamma_n}{\tr_{o(j)}(a_jx^j)} \text{ where } a_j \in
+    \F_p^{o(j)}
+  \end{equation}
+  where $\Gamma_n$ is the choice set obtained by choosing one representative
+  from each cyclotomic coset of $p \mod{p^n-1}$, and $o(j)$ is the size of the
+  cyclotomic coset containing both $j$ and  $a_j$.
+\end{lemma}
+
+\begin{lemma}\label{1.1.3}
+  Let $n=2k$, and $F$ be an $(n,m,p)$-function. Then there exists a unique
+  bivariate polynomial over $\F_{p^k}$ representing $F$ of the form:
+  \begin{equation}\label{equation_1.6}
+    F(x)=\sum_{0 \leq i,j, \leq p^k-1}{a_ijx^iy^j} \text{ where } a_{ij} \in
+    \F_{p^k}
+  \end{equation}
+  Moreover
+  \begin{equation*}
+    d^\circ(F)=\max{\{w_p(i)+w_p(j) : (i,j)|a_{ij} \neq 0\}}
+  \end{equation*}
+  and
+  \begin{equation*}
+    F(x,y)=\tr_k(P(x,y)) \text{ where } P \in \F_{p^k}[x,y]
+  \end{equation*}
+\end{lemma}
+
+\begin{definition}
+  We define the \textbf{algebraic normal form} of an $(n,m,p)$-function $F$ to
+  be the representation:
+  \begin{equation}\label{equation_1.7}
+    F(x)=\sum_{u \in \F_p^n}{a_u\prod_{i=1}^nx_i^{u_i}}, \text{ where }
+    a_u \in \F_p^m
+  \end{equation}
+  We define the \textbf{minimum degree} of $F$ to be
+  $d^\circ=\min{d^\circ(F)}$, the minimum degree of all non-zero linear
+  combinations of the coordinate functions of $F$.
+\end{definition}
+
+\begin{definition}
+  We call an $(n,m,p)$-function \textbf{balanced} if every element of $\F_p^m$
+  has the same number $p^{n-m}$ of pre-images.
+\end{definition}
+
+\begin{defition}
+  Let $\d \in \Z^+$. We call an $(n,m,p)$-function \textbf{differentially
+  $\d$-uniform} if for every non-zero $a \in \F_p^n$, and every $b \in \F_p^m$,
+  the differnce equation:
+  \begin{equation}\label{equation_1.8}
+    F(x+a)-F(x)=b
+  \end{equation}
+  has at most $\d$-solutions. We call $F$ \textbf{perfect nonlinear (PN)} if it
+  is differentially $p^{n-m}$-uniform. We define the \textbf{derivatve} of $F$
+  \textbf{in the direction} of $a$ to be the function
+  \begin{equation*}
+    D_a{F(x)}=F(x+a)-F(x)
+  \end{equation*}
+\end{defition}
+
+\begin{lemma}\label{lemma_1.1.4}
+  An $(n,m,p)$-function is perfect nonlinear if, and only if $D_a{F}$ is
+  balanced for every nonzero $a \in \F_p^n$.
+\end{lemma}
+\begin{corollary}
+  If $n=m$, then $F$ is perfect nonlinear if, and only if $D_a{F}$ is a
+  permutation.
+\end{corollary}
+
+\begin{definition}
+  We call perfect nonlinear $(n,n,p)$-functions \textbf{planar} functions.
+\end{definition}
+
+\begin{example}
+  There are no perfect nonlinear functions on $\F_2^n$, for any $n \in \Z^+$. Let
+  $F$ be an $(n,m)$-Boolean function, and let $x_0$ be a solution to the equation
+  $D_a{F(x)}=b$, where $a \neq 0$. Then $x_0+a$ is also a solution, since
+  $D_a{F(x_0+a)}=F((x_0+a)+a)-F(x_0+a)=F(x_0+a)-F(x_0)=b$. So $F$ has at least
+  $2$ solutions in $\F_2^n$. However, for  $F$ to be PN, $F$ must be
+  differentially $1$-uniform. By the corollary to lemma \ref{lemma_1.1.4}, there
+  are also no planar functions in $\F_2^n$.
+\end{example}
+
+\begin{definition}
+  We call a Boolean function $F:F_2^n \xrightarrow{} \F_2^n$ \textbf{almost
+  perfect nonlinear (APN)} if $D_a{F}$ is a 2--1 mapping; that is for every
+  $a,b \in \F_2^n$, with $a \neq 0$, we have the equation
+  \begin{equation*}
+    F(x+a)-F(x)=b
+  \end{equation*}
+  has either exactly $0$, or  $2$ solutions.
+\end{definition}
+
+\begin{definition}
+  We define the following relations on $(n,m,p)$-functions:
+  \begin{enumerate}
+    \item[(1)] We call $F$ and $G$ \textbf{affine equivalent} if there exist
+      affine permutations $A_1:\F_p^m \xrightarrow{} \F_p^m$ and $A_2:\F_p^n
+      \xrightarrow{} \F_p^n$ for which:
+      \begin{equation*}
+        G=A_1 \circ F \circ A_2
+      \end{equation*}
+      We call $F$ and $G$ \textbf{linear} equivalent if $A_1$ and $A_2$ are
+      linear permutations.
+
+    \item[(2)] We call $F$ and $G$ \textbf{extended affine equivalent
+      (EA-equivalent)} if thre exist affine permutations $A_1:\F_p^m
+      \xrightarrow{} \F_p^m$ and $A_2:\F_p^n \xrightarrow{} \F_p^n$, and an
+      affine function $A:\F_p^n \xrightarrow{} \F_p^n$ for which:
+      \begin{equation*}
+        G=A_1 \circ A \circ A_2+A
+      \end{equation*}
+
+    \item[(3)] We call $F$ and $G$ \textbf{Carlet-Charpin-Zimoviev equivalent
+      (CCZ-equivalent)} if for any affine permutation $\Lc$ of  $\F_p^n \times
+      \F_p^m$, the image of the graph of $F$ is the graph of $G$; that is:
+      \begin{equation*}
+        \Lc(\F_p^n \times F(\F_p^n))=\F_p^n \times G(\F_p^n)
+      \end{equation*}
+  \end{enumerate}
+\end{definition}
+
+\begin{proposition}\label{proposition_1.1.5}
+  The following are true for all $(n,m,p)$-functions:
+  \begin{enumerate}
+    \item[(1)] Affine equivalence is an equivalence relation.
+
+    \item[(2)] EA-equivalence is an equivalence relation.
+
+    \item[(3)] CCZ-equivalence is an equivalence relation.
+  \end{enumerate}
+\end{proposition}
+\begin{corollary}
+  Affine equivalence implies linear equivalence.
+\end{corollary}
+\begin{corollary}
+  EA-equivalence implies affine equivalence. Moreover, the algebraic degree of a
+  non-affine function is preserved under EA-equivalence.
+\end{corollary}
+\begin{corollary}
+  CCZ-equivalence implies EA-equivalence. Moreover, every permutation is
+  CCZ-equivalent to its inverse.
+\end{corollary}
+
+\begin{proposition}\label{proposition_1.1.6}
+  Let $F$ and  $G$ be $(n,m,p)$-functions. If $\inv{F}$ exists, then $G$ is
+  either EA-equivalent to $F$ or to $\inv{F}$ if, and only if there exists a
+  linear permutation $\Lc=(L_1,L_2)$ on $\F_2^n \times F_2^m$ for which
+  \begin{equation*}
+    \Lc(\F_p^n \times F(\F_p^m))=\F_p^m \times G(\F_p^m)
+  \end{equation*}
+  and $L_1$ depends only on one variable.
+\end{proposition}
