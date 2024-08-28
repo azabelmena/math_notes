@@ -1,103 +1,206 @@
-\section{Principle Ideal Domains.}
+\section{Euclidean Domains}
 
 \begin{definition}
-    An integral domain $A$ is called a \textbf{principle ideal domain (PID)} if
-    every ideal in $A$ is principle.
+    Let $A$ be a commutative ring identity. We call a map  $N:A \xrightarrow{} \N$,
+    with $N(0)=0$ a \textbf{norm}, or, \textbf{degree}. If $N(a) \geq 0$, for all
+    $a \in A$, then we call $N$ \textbf{nonnegative} If $N(a)>0$ for all $a \in A$
+    then we call  $N$ \textbf{positive}.
 \end{definition}
 
-\begin{example}\label{2.4}
+\begin{definition}
+    Let $A$ be a commutative ring with identity, and  $N:A \xrightarrow{} \N$ a
+    norm. We say thay $A$ is a \textbf{Euclidean domain} if for all $a,b \in A$,
+    with $b \neq 0$, there exist elements  $q,r \in A$ such that
+    \begin{equation*}
+        a=qb+r \text{ where } r=0 \text{ or } N(r)<N(b)
+    \end{equation*}
+    We call $q$ the  \textbf{quotient} and $r$ the  \textbf{remainder} of $a$
+    when  \textbf{divided} by $b$.
+\end{definition}
+
+\begin{example}\label{2.1}
     \begin{enumerate}
-        \item[(1)] Every Euclidean domain is a PID, as dictated by lemma
-            \ref{2.1.1}. Hence the rings $\Z$ and  $\Z[i]$ are PIDs, however,
-            the polynomial ring $\Z[x]$ is not principle, recall the ideal
-            $(2,x)$.
+        \item[(1)] Let $k$ be any field, and  $N:k \xrightarrow{} \N$ defined by
+            $N(a)=0$ for all $a \in k$. Then  $N$ makes  $k$ into a Euclidean
+            domain. Take  $a,b \in k$, with  $b \neq 0$, and  $q=a\inv{b}$. Then
+            $a=qb+r$ where  $r=0$.
 
-        \item[(2)] The ring $\Z[\sqrt{-5}]$ is not a PID, consider the ideal
-            $(3,2+\sqrt{-5})$. However, notice that
-            $(3,1+\sqrt{-5})(3,1-\sqrt{-5})=(3)$ is principle, despite
-            $(3,1+\sqrt{-5})$ and $(3,1-\sqrt{-5})$ are not principle.
+        \item[(2)] The integers $\Z$ is a Euclidean domain with norm $N(a)=|a|$,
+            the absolute value of $a$. In fact, the motivation for Euclidean
+            rings comes from the division theorem, or Euclid's theorem for
+            integers.
 
-        \item[(3)] The ring $\Z[1+\frac{\sqrt{-19}}{2}]$ is a PID, but not a
-            Euclidean domain.
+        \item[(3)] Let $k$ be a field, and let $N:k[x] \xrightarrow{} \N$ be
+          defined by $N:f \xrightarrow{} \deg{f}$. Then $k[x]$ is a Euclidean
+          domain under this norm. Now, if $k$ is not a field, it is not
+          necessarily the case that  $k[x]$ is a Euclidean domain. Consider
+          $\Z[x]$ under the same $N$, and take $x+1,2x+1,q(x),r(x) \in \Z[x]$.
+          If $x+1=(2x+1)q(x)+r(x)$, then we must have $\deg{r}=0$, which cannot
+          make $N$ a norm under $\Z[x]$.
+
+        \item[(4)] Let $D \in \Z^+$ be squarefree, and consider  $\Z[\sqrt{D}]$.
+            Define $N:\Z[\sqrt{D}]=\N$ to be the absolute value of the field
+            norm, that is $N(a+b\sqrt{D})=\|a+b\sqrt{D}\|^2=a^2+Db^2$. We notice
+            that $\Z[\sqrt{D}]$ is an integral domain, but it is not a Euclidean
+            domain. This depends on our choice of $D$. Let  $D=-1$ so tha t
+            $\sqrt{D}=i$, and $i^2=-1$. Then the Gaussian integers, $\Z[i]$, is
+            a Euclidean domeain. Let $x=a+ib$,  $y=c+id$ with  $y \neq 0$. In
+            $\Q[i]$, the field of fractions, we have that $\frac{x}{y}=r+is$,
+            where
+            \begin{equation*}
+                r=\frac{ac+bd}{\|y\|^2} \text{ and } s=\frac{bc-ad}{\|y\|^2}
+            \end{equation*}
+            Now, let $p$ and  $q$ be the integers closest to $r$ and $s$,
+            respectively so that
+            \begin{equation*}
+                |r-p| \leq \frac{1}{2} \text{ and } |s-q| \leq \frac{1}{2}
+            \end{equation*}
+            Let $w=(r-p)+i(s-q)$, and take $z=wy$. Then we have  $z=x-(p+iq)y$,
+            so that $x=(p+iq)y+z$, moreover, we have $N(w)=(r-p)^2+(q-s)^2 \leq
+            \frac{1}{4}+\frac{1}{4}=\frac{1}{2}$. Since $\|\cdot\|$ is
+            multiplicative, we have
+            \begin{equation*}
+                N(w)N(y) \leq \frac{1}{2}N(y)
+            \end{equation*}
+            which makes $\Z[i]$ into a Euclidean domain.
     \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{1.6.1}
-    Let $A$ be a principle ideal domain and let $d$ be a generator for the ideal
-    $(a,b)$, for $a,b \in A$. Then the following are true.
-    \begin{enumerate}
-        \item[(1)] $d=(a,b)$; i.e. $d$ is the greatest common divisor of $a$ and
-            $b$.
-
-        \item[(2)] There exist $x,y \in A$ for which  $ax+by=d$.
-
-        \item[(3)] $d$ is unique up to unit.
-    \end{enumerate}
-\end{lemma}
-
-\begin{lemma}\label{1.6.2}
-    Every nonzero prime ideal in a principle ideal domain $A$ is maximal.
+\begin{lemma}\label{1.5.1}
+    Every ideal in a Euclidean domain $A$, is a principle ideal.
 \end{lemma}
 \begin{proof}
-    Let $(p) \neq (0)$ be a prime ideal of $A$. Let $(m)$ be an ideal of $A$
-    containing $(p)$. Then $p \in (m)$ so that $p=rm$ for some  $r \in A$. Now,
-    since $p$ is prime, and $rm \in (p)$, then either $r \in (p)$ or $m \in
-    (p)$. If $m \in (p)$, then $(p)=(m)$. Otherwise, if $r \in (p)$, then $r=ps$
-    for some  $s \in A$. Then  $p=rm=pms=p(ms)$ which makes $ms=1$, hence $m$ is
-    a unit, which makes $(m)=(0)$.
+    If $I=(0)$, we are done. Now, let $N:A \xrightarrow{} \N$ be the norm of $A$,
+    and consider the image $N(I)=\{N(a) : a \in I\}$. By the well ordering
+    principle, $N(I)$ has a minimum element $N(d)$ for some $d \neq 0$ in  $I$
+    Notice that  $(d) \subseteq I$. Now, let $a \in I$. Since $A$ is a Euclidean
+    domain, there exist $q,r \in A$ for which
+    \begin{equation*}
+        a=qd+r \text{ where } r=0 \text{ or } N(r)<N(d)
+    \end{equation*}
+    Then notice that
+    \begin{equation*}
+        r=a-qd
+    \end{equation*}
+    putting $r \in I$ and  $N(r) \in N(I)$. Since $N(d)$ is the minimum element,
+    we must have $r=0$ so that  $a=qd$, which puts  $a \in (d)$. Therefore
+    $I=(d)$, making $I$ principle.
 \end{proof}
-\begin{corollary}
-    If $A$ is any commutative ring, such that the polynomial ring $A[x]$ is a
-    principle ideal domain, then $A$ is necessarily a field.
-\end{corollary}
+
+\begin{example}\label{2.2}
+    \begin{enumerate}
+        \item[(1)] The polynomial ring $\Z[x]$ is not a Euclidean domain. The
+            ideal $(2,x)$ is not principle.
+
+        \item[(2)] Consider $\Z[\sqrt{-5}]$, i.e. $D=-5$. Suppose the ideal
+            $(3,2+\sqrt{-5})$ is a principle ideal, that is
+            $(3,2+\sqrt{5})=(a+b\sqrt{-5})$ for some $a,b \in \Z$. Then we get
+            that $3=x(a+b\sqrt{-5})$ and $2+\sqrt{-5}=y(a+b\sqrt{-5})$. Then
+            notice that $N(x)=a^2+5b^2=9$, and since  $a^2+5b^2 \in \Z^+$, we
+            must have that $a^2+5b^2=1,3,9$.
+            \begin{enumerate}
+            \item[(i)] If $a^2+5b^2=9$, then $N(x)=1$ making $x=\pm 1$ and
+                $a+b\sqrt{-5}=\pm3$, which cannot happen since $2+\sqrt{-5}$ is
+                not divisible by $3$.
+
+            \item[(ii)] the equation $a^2+5b^2=3$ cannot happen since it has no
+                integer solutions. This makes
+
+            \item[(iii)] $a^2+b\sqrt{5}=1$, which makes
+                $(a+\sqrt{-5})=\Z[\sqrt{-5}]$, moreover, we get the equation
+                $3x+y(2+\sqrt{-5})=1$ for any $x,y \in \Z[\sqrt{-5}]$.
+                Multplying both sides by $2-\sqrt{-5}$, we get that
+                $3|(2-\sqrt{-5})$ which is impossible.
+            \end{enumerate}
+            In all three cases, we were led to an impossibility, hence
+            $\Z[\sqrt{-5}]$ cannot be a Euclidean domain.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $A$ be a commutative ring with identity, and  $a,b \in A$ with $b \neq 0$.
+    We say that $b$ \textbf{divides} $a$ if there is an  $x \in A$ for which  $a=bx$.
+    We write  $b|a$. We also say that $a$ is a \textbf{multiple} of $b$.
+\end{definition}
+
+\begin{definition}
+    Let $A$ be a commutative ring with identity. We call a nonzero element
+    $d \in A$ a \textbf{greatest common divisor} of elements $a,b \in A$ if
+    \begin{enumerate}
+        \item[(1)] $d|a$ and  $d|b$.
+
+        \item[(2)] If $c \in A$ is nonzero such that  $c|a$ and  $c|b$, then
+            $c|d$.
+    \end{enumerate}
+    We write $d=(a,b)$.
+\end{definition}
+
+\begin{lemma}\label{1.5.2}
+    Let $A$ be a commutative ring with identity. For any $a,b \in A$ a nonzero
+    element $d \in A$ is the greatest common divisor if
+    \begin{enumerate}
+        \item[(1)] $(a,b) \subseteq (d)$.
+
+        \item[(2)] If $c \in A$ is nonzero with $(a,b) \subseteq (c)$, then $(d)
+            \subseteq (c)$.
+    \end{enumerate}
+    In particular, $d=(a,b)$.
+\end{lemma}
 \begin{proof}
-    If $A[x]$ is a PID, then $A \subseteq A[x]$, as a subring, must be an
-    integral domain. Consider now, the ideal $(x)$, then $\faktor{A[x]}{(x)}
-    \simeq A$ which makes $(x)$ prime by lemma \ref{1.4.4}. Therefore $(x)$ is
-    maximal, which then makes $A$ a field by lemma \ref{1.4.3}.
+    The first two statements follow from definition, and the last follows lemma
+    \ref{1.5.1}.
+\end{proof}
+
+\begin{lemma}\label{1.5.3}
+    If $A$ is a commutative ring with identity, and $a,b \in A^\ast$, such that
+    $(a,b)=(d)$ for some $d \in A^\ast$, then $d$ is the greatest common divisor
+    of $a$ and $b$.
+\end{lemma}
+
+\begin{lemma}\label{1.5.4}
+    Let $A$ be an inetegral domain. If $c,d \in A$ generate the same principle
+    ideal, i.e. $(d)=(c)$, then $d=uc$ for some unit  $u \in A$.
+\end{lemma}
+\begin{proof}
+    If $c=0$ or  $d=0$, we are done. Suppose then that  $c,d \neq 0$. Since
+    $(d)=(c)$, we have that $d=xc$ and $c=yd$ for some  $x,y \in A$. Then
+    $d=(xy)d$, which makes $d(1-xy)=0$. Since $d \neq 0$, we get $xy=1$, making
+     $x$ and $y$ units of $A$.
 \end{proof}
 
 \begin{definition}
-    Let $A$ be a commutative ring, and  $N:A \xrightarrow{} \N$ a norm. We call
-    $N$ a \textbf{Dedekin-Hasse norm} if $N$ is a positive norm suc that for
-    all $a,b \in N$, either $a \in (b)$, or there exists an element $c \in
-    (a,b)$ such that $N(c)<N(b)$.
+    We call an integral domain in which every principle ideal is generated by
+    two elements a \textbf{Bezout domain}.
 \end{definition}
 
-\begin{lemma}[The Dedekin-Hasse Criterion]\label{1.6.3}
-    An integral domain $A$ is a PID if, and only if it has a Dedekin-Hasse norm.
+\begin{lemma}\label{1.5.5}
+    Every Euclidean domain is a Bezout domain.
 \end{lemma}
+
+\begin{theorem}[The Extended Euclidean Algorithm]\label{1.5.6}
+    Let $A$ be a Euclidean and $a,b \neq 0$ elements of  $A$. Let  $d=r_n$ be
+    the least nonzero remainder obtained by dividing $a$ from $b$ recursively
+    $n+1$ times. Then
+    \begin{enumerate}
+        \item[(1)] $d=(a,b)$ is the greatest common divisor of $a$ and  $b$.
+
+        \item[(3)] There exist $x,y \in A$ for which  $ax+by=d$.
+    \end{enumerate}
+\end{theorem}
 \begin{proof}
-    Let $\bf \neq (0)$ an ideal of $A$. Let $a \in \bf$ a nonzero element, so that
-    $(a,b) \subseteq \bf$. Since $N$ is Dedekin-Hasse, and by minimality of $b$,
-    we get that $a \in (b)$ so that $\bf=(b)$ is principle.
+    By lemma \ref{1.5.1}, we get that the ideal $(a,b)$ is principle, so there
+    exists a greatest common divisor of $a$ and  $b$. Now, let  $d=r_n$ be
+    obtained by dividing $a$ and $b$ recursively $(n+1)$ times. Then the
+    $(n+1)^{st}$ equation gives $r_{n-1}=q_{n+1}r_n$, so that $r_n|r_{n-1}$.
+    Now, by induction on $n$ if  $r_n|r+{k+1}$ and $r_n|r_k$ then the
+    $(k+1)^{st}$ equation gives $r_{k-1}=q_{k+1}r_k+r_{k+1}$, which implies that
+    $r_n|r_{k-1}$. Therefore we get in the $1^{st}$ equation that $r_n|b$, and in
+    the $0^{th}$ that $r_n|a$. That is,  $d|a$ and  $d|b$.
+
+    Now, notice that $r_0 \in (a,b)$ and that $r_1=b-qr_0 \in (b,r_0) \subseteq
+    (a,b)$. By induction on $r_n$, if  $r_{k-1},r_n \in (a,b)$ then
+    \begin{equation*}
+        r_{k+1}=r_{k-1}-q_{k+1}r_k \in (r_{k-1},r_n) \subseteq (a,b)
+    \end{equation*}
+    which puts $r_n \in (a,b)$ making $d=(a,b)$ the greatest common divisor.
 \end{proof}
-
-\begin{example}\label{2.5}
-    Consider the ring $\Z[1+\frac{\sqrt{-19}}{2}]$. With norm  $N=\|\cdot\|^2$
-    the field norm. Let $x,y \in \Z[1+\frac{\sqrt{-19}}{2}]$ be nonzero elements
-    and that $\frac{x}{y} \notin \Z[1+\frac{\sqrt{-19}}{2}]$. Write
-    \begin{equation*}
-        \frac{x}{y}=\frac{a+b\sqrt{-19}}{c} \in \Q[1+\frac{\sqrt{-19}}{2}]
-    \end{equation*}
-    where $a,b,c$ are all coprime, with  $c>1$. Then there are integers $u,v,w$
-    with $av+bu+cw=1$, then  $au-19bv=cq+r$ for some quotient $q$ and remainder
-    $r$ with  $N(r) \leq \frac{c}{2}$ and let $s=u+v\sqrt{-19}$ and
-    $t=q-w\sqrt{-19}$. Then we find that
-    \begin{equation*}
-        0<N(\frac{x}{y}s-t) \leq \frac{1}{4}+\frac{19}{c^2}
-    \end{equation*}
-    Then $s=1, t=\frac{(a-1)+b\sqrt{-19}}{2} \in A$ satisfy $0<N(\frac{x}{y}s-t)$
-
-    Now, suppose that $c=3$, then $3 \nmid (a^2+19b^2)$. Then $a^2+19b^2=3q+r$
-    with  $r=1$ or $r=2$. Then $s=a-b\sqrt{-19},t=q$ statisfy
-    $0<N(\frac{x}{y}s-t)$. Finally, for $c=4$, with $a,b$ not both even, so
-    that $a^2+19b^2$ is odd. Then $a^2+19b^2=4q+r$ so for $q,r \in \Z$ with
-    $0<r<4$, then $s=a-b\sqrt{-19}, t=q$ satisfy $0<N(\frac{x}{y}s-t)$. Now, if
-    both $a$ and  $b$ are odd, then  $a^2+19b^2 \equiv 1+3 \mod{8}$ so taht
-    $a^2+19b^2=8q+4$ for some  $q \in \Z$, then
-    \begin{equation*}
-        s=\frac{a-b\sqrt{-19}}{2} \text{ and } t=q
-    \end{equation*}
-    satisfy $0<N(\frac{x}{y}s-t)$.
-\end{example}

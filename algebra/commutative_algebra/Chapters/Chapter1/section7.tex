@@ -1,203 +1,103 @@
-\section{Unique Factorization Domains.}
+\section{Principle Ideal Domains.}
 
 \begin{definition}
-    Let $A$ be an integral domain. A nonzero element  $r \in A$ that is not an
-    associate is called \textbf{irreducible} if whenever $r=ab$, then either $a$
-    or $b$ are units in $A$; otherwise, we call $r$ \textbf{reducible}.
+    An integral domain $A$ is called a \textbf{principle ideal domain (PID)} if
+    every ideal in $A$ is principle.
 \end{definition}
 
-\begin{definition}
-    Let $A$ be an integral domain. An element $p \in A$ is called \textbf{prime}
-    if the ideal $(p)$ is a prime ideal. That is $p$ is not a unit and whenever
-     $p|ab$, then either  $p|a$ or $p|b$. We call two elements $a,b \in A$
-     \textbf{associates} if $a=ub$ for some unit $u \in A$.
-\end{definition}
-
-\begin{lemma}\label{1.7.1}
-    In an integral domain, a prime element is always irreducible.
-\end{lemma}
-\begin{proof}
-    Let $(p)$ be a nonzero prime ideal with $p=ab$, for some  $a,b \in A$. Then
-     $ab \in (p)$, so that either $a \in (p)$, or $b \in (p)$. Suppose that $a
-     \in (p)$. Then $a=pr$ for some  $r \in A$, so that  $p=(pr)b=p(rb)$, so
-     that $rb=1$. This makes $b$ a unit. Similarly, we see that $a$ is a unit if
-      $b \in (p)$. In either case, $p$ is irreducible.
-\end{proof}
-
-\begin{example}\label{2.6}
+\begin{example}\label{2.4}
     \begin{enumerate}
-        \item[(1)] In the ring $\Z$ of integers, those elements which are
-            irreducible are precisely those which are prime, since the ideals
-            $2\Z, 3\Z, \dots, p\Z, \dots$, for  $p$ a prime number are also the
-            prime ideals of $\Z$
+        \item[(1)] Every Euclidean domain is a PID, as dictated by lemma
+            \ref{2.1.1}. Hence the rings $\Z$ and  $\Z[i]$ are PIDs, however,
+            the polynomial ring $\Z[x]$ is not principle, recall the ideal
+            $(2,x)$.
 
-        \item[(2)] Irreducible elements need not be prime. The element $3 \in
-            \Z[\sqrt{-5}]$ is irreducible, as was shown in example \ref{2.2},
-            however it is not prime. Notice that
-            $3|9=(2+\sqrt{-5})(2-\sqrt{-5})$, but $3 \nmid (2+\sqrt{-5})$ and
-            $3 \nmid (2-\sqrt{-5})$.
+        \item[(2)] The ring $\Z[\sqrt{-5}]$ is not a PID, consider the ideal
+            $(3,2+\sqrt{-5})$. However, notice that
+            $(3,1+\sqrt{-5})(3,1-\sqrt{-5})=(3)$ is principle, despite
+            $(3,1+\sqrt{-5})$ and $(3,1-\sqrt{-5})$ are not principle.
+
+        \item[(3)] The ring $\Z[1+\frac{\sqrt{-19}}{2}]$ is a PID, but not a
+            Euclidean domain.
     \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{1.7.2}
-    In a principle ideal domain, a nonzero element is prime if, and only if it
-    is irreducible.
-\end{lemma}
-\begin{proof}
-    Let $A$ be a PID, and suppose that $p$ is irreducible. Let $(m)$ be the
-    principle ideal containing $(p)$, then $p=rm$, and by irreducibility, either
-     $r$ or $m$ are units, in either case, we get that either $(p)=(m)$ or
-     $(m)=(1)$. This makes $(p)$ a maximal ideal, and hence a prime ideal.
-\end{proof}
-
-\begin{example}\label{2.7}
+\begin{lemma}\label{1.6.1}
+    Let $A$ be a principle ideal domain and let $d$ be a generator for the ideal
+    $(a,b)$, for $a,b \in A$. Then the following are true.
     \begin{enumerate}
-        \item[(1)] Since $3$ is not prime in  $\Z[\sqrt{-5}]$, then $(3)$ is not
-            a prime ideal in this ring. Therefore $\Z[\sqrt{-5}]$ cannot be a
-            PID.
+        \item[(1)] $d=(a,b)$; i.e. $d$ is the greatest common divisor of $a$ and
+            $b$.
 
-        \item[(2)] Notice that since $\Z$ is a PID, then the fact that
-            irreducible and prime elements coincide is guaranteed by lemma
-            \ref{1.7.2}.
+        \item[(2)] There exist $x,y \in A$ for which  $ax+by=d$.
+
+        \item[(3)] $d$ is unique up to unit.
     \end{enumerate}
-\end{example}
+\end{lemma}
 
-\begin{definition}
-    We call an integral domain $A$ a  \textbf{unique factorization domain (UFD)}
-    if for every nonzero element $r \in A$ which is not a unit, the following
-    are true.
-    \begin{enumerate}
-        \item[(1)] $r$ can be written as the product of, not necessarily distinct,
-            irreducible elements. We call this product the
-            \textbf{factorization} of $r$.
-
-        \item[(2)] The factorization of $r$ is unique up to associates.
-    \end{enumerate}
-\end{definition}
-
-\begin{example}\label{2.8}
-    \begin{enumerate}
-        \item[(1)] All fields are unique factorization domains.
-
-        \item[(2)] Polynomial rings are unique factorization domains whenever
-            the ground ring $A$ is a unique factorization domain.
-
-        \item[(3)] The subring $\Z[2i]$ of $\Z[i]$ is an integral domain, but it
-            is not a UFD. Notice that both $2$ and  $2i$ are irreducible in
-            $\Z[2i]$, but that $4=2 \cdot 2=(2i) \cdot (-2i)$.
-
-        \item[(4)] $\Z[\sqrt{-5}]$ is another example of an integral domain that
-            is not a UFD.
-    \end{enumerate}
-\end{example}
-
-\begin{lemma}\label{1.7.3}
-    In a unique factorization domain $A$, a nonzero element is prime if, and
-    only if it is irreducible.
+\begin{lemma}\label{1.6.2}
+    Every nonzero prime ideal in a principle ideal domain $A$ is maximal.
 \end{lemma}
 \begin{proof}
-    Since prime elements are irreducible, it remains to show that irreducible
-    elements are prime. Let $p$ be irreducible and suppose that  $p|ab$, for
-    $a,b \in A$. Then  $ab=pc$ for some  $c \in A$. Writing  $ab$ as a product
-    of irreducibles, since  $A$ is a UFD,  $p$ must be associate to one of the
-    irreducibles in the factorization of $a$, or to one in the factorization of
-$b$. In either case, we get that $p|a$ or $p|b$, and hence  $p$ is prime.
-\end{proof}
-
-\begin{lemma}\label{1.7.4}
-    Let $a,b \in A$ nonzero elements of a unique factorization domain $A$. If
-    $a=up_1^{e_1} \dots p_n^{e_n}$ and $b=vp_1^{f_1} \dots p_n^{f_n}$, where
-    $u,v \in A$ are units, then the element
-    \begin{equation*}
-        d=p_1^{\min\{e_1,f_1\}} \dots p_n^{\min\{e_n,f_n\}}
-    \end{equation*}
-    os the greatest common divisor of $a$ and  $b$.
-\end{lemma}
-\begin{proof}
-    Notice that by definition of $d$, that  $d|a$ and  $d|b$. Now, let  $c$ be a
-    common divisor of  $a$ and  $b$ with the unique prime factorization
-    $c=q_1^{g_1} \dots q_m^{g_m}$. Since $q_i|c$ for each  $1 \leq i \leq m$,
-    then  $q_i|p_j$ for each prime factor in the factorizations of  $a$ and
-    $b$. Since both  $q_i$ and  $p_j$ are irreducible, they are associates. That
-    implies that the primes of  $c$ are the primes of  $a$ and  $b$. Moreover
-    notice that since each $g_i \leq e_i,f_i$, that  $c|d$, and so  $d=(a,b)$.
-\end{proof}
-
-\begin{definition}
-    Let $A$ be a principle ideal domain. Let $\{a_n\}$ a sequence of elements of
-    $A$. We call the increasing sequence of ideals  $\{(a_n)\}$ an
-    \textbf{infinite ascending chain} of ideals in $A$ and write
-    \begin{equation*}
-        (a_1) \subseteq (a_2) \subseteq \dots \subseteq (a_n) \subseteq \dots
-        \subseteq A
-    \end{equation*}
-    We say that the infinite ascending chain $\{(a_n)\}$ \textbf{stabalizes} if
-    for some $k \geq n$, we have  $(a_n)=(a_k)$.
-\end{definition}
-
-\begin{lemma}\label{1.7.5}
-    In any principle ideal domian, infinite ascending chains of ideals
-    stabalize.
-\end{lemma}
-\begin{proof}
-    Let $\af_1 \subseteq \af_2 \subseteq \dots \subseteq A$ an infinite ascending
-    chain of ideals and let $\af=\bigcup{\af_k}$. Then $\af$ is an ideal in $A$,
-    and since  $A$ is a PID,  $\af=(a)$ for some $a \in A$. This makes  $a \in
-    \af_n$ for some  $n$, and hence  $\af_n \subseteq \af$. This makes
-    $\af_n=\af$ for some $n \geq 1$, and hence this chain stabalizes.
-\end{proof}
-
-\begin{theorem}\label{1.7.6}
-    Every principle ideal domain is a unique factorization domain.
-\end{theorem}
-\begin{proof}
-    Let $A$ be a PID, and  $r \in A$ a nonzero element which is not a unit. If
-    $r$ is irreducible, we are done. Otherwise, we have  $r=r_1r_2$ fr some
-    $r_1,r_2 \in A$. Now, if both $r_1$ and $r_2$ are irreducible, we are done.
-    Suppose then, without loss of generality, thart $r_1$ is reducible. Then
-    $r_1=r_{11}r_{12}$, and if both $r_{11}$ and $r_{12}$ are irreducible, we
-    are done. Suppose then that $r_{11}$ is reducible; continuing this process,
-    we arrive at an infinite ascending chain of ideals
-    \begin{equation*}
-        (r) \subseteq (r_1) \subseteq (r_{11}) \subseteq \dots \subseteq A
-    \end{equation*}
-    and since $A$ is a PID, this chain stabalizes. Thus $r$ can be factored into
-    irreducible elements; since this process terminates.
-
-    Now, by induction on $n$, for  $n=0$, we notice that  $r$ is a unit, and we
-    are done. Suppose, then for  $n \geq 1$, that  $r=p_1 \dots p_n=q_1 \dots
-    q_m$ for some $m \geq n$, and where each  $p_i$ and  $q_j$ are  (not
-    necessarily distinct) irreducibles for all $1 \leq i \leq n$ and $1 \leq j
-    \leq m$. Notice that  $p_1|q_1 \dots q_m$, and so $p_1|q_j$ for some $j$.
-    This makes  $p_1$ and $q_j$ associates; i.e.  $q_j=p_1u$, with $u \in A$ a
-    unit. Cancelling the  $p_1$ from both sides of the equation, we get $p_2
-    \dots p_n=q_1 \dots q_{j-1}q_{j+1} \dots q_m$. Repeating this process, we
-    get a 1--1 correspondence between associates, and hence the factorization of
-    $r$ is unique up to associates. Therefore  $A$ is a UFD.
+    Let $(p) \neq (0)$ be a prime ideal of $A$. Let $(m)$ be an ideal of $A$
+    containing $(p)$. Then $p \in (m)$ so that $p=rm$ for some  $r \in A$. Now,
+    since $p$ is prime, and $rm \in (p)$, then either $r \in (p)$ or $m \in
+    (p)$. If $m \in (p)$, then $(p)=(m)$. Otherwise, if $r \in (p)$, then $r=ps$
+    for some  $s \in A$. Then  $p=rm=pms=p(ms)$ which makes $ms=1$, hence $m$ is
+    a unit, which makes $(m)=(0)$.
 \end{proof}
 \begin{corollary}
-    Every Euclidean domain is a unique factorization domain.
+    If $A$ is any commutative ring, such that the polynomial ring $A[x]$ is a
+    principle ideal domain, then $A$ is necessarily a field.
 \end{corollary}
 \begin{proof}
-    Notice that Euclidean domains are PIDs by lemma \ref{2.1.1}.
+    If $A[x]$ is a PID, then $A \subseteq A[x]$, as a subring, must be an
+    integral domain. Consider now, the ideal $(x)$, then $\faktor{A[x]}{(x)}
+    \simeq A$ which makes $(x)$ prime by lemma \ref{1.4.4}. Therefore $(x)$ is
+    maximal, which then makes $A$ a field by lemma \ref{1.4.3}.
 \end{proof}
-\begin{corollary}[The Fundamental Theorem of Arithmetic]
-    $\Z$ is a unique factorization domain.
-\end{corollary}
+
+\begin{definition}
+    Let $A$ be a commutative ring, and  $N:A \xrightarrow{} \N$ a norm. We call
+    $N$ a \textbf{Dedekin-Hasse norm} if $N$ is a positive norm suc that for
+    all $a,b \in N$, either $a \in (b)$, or there exists an element $c \in
+    (a,b)$ such that $N(c)<N(b)$.
+\end{definition}
+
+\begin{lemma}[The Dedekin-Hasse Criterion]\label{1.6.3}
+    An integral domain $A$ is a PID if, and only if it has a Dedekin-Hasse norm.
+\end{lemma}
 \begin{proof}
-    Notce that $\Z$ is a Euclidean domain.
+    Let $\bf \neq (0)$ an ideal of $A$. Let $a \in \bf$ a nonzero element, so that
+    $(a,b) \subseteq \bf$. Since $N$ is Dedekin-Hasse, and by minimality of $b$,
+    we get that $a \in (b)$ so that $\bf=(b)$ is principle.
 \end{proof}
-\begin{corollary}
-    There exists a multiplicative Dedekind-Hasse norm on $A$.
-\end{corollary}
-\begin{proof}
-    If $A$ is a PID, then the theorem tells us it is a UFD. Define the norm $N:A
-    \xrightarrow{} \N$ by taking $0 \xrightarrow{} 0$, $u \xrightarrow{} 1$ if
-    $u$ is a unit, and  $a \xrightarrow{} 2^n$ where $a=p_1 \dots p_n$, where
-    each $p_i$ is irreducible. Notice that for every  $a,b \in A$,
-    $N(ab)=N(a)N(b)$. Now, suppose further that $a,b \neq 0$ and consider the
-    ideal  $(a,b)=(r)$, for some $r \in A$. UIf  $a \notin (b)$, nether is $r$,
-    and hence  $b \nmid r$. Now, since  $b=xr$,  $x \in A$, then  $x$ cannot be
-    a unit in  $A$, so that  $N(b)=N(xr)=N(x)N(r)>N(r)$. This completes the
-    proof.
-\end{proof}
+
+\begin{example}\label{2.5}
+    Consider the ring $\Z[1+\frac{\sqrt{-19}}{2}]$. With norm  $N=\|\cdot\|^2$
+    the field norm. Let $x,y \in \Z[1+\frac{\sqrt{-19}}{2}]$ be nonzero elements
+    and that $\frac{x}{y} \notin \Z[1+\frac{\sqrt{-19}}{2}]$. Write
+    \begin{equation*}
+        \frac{x}{y}=\frac{a+b\sqrt{-19}}{c} \in \Q[1+\frac{\sqrt{-19}}{2}]
+    \end{equation*}
+    where $a,b,c$ are all coprime, with  $c>1$. Then there are integers $u,v,w$
+    with $av+bu+cw=1$, then  $au-19bv=cq+r$ for some quotient $q$ and remainder
+    $r$ with  $N(r) \leq \frac{c}{2}$ and let $s=u+v\sqrt{-19}$ and
+    $t=q-w\sqrt{-19}$. Then we find that
+    \begin{equation*}
+        0<N(\frac{x}{y}s-t) \leq \frac{1}{4}+\frac{19}{c^2}
+    \end{equation*}
+    Then $s=1, t=\frac{(a-1)+b\sqrt{-19}}{2} \in A$ satisfy $0<N(\frac{x}{y}s-t)$
+
+    Now, suppose that $c=3$, then $3 \nmid (a^2+19b^2)$. Then $a^2+19b^2=3q+r$
+    with  $r=1$ or $r=2$. Then $s=a-b\sqrt{-19},t=q$ statisfy
+    $0<N(\frac{x}{y}s-t)$. Finally, for $c=4$, with $a,b$ not both even, so
+    that $a^2+19b^2$ is odd. Then $a^2+19b^2=4q+r$ so for $q,r \in \Z$ with
+    $0<r<4$, then $s=a-b\sqrt{-19}, t=q$ satisfy $0<N(\frac{x}{y}s-t)$. Now, if
+    both $a$ and  $b$ are odd, then  $a^2+19b^2 \equiv 1+3 \mod{8}$ so taht
+    $a^2+19b^2=8q+4$ for some  $q \in \Z$, then
+    \begin{equation*}
+        s=\frac{a-b\sqrt{-19}}{2} \text{ and } t=q
+    \end{equation*}
+    satisfy $0<N(\frac{x}{y}s-t)$.
+\end{example}
