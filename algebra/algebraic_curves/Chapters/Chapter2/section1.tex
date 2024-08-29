@@ -1,86 +1,162 @@
-\section{Coordinate Rings and Polynomial Maps}
+\section{Coordinate Rings and Polynomial Maps}\label{section_2.1}
 
 \begin{definition}
-  An \textbf{affine variety} in $\A^n(k)$ is an irreducible algebraic set in
-  $\A^n(k)$. If $V$ is an affine variety in  $\A^n(k)$, we define the
-  \textbf{coordinate ring} of $V$ to be the quotient ring:
+  We call an irreducible affine algebraic set over an algebraically closed field
+  an \textbf{affine variety}.
+\end{definition}
+
+\begin{definition}
+  Let $V \subseteq \A^n(k)$ an affine variety. We define the \textbf{coordinate
+  ring} to be the quotient:
   \begin{equation*}
-    \Oc(V)=\faktor{k[x_1, \dots, x_]}{I(V)}
+    \Oc(V)=\faktor{k[x_1, \dots, x_n]}{I(V)}
   \end{equation*}
 \end{definition}
 
 \begin{definition}
-  Let $V$ be an affine variety in  $\A^n(k)$, and let $\Fc(V,k)$ the set of all
-  functions $V \xrightarrow{} k$. We call a function $f \in \Fc(V,k)$ a
-  \textbf{polynomial function} if there exists a polynomial $F \in k[x_1, \dots,
-  x_n]$ such that $f(P)=F(P)$ for any point $P \in V$. We denote the collection
-  of all polynomial functions from $V \xrightarrow{} k$ by $\Pc(V,k)$.
+  Let $V \subseteq \A^n(k)$ be an affine variety, and let $\Fc(V,k)$ be the ring
+  of all functions taking $V \xrightarrow{} k$. We call a function $f \in
+  \Fc(V,k)$ a \textbf{polynomial function} if there is a polynomial $F \in
+  k[x_1, \dots, x_n]$ for which $f(P)=F(P)$ for all $P \in V$. We denote the set
+  of all polynomial functions by $\Pc(V,k)$.
 \end{definition}
 
-\begin{theorem}\label{theorem_2.1.1}
-  Let $V$ be an affine variety of  $\A^n(k)$. Then $\Pc(V,k)$ is a subring of
-  $\Fc(V,k)$; moreover two polynomials $F$ and $G$ over $k$ determine the same
-  polynomial function if, and only if $F-G \in I(V)$.
-\end{theorem}
+\begin{lemma}\label{lemma_2.1.1}
+  Let $V$ be an affine variety. Then $\Pc(V,k)$ is a ring, in particular, it is
+  a subring of $\Fc(V,k)$. Moreover, two polynomials $F,G \in k[x_1, \dots,
+  x_n]$ determine the same polynomial function if, and only if $F \equiv G
+  \mod{I(V)}$ in $\Oc(V)$.
+\end{lemma}
 \begin{proof}
-  Let $f$ and  $g$ polynomial functions, the there exist polynomials $F,G$ over $k$
-  such that for any  $P \in V$, $f(P)=F(P)$ and $g(P)=G(P)$. This makes
+  Let $f$ and  $g$ polynomial functions, the there exist polynomials $F,G$ over
+  $k$ such that for any  $P \in V$, $f(P)=F(P)$ and $g(P)=G(P)$. This makes
   $f+g(P)=F+G(P)$ and $fg(P)=FG(P)$ under the usual addition and multiplication
   of polynomials. This makes $\Pc(V,k)$ a subring of $\Fc(V,k)$.
 
-  Now, let $F,G \in k[x_1, \dots, x_n]$ such that $F$ and  $G$ determine the
-  same polynomial function  $f$; i.e.. for every $P \in V$, $f(p)=F(P)$ and
-  $f(P)=G(P)$. Then $F-G(P)=0$ which makes $F-G \in I(V)$. Conversely, if $F-G
-  \in I(V)$, then for any $P \in V$, $F-G(P)=0$ so that $F(P)=G(P)$. By
-  definition this means that both $F$ and  $G$ determine the same polynomial
-  function.
+  Now, suppose that two polynomials $F(x_1, \dots, x_n)$ and $G(x_1, \dots,
+  x_n)$ determine the same polynomial function. That is, there is an $f \in
+  \Pc(V,k)$ for which $F(P)=f(P)$ and $G(P)=f(P)$ for all $P \in V$. Then we
+  have $F(P)-G(P)=f(P)-f(P)=0$ for all $P \in V$, so that $F-G \in I(V)$.
+  Conversely, suppose that $F \equiv G \mod{I(V)}$; that is $F-G \in I(V)$. Then
+  for every $P \in V$, $F(P)-G(P)=$ so $F(P)=G(P)$, and hence they must
+  determine the same polynomial function.
 \end{proof}
 \begin{corollary}
-  $\Oc(V) \simeq \Pc(V,k)$.
+  $\Pc(V,k) \simeq \Oc(V)$.
 \end{corollary}
+\begin{proof}
+  Take the map $\Psi: \Pc(V,k) \xrightarrow{} k[x_1, \dots, x_n]$ by $f
+  \xrightarrow{} F$ where $f(P)=F(P)$ for all $P \in V$. Observe that $\Psi$ is
+  a ring homomorphism. Moreover, by definition of polynomial functions,
+  $\Psi(\Pc(V,k))=k[x_1, \dots, x_n]$, and $\ker{\Psi}=I(V)$.
+\end{proof}
 
 \begin{definition}
-  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine varieties. We
-  call a map $\phi:V \xrightarrow{} W$ a \textbf{polynomial map} if there exist
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^n(k)$ be affine varieties. A map
+  $\phi:V \xrightarrow{} W$ is called a \textbf{polynomial map} if there exist
   polynomials $T_1, \dots, T_m \in k[x_1, \dots, x_n]$ such that
-  $\phi(P)=(T_1(P), \dots, T_m(P))$ for any point $P \in V$.
+  \begin{equation*}
+    \phi(P)=(T_1(P), \dots, T_m(P)) \text{ for all } P \in V
+  \end{equation*}
 \end{definition}
 
 \begin{lemma}\label{lemma_2.1.2}
-  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ affine varieties. Let
-  $\phi:V \xrightarrow{} W$ be any function. Then there exists a map
-  $\Phi:\Fc(W,k) \xrightarrow{} \Fc(V,w)$ such that $\Phi=f \circ \phi$.
-  Moreover if $\phi$ is a polynomial map, then $\Phi(\Oc(W)) \subseteq
-  \Oc(V)$, and $\Phi$ restricts to a homomorphism  $\Oc(W) \xrightarrow{}
-  \Oc(V)$.
+  Let $\phi:V \xrightarrow{} W$ be any polynomial map. Then there exists a
+  homomorphism $\Phi:\Fc(W,k) \xrightarrow{} \Fc(V,k)$ defined by $f
+  \xrightarrow{} f \circ \phi$. Moreover, if $\phi$ is a polynomial map, then
+  $\Phi$ restricts to a homomorphism from  $\Oc(W) \xrightarrow{} \Oc(V)$.
 \end{lemma}
+\begin{proof}
+  Define $\Phi:\Fc(W,k) \xrightarrow{} \Fc(W,k)$ by $f \xrightarrow{} f \circ
+  \phi$. Let $f,g \in \Fc(V,k)$, then $(f+g) \circ \phi=(f \circ \phi)+(g \circ
+  \phi)$ and $(fg) \circ \phi=(f \circ \phi)(g \circ \phi)$. Moreover, since
+  $\phi:V \xrightarrow{} W$, and $f:W \xrightarrow{} k$, $f \circ \phi: V
+  \xrightarrow{} k$, so $f \in \Fc(V,k)$. So $\Phi$ is a well defined
+  homomorphism induced by $\phi$.
 
-\begin{theorem}\label{theorem_2.1.3}
-  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine varieties. Then
-  there is a natural 1--1 correspondence of functions $V
-  \xrightarrow{} W$ onto homomorphisms $\Oc(W) \xrightarrow{} \Oc(V)$.
-  Moreover any such function $V \xrightarrow{} W$ is the restriction of a
-  polynomial map $\A^n(k) \xrightarrow{} \A^m(k)$.
+  Now, take $\Phi$ restricted to $\Oc(W)$, and $g \in \Phi(\Oc(W))$. Then $g=f
+  \circ \phi$ where $f:W \xrightarrow{} k$. Now, since $\phi$ is a polynomial
+  map, we get $f \circ \phi(P)=f(T_1(P), \dots, T_m(P))=f \circ (T_1, \dots,
+  T_m)(P) \in k[x_1, \dots, x_n]$. Then $g-(f \circ (T_1, \dots, T_m))(P)=0$ for
+  all $P \in V$. By lemma \ref{lemma_2.1.1}, this makes $g \equiv f \cirt (T_1,
+  \dots, T_m) \mod{I(V)}$, so $g \in \Oc(V)$. Thus $\Phi(\Oc(W)) \subseteq
+  \Oc(V)$, and $\Phi$ can be restricted.
+\end{proof}
+
+\begin{lemma}\label{lemma_2.1.3}
+  Any polynomial map $T:\A^n(k) \xrightarrow{} \A^m(k)$ uniquely determines its
+  coordinate polynomials.
+\end{lemma}
+\begin{proof}
+  Let $P \in V$, and suppose there are polynomials $T_1, \dots, T_m$ and $S_1,
+  \dots, S_m$ such that $T(P)=(T_1(P), \dots, T_m(P))$ and
+  $T(P)=(S_1(P), \dots, S_m(P))$ for some given polynomial map
+  $T:V \xrightarrow{} W$. Then
+  \begin{align*}
+    T(P)-T(P) &= T(P)=(T_1(P), \dots, T_m(P))-(S_1(P), \dots, S_m(P)) \\
+        &=  (T_1-S_1(P), \dots, T_m-S_m(P))  \\
+        &=  0
+  \end{align*}
+  so for each $1 \leq i \leq m$, $T_i-S_i(P)=0$, by lemma \ref{lemma_1.1.4},
+  $T_i-S_i=0$ and we are done.
+\end{proof}
+
+\begin{theorem}\label{theorem_2.1.4}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine varieties. THen
+  there exists a natural 1--1 correspondence between polynomial maps
+  $\phi:V \xrightarrow{} W$ and homomorphisms $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$.
+  Moreover any such $\phi$ is the restriction of a polynomial map from
+  $\A^n(k) \xrightarrow{} \A^m(k)$.
 \end{theorem}
 \begin{proof}
   Let $\a:\Oc(W) \xrightarrow{} \Oc(V)$ a homomorphism and take $T_i \in
-  k[x_1, \dots, x_n]$, $1 \leq i \leq m$ such that $\a(x_i \mod{I(W)})=T_i
-  \mod{I(V)}$. Define $T=(T_1, \dots, T_m)$. Then $T:\A^n(k) \xrightarrow{}
-  \A^m(k)$ is a polynomial map by definition. Define $\tilde{T}:\Oc(\A^m)
-  \xrightarrow{} \Oc(\A^n)$; by lemma \ref{lemma_2.1.2}, we have
-  $\tilde{T}(\Oc(\A^m(k))) \subseteq \Oc(\A^n(k))$. That is, for any $V
-  \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$, we get $\tilde{T}(I(W)) \subseteq
-  I(V)$. That is $T(V) \subseteq W$. Therefore $T$ restricts to a polynomial map from
-  $V \xrightarrow{} W$. In fact, it restricts preciesly to $\a$.
+  k[x_1, \dots, x_n]$, $1 \leq i \leq m$ such that $\a(x_i \mod{I(W)}) \equiv
+  T_i \mod{I(V)}$. Define $T=(T_1, \dots, T_m)$. Then $T:\A^n(k) \xrightarrow{}
+  \A^m(k)$ is a polynomial map by definition. Define $\tilde{T}:\Fc(\A^m,k)
+  \xrightarrow{} \Fc(\A^n,k)$ as in \ref{lemma_2.1.2}, by that same lemma,
+  $\tilde{T}$ restricts to $\Oc(W) \xrightarrow{} \Oc(V)$. Now, take $g \in
+  \tilde{T}(\Oc(W))$. Then $g=f \circ T$, where $f \equiv 0 \mod{I(W)}$. Then $f
+  \circ \tilde{T} \equiv 0 \mod{I(V)}$, and so we have $g \equiv  f \circ \tilde{T}
+  \equiv 0 \mod{I(V)}$. Therefore $g \in I(V)$ and $\tilde{T}(I(W)) \subseteq
+  I(V)$. In particular, $T(V) \subseteq W$. Then $T$ restricts to a polynomial
+  map  $\phi:V \xrightarrow{} W$, now since $\a(x_i \mod{I(V)}) \equiv
+  T_i \mod{I(V)}$, we get precisely that $\a=\Phi$, where $\Phi:f \xrightarrow{}
+  f \circ \phi$.
 \end{proof}
+
+\begin{definition}
+  Let $\phi:V \xrightarrow{} W$ a polynomial map. We call the homomorphsim
+  $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$ defined by $f \xrightarrow{} f \circ \phi$
+  the homomorphism \textbf{induced} by $\phi$.
+\end{definition}
 
 \begin{definition}
   We call a polynomial map $\phi:V \xrightarrow{} W$ an \textbf{isomorphism} if
   there is a polynomial map $\psi:W \xrightarrow{} V$ such that $\psi \circ
-  \phi=\id_V$ and  $\phi \circ \psi=\id_W$.
+  \phi=\id_V$ and  $\phi \circ \psi=\id_W$, and we call the varieties $V$ and
+  $W$  \textbf{isomorphic} if such a $\phi$ exists, and we write  $V \simeq W$.
 \end{definition}
 
-\begin{lemma}\label{lemma_2.1.4}
+\begin{definition}
+  We call a homomorphism $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$, induced by some
+  polynomial map, a \textbf{isomorphism} if there exists a homomorphism
+  $\Psi:\Oc(V) \xrightarrow{} \Oc(W)$, induced by a polynomial map such that
+  $\Psi \circ \Phi=\id_{\Oc(W)}$ and $\Phi \circ \Psi=\id_\Oc(V)$. We call the
+  coordinate rings $\Oc(V)$ and $\Oc(W)$ \textbf{isomorphic} and write $\Oc(V)
+  \simeq \Oc(W)$.
+\end{definition}
+
+\begin{lemma}\label{lemma_2.1.5}
   Two affine varieties are isomorphic if, and only if their coordinate rings are
   isomorphic.
 \end{lemma}
+\begin{proof}
+  Suppose $V$ and $W$ are isomorphic, and let $\phi:V \xrightarrow{} W$ the
+  underlying isomorphism. Define then $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$ the
+  homomorphism induced by $\phi$. Let $\psi:W \xrightarrow{} V$ the polynomial
+  map making $\phi$ an isomorphsm, and let $\Psi:\Oc(V) \xrightarrow{} \Oc(W)$
+  its induced homomorphism. Then for $f \in \Oc(W)$, $\Psi \circ \Phi(f)=f \circ
+  (\psi \circ \phi)=f$, so $\Psi \circ \Phi=\id_{\Oc(W)}$. Likewise, $\Phi \circ
+  \Psi=\id_{\Oc(V)}$, which makes $\Phi$ an isomorphism, and $\Oc(V) \simeq
+  \Oc(W)$. The converse holds by similar reasoning.
+\end{proof}
