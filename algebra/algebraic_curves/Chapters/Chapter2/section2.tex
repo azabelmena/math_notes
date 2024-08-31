@@ -23,7 +23,7 @@ $V^\phi=V(I^\phi)=\inv{\Phi}(V)$.
   Let $\phi:\A^n(k) \xrightarrow{} \A^n(k)$ be an affine change of coordinates.
   Then each component polynomial of $\phi$ has the form:
   \begin{equation}\label{equation_2.1}
-    \phi_i(P)=\sum_{j}{a_{ij}x_j}+a_{i0} \text{ where } P \in \A^n(k)
+    \phi_i(x_1, \dots, x_n)=\sum_{j}{a_{ij}x_j}+a_{i0}
   \end{equation}
   Moreover, $\phi=\phi'' \circ \phi'$ where $\phi'$ is a linear map, and
   $\phi''$ is a translation.
@@ -33,8 +33,8 @@ $V^\phi=V(I^\phi)=\inv{\Phi}(V)$.
   definition. Since $\deg{\phi_i}=1$, it can only be the sum of monomial terms
   of degree $1$, plus a possible constant. Moreover, define
   \begin{align*}
-    \phi_i'(P)  &=  \sum_{j}{a_{ij}x_j} \\
-    \phi_i''(P) &=  x_j+a_{i0} \\
+    \phi_i'(x_1, \dots, x_n)  &=  \sum_{j}{a_{ij}x_j} \\
+    \phi_i''(x_1, \dots, x_n) &=  x_j+a_{i0} \\
   \end{align*}
   Then the maps $\phi'=(\phi_1', \dots, \phi_n')$ and $\phi''=(\phi_1'', \dots,
   \phi_n'')$ are polynomial maps, and $\phi=\phi'' \circ \phi'$.
@@ -97,7 +97,53 @@ $V^\phi=V(I^\phi)=\inv{\Phi}(V)$.
 \begin{proof}
   By the group structure, we can compute $\phi \circ \inv{\phi}=\id_{\A^n(k)}$
   and $\inv{\phi} \circ \phi=\id_{\A^n(k)}$.
-\corolloryend{proof}
+\end{proof}
+
+Now, let $\phi=(\phi_1, \dots, \phi_n)$ be an affine coordinate change on
+$\A^n(k)$. Then each $\phi_i$ has the form of equation \ref{equation_2.1}, and
+so $\phi$ describes a system of linear equations in  $\A^n(k)$. Therefore, we
+can represent $\phi$ as
+\begin{equation}\label{equation_2.2}
+  \phi(x_1, \dots, x_n)=
+  \begin{pmatrix}
+    a_{11}  & \dots   & a_{1n} \\
+    a_{21}  & \dots   & a_{2n} \\
+    \vdots  & \ddots  & \vdots  \\
+    a_{n1}  & \dots   & a_{nn} \\
+  \end{pmatrix}
+  \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots  \\
+    x_n
+  \end{pmatrix}+
+  \begin{pmatrix}
+    b_{10}  \\
+    b_{20}  \\
+    \vdots  \\
+    b_{n0}
+  \end{pmatrix}
+\end{equation}
+
+so that
+
+\begin{equation*}
+  \phi(x)=Ax+B
+\end{equation*}
+
+where $x=(x_1, \dots, x_n)$ and $A$ and $B$ are the $n \times n$ and $n \times
+1$ matrices in the matrix spaces $k^{n \times n}$ and $k^{n \times 1}$.
+
+\begin{lemma}\label{lemma_2.2.4}
+  Let $\phi:\A^n(k) \xrightarrow{} \A^n(k)$ be a polynomial map of the form
+  $\phi(x)=Ax+B$, where $A$ and $B$ are matrices in $k^{n \times n}$ and $k^{n
+  \times 1}$ respectively. Then $\phi$ is an affine change of coordinates if,
+  and only if $A$ is nonsingular.
+\end{lemma}
+\begin{proof}
+  This follows from lemma \ref{lemma_2.2.2} and putting $\phi'$ and $\phi''$
+  into the forms $\phi'(x)=Ax$ and  $\phi''(x)=x+B$.
+\end{proof}
 
 \begin{definition}
   We call an affine variety $V \subseteq \A^n(k)$ a \textbf{linear subvariety}
