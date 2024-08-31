@@ -1,6 +1,6 @@
 \section{Affine Coordinate Changes}
 
-Let $\phi:\A^n(k) \xrightarrow{} \A^n(k)$ a polynomial map defined by
+Let $\phi:\A^n(k) \xrightarrow{} \A^m(k)$ a polynomial map defined by
 $\phi=(\phi_1, \dots, \phi_m)$, and let $F \in k[x_1, \dots, x_n]$. We denote
 $F^\phi=\Phi(F)$, where $\Phi$ is the induced homomorphism of $\phi$. Let $V$ be
 an affine variety, we denote $I^\phi=I^\phi(V)=I(V)^\phi$ to be the ideal
@@ -14,8 +14,9 @@ $V^\phi=V(I^\phi)=\inv{\Phi}(V)$.
 
 \begin{definition}
   An \textbf{affine change of coordinates} is a polynomial map
-  $\phi:\A^n(k) \xrightarrow{} \A^n(k)$ for which each $\phi$ is 1--1 and onto,
-  and each component polynomial $\phi_i$ has total degree $1$.
+  $\phi:\A^n(k) \xrightarrow{} \A^n(k)$, $\phi=(\phi_1, \dots, \phi_n)$, for
+  which $\phi$ is 1--1 and onto, and each component polynomial $\phi_i$ has
+  total degree  $1$.
 \end{definition}
 
 \begin{lemma}\label{lemma_2.2.1}
@@ -35,8 +36,8 @@ $V^\phi=V(I^\phi)=\inv{\Phi}(V)$.
     \phi_i'(P)  &=  \sum_{j}{a_{ij}x_j} \\
     \phi_i''(P) &=  x_j+a_{i0} \\
   \end{align*}
-  Then the maps $\phi'=(\phi_1', \dots, \phi_m')$ and $\phi''=(\phi_1'', \dots,
-  \phi_m'')$ are polynomial maps, and $\phi=\phi'' \circ \phi'$.
+  Then the maps $\phi'=(\phi_1', \dots, \phi_n')$ and $\phi''=(\phi_1'', \dots,
+  \phi_n'')$ are polynomial maps, and $\phi=\phi'' \circ \phi'$.
 \end{proof}
 
 \begin{lemma}\label{lemma_2.2.2}
@@ -64,7 +65,7 @@ $V^\phi=V(I^\phi)=\inv{\Phi}(V)$.
   changes of coordinates on $\A^n(k)$ form a group under composition.
 \end{theorem}
 \begin{proof}
-  Let $\phi=(\phi_1, \dots, \phi_m)$ and $\psi=(\psi_1, \dots, \psi_m)$. Then
+  Let $\phi=(\phi_1, \dots, \phi_n)$ and $\psi=(\psi_1, \dots, \psi_n)$. Then
   for each $1 \leq i \leq m$, $\deg{\phi_i}=1$ and $\deg{\psi_i}=1$, hence
   $\deg{\phi_i \circ \psi_i}=1$, likewise, $\deg{\inv{\phi}}=1$. Moreover, each
   $\phi \circ \psi$ is 1--1 and onto since $\phi$ (and hence $\inv{\phi}$) and
@@ -110,7 +111,7 @@ $V^\phi=V(I^\phi)=\inv{\Phi}(V)$.
 \end{lemma}
 \begin{proof}
   Let $F_1, \dots, F_r \in k[x_1, \dots, x_n]$ all have total degree $1$, such
-  that $V=V(F_1, \dots, F_r)$. Then each $F_i^\phi=F_i(\phi_1, \dots, \phi_m)$.
+  that $V=V(F_1, \dots, F_r)$. Then each $F_i^\phi=F_i(\phi_1, \dots, \phi_n)$.
   Then for each $1 \leq i \leq r$, $\deg{F_i^\phi}=1$ and $V^\phi=V(I^\phi)=
   V(F_1^\phi, \dots, F_r^\phi)$.
 \end{proof}
