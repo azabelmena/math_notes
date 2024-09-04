@@ -52,16 +52,71 @@
 \end{proof}
 
 \begin{definition}
-  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^n(k)$ be affine varieties. A map
-  $\phi:V \xrightarrow{} W$ is called a \textbf{polynomial map} if there exist
-  polynomials $T_1, \dots, T_m \in k[x_1, \dots, x_n]$ such that
-  \begin{equation*}
-    \phi(P)=(T_1(P), \dots, T_m(P)) \text{ for all } P \in V
-  \end{equation*}
-  We call each $T_i$ a \textbf{component polynomial} of $\phi$.
+  Let $V$ be a variety. We call a subset  $W \subseteq V$ a subvariety if $W$ is
+  also a variety.
 \end{definition}
 
 \begin{lemma}\label{lemma_2.1.2}
+  A subset $W$ of a variety  $V$ is a subvariety if, and only if  $W$
+  corresponds to a prime ideal in  $\Oc(V)$.
+\end{lemma}
+\begin{proof}
+  By Hilbert's Nullstellensatz prime ideals in $\Oc(V)$ corresponde to
+  irreducible algebraic subsets of $V$.
+\end{proof}
+
+\begin{lemma}\label{lemma_2.1.3}
+  Let $V$ be a variety in  $\A^n(k)$, and $W$ a subvariety of $V$. Denote by
+  $I_V(W)$ the ideal of $\Oc(V)$ corresponding to $W$; that is  $I_V(W)=I(W)
+  \mod{I(V)}$. Then the following are true:
+  \begin{enumerate}
+    \item[(1)] Every polynomial function on $V$ restricts to a polynomial
+      function on $W$.
+
+    \item[(2)] $\Oc(W) \simeq \faktor{\Oc(V)}{I_V(W)}$
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  Let $f$ be a polynomial function on  $V$, and  $F \in k[x_1, \dots, x_n]$ the
+  polynomial determining $F$. Now, let $G \in k[x_1, \dots, x_n]$ such that
+  $F(P)=G(P)$ for every $P \in W$. Then $F-G \in I(W)$. Since $I_V(W)=I(W)
+  \mod{I(V)}$, $F-G \in I_V(W)$, when considered as polynomials in $\Oc(V)$.
+  Then we have for every $P \in W$, $G(P)=F(P)=f(P)$ so that $f$ restricts to a
+  polynomial function on $W$.
+
+  Now, define the map $\Phi:\Oc(V) \xrightarrow{} \Oc(W)$ by $f \xrightarrow{}
+  g$ where $f(P)=g(P)$ for all $P \in W$. By the above argument, $\Phi$ is well
+  defined, and moreover, $\Phi$ is onto. Now take $f_1, f_2 \in \Oc(V)$ and
+  $g_1,g_2 \in \Oc(W)$ such that $f_i(P)=g_i(P)$ for every $P \in W$, and
+  $i=1,2$. Then $f_1+f_2(P)=g_1+g_2(P)=g_1(P)+g_2(P)=f_1(P)+f_2(P)$, and
+  $f_1f_2(P)=g_1g_2(P)=g_1(P)g_2(P)=f_1(P)f_2(P)$, which makes $\Phi$ into a
+  ring homomorphism. Lastly, observe that if $f \in \ker{\Phi}$, then $g \equiv
+  0 \mod{I_V(W)}$, so $g \equiv f \mod{I(W)} \in I_V(W)$. Conversely, if $f
+  \in I_V(W)$, then $f \equiv 0 \mod{I(W)}$, so $f \in \ker{\Phi}$. Therefore,
+  $\ker{\Phi}=I_V(W)$, and by the first isomoprphism theorem for rings, we get
+  $\Oc(W) \simeq \faktor{\Oc(V)}{I_V(W)}$, and the following diagram commutes.
+  \begin{equation*}
+    \begin{tikzcd}
+      {\Oc(V)} & {\Oc(W)} \\
+               & {\faktor{\Oc(V)}{I_V(W)}}
+               \arrow["\Phi", from=1-1, to=1-2]
+               \arrow[from=1-1, to=2-2]
+               \arrow[from=2-2, to=1-2]
+    \end{tikzcd}
+  \end{equation*}
+\end{proof}
+
+\begin{definition}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine varieties. A map
+  $\phi:V \xrightarrow{} W$ is called a \textbf{polynomial map} if there exist
+  polynomials $\phi_1, \dots, \phi_m \in k[x_1, \dots, x_n]$ such that
+  \begin{equation*}
+    \phi(P)=(\phi_1(P), \dots, \phi_m(P)) \text{ for all } P \in V
+  \end{equation*}
+  We call each $\phi_i$ a \textbf{component polynomial} of $\phi$.
+\end{definition}
+
+\begin{lemma}\label{lemma_2.1.4}
   Let $\phi:V \xrightarrow{} W$ be any polynomial map. Then there exists a
   homomorphism $\Phi:\Fc(W,k) \xrightarrow{} \Fc(V,k)$ defined by $f
   \xrightarrow{} f \circ \phi$. Moreover, if $\phi$ is a polynomial map, then
@@ -77,42 +132,42 @@
 
   Now, take $\Phi$ restricted to $\Oc(W)$, and $g \in \Phi(\Oc(W))$. Then $g=f
   \circ \phi$ where $f:W \xrightarrow{} k$. Now, since $\phi$ is a polynomial
-  map, we get $f \circ \phi(P)=f(T_1(P), \dots, T_m(P))=f \circ (T_1, \dots,
-  T_m)(P) \in k[x_1, \dots, x_n]$. Then $g-(f \circ (T_1, \dots, T_m))(P)=0$ for
-  all $P \in V$. By lemma \ref{lemma_2.1.1}, this makes $g \equiv f \cirt (T_1,
-  \dots, T_m) \mod{I(V)}$, so $g \in \Oc(V)$. Thus $\Phi(\Oc(W)) \subseteq
+  map, we get $f \circ \phi(P)=f(\phi_1(P), \dots, \phi_m(P))=f \circ (\phi_1, \dots,
+  \phi_m)(P) \in k[x_1, \dots, x_n]$. Then $g-(f \circ (\phi_1, \dots, \phi_m))(P)=0$ for
+  all $P \in V$. By lemma \ref{lemma_2.1.1}, this makes $g \equiv f \cirt (\phi_1,
+  \dots, \phi_m) \mod{I(V)}$, so $g \in \Oc(V)$. Thus $\Phi(\Oc(W)) \subseteq
   \Oc(V)$, and $\Phi$ can be restricted.
 \end{proof}
 
-\begin{lemma}\label{lemma_2.1.3}
-  Any polynomial map $T:\A^n(k) \xrightarrow{} \A^m(k)$ uniquely determines its
+\begin{lemma}\label{lemma_2.1.5}
+  Any polynomial map $\phi:\A^n(k) \xrightarrow{} \A^m(k)$ uniquely determines its
   coordinate polynomials.
 \end{lemma}
 \begin{proof}
-  Let $P \in V$, and suppose there are polynomials $T_1, \dots, T_m$ and $S_1,
-  \dots, S_m$ such that $T(P)=(T_1(P), \dots, T_m(P))$ and
-  $T(P)=(S_1(P), \dots, S_m(P))$ for some given polynomial map
+  Let $P \in V$, and suppose there are polynomials $\phi_1, \dots, \phi_m$ and $\psi_1,
+  \dots, \psi_m$ such that $\phi(P)=(\phi_1(P), \dots, \phi_m(P))$ and
+  $\phi(P)=(\psi_1(P), \dots, \psi_m(P))$ for some given polynomial map
   $T:V \xrightarrow{} W$. Then
   \begin{align*}
-    T(P)-T(P) &= T(P)=(T_1(P), \dots, T_m(P))-(S_1(P), \dots, S_m(P)) \\
-        &=  (T_1-S_1(P), \dots, T_m-S_m(P))  \\
+    \phi(P)-\phi(P) &= \phi(P)=(\phi_1(P), \dots, \phi_m(P))-(\psi_1(P), \dots, \psi_m(P)) \\
+        &=  (\phi_1-\psi_1(P), \dots, \phi_m-\psi_m(P))  \\
         &=  0
   \end{align*}
-  so for each $1 \leq i \leq m$, $T_i-S_i(P)=0$, by lemma \ref{lemma_1.1.4},
-  $T_i-S_i=0$ and we are done.
+  so for each $1 \leq i \leq m$, $\phi_i-\psi_i(P)=0$, by lemma \ref{lemma_1.1.4},
+  $\phi_i-\psi_i=0$ and we are done.
 \end{proof}
 
-\begin{theorem}\label{theorem_2.1.4}
-  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine varieties. THen
+\begin{theorem}\label{theorem_2.1.6}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine varieties. Then
   there exists a natural 1--1 correspondence between polynomial maps
   $\phi:V \xrightarrow{} W$ and homomorphisms $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$.
   Moreover any such $\phi$ is the restriction of a polynomial map from
   $\A^n(k) \xrightarrow{} \A^m(k)$.
 \end{theorem}
 \begin{proof}
-  Let $\a:\Oc(W) \xrightarrow{} \Oc(V)$ a homomorphism and take $T_i \in
+  Let $\a:\Oc(W) \xrightarrow{} \Oc(V)$ a homomorphism and take $\phi_i \in
   k[x_1, \dots, x_n]$, $1 \leq i \leq m$ such that $\a(x_i \mod{I(W)}) \equiv
-  T_i \mod{I(V)}$. Define $T=(T_1, \dots, T_m)$. Then $T:\A^n(k) \xrightarrow{}
+  \phi_i \mod{I(V)}$. Define $T=(\phi_1, \dots, \phi_m)$. Then $T:\A^n(k) \xrightarrow{}
   \A^m(k)$ is a polynomial map by definition. Define $\tilde{T}:\Fc(\A^m,k)
   \xrightarrow{} \Fc(\A^n,k)$ as in \ref{lemma_2.1.2}, by that same lemma,
   $\tilde{T}$ restricts to $\Oc(W) \xrightarrow{} \Oc(V)$. Now, take $g \in
@@ -121,7 +176,7 @@
   \equiv 0 \mod{I(V)}$. Therefore $g \in I(V)$ and $\tilde{T}(I(W)) \subseteq
   I(V)$. In particular, $T(V) \subseteq W$. Then $T$ restricts to a polynomial
   map  $\phi:V \xrightarrow{} W$, now since $\a(x_i \mod{I(V)}) \equiv
-  T_i \mod{I(V)}$, we get precisely that $\a=\Phi$, where $\Phi:f \xrightarrow{}
+  \phi_i \mod{I(V)}$, we get precisely that $\a=\Phi$, where $\Phi:f \xrightarrow{}
   f \circ \phi$.
 \end{proof}
 
@@ -152,3 +207,146 @@
   \Psi=\id_{\Oc(V)}$, which makes $\Phi$ a ring isomorphism, and $\Oc(V) \simeq
   \Oc(W)$. The converse holds by similar reasoning.
 \end{proof}
+
+\begin{lemma}\label{lemma_2.1.8}
+  Let $V$, $W$, and $Z$ be affine varieties, and  $\phi:V \xrightarrow{} W$
+  and $\psi:W \xrightarrow{} Z$ be polynomial maps with induced homomorphisms
+  $\Phi$ and  $\Psi$ respectively. Then  $\psi \circ \phi:V \xrightarrow{} Z$ is
+  a polynomial map with induced homomorphism $\Phi \circ \Psi$.
+\end{lemma}
+\begin{proof}
+  Let $\phi=(\phi_1, \dots, \phi_m)$ and $\psi=(\psi_1, \dots, \psi_l)$ Then
+  $\psi \circ \phi(P)=\psi(\phi_1(P), \dots, \phi_m(P))=(\psi_1(Q), \dots,
+  \psi_l(Q))$ where $Q=(\phi_1(P), \dots, \phi_m(P)) \in W$. This makes $\psi
+  \circ \phi$ into a polynomial map. Now consider the induced homomorphisms
+  $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$ and $\Psi:\Oc(Z) \xrightarrow{} \Oc(W)$.
+  Take $f \in \Oc(Z)$, then $\Phi \circ \Psi(f)=f \circ (\psi \circ \phi) \in
+  \Oc(V)$, so that $\psi \circ \phi$ induces  $\Phi \circ \Psi$.
+\end{proof}
+
+\begin{lemma}[The Irreducibility Criterion for Algebraic sets]\label{lemma_2.1.9}
+  Let $V$ and  $W$ be affine varieties, and  $\phi:V \xrightarrow{} W$ a
+  polynomial map of $V$ onto $W$. Then if $X$ is an algebraic subset of  $W$,
+  $\inv{\phi}(X)$ is algebraic in $V$. Moreover, if  $\inv{\phi}(X)$ is
+  irreducible in $V$, then  $X$ is irreducible in  $W$.
+\end{lemma}
+\begin{proof}
+  Let $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$ be the induced homomorphism
+  corresponding to $\phi$. Since  $X$ is algebraic in  $W$, it corresponds to a
+  radical ideal $I_X$ in $\Oc(W)$, by Hilbert's Nullstellensatz. Since $\phi$ is
+  onto, so is $\Phi$, and $\sqrt{\Phi(I_X)} \subseteq
+  \Phi(\sqrt{I_X})=\Phi(I_X)$, which makes $\Phi(I_X)$ a radical ideal in
+  $\Oc(V)$. Moreover, $\Phi(I_X)$ is the radiacal ideal corresponding to
+  $\inv{\phi}(X)$, so $\inv{\phi}(X)$ is algebraic in $V$.
+
+  Now, suppose that $\inv{\phi}(X)$ is irreducible in $V$, then it corresponds
+  to a prime ideal $I_X$ in $\Oc(X)$, so that $\inv{\Phi}(I_X)$ is a prime ideal
+  in $\Oc(W)$. Indeed, this prime ideal corresponds to $X$, so that $X$ is
+  irreducible in $W$.
+\end{proof}
+
+\begin{example}\label{example_2.1}
+  \begin{enumerate}
+    \item[(1)] Let $V=\{(t,t^2,t^3) \in \A^3(k) : t \in k\}$ the twisted cubic
+      over $k$. Then  $I(V)=(x^2-y,x^3-z)$ which is a prime ideal, so that $V$
+      is irreducible. Indeed, consider the polynomial map $T=(t_1,t_2,t_3)$
+      where $t_i: t \xrightarrow{} t^i$ for $i=1,2,3$. Then $T(V)=\A^3(k)$, so
+      that $T$ is onto, and $\inv{T}=(x^2-y,y^3-z)$. Therefore, $V$ is an affine
+      variety.
+
+    \item[(2)] Let $V=V(xz-y^2,yz-x^3,z^2-x^2y) \subseteq \A^3(\C)$. Observe
+      that
+      \begin{align*}
+        y^3-x^4 &=  xyz-xyz=0 \\
+        z^3-x^5 &=  x^2yz=^2yz=0  \\
+        z^4-y^5 &=(x^4-y^3)y^2=0  \\
+      \end{align*}
+      so that $(x^3-x^4,z^3-x^5,z^4-y^5) \subseteq I(V)$. Now, take:
+      \begin{equation*}
+        x \xrightarrow{} t^a, y \xrightarrow{} t^b, \text{ and } z
+        \xrightarrow{} t^c
+      \end{equation*}
+      then we get the following system of equations
+      \begin{align*}
+        3a  &=  b+c \\
+        2b  &=  a+c \\
+        2c  &=  2a+b  \\
+      \end{align*}
+      Solving for the system we get $x \xrightarrow{} t^3$, $y \xrightarrow{}
+      t^4$, and $z \xrightarrow{} t^5$. Then we get the polynomial map
+      $\phi:\A^1(\C) \xrightarrow{} \A^3(\C)$ defined by $\phi:t \xrightarrow{}
+      (t^3,t^4,t^5)$. We have $\phi(\A^1(\C))=V$, and that the induced
+      homomorphism has its kernel in $I(V)$. Then we get
+      \begin{equation*}
+        \C[x] \simeq \faktor{\Oc(V)}{I(V)}
+      \end{equation*}
+      since $\C[x]$ is an integel domain, $I(V)$ is a prime ideal, so $V$ is an
+      affine variety.
+
+    \item[(3)] Let $\phi:\A^1(k) \xrightarrow{} V(y^2-x^3)$ be the polynomial
+      map defined by $\phi:t \xrightarrow{} (t^2,t^3)$. Taking $x \xrightarrow{}
+      t^2$ and $y \xrightarrow{} t^3$, we observe that
+      $y^2-x^3=(t^3)^2-(t^2)^3=0$ so that $\phi$ takes $\A^1(k)$ onto
+      $V(y^2-x^3)$. Moreover, let $(t^2,t^3)=(s^2,s^3)$, then $(t+s)(t-s)=0$, and
+      $t^3-s^3=0$, this makes $t=s$, so that  $\phi$ is 1--1.
+
+      Now, let $\Phi$ be the induced homomorphism of $\phi$, with kernel
+      $\ker{\Phi}=I(V)$. Then
+      \begin{equation*}
+        \faktor{k[x,y]}{I(V)} \simeq k[x,y] \subseteq k[x]
+      \end{equation*}
+      so that $\Phi$ is not a ring isomorphism. Therefore, $\phi$ fails to be an
+      isomorphism of varieties, despite being a bijection between $\A^1(k)$ and
+      $V(y^2-x^3)$.
+  \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{lemma_2.1.10}
+  Let $V$ and  $W$ be affine varieties, and  $\phi:V \xrightarrow{} W$ a
+  polynomial map. If $V' \subseteq V$ and $W' \subseteq W$ are subvarieis for
+  which $\phi(V') \subseteq W'$, then $\phi$ restricts to a polynomial map from
+   $V' \xrightarrow{} W'$.
+\end{lemma}
+\begin{proof}
+  Let $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$ be the induced homomorphism
+  corresponding to $\phi$. Then we have by lemma \ref{lemma_2.1.3} that
+  $\Oc(W') \simeq \faktor{\Oc(W)}{I_W(W')}$ and $\Oc(V') \simeq
+  \faktor{\Oc(V)}{I_V(V')}$. Since $\phi(V') \subseteq W'$, we get
+  $\Phi(I_W(W')) \subseteq I_V(V')$. Then $\Phi$ restricts to a homomorphism
+  from $\Oc(W') \xrightarrow{} \Oc(V')$, and by theorem \ref{theorem_2.1.6},
+  $\phi$ restricts to a polynomial map from  $V' \xrightarrow{} W'$.
+\end{proof}
+
+\begin{example}\label{example_2.2}
+  \begin{enumerate}
+    \item[(1)] Let $r \leq n$, we define the \textbf{projection map}
+      $\pi_{n \xrightarrow{} r}:\A^n(k) \xrightarrow{} \A^r(k)$ by
+      $\pi_{n \xrightarrow{} r}:(a_1, \dots, a_r, \dots, a_n) \xrightarrow{}
+      (a_1, \dots, a_r)$. This map is a polynomial map; indeed, let $P=(a_1,
+      \dots, a_n)$, and define the polynomials $\pi_1, \dots, \pi_r IN k[x_1,
+      \dots, x_n]$ by $\pi_i(P)=a_i$ for all $1 \leq i \leq r$. Then
+      \begin{equation*}
+        \pi_{n \xrightarrow{} r}(P)=(a_1, \dots, a_r)=(\pi_1(P), \dots, \pi_r(P))
+      \end{equation*}
+
+    \item[(2)] Let $V \subseteq \A^n(k)$ be an affine variety, and $f \in
+      \Oc(V)$. We define the \textbf{graph} of $f$ to be the set
+      \begin{equation}\label{equation_2.1}
+        G{f}=\{(P, f(P)) : P \in V\}
+      \end{equation}
+  \end{enumerate}
+  Let $P=(a_1, \dots, a_n)$, and consider the map $\phi:(P) \xrightarrow{} (P,
+  f(P))$. Define again $\pi_1, \dots, \pi_n \in k[x_1, \dots, x_n]$ by
+  $\pi_i(P)=a_i$ for all $1 \leq i \leq n$. Then $\phi(P)=(P,f(P))=(\pi_1(P),
+  \dots, \pi_n(P), f(P))$, which makes $\phi$ a polynomial map of $V$ onto $G{f}$.
+  Now, if $(P,f(P))=0$, then $f=0$, so that $f \in I(V)$. Since $V$ is an affine
+  variety, this makes  $I(V)$ prime, and hence the ideal $I(G{f})$ is also prime.
+  This makes $V \times f(V)$ an affine vareiy in $\A^{n+1}(k)$. Moreover, if
+  $\pi_{n+1 \xrightarrow{} n}:\A^{n+1}(k) \xrightarrow{} \A^n(k)$ is the
+  projection map, then
+  \begin{equation*}
+    \phi \circ \pi_{n_1 \xrightarrow{} n}=\id_{G{f}} \text{ and }
+    \pi_{n+1 \xrightarrow{} n} \circ \phi=\id_{V}
+  \end{equation*}
+  so that $\phi$ defines an isomorphism and  $V \simeq G{f}$.
+\end{example}

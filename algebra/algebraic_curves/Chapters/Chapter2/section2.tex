@@ -156,17 +156,73 @@ where $x=(x_1, \dots, x_n)$ and $A$ and $B$ are the $n \times n$ and $n \times
   $\A^n(k)$.
 \end{lemma}
 \begin{proof}
-  Let $F_1, \dots, F_r \in k[x_1, \dots, x_n]$ all have total degree $1$, such
-  that $V=V(F_1, \dots, F_r)$. Then each $F_i^\phi=F_i(\phi_1, \dots, \phi_n)$.
-  Then for each $1 \leq i \leq r$, $\deg{F_i^\phi}=1$ and $V^\phi=V(I^\phi)=
-  V(F_1^\phi, \dots, F_r^\phi)$.
+  Let $V=V(F_1, \dots, F_r)$ where $\deg{F_i}=1$ for all $1 \leq i \leq r$. Let
+  $\phi(x)=Ax+B$ an affine coordinate change, with $A \in k^{n \times n}$ and
+  $B \in k^{n \times 1}$. Then by theorem \ref{theorem_2.2.3}, $\inv{\phi}$ is
+  also an affine coordinate change of the form $\inv{\phi}=\inv{A}y-\inv{A}B$.
+  Define then the polynomials $G_1, \dots, G_r$ by
+  \begin{equation*}
+    G_i=F_i^{\inv{\phi}}
+  \end{equation*}
+  then $\deg{G_i}=\deg{F_i}=1$, for all $1 \leq i \leq r$, and
+  \begin{equation*}
+    G_i^{\phi}(P)=(F^{\inv{\phi}})^{\phi}(P)=F_i^{\inv{\phi}\phi}(P)=F_i(P)=0
+    \text{ for all } P \in V
+  \end{equation*}
+  So that $V^\phi=V(G_1, \dots, G_r)=V(F_1^{\inv{\phi}}, \dots,
+  F_r^{\inv{\phi}})$.
 \end{proof}
 \begin{corollary}
-  if $V$ is non-empty, then there exists an affine change of coordinates
+  If $V$ is non-empty, then there exists an affine change of coordinates
   $\phi:\A^n(k) \xrightarrow{} \A^n(k)$ such that $V^\phi=V(x_{m+1}, \dots,
   x_n)$ for some $m<n$. Moreover, such an $m$ is independent of the choice of
   $\phi$.
 \end{corollary}
+%\begin{proof}
+  %Consider $V$ as a subspace of the vector space $\A^n(k)$, and let $\dim{V}=m$.
+  %Now, observe that $V=V(F_1, \dots, F_r)$ where $\deg{F_i}=1$ for all $1 \leq i
+  %\leq r$, by definition. Then $\{F_1, \dots, F_r\}$ is a basis for $V$, so that
+  %$r=m$. Let $\{x_1, \dots, x_m\}$ be linearly independent in $V$, then
+  %$F_i(x)=0$ for any linear combination $x$ of $\{x_1, \dots, x_m\}$. Now, let
+  %$\phi:\A^n(k) \xrightarrow{} \A^n(k)$ be a polynomial map of the form
+  %$\phi(x)=Ax+B$, where $A$ is the  $n \times n$ matrix constructed as:
+  %\begin{equation*}
+    %A=
+    %\begin{pmatrix}
+      %a_{11}        & \dots   & a_{1n}  \\
+      %\vdots        & \ddots  & \vdots  \\
+      %a_{m1}        & \dots   & a_{mn}  \\
+      %a_{(m+1)1}    & \dots   & a_{(m+1)n}  \\
+      %\vdots        & \ddots  & \vdots  \\
+      %a_{n1}        & \dots   & a_{nn}  \\
+    %\end{pmatrix}
+  %\end{equation*}
+  %Where $a_{ij}$ are the components of $x_i$ when  $1 \leq i \leq m$, and
+  %$a_{ij}$ are the coefficients of $F_{n-i+1}$ when $m+1 \leq i \leq n$, for all
+  %$1 \leq j \leq n$. Then $A$ consists of linearly independent row vectors, and
+  %hence $A$ is nonsingular. This makes $\phi$ an affine coordinate change.
+  %Moreover, for all $1 \leq i \leq m$, we get $F_{n-i+1}(x_i)=0$, so that for
+  %any $(a_1, \dots, a_n) \in \A^n(k)$
+  %\begin{equation*}
+    %\phi:(a_1, \dots, a_m,a_{m+1}, \dots, a_n) \xrightarrow{}
+    %(0, \dots, 0,a_{m+1}, \dots, a_n)
+  %\end{equation*}
+  %so that $V^\phi=V(x_{m+1}, \dots, x_n)$.
+
+  %Now, suppose that $m<s$, and that there is an affine coordinate change
+  %$\phi(x)=Ax+B$ for which $V(x_{m+1}, \dots, x_n)=V(x_{s+1}, \dots, x_n)$. Then
+  %for every $(0, \dots, 0,a_{m+1}, \dots, a_n)$:
+  %\begin{equation*}
+    %\phi:(0, \dots, 0,a_{m+1}, \dots, a_n) \xrightarrow{}
+    %(0, \dots, 0,a_{s+1}, \dots, a_n)
+  %\end{equation*}
+  %so that $\phi:(0, \dots, 0, a_{m+1}-a_{s+1}, 0 \dots, 0) \xrightarrow{} 0$, so
+  %that $\ker{\phi}=\ker{A} \neq (0)$, so that $A$ is non-singular. This makes
+  %the set $\{\phi_{m+1}, \dots, \phi_n\}$ linearly dependent. However, since
+  %$V(x_{s+1}, \dots, x_n)=V(x_{m+1}^\phi, \dots, x_n^\phi)$ generates $\A^n(k)$
+  %as a vector space, $\{\phi_1, \dots, \phi_n\}$ must be a basis, which is a
+  %contradiction. This forces $m \leq s$, and hence $m<s \leq s$ so that $m=s$.
+%\end{proof}
 \begin{corollary}
   $V$ is isomorphic as a variety to  $\A^m(k)$.
 \end{corollary}
@@ -178,10 +234,41 @@ where $x=(x_1, \dots, x_n)$ and $A$ and $B$ are the $n \times n$ and $n \times
   x_n)$.
 \end{definition}
 
-\begin{example}\label{example_2.2}
+\begin{example}\label{example_2.4}
   Let $P=(a_1, \dots, a_n)$ and $Q=(b_1, \dots, b_n)$ distinct points of
   $\A^n(k)$. We define the \textbf{line} throug $P$ and $Q$ to be the set
   \begin{equation*}
     \bar{PQ}=\{(a_1+t(b_1-a_1), \dots, a_n+t(b_1-a_n)) : t \in k\}
   \end{equation*}
+  The following are true:
+  \begin{enumerate}
+    \item[(1)] If $\phi$ is an affine coordinate change, then
+      $\phi(\bar{PQ})=\bar{\phi(P)\phi(Q)}$ is the line through $\phi(P)$ and
+      $\phi(Q)$.
+
+    %\item[(2)] Lines are linear subvarieties of dimension $1$, and any linear
+      %subvariety is isomorphic to the line through any two of its points.
+
+    %\item[(3)] In $\A^2(k)$, a line is isomorphic to a hyperplane. And if $P,P'
+      %\in \A^2(k)$ and $L_1$ and $L_2$ are two distinct lines through $P$, and
+      %$L_1'$ and $L_2'$ are two distinct lines through $P'$, then there is an
+      %affine coordinate change  $\phi$ on  $\A^2(k)$ for which $\phi(P)=P'$, and
+      %$\p(L_i)=L_i'$ for $i=1,2$.
+  \end{enumerate}
 \end{example}
+
+%\begin{example}\label{example_2.5}
+  %Consider $\A^n(\C)=\C^n$ with the usual topology obtained by identifying
+  %$\C^n$ with  $\R^{2n}$. We call a set $S \subseteq \C^n$
+  %\textbf{path-connected} if for any two points $P,Q \in S$, there exists a
+  %continuous mapping $\y:[0,1] \xrightarrow{} S$ for which $\y(0)=P$ and
+  %$\y(1)=Q$. Then the following are true:
+  %\begin{enumerate}
+    %\item[(1)] $\com{\C}{S}$ is path connected for any finite set $S$.
+
+    %\item[(2)] If $V \subseteq \C^n$ is an algebraic set, then $\com{\C^n}{V}$
+      %is path-connected. Indeed, let $\bar{PQ}$ be the line through $P$ and  $Q$
+      %in $\C^n$. Then observe that $\bar{PQ} \cap V$ is finite, and $\bar{PQ}
+      %\simeq \C$.
+  %\end{enumerate}
+%\end{example}
