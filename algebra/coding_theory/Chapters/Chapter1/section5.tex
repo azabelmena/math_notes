@@ -1,0 +1,172 @@
+\section{Irreducible Components}
+
+\begin{definition}
+    Let $k$ be a field. We call an algebraic set $X \subseteq \A^n(k)$
+    \textbf{reducible} if it can be written as the union of two algebraic sets;
+    that is, there exist $X_1,X_2 \subseteq \A^n(k)$ such that $X=X_1 \cup X_2$.
+    We call an algebraic set \textbf{irreducible} if it is not reducible.
+\end{definition}
+
+\begin{example}\label{example_1.11}
+    \begin{enumerate}
+        \item[(1)] The algebraic sets defined by the equations $y^2=x^3-x$,
+            $y^2=x^3+x^2$, and $z^2=x^2+y^2$ in $\A^2(\R)$ and $\A^3(\R)$,
+            respecively, are irreducible.
+
+        \item[(2)] The algebraic set described by the equation
+            $y^2-xy-x^2y+x^2=0$ is reducible in $\A^2(\R)$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{1.5.1}
+    An algebraic set is irreducible if, and only if its ideal is prime.
+\end{lemma}
+\begin{proof}
+    Let $k$ be a field, and  $X \subseteq \A^n(k)$. Suppose that the ideal
+    $I(X)$ is not prime. Let $f_1f_2 \in I(X)$, but $f_1,f_2 \not\in I(X)$.
+    Then
+    \begin{equation*}
+        X=(X \cap V(f_1)) \cup (X \cap V(f_2))
+    \end{equation*}
+    and $X \cap V(f_1) \subseteq X$ and $X \cap V(f_2) \subseteq X$. This makes
+    $X$ reducible, by definition.
+
+    Conversely, suppose that $X$ is reducible, and that $X=X_1 \cup X_2$ for
+    $X_1, X_2 \subseteq \A^n(k)$. Then $I(X) \subseteq I(X_1)$ and $I(X)
+    \subseteq I(X_2)$. Let $f_1 \in I(X_1)$ and $f_2 \in I(X_2)$, but $f_1,f_2
+    \not\in I(X)$. Then $f_1f_2 \in I(X)$, but $f_1,f_2 \not\in I(X)$, so that
+    $I(X)$ is not prime.
+\end{proof}
+
+\begin{example}\label{example_1.12}
+    \begin{enumerate}
+        \item[(1)] Consider the polynomial $f(z,w)=w-z^2$ in $\C[z,w]$, and let
+            $g \in I(V(f))$. Then for every point $P \in V(f)$, $g(P)=0$.
+            Moreover, by the division theorem for polynomials, there
+            are polynomials $q,r \in
+            (\C[z])[w]$ for which
+            \begin{equation*}
+                g(z,w)=f(z,w)q(z,w)+r(z,w) \text{ where } r=0 \text{ or }
+                \deg_w{r} < \deg_w{f}
+            \end{equation*}
+            Notice that the degree of $r$ in  $w$,  $\deg_w{r}=0$ so that $r \in
+            \C[z]$. Now, since $g(P)=f(P)q(P)+r(P)=r(P)=0$, and $r$ is a
+            polynomial only in $z$, then $r(z,w)=r(z)=0$. That is
+            $g(z,w)=f(z,w)q(z,w)$ so that $g \in (f)$. This makes $I(V(f))=(f)$.
+            Lastly, notice that $\faktor{\C[z,w]}{(f)} \simeq \C[z]$ which is an
+            integral domain. This makes $(f)$ a prime ideal, and hence the
+            algebraic set $V(w-z^2)$ is irreducible.
+
+        \item[(2)] Let $f(z,w)=w^4-z^2$ and $g(z,w)=w^4-z^2w^2+zw^2-z^2$. Then
+            observe that
+            \begin{align*}
+                V(f,g)  &= V(f) \cap V(g) \\
+                        &=  (V(w^2-z) \cup V(w^2+z)) \cap
+                                (V(w+z) \cup V(w-z) \cup V(w^2+z)) \\
+                        &= V(w^2+z) \\
+            \end{align*}
+
+        \item[(3)] Consider the polynomial $f(x,y)=y^2+x^2(x-1)^2$. $f$ factors
+            into
+            \begin{equation*}
+                f(x,y)=(x^2-x-iy)(x^2-x+iy)
+            \end{equation*}
+            in $\C[x,y]$, where $i^2=-1$. This makes $f$ irreducible in $\R[x,y]$.
+            However, notice that $f(x,y)=0$ only at the points $(1,0)$ and
+            $(0,0)$, so that $|V(f)|=2$. This makes $V(f)$ reducible as an
+            algebraic set in $\A^2(\R)$.
+    \end{enumerate}
+\end{example}
+
+\begin{example}\label{example_1.13}
+    \begin{enumerate}
+        \item[(1)] Let $k$ be a finite field. Then very subset of $\A^n(k)$ is
+            an algebraic set, and so we can partition $\A^n(k)=X \cup Y$, where
+            $X$ and $Y$ are algebraic, and  $X \neq \A^n(k)$ and $Y \neq
+            \A^n(k)$. This makes $\A^n(k)$ reducible. One can also observe that
+            the ideal $(0)$ is not prime in $k[x_1, \dots, x_n]$ for finite
+            fields.
+
+        \item[(2)] Now, suppose that $k$ is an infinite field. Then the ideal
+            $(0)$ is prime in $k[x_1, \dots, x_n]$, so that $I(\A^n(k))=(0)$ is
+            prime. This makes $\A^n(k)$ irreducible.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{1.5.2}
+    Any collection of algebraic sets has a minimal member.
+\end{lemma}
+\begin{proof}
+    If $\{X_\a\}$ is a collection of algebraic sets in $\A^n$, then by theorem
+    \ref{1.4.2} the collection of ideals $\{I(X_\a)\}$ has a maximal member.
+    Choose such a maximal member $I(X_{\a_0})$, then the corresponding algebraic
+    set $X_{\a_0}$ is a minimal member of the collection $\{X_\a\}$.
+\end{proof}
+
+\begin{theorem}\label{1.5.3}
+    Any algebraic set can be uniquely expressed as the disjoint union of
+    irreducible algebraic sets. That is; for any algebraic set $X \subseteq
+    \A^n$, there exist unique pairwise disjoint $X_1, \dots, X_m \subseteq \A^n$
+    for which
+    \begin{equation*}
+        X=X_1 \cup \dots \cup X_m
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    We first show that such a decomposition exists for every algebraic set in
+    $\A^n$. Let  $\Sc$ be the collection of all algebraic sets which cannot be
+    expressed as a (not necessarily disjoint) union of (not necessarily unique)
+    irreducible algebraic sets. Let $X$ be a minimal element of $\Sc$. Then
+    $X$ is not irreducible. Hence there exist $X_1, X_2 \subseteq \A^n$ for
+    which $X=X_1 \cup X_2$; suppose further that $X_1,X_2 \subseteq X$. By the
+    minimality of $X$,  $X_1, X_2 \not\in \Sc$, so that
+    \begin{equation*}
+        X_i=\bigcup_{j=1}^{m_i}{X_{ij}}
+    \end{equation*}
+    where each $X_{ij}$ is irreducible. This makes
+    \begin{equation*}
+        X=\bigcup_{i=1,j=1}^{m,m_i}{X_{ij}}
+    \end{equation*}
+    which contradicts that $X \in \Sc$. Therefore $\Sc$ must be empty, and every
+    algebraic set can be expressed as the union of irreducible algebraic sets.
+
+    Now, take  $X=X_1 \cup \dots X_m$, where each $X_i$ is irreducible, and
+    discard all those $X_i$ for which  $X_i \subseteq X_j$ for all $i \neq j$.
+    This makes $X$ a disjoint union. Now, suppose that  $X=Y_1 \cup \dots Y_r$.
+    Then
+    \begin{equation*}
+        X_i=\bigcup_{j=1}^r{(Y_j \cap X_i)}
+    \end{equation*}
+    so that $X_i \subseteq Y_j$ for some $j$. Similarly, we get that  $Y_j
+    \subseteq X_k$ for some $k$. Thus $X_i \subseteq X_k$, but since $X$ is
+    already a disjoint union, this makes  $i=k$ so that $X_i=Y_j$ and $m=r$.
+    Thus the decomposition of $X$ into mutually disjoint irreducible algebraic
+    sets is unique.
+\end{proof}
+\begin{corollary}
+    If $X,Y \in \A^n$ are algebraic such that $X \subseteq Y$, then each
+    irreducible component of $X$ is contained in an irreducible component of
+    $Y$.
+\end{corollary}
+\begin{proof}
+    Let
+    \begin{align*}
+        X   &= \bigcup_{i=1}^m{X_i} \\
+        Y   &= \bigcup_{j=1}^n{Y_j} \\
+    \end{align*}
+    where $X_i$ and $Y_j$ are the irreducible components of  $X$ and  $Y$,
+    respectively for all  $1 \leq i \leq m$ and $1 \leq j \leq n$. Now, consider
+    the collection $\Sc$ of all irreducible components of $X$ not contained in
+    an irreducible component of $Y$ Then $\Sc$ has a minimal member  $X'$, such
+    that for every $1 \leq j \leq n$, $X' \not\subseteq Y_j$, then $X'
+    \not\subseteq Y$. Now, since $X'$ is an irreducible component, we get  $X'
+    \subseteq X \subseteq Y$, which is a contradicion. This makes $\Sc$ the
+    emptyset.
+\end{proof}
+
+\begin{definition}
+    Let $k$ be a field, and $X \subseteq \A^n(k)$ an algebraic set. Let $X=X_1
+    \cup \dots X_m$ the decomposition of $X$ into the union of pairwise disjoint
+    irreducible algebraic sets. We call each $X_i$ an \textbf{irreducible
+    component} of $X$.
+\end{definition}

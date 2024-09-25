@@ -1,0 +1,56 @@
+\section{Block Codes and Hamming Distance}\label{section_1.1}
+
+\begin{definition}
+  We define an \textbf{alphabet} to be an arbitrary finite set $Q$ of size $q$,
+  whose elements we call \textbf{symbols}. Given some $n \in \Z^+$, we call
+  elements of $Q^n=\underbrace{Q \times \dots \times Q}_{n\text{-times}}$
+  \textbf{words} or \textbf{strings} in the alphabet.
+\end{definition}
+
+\begin{example}\label{example_1.1}
+  \begin{enumerate}
+    \item[(1)] The standard English alphabet
+      \begin{align*}
+        A B C D E F G H I J K L M N O P Q R S T U V W X Y Z \\
+      \end{align*}
+      is an alphabet of size $26$. A word in this alphabet can be the words
+      ``DOG'' and ``COOKED'' as well as the word ``AFDAFDKAJFDAJFA''.
+
+    \item[(2)] The \textbf{binary field} $\F_2=\{0,1\}$  (i.e. the finite field
+      on two elements) is an alphabet of size $2$. Likewise, the
+      \textbf{ternary field} $\F_3=\{0,1,2\}$ where $2 \equiv -1 \mod{3}$ is an
+      alphabet of size $3$. We define the  \textbf{$q$-ary field} to be the
+      finite field $\F_q$ on $q=p^r$ elements, where  $p,r \in \Z^+$ and $p$ is
+      prime.
+
+    \item[(3)] The fields $\R$ and $\C$ are not alphabets, since they are not
+      finite sets; they are not even countable sets. The sets $\Q$ and $\Z$ and
+      $\N$ are also not alphabets, they are countable, but not finite.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  Let $Q$ be an alphabet of size $q$. We define a \textbf{code} $C$ to be any
+  collection of words in $Q$, and we call the elements of $C$
+  \textbf{codewords}. If $C \subseteq Q^n$, then we call $C$ a  \textbf{block
+  code} of \textbf{length} $n$.
+\end{definition}
+
+\begin{example}\label{example_1.2}
+  \begin{enumerate}
+    \item[(1)] The collection $\{\text{``DOG''}, \text{``CAT''},
+      \text{``GOOSE''}\}$ is a code in the english alphabet, but it is not a
+      block code. The code $\{\text{``DOG''}, \text{``CAT''},
+      \text{``HAT''}\}$ is a block code of length $3$ in the english alphabet.
+
+      \item[(2)] In $\F_2$, the codewords  $11001111$ and  $101011$ form a code
+        in  $\F_2$ but not a block code. The codewords $11111$, $00000$,
+        $11001$, and  $10101$ form a block code of length  $5$ in  $\F_2^5$.
+
+      \item[(3)] We define the \textbf{$q$-ary repitition code} to be the image
+        of the following map $\F_q \xrightarrow{} \F_q^n$ taking $i
+        \xrightarrow{} (i, \dots, i)=i \dots i$. That is we take any symbol in
+        $\F_q$ and repeat it $n$ times. This code is a block code of length $n$
+        in $\F_q^n$.
+  \end{enumerate}
+\end{example}
