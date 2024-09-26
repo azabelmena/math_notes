@@ -31,7 +31,7 @@
 
 \begin{definition}
   Let $Q$ be an alphabet of size $q$. We define a \textbf{code} $C$ to be any
-  collection of words in $Q$, and we call the elements of $C$
+  non-empty collection of words in $Q$, and we call the elements of $C$
   \textbf{codewords}. If $C \subseteq Q^n$, then we call $C$ a  \textbf{block
   code} of \textbf{length} $n$.
 \end{definition}
@@ -52,6 +52,10 @@
         \xrightarrow{} (i, \dots, i)=i \dots i$. That is we take any symbol in
         $\F_q$ and repeat it $n$ times. This code is a block code of length $n$
         in $\F_q^n$.
+
+      \item[(3)] Let $Q$ be any alphabet and  $C$ a block code of length  $n$.
+        If $|C|=1$, then we say that $C$ is the  \textbf{trivial block code}, or
+        the \textbf{trivial code}.
   \end{enumerate}
 \end{example}
 
@@ -67,7 +71,8 @@
   \begin{equation}\label{equation_1.3}
     w(x)=d(x,0)
   \end{equation}
-  Where $0 \in Q^n$ is the word consisting of all $0$.
+  Where $0 \in Q^n$ is the word of length $n$ consisting of all $0$, provided
+  that there exists a $0 \in Q$.
 \end{definition}
 
 \begin{lemma}\label{lemma_1.1.1}
@@ -98,36 +103,90 @@
   \end{equation}
 \end{definition}
 
+The rest of this section relates the minimum Hamming distance of a code $C$ to
+it's capacity to correct a certain number of transmition errors that can be
+recieved when implemented practically.
+
 \begin{definition}
-  Let $Q$ be an alphabet and  $C \subseteq Q^n$ a block code of length $n$. We
-  define the  \textbf{covering radius} of $C$ to be the smallest postive integer
-   $\r$ for which the balls $B_\r(c)$ cover $Q$, for all $c \in Q$. We define
-   the \textbf{sphere packing radius} of $C$ to be the largest positive integer
-    $\e$ for which the balls $B_\e(c)$ are disjoint for every $c \in C$.
+  Let $Q$ be an alphabet, and $C \subseteq Q^n$ a block code. We define the
+  \textbf{closed ball} of \textbf{radius} $r$  \textbf{centered} at $c$ to be
+  the set
+  \begin{equation*}
+    B_r(c)=\{ x \in Q^n : d(x,c) \leq r \}
+  \end{equation*}
+  We define the \textbf{sphere packing radius} of $C$ to be the largest positive
+  integer $\e$ for which the closed balls  $B_\e(c)$ are disjoint for every $c
+  \in C$. If $\e$ is the sphere packing radius of $C$, we say that $C$ can
+  \textbf{correct up to $\e$ errors}, and call $C$ a  \textbf{$\e$-error
+  correcting code}.
 \end{definition}
 
 \begin{lemma}\label{lemma_1.1.2}
-  Let $C$ be a block code with sphere packing radius $\e$ and covering radius
-  $\r$. Then the minimum distance of  $C$ is either  $2\e+1$ or  $2\e+2$, and
+  Let $C \subseteq Q^n$ be a block code with minimum distance $d$. Then $C$ is
+  $\e$-error correcting if, and only if $d \geq 2\e+1$. Moreover this $\e$ is
+  the sphere packing radius of $C$.
+\end{lemma}
+\begin{proof}
+  Suppose that $C$ is $\e$-error correcting, so that $\e$ is the sphere packing
+  radius. Then for every $c,c' \in C$, since $B_\e(c)$ and $B_\e(c')$ are
+  disjoint, $d(c,c') > 2\e$. By definition of minimum distance this makes
+  $d>2\e$. Hence $d \geq 2\e+1$. Conversely, suppose that $d \geq 2\e+1$ but
+  that there exist codewords $c,c' \in C$ for which $B_\e(c)$ and $B_\e(c')$
+  intersect. Choose an $x \in B_\e(c) \cap B_\e(c')$. Then $d(c,x) \leq \e$ and
+  $d(x,c') \leq \e$ so by the triangle inequality
+  \begin{equation*}
+    d(c,c') \leq \e+\e=2\e<2\e+1 \leq d
+  \end{equation*}
+  which contradicts that $d$ is the minimum distance of $C$. So the collection
+  $\{B_\e(c)\}_{c \in C}$ is a disjoint collection. Now, suppose that there is
+  positive integer $\e' \geq \e$ for which the collection $\{B_{\e'}(c)\}_{c \in
+  C}$ is disjoint. Then we have that $d \geq 2\e+1$ and that $d \geq 2\e'+1$.
+  Indeed, observe that
+  \begin{equation*}
+    d-d=(2\e+1)-(2\e'+1)=\e-\e' \geq 0
+  \end{equation*}
+  so that $\e \geq \e'$, which forces equality. By definition, $\e$ is the
+  sphere packing radius of $C$.
+\end{proof}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale = 0.5]{Figures/Chapter1/sphere_packing.eps}
+  \caption{If a message $x$ is received with error has distance at most $\e$
+  from two codewords $c$ and $c'$, then we cannot reliably decode $x$ into the
+  correct codeword that was transmitted.}
+  \label{figure_1.1}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale = 0.5]{Figures/Chapter1/hamming_box.eps}
+  \caption{Arrange the following code $\{00, 01, 10, 11\}$ into a box as shown
+  above. Observe that the sphere packing radius for this code is $1$. Now, if
+  $x$ is a recieved word with distance at most $1$ to any one (and exactly one)
+  of the codewords, then $x$ can be corrected to that codeword. However, if $x$
+  differs in more than one spot, we may not be able to determine the original
+  transmitted word.}
+  \label{figure_1.2}
+\end{figure}
+
+\begin{definition}
+  Let $Q$ be an alphabet and  $C \subseteq Q^n$ a block code. We define the
+  \textbf{covering radius} of $C$ to be the smallest such postivie integer $\r$
+  for which that closed balls $B_\r(c)$ cover $Q^n$ for all  $c \in C$; i.e.:
+  \begin{equation*}
+    Q^n \subseteq \bigcup_{c \in C}{B_\r(c)}
+  \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{1.1.3}
+  Let $C \subseteq Q^n$ a block code, with covering radius $\r$. Then:
   \begin{equation}\label{equation_1.5}
-    \r=\max{\{\min{\{d(x,c) : c \in C\}} : x \in Q^n\}}
+    \r=\max{ \{ \min\{ d(x,y) : c \in C\} : x \in Q^n \} }
   \end{equation}
 \end{lemma}
 \begin{proof}
-  We have that for any $c, c' \in C$, that $2\e<d(c,c')$. Indeed, suppose not,
-  that $d(c,c') \leq 2\e$. Choose an $x \in B_\e(c)$, then $d(x,c) \leq \e$ so
-  taht we get by the triangle inequality $2\e-d(x,c') \leq \e$, so that $d(x,c')
-  \leq \e$ which puts $x \in B_\e(c')$. But that contradicts the definition if
-  $\e$ as the sphere packing radius.
-
-  Now, we have that since $2\e<d(c,c')$ for all $c,c' \in C$, letting $d$ be the
-  minimum distance of  $C$,  $2\e<d$. This makes $2\e+1 \leq d$. Now, suppose
-  that $x,y \in C$ for  which $2\e+1 \leq d \leq d(x,y)$. Then $x$ and $y$ must
-  differ in at least $2\e+2$ places, for if they differ in  $2\e+1$ places, we
-  contradict that  $d$ is the minimum distance. therefore we get that  $2\e+1
-  \leq d \leq 2\e+2$.
-
-  Now, let $x \in Q^n$, and let $c \in C$ for which $x \in B_{\r_{\a_1}}(c)$,
+   Now, let $x \in Q^n$, and let $c \in C$ for which $x \in B_{\r_{\a_1}}(c)$,
   choose another $c' \in C$ for which $x \in B_{\r_{\a_2}}(c')$. Then we observe
   that $d(x,c) \leq \r_{\a_1}$ and $d(x,c') \leq \r_{\a_2}$. Now, let
   \begin{equation*}
@@ -140,55 +199,50 @@
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.5]{Figures/Chapter1/sphere_packing.eps}
-  \caption{The Sphere packing radius of the code $C$}
-  \label{figure_1.1}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.5]{Figures/Chapter1/covering_radius.eps}
-  \caption{The Covering radius of the code $C$}
-  \label{figure_1.1}
+  \includegraphics[scale = 0.5]{Figures/Chapter1/covering_radius.eps}
+  \caption{The covering radius of a code $C$.}
+  \label{figure_1.3}
 \end{figure}
 
 \begin{definition}
-  Let $C$ be a block code with sphere packing radius  $\e$ and covering radius
-  $\r$. We call  $C$ a  \textbf{perfect code} if $\e=\r$.
+  We call a block code $C$ \textbf{perfect} if its sphere packing radius
+  coincides with its covering radius.
 \end{definition}
 
 \begin{example}\label{example_1.3}
-  Let $Q$ be any alphabet, and $C$ a block code of length $n$ in $Q$. If
-  $|C|=1$, then we call  $C$ the  \textbf{trivial block code}, or the
-  \textbf{trivial code}. Observe that since the trivial code consists only of
-  one code word, then the sphere packing radius and the covering radius
-  coincide. That is trivial codes are perfect, however, there is no notion of
-  minimum distance in a trivial code since there is only one codeword.
+  The trivial code $C$ of length $n$ in any alphabet is a perfect code, however,
+  nothing can be said about the minimum distance of $C$.
 \end{example}
 
-\begin{definition}
-  We call a block code $t$-\textbf{error correcting} if for any nonzero
-  codewords $c$ and $c'$, and for any codewords $x,y$ of Hamming weight  $w(x)
-  \leq t$ and $w(y) \leq t$ we have
-  \begin{equation*}
-    c+x \neq c'+y
-  \end{equation*}
-\end{definition}
-
-\begin{theorem}\label{theorem_1.1.3}
-  A block code $C$ with minimum distance $d$ is $t$-error correcting if, and
-  only if  $d \geq 2t+1$.
+\begin{theorem}[The Sphere Packing Bound]\label{theorem_1.1.4}
+  Let $C$ be an $\e$-error correcting block code of length $n$ on an alphabet
+  $Q$ of size  $q$. Then:
+  \begin{equation}\label{equation_1.6}
+    |C|\sum_{i=0}^\e{{n \choose i}(q-1)^i} \leq q^n
+  \end{equation}
 \end{theorem}
 \begin{proof}
-  Suppose that $d \geq 2t+1$; i.e. $d>2t$. Let $c,c' \in C$ be nonzero
-  codewords, and choose $x,y \in C$ with $w(x) \leq t$ and $w(y) \leq t$ for
-  which $c+x=c'+y$. Then $x-y=c-c'$, and we get $w(x-y)=w(c-c')=d(c,c') \leq
-  2t<d$ which contradicts that $d$ is the minimum distance.
-
-  Now, suppose that  $d<2t+1$, so that $d \leq 2t$, and let $c \in C$ a codeword
-  of weight $w(c)=d$. Now, define the codeword $c' \in C$, obtained from $c$ by
-  setting $\lceil \frac{d}{2} \rceil$ non-zero positions to $0$. Then we observe
-  that  $w(c') \leq d-\lceil \frac{d}{2} \rceil<=t$, and $w(c-c')=d(c,c')=
-  \lceil \frac{d}{2} \rceil \leq t$, but that $c'+0=c+(c-c')$, so that $C$
-  cannot be  $t$-error correcting.
+  If $|Q|=q$, then $|Q^n|=q^n$. Now, let $c \in C$ and choose an $x \in B_\e(c)$
+  distinct from $c$. Then $x$ and $c$ differ in  $i \leq \e$ positions. Now,
+  since $x \in Q^n$, there are exactly ${n \choose i}$ positions in which $x$
+  can differ from $c$, and $q-1$ possible values for $x$. Hence we get that
+  \begin{equation*}
+    |B_\e(c)|=\sum_{i=1}^\e{ {n \choose i}(q-1)^i }
+  \end{equation*}
+  Since there are $|C|$ possible codewords, and $q^n$ possible values for $x$ we
+  get equation \ref{equation_1.6}
+\end{proof}
+\begin{corollary}[The Sphere Packing Condition]
+  If $C$ is a perfect code, then equality in the sphere packing bound is
+  attained. Moreover, the minimum distance of $C$ is exactly $d=2\e+1$.
+\end{corollary}
+\begin{proof}
+  Since $C$ is perfect, by definition, $\e$ is also the covering radius of
+  $Q^n$, and we get that $\{B_\e(c)\}$ is a disjoint cover of $Q^n$, hence there
+  are no repeated elements in the union $\bigcup{B_\e(c)}$. Then we get:
+  \begin{equation*}
+    q^n \leq |C|\sum_{i=1}^\e{ {n \choose i}(q-1)^i }
+  \end{equation*}
+  and equality in the sphere packing bound is attained. This also implies that
+  $d \leq 2\e+1$, where $d$ is the minimum distance.
 \end{proof}
