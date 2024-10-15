@@ -1,8 +1,101 @@
 \section{Linear Block Codes}
 
 \begin{definition}
-  A \textbf{$q$-ary $[n,k]$-linear block code} $C$ is a $k$ dimensional subspace
-  of the vector space $\F_q^n$. If $C$ has minimum distance $d$, then we call
-  $C$ an \textbf{$[n,k,d]$-code}. We define the \textbf{generator matrix} $G$
-  for $C$ to be the $k \times n$ matrix whose row space forms a basis for $C$.
+  A \textbf{$q$-ary $[n,k]$-linear block code} $C$ is a $k$ dimensional
+  subspace of the vector space $\F_q^n$. If $C$ has minimum distance $d$,
+  then we call $C$ an \textbf{$[n,k,d]$-linear block code}.
+\end{definition}
+
+\begin{definition}
+  Let $C$ be a  $q$-ary  $[n,k]$-linear block code. We define the
+  \textbf{generator matrix} $G$ for $C$ to be the $k \times n$ matrix whose
+  row space forms a basis for $C$. We say that $G$ is in  \textbf{standard
+  form}  if $G=(I_{k \times k} | P)$, where $I_{k \times k}$ is the $k
+  \times k$ identity matrix over $\F_q$. If $G$ is in standard form, we
+  call the first $k$ entries in any row  \textbf{information symbols}, and
+  the remaining $n-k$ entries  \textbf{parity-check symbols}.
+\end{definition}
+
+\begin{definition}
+  We call two $[n,k]$-linear codes $C_1$ and $C_2$ \textbf{equivalent} if
+  for any codeword $(c_1, \dots, c_n) \in C_1$, there exists a permutation
+  $\pi:i \xrightarrow{} j$ for which $(c_{\pi(1)}, \dots, c_{\pi(n)}) \in
+  C_2$.
+\end{definition}
+
+\begin{lemma}\label{lemma_1.2.1}
+  Ever linear code is equivalent to a linear code with generator matrix in
+  standard form.
+\end{lemma}
+
+\begin{definition}
+  We call an $[n,k]$-linear code $C$ \textbf{systematic}, or
+  \textbf{seperable} if there exists a unique codeword $c \in C$ for all
+  possible choice of coordinates in the first $k$ positions.
+\end{definition}
+
+\begin{lemma}\label{lemma_1.2.2}
+  AN $[n,k]$-linear code is seperable on at least one $k$-tuple over
+  $\F_q$.
+\end{lemma}
+
+\begin{lemma}\label{lemma_1.2.3}
+  An $[n,k]$-linear code has rate $\frac{k}{n}$.
+\end{lemma}
+\begin{proof}
+  Observe since $C \subseteq \F_q^n$ is a subspace of dimension $k$,
+  $|C|=q^k$. So the rate of $C$ gives:
+  \begin{equation*}
+    R=\frac{\log_q{q^k}}{n}=\frac{k}{n}
+  \end{equation*}
+\end{proof}
+
+\begin{lemma}\label{lemma_1.2.4}
+  IIn a linear block code $C$, the minimum distance of  $C$ is equal to the
+  minimum weight of $C$.
+\end{lemma}
+\begin{proof}
+  For every $x,y \in C$, $x-y \in C$, and we have $d(x,y)=d(x-y,0)=w(x-y)$.
+\end{proof}
+
+\begin{definition}
+  Let $C$ be an $[n,k]$-linear code. We define the \textbf{dual} of $C$ to
+  be the set:
+  \begin{equation}\label{equation_1.7}
+    C^\perp=\{y \in \F_q^n : \langle x,y \rangle=0 \text{ for all } x \in C\}
+  \end{equation}
+  We call $C$ a  \textbf{self-dual code} if $C=C^\perp$.
+\end{definition}
+
+\begin{lemma}\label{1.2.5}
+  The dual of an $[n,k]$-linear code with generator matrix $G=(I_{k \times
+  k} | P)$ is an $[n,n-k]$-linear code with generator matrix:
+  \begin{equation}\label{equation_1.8}
+    H=(-P^T | I_{(n-k) \times (n-k)})
+  \end{equation}
+\end{lemma}
+
+\begin{definition}
+  oLet $C$be an  $[n,k]$-linear code. We call an $(n-k) \times n$ matrix
+  $H$ a  \textbf{parity-check matrix} for $C$, if it is the generator
+  matrix for the dual code $C^\perp$. If $x \in \F_q^n$, we call $xH^T$ the
+  \textbf{syndrome} of $x$.
+\end{definition}
+
+\begin{lemma}\label{lemma_1.2.6}
+  The covering radius $\p$ of an $[n,k]$-linear code, with parity-check
+  matrix $H$ is the smallest positive integer for which any word in
+  $\F_q^{n-k}$ can be written as the sum of at most $\p$ columns of $H$.
+\end{lemma}
+
+\begin{lemma}\label{lemma_1.2.7}
+  Let $C$ be a linear code with parity-check matrix $H$, and let $c \in
+  \F_q^n$. Then $c \in C$ if, and only if $cH^T=0$.
+\end{lemma}
+
+\begin{definition}
+  Let $C$ be an  $[n,k]$-linear code. We say that two words $x,y \in
+  \F_q^n$ are in the same \textbf{coset} if, and only if they share the
+  same syndrome, and we call the representatives of those cosets (as group
+  cosets) \textbf{coset leaders}.
 \end{definition}
