@@ -1,27 +1,29 @@
 \section{Definitions and Equivalences of Boolean Functions}\label{section_1.1}
 
 \begin{definition}
-  Let $p,m, n \in \Z^+$, where $p$ is prime. By an \textbf{$(n,m,p)$-function},
-  we mean a function $f:\F_p^n \xrightarrow{} \F_p^m$. If $p=2$, we call $f$ an
-  \textbf{$(n,m)$-Boolean function}, or an \textbf{$S$-box}. If $m=n$, we simply
-  call  $f$ a  \textbf{Boolean function}. If  $f(x_1, \dots, x_n)=(f_1(x_1,
-  \dots, x_n), \dots, f_m(x_1, \dots, x_n))$, we call each $f_i$ the
-  \textbf{$i$-th coordinate} function of $f$.
+  Let $p,m, n \in \Z^+$, where $p$ is prime. By an \textbf{$(n,m,p)$-
+  function}, we mean a function $f:\F_p^n \xrightarrow{} \F_p^m$. If
+  $p=2$, we call $f$ an \textbf{$(n,m)$-Boolean function}, or an
+  \textbf{$S$-box}. If $m=n$, we simply call  $f$ a  \textbf{Boolean
+  function}. If  $f(x_1, \dots, x_n)=(f_1(x_1, \dots, x_n), \dots,
+  f_m(x_1, \dots, x_n))$, we call each $f_i$ the \textbf{$i$-th
+  coordinate} function of $f$.
 \end{definition}
 
 \begin{lemma}\label{lemma_1.1.1}
-  If $f$ is an  $(n,m,p)$-function, then $f$ can be represented uniquely as a
-  univariate polynomial over  $\F_{p^n}$ of the form:
+  If $f$ is an  $(n,n,p)$-function, then $f$ can be represented
+  uniquely as a univariate polynomial over  $\F_{p^n}$ of the form:
   \begin{equation}\label{equation_1.1}
     f(x)=\sum_{i=0}^{p^n-1}{c_ix^i},  \text{ where } c_i \in \F_{p^n}
     \text{ for all } 0 \leq i \leq p^n-1
   \end{equation}
 \end{lemma}
 \begin{proof}
-  Recall that $\F_p^r \simeq \F_{p^r}$ for any integer $r \in \Z^+$. Then any
-  $(n,m,p)$-function can be considered as a function taking elements of
-  $\F_{p^n}$ to elements of $\F_{p^n}$, so that there is a unique polynomial
-  representation of $f$ of the form in equation \ref{equation_1.1}.
+  Recall that $\F_p^r \simeq \F_{p^r}$ for any integer $r \in \Z^+$.
+  Then any $(n,n,p)$-function can be considered as a function taking
+  elements of $\F_{p^n}$ to elements of $\F_{p^n}$, so that there is
+  a unique polynomial representation of $f$ of the form in equation
+  \ref{equation_1.1}.
 \end{proof}
 
 \begin{defintion}
@@ -33,23 +35,25 @@
   in the $p$-ary expansion  $\sum_{s=0}^{n-1}{p^sk_s}$. We define the
   \textbf{algebraic degree} of an $(n,m,p)$-function $f$ to be
   \begin{equation}\label{equation_2.3}
-    d^\circ(f)=\max{\{w_p(i) : c_i \neq 0 \text{ and } 0 \leq i \leq p^n-1\}}
+    d^\circ(f)=\max{\{w_p(i) : c_i \neq 0 \text{ and } 0 \leq i \leq
+    p^n-1\}}
   \end{equation}
   where $f$ is represented by equation \ref{equation_1.1}.
 \end{defintion}
 
 \begin{definition}
-  We call an $(n,n,p)$-function $f$ is called \textbf{linear} if $f$ can be
-  represented as a polynomial in $\F_{p^n}[x]$ of degree at most $n-1$. We call
-   $f$ \textbf{affine} if it is the sum of linear functions and a constant.
+  We call an $(n,n,p)$-function $f$ is called \textbf{linear} if $f$
+  can be represented as a polynomial in $\F_{p^n}[x]$ of degree at
+  most $n-1$. We call $f$ \textbf{affine} if it is the sum of linear
+  functions and a constant.
 \end{definition}
 
 \begin{definition}
-  We call an $(n,n,p)$-function \textbf{Dembowski-Ostrom polynomial}, or
-  \textbf{DO-polynomial} if
+  We call an $(n,n,p)$-function \textbf{Dembowski-Ostrom polynomial},
+  or \textbf{DO-polynomial} if
   \begin{equation}\label{equation_1.4}
-    f(x)=\sum_{0 \leq k,j<n}{a_{kj}x^{p^k+p^j}} \text{ where } a_{ij} \in
-    \F_{p^n}
+    f(x)=\sum_{0 \leq k,j<n}{a_{kj}x^{p^k+p^j}} \text{ where }
+    a_{ij} \in \F_{p^n}
   \end{equation}
   We call $f$ if it is the sum of  DO-polynomials and a constant.
 \end{definition}
@@ -60,27 +64,36 @@
   \begin{equation*}
     \tr_n^m(x)=x+x^{p^m}+ \dots +x^{p^{\frac{nm}{m-1}}}
   \end{equation*}
-  When $m=1$, we write $\tr_n(x)$, when $n=2$, we write $\tr^m(x)$, and when
-  $n=2$ and $m=1$ we write $\tr(x)$.
+  When $m=1$, we write $\tr_n(x)$, when $n=2$, we write $\tr^m(x)$,
+  and when $n=2$ and $m=1$ we write $\tr(x)$.
 \end{defintion}
 
 \begin{lemma}\label{lemma_1.1.2}
-  Let  $f$ be an $(n,m,p)$-function, then there exists an $(n,n,p)$-function $g$
-  for which $f(x)=\tr_n^m(g(x))$. Moreover, any $(n,1,p)$-functioin $f$ can be
-  written in a nonunique way as $F(x)=\tr_n(g(x))$, where $g \in \F_{2^n}[x]$,
-  and the univariate representation can be written as:
+  Let  $f$ be an $(n,m,p)$-function where $m|n$, then there exists an
+  $(n,n,p)$-function $g$ for which $f(x)=\tr_n^m(g(x))$. Moreover,
+  any $(n,1,p)$-functioin $f$ can be written in a nonunique way as
+  $F(x)=\tr_n(g(x))$, where $g \in \F_{2^n}[x]$, and the univariate
+  representation can be written as:
   \begin{equation}\label{equation_1.5}
-    f(x)=\sum_{j \in \Gamma_n}{\tr_{o(j)}(a_jx^j)} \text{ where } a_j \in
-    \F_p^{o(j)}
+    f(x)=\sum_{j \in \Gamma_n}{\tr_{o(j)}(a_jx^j)} \text{ where }
+    a_j \in \F_p^{o(j)}
   \end{equation}
-  where $\Gamma_n$ is the choice set obtained by choosing one representative
-  from each cyclotomic coset of $p \mod{p^n-1}$, and $o(j)$ is the size of the
-  cyclotomic coset containing both $j$ and  $a_j$.
+  where $\Gamma_n$ is the choice set obtained by choosing one
+  representative from each cyclotomic coset of $p \mod{p^n-1}$, and
+  $o(j)$ is the size of the cyclotomic coset containing both $j$ and
+  $a_j$.
 \end{lemma}
+\begin{proof}
+  Since $m|n$,  $\F_{p^m} \subseteq \F_{p^n}$, so we observe that $f$
+  is also an $(n,n,p)$-function, and admits the univariate polynomial
+  representation of equation \ref{equation_1.1}. Now, fix $x \in
+  \F_{p^n}$, then $\tr_n^m{(f(x))}=f(\tr_n^m{x^i})$
+\end{proof}
 
 \begin{lemma}\label{1.1.3}
-  Let $n=2k$, and $f$ be an $(n,m,p)$-function. Then there exists a unique
-  bivariate polynomial over $\F_{p^k}$ representing $f$ of the form:
+  Let $n=2k$, and $f$ be an $(n,m,p)$-function. Then there exists a
+  unique bivariate polynomial over $\F_{p^k}$ representing $f$ of the
+  form:
   \begin{equation}\label{equation_1.6}
     f(x)=\sum_{0 \leq i,j, \leq p^k-1}{a_ijx^iy^j} \text{ where } a_{ij} \in
     \F_{p^k}
@@ -96,64 +109,68 @@
 \end{lemma}
 
 \begin{definition}
-  We define the \textbf{algebraic normal form} of an $(n,m,p)$-function $f$ to
-  be the representation:
+  We define the \textbf{algebraic normal form} of an $(n,m,p)$-function
+  $f$ to be the representation:
   \begin{equation}\label{equation_1.7}
     f(x)=\sum_{u \in \F_p^n}{a_u\prod_{i=1}^nx_i^{u_i}}, \text{ where }
     a_u \in \F_p^m
   \end{equation}
   We define the \textbf{minimum degree} of $f$ to be
-  $d^\circ=\min{d^\circ(f)}$, the minimum degree of all non-zero linear
-  combinations of the coordinate functions of $f$.
+  $d^\circ=\min{d^\circ(f)}$, the minimum degree of all non-zero
+  linear combinations of the coordinate functions of $f$.
 \end{definition}
 
 \begin{definition}
-  We call an $(n,m,p)$-function \textbf{balanced} if every element of $\F_p^m$
-  has the same number $p^{n-m}$ of pre-images.
+  We call an $(n,m,p)$-function \textbf{balanced} if every element of
+  $\F_p^m$ has the same number $p^{n-m}$ of pre-images.
 \end{definition}
 
 \begin{defition}
-  Let $\d \in \Z^+$. We call an $(n,m,p)$-function \textbf{differentially
-  $\d$-uniform} if for every non-zero $a \in \F_p^n$, and every $b \in \F_p^m$,
-  the differnce equation:
+  Let $\d \in \Z^+$. We call an $(n,m,p)$-function
+  \textbf{differentially $\d$-uniform} if for every non-zero $a \in
+  \F_p^n$, and every $b \in \F_p^m$, the differnce equation:
   \begin{equation}\label{equation_1.8}
     f(x+a)-f(x)=b
   \end{equation}
-  has at most $\d$-solutions. We call $f$ \textbf{perfect nonlinear (PN)} if it
-  is differentially $p^{n-m}$-uniform. We define the \textbf{derivatve} of $f$
-  \textbf{in the direction} of $a$ to be the function
+  has at most $\d$-solutions. We call $f$ \textbf{perfect nonlinear
+  (PN)} if it is differentially $p^{n-m}$-uniform. We define the
+  \textbf{derivatve} of $f$ \textbf{in the direction} of $a$ to be
+  the function
   \begin{equation*}
     D_a{f(x)}=f(x+a)-f(x)
   \end{equation*}
 \end{defition}
 
 \begin{lemma}\label{lemma_1.1.4}
-  An $(n,m,p)$-function is perfect nonlinear if, and only if $D_a{f}$ is
-  balanced for every nonzero $a \in \F_p^n$.
+  An $(n,m,p)$-function is perfect nonlinear if, and only if $D_a{f}$
+  is balanced for every nonzero $a \in \F_p^n$.
 \end{lemma}
 \begin{corollary}
-  If $n=m$, then $f$ is perfect nonlinear if, and only if $D_a{f}$ is a
-  permutation.
+  If $n=m$, then $f$ is perfect nonlinear if, and only if $D_a{f}$ is
+  a permutation.
 \end{corollary}
 
 \begin{definition}
-  We call perfect nonlinear $(n,n,p)$-functions \textbf{planar} functions.
+  We call perfect nonlinear $(n,n,p)$-functions \textbf{planar}
+  functions.
 \end{definition}
 
 \begin{example}
-  There are no perfect nonlinear functions on $\F_2^n$, for any $n \in \Z^+$. Let
-  $f$ be an $(n,m)$-Boolean function, and let $x_0$ be a solution to the equation
-  $D_a{f(x)}=b$, where $a \neq 0$. Then $x_0+a$ is also a solution, since
-  $D_a{f(x_0+a)}=f((x_0+a)+a)-f(x_0+a)=f(x_0+a)-f(x_0)=b$. So $f$ has at least
-  $2$ solutions in $\F_2^n$. However, for  $f$ to be PN, $f$ must be
-  differentially $1$-uniform. By the corollary to lemma \ref{lemma_1.1.4}, there
-  are also no planar functions in $\F_2^n$.
+  There are no perfect nonlinear functions on $\F_2^n$, for any $n
+  \in \Z^+$. Let $f$ be an $(n,m)$-Boolean function, and let $x_0$ be
+  a solution to the equation $D_a{f(x)}=b$, where $a \neq 0$. Then
+  $x_0+a$ is also a solution, since $D_a{f(x_0+a)}=f((x_0+a)+a)-
+  f(x_0+a)=f(x_0+a)-f(x_0)=b$. So $f$ has at least $2$ solutions in
+  $\F_2^n$. However, for  $f$ to be PN, $f$ must be differentially
+  $1$-uniform. By the corollary to lemma \ref{lemma_1.1.4}, there are
+  also no planar functions in $\F_2^n$.
 \end{example}
 
 \begin{definition}
-  We call a Boolean function $f:F_2^n \xrightarrow{} \F_2^n$ \textbf{almost
-  perfect nonlinear (APN)} if $D_a{f}$ is a 2--1 mapping; that is for every
-  $a,b \in \F_2^n$, with $a \neq 0$, we have the equation
+  We call a Boolean function $f:F_2^n \xrightarrow{} \F_2^n$
+  \textbf{almost perfect nonlinear (APN)} if $D_a{f}$ is a 2--1
+  mapping; that is for every $a,b \in \F_2^n$, with $a \neq 0$, we
+  have the equation
   \begin{equation*}
     f(x+a)-f(x)=b
   \end{equation*}
@@ -163,29 +180,31 @@
 \begin{definition}
   We define the following relations on $(n,m,p)$-functions:
   \begin{enumerate}
-    \item[(1)] We call $f$ and $g$ \textbf{affine equivalent} if there exist
-      affine permutations $A_1:\F_p^m \xrightarrow{} \F_p^m$ and $A_2:\F_p^n
-      \xrightarrow{} \F_p^n$ for which:
+    \item[(1)] We call $f$ and $g$ \textbf{affine equivalent} if
+      there exist affine permutations $A_1:\F_p^m \xrightarrow{}
+      \F_p^m$ and $A_2:\F_p^n \xrightarrow{} \F_p^n$ for which:
       \begin{equation*}
         g=A_1 \circ f \circ A_2
       \end{equation*}
-      We call $f$ and $g$ \textbf{linear} equivalent if $A_1$ and $A_2$ are
-      linear permutations.
+      We call $f$ and $g$ \textbf{linear} equivalent if $A_1$ and
+      $A_2$ are linear permutations.
 
     \item[(2)] We call $F$ and $g$ \textbf{extended affine equivalent
       (EA-equivalent)} if thre exist affine permutations $A_1:\F_p^m
-      \xrightarrow{} \F_p^m$ and $A_2:\F_p^n \xrightarrow{} \F_p^n$, and an
-      affine function $A:\F_p^n \xrightarrow{} \F_p^n$ for which:
+      \xrightarrow{} \F_p^m$ and $A_2:\F_p^n \xrightarrow{} \F_p^n$,
+      and an affine function $A:\F_p^n \xrightarrow{} \F_p^n$ for
+      which:
       \begin{equation*}
         g=A_1 \circ f \circ A_2+A
       \end{equation*}
 
-    \item[(3)] We call $f$ and $g$ \textbf{Carlet-Charpin-Zimoviev equivalent
-      (CCZ-equivalent)} if for any affine permutation $\Lc$ of  $\F_p^n \times
-      \F_p^m$, the image of the graph of $f$ is the graph of $g$; that is:
-      \begin{equation*}
-        \Lc(\F_p^n \times f(\F_p^n))=\F_p^n \times g(\F_p^n)
-      \end{equation*}
+    \item[(3)] We call $f$ and $g$ \textbf{Carlet-Charpin-Zimoviev
+        equivalent (CCZ-equivalent)} if for any affine permutation
+        $\Lc$ of  $\F_p^n \times \F_p^m$, the image of the graph of
+        $f$ is the graph of $g$; that is:
+        \begin{equation*}
+          \Lc(\F_p^n \times f(\F_p^n))=\F_p^n \times g(\F_p^n)
+        \end{equation*}
   \end{enumerate}
 \end{definition}
 
@@ -203,18 +222,19 @@
   Affine equivalence implies linear equivalence.
 \end{corollary}
 \begin{corollary}
-  EA-equivalence implies affine equivalence. Moreover, the algebraic degree of a
-  non-affine function is preserved under EA-equivalence.
+  EA-equivalence implies affine equivalence. Moreover, the algebraic
+  degree of a non-affine function is preserved under EA-equivalence.
 \end{corollary}
 \begin{corollary}
-  CCZ-equivalence implies EA-equivalence. Moreover, every permutation is
-  CCZ-equivalent to its inverse.
+  CCZ-equivalence implies EA-equivalence. Moreover, every permutation
+  is CCZ-equivalent to its inverse.
 \end{corollary}
 
 \begin{proposition}\label{proposition_1.1.6}
-  Let $f$ and  $g$ be $(n,m,p)$-functions. If $\inv{f}$ exists, then $g$ is
-  either EA-equivalent to $f$ or to $\inv{f}$ if, and only if there exists a
-  linear permutation $\Lc=(L_1,L_2)$ on $\F_2^n \times F_2^m$ for which
+  Let $f$ and  $g$ be $(n,m,p)$-functions. If $\inv{f}$ exists, then
+  $g$ is either EA-equivalent to $f$ or to $\inv{f}$ if, and only if
+  there exists a linear permutation $\Lc=(L_1,L_2)$ on $\F_2^n \times
+  F_2^m$ for which
   \begin{equation*}
     \Lc(\F_p^n \times f(\F_p^m))=\F_p^m \times g(\F_p^m)
   \end{equation*}
