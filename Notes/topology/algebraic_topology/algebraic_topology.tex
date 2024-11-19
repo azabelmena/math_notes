@@ -1,0 +1,35 @@
+\documentclass[12pt, twoside]{book}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,graphicx,mathtools,hyperref}
+\usepackage{quiver}
+\usepackage{faktor}
+%\usepackage{wrapfig}
+\input{../../../Library/Fonts/BlackboardBold}
+\input{../../../Library/Fonts/MathCalligraphy}
+\input{../../../Library/definitions}
+\input{../../../Library/greek}
+\input{../../../Library/styles}
+
+\title{Algebraic Topology}
+\author{Alec Zabel-Mena}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\input{Chapters/Chapter1/chapter1.tex}
+\input{Chapters/Chapter2/chapter2.tex}
+\input{Chapters/Chapter3/chapter3.tex}
+\input{Chapters/Chapter4/chapter4.tex}
+
+\nocite{*}
+
+\bibliography{references.bib}
+\bibliographystyle{ieeetr}
+
+\end{document}
