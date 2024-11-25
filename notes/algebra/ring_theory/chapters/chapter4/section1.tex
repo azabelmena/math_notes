@@ -1,267 +1,239 @@
 \section{Definitions and Examples}
 
 \begin{definition}
-    Let $R$ be a ring. A  \textbf{left module} over $R$, or a  \textbf{left
-    $R$-module}, is a set $M$ together with a binary operation  $+:M \times M
-    \xrightarrow{} M$, called \textbf{addition}, and a left action $R \times M
-    \xrightarrow{} M$ of $R$ on $M$, defined by $(r,m) \xrightarrow{} rm$,
-    called  \textbf{left scalar multiplication} such that $M$ is an Abelian group
-    under $+$, and for all $r,s \in R$ and $m,n \in M$
-    \begin{enumerate}
-        \item[(1)] $(r+s)m=rm+sm$
+  Let $R$ be a ring. A  \textbf{left module} over $R$ (or \textbf{left
+  $R$-module}) is a set $M$ together with a binary operation $+:M
+  \times M \xrightarrow{} M$, called \textbf{addition}, and a left
+  action $R \times M \xrightarrow{} M$, taking $(r,m) \xrightarrow{}
+  rm$, called \textbf{scalar multiplication} such that $M$ is a group
+  under $+$ and for every $r,s \in R$ and $m,n \in M$:
+  \begin{enumerate}
+    \item[(1)] $r(m+n)=rm+rn$
 
-        \item[(2)] $(rs)m=r(sm)$
+    \item[(2)] $(r+s)m=rm+sm$
 
-        \item[(3)] $r(m+n)=rm+rn$
-    \end{enumerate}
-    We define \textbf{right modules} over $R$ similarly, where the action is a
-    right action $M \times R \xrightarrow{} M$ defined by $(m,r) \xrightarrow{}
-    mr$.
-\end{definition}
-
-\begin{definition}
-    Let $R$ be a ring with identity  $1$, and  $M$ a left  (or right module)
-    over $R$. We call  $M$  \textbf{unital} if $1m=m$ (or $m1=m$) for all
-    $m \in M$.
-\end{definition}
-
-\begin{lemma}\label{4.1.1}
-    If $R$ is a commutative ring, then every left module of $R$ is also a right
-    module over $R$.
-\end{lemma}
+    \item[(3)] $(rs)m=r(sm)$
+  \end{enumerate}
+   We define a \textbf{right module} (\textbf{right $R$-module}) over
+   $R$ similarly, where the action is a right action  $M \times R
+   \xrightarrow{} M$ taking $(m,r) \xrightarrow{} mr$. If $R$ is
+   a commutative ring, we simply call $M$ a \textbf{module} over
+   $R$ (or an \textbf{$R$-module}).
+\ends{definition}
 
 \begin{definition}
-    Let $R$ be a ring, and $M$ be a module over $R$. A \textbf{submodule} of $M$
-    over  $R$ is a subgroup $N$ of $M$ which is closed under the action of  $R$
-    on $M$; i.e. that is $rn \in N$ for all  $r \in R$ and  $n \in N$.
+  If $R$ is a ring with identity $1$, we call a left (or right )
+  $R$-module unital if $1m=m$ (similarly $m1=m$) for all $m \in M$.
 \end{definition}
 
-\begin{example}\label{}
-    \begin{enumerate}
-        \item[(1)] Every module $M$, has as itself, and the subgroup $(0)$ as
-            submodules. We call $(0)$ the \textbf{trivial module}.
+\begin{note}
+  When context is clear, we will also simply just call left (or right)
+  $R$-modules just $R$-modules.
+\end{note}
 
-        \item[(2)] If $F$ is a field, then every  $F$-module is a vector space
-            over $F$. Moreover, every submodule of an  $F$-module is a subspace
-            of the overlying vector space. It can be shown that if  $F$ is a
-            field, then the definition for modules and vector spaces coincide.
+\begin{definition}
+  Let $R$ be a ring, and $M$ an $R$-module. We call a subgroup $N$ of
+  $M$ a  \textbf{submodule} if it is closed under the action $R \times
+  M \xrightarrow{} M$ when restricted to $N$; i.e. for every  $r \in
+  R$ and $n \in N$, $rn \in N$.
+\end{definition}
 
-        \item[(3)] If $R$ is a ring, then  $R$ is a left module over itself with
-            scalar multiplication being the the multipliaction of $R$. Moreover,
-            $R$ is a right module over itself (these structures need not
-            coincide).
+\begin{example}\label{example_4.1}
+  \begin{enumerate}
+    \item[(1)] Any ring $R$ is a left module over itself, and
+      similarly, also a right module over itself. The actions $R
+      \times M \xrightarrow{} M$ and $M \times R \xrightarrow{} M$
+      need not coincide however.
 
-        \item[(4)] Let $R$ be a ring with identity  $1$, and  $n \in \Z^+$. Make
-             $R^n$ into an left $R$-module by defining $+$ to be component wise
-             addition, and left scalar multiplication $R \times R^n
-             \xrightarrow{} R^n$ defined by
-             \begin{equation*}
-                 r(a_1, \dots, a_n)=(ra_1, \dots, ra_n)
-             \end{equation*}
-             We call $R^n$ the  \textbf{free module} of \textbf{rank} $n$ over
-             $R$. Notice that if  $R$ is a field, then $R^n$ become the usual
-             $n$-space over $R$.
+    \item[(2)] If $k$ is a filed, then any vector space $V$ over $k$
+      is a $k$-module by definition. Now, let $n \in \Z^+$ and define
+      \textbf{affine $n$-space} over $k$ to be:
+      \begin{equation*}
+        \A^n(k)=\{(x_1, \dots, x_n) : x_i \in k\}
+      \end{equation*}
+      i.e. $\A^n(k)=k^n$. It can be shown that $\A^n(k)$ is a vector
+      space over $k$.
 
-         \item[(5)] The field $\R$ is an  $\R$-module, a  $\Q$-module, and a
-             $\Z$-module. More generally, if $R$ is a ring with identity $1_R$,
-             and $S$ is a subring of $R$ with identity $1_S$, such that $1_R=1_S$,
-             then every  $R$-module is also an  $S$-module.
+    \item[(3)] Let $R$ be a ring with identity $1$. define
+      \begin{equation*}
+        R^n = \{(x_1, \dots, x_n) : x_i \in R\}
+      \end{equation*}
+      define $+:R^n \times R^n \xrightarrow{} R^n$ to be componentwise
+      addition on $R$, and  $R \times R^n \xrightarrow{} R^n$ by
+      $r(x_1, \dots, x_n)=(rx_1, \dots, rx_n)$. Then $R^n$ is a left
+      $R$-module, called the \textbf{left free module} of
+      \textbf{rank} $n$ on $R$. We define the \textbf{right free
+      module} on $R$ similarly with the action $R^n \times R
+      \xrightarrow{} R^n$ given by $(x_1, \dots, x_n)r=(x_1r, \dots,
+      x_nr)$. Again, if $R$ is commutative, we simply call
+      $R^n$ the \textbf{free module} of \textbf{rank} $n$ on $R$.
 
-         \item[(6)] Let $R$ be a ring, and  $M$ an  $R$-module, and let  $I$ be
-             an ideal of  $R$, such that  $am=0$ for all  $a \in I$ and  $m \in
-             M$. Then we say that  $I$  \textbf{annihilates} $M$. Make $M$ into
-             an left $(\faktor{R}{I})$-module by defining the addition to be the
-             addition of $M$, and left scalar multiplication to be the action
-             $\faktor{R}{I} \times M \xrightarrow{} M$ defined by
-             \begin{equation*}
-                 (r+I)m=rm
-             \end{equation*}
+    \item[(4)] If $M$ is an $R$-module, and $S \subseteq R$ is a
+      subring of $R$, then $M$ can also be made into an $S$-module by
+      restricting the action $R \times M \xrightarrow{} M$ to the
+      action $S \times M \xrightarrow{} M$.
 
-         \item[(7)] Let $A$ be any Abelian group. We can make $A$ into a left
-             $\Z$-module by defining $+$ to be group operation on $A$, and
-             defining left scalar multiplication $(n,a) \xrightarrow{} na$ by
-             \begin{equation*}
-                 na=\begin{cases}
-                     a+\dots+a \text{ ($n$-times)}, \text{ if } n>0  \\
-                     0, \text{ if } n=0 \\
-                     (-a)+\dots+(-a) \text{ ($n$-times)}, \text{ if } n<0  \\
-                    \end{cases}
-             \end{equation*}
-             Then it can be shown that this action makes $A$ into a unital
-             $\Z$-module (notice that since $\Z$ is commutative, $A$ is also a
-             right $\Z$-module).
+    \item[(5)] Let $R$ be a ring,  $I$ an ideal of  $R$, and let  $M$
+      be an $R$-module. We say that $M$ is \textbf{annihiliated} by
+      $I$ if for every $a \in I$, and  $m \in M$, $am=0$.
 
-             Conversely, if we have $M$ as a  $\Z$-module, then by definition
-             $M$ is an Abelian group. That is, we have shown that every Abelian
-             group is a $\Z$-module, having as  $\Z$-submodules all subgroups.
+      Now, define the action $\faktor{R}{I} \times M \xrightarrow{} M$
+      by $(r+I)m=rm$. Then $M$ is made into an
+      $(\faktor{R}{I})-module$. If $I$ is a maximal ideal, then  $M$
+      becomes a vector space over the field  $\faktor{R}{I}$.
 
-             Notice now, that if  $A$ is an Abelian group, and  $x \in A$ is of
-             order  $n$, the $nx=0$. Therefore, there exist scalars  $n \in \Z$
-             and elements  $x \in A$ for which  $nx=0$. Notice, then if
-             $\ord{A}=m$, then by Lagrange's theorem, $mx=0$ for all  $x \in A$;
-             this shows that  $A$ is also a $(\faktor{\Z}{m\Z})$-module.
+    \item[(6)] Let $A$ be an Abelian group, and define the action $\Z
+      \times A \xrightarrow{} A$ by:
+      \begin{equation*}
+        na=
+        \begin{cases}
+          a^n,  & \text{ if } n>0  \\
+          e,    & \text{ if } n=0  \\
+          (\inv{a}) ^n, & \text{ if } n<0 \\
+        \end{cases}
+      \end{equation*}
+      Then this action makes $A$ into a $\Z$-module. Moreover, any
+      $\Z$-module defines an Abelian group, so that there is a 1--1
+      correspondence between Abelian groups and $\Z$-modules.
 
-         \item[(8)] Consider the example above. If $A$ is a
-             $(\faktor{\Z}{p\Z})$-module, since $\faktor{\Z}{p\Z}$ is a field,
-             then $A$ can be considered as a vector space over the finite field
-              $\F_p=\faktor{\Z}{p\Z}$. We call these group  \textbf{elementary
-                  Abelian $p$-groups}. For example, the Klein $4$-group, $V_4$
-                  is an elementary Abelian $2$ -group (it is a vector space over
-                  $\F_2$ of $\dim{V_4}=2$).
-    \end{enumerate}
+      Now, if  $A$ is an Abelian group, and  $x \in A$ is an element
+      of order $|x|=n$, then  $na=0$, moreover if $|A|=m$, then by
+      Lagrange's theorem, $ma=0$ for every $a \in A$, so that $A$ can
+      be made into a  $(\faktor{\Z}{m\Z})-module$. If $m=p$ a prime,
+      then we call $A$ as a $(\faktor{\Z}{p\Z})$ an \textbf{elementary
+      $p$-group}.
+
+    \item[(7)] Let $k$ be a field, and $k[x]$ the polynomial ring of
+      $k$ in $x$. Let $V$ be a vector space over $k$, and $T:V
+      \xrightarrow{} V$ a linear transformation. We take $V$ into an
+      $k[x]$-module by defining the action $k[x] \times V
+      \xrightarrow{} V$ given by:
+      \begin{equation*}
+        p(x)v=p \circ T(v)=(a_0v+a_1Tv+\dots+a_nT^nv)
+      \end{equation*}
+      Now, since $k \subseteq k[x]$ is a subring one can view the
+      action $k[x] \times V \xrightarrow{} V$ as extending the
+      action $k \times V \xrightarrow{} V$, taking $V$ as a
+      $k$-module to $V$ as a  $k[x]$-module. This extension depends on
+      the choice of linear transformation $T$.
+
+    \item[(8)] Consider affine $n$-space $\A^n(k)$ over the field $k$.
+      Define the \textbf{shift operator} $T(x_1, \dots, x_n)=(x_2,
+      \dots, x_n, 0)$. We can determine this action as an action of a
+      polynomial in $k[x]$ on a vector of $\A^n(k)$.
+  \end{enumerate}
 \end{example}
 
-\begin{example}[Polynomials]\label{}
-    \begin{enumerate}
-        \item[(1)] Let $F$ be a field, and consider the polynomial riong
-            $F[x]$. Let $V$ be a vector space over  $F$, and let  $T$ be a
-            linear transformation. Define  $+$ on  $V$ to be the usual vector
-            addition, and define the left action  $F[x] \times V \xrightarrow{}
-            V$ by
-            \begin{equation*}
-                p(x)v=(a_nT^n+\dots+a_1T+a_0)v=a_nT^(v)+\dots+a_1T(v)+a_0v
-            \end{equation*}
-            Where $p(x)=a_nx^n+\dots+a_1x+a_0$, and $a_0, \dots, a_n \in F$.
-            Then $p(x)$ acts on $V$ as the linear transofrmation $T$. Then the
-            action $F[x] \times V \xrightarrow{} V$ makes $V$ into a left
-            $F[x]$-module.
-
-        \item[(2)] Consider the vector space $V$ over $F$ as the affine $n$-space
-            $F^n$, and consider the \textbf{left shift operator} $T(x_1, \dots,
-            x_n)=(x_2, \dots, x_n,0)$. Letting $\{e_1, \dots, e_n\}$ the
-            standard basis of $F^n$ over  $F$, notice that
-            \begin{equation*}
-                T^k(e_i)=\begin{cases}
-                            e_{i-k}, \text{ if } i>k    \\
-                            0, \text{ if } i \leq k \\
-                         \end{cases}
-            \end{equation*}
-            Then $T$ determines the action of any polynomial $p \in F[x]$ on a
-            vector $v \in V$. This shows that the action  $F[x] \times V
-            \xrightarrow{} V$ depends on our choice of $T$. This gives a  1--1
-            correspondence between all $V$ as $F[x]$-modules, and all pairs
-            $(V,T)$, where $V$ is a vector space and  $T$ is a gien linear
-            transformation.
-
-        \item [(3)] Consider the vector space $V$ as an $F[x]$-module, with $T$
-            the linear transformation givenby the action of  $x$ on  $V$. Let
-            $W \subseteq V$ be an  $F[x]$-submodule. Then $W$ must also be an
-            $F$-module, and hence must be a subspace of  $V$. Moreover, notice
-            that $T$ takes $W$ onto itself; i.e.  $T(w) \in W$ for all $w \in
-            W$, so that  $W$ is  \textbf{$T$-invariant}.
-
-            Conversely, if $T$ is a  $T$-invariant subspace of  $V$ as a vector
-            space over  $F$, then  $T^n(W) \subseteq W$ for all $n \in \Z^+$.
-            Moreover, any linear combination of  $T^n$ takes  $W$ onto itself,
-            so that  $W$ is also invariant by the action of any polynomial in
-            $T$. This makes  $W$ into an  $F[x]$-submodule. That is, there is a
-            1--1 correspondence between $F[x]$-submodules, and $T$-invariant
-            subspaces of  $V$.
-    \end{enumerate}
-\end{example}
-
-\begin{remark}
-    From here on, we will mean ``module'' to mean left module, and ``scalar
-    multiplaction'' to mean left scalar multiplication, unless otherwise specified.
-\end{remark}
-
-\begin{lemma}[The Submodule Criterion for Unital Modules]\label{lemma_4.1.2}
-    Let $R$ be a ring with identity, and $M$ be a unital module over $R$. A
-    nonempty subset $N$ of $M$ is a submodule over  $R$ if, and only if for every
-    $r,s \in R$, and  $x,y \in N$,  $rx+sy \in N$.
+\begin{lemma}\label{lemma_4.1.1}
+  Let $k$ be a field. There exists a 1--1 correspondence between
+  $k[x]$-modules and pairs $(V,T)$, where $V$ is a vector space over
+  $k$, and $T:V \xrightarrow{} V$ is a linear transformation.
 \end{lemma}
 \begin{proof}
-    Suppose that $N$ is a submodule for $M$. Then $0 \in N$, so that  $N$ is
-    nonempty. Moreover, by the axioms for modules, observe that if we restrict
-    the scalar multiplication of $M$ to $N$  (i.e. $R \times N \xrightarrow{}
-    N$), then $rx+sy \in N$ for all  $x,y \in N$ and  $r,s \in R$; that is the
-    action of $R$ on $N$ takes  $N$ onto itself.
-
-    Conversely, suppose that $N$ is nonempty, and that for any $x,y \in N$, and
-    $r,s \in R$, that  $rx+sy \in N$. Take  $s=0$, then we have that $rx \in N$,
-    which makes $N$ closed under scalar multiplication. Moreover, let  $r=1$ amd
-     $s=1$, then we get $x+y \in N$; and for  $r=0$ and  $s=-1$, we have $-y \in
-     N$. By the subgroup criterion, this makes  $N \leq M$. Therefore  $N$ is a
-     submodule of $M$.
+  Let $V$ be a $k[x]$-module, then $V$ is also a $k$-module (and hence
+  a vector space), and observe that the action $k \times V
+  \xrightarrow{} V$ by definition defines a linear transformation $T:V
+  \xrightarrow{} V$. Then the action of $k$ on $V$ uniquely determines
+  the action of $k[x]$ on $V$, which gives the required bijection.
 \end{proof}
 
 \begin{definition}
-    Let $R$ be a commutative ring with identity. An \textbf{$R$-algebra} is a
-    ring $A$ with identity, together with a ring homomorphism $f:R
-    \xrightarrow{} A$, taking $1_R \xrightarrow{} 1_A$ such that the subring
-    $f(R)$ of $A$ is contained in the center of  $A$; i.e.  $f(R) \subseteq
-    Z(A)$.
+  Let $V$ be a vector space, and  $T:V \xrightarrow{} V$ a linear
+  transformation. A subspace $W \subseteq V$ is said to be
+  \textbf{$T$-stable} if $T(W) \subseteq W$.
 \end{definition}
+
+\begin{lemma}\label{lemma_4.1.2}
+  If $W$ is a $T$-stable subspace of a vector space, then $T^n(W)
+  \subseteq W$ for all $n \in \Z^+$.
+\end{lemma}
 
 \begin{lemma}\label{lemma_4.1.3}
-    Let $R$ be a commutative with with identity. If  $A$ is an $R$-algebra,
-    then $A$ is a left module of $R$, and a right module of $R$.
+  Let $k$ be a field. There exists a 1--1 correspondence between
+  $k[x]$-submodules and $T$-stable subspaces of vector spaces.
 \end{lemma}
 \begin{proof}
-    Let $+$ be the usual addition for $A$, and define the actions $R \times A
-    \xrightarrow{} A$ and $A \times R \xrightarrow{} A$ by
-    \begin{equation*}
-        ra=f(r)a \text{ and } ar=af(r)
-    \end{equation*}
-    respectively. Notice by definition that $f(r)a=af(r)$, so that $ra=ar$.
+  Let $V$ be a $k[x]$-module, and $T:V \xrightarrow{} V$ the linear
+  transformation given by the action of $x$ on  $V$. Let  $W$ be a
+  submodule of $V$. Then $W$ is a subspace of $V$, by definition, and
+  (provided that $T$ is characterized by the action of $x$ on $V$),
+  $T$ restricts to a transformation  $T:W \xrightarrow{} W$. That is,
+  $T(W) \subseteq W$, so that $W$ is  $T$-stable.
+
+  Now, let $W$ be $T$-stable subspace of $V$ as a vector space. Then
+  since $T(W) \subseteq W$, we have for any $w \in W$:
+  \begin{equation*}
+    a_0w+a_1Tw+\dots+a)nT^nw \in W
+  \end{equation*}
+  so that $T$ is characterized by the action  $k[x] \times W
+  \xrightarrow{} W$, which makes $W$ into a $k[x]$-module.
+\end{proof}
+
+\begin{theorem}[The Submodule Criterion]\label{theorem_4.1.4}
+  Let $R$ be a ring, and  $M$ an $R$-module. A nonempty subset $N
+  \subseteq M$ is a \textbf{submodule} of $M$ if, and only if  $x+ry
+  \in N$ for all $r \in R$ and $x,y \in N$.
+\end{theorem}
+\begin{proof}
+  If $N$ is a submodule of $M$, then $N$ is a subgroup of $M$ so that
+  $N$ is nonempty by definition. Moreover $N$ is closed under the
+  action $R \times M \xrightarrow{} M$, so that $x+ry \in N$.
+
+  Now, suppose that $N$ is nonempty, and that  $x+ry \in N$. Take
+  $r=-1$ (as a group element) in $R$. Then $x-y \in R$ so that $N \leq
+  M$ by the subgroup criterion. Now, taking $x=0$, then  $0+ry=ry \in
+  N$, which makes $N$ into a submodule of $M$.
 \end{proof}
 
 \begin{definition}
-    Let $R$ be a commutative wrng with identity, and let $A$ and  $B$
-    $R$-algebras. A  \textbf{$R$-algebra homomorphism} is a ring homomorphism
-    $\phi:A \xrightarrow{} B$, taking $1_A \xrightarrow{} 1_B$, such that
-    $\phi(ra)=r\phi(a)$ for all $r \in R$ and  $a \in A$; where  $ra=f(r)a$ is
-    the underlying scalar multiplication of $A$. We call $\phi$ a
-    \textbf{$R$-algebra isomorphism} if $\phi$ is a ring isomorphism.
+  Let $R$ be a commutative ring with identity. An
+  \textbf{$R$-algebra} is a ring $A$ with identity together with a
+  ring homomorphism $f:R \xrightarrow{} A$, taking $1_R \xrightarrow{}
+  1_A$ such that $f(R) \subseteq Z(A)$, where $Z(A)$ is the center of
+  $A$.
 \end{definition}
 
-\begin{example}\label{}
-    Let $R$ be a commutative ring with identity  $1_R$.
-    \begin{enumerate}
-        \item[(1)] Every commutative ring with identity is a $\Z$-algebra. Take
-            $f:\Z \xrightarrow{} R$ via the map $f:n \xrightarrow{} n \cdot
-            1_R$.
-
-        \item[(2)] For any ring $A$ with identity  $1_A$, if  $R$ is a subring
-            of the center  $Z(A)$, containing $1_A$, then $A$ is an
-            $R$-algebra. In particular, a commutative ring  $A$ with identity is
-            an  $R$-algebra for any subring  $R$ of  $Z(A)$ containing $1_A$.
-
-        \item[(3)] The polynomial ring $R[x]$, the multivariate polynomial ring
-            $R[x_1, \dots, x_n]$, and the ring $RG$, for any finite group  $G$
-            are all  $R$-algebras.
-
-        \item[(4)] If $A$ is an  $R$-algebra, then the  $R$-module structure of
-             $A$ depends on the image  $f(R) \subseteq Z(A)$. In fact, every
-             algebra  $A$ arises from a subring of  $Z(A)$, containing $1_A$, up
-             to homomorphism.
-
-         \item[(5)] Let $F$ be a field, and $A$ an  $F$-algebra. Then $F$ itself
-             is a subring of $Z(A)$ containing $1_A$, in fact,  $1_A=1_F$.
-    \end{enumerate}
-\end{example}
-
-\begin{lemma}\label{lema_4.1.4}
-    Let $R$ be a commutative ring with identity. Then a ring  $A$ with identity
-     $1_A$ is an  $R$-algebra if, and only if it is a unital module satisfying
-     \begin{equation*}
-         r(ab)=(ra)b=a(rb) \text{ for all } r \in R \text{ and } a,b \in A
-     \end{equation*}
-     where $ra=f(r)a$ is the underlying action of $R$ on $A$.
+\begin{lemma}\label{lemma_1.4.5}
+  If $A$ is an  $R$-algebra, then $A$ is an left (respectively right)
+  $R$-module.
 \end{lemma}
 \begin{proof}
-    Certainly, if $A$ is an  $R$-algebra, then it is a unital module. Moreover,
-    notice that if $ra=f(r)a$, then $r(ab)=f(r)(ab)=(f(r)a)b=a(f(r)b)$, so that
-    $r(ab)=(ra)b=a(rb)$.
-
-    Conversly, suppose that $A$ is a unital module satisfying
-     \begin{equation*}
-         r(ab)=(ra)b=a(rb) \text{ for all } r \in R \text{ and } a,b \in A
-     \end{equation*}
-     And where $ra=f(r)a$, where $f:R \xrightarrow{} A$ is a ring homomorphism.
-     Then $1_Ra=f(1_R)a=a$, so that $f(1_R)=1_A$; that is, $f:1_R \xrightarrow{}
-     1_A$. Moreover, since $r(ab)=(ra)b=a(rb)$, we have that
-     $(f(r)a)b=a(f(r)b)$, i.e. that $f(r)a=af(r)$ for all $a,b \in A$ and  $r
-     \in R$. This makes $f(r) \in Z(A)$, so that $f(R) \subseteq Z(A)$. This
-     makes $A$ into an  $R$-algebra.
+  Define the action $R \times A \xrightarrow{} A$ by $ra=f(r)a$. Then
+  $A$ is made into a left $R$-module. Similarly, defining the action
+  $A \times R \xrightarrow{} A$ by $ar=af(r)$ makes $A$ into a right
+  $R$-module. Observe lastly that since $f(R) \subseteq Z(A)$, then
+  $f(r)a=af(r)$ so that the actions $R \times A \xrightarrow{} A$ and
+  $A \times R \xrightarrow{} A$ coincide at the center of $A$.
 \end{proof}
+
+\begin{definition}
+  Let $A$ and  $B$ be $R$-algebras. An \textbf{$R$-algebra
+  homomorphism} is a ring homomorphism $\phi:A \xrightarrow{} B$,
+  taking $1_A \xrightarrow{} 1_B$ such that for every $r \in R$ and
+  $a \in A$, $\phi(ra)=r\phi(a)$.
+\end{definition}
+
+\begin{example}\label{example_4.2}
+  Let $R$ be a commutative ring with identity.
+  \begin{enumerate}
+    \item[(1)] Any ring with identity is a $\Z$-algebra.
+
+    \item[(2)] For any ring $A$ with identity, if  $R \subseteq Z(A)$
+      is a subring containing $1_A$, then  $A$ is also an $R$-algebra.
+      In particular, if $A$ is commutative, then any subring  $R$ with
+       $1_A$ makes  $A$ into an  $R$-algebra.
+
+     \item[(3)] Any $R[x]$-algebra is also an $R$-algebra. Likewise,
+       if  $G$ is a group, then the group ring $RG$ is also an
+       $R$-algebra.
+
+     \item[(4)] If $A$ is an $R$-algebra, then $A$ as an  $R$-module
+       depends only on the ring  $f(R)$. So every algerba $A$ comes
+       from a subring containing $1_A$ in the center of $A$, up to
+       ring homomorphism.
+
+     \item[(5)] Let $k$ be a field, then  $k \simeq f(k)$ by the
+       first ring isomorphism theorem. Then if $A$ is a  $k$-algebra,
+       it contains  $k$ in its center, and  $1_k=1_A$.
+  \end{enumerate}
+\end{example}
