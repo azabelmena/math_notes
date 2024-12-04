@@ -1,1 +1,178 @@
 \section{Factor Modules}
+
+Here we refer to left $R$-modules as simply  $R$-modules, unless
+otherwise specified. The same theory can be done for right
+$R$-modules by using the action  $M \times R \xrightarrow{} M$.
+
+\begin{theorem}\label{theorem_4.3.1}
+  Let $R$ be a ring, and $M$ an $R$-module and $N$ a submodule of
+  $M$. Then the factor group  $\faktor{M}{N}$ is an $R$-modules unuder
+  the action
+  \begin{equation*}
+    \begin{aligned}
+      R \times \faktor{M}{N} & \xrightarrow{} \faktor{M}{N}  \\
+      (r,x+N) & \xrightarrow{} r(x+N)=rx+N
+    \end{aligned}
+  \end{equation*}
+  Moreover, the map
+  \begin{equation*}
+    \begin{aligned}
+      \pi:  & M \xrightarrow{} \faktor{M}{N}  \\
+          & x \xrightarrow{} x+N  \\
+    \end{aligned}
+  \end{equation*}
+  is an $R$-module homomorphism with kernel  $\ker{\pi}=N$.
+\end{theorem}
+\begin{proof}
+  Since $M$ is an Abelian group, and  $N$ a subgroup of  $M$,  $N$ is
+  normal in  $M$, and hence the set $\faktor{M}{N}$ is indeed
+  the factor group of $M$ modulo  $N$. Moreover,  $\faktor{M}{N}$ is
+  also an Abelian group.
+
+  Now, the action $(r,x+N) \xrightarrow{} rx+N$ is a well defined
+  action. Let $x+N=y+N$, so that  $x-y \in N$, and hence $r(x-y)=rx-ry
+  \in N$. That is $rx+N=ry+N$. Lastly, we observe that the action
+  $(r,x+N) \xrightarrow{} rx+N$ is compatible with the action $(r,x)
+  \xrightarrow{} rx$ of $M$, so that  $\faktor{M}{N}$ can be made into
+  a left $R$-module.
+
+  Now, define
+  \begin{aligned}
+    \pi:  & M \xrightarrow{} \faktor{M}{N}  \\
+    \pi:  & x \xrightarrow{} x+N \\
+  \end{aligned}
+  and take $r \in R$, and $x,y \in M$. Then
+  \begin{align*}
+    \pi(rx+y) &=  (rx+y)+N  \\
+              &= (rx+N)+(y+N) \\
+              &= r(x+N)+(y+N) \\
+              &= r\pi(x)+\pi(y)
+  \end{align*}
+  so that $\pi$ is an $R$-module homomorphism of $M$ into
+  $\faktor{M}{N}$. Moreover, we observe that $\ker{\pi}=N$.
+\end{proof}
+\begin{corollary}
+  $\im{\pi}=\faktor{M}{N}$. That is, $\pi$ is onto.
+\end{corollary}
+
+\begin{definition}
+  Let $M$ be an  $R$-module, and  $N$ a submodule of  $M$. We define
+  the  \textbf{factor module} of $M$  \textbf{modulo} $N$ to be the
+   $R$-module  $\faktor{M}{N}$ whose action is defined by
+   \begin{equation}
+     \begin{aligned}
+       R \times \faktor{M}{N} \xrightarrow{} \faktor{M}{N}  \\
+       (r,x+N)  \xrightarrow{} rx+N \\
+     \end{aligned}
+   \end{equation}
+\end{definition}
+
+\begin{definition}
+  Let $A$ and  $B$ be submodules of an  $R$-module  $M$. We define the
+   \textbf{sum} of $A$ and $B$ to be the set:
+   \begin{equation*}
+     A+B=\{ a+b : a \in A \text{ and } b \in B \}
+   \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lemma_4.3.2}
+  Let $A$ and  $B$ be submodules of an  $R$-module  $M$. Then the sum
+  $A+B$ is a submodule of $M$; in fact, it is the smallest submodule
+  of  $M$ containing both  $A$ and  $B$.
+\end{lemma}
+
+\begin{theorem}[The First Isomorphism Theorem]\label{theorem_4.3.3}
+  Let $M$ and  $N$ be  $R$-modules, and let  $\phi \in \Hom_R{(M,N)}$.
+  Then
+  \begin{equation*}
+    \faktor{M}{\ker{\phi}} \simeq \im{\phi}
+  \end{equation*}
+  and the following diagram commutes
+  \[\begin{tikzcd}
+    M & {\im{\phi}} \\
+      & {\factor{M}{\ker{\phi}}}
+      \arrow["\phi", from=1-1, to=1-2]
+      \arrow["{\pi:x \xrightarrow{} x+\ker{\phi}}"', from=1-1, to=2-2]
+      \arrow[from=1-2, to=2-2]
+  \end{tikzcd}\]
+\end{theorem}
+\begin{proof}
+  Since $\phi \in \Hom_R{(M,N)}$, $\phi$ is a group homomorphism of
+  $M \xrightarrow{} N$ (as Abelian groups). So the proof of this
+  theorem follows from the first isomorphism theorem for groups.
+\end{proof}
+
+\begin{theorem}[The Second Isomorphism Theorem]\label{theorem_4.3.4}
+  Let $M$ be an  $R$-module, and  $A$ and  $B$ be submodules of  $M$.
+  Then
+  \begin{equation*}
+    \faktor{(A+B)}{B} \simeq \faktor{A}{(A \cap B)}
+  \end{equation*}
+  and we have the following lattice structure
+  \[\begin{tikzcd}
+  & M \\
+  & {A+B} \\
+    A && B \\
+      & {A \cap B} \\
+      & {(0)}
+      \arrow[no head, from=1-2, to=2-2]
+      \arrow[no head, from=2-2, to=3-1]
+      \arrow[no head, from=2-2, to=3-3]
+      \arrow[no head, from=3-1, to=4-2]
+      \arrow[no head, from=3-3, to=4-2]
+      \arrow[no head, from=4-2, to=5-2]
+  \end{tikzcd}\]
+\end{theorem}
+\begin{proof}
+  Observe first that $B \subseteq A+B$ is a submodule of $A+B$, so
+  that $\faktor{A+B}{B}$ is an $R$-module. Now consider the map
+  \begin{aligned}
+    \phi: & A \xrightarrow{} \faktor{(A+B)}{B}  \\
+          & a \xrightarrow{} a+B
+  \end{aligned}
+  Since $A$ and $\faktor{(A+B)}{B}$ are $R$-modules, $\phi$ is an
+  $R$-module homomorphism, moreover  $\phi$ is onto, that is,
+  $\im{\phi}=\faktor{(A+B)}{B}$. Now, let $a \in \ker{\phi}$, so that
+  $\phi(a)=0$, that is $a+B=B$ so that $a \in B$. Since $a \in A$ this
+  puts $a \in A \cap B$. Conversely, if $a \in A \cap B$, then
+  $\phi(a)=a+B=B$. So $\ker{\phi}=A \cap B$. By the first isomorphism
+  theorem (theorem \ref{theorem_4.3.3}), we get the result. We also
+  observe that the result follows directly from the second isomorphism
+  theorem for groups.
+\end{proof}
+
+\begin{theorem}[The Third Isomorphism Theorem]\label{theorem_4.3.5}
+  Let $M$ be an  $R$-modiles, and  $A$ and  $B$ be submodules of  $M$
+  with  $A \subseteq B$. Then
+  \begin{equation*}
+    \faktor{(\faktor{M}{A})}{(\faktor{B}{A})} \simeq \faktor{M}{B}
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  Observer that since $\faktor{M}{A}$ and $\faktor{B}{A}$ are factor
+  groups, and that $A \subseteq B$, then $\faktor{B}{A} \subseteq
+  \faktor{M}{A}$ (as $R$-modules). Define the map
+  \begin{aligned}
+    \phi: & \faktor{M}{A} \xrightarrow{} \faktor{M}{B}  \\
+          & x+A \xrightarrow{} x+B  \\
+  \end{aligned}
+  Then $\im{\phi}=\faktor{M}{B}$ is onto. Now, let $a \in \ker{\phi}$,
+  then $\phi(a)=B$, and since $a \in \faktor{M}{A}$, $a=x+A$, so that
+   $\phi(x+A)=(x+A)+B=x+(A+B)=x+B=B$, since $A \subseteq B$. That is,
+   $x \in B$ This makes $a \in \faktor{B}{A}$. By the first
+   isomoprphism theorem (again theorem \ref{theorem_4.3.3}) we get the
+   desired result.
+\end{proof}
+
+\begin{theorem}[The Fourth Isomorphism Theorem]\label{theorem_4.3.6}
+  Let $M$ be an  $R$-module, and $N$ a submodule of  $M$. There is a
+  1--1 correspondence between the submodules of  $M$ containing  $N$,
+  and the submodules of  $\faktor{M}{N}$, given by
+  \begin{equation*}
+    A \xrightarrow{} \faktor{A}{N}
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  The third isomorphism theorem (theorem \ref{theorem_4.3.5}), and
+  the rule $A \xrightarrow{} \faktor{A}{N}$ establishes the proof.
+\end{proof}
