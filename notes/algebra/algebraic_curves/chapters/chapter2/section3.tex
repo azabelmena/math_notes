@@ -1,0 +1,201 @@
+\section{Rational Functions and Local Rings of Affine Varieties}
+\label{section_2.3}
+
+\begin{lemma}\label{lemma_2.3.1}
+  Let $k$ be a field, and  $V \subseteq \A^n(k)$ an affine variety.
+  Then the ring of fractions $k(V)$ of $\Oc(V)$ is a field.
+\end{lemma}
+\begin{proof}
+  Since $\Oc(V)$ is an integral domain, the ring of fractions $k(V)
+  \simeq \Oc(V) \times (\com{\Oc(V)}{\{0\}})$ is infact the field of
+  fractions of $\Oc(V)$.
+\end{proof}
+
+\begin{definition}
+  Let $k$ be a field, and  $V \subseteq \A^n(k)$ an affine variety. We
+  call the field of fractions $k(V)$ of $\Oc(V)$ the \textbf{field of
+  rational functions} on $V$, whose elements are called
+  \textbf{rational functions}.
+\end{definition}
+
+\begin{definition}
+  Let $V$ be an affine variety, and  $f$ be a rational function on
+  $V$. We say that  $f$ is \textbf{defined} at a point $P \in V$ if
+  there are $a, b \in \Oc(V)$ for which $f=\frac{a}{b}$, and $b(P)
+  \neq 0$.
+\end{definition}
+
+\begin{example}\label{example_2.6}
+  \begin{enumerate}
+    \item[(1)] Let $V$ be an affine variety. If  $\Oc(V)$ is a unique
+      factorization domain, then a rational function $f$ is defined at
+      a point $P \in V$ if, and only if there exist unique $a,b \in
+      \Oc(V)$ with $(a,b)=1$ for which $f=\frac{a}{b}$ and $b(P) \neq 0$.
+      Indeed Let $k$ be the underlying field of  $V \subseteq \A^n(k)$.
+      Then since $k(V)$ is the field of fractions of $\Oc(V)$, any $f
+      \in k(V)$ is of the form $f=\frac{a}{b}$, where $a,b \in \Oc(V)$
+      and $b \neq 0$ (observe that $b \neq 0$ does not imply that $b(P)
+      \neq 0$ for some point $P \in \A^n(k)$).
+
+      Now, suppose that  $\Oc(V)$ is a UFD and fix a point $P \in V$.
+      Let $a,b \in \Oc(V)$ for which $f=\frac{a}{b}$ and $b \neq 0$. By
+      definition, if  $f$ is defined at $P \in V$, then $b(P) \neq 0$,
+      moreover since $\Oc(V)$ is a UFD, $a$ and $b$ have unique
+      factorizations up to units: $a=up_1 \dots p_r$ and $b=vq_1
+      \dots q_l$ where $u, v$ are units, and $p_1, \dots, p_r, q_1,
+      \dots, q_l$ are not necessarily distinct. Then we may cancel any
+      common divisor so that $(a,b)=1$.
+
+      Conversely, suppose there exist $a,b \in \Oc(V)$ with $(a,b)=1$
+      (since we are working in a UFD, we can assume this without loss of
+      generality), for which $f=\frac{a}{b}$ and $b(P) \neq 0$. Then by
+      definiiton, $f$ is defined at $P$.
+
+    \item[(2)] Let $k$ be a field and $V=V(xw-yz) \subseteq \A^4(k)$. Let
+      $\Oc(V)=\faktor{k[x,y,z,w]}{(XW-YZ)}$, and consider $x,y,z,w$ as
+      residues moduls $I(V)$. That is, $xw-zy=0$, so that  $xw=yz$ modulo
+      $I(V)$. Then in $k(V)$, $\frac{x}{y}=\frac{z}{w} \mod{I(V)}$.
+      Define then $f=\frac{x}{y}\frac{z}{w}$. Take $P=(X,Y,Z,W) \in V$.
+      If either $y \neq 0$ or $w \neq 0$, then $f$ is defined at  $P$.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  Let $V$ be an affine variety, and $P \in V$. We define the
+  \textbf{local ring} of $V$ \textbf{at} $P$ to be the set  $\Oc_P(V)$
+  of rational functions defined at $P$. We call $P$ a \textbf{pole} of
+  $f$ if  $f$ is not defined at $P$, and we call the set of poles of
+  $f$ the \textbf{pole set} of $f$.
+\end{definition}
+
+\begin{lemma}\label{lemma_2.3.2}
+  Let $k$ be a field and  $V \subseteq \A^n(k)$ an affine variety, and
+  let $P \in V$. Then we have the following chain
+  \begin{equation*}
+    k \subseteq \Oc(V) \subseteq \Oc_P(V) \subseteq k(V)
+  \end{equation*}
+\end{lemma}
+
+\begin{proposition}\label{proposition_2.3.3}
+  Let $V$ be an affine variety and  $f$ a rational function on  $V$.
+  Then the following are true:
+  \begin{enumerate}
+    \item[(1)] The pole set of $f$ is an algebraic subset of $V$.
+
+    \item[(2)] $\Oc(V)=\bigcap_{P \in V}{\Oc_P(V)}$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  Let $k$ be the underlying field of  $V \subseteq \A^n(k)$. Define
+  $J(f)=\{ b \in \Oc(V) : bf \in \Oc(V) \}$. Let $b,d \in J(f)$,
+  then there are $a,c \in \Oc(V)$ for which $bf=a$ and $df=c$.
+  Then $a-c=bf-df=(b-d)f \in \Oc(V)$. Moreover, if $g \in \Oc(V)$,
+  then $ga=g(bf)=(gb)f \in \Oc(V)$ so that $J(f)$ is an ideal.
+  Additionally, observe by definition that since
+  $\Oc(V)=\faktor{k[x_1, \dots, x_n]}{I(V)}$, that $I(V) \subseteq
+  J(f)$.
+
+  Now, let $P \in V(J(f))$, then for every $b \in J(f)$, $b(P)=0$.
+  Since $bf \in \Oc(V)$, we get that $bf=a$ in $\Oc(V)$. That is
+  $f=\frac{a}{b}$ in $k(V)$. By definition, this makes $P$ a pole of
+  $f$. Conversely, $f=\frac{a}{b}$ in $k(V)$ and let $P$ be a pole of
+   $f$. Then we have $bf=a \in \Oc(V)$ and $b(P)=0$ so that $b \in
+   V(J(f))$. This makes the $V(J(f))$ precisely the pole set of $f$.
+
+   For the second assertion, we have by lemma \ref{lemma_2.3.2}, that
+   $\Oc(V) \in \bigcap_{P \in V}{\Oc_P(V)}$. Now, let $f \in
+   \bigcap_{P \in V}{\Oc_P(V)}$. Then $f$ is defined at every point of
+   $V$, so that  $V(J(f))$ is empty. That is, $J(f)=(1)$, so that
+   $1f=f \in \Oc(V)$, and we have the reverse inclusion.
+\end{proof}
+
+\begin{definition}
+  Let $V$ be an affine variety, and let $P \in V$, and let $f \in
+  \Oc_P(V)$. We call $f(P)$ the \textbf{value} of $f$ at $P$. If
+  $f=\frac{a}{b}$ for $a,b \in \Oc(V)$, then we write
+  \begin{equation*}
+    f(P)=\frac{a}{b}(P)=\frac{a(P)}{b(P)}
+  \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lemma_2.3.4}
+  Let $V$ be an affine variety, and let $f=\frac{a}{b}$ a rational
+  function on $V$. If $f$ is defined at a point $P$, then the value
+  $f(P)$ is independent of choice of $a$ and $b \neq 0$.
+\end{lemma}
+
+\begin{definition}
+  LLet $V$ be an affine variety and $P \in V$. We define the
+  \textbf{maximal ideal} of $V$ at  $P$ to be the set
+  \begin{equation*}
+    \mf_P(V)=\{ f \in \Oc_P(V) : f(P)=0 \}
+  \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lemma_2.3.5}
+  Let $k$ be a field, $V \subseteq \A^n(k)$ and affine variety, and
+  let $P \in V$. Then $\mf_P(V)$ is an ideal of $\Oc_P(V)$ and
+  \begin{equation*}
+    \faktor{\Oc_P(V)}{\mf_P(V)} \simeq k
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Let $f,g \in \mf_P(V)$, then $f-g(P)=f(P)-g(P)=0$ so $f-g \in
+  \mf_P(V)$. Taking $g \in \Oc_P(V)$, we get $gf(P)=g(P)f(P)=g(P)0=0$
+  so $gf \in \mf_P(V)$. This make $\mf_P(V)$ an ideal.
+
+  Notice now, that $\mf_P(V)$ is the kernel of the evaluation map
+  \begin{aligned}
+    \Oc_P(V)  \xrightarrow{} k  \\
+    f \xrightarrow{} f(P)
+  \end{aligned}
+  so by the first isomorphism theorem for rings,
+  $\faktor{\Oc_P(V)}{\mf_P(V)} \simeq k$.
+\end{proof}
+\begin{corollary}
+  $\mf_P(V)$ is a maximal ideal of $\Oc(V)$.
+\end{corollary}
+\begin{proof}
+  $k$ is a field.
+\end{proof}
+
+\begin{lemma}\label{lemma_2.3.6}
+  Let $V$ be an affine variety and $P \in V$, and $f \in \Oc_P(V)$.
+  Then $\mf_P(V)$ is the set of non-units of $\Oc_P(V)$.
+\end{lemma}
+\begin{proof}
+  We have by definition that $f \in \mf_P(V)$ if, and only if
+  $f(P)=0$. Suppose now that $f \in \Oc_P(V)$ is a unit. Then there is
+  a $g \in \Oc_P(V)$ for which $g \neq 0$, and $fg=1$. Then $fg(P)=1$,
+  so that $f(P) \neq 0$. Now, suppose that $f(P) \neq 0$. Then for
+  $a,b \in \Oc(V)$, with $b(P) \neq 0$, we have
+  $f(P)=\frac{a(P)}{b(P)} \neq 0$. Then $a(P) \neq 0$. Define then
+  $g=\frac{b}{a}$, so that $fg=\frac{a}{b}\frac{b}{a}=1$, which makes
+  $f$ a unit of $\Oc_P(V)$.
+\end{proof}
+\begin{corollary}
+  $\Oc_P(V)$ is a local ring and $\mf_P(V)$ is the unique maximal
+  ideal of $\Oc_P(V)$.
+\end{corollary}
+
+\begin{proposition}\label{proposition_2.3.7}
+  Let $V$ be an affine variety, and  $P \in V$. Then $\Oc_P(V)$ is a
+  Noetherian local domain.
+\end{proposition}
+\begin{proof}
+  Observe that $\Oc_P(V)$ is a Noetherian ring. Choose then generators
+  $f_1, \dots, f_r$ for the ideal $\af \cap \Oc(V)$. Then $f_1,
+  \dots, f_r$ generate $\af$ as an ideal of  $\Oc_P(V)$.
+
+  Indeed, choose $f \in \af \subseteq \Oc_P(V)$. Then there exists a
+  $b \in \Oc(V)$ with $b(P) \neq 0$ and $bf \in \Oc(V)$. Then $bf \in
+  \af \cap \Oc(V)$, so that
+  \begin{equation*}
+    bf=\sum_{i=1}^5{a_if_i}
+  \end{equation*}
+  so that
+  \begin{equation*}
+    f=\sum_{i=1}^r{\frac{a_i}{b}f_i}
+  \end{equation*}
+  and we are done.
+\end{proof}
