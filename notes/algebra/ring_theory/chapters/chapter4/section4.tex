@@ -297,10 +297,20 @@
   \end{align*}
   by the uniqueness of representation of the elements of $F(A)$
   identified as formal sums, $\Phi$ is well defined, and that
-  $\Phi=\phi$ on $A$. Moreover, since $A$ generates  $F(A)$ as a free
-  module, the values of $\Phi$ on $F(A)$ are uniquely determined. This
-  makes $\Phi$ the unique extension of $\phi$ on $A$ to all of
-  $F(A)$.
+  $\Phi=\phi$ on $A$.  Now, let $\Psi:F(A) \xrightarrow{} M$ an
+  $R$-module homomorphism extending $\phi$, taking $x=s_1a_1+\dots+s_na_n \xrightarrow{}
+  s_1\phi(a_1)+\dots+s_n\phi(a_n)$. Then $\Psi=\phi$ when restricted
+  to $A$ so $\Psi=\Phi$ on $A$. Now, since $A$ generates $F(A)$ as a
+  free module, let $x \in F(A)$ such that
+  $\Phi(x)=r_1\phi(a_1)+\dots+r_n\phi(a_n)$ and
+  $\Psi(x)=s_1\phi(a_1)+\dots+s_n\phi(a_n)$. Then
+  $\Phi-\Psi(x)=(r_1-s_1)\phi(a_1)+\dots+(r_n-s_n)\phi(a_n)$. By
+  definition of $\Phi$ and  $\Psi$, we have the preimage of $x$ under
+  $\Phi-\Psi$ is $x=(r_1-s_1)a_1+\dots+(r_n-s_n)a_n$ in $F(A)$. Since
+  $F(A)$ is free, then $r_i-s_i=0$, so $r_i-s_i$ for all $1 \leq i
+  \leq n$, and $\Phi-\Psi(x)=\Phi(x)-\Psi(x)=0$. That is
+  $\Phi(x)=\Psi(x)$ and $\Phi$ is the unique extension of $\phi$ from
+  $A$ to  $F(A)$.
 \end{proof}
 \begin{corollary}
 if $A=\{a_1, \dots, a_n\}$, then $F(A)$ is of rank $n$, and
