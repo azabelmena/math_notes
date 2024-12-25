@@ -1,0 +1,62 @@
+\documentclass[12pt, twoside]{book}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,graphicx,mathtools,hyperref}
+\usepackage{quiver}
+\usepackage{faktor}
+%\usepackage{wrapfig}
+\input{../../library/fonts/BlackboardBold}
+\input{../../library/fonts/MathCalligraphy}
+\input{../../library/fonts/MathFrak}
+\input{../../library/definitions}
+\input{../../library/styles}
+\input{../../library/greek}
+
+\counterwithin{chapter}{part}
+
+\title{Algebra}
+\author{Alec Zabel-Mena}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\part{Groups}
+
+\input{parts/group_theory/chapters/chapter1/chapter1.tex}
+\input{parts/group_theory/chapters/chapter2/chapter2.tex}
+\input{parts/group_theory/chapters/chapter3/chapter3.tex}
+\input{parts/group_theory/chapters/chapter4/chapter4.tex}
+
+\part{Rings and Fields}
+
+\input{parts/ring_theory/chapters/chapter1/chapter1.tex}
+\input{parts/ring_theory/chapters/chapter2/chapter2.tex}
+\input{parts/ring_theory/chapters/chapter3/chapter3.tex}
+\input{parts/ring_theory/chapters/chapter4/chapter4.tex}
+
+%\part{Vector Spaces}
+
+\part{Galois Theory}
+
+\input{parts/galois_theory/chapters/chapter1/chapter1.tex}
+
+\part{Modules}
+
+\input{parts/module_theory/chapters/chapter1/chapter1.tex}
+
+%\part{Commutative Algebra}
+
+%\part{Algebraic Curves}
+
+\nocite{*}
+
+\bibliography{references.bib}
+\bibliographystyle{ieeetr}
+
+\end{document}
