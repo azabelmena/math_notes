@@ -1,254 +1,255 @@
-\section{Automorphisms.}
+\section{Automorphisms}
+\label{section_4.4}
 
 \begin{definition}
-    Let $G$ be a group. An \textbf{automorphism} of $G$ is an isomorphism from
-    $G$ onto itself. We denote the set of all automorphisms of $G$ as $\Aut{G}$
-    and call it the \textbf{automorphism group} of $G$.
+  Let $G$ be a group. An \textbf{automorphism} of $G$ is an isomorphism from
+  $G$ onto itself. We denote the set of all automorphisms of $G$ as $\Aut{G}$
+  and call it the \textbf{automorphism group} of $G$.
 \end{definition}
 
-\begin{lemma}\label{4.4.1}
-    Let $G$ be a group, then  $\Aut{G}$ is a group.
+\begin{lemma}\label{lemma_4.4.1}
+  Let $G$ be a group, then  $\Aut{G}$ is a group.
 \end{lemma}
 \begin{proof}
-    Let $s,t \in \Aut{G}$. Notice then that $s,t \in A(G)$.
+  Let $s,t \in \Aut{G}$. Notice then that $s,t \in A(G)$.
 \end{proof}
 
-\begin{lemma}\label{4.4.2}
-    Let $G$ be a group and let  $H \unlhd G$ be a normal subgroup of $G$. Then
-    $G$ acts via conjugation on  $H$ as automorphisms. More preciesly, the map
-    $H \xrightarrow{} H$ given by $h \xrightarrow{} gh\inv{g}$ is an
-    automorphsim of $H$.
+\begin{lemma}\label{lemma_4.4.2}
+  Let $G$ be a group and let  $H \unlhd G$ be a normal subgroup of $G$. Then
+  $G$ acts via conjugation on  $H$ as automorphisms. More preciesly, the map
+  $H \xrightarrow{} H$ given by $h \xrightarrow{} gh\inv{g}$ is an
+  automorphsim of $H$.
 \end{lemma}
 \begin{proof}
-    We have tha the map $H \xrightarrow{} H$ given by $h \xrightarrow{}
-    gh\inv{g}$, for some $g \in G$ is onto since  $H \unlhd G$. Moreover, we
-    have that  $gh\inv{g}=gh'\inv{g}$ implies $h=h'$, by cancellation; so that
-    this map is 1--1 as well. Lastly, notice that
-    $ghh'\inv{g}=(gh\inv{g})(gh'\inv{g})$ which makes it an automorphism of $H$.
+  We have tha the map $H \xrightarrow{} H$ given by $h \xrightarrow{}
+  gh\inv{g}$, for some $g \in G$ is onto since  $H \unlhd G$. Moreover, we
+  have that  $gh\inv{g}=gh'\inv{g}$ implies $h=h'$, by cancellation; so that
+  this map is 1--1 as well. Lastly, notice that
+  $ghh'\inv{g}=(gh\inv{g})(gh'\inv{g})$ which makes it an automorphism of $H$.
 \end{proof}
 \begin{corollary}
-    The permutation representation of this action is a homomorphism of $G
-    \xrightarrow{} \Aut{H}$ with kernel $C(H)$. In particular, we have that
-    $\faktor{G}{C(H)}$ is isomorphic to some subgroup of $\Aut{H}$.
+  The permutation representation of this action is a homomorphism of $G
+  \xrightarrow{} \Aut{H}$ with kernel $C(H)$. In particular, we have that
+  $\faktor{G}{C(H)}$ is isomorphic to some subgroup of $\Aut{H}$.
 \end{corollary}
 \begin{proof}
-    Define the permutation representation $\psi:G \xrightarrow{} \Aut{H}$ given
-    by $g \xrightarrow{} \phi_g$, where $\phi_g:H \xrightarrow{} H$ is the
-    automorphism given by $\phi_g:h \xrightarrow{} gh\inv{g}$. Then $\psi$ is a
-    homomorphism, as  $\psi_g'\psi_g=\psi_{g'g}$. Moreover, we have
-    $\ker{\psi}=\{g \in G : \phi_g(h)=h\}=\{g \in G : gh\inv{g}=h\}=C(H)$.
-    Lastly, by the first isomorphism theorem, we have the following diagram
-    \[\begin{tikzcd}
-        G &&& {\faktor{G}{C(H)}} \\
-        \\
-        \\
-        &&& {\phi(H)}
-        \arrow["\psi", from=1-1, to=1-4]
-        \arrow["\phi", from=1-4, to=4-4]
-        \arrow[from=1-1, to=4-4]
-    \end{tikzcd}\]
-    which gives us the isomorphism.
+  Define the permutation representation $\psi:G \xrightarrow{} \Aut{H}$ given
+  by $g \xrightarrow{} \phi_g$, where $\phi_g:H \xrightarrow{} H$ is the
+  automorphism given by $\phi_g:h \xrightarrow{} gh\inv{g}$. Then $\psi$ is a
+  homomorphism, as  $\psi_g'\psi_g=\psi_{g'g}$. Moreover, we have
+  $\ker{\psi}=\{g \in G : \phi_g(h)=h\}=\{g \in G : gh\inv{g}=h\}=C(H)$.
+  Lastly, by the first isomorphism theorem, we have the following diagram
+  \[\begin{tikzcd}
+    G &&& {\faktor{G}{C(H)}} \\
+    \\
+    \\
+      &&& {\phi(H)}
+      \arrow["\psi", from=1-1, to=1-4]
+      \arrow["\phi", from=1-4, to=4-4]
+      \arrow[from=1-1, to=4-4]
+  \end{tikzcd}\]
+  which gives us the isomorphism.
 \end{proof}
 \begin{corollary}
-    If $K$ is a subgroup of  $G$, then  $K \simeq gK\inv{g}$ for any $g \in G$.
+  If $K$ is a subgroup of  $G$, then  $K \simeq gK\inv{g}$ for any $g \in G$.
 \end{corollary}
 \begin{corollary}
-    For any subgroup $H$ of  $G$, we have  $\faktor{N(H)}{C(H)}$ is isomorphic
-    to a subgroup of $\Aut{H}$, in particular, $\faktor{G}{Z(G)}$ is isomorphic
-    to a subgroup of $\Aut{G}$.
+  For any subgroup $H$ of  $G$, we have  $\faktor{N(H)}{C(H)}$ is isomorphic
+  to a subgroup of $\Aut{H}$, in particular, $\faktor{G}{Z(G)}$ is isomorphic
+  to a subgroup of $\Aut{G}$.
 \end{corollary}
 \begin{proof}
-    Notice that $H \unlhd N(H)$, so that by above $\faktor{N(H)}{C(H)}$ is
-    isomoprphic to a subgroup of $\Aut{H}$. Now take $H=G$, then $N(G)=G$ and
-    $C(G)=Z(G)$.
+  Notice that $H \unlhd N(H)$, so that by above $\faktor{N(H)}{C(H)}$ is
+  isomoprphic to a subgroup of $\Aut{H}$. Now take $H=G$, then $N(G)=G$ and
+  $C(G)=Z(G)$.
 \end{proof}
 
 \begin{definition}
-    Let $G$ be a group. We call conjugation by some $g \in G$ an \textbf{inner
-    autormorphism} of $G$. We denote the set of all inner automorphisms of $G$
-    by  $\Inn{G}$.
+  Let $G$ be a group. We call conjugation by some $g \in G$ an \textbf{inner
+  autormorphism} of $G$. We denote the set of all inner automorphisms of $G$
+  by  $\Inn{G}$.
 \end{definition}
 
-\begin{lemma}\label{4.4.3}
-    For any group $G$,  $\Inn{G} \leq \Aut{G}$.
+\begin{lemma}\label{lemma_4.4.3}
+  For any group $G$,  $\Inn{G} \leq \Aut{G}$.
 \end{lemma}
 \begin{corollary}
-    $\Inn{G} \simeq \faktor{G}{Z(G)}$.
+  $\Inn{G} \simeq \faktor{G}{Z(G)}$.
 \end{corollary}
 
-\begin{example}\label{}
-    \begin{enumerate}
-        \item[(1)] A group $G$ is Abelian if, and only if every inner
-            automorphism of  $G$ is trivial. Let  $H \unlhd G$ be Abelian, such
-            that  $H \not\subseteq Z(G)$. Then there exists a $g \in G$ such
-            that conjugation by $g$, restricted to $h$  (i.e. taking $\phi|_H$
-            where  $\phi:x \xrightarrow{} gx\inv{g}$, $x \in G$) is not an inner
-            automorphsim of $H$.
+\begin{example}\label{example_4.10}
+  \begin{enumerate}
+    \item[(1)] A group $G$ is Abelian if, and only if every inner
+      automorphism of  $G$ is trivial. Let  $H \unlhd G$ be Abelian, such
+      that  $H \not\subseteq Z(G)$. Then there exists a $g \in G$ such
+      that conjugation by $g$, restricted to $h$  (i.e. taking $\phi|_H$
+      where  $\phi:x \xrightarrow{} gx\inv{g}$, $x \in G$) is not an inner
+      automorphsim of $H$.
 
-        \item[(2)] Using above, consder the alternating group $A_4$, and
-            consider the Klein $4$-group $V_4$ as a subgroup of $A_4$ (writing
-            the elements of $V_4$ as even permutations). Now, let $g$ be any
-            $3$-cycle of  $A_4$, then conjugation by $g$ restricted to $V_4$ is
-            not an inner automorphism.
+    \item[(2)] Using above, consder the alternating group $A_4$, and
+      consider the Klein $4$-group $V_4$ as a subgroup of $A_4$ (writing
+      the elements of $V_4$ as even permutations). Now, let $g$ be any
+      $3$-cycle of  $A_4$, then conjugation by $g$ restricted to $V_4$ is
+      not an inner automorphism.
 
-        \item[(3)] $Z(\Hb)=\langle -1 \rangle$, so $\Inn{\Hb} \simeq V_4 \simeq
-            \faktor{\Z}{2\Z} \times \faktor{\Z}{2\Z}$.
+    \item[(3)] $Z(\Hb)=\langle -1 \rangle$, so $\Inn{\Hb} \simeq V_4 \simeq
+      \faktor{\Z}{2\Z} \times \faktor{\Z}{2\Z}$.
 
-        \item[(4)] $Z(D_8)=\langle r^2 \rangle$ so that $\Inn{D_8} \simeq V_4
-            \simeq \faktor{\Z}{2\Z} \times \faktor{\Z}{2\Z}$.
+    \item[(4)] $Z(D_8)=\langle r^2 \rangle$ so that $\Inn{D_8} \simeq V_4
+      \simeq \faktor{\Z}{2\Z} \times \faktor{\Z}{2\Z}$.
 
-        \item[(5)] For $n \geq 3$, $Z(S_n)=\langle (1) \rangle$, so that
-            $\Inn{S_n} \simeq S_n$.
+    \item[(5)] For $n \geq 3$, $Z(S_n)=\langle (1) \rangle$, so that
+      $\Inn{S_n} \simeq S_n$.
 
-        \item[(6)] If $H \simeq \faktor{\Z}{2\Z}$, since $H$ has elements of
-            order $1$ and $2$, we get $\Aut{H}=\langle e \rangle$. Then by
-            hypothesis, $N(H)=C(H)$. Moreover if $H \unlhd G$, then $H \leq
-            Z(G)$.
-    \end{enumerate}
+    \item[(6)] If $H \simeq \faktor{\Z}{2\Z}$, since $H$ has elements of
+      order $1$ and $2$, we get $\Aut{H}=\langle e \rangle$. Then by
+      hypothesis, $N(H)=C(H)$. Moreover if $H \unlhd G$, then $H \leq
+      Z(G)$.
+  \end{enumerate}
 \end{example}
 
 \begin{definition}
-    We call a subgroup $H$ of a group  $G$  \textbf{characteristic} in $G$ if
-    every automorphism of $G$ restricted to  $H$ is onto. That is $s(H)=H$ for
-    every $s \in \Aut{G}$. We write $H \Char{G}$
+  We call a subgroup $H$ of a group  $G$  \textbf{characteristic} in $G$ if
+  every automorphism of $G$ restricted to  $H$ is onto. That is $s(H)=H$ for
+  every $s \in \Aut{G}$. We write $H \Char{G}$
 \end{definition}
 
-\begin{lemma}\label{4.4.4}
-    The following are true for any group $G$ and  $H \leq G$.
-    \begin{enumerate}
-         \item[(1)] If $H \Char{G}$, then $H \unlhd{G}$.
+\begin{lemma}\label{lemma_4.4.4}
+  The following are true for any group $G$ and  $H \leq G$.
+  \begin{enumerate}
+    \item[(1)] If $H \Char{G}$, then $H \unlhd{G}$.
 
-         \item[(2)] If $H$ is the unique subgroup of a given order in  $G$, then
-              $H$ is characteristic in  $G$.
+    \item[(2)] If $H$ is the unique subgroup of a given order in  $G$, then
+      $H$ is characteristic in  $G$.
 
-          \item[(3)] If $K \leq H \unlhd G$ such that  $K \Char{H}$, then $K
-              \unlhd G$.
-    \end{enumerate}
+    \item[(3)] If $K \leq H \unlhd G$ such that  $K \Char{H}$, then $K
+      \unlhd G$.
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-    \begin{enumerate}
-        \item[(1)] Let $H \Char{G}$. Then for every $s \in \Aut{G}$, $s(H)=H$.
-            In particular, choose $s:G \xrightarrow{} G$ taking $x
-            \xrightarrow{} gx\inv{g}$. Then $gH\inv{g}=H$.
+  \begin{enumerate}
+    \item[(1)] Let $H \Char{G}$. Then for every $s \in \Aut{G}$, $s(H)=H$.
+      In particular, choose $s:G \xrightarrow{} G$ taking $x
+      \xrightarrow{} gx\inv{g}$. Then $gH\inv{g}=H$.
 
-        \item[(2)] Let $H$ be the unique subgroup of order $n$ in $G$. Since
-            automorphsims of $G$ preserve the order of subgroups, we have
-            $\ord{s(H)}=\ord{H}=n$, moreover since $s$ is 1--1 and onto, we get
-             $s(H)=H$, for any $s \in \Aut{G}$. Therefore $H \Char{G}$.
+    \item[(2)] Let $H$ be the unique subgroup of order $n$ in $G$. Since
+      automorphsims of $G$ preserve the order of subgroups, we have
+      $\ord{s(H)}=\ord{H}=n$, moreover since $s$ is 1--1 and onto, we get
+      $s(H)=H$, for any $s \in \Aut{G}$. Therefore $H \Char{G}$.
 
-         \item[(3)] Lastly, let $K \Char{H}$ where $K \leq H \unlhd G$. By
-             statement (1), we have our result.
-    \end{enumerate}
+    \item[(3)] Lastly, let $K \Char{H}$ where $K \leq H \unlhd G$. By
+      statement (1), we have our result.
+  \end{enumerate}
 \end{proof}
 
-\begin{theorem}\label{4.4.5}
-    The automorphism group of a cyclic group of order $n$ is isomorphic to the
-    unit group $U(\faktor{\Z}{n\Z})$.
+\begin{theorem}\label{lemma_4.4.5}
+  The automorphism group of a cyclic group of order $n$ is isomorphic to the
+  unit group $\Uc{(\faktor{\Z}{n\Z})}$.
 \end{theorem}
 \begin{proof}
-    Let $Z_n$ be a cyclic group of order $n$, such that $Z_n=\langle x \rangle$.
-    Let $\psi \in \Aut{Z_n}$, then $\psi:x \xrightarrow{} x^a$ for some $a \in
-    \faktor{\Z}{n\Z}$, since $\ord{x}=n$. Now we have that since $\psi$ is an
-    automorphism, it is uniquely determinde by $a$. Let $\psi_a$ be such an
-    automorphism. We also get that  $\psi_a:x \xrightarrow{} x^a$ preserves
-    order so that $\ord{x}=\ord{x^a}=n$ and by lemma \ref{2.3.6}, $(a,n)=1$.
-    Therefore we have a map $\Psi:\Aut{Z_n} \xrightarrow{} U(\faktor{\Z}{n\Z})$
-    taking $\psi_a \xrightarrow{} a$. We have that this map is 1--1 by above,
-    and moreover it is onto. Lastly, notice that
-    $\psi_a\psi_b(x)=\psi_a(x^b)=x^{ab}=\psi_{ab}(x)$ so $\Psi$ is a
-    homomorphism. Therefore we have an isomorphism of $\Aut{Z_n}$ onto
-    $U(\faktor{\Z}{n\Z})$.
+  Let $Z_n$ be a cyclic group of order $n$, such that $Z_n=\langle x \rangle$.
+  Let $\psi \in \Aut{Z_n}$, then $\psi:x \xrightarrow{} x^a$ for some $a \in
+  \faktor{\Z}{n\Z}$, since $\ord{x}=n$. Now we have that since $\psi$ is an
+  automorphism, it is uniquely determinde by $a$. Let $\psi_a$ be such an
+  automorphism. We also get that  $\psi_a:x \xrightarrow{} x^a$ preserves
+  order so that $\ord{x}=\ord{x^a}=n$ and by lemma \ref{lemma_2.3.6}, $(a,n)=1$.
+  Therefore we have a map $\Psi:\Aut{Z_n} \xrightarrow{} U(\faktor{\Z}{n\Z})$
+  taking $\psi_a \xrightarrow{} a$. We have that this map is 1--1 by above,
+  and moreover it is onto. Lastly, notice that
+  $\psi_a\psi_b(x)=\psi_a(x^b)=x^{ab}=\psi_{ab}(x)$ so $\Psi$ is a
+  homomorphism. Therefore we have an isomorphism of $\Aut{Z_n}$ onto
+  $U(\faktor{\Z}{n\Z})$.
 \end{proof}
 
-\begin{example}\label{}
-    Let $G$ be a group of order $pq$, where $p,q \in \Z^+$ are primes such that
-     $p \leq q$. Suppose that  $p \not{|} q-1$. If $Z(G) \neq \langle e
-     \rangle$, then $\faktor{G}{Z(G)}$ is cyclic Lagrange's theorem, which makes
-     $G$ cyclic.
+\begin{example}\label{example_4.11}
+  Let $G$ be a group of order $pq$, where $p,q \in \Z^+$ are primes such that
+  $p \leq q$. Suppose that  $p \not{|} q-1$. If $Z(G) \neq \langle e
+  \rangle$, then $\faktor{G}{Z(G)}$ is cyclic Lagrange's theorem, which makes
+  $G$ cyclic.
 
-     Now suppose that $Z(G)=\langle e \rangle$. Then if every nonidentity
-     element of $G$ has order  $p$, by the class equation, we have that
-     $pq=1+kq$ for some  $k \in \Z^+$. Now,  $q|pq$ and  $q|kq$, but  $q \not{|}
-     1$; so there must be an element of $G$ of order $q$. Let $x$ be such
-     element and let  $H=\langle x \rangle$. Then $[G:H]=p$ which is the
-     smallest prime dividing $\ord{G}$. By lemma \ref{4.2.2}, we get that $H
-     \unlhd G$. This makes  $C(H)=H$ so that $\faktor{G}{H} \simeq
-     \faktor{N(H)}{H}$ is a group of order $p$, isomorphic to a subgroup of
-     $\Aut{H}$, by the corllary to lemma \ref{4.4.2}. Now, by theorem
-     \ref{4.4.5}, we get that $\ord{(\Aut{H})}=\phi(q)=q-1$, where $phi$ is
-     Euler's Totient function. This makes $p|q-1$ which cannot happen. Therefore
-      $Z(G)$ is nontrivial and $G$ must be Abelian.
+  Now suppose that $Z(G)=\langle e \rangle$. Then if every nonidentity
+  element of $G$ has order  $p$, by the class equation, we have that
+  $pq=1+kq$ for some  $k \in \Z^+$. Now,  $q|pq$ and  $q|kq$, but  $q \not{|}
+  1$; so there must be an element of $G$ of order $q$. Let $x$ be such
+  element and let  $H=\langle x \rangle$. Then $[G:H]=p$ which is the
+  smallest prime dividing $\ord{G}$. By lemma \ref{lemma_4.2.2}, we get that $H
+  \unlhd G$. This makes  $C(H)=H$ so that $\faktor{G}{H} \simeq
+  \faktor{N(H)}{H}$ is a group of order $p$, isomorphic to a subgroup of
+  $\Aut{H}$, by the corllary to lemma \ref{lemma_4.4.2}. Now, by theorem
+  \ref{theorem_4.4.5}, we get that $\ord{(\Aut{H})}=\phi(q)=q-1$, where $phi$ is
+  Euler's Totient function. This makes $p|q-1$ which cannot happen. Therefore
+  $Z(G)$ is nontrivial and $G$ must be Abelian.
 \end{example}
 
 
-\begin{theorem}\label{4.4.6}
-    The following are true:
-    \begin{enumerate}
-        \item[(1)] If $p>2$ is prime and $n \in \Z^+$, then the automorphism
-            group of a cyclic group is order $\phi(p)=p-1$ where $\phi$ is
-            Euler's Totient function.
+\begin{theorem}\label{theorem_4.4.6}
+  The following are true:
+  \begin{enumerate}
+    \item[(1)] If $p>2$ is prime and $n \in \Z^+$, then the automorphism
+      group of a cyclic group is order $\phi(p)=p-1$ where $\phi$ is
+      Euler's Totient function.
 
-        \item[(2)] For all $n \geq 3$, the automorphism group of a cyclic group
-            of order  $2^n$ is isomorphic to  $\faktor{\Z}{2\Z} \times
-            \faktor{\Z}{2^{n-2}\Z}$. Moreover, it has a cyclic subgroup of index
-            $2$.
+    \item[(2)] For all $n \geq 3$, the automorphism group of a cyclic group
+      of order  $2^n$ is isomorphic to  $\faktor{\Z}{2\Z} \times
+      \faktor{\Z}{2^{n-2}\Z}$. Moreover, it has a cyclic subgroup of index
+      $2$.
 
-        \item[(3)] If $p \in \Z^+$ is prime and $V$ is an Abelian group such
-            that  $v^p=0$ for all $v \in V$. If  $\ord{V}=p^n$, then $V$ is an
-            $n$-dimensional vector space over the field  $\F_p$. Moreover the
-            automorphisms of $V$ are nonsingular linear transformations from $V$
-            onto itself and  $\Aut{V} \simeq GL(n,\F_p)$.
+    \item[(3)] If $p \in \Z^+$ is prime and $V$ is an Abelian group such
+      that  $v^p=0$ for all $v \in V$. If  $\ord{V}=p^n$, then $V$ is an
+      $n$-dimensional vector space over the field  $\F_p$. Moreover the
+      automorphisms of $V$ are nonsingular linear transformations from $V$
+      onto itself and  $\Aut{V} \simeq GL(n,\F_p)$.
 
-        \item[(4)] For all $n \neq 6$,  $\Aut{S_n}=\Inn{S_n} \simeq S_n$. If
-            $n=6$, then $[\Aut{S_6}:\Inn{S_6}]=2$
+    \item[(4)] For all $n \neq 6$,  $\Aut{S_n}=\Inn{S_n} \simeq S_n$. If
+      $n=6$, then $[\Aut{S_6}:\Inn{S_6}]=2$
 
-        \item[(5)] Notice that $D_8 \unlhd D_{16}$. Then $\Inn{D_{16}} \simeq
-            \Aut{D_8}$ and notice that $Z(D_{16})= \langle r^4 \rangle$. So
-            $\Aut{D_8} \simeq \faktor{D_{16}}{\langle r^4 \rangle} \simeq D_8$.
-            Therefore $\ord{{(\Aut{D_8})}}=8$.
+    \item[(5)] Notice that $D_8 \unlhd D_{16}$. Then $\Inn{D_{16}} \simeq
+      \Aut{D_8}$ and notice that $Z(D_{16})= \langle r^4 \rangle$. So
+      $\Aut{D_8} \simeq \faktor{D_{16}}{\langle r^4 \rangle} \simeq D_8$.
+      Therefore $\ord{{(\Aut{D_8})}}=8$.
 
-        \item[(6)] Notice that $V_4 \Char D_8$ and that $D_8 \Char S_4$, so we
-            get that $V_4 \Char S_4$
+    \item[(6)] Notice that $V_4 \Char D_8$ and that $D_8 \Char S_4$, so we
+      get that $V_4 \Char S_4$
 
-        \item[(7)] Notice that $\langle r \rangle$ is the unique subgroup of
-            order $n$ of  $D_{2n}$, and so $\langle r \rangle \Char D_{2n}$.
-    \end{enumerate}
+    \item[(7)] Notice that $\langle r \rangle$ is the unique subgroup of
+      order $n$ of  $D_{2n}$, and so $\langle r \rangle \Char D_{2n}$.
+  \end{enumerate}
 \end{theorem}
 
-\begin{example}\label{}
-    Suppose that $G$ is a group of order  $45=3^25$ with a normal subgroup $P$
-    of order $3^2$. We get that  $\faktor{G}{C(P)} \simeq P'$, where $P' \leq
-    \Aut{P}$, and $\ord{(\Aut{P})}=6$ or $\ord{(\Aut{P})}=48$. Since $P$ has
-    order the square of a prime,  $P$ must be Abelian so taht  $P \leq C(P)$.
-    Then $\ord{C(P)}$ is divisible by $9$ so that $\ord {\faktor{G}{C(P)}}=1$ or
-    $\ord{\faktor{G}{C(P)}}=5$. We then get that it must be the former, so that
-    $C(P)=G$ and $P \leq Z(G)$. Since $\faktor{G}{Z(G)}$ is cyclic, $G$ must be
-    Abelian.
+\begin{example}\label{example_4.12}
+  Suppose that $G$ is a group of order  $45=3^25$ with a normal subgroup $P$
+  of order $3^2$. We get that  $\faktor{G}{C(P)} \simeq P'$, where $P' \leq
+  \Aut{P}$, and $\ord{(\Aut{P})}=6$ or $\ord{(\Aut{P})}=48$. Since $P$ has
+  order the square of a prime,  $P$ must be Abelian so taht  $P \leq C(P)$.
+  Then $\ord{C(P)}$ is divisible by $9$ so that $\ord {\faktor{G}{C(P)}}=1$ or
+  $\ord{\faktor{G}{C(P)}}=5$. We then get that it must be the former, so that
+  $C(P)=G$ and $P \leq Z(G)$. Since $\faktor{G}{Z(G)}$ is cyclic, $G$ must be
+  Abelian.
 \end{example}
 
-\begin{lemma}\label{4.4.7}
-    For any group $G$,  $\Inn{G} \unlhd \Aut{G}$.
+\begin{lemma}\label{lemma_4.4.7}
+  For any group $G$,  $\Inn{G} \unlhd \Aut{G}$.
 \end{lemma}
 \begin{proof}
-    We have that $\Inn{G} \leq \Aut{G}$. Now, let $s \in \Aut{G}$, and consider
-    the map $\phi_g:x \xrightarrow{} gx\inv{g}$ of conjugation by some $g \in G$.
-    Then we have $s\phi_g\inv{s}(x)=s(\phi_g(\inv{s}(x)))=s(g\inv{s}(x)\inv{g})=
-    s(g)x\inv{s}(g)$ So that $s(\Inn{G})\inv{s} \subseteq \Inn{G}$.
+  We have that $\Inn{G} \leq \Aut{G}$. Now, let $s \in \Aut{G}$, and consider
+  the map $\phi_g:x \xrightarrow{} gx\inv{g}$ of conjugation by some $g \in G$.
+  Then we have $s\phi_g\inv{s}(x)=s(\phi_g(\inv{s}(x)))=s(g\inv{s}(x)\inv{g})=
+  s(g)x\inv{s}(g)$ So that $s(\Inn{G})\inv{s} \subseteq \Inn{G}$.
 \end{proof}
 
 \begin{definition}
-    Let $G$ be a group. We call the factor group  $\faktor{\Aut{G}}{\Inn{G}}$
-    the \textbf{outer automorphism group} of $G$.
+  Let $G$ be a group. We call the factor group  $\faktor{\Aut{G}}{\Inn{G}}$
+  the \textbf{outer automorphism group} of $G$.
 \end{definition}
 
-\begin{lemma}\label{4.4.8}
-    Let $G$ be Abelian of order $pq$, where $p,q \in \Z^+$ are distinct primes.
-    Then $G$ is cyclic.
+\begin{lemma}\label{lemma_4.4.8}
+  Let $G$ be Abelian of order $pq$, where $p,q \in \Z^+$ are distinct primes.
+  Then $G$ is cyclic.
 \end{lemma}
 \begin{proof}
-    By Cauchy's theorem, we have that $p|pq$ and  $q|pq$, so there exist
-    elements  $x,y \in G$ such that  $\ord{x}=p$ and $\ord{y}=q$. Then we have
-    that $((xy)^p)^q=(xy)^{pq}=(x^p)^q(y^q)^p=e$ so that $\ord{xy}=pq$ (since
-    $p$ and $q$ are prime, $pq$ is the smalles such integer for which
-    $(xy)^{pq}=e$). Then we have that $\ord{G}=\ord{xy}$. Therefore $G$
+  By Cauchy's theorem, we have that $p|pq$ and  $q|pq$, so there exist
+  elements  $x,y \in G$ such that  $\ord{x}=p$ and $\ord{y}=q$. Then we have
+  that $((xy)^p)^q=(xy)^{pq}=(x^p)^q(y^q)^p=e$ so that $\ord{xy}=pq$ (since
+  $p$ and $q$ are prime, $pq$ is the smalles such integer for which
+  $(xy)^{pq}=e$). Then we have that $\ord{G}=\ord{xy}$. Therefore $G$
 \end{proof}
