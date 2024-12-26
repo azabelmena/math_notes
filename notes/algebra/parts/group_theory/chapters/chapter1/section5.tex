@@ -63,8 +63,8 @@ to infer properties of one group from the other.
       $ts\inv{t} \in A(T)$. Therefore, we get $\phi$ is an isomorphism
       form  $A(S)$ to $A(T)$. This makes $A(S) \simeq A(T)$.
 
-      On the other hand, if  $A(S) \simeq A(T)$, then $\ord{A(S)}=
-      \ord{A(T)}=n!$, for some $n \in \Z^+$, this implies that
+      On the other hand, if  $A(S) \simeq A(T)$, then $|A(S)|=
+      |A(T)|=n!$, for some $n \in \Z^+$, this implies that
       $|S|=|T|=n$.
   \end{enumerate}
 \end{example}
@@ -113,7 +113,7 @@ to infer properties of one group from the other.
 \begin{proof}
   Let $G \simeq H$,  via the isomorphism  $\phi$. Then since $\phi$ is  $1-1$
   and onto, every element of  $G$ must get mapped to every element of  $H$.
-  This makes  $\ord{G}=\ord{H}$.
+  This makes $|G|=|H|$.
 
   Now, suppose $G$ is Abelian, then for every  $a, b \in G$,  $ab=ba$. Thus
   $\phi(ab)=\phi(ba)$. This makes $\phi(a)\phi(b)=\phi(b)\phi(a)$, since $a,b$
@@ -146,16 +146,16 @@ to infer properties of one group from the other.
       Abelian.
 
     \item[(2)] $(\R,+) \not\simeq (\R^*, \cdot)$ since in $\R^*$,
-      $\ord{-1}=2$, while there are no elements of order $2$ in  $\R^+$.
+      $|-1|=2$, while there are no elements of order $2$ in  $\R^+$.
   \end{enumerate}
 \end{example}
 
 \begin{lemma}\label{lemma_1.5.4}
-  Let $G$ and  $H$ be groups with representations; let  $G=\vbrack{S : R_1,
-  \dots R_n}$ and $H=\vbrack{T : R_1', \dots, R_n'}$. Then if the relations
-  $R_i$ is satisfied by the elements of $H$, for each  $1 \leq i \leq n$, then
-  there exits a unique homomorphism  $\phi$ definied by  $\phi:R_i \rightarrow
-  R_i'$.
+  Let $G$ and  $H$ be groups with representations; let  $G=\langle S : R_1,
+  \dots R_n \rangle$ and $H=\langle T : R_1', \dots, R_n'\rangle$. Then if the
+  relations $R_i$ is satisfied by the elements of $H$, for each  $1 \leq i
+  \leq n$, then there exits a unique homomorphism  $\phi$ definied by
+  $\phi:R_i \rightarrow R_i'$.
 \end{lemma}
 \begin{remark}
   We defer the proof of this lemma.
@@ -163,12 +163,12 @@ to infer properties of one group from the other.
 
 \begin{example}\label{example_1.14}
   \begin{enumerate}
-    \item[(1)] Take $D_{2n}=\vbrack{r,t : r^n=t^2=e, rt=t\inv{r}}$, and take
-      $X_{2k}=\vbrack{a,b : a^k=b^2=e, ab=b\inv{a}}$. If $n=km$ for  $m
+    \item[(1)] Take $D_{2n}=\langle r,t : r^n=t^2=e, rt=t\inv{r} \rangle$, and
+      take $X_{2k}=\langle a,b : a^k=b^2=e, ab=b\inv{a} \rangle$. If $n=km$ for  $m
       \in \Z^+$, then  $a^n=(a^k)^m=e$, so the relations of $D_{2n}$ are
       satisfied by the generators of $X_{2n}$. Thus take homomorhism
       $\phi:D_{2n} \rightarrow X_{2k}$ by $\phi:r,t \rightarrow a,b$.
-      Since $X_{2k}=\vbrack{a,b}$, $\phi$ is onto.  $\phi$ is $1-1$
+      Since $X_{2k}=\langle a, b \rangle$, $\phi$ is onto.  $\phi$ is $1-1$
       if, and only if  $n=k$. So, in general, $D_{2n} \not\simeq X_{2k}$.
 
     \item[(2)] Consider $D_6$ and  $S_3$. Let $a=(1 \ 2 \ 3)$ and $b=(1 \
@@ -176,7 +176,7 @@ to infer properties of one group from the other.
       3)(1 \ 2)=(1 \ 2)(3 \ 2 \ 1)=b\inv{a}$. Thus take $\phi:D_6
       \rightarrow S_3$ by $\phi:r,t \rightarrow (1 \ 2 \ 3), (1 \ 2)$. By
       the above reasoning,  $\phi$ is onto. Now since
-      $\ord{D_6}=\ord{S_3}=6$, $\phi$ is  $1-1$ and so  $\phi$ is an
+      $|D_6|=|S_3|=6$, $\phi$ is  $1-1$ and so  $\phi$ is an
       isomorphism and  $D_6 \simeq S_3$.
   \end{enumerate}
 \end{example}
@@ -202,7 +202,7 @@ to infer properties of one group from the other.
       $S_m \simeq S_n$ if, and only if  $n=m$, for $n,m \in \Z^+$.
 
     \item[(5)] $D_{24} \not\simeq S_4$. Notice $r \in D_{24}=D_{2 \cdot 12}$
-      has $\ord{r}=12$. Now, any permutation in $S_4$ is either a
+      has $|r|=12$. Now, any permutation in $S_4$ is either a
       $4$-cycle, a  $3$-cycle, or a product of two  $2$-cycles, thus every
       $s \in S_4$ has $|s| \leq 4$, and so there are no elements of
       order $12$ in  $S_4$.
@@ -217,7 +217,7 @@ We finish with some results.
 \begin{proof}
   Take the map $A \times B \rightarrow B \times A$ by taking $(a,b)
   \rightarrow (b,a)$. This map is $1-1$ and onto, for $(b,a)=(b',a')$ implies
-  $a=a'$ and  $b=b'$, and  $\ord{A \times B}=\ord{B \times A}$. Lastly,
+  $a=a'$ and  $b=b'$, and  $|A \times B|=|B \times A|$. Lastly,
   notice that $(bb',aa')=(b,a)(b'a')$, which makes it a homomorphism. Thus
   there is an isomorphism from  $A \times B$ onto  $B \times A$.
 \end{proof}

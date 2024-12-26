@@ -39,44 +39,45 @@ algebra such as matrix multiplication and determinants.
   Let $F$ be a field. We define  $F^{n \times n}$ to be the field of all $n
   \times n$ matrices with entries in $F$. We define the \textbf{general linear
   group} to be $GL(n,F)=\{A \in F^{n \times n} : \det{A} \neq 0\}$. We define
-  the \textbf{special linear group} to be $SL(n,F)=\{A \in F^{n \times n} :
+  the \textbf{special linear group} to be $\SL{(n,F)}=\{A \in F^{n \times n} :
   \det{A}=1\}$. If $F=\faktor{\Z}{p\Z}$, we write
-  $GL(n,\faktor{\Z}{p\Z})=GL(n,p)$ and $SL(n,\faktor{\Z}{p\Z})=SL(n,p)$.
+  $\GL{(n,\faktor{\Z}{p\Z})}=\GL{(n,p)}$ and
+  $\SL{(n,\faktor{\Z}{p\Z})}=\SL{(n,p)}$.
 \end{definition}
 
 \begin{theorem}\label{theorem_1.4.1}
-  For any field $F$, and  $n \in \Z^+$,  $GL(F,n)$ forms a group under matrix
+  For any field $F$, and  $n \in \Z^+$, $\GL{(n,F)}$ forms a group under matrix
   multiplication.
 \end{theorem}
 \begin{proof}
-  Let $A,B \in GL(F,n)$ be $n \times n$ matrices. Then  $\det{A} \neq 0$ and
+  Let $A,B \in \GL{(n,F)}$ be $n \times n$ matrices. Then  $\det{A} \neq 0$ and
   $\det{B} \neq 0$, so $det{AB}=\det{A}\det{B} \neq 0$, by a well known
-  property of determinants. So $GL(F,n)$ is closed. Now since matric
-  multiplication is associative, then  $GL(F,n)$ satisfies the associative
+  property of determinants. So $\GL{(n,F)}$ is closed. Now since matric
+  multiplication is associative, then $\GL{(n,F)}$ satisfies the associative
   law.
 
   Now consider the $n \times n$ identity matrix $I$, we have for any $A \in
-  GL(F,n)$, $AI=IA=A$, moreover,  $\det{I}=1 \neq 0$ making $I \in GL(F,n)$.
-  Likewise, since for $A \in GL(F,n)$, $\det{A} \neq 0$, $A$ is invertible, by
-  well known properties of matrices, so  $\inv{A}$ exists, and
-  $\det{\inv{A}}=\det{A} \neq 0$. Thus $\inv{A} \in GL(F,n)$ and since
+  \GL{(n,F)}$, $AI=IA=A$, moreover,  $\det{I}=1 \neq 0$ making $I \in
+  \GL{(n,F)}$. Likewise, since for $A \in \GL{(n,F)}$, $\det{A} \neq 0$, $A$ is
+  invertible, by well known properties of matrices, so  $\inv{A}$ exists, and
+  $\det{\inv{A}}=\det{A} \neq 0$. Thus $\inv{A} \in \GL{(n,F)}$ and since
   $A\inv{A}=\inv{A}A=I$, this makes $\inv{A}$ the inverse of $A$.
 \end{proof}
 \begin{corollary}
-  $SL(F,n)$ forms a group under matrix multiplication.
+  $\SL{(n,F)}$ forms a group under matrix multiplication.
 \end{corollary}
 \begin{proof}
-  Notice that $SL(F,n) \subseteq GL(F,n)$, so $SL(F,n)$ inherits closure (and
-  associativity). Now, for $A \in SL(F,n)$, $A \in GL(F,n)$, so $\inv{A}$
-  exists. Moreover, $\det{\inv{A}}=\det{A}=1$, making $\inv{A} \in SL(F,n)$.
-  This also implies that $I \in SL(F,n)$.
+  Notice that $\SL{(n,F)} \subseteq \GL(n,F)$, so $\SL{(n,F)}$ inherits closure (and
+  associativity). Now, for $A \in \SL{(n,F)}$, $A \in \GL{(n,F)}$, so $\inv{A}$
+  exists. Moreover, $\det{\inv{A}}=\det{A}=1$, making $\inv{A} \in \SL{(n,F)}$.
+  This also implies that $I \in \SL{(n,F)}$.
 \end{proof}
 
 \begin{example}\label{example_1.10}
   \begin{enumerate}
     \item[(1)]
       \begin{equation*}
-        GL(2,2)=\Big{\{}
+        \GL{(2,2)}=\Big{\{}
           \begin{pmatrix}
             1   &   0   \\
             0   &   1   \\
@@ -107,7 +108,7 @@ algebra such as matrix multiplication and determinants.
       consecutively we find the orders to be:  $|I|=1$, $|A|=2$,
       $|B|=2$, $|C|=3$, $|D|=3$, and $|E|=2$.
 
-    \item[(2)] Consider $GL(2,2)$, and considering the labeling of the
+    \item[(2)] Consider $\GL{(2,2)}$, and considering the labeling of the
       above  matrix, we compute the Cayeley table to be:
       \begin{equation*}
         \begin{tabular}{c | c c c c c c}
@@ -121,8 +122,8 @@ algebra such as matrix multiplication and determinants.
           E & E & D &C  & B & A & I \\
         \end{tabular}
       \end{equation*}
-      which is not symmetirc, hence $GL(2,2)$ is not Abelian. In general, for $n,
-      p \in \Z^+$ and $p$ prime, for  $A,B \in GL(n,p)$ we have
+      which is not symmetirc, hence $\GL{(2,2)}$ is not Abelian. In general, for $n,
+      p \in \Z^+$ and $p$ prime, for  $A,B \in \GL{(n,p)}$ we have
       \begin{equation*}
         \begin{pmatrix}
           A   &   0   \\
@@ -163,22 +164,22 @@ algebra such as matrix multiplication and determinants.
         \end{pmatrix}
       \end{equation*}
       if, and only if $AB=BA$, which is in general, not true for matrices. So
-      $GL(n,p)$ is not necesarrily Abelian.
+      $\GL{(n,p)}$ is not necesarrily Abelian.
   \end{enumerate}
 \end{example}
 
-Now, we would like to observe the order of the group $GL(n,p)$, the order of
-$SL(n,p)$ will be derived later.
+Now, we would like to observe the order of the group $\GL{(n,p)}$, the order of
+$\SL{(n,p)}$ will be derived later.
 
 \begin{example}
   \begin{enumerate}
     \item[(1)] We have that if $F$ is a field with  $|F|=p$, then
       $|\GL(n,F)|<p^{n^2}$, for, notice for any $A \in F^{n \times n}$,
       there are $n^2$ entries, and  $p$ choices for each entry, thus
-      $\ord {F^{n \times n}}=n^2$, now, by definition,  $GL(n,F)$ excludes
+      $|F^{n \times n}|=n^2$, now, by definition, $\GL{(n,F)}$ excludes
       those with $\det=0$, thus we get the result.
 
-    \item[(2)] Let $A \in GL(2,2)$ where:
+    \item[(2)] Let $A \in \GL{(2,2)}$ where:
       \begin{equation*}
         A=\begin{pmatrix}
           a   &   b   \\
@@ -251,10 +252,10 @@ infinite.
   of infinite order.
 \end{theorem}
 \begin{proof}
-  We show by contrapositives. Suppose that $F$ is finite with  $\ord{F}=k$.
+  We show by contrapositives. Suppose that $F$ is finite with  $|F|=k$.
   Then by the same argument of theorem \ref{theorem_1.4.2}, we find there are
   $\prod{(k^n-k^j)}$ matrices $A \in \GL(n,F)$. Any additional elements
-  contradict this result, and so $\orf{GL(n,F)}=\prod{(k^n-k^j)}$.
+  contradict this result, and so $|GL(n,F)|=\prod{(k^n-k^j)}$.
 
   On the otherhand, if $|\GL(n,F)|=k$ then there are $k$ $n \times n$
   matrices over  $F$ with $\det \neq 0$. Now, if  $F$ were not finite, then
@@ -319,10 +320,10 @@ We now introduce a seperate group from the general and special linear groups.
   $H(F)$ is non-Abelian.
 \end{corollary}
 \begin{corollary}
-  $\ord{H(F)}=(\ord{F})^3$.
+  $|H(F)|=(|F|)^3$.
 \end{corollary}
 \begin{proof}
-  Let $\ord{F}=k$, then we have $n$ choices for  $a$,  $b$, and  $c$, hence
+  Let $|F|=k$, then we have $n$ choices for  $a$,  $b$, and  $c$, hence
   $n^3$ choices for an arbitrary matrix in  $H(F)$.
 \end{proof}
 \begin{corollary}

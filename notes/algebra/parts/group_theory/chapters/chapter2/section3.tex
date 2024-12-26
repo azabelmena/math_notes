@@ -23,7 +23,7 @@
   If $G$ is a cyclic group, then  $G$ is Abelian.
 \end{lemma}
 \begin{proof}
-  Let $G=\vbrack{g}$ and for any $m,n \in \Z^+$. Then
+  Let $G=\langle g \rangle$ and for any $m,n \in \Z^+$. Then
   $g^mg^n=g^{m+n}=g^{n+m}=g^mg^n$.
 \end{proof}
 
@@ -87,9 +87,9 @@
   $s,t \in \Z^+$,  $g^{s-t}=e$, so $n|s-t$, that is  $s \equiv t \mod{n}$.
   Thus $\phi(g^s)=\phi(g^t)$. This makes $\phi$ well defined.
 
-  Now, by definition, every element of  $\vbrack{h}$ is of the form
+  Now, by definition, every element of  $\langle h \rangle$ is of the form
   $h^k=\phi(g^k)$ for some $k \in \N$, this makes  $\phi$ onto. Since  $\phi$
-  is onto, and  $\ord{G}=\ord{H}$ we get that $\phi$ is  $1-1$, and so an
+  is onto, and  $|G|=|H|$ we get that $\phi$ is  $1-1$, and so an
   isomorphism.
 \end{proof}
 \begin{corollary}
@@ -216,14 +216,14 @@
   $g^r=g^{k-qd}=g^k(g^d)^{-q}$. Since $g^k,g^d \in K$, by the minimality of
   $d$, we must have  $r=0$. So $k=qd$, this make $g^k=(g^d)^q \in
   \langle g^d \rangle$ and hence $K \leq \langle g^d \rangle$. Thus $K$ is
-  cyclic. Moreover, if $\ord{g}=n$, and if $d>n$, then by the division theorem
+  cyclic. Moreover, if $|g|=n$, and if $d>n$, then by the division theorem
   $d \equiv r \mod{n}$, hence there are  $n$ subgroups of $\langle g
   \rangle$.
 
   Now, if $\langle g \rangle$ is infinite, and if $\langle g^m
   \rangle=\langle g^n \rangle$, then $g^m=g^n$, so $g^{m-n}=e$, implying that
-  $g$ has finite order; hence $\vbrack{g}$ has finite order. This cannot happen,
-  so  $\langle g^m \rangle \neq \langle g^n \rangle$. Morevoer, we get
+  $g$ has finite order; hence $\langle g \rangle$ has finite order. This cannot
+  happen, so  $\langle g^m \rangle \neq \langle g^n \rangle$. Morevoer, we get
   $\langle g^m \rangle=\langle g^{-m} \rangle$, so $\langle g^m
   \rangle=\langle g^{|m|} \rangle$.
 

@@ -45,7 +45,7 @@
 \end{definition}
 \begin{remark}
   By the above corollaries, we have that if $G$ is finite, then
-  $[G:H]=\frac{\ord{G}}{\ord{H}}$.
+  $[G : H]=\frac{|H|}{|H|}$.
 \end{remark}
 
 \begin{lemma}\label{lemma_3.3.2}
@@ -103,7 +103,7 @@
       \begin{equation*}
         \langle t \rangle \unlhd \langle t,r^2 \rangle \unlhd D_8
       \end{equation*}
-      but $\vbrack{t}$ is not normal in $ D_8$, for $(rt)t(rt)=r^2t \neq
+      but $\langle t \rangle$ is not normal in $ D_8$, for $(rt)t(rt)=r^2t \neq
       t$, so $N(\langle t \rangle) \neq D_8$.
   \end{enumerate}
 \end{example}
@@ -143,7 +143,7 @@ For some nonexamples, we have:
 \end{example}
 
 \begin{theorem}[Cauchy]\label{theorem_3.3.4}
-  If $G$ is a finite group, and  $p \divides \ord{G}$ for some prime $p$, then $G$
+  If $G$ is a finite group, and  $p \divides |G|$ for some prime $p$, then $G$
   contains an element of order  $p$.
 \end{theorem}
 
@@ -167,9 +167,9 @@ For some nonexamples, we have:
   in $H$ is the same as the number of left cosets of  $K$ in  $H$. By
   Lagrange's thereorem, we then have:
   \begin{equation*}
-    [H:K]=[H: H \cap K]=\frac{\ord{H}}{\ord{H \cap K}}
+    [ H : K ]=[ H : H \cap K ]-\frac{|H|}{|H \cap K|}
   \end{equation*}
-  Then, noticing that there are $\ord{K}$ elements in each coset $hK$, gives
+  Then, noticing that there are $||K$ elements in each coset $hK$, gives
   the result.
 \end{proof}
 

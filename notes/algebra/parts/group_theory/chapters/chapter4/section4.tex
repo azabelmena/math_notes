@@ -134,7 +134,7 @@
 
     \item[(2)] Let $H$ be the unique subgroup of order $n$ in $G$. Since
       automorphsims of $G$ preserve the order of subgroups, we have
-      $\ord{s(H)}=\ord{H}=n$, moreover since $s$ is 1--1 and onto, we get
+      $|s(H)|=|H|=n$, moreover since $s$ is 1--1 and onto, we get
       $s(H)=H$, for any $s \in \Aut{G}$. Therefore $H \Char{G}$.
 
     \item[(3)] Lastly, let $K \Char{H}$ where $K \leq H \unlhd G$. By
@@ -149,10 +149,10 @@
 \begin{proof}
   Let $Z_n$ be a cyclic group of order $n$, such that $Z_n=\langle x \rangle$.
   Let $\psi \in \Aut{Z_n}$, then $\psi:x \xrightarrow{} x^a$ for some $a \in
-  \faktor{\Z}{n\Z}$, since $\ord{x}=n$. Now we have that since $\psi$ is an
+  \faktor{\Z}{n\Z}$, since $|x|=n$. Now we have that since $\psi$ is an
   automorphism, it is uniquely determinde by $a$. Let $\psi_a$ be such an
   automorphism. We also get that  $\psi_a:x \xrightarrow{} x^a$ preserves
-  order so that $\ord{x}=\ord{x^a}=n$ and by lemma \ref{lemma_2.3.6}, $(a,n)=1$.
+  order so that $|x|=|x^a|=n$ and by lemma \ref{lemma_2.3.6}, $(a,n)=1$.
   Therefore we have a map $\Psi:\Aut{Z_n} \xrightarrow{} U(\faktor{\Z}{n\Z})$
   taking $\psi_a \xrightarrow{} a$. We have that this map is 1--1 by above,
   and moreover it is onto. Lastly, notice that
@@ -172,11 +172,11 @@
   $pq=1+kq$ for some  $k \in \Z^+$. Now,  $q|pq$ and  $q|kq$, but  $q \not{|}
   1$; so there must be an element of $G$ of order $q$. Let $x$ be such
   element and let  $H=\langle x \rangle$. Then $[G:H]=p$ which is the
-  smallest prime dividing $\ord{G}$. By lemma \ref{lemma_4.2.2}, we get that $H
+  smallest prime dividing $|G|$. By lemma \ref{lemma_4.2.2}, we get that $H
   \unlhd G$. This makes  $C(H)=H$ so that $\faktor{G}{H} \simeq
   \faktor{N(H)}{H}$ is a group of order $p$, isomorphic to a subgroup of
   $\Aut{H}$, by the corllary to lemma \ref{lemma_4.4.2}. Now, by theorem
-  \ref{theorem_4.4.5}, we get that $\ord{(\Aut{H})}=\phi(q)=q-1$, where $phi$ is
+  \ref{theorem_4.4.5}, we get that $|\Aut{H}|=\phi(q)=q-1$, where $phi$ is
   Euler's Totient function. This makes $p|q-1$ which cannot happen. Therefore
   $Z(G)$ is nontrivial and $G$ must be Abelian.
 \end{example}
@@ -195,7 +195,7 @@
       $2$.
 
     \item[(3)] If $p \in \Z^+$ is prime and $V$ is an Abelian group such
-      that  $v^p=0$ for all $v \in V$. If  $\ord{V}=p^n$, then $V$ is an
+      that  $v^p=0$ for all $v \in V$. If  $|V|=p^n$, then $V$ is an
       $n$-dimensional vector space over the field  $\F_p$. Moreover the
       automorphisms of $V$ are nonsingular linear transformations from $V$
       onto itself and  $\Aut{V} \simeq GL(n,\F_p)$.
@@ -206,7 +206,7 @@
     \item[(5)] Notice that $D_8 \unlhd D_{16}$. Then $\Inn{D_{16}} \simeq
       \Aut{D_8}$ and notice that $Z(D_{16})= \langle r^4 \rangle$. So
       $\Aut{D_8} \simeq \faktor{D_{16}}{\langle r^4 \rangle} \simeq D_8$.
-      Therefore $\ord{{(\Aut{D_8})}}=8$.
+      Therefore $|\Aut{D_8}|=8$.
 
     \item[(6)] Notice that $V_4 \Char D_8$ and that $D_8 \Char S_4$, so we
       get that $V_4 \Char S_4$
@@ -219,10 +219,10 @@
 \begin{example}\label{example_4.12}
   Suppose that $G$ is a group of order  $45=3^25$ with a normal subgroup $P$
   of order $3^2$. We get that  $\faktor{G}{C(P)} \simeq P'$, where $P' \leq
-  \Aut{P}$, and $\ord{(\Aut{P})}=6$ or $\ord{(\Aut{P})}=48$. Since $P$ has
+  \Aut{P}$, and $|\Aut{P}|=6$ or $|(\Aut{P})|=48$. Since $P$ has
   order the square of a prime,  $P$ must be Abelian so taht  $P \leq C(P)$.
-  Then $\ord{C(P)}$ is divisible by $9$ so that $\ord {\faktor{G}{C(P)}}=1$ or
-  $\ord{\faktor{G}{C(P)}}=5$. We then get that it must be the former, so that
+  Then $|C(P)|$ is divisible by $9$ so that $|\faktor{G}{C(P)}|=1$ or
+  $|\faktor{G}{C(P)}|=5$. We then get that it must be the former, so that
   $C(P)=G$ and $P \leq Z(G)$. Since $\faktor{G}{Z(G)}$ is cyclic, $G$ must be
   Abelian.
 \end{example}
@@ -248,8 +248,9 @@
 \end{lemma}
 \begin{proof}
   By Cauchy's theorem, we have that $p|pq$ and  $q|pq$, so there exist
-  elements  $x,y \in G$ such that  $\ord{x}=p$ and $\ord{y}=q$. Then we have
-  that $((xy)^p)^q=(xy)^{pq}=(x^p)^q(y^q)^p=e$ so that $\ord{xy}=pq$ (since
+  elements  $x,y \in G$ such that  $|x|=p$ and $|y|=q$. Then we have
+  that $((xy)^p)^q=(xy)^{pq}=(x^p)^q(y^q)^p=e$ so that $|xy|=pq$ (since
   $p$ and $q$ are prime, $pq$ is the smalles such integer for which
-  $(xy)^{pq}=e$). Then we have that $\ord{G}=\ord{xy}$. Therefore $G$
+  $(xy)^{pq}=e$). Then we have that $|G|=|xy|$. Therefore $G$ is
+  cyclic.
 \end{proof}

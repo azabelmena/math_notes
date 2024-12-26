@@ -19,7 +19,7 @@
     \item[(2)] If $G$ is Abelian then the conjugacy class of any $a \in G$
       is the point-set $\{a\}$.
 
-    \item[(3)] For any group $G$ of order  $\ord{G}>1$, $G$ does not act on
+    \item[(3)] For any group $G$ of order  $|G|>1$, $G$ does not act on
       itself transitively via conjugation, as  $a=ga\inv{g}$ if, and only
       if $a \in Z(G)$.
   \end{enumerate}
@@ -45,7 +45,7 @@
   Let $G$ be a finite group and  $g_1, \dots, g_r$ representatives of distinct
   conjugacy classes of $G$ not in  $Z(G)$. Then
   \begin{equation*}
-    \ord{G}=\ord{Z(G)}+\sum_{i=1}^r{[G:C(g_i)]}
+    |G|=|Z(G)|+\sum_{i=1}^r{[G : C(g_i)]}
   \end{equation*}
 \end{theorem}
 \begin{proof}
@@ -59,13 +59,13 @@
   \end{align*}
   Since these conjugacy classes partition $G$, we get
   \begin{equation*}
-    \ord{G}=\sum_{i=1}^m{1}+\sum_{i=1}{r}{|\Kc_i|}=\ord{Z(G)}|\sum{[G:C(g_i)]}
+    |G|=\sum_{i=1}^m{1}+\sum_{i=1}{r}{|\Kc_i|}=|Z(G)|+\sum{[G:C(g_i)]}
   \end{equation*}
 \end{proof}
 
 \begin{example}\label{example_4.8}
   \begin{enumerate}
-    \item[(1)] For any Abelian group $G$,  $\ord{G}=\ord{Z(G)}$ and the
+    \item[(1)] For any Abelian group $G$,  $|G|=|Z(G)|$ and the
       class equation gives nothing interesting.
 
     \item[(2)] In any group $G$, notice that  $\langle g \rangle \leq C(g)$.
@@ -77,14 +77,14 @@
       \begin{align*}
         \langle 1 \rangle && \{-i,i\} && \{-j,j\} && \{-k,k\}   \\
       \end{align*}
-      Then the class equation gives $\ord{\Hb}=2+2+2+2=8$.
+      Then the class equation gives $|\Hb|=2+2+2+2=8$.
 
     \item[(3)] The conjugacy classes of $D_8$ are
       \begin{align*}
         \langle e \rangle && \langle r^2 \rangle &&\{r,r^2\} &&
         \{t,tr^2\} && \{tr,tr^3\}   \\
       \end{align*}
-      and the class equation gives $\ord{D_8}=2+2+2+2=8$.
+      and the class equation gives $|D_8|=2+2+2+2=8$.
   \end{enumerate}
 \end{example}
 
@@ -93,13 +93,13 @@
   \in \Z^+$, then $P$ has nontrivial center.
 \end{theorem}
 \begin{proof}
-  By the class equation, we have $\ord{P}=\ord{Z(P)}+\sum{[P:C(g_i)]}$, where
+  By the class equation, we have $|P|=|Z(P)|+\sum{[P:C(g_i)]}$, where
   each $g_i$ are representatives of distinct non central conjugacy classes. By
   definition, we cannot have $C(g_i)=P$, so $p|[P:C(g_i)]$. Since we also have
-  that $p|\ord{P}$, we must have that $p|\ord{Z(P)}$.
+  that $p \divides |P|$, we must have that $p \divides |Z(P)|$.
 \end{proof}
 \begin{corollary}
-  If $\ord{P}=p^2$, then $P$ is Abelian; in particular  $P \simeq
+  If $|P|=p^2$, then $P$ is Abelian; in particular  $P \simeq
   \faktor{\Z}{p^2\Z}$ or $P \simeq \faktor{\Z}{p\Z} \times \faktor{\Z}{p\Z}$.
 \end{corollary}
 
@@ -196,8 +196,8 @@ Consider now, the conjugation of symmetric groups. We then have the following.
     1  &&  12  &&  12  &&  15  &&  20  \\
   \end{align*}
   Suppose now, that $H \unlhd A_5$, then by lemma \ref{lemma_4.3.6}, $H$ is the
-  union of conjugacy classes of  $A_5$. Then $\ord{H}|60$ and $\ord{H}$ is
+  union of conjugacy classes of  $A_5$. Then $|H||60$ and $|H|$ is
   the sum of elements of subsets of the multiset $\{1, 12, 12, 15, 20\}$.
-  Therefore the only options are that $\ord{H}=60$ or $\ord{H}=1$; that is,
+  Therefore the only options are that $|H|=60$ or $|H|=1$; that is,
   $H=A_5$ or $H=\langle (1) \rangle$.
 \end{proof}

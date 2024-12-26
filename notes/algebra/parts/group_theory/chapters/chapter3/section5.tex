@@ -5,15 +5,15 @@ The bulk of this section is concerned primarily with results, and not their
 proofs. As such, the majority of the theorems are preseneted without proof.
 
 \begin{theorem}\label{theorem_3.5.1}
-  Let $G$ be a finite abelian group, and let  $p \divides \ord{G}$ a prime. Then
+  Let $G$ be a finite Abelian group, and let  $p \divides |G|$ a prime. Then
   $G$ contains an element of order  $p$.
 \end{theorem}
 \begin{proof}
-  By induction, let $\ord{G}>1$, then there exists an $x \in G$ with  $x \neq
-  e$. Now, suppose that $\ord{G}=p$. By  Lagrange's theorem, $\ord{x}=p$.
+  By induction, let $|G|>1$, then there exists an $x \in G$ with  $x \neq
+  e$. Now, suppose that $|G|=p$. By  Lagrange's theorem, $|x|=p$.
 
-  Now suppose that $\ord{G} > p$. If $p|\ord{x}$, then $\ord{x}=pn$ for some
-  $n \in \Z^+$. Thus by lemma \ref{2.3.6} $\ord{x^p}=\frac{p}{(n,p)}=p$, and
+  Now suppose that $|G|>p$. If $p \divides |x|$, then $|x|=pn$ for some
+  $n \in \Z^+$. Thus by lemma \ref{2.3.6} $|x^p|=\frac{p}{(n,p)}=p$, and
   we are done.
 
   Now, assume that $p \not{\divides} |x|$, and consider the cyclic
@@ -77,8 +77,8 @@ following definition.
     \item[(1)] $G$ has a composition series.
 
     \item[(2)] The composition factors of  $G$ are uniquely determined. That
-      is, if $\vbrack{e}=N_0 \leq N_1 \leq \dots \leq N_k=G$ and
-      $\vbrack{e}=M_0 \leq M_1 \leq \dots \leq M_s=G$ are composition
+      is, if $\langle e \rangle=N_0 \leq N_1 \leq \dots \leq N_k=G$ and
+      $\langle e \rangle=M_0 \leq M_1 \leq \dots \leq M_s=G$ are composition
       series of $G$, then  $r=s$ and for some permutation  $\pi \in S_r$,
       the quotients:
       \begin{equation*}
@@ -130,7 +130,7 @@ certain geometric constructions.
 \begin{definition}
   A group $G$ is \textbf{solvable} if there exists a sequence of normal
   subgroups $\langle e \rangle=G_0 \unlhd G_1 \unlhd \dots \unlhd G_k=G$ such that
-  $\faktor{G_{i+1}}{G_i}$ is abelian for each $0 \leq i \leq k-1$.
+  $\faktor{G_{i+1}}{G_i}$ is Abelian for each $0 \leq i \leq k-1$.
 \end{definition}
 
 \begin{theorem}\label{theorem_3.5.5}
@@ -145,18 +145,18 @@ We conclude with a lemma.
   solvable, then so is $G$.
 \end{lemma}
 \begin{proof}
-  Let $\bar{G}=\faktor{G}{N}$, and let $\vbrack{e}=N_0 \unlhd N_1 \unlhd \dots
-  \unlhd N_n=N$ a sequence of normal subgroups with $\faktor{N_{i+1}}{N_i}$
-  abelian. Let $\langle e \rangle=\bar{G_0} \unlhd \bar{G_1} \unldh \dots \unlhd
-  \bar{G_m}=\bar{G}$ be another such sequence. By the fourth isomporphism
-  theorem, there are subgroups $G_i \leq G$ with  $N \leq G_i$ such that
-  $\faktor{G_i}{N}=\bar{G_i}$ and $G_i \unlhd G_{i+1}$. Theb by the third
-  isomorphism theorem, we have
+  Let $\bar{G}=\faktor{G}{N}$, and let $\langle e \rangle=N_0 \unlhd N_1
+  \unlhd \dots \unlhd N_n=N$ a sequence of normal subgroups with
+  $\faktor{N_{i+1}}{N_i}$ Abelian. Let $\langle e \rangle=\bar{G_0} \unlhd
+  \bar{G_1} \unldh \dots \unlhd \bar{G_m}=\bar{G}$ be another such sequence.
+  By the fourth isomporphism theorem, there are subgroups $G_i \leq G$ with
+  $N \leq G_i$ such that $\faktor{G_i}{N}=\bar{G_i}$ and $G_i \unlhd G_{i+1}$.
+  Then by the third isomorphism theorem, we have
   \begin{equation*}
     \faktor{\bar{G_{i+1}}}{\bar{G_i}}=\faktor{G_{i+1}/N}{G_i/N} \simeq
     \faktor{G_{i+1}}{G_i}
   \end{equation*}
   Thus, $\langle e \rangle=N_0 \unlhd N_1 \unlhd \dots \unlhd N_n=N=G_0 \unlhd G_1
   \unlhd \dots \unlhd G_m=G$ is a sequence of subgroups whose subsequent
-  quotients are abelian. That is, $G$ is solvable.
+  quotients are Abelian. That is, $G$ is solvable.
 \end{proof}
