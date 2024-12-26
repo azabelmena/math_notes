@@ -1,98 +1,97 @@
-%----------------------------------------------------------------------------------------
-%	SECTION 1.1
-%----------------------------------------------------------------------------------------
-
-\section{Definitions and Examples.}
-\label{section1}
+\section{Definitions and Examples}
+\label{section_1.2}
 
 \begin{definition}
-    Let $G$ be a group. We call a nonempty subset $H \subseteq G$ a
-    \textbf{subgroup} if $H$ is also a group under the binary operation of  $G$.
-    We write  $H \leq G$; if $H \neq G$, then we write $H < G$.
+  Let $G$ be a group. We call a nonempty subset $H \subseteq G$ a
+  \textbf{subgroup} if $H$ is also a group under the binary operation of  $G$.
+  We write  $H \leq G$; if $H \neq G$, then we write $H < G$.
 \end{definition}
 
 There are two immediate results that we can develop.
 
-\begin{theorem}[The Subgroup Critetrion.]\label{2.1.1}
-    Let $G$ be a group. Then a subset  $H \subseteq G$ is a subgroup if, and
-    only if:
-    \begin{enumerate}
-        \item[(1)] For every $a,b \in H$,  $ab \in H$.
+\begin{theorem}[The Subgroup Critetrion.]\label{theorem_2.1.1}
+  Let $G$ be a group. Then a nonempty subset  $H \subseteq G$ is a subgroup
+  if, and only if:
+  \begin{enumerate}
+    \item[(1)] For every $a,b \in H$,  $ab \in H$.
 
-        \item[(2)] $\inv{a} \in H$ whenever $a \in H$.
-    \end{enumerate}
+    \item[(2)] $\inv{a} \in H$ whenever $a \in H$.
+  \end{enumerate}
 \end{theorem}
 \begin{proof}
-    Suppose first that $H \leq G$, then by definition, $(1)$ and $(2)$ are
-    satisfied.
+  Suppose first that $H \leq G$, then by definition, $(1)$ and $(2)$ are
+  satisfied.
 
-    Now suppose that $H$ is closed under the operation on  $G$,  $(1)$, and that
-    $H$ has inverses  $(2)$. Immediately, the closure and inverse laws are
-    satisfied, moreover, since $H \subseteq G$,  $H$ inherits the associativity
-    of  $G$ under the relavent operation. Now, by $(1)$ and $(2)$ we have
-    $a\inv{a}=e \in H$, and so the identity law is satisfied. This makes $H \leq
-    G$.
+  Now suppose that $H$ is closed under the operation on  $G$, and that
+  $H$ has inverses. Immediately, the closure and inverse laws are
+  satisfied, moreover, since $H \subseteq G$,  $H$ inherits the associativity
+  of  $G$ under the relavent operation. Now, by $(1)$ and $(2)$ we have
+  $a\inv{a}=e \in H$, and so the identity law is satisfied. This makes $H \leq
+  G$.
 \end{proof}
 \begin{corollary}
-    If $H$ is a finite subset of  $G$, then  $H$ is a subgroup if  $H$ is closed
-    under the operation of  $G$.
+  $H \leq G$ if, and only if for all $ab \in H$, $a\inv{b} \in H$.
+\end{corollary}
+\begin{corollary}
+  If $H$ is a finite subset of  $G$, then  $H$ is a subgroup of $G$ if  $H$ is
+  closed under the operation of  $G$.
 \end{corollary}
 \begin{proof}
-    Let $a \in H$, by closure, we have  $a^n \in H$ for $n \in \Z^+$. So,
-    consider the infinite collection $\{a^i\}_{i=1} \subseteq H$; since $H$ is
-    finite, there are repetitions in the collection  $\{a^i\}$, that is, $
-    a^i=a^j$ for some  $i \neq j$ and  $i,j>0$. Then  $a^{i-j}=e$, so
-    $a^{i-j-1}=\inv{a}$. Now, since $i-j>0$, we get  $i-j-1 \geq 0$, which makes
-     $\inv{a} \in H$. By the above theorem, we get $H \leq G$.
+  Let $a \in H$, by closure, we have  $a^n \in H$ for $n \in \Z^+$. So,
+  consider the infinite collection $\{a^i\}_{i=1}^\infty \subseteq H$; since
+  $H$ is finite, there are repetitions in the collection  $\{a^i\}$, that is,
+  $a^i=a^j$ for some  $i \neq j$ and  $i,j>0$. Then  $a^{i-j}=e$, so
+  $a^{i-j-1}=\inv{a}$. Now, since $i-j>0$, we get  $i-j-1 \geq 0$, which makes
+  $\inv{a} \in H$. By the above theorem, we get $H \leq G$.
 \end{proof}
 
-\begin{example}
-    \begin{enumerate}
-        \item[(1)] $\Z \leq \Q \leq \R$ under the usual addition.  $\Q^*
-            \leq \R^*$ under the usual multiplication. $\R \leq \C$ under
-            complex addition, and $\R^* \leq \C^*$ under complex multiplication
-            (here, we take $a \in \R$ to have the form  $a+i0$).
+\begin{example}\label{example_2.1}
+  \begin{enumerate}
+    \item[(1)] $\Z \leq \Q \leq \R$ under the usual addition.  $\Q^*
+      \leq \R^*$ under the usual multiplication. $\R \leq \C$ under
+      complex addition, and $\R^* \leq \C^*$ under complex multiplication
+      (here, we take $a \in \R$ to have the form  $a+i0$).
 
-        \item[(2)] For any group $G$,  $G \leq G$ and  $\vbrack{e} \leq G$. So
-            the minimum number of subgroups that any group has is $2$.
+    \item[(2)] For any group $G$,  $G \leq G$ and  $\langle e \rangle \leq G$.
+      So the minimum number of subgroups that any group has is $2$.
 
-        \item [(3)] Let $H=\{e, r, \dots r^{n-1}\} \subseteq D_{2n}$. Then $H \leq
-            D_{2n}$.
+    \item [(3)] Let $H=\{e, r, \dots r^{n-1}\} \subseteq D_{2n}$. Then $H \leq
+      D_{2n}$.
 
-        \item[(4)] Let $n\Z=\{na : a \in \Z\}$, for any $n \in \Z$. Then
-            $n\Z \leq \Z$ under the usual addition. Let  $na, nb \in n\Z$, then
-            $na+nb=n(a+b) \in n\Z$, and $n(-a)=-na \in n\Z$. We will be
-            interested in the subgroup $n\Z$ of $\Z$, in particular, for  $n \in
-            \Z^+$.
+    \item[(4)] Let $n\Z=\{na : a \in \Z\}$, for any $n \in \Z$. Then
+      $n\Z \leq \Z$ under the usual addition. Let  $na, nb \in n\Z$, then
+      $na+nb=n(a+b) \in n\Z$, and $n(-a)=-na \in n\Z$. We will be
+      interested in the subgroup $n\Z$ of $\Z$, in particular, for  $n \in
+      \Z^+$.
 
-        \item [(5)] Let $Z=\{z \in \C : z^n=1\}$. Then $Z \leq \C^*$ under
-            complex multiplication. Notice that  $z,w \in Z$ implies
-            $z^nw^n=(zw)^n=1$, and $(\inv{z})^n=\frac{1}{z^n}=1$, so $z^{-n}=1$.
-            We call this group the \textbf{roots of unity} in $\C$. If we take
-            $n=4$, then we get that  $Z=\{1,i,-1,-i\}$.
+    \item [(5)] Let $Z=\{z \in \C : z^n=1\}$. Then $Z \leq \C^*$ under
+      complex multiplication. Notice that  $z,w \in Z$ implies
+      $z^nw^n=(zw)^n=1$, and $(\inv{z})^n=\frac{1}{z^n}=1$, so $z^{-n}=1$.
+      We call this group the \textbf{roots of unity} in $\C$. If we take
+      $n=4$, then we get that  $Z=\{1,i,-1,-i\}$.
 
-        \item[(6)] Let $\Z+i\Z=\{a+ib \in \C : a,b \in \Z\}$. Then $\Z+i\Z \leq
-            \C$ under complex addition. We call this group the \textbf{Gaussian
-            integers.}
+    \item[(6)] Let $\Z+i\Z=\{a+ib \in \C : a,b \in \Z\}$. Then $\Z+i\Z \leq
+      \C$ under complex addition. We call this group the \textbf{Gaussian
+      integers.}
 
-        \item[(7)] Leet $\Q+\sqrt{2}\Q=\{a+b\sqrt{2} : a,b \in \Q\}$. Then
-            $\Q+\sqrt{2}\Q \leq \R$ under the usual addition.
-    \end{enumerate}
+    \item[(7)] Leet $\Q+\sqrt{2}\Q=\{a+b\sqrt{2} : a,b \in \Q\}$. Then
+      $\Q+\sqrt{2}\Q \leq \R$ under the usual addition.
+  \end{enumerate}
 \end{example}
 
 We now give some nonexamples of subgroups.
 
-\begin{example}
-    \begin{enumerate}
-        \item[(1)] $\Q^* \not\leq \R$ under the usual addition  (why?).
+\begin{example}\label{example_2.2}
+  \begin{enumerate}
+    \item[(1)] $\Q^* \not\leq \R$ under the usual addition.
 
-        \item[(2)] $\Z^+ \not\leq \Z$ under the usual addition. Notice the
-            identity of $\Z$, $0 \not\in \Z^+$.
+    \item[(2)] $\Z^+ \not\leq \Z$ under the usual addition. Notice the
+      identity of $\Z$, $0 \not\in \Z^+$.
 
-        \item[(3)] $D_6 \not\leq D_8$. Notice
-            $D_6=\{e,t,r,r^2,rt,r^2t\}$, and $D_8=\{e,t,r,r^2,r^3,rt,r^2t,
-            r^3t\}$. One might be tempted to think $D_6 \subseteq D_8$, but
-            notice that in $D_6$, $r^3=e$ while in  $D^8$,  $r^4=e$. Thus  $D_6
-            \not\subseteq D_8$.
-    \end{enumerate}
+    \item[(3)] $D_6 \not\leq D_8$. Notice
+      $D_6=\{e,t,r,r^2,rt,r^2t\}$, and $D_8=\{e,t,r,r^2,r^3,rt,r^2t,
+      r^3t\}$. One might be tempted to think $D_6 \subseteq D_8$, but
+      notice that in $D_6$, $r^3=e$ while in  $D^8$,  $r^4=e$. Thus  $D_6
+      \not\subseteq D_8$.
+  \end{enumerate}
 \end{example}
