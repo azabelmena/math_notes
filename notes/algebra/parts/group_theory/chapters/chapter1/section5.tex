@@ -1,5 +1,5 @@
-\section{Homomorphism.}
-\label{section1}
+\section{Homomorphism}
+\label{section_1.5}
 
 In this section, we relate the structures of groups to each other. The main
 reason to do this is to determine which groups are ``equal'', i.e. when two
@@ -7,229 +7,228 @@ distinct groups share the same group structure. Doing this will often allow us
 to infer properties of one group from the other.
 
 \begin{definition}
-    Let $(G, \ast)$ and $(H, \cdot)$ be groups. We call a map $\phi:G
-    \rightarrow H$ a group \textbf{homomorphism} if for any $a,b \in G$,
-    $\phi(a \ast b)=\phi(a) \cdot \phi(b)$. We call the homomorphism $\phi$ a
-    group  \textbf{isomorphism} if $\phi$ is both  $1-1$ and onto. If such an
-    isomorphism exists between  $G$ and  $H$, we call  $G$ and  $H$
-    \textbf{isomorphic} and write $G \simeq H$.
+  Let $(G, \ast)$ and $(H, \cdot)$ be groups. We call a map $\phi:G
+  \rightarrow H$ a group \textbf{homomorphism} if for any $a,b \in G$,
+  $\phi(a \ast b)=\phi(a) \cdot \phi(b)$. We call the homomorphism $\phi$ a
+  \textbf{group isomorphism} if $\phi$ is both  $1-1$ and onto. If such an
+  isomorphism exists between  $G$ and  $H$, we call  $G$ and  $H$
+  \textbf{isomorphic} and write $G \simeq H$.
 \end{definition}
 \begin{remark}
-    Frequently, we will imply the operations on $G$ and  $H$ and write
-    $\phi(ab)=\phi(a)\phi(b)$.
+  Frequently, we will imply the operations on $G$ and  $H$ and write
+  $\phi(ab)=\phi(a)\phi(b)$.
 \end{remark}
 
-\begin{lemma}\label{1.6.1}
-    Isomorphism of groups is an equivalence relation.
+\begin{lemma}\label{lemma_1.5.1}
+  Isomorphism of groups is an equivalence relation.
 \end{lemma}
 \begin{proof}
-    Let $G$ and  $H$ be groups. First, take $\phi:G \rightarrow G$ by $phi:g
-    \rightarrow g$, then $\phi$ is an isomorphism, so $G \simeq G$.
+  Let $G$ and  $H$ be groups. First, take $\phi:G \rightarrow G$ by $\phi:g
+  \rightarrow g$, then $\phi$ is an isomorphism, so $G \simeq G$.
 
-    Now suppose that  $G \simeq H$, then there is an isomorphism  $\phi:G
-    \rightarrow H$. Then consider $\inv{\phi}:H \rightarrow G$, we have
-    $\inv{\phi}$ is also $1-1$ and onto; moreover
-    $\inv{\phi}(\phi(ab))=ab=\inv{\phi}(\phi(a))\inv{\phi}(\phi(b))$. This makes
-    $\inv{phi}$ an isomorphism and so $H \simeq G$.
+  Now suppose that  $G \simeq H$, then there is an isomorphism  $\phi:G
+  \rightarrow H$. Then consider $\inv{\phi}:H \rightarrow G$, we have
+  $\inv{\phi}$ is also $1-1$ and onto; moreover
+  $\inv{\phi}(\phi(ab))=ab=\inv{\phi}(\phi(a))\inv{\phi}(\phi(b))$. This makes
+  $\inv{phi}$ an isomorphism and so $H \simeq G$.
 
-    Lastly, let  $K$ be a group and suppose  $G \simeq H$ and  $H \simeq K$.
-    Then there are isomorphisms  $\phi:G \rightarrow H$ and $\psi:H \rightarrow
-    K$. Then take $\psi \circ \phi:G \rightarrow K$ which is $1-1$ and onto by
-    definition. Then $\psi \circ
-    \phi(ab)=\psi(\phi(a)\phi(b))=\psi(\phi(a))\psi(\phi(b))$. Thus $G \simeq
-    K$.
+  Lastly, let  $K$ be a group and suppose  $G \simeq H$ and  $H \simeq K$.
+  Then there are isomorphisms  $\phi:G \rightarrow H$ and $\psi:H \rightarrow
+  K$. Then take $\psi \circ \phi:G \rightarrow K$ which is $1-1$ and onto by
+  definition. Then $\psi \circ
+  \phi(ab)=\psi(\phi(a)\phi(b))=\psi(\phi(a))\psi(\phi(b))$. Thus $G \simeq
+  K$.
 \end{proof}
 
-\begin{example}
-    \begin{enumerate}
-        \item[(1)] The maps $\exp: (\R,+) \rightarrow (\R^+, \cdot)$ and
-            $\log: (\R^+, \cdot) \rightarrow (\R,+)$ defined by $\exp:x
-            \rightarrow e^x$ and $\log:y \rightarrow \log{y}$. Then $\exp$ and
-            $\log$ are homomorphisms. We have $\exp{x+y}=\exp{x}\exp{y}$ and
-            $\log{xy}=\log{x}+\log{y}$. Moreover, $\exp$ and  $\log$ are group
-            isomorphisms, infact, $\log=\inv{\exp}$.
+\begin{example}\label{example_1.12}
+  \begin{enumerate}
+    \item[(1)] The maps $\exp: (\R,+) \rightarrow (\R^+, \cdot)$ and
+      $\log: (\R^+, \cdot) \rightarrow (\R,+)$ defined by $\exp:x
+      \rightarrow e^x$ and $\log:y \rightarrow \log{y}$ are homomorphisms.
+      We have $\exp{x+y}=\exp{x}\exp{y}$ and $\log{xy}=\log{x}+\log{y}$.
+      Moreover, $\exp$ and  $\log$ are group isomorphisms, infact,
+      $\log=\inv{\exp}$.
 
-        \item[(2)] Let $S$ and  $T$ be nonempty finite sets. Then  $A(S) \simeq
-            A(T)$ if and only if $|S|=|T|$, i.e. the symmetric groups of  $S$
-            and  $T$ are isomorphic if, and only if  $S$ and  $T$ share the same
-            cardinality.
+    \item[(2)] Let $S$ and  $T$ be nonempty finite sets. Then  $A(S) \simeq
+      A(T)$ if and only if $|S|=|T|$, i.e. the symmetric groups of  $S$
+      and  $T$ are isomorphic if, and only if  $S$ and  $T$ share the same
+      cardinality.
 
-            Suppose $S$ and  $T$ are finite, and that  $|S|=|T|=n$. Define  the
-            map  $\phi:A(S) \rightarrow A(T)$ by $\phi:s \rightarrow ts\inv{t}$,
-            there $t:S \rightarrow T$ is a bujection. Then $\phi$ is $1-1$, for
-             $ts\inv{t}=ts'\inv{t}$ implies $s=s'$. Moreover, we have
-             $\phi(A(S))=A(T)$, since for any $s \in A(S)$, $ts\inv{t}:T
-             \rightarrow T$ defines a bijection from $T$ onto itself; hence
-             $ts\inv{t} \in A(T)$. Therefore, we get $\phi$ is an isomorphism
-             form  $A(S)$ to $A(T)$. This makes $A(S) \simeq A(T)$.
+      Suppose $S$ and  $T$ are finite, and that  $|S|=|T|=n$. Define  the
+      map  $\phi:A(S) \rightarrow A(T)$ by $\phi:s \rightarrow ts\inv{t}$,
+      there $t:S \rightarrow T$ is a bujection. Then $\phi$ is $1-1$, for
+      $ts\inv{t}=ts'\inv{t}$ implies $s=s'$. Moreover, we have
+      $\phi(A(S))=A(T)$, since for any $s \in A(S)$, $ts\inv{t}:T
+      \rightarrow T$ defines a bijection from $T$ onto itself; hence
+      $ts\inv{t} \in A(T)$. Therefore, we get $\phi$ is an isomorphism
+      form  $A(S)$ to $A(T)$. This makes $A(S) \simeq A(T)$.
 
-            On the other hand, if  $A(S) \simeq A(T)$, then $\ord{A(S)}=
-            \ord{A(T)}=n!$, for some $n \in \Z^+$, this implies that
-            $|S|=|T|=n!$.
-    \end{enumerate}
+      On the other hand, if  $A(S) \simeq A(T)$, then $\ord{A(S)}=
+      \ord{A(T)}=n!$, for some $n \in \Z^+$, this implies that
+      $|S|=|T|=n$.
+  \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{1.6.2}
-    Let $G$ and  $H$ be groups, and let  $\phi:G \rightarrow H$ be a
-    homomorphism. Then the following are true:
-    \begin{enumerate}
-        \item[(1)] $\phi(e)=e'$ where $e$ and $e'$ are the identites of  $G$ and
-             $H$, respectively.
+\begin{lemma}\label{lemma_1.5.2}
+  Let $G$ and  $H$ be groups, and let  $\phi:G \rightarrow H$ be a
+  homomorphism. Then the following are true:
+  \begin{enumerate}
+    \item[(1)] $\phi(e)=e'$ where $e$ and $e'$ are the identites of  $G$ and
+      $H$, respectively.
 
-         \item[(2)] $\phi(\inv{a})=\inv{\phi(a)}$.
-    \end{enumerate}
+    \item[(2)] $\phi(\inv{a})=\inv{\phi(a)}$.
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-    We have that $\phi(e)=\phi(a\inv{a})=\phi(a)\phi(\inv{a})$. Thus by
-    cancellation, we get $\inv{\phi(a)}=\phi(\inv{a})$. By consequence, we also
-    get that $\phi(e)=\phi(a)\inv{\phi(a)}=e'$; for any $a \in G$.
+  We have that $\phi(e)=\phi(a\inv{a})=\phi(a)\phi(\inv{a})$. Thus by
+  cancellation, we get $\inv{\phi(a)}=\phi(\inv{a})$. By consequence, we also
+  get that $\phi(e)=\phi(a)\inv{\phi(a)}=e'$; for any $a \in G$.
 \end{proof}
 \begin{corollary}
-    The following are also true for any $n \in \Z^+$:
-    \begin{enumerate}
-        \item[(1)]$\phi(a^n)=\phi(a)^n$.
+  The following are also true for any $n \in \Z^+$:
+  \begin{enumerate}
+    \item[(1)]$\phi(a^n)=\phi(a)^n$.
 
-        \item[(2)] $\phi(a^{-n})=\phi(a)^{-n}$.
-    \end{enumerate}
+    \item[(2)] $\phi(a^{-n})=\phi(a)^{-n}$.
+  \end{enumerate}
 \end{corollary}
 \begin{proof}
-    Firstly, $\phi(a^n)=\underbrace{\phi(a) \dots \phi(a)}_{n \text{
-    times}}=\phi(a)^n$. Then we get
-    $\phi(a^{-n})=\phi((\inv{a})^n)=\phi(\inv{a})^n=\phi(a)^{-n}$.
+  Firstly, $\phi(a^n)=\underbrace{\phi(a) \dots \phi(a)}_{n \text{
+  times}}=\phi(a)^n$. Then we get
+  $\phi(a^{-n})=\phi((\inv{a})^n)=\phi(\inv{a})^n=\phi(a)^{-n}$.
 \end{proof}
 
-\begin{lemma}\label{1.6.3}
-    Let $G$ and  $H$ be groups and suppose  $G \simeq H$. Then the following are
-    true:
-    \begin{enumerate}
-        \item[(1)] $\ord{G}=\ord{H}$.
+\begin{lemma}\label{lemma_1.5.3}
+  Let $G$ and  $H$ be groups and suppose  $G \simeq H$. Then the following are
+  true:
+  \begin{enumerate}
+    \item[(1)] $|G|=|H|$.
 
-        \item[(2)] $G$ is Abelian if, and only if  $H$ is abelian.
+    \item[(2)] $G$ is Abelian if, and only if  $H$ is abelian.
 
-        \item [(3)] For all $x \in G$,  $\ord{x}=\ord{\phi(x)}$, where $\phi:G
-            \rightarrow H$ is the underlying isomorphism.
-    \end{enumerate}
+    \item[(3)] For all $x \in G$, $|x|=|\phi(x)|$, where $\phi:G
+      \xrightarrow{} H$ is the underlying isomorphism.
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-    Let $G \simeq H$,  via the isomorphism  $\phi$. Then since $\phi$ is  $1-1$
-    and onto, every element of  $G$ must get mapped to every element of  $H$.
-    This makes  $\ord{G}=\ord{H}$.
+  Let $G \simeq H$,  via the isomorphism  $\phi$. Then since $\phi$ is  $1-1$
+  and onto, every element of  $G$ must get mapped to every element of  $H$.
+  This makes  $\ord{G}=\ord{H}$.
 
-    Now, suppose $G$ is Abelian, then for every  $a, b \in G$,  $ab=ba$. Thus
-    $\phi(ab)=\phi(ba)$. This makes $\phi(a)\phi(b)=\phi(b)\phi(a)$, since $a,b$
-    are arbitrary, this makes  $H$ Abelian. The converse is an equivalent
-    argument with  $\inv{\phi}$.
+  Now, suppose $G$ is Abelian, then for every  $a, b \in G$,  $ab=ba$. Thus
+  $\phi(ab)=\phi(ba)$. This makes $\phi(a)\phi(b)=\phi(b)\phi(a)$, since $a,b$
+  are arbitrary, this makes  $H$ Abelian. The converse is an equivalent
+  argument with  $\inv{\phi}$.
 
-    Now suppose that $x \in G$ has order  $\ord{x}=n$. Then $x^n=e$. Thus
-    $\phi(x^n)=\phi(e)$, thus $\phi(x)^n=e'$. Now since $n$ is minimal, any
-    $m<n$ for which  $\phi(x)^m=e'$ would imply that $x^m=e$, which cannot
-    happen. Thus  $\ord{\phi(x)}=n$.
+  Now suppose that $x \in G$ has order  $|x|=n$. Then $x^n=e$. Thus
+  $\phi(x^n)=\phi(e)$, thus $\phi(x)^n=e'$. Now since $n$ is minimal, any
+  $m<n$ for which  $\phi(x)^m=e'$ would imply that $x^m=e$, which cannot
+  happen. Thus  $|\phi(x)|=n$.
 \end{proof}
 \begin{corollary}
-    Let $\phi:G \rightarrow H$ be a homomorphism. If $H$ is Abelian, and  $\phi$
-    is  $1-1$, then  $G$ is Abelian. On the otherhand, if  $G$ is Abelian, and
-    $\phi$ is onto, then  $H$ is Abelian.
+  Let $\phi:G \rightarrow H$ be a homomorphism. If $H$ is Abelian, and  $\phi$
+  is  $1-1$, then  $G$ is Abelian. On the otherhand, if  $G$ is Abelian, and
+  $\phi$ is onto, then  $H$ is Abelian.
 \end{corollary}
 \begin{proof}
-    For $a,b \in G$,  $\phi(a)\phi(b)=\phi(b)\phi(a)$, hence
-    $\phi(ab)=\phi(ba)$. Since $\phi$ is  $1-1$, this implies  $ab=ba$.
+  For $a,b \in G$,  $\phi(a)\phi(b)=\phi(b)\phi(a)$, hence
+  $\phi(ab)=\phi(ba)$. Since $\phi$ is  $1-1$, this implies  $ab=ba$.
 
-    On the otherhand, if $ab=ba$ for any  $a,b \in G$ and  $\phi$ is onto, then
-    we get  $\phi(ab)=\phi(ba)$ hence $\phi(a)\phi(b)=\phi(b)\phi(a)$. Since
-    $\phi(G)=H$, this completes the proof.
+  On the otherhand, if $ab=ba$ for any  $a,b \in G$ and  $\phi$ is onto, then
+  we get  $\phi(ab)=\phi(ba)$ hence $\phi(a)\phi(b)=\phi(b)\phi(a)$. Since
+  $\phi(G)=H$, this completes the proof.
 \end{proof}
 
-\begin{example}
-    \begin{enumerate}
-        \item[(1)] We have $S_3 \not\simeq \faktor{\Z}{6\Z}$, despite having the
-            same order. We have $S_3$ is nonabelian while  $\faktor{\Z}{6\Z}$ is
-            Abelian.
+\begin{example}\label{example_1.13}
+  \begin{enumerate}
+    \item[(1)] We have $S_3 \not\simeq \faktor{\Z}{6\Z}$, despite having the
+      same order. We have $S_3$ is nonabelian while  $\faktor{\Z}{6\Z}$ is
+      Abelian.
 
-        \item[(2)] $(\R,+) \not\simeq (\R^*, \cdot)$ since in $\R^*$,
-            $\ord{-1}=2$, while there are no elements of order $2$ in  $\R^+$.
-    \end{enumerate}
+    \item[(2)] $(\R,+) \not\simeq (\R^*, \cdot)$ since in $\R^*$,
+      $\ord{-1}=2$, while there are no elements of order $2$ in  $\R^+$.
+  \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{1.6.4}
-    Let $G$ and  $H$ be groups with representations; let  $G=\vbrack{S : R_1,
-    \dots R_n}$ and $H=\vbrack{T : R_1', \dots, R_n'}$. Then if the relations
-    $R_i$ is satisfied by the elements of $H$, for each  $1 \leq i \leq n$, then
-    there exits a unique homomorphism  $\phi$ definied by  $\phi:R_i \rightarrow
-    R_i'$.
+\begin{lemma}\label{lemma_1.5.4}
+  Let $G$ and  $H$ be groups with representations; let  $G=\vbrack{S : R_1,
+  \dots R_n}$ and $H=\vbrack{T : R_1', \dots, R_n'}$. Then if the relations
+  $R_i$ is satisfied by the elements of $H$, for each  $1 \leq i \leq n$, then
+  there exits a unique homomorphism  $\phi$ definied by  $\phi:R_i \rightarrow
+  R_i'$.
 \end{lemma}
 \begin{remark}
-    We defer the proof of this lemma.
+  We defer the proof of this lemma.
 \end{remark}
 
-\begin{example}
-    \begin{enumerate}
-        \item[(1)] Take $D_{2n}=\vbrack{r,t : r^n=t^2=e, rt=t\inv{r}}$, and take
-            $X_{2k}=\vbrack{a,b : a^k=b^2=e, ab=b\inv{a}}$. If $n=km$ for  $m
-            \in \Z^+$, then  $a^n=(a^k)^m=e$, so the relations of $D_{2n}$ are
-            satisfied by the generators of $X_{2n}$. Thus take homomorhism
-            $\phi:D_{2n} \rightarrow X_{2k}$ by $\phi:r,t \rightarrow a,b$.
-            Since $X_{2k}=\vbrack{a,b}$, $\phi$ is onto.  $\phi$ is $1-1$
-            if, and only if  $n=k$. So, in general, $D_{2n} \not\simeq X_{2k}$.
+\begin{example}\label{example_1.14}
+  \begin{enumerate}
+    \item[(1)] Take $D_{2n}=\vbrack{r,t : r^n=t^2=e, rt=t\inv{r}}$, and take
+      $X_{2k}=\vbrack{a,b : a^k=b^2=e, ab=b\inv{a}}$. If $n=km$ for  $m
+      \in \Z^+$, then  $a^n=(a^k)^m=e$, so the relations of $D_{2n}$ are
+      satisfied by the generators of $X_{2n}$. Thus take homomorhism
+      $\phi:D_{2n} \rightarrow X_{2k}$ by $\phi:r,t \rightarrow a,b$.
+      Since $X_{2k}=\vbrack{a,b}$, $\phi$ is onto.  $\phi$ is $1-1$
+      if, and only if  $n=k$. So, in general, $D_{2n} \not\simeq X_{2k}$.
 
-        \item[(2)] Consider $D_6$ and  $S_3$. Let $a=(1 \ 2 \ 3)$ and $b=(1 \
-            2)$. Then $a^3=(1)(2)(3)=(1)$ and $b^2=(1)$; moreover, $ab=(1 \ 2 \
-            3)(1 \ 2)=(1 \ 2)(3 \ 2 \ 1)=b\inv{a}$. Thus take $\phi:D_6
-            \rightarrow S_3$ by $\phi:r,t \rightarrow (1 \ 2 \ 3), (1 \ 2)$. By
-            the above reasoning,  $\phi$ is onto. Now since
-            $\ord{D_6}=\ord{S_3}=6$, $\phi$ is  $1-1$ and so  $\phi$ is an
-            isomorphism and  $D_6 \simeq S_3$.
-    \end{enumerate}
+    \item[(2)] Consider $D_6$ and  $S_3$. Let $a=(1 \ 2 \ 3)$ and $b=(1 \
+      2)$. Then $a^3=(1)(2)(3)=(1)$ and $b^2=(1)$; moreover, $ab=(1 \ 2 \
+      3)(1 \ 2)=(1 \ 2)(3 \ 2 \ 1)=b\inv{a}$. Thus take $\phi:D_6
+      \rightarrow S_3$ by $\phi:r,t \rightarrow (1 \ 2 \ 3), (1 \ 2)$. By
+      the above reasoning,  $\phi$ is onto. Now since
+      $\ord{D_6}=\ord{S_3}=6$, $\phi$ is  $1-1$ and so  $\phi$ is an
+      isomorphism and  $D_6 \simeq S_3$.
+  \end{enumerate}
 \end{example}
 
-\begin{example}
-    \begin{enumerate}
-        \item[(1)] $\C^* \not\simeq \R^*$, since $i \in \C^*$ has  $\ord{i}=4$,
-            while $\R^*$ has no elements of order  $4$.
+\begin{example}\label{example_1.15}
+  \begin{enumerate}
+    \item[(1)] $\C^* \not\simeq \R^*$, since $i \in \C^*$ has $|i|=4$,
+      while $\R^*$ has no elements of order  $4$.
 
-        \item [(2)] $\R \not\simeq \Q$, for  $\Q$ is countable, and  $\R$ is
-            not. That is if we take  $\ord{\Q}$ and $\ord{\R}$ to be defined and
-            assume results from set theory and topology, then $\ord{\Q}<
-            \ord{\R}$.
+    \item [(2)] $\R \not\simeq \Q$, for  $\Q$ is countable, and  $\R$ is
+      not. That is if we take  $|\Q|$ and $|\R|$ to be defined and
+      assume results from set theory and topology, then $|\Q|<|\R|$.
 
-        \item[(3)] $\Z \not\simeq \Q$, for suppose otherwise. If  $\phi:\Z
-            \rightarrow \Q$ is an isomorphims, then $\phi(1)=a$, then
-            $\phi(\frac{1}{2}+\frac{1}{2})=a$, then $2\phi(\frac{1}{2})=a$,
-            likewise $3\phi(\frac{1}{3})=a$, then $2\phi(\frac{1}{2})=
-            3\phi(\frac{1}{3})$, implying $\phi(\frac{1}{2})=\phi(\frac{1}{3})$,
-            but $\frac{1}{2} \neq \frac{1}{3}$, contradicting the $1-1$ness of
-            $\phi$.
+    \item[(3)] $\Z \not\simeq \Q$, for suppose otherwise. If  $\phi:\Z
+      \rightarrow \Q$ is an isomorphims, then $\phi(1)=a$, then
+      $\phi(\frac{1}{2}+\frac{1}{2})=a$, then $2\phi(\frac{1}{2})=a$,
+      likewise $3\phi(\frac{1}{3})=a$, then $2\phi(\frac{1}{2})=
+      3\phi(\frac{1}{3})$, implying $\phi(\frac{1}{2})=\phi(\frac{1}{3})$,
+      but $\frac{1}{2} \neq \frac{1}{3}$, contradicting the 1--1-ness of
+      $\phi$.
 
-        \item[(4)] Notice that if $n<m$, then  $\ord{S_n}=n!<\ord{S_m}=m!$, so
-            $S_m \simeq S_n$ if, and only if  $n=m$, for $n,m \in \Z^+$.
+    \item[(4)] Notice that if $n<m$, then  $|S_n|=n!<|S_m|=m!$, so
+      $S_m \simeq S_n$ if, and only if  $n=m$, for $n,m \in \Z^+$.
 
-        \item[(5)] $D_{24} \not\simeq S_4$. Notice $r \in D_{24}=D_{2 \cdot 12}$
-            has $\ord{r}=12$. Now, any permutation in $S_4$ is either a
-            $4$-cycle, a  $3$-cycle, or a product of two  $2$-cycles, thus every
-             $s \in S_4$ has  $\ord{s} \leq 4$, and so there are no elements of
-             order $12$ in  $S_4$.
-    \end{enumerate}
+    \item[(5)] $D_{24} \not\simeq S_4$. Notice $r \in D_{24}=D_{2 \cdot 12}$
+      has $\ord{r}=12$. Now, any permutation in $S_4$ is either a
+      $4$-cycle, a  $3$-cycle, or a product of two  $2$-cycles, thus every
+      $s \in S_4$ has $|s| \leq 4$, and so there are no elements of
+      order $12$ in  $S_4$.
+  \end{enumerate}
 \end{example}
 
- We finish with some results.
+We finish with some results.
 
-\begin{lemma}\label{1.6.5}
-    Let $A$ and  $B$ be groups. Then  $A \times B \simeq B \times A$.
+\begin{lemma}\label{lemma_1.5.5}
+  Let $A$ and  $B$ be groups. Then  $A \times B \simeq B \times A$.
 \end{lemma}
 \begin{proof}
-    Take the map $A \times B \rightarrow B \times A$ by taking $(a,b)
-    \rightarrow (b,a)$. This map is $1-1$ and onto, for $(b,a)=(b',a')$ implies
-    $a=a'$ and  $b=b'$, and  $\ord{A \times B}=\ord{B \times A}$. Lastly,
-    notice that $(bb',aa')=(b,a)(b'a')$, which makes it a homomorphism. Thus
-    there is an isomorphism from  $A \times B$ onto  $B \times A$.
+  Take the map $A \times B \rightarrow B \times A$ by taking $(a,b)
+  \rightarrow (b,a)$. This map is $1-1$ and onto, for $(b,a)=(b',a')$ implies
+  $a=a'$ and  $b=b'$, and  $\ord{A \times B}=\ord{B \times A}$. Lastly,
+  notice that $(bb',aa')=(b,a)(b'a')$, which makes it a homomorphism. Thus
+  there is an isomorphism from  $A \times B$ onto  $B \times A$.
 \end{proof}
 
-\begin{lemma}\label{1.5.7}
-    Let $A$,  $B$,  $C$ be groups. Then  $(A \times B) \times C \simeq A \times
-    (B \times C)$.
+\begin{lemma}\label{lemma_1.5.7}
+  Let $A$,  $B$,  $C$ be groups. Then  $(A \times B) \times C \simeq A \times
+  (B \times C)$.
 \end{lemma}
 \begin{proof}
-    Consider the map $(A \times B) \times C \rightarrow A \times (B \times C)$
-    by taking $(a,(b,c)) \rightarrow ((a,b),c)$. This map is $1-1$ and onto by
-    the same reasoning used in the above lemma, moreover, this map is a
-    homomorphsm by closure. This completes the proof.
+  Consider the map $(A \times B) \times C \rightarrow A \times (B \times C)$
+  by taking $(a,(b,c)) \rightarrow ((a,b),c)$. This map is $1-1$ and onto by
+  the same reasoning used in the above lemma, moreover, this map is a
+  homomorphsm by closure. This completes the proof.
 \end{proof}
