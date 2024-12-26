@@ -1,374 +1,404 @@
-%----------------------------------------------------------------------------------------
-%	SECTION 1.1
-%----------------------------------------------------------------------------------------
-
-\section{Definitions and Examples.}
+\section{Definitions and Examples}
 \label{section1}
 
 \begin{definition}
-    Let $G$ be set, we define a  \textbf{binary operation}, $\ast$, on  $G$ to
-    be a map  $\ast:G \times G \rightarrow G$ that takes $(a,b) \rightarrow a
-    \ast b$. We say that a binary operation $\ast$ is \textbf{associative} if
-    for any $a,b,c \in G$,  $(a \ast b) \ast c=a \ast (b \ast c)$. We say that a
-    binary operation, $\ast$ is \textbf{commutative} if for any $a,b \in G$,
-    $a \ast b=b \ast a$
+  Let $G$ be set, we define a  \textbf{binary operation}, $\ast$, on  $G$ to
+  be a map  $\ast:G \times G \rightarrow G$ that takes $(a,b) \rightarrow a
+  \ast b$. We say that a binary operation $\ast$ is \textbf{associative} if
+  for any $a,b,c \in G$,  $(a \ast b) \ast c=a \ast (b \ast c)$. We say that a
+  binary operation, $\ast$ is \textbf{commutative} if for any $a,b \in G$,
+  $a \ast b=b \ast a$
 \end{definition}
- We also write $ab$ instead of  $a \ast b$ for convinience, and when
+We also write $ab$ instead of  $a \ast b$ for convinience, and when
 context is clear.
 
-\begin{example}
-    \begin{enumerate}
-        \item[(1)] The usual addition, $+$ is an associative and commutative binary
-            operation on the sets $\Z$,  $\Q$, and  $\R$ of integers, rationals,
-            and real numbers. The addition of complex numbers, $+$ is an
-            associative and commutative binary operation on the complex numbers
-            $\C$
+\begin{example}\label{example_1.1}
+  \begin{enumerate}
+    \item[(1)] The usual addition, $+$ is an associative and commutative binary
+      operation on the sets $\Z$,  $\Q$, and  $\R$ of integers, rationals,
+      and real numbers. The addition of complex numbers, $+$ is an
+      associative and commutative binary operation on the complex numbers
+      $\C$
 
-        \item[(2)] The usual multiplication $\cdot$ is an associative and
-            commutative binary operation on  $\Z^*$,  $\Q^*$ and  $\R^*$.
-            Complex multiplication on  $\C^*$ is also an associative,
-            commutative binary operation. Note we define
-            $F^*=\com{{F}}{\{0\}}$, where $F=\Z,\Q,\R,\C$.
+    \item[(2)] The usual multiplication $\cdot$ is an associative and
+      commutative binary operation on  $\Z^*$,  $\Q^*$ and  $\R^*$.
+      Complex multiplication on  $\C^*$ is also an associative,
+      commutative binary operation. Note we define
+      $F^*=\com{{F}}{\{0\}}$, where $F=\Z,\Q,\R,\C$.
 
-        \item[(3)] The usual subtration, is a noncomutative binary operation on
-            $\Z$,  $\Q$, and  $\R$, complex subtraction is noncommutative on
-            $\C$. The map $a \rightarrow -a$ is not binary.
+    \item[(3)] The usual subtration, is a noncomutative binary operation on
+      $\Z$,  $\Q$, and  $\R$, complex subtraction is noncommutative on
+      $\C$. The map $a \rightarrow -a$ is not binary.
 
-        \item[(4)] The usual subtraction is not a binary operation on $\Z^+$,
-            $Q^+$, and  $\R^+$, notice that if  $a<b$,  $a-b \notin F$ where
-            $F=\Z,\Q,\R$.
+    \item[(4)] The usual subtraction is not a binary operation on $\Z^+$,
+      $\Q^+$, and  $\R^+$, notice that if  $a<b$,  $a-b \notin F$ where
+      $F=\Z,\Q,\R$.
 
-        \item[(5)] The cross prodcuct, $\times$ on two vectors in real $3$-space
-            is a nonassociative binary operation on $\R^3$.
+    \item[(5)] The cross prodcuct, $\times$ on two vectors in real $3$-space
+      is a nonassociative binary operation on $\R^3$.
 
-        \item[(6)] The operation $+_n$ of addition $\mod{n}$ is a binary
-            operation on the set of integers  $\mod{n}$, $\faktor{\Z}{n\Z}$.
-            Notice that for $k, l, m \in \Z$, that $a \mod{n}$ is of the form
-            $a+kn$, thus $b \mod{n}$ and $c \mod{n}$, have the forms $b+ln$ and
-            $c+mn$. Thus
-            $((a+kn)+(b+ln))+(c+mn)=(a+b)+(l+k)n+(c+mn)=a+b+c+(l+k+m)n=(a+kn)+
-            (b+c)+(l+m)n=(a+kn)+((b+ln)+(c+mn))$. This implies that $(a+b)+c
-            \mod{n}=a(b+c) \mod{n}$; additionally,
-            $(a+kn)+(b+ln)=(a+b)+(k+l)n=(b+a)+(l+k)n=(b+ln)+(a+kn)$, so $a+b
-            \mod{n} = b+a \mod{n}$. That is $+_n$ is associative and
-            commutative. We abbreviate addition $\mod{n}$ and write $+$ instead
-            of  $+_n$.
+    \item[(6)] The operation $+_n$ of addition modulo $n$ is a binary
+      operation on the set of integers modulo $n$, $\faktor{\Z}{n\Z}$.
+      Notice that for $k, l, m \in \Z$, that $a \mod{n}$ is of the form
+      $a+kn$, thus $b \mod{n}$ and $c \mod{n}$, have the forms $b+ln$ and
+      $c+mn$. Thus
+      \begin{align*}
+        ((a+kn)+(b+ln))+(c+mn) &= (a+b)+(l+k)n+(c+mn) \\
+                            &= a+b+c+(l+k+m)n \\
+                            &=(a+kn)+(b+c)+(l+m)n \\
+                            &=(a+kn)+((b+ln)+(c+mn)) \\
+      \end{align*}
+      This implies that $(a+b)+c \mod{n}=a(b+c) \mod{n}$; additionally,
+      \begin{align*}
+        (a+kn)+(b+ln) &= (a+b)+(k+l)n \\
+                      &=(b+a)+(l+k)n  \\
+                      &=(b+ln)+(a+kn) \\
+      \end{align*}
+      so $a+b \mod{n} = b+a \mod{n}$. That is $+_n$ is associative and
+      commutative. We abbreviate addition modulo $n$ and write $+$ instead
+      of  $+_n$.
 
-        \item[(7)] Multiplictation $\mod{n}$ is a binary operation on
-            $\faktor{\Z}{n\Z}$ which is associative and commutative.
+    \item[(7)] Multiplictation moduleo $n$ is a binary operation on
+      $\faktor{\Z}{n\Z}$ which is associative and commutative.
 
-        \item[(8)] The operation of function composition $\circ$ is a binary
-            operation on any set of mappings. We have that for mappings $f$,
-            $g$, and  $h$ that  $(f \circ g) \circ h=f \circ (g \circ h)$,
-            making $\circ$ associative; but  $f \circ g \neq g \circ f$, making
-             $\circ$ noncommutative.
-    \end{enumerate}
+    \item[(8)] The operation of function composition $\circ$ is a binary
+      operation on any set of mappings. We have that for mappings $f$,
+      $g$, and  $h$ that  $(f \circ g) \circ h=f \circ (g \circ h)$,
+      making $\circ$ associative; but  $f \circ g \neq g \circ f$, making
+      $\circ$ noncommutative.
+  \end{enumerate}
 \end{example}
 
 \begin{definition}
-    Let $G$ be a set, and  $H \subseteq G$, and let  $\ast$ be a binary
-    operation on  $G$. We say that  $H$ is \textbf{closed} under $\ast$ if
-    $\ast|_H$ is a binary operation on  $H$.
+  Let $G$ be a set, and  $H \subseteq G$, and let  $\ast$ be a binary
+  operation on  $G$. We say that  $H$ is \textbf{closed} under $\ast$ if
+  $\ast|_H$ is a binary operation on  $H$.
 \end{definition}
 
 \begin{definition}
-    Let $G$ be a nonempty set, and let  $\ast$ be a binary operation on $G$. We
-    call the pair  $(G,\ast)$ a \textbf{group} if:
-    \begin{enumerate}
-        \item[(0)] For every $a,b \in G$,  $ab \in G$. That is  $G$ is closed
-            under $\ast$.
-        \item[(1)] $(ab)c=a(bc)$ for all $a,b,c \in G$, i.e. $\ast$ is
-            associative.
+  Let $G$ be a nonempty set, and let  $\ast$ be a binary operation on $G$. We
+  call the pair  $(G,\ast)$ a \textbf{group} if:
+  \begin{enumerate}
+    \item[(0)] For every $a,b \in G$,  $a \ast b \in G$. That is  $G$ is closed
+      under $\ast$.
+    \item[(1)] $(a \ast b) \ast c=a \ast (b \astc)$ for all $a,b,c \in G$,
+      i.e. $\ast$ is associative.
 
-        \item[(2)] There exists an element $e \in G$ called the
-            \textbf{identity} element such that  $ae=ea=a$ for all  $a \in G$
+    \item[(2)] There exists an element $e \in G$ called the
+      \textbf{identity} element such that  $a \ast e=e \ast a=a$ for all
+      $a \in G$
 
-        \item[(3)] For each $a \in G$, there is an element  $b \in G$, called
-            the \textbf{inverse} of $a$ such that  $ab=ba=e$, where  $e$ is the
-            identity element.
-    \end{enumerate}
+    \item[(3)] For each $a \in G$, there is an element  $b \in G$, called
+      the \textbf{inverse} of $a$ such that  $a \ast b=b \asta=e$, where
+      $e$ is the identity element of $G$.
+  \end{enumerate}
 \end{definition}
 \begin{remark}
-    We make note that property $(0)$ of this definition is impled by stating
-    $\ast$ as a binary operation on  $G$, we however list it, becuase when
-    verifying a given set is a group, we usually want to check for closure.
+  We make note that property $(0)$ of this definition is impled by stating
+  $\ast$ as a binary operation on  $G$, we however list it, becuase when
+  verifying a given set is a group, we usually want to check for closure.
 \end{remark}
 \begin{remark}
-    Instead of stating $(G,\ast)$ as a group, we will often just say that $G$ is
-    a group under  $\ast$, or simply,  $G$ is a group.
+  Instead of stating $(G,\ast)$ as a group, we will often just say that $G$ is
+  a group under  $\ast$, or simply,  $G$ is a group.
 \end{remark}
 
-\begin{example}
-    \begin{enumerate}
-        \item[(1)] The set $G=\{e\}$ of one element forms a group under any
-            operation, and is called the \textbf{trivial} group. We write
-            $G=\vbrack{e}$.
+\begin{example}\label{example_1.2}
+  \begin{enumerate}
+    \item[(1)] The set $G=\{e\}$ of one element forms a group under any
+      operation, and is called the \textbf{trivial} group. We write
+      $G=\vbrack{e}$. We also observe that there is no group $G$ which
+      is empty (that is $\0$ is not a group). Indeed, suppose we removed
+      the restriction to be nonempty in the definition of a group. We see
+      that if $G$ is empty, then  $G$ cannot be a group, since it is
+      not closed, trivially; furthurmore, there is no identity, nor inverse
+      to each element. Therefore the minimum number of elements a group can
+      have is $1$. This makes the trivial group $\langle e \rangle$
+      the smallest possible group.
 
-        \item[(2)] The sets $\Z$,  $\R$, and  $\Q$ are all groups under the
-            usual addition. Here $0$ is the identity, and  $-a$ is the inverse
-            of  $a$.  $\C$ is a group under complex addition with $0=0+i0$ the
-            identity and $-a-ib$ the inverse of $a+ib$.
+    \item[(2)] The sets $\Z$,  $\R$, and  $\Q$ are all groups under the
+      usual addition. Here $0$ is the identity, and  $-a$ is the inverse
+      of  $a$.  $\C$ is a group under complex addition with $0=0+i0$ the
+      identity and $-a-ib$ the inverse of $a+ib$.
 
-        \item[(3)] $\Q$ and  $\R$ are groups under the usual multiplication,
-            with identity  $1$ and inverse  $\inv{a}=\frac{1}{a}$. $\Z$ is not a
-            group under this operation, as  $\frac{1}{a} \notin \Z$ whenever $a
-            \in \Z$.  $\C$ is a group under complex multiplication with identity
-             $1=1+i0$ and inverse $\frac{a}{a^2+b^2}-i\frac{b}{a^2+b^2}$ for
-             $a+ib$.
+    \item[(3)] $\Q$ and  $\R$ are groups under the usual multiplication,
+      with identity  $1$ and inverse  $\inv{a}=\frac{1}{a}$. $\Z$ is not a
+      group under this operation, as  $\frac{1}{a} \notin \Z$ whenever $a
+      \in \Z$.  $\C$ is a group under complex multiplication with identity
+      $1=1+i0$ and inverse $\frac{a}{a^2+b^2}-i\frac{b}{a^2+b^2}$ for
+      $a+ib$.
 
-         \item[(4)] Consider the set of integers $\mod{n}$, $\faktor{\Z}{n\Z}$
-             under addition  $\mod{n}$, $+$. Since  $+$ is a binary operation on
-             $\faktor{Z}{n\Z}$, closure is guaranteed. We also see that
-             associativity hold. Now, notcie that $n \equiv 0 \mod{n}$, by
-             definition, so $a+n=n+a \equiv 0+a \mod{n} \equiv a+0 \mod{n}
-             \equiv a$. Moreover, $n-a \equiv 0-a \equiv -a \mod{n}$, and
-             $(n-a)+a=n(-a+a)=n \equiv 0 \mod{n}$ and $a+(n-a)=n+(a-a)=n \equiv
-             0 \mod{n}$. So $(\faktor{\Z}{n\Z}, +_n)$ is a group, with identity
-             element $0 \mod{n}$ and inverse element $-a \mod{n}$ for each $a
-             \in \faktor{\Z}{n\Z}$.
-    \end{enumerate}
-\end{example}
-
-\begin{example}
-    Suppose we removed the restriction to be nonempty in the definition of a
-    group. We see that if $G=\emptyset$, then  $G$ cannot be a group, since it
-    is not closed, trivially; furthurmore, there is no identity, nor inverse to
-    each element. Therefore the minimum number of elements a group can have is
-    $1$. This makes the trivial group minimal.
+    \item[(4)] Consider the set of integers modulo $n$, $\faktor{\Z}{n\Z}$
+      under addition modulo $n$, $+$. Since  $+$ is a binary operation on
+      $\faktor{Z}{n\Z}$, closure is guaranteed. We also see that
+      associativity hold. Now, notcie that $n \equiv 0 \mod{n}$, by
+      definition, so $a+n=n+a \equiv 0+a \mod{n} \equiv a+0 \mod{n}
+      \equiv a$. Moreover, $n-a \equiv 0-a \equiv -a \mod{n}$, and
+      $(n-a)+a=n(-a+a)=n \equiv 0 \mod{n}$ and $a+(n-a)=n+(a-a)=n \equiv
+      0 \mod{n}$. So $(\faktor{\Z}{n\Z}, +_n)$ is a group, with identity
+      element $0 \mod{n}$ and inverse element $-a \mod{n}$ for each $a
+      \in \faktor{\Z}{n\Z}$.
+  \end{enumerate}
 \end{example}
 
 \begin{definition}
-    We call a group $G$ under a binary operation  $\ast$  \textbf{Abelian}, or
-    \textbf{commutative} if for every $a,b \in G$,  $ab=ba$.
+  We call a group $G$ under a binary operation  $\ast$  \textbf{Abelian}, or
+  \textbf{commutative} if for every $a,b \in G$,  $ab=ba$.
 \end{definition}
 
-\begin{example}
-    The above examples of groups are also examples of abelian groups.
-\end{example}
+\begin{example}\label{example_1.3}
+  \begin{enumerate}
+    \item[(1)] The above examples of groups are also examples of abelian groups.
 
-\begin{example}
-    Consider $\com{(\faktor{\Z}{n\Z})}{\{0\}}$ under multiplication $\mod{n}$,
-    $\cdot_n$  (abbreviated as $\cdot$). This is not a group as not every
-    element has an inverse. Specifically, take $n=6$, then in
-    $\faktor{\Z}{6\Z}$, $2 \cdot 3=6 \equiv 0 \mod{6} \notin
-    \com{(\faktor{\Z}{n\Z})}{\{0\}}$. However, one can still impose a group
-    structure with modular multiplication.
+    \item[(2)] Consider $\com{(\faktor{\Z}{n\Z})}{\{0\}}$ under multiplication
+      modulo $n$, $\cdot_n$  (abbreviated as $\cdot$). This is not a group as
+      not every element has an inverse. Specifically, take $n=6$, then in
+      $\faktor{\Z}{6\Z}$, $2 \cdot 3=6 \equiv 0 \mod{6} \notin
+      \com{(\faktor{\Z}{n\Z})}{\{0\}}$. However, one can still impose a group
+      structure with modular multiplication.
 
-    Define the set $U(\faktor{\Z}{n\Z})=\{a \in \faktor{\Z}{n\Z} : (a,n)=1\}$,
-    that is it is the set of all integers $\mod{n}$ coprime with $n$. We have
-    that $U(\faktor{\Z}{n\Z})$ is closed under $\cdot$. Notice that if
-    $(a,n)=1$, and $(b,n)=1$, then $(ab,n)=1$. Also notice that
-    $U(\faktor{\Z}{n\Z}) \subseteq \faktor{\Z}{n\Z}$, and so inherits
-    associativity. Moreover, notice that $(1,n)=1$, and $a1=1a=a \in
-    U(\faktor{\Z}{n\Z})$, so $1 \mod{n}$ is the identity of the set. Now for any
-    $a \in U(\faktor{\Z}{n\Z})$, since $(a,n)=1$, there exist $b,m \in \Z$ such
-    that $ab+mn=1$, that is $ab \equiv 1 \mod{n}$, and moreover notice that if
-    $(ab,n)=1$ and $(a,n)=1$, then $(b,n)=1$, thus $b \in U(\faktor{\Z}{n\Z})$,
-    and is an inverse of $a$. Thus we have shown that  $U(\faktor{\Z}{n\Z})$ is
-    a group under $\cdot$. We call the group the \textbf{group of units,
-    $\mod{n}$}, or simply the \textbf{unit group $\mod{n}$}. Moreover, we see
-    that this group is commutative.
-\end{example}
+      Define the set $\Uc{(\faktor{\Z}{n\Z})}=\{a \in \faktor{\Z}{n\Z} : (a,n)=1\}$,
+      that is it is the set of all integers modulo $n$, coprime with $n$. We have
+      that $\Uc{(\faktor{\Z}{n\Z})}$ is closed under $\cdot$. Notice that if
+      $(a,n)=1$, and $(b,n)=1$, then $(ab,n)=1$. Also notice that
+      $\Uc{(\faktor{\Z}{n\Z})} \subseteq \faktor{\Z}{n\Z}$, and so inherits
+      associativity. Moreover, notice that $(1,n)=1$, and $a1=1a=a \in
+      \Uc{(\faktor{\Z}{n\Z})}$, so $1 \mod{n}$ is the identity of the set. Now for
+      any $a \in \Uc{(\faktor{\Z}{n\Z})}$, since $(a,n)=1$, there exist $b,m \in
+      \Z$ such that $ab+mn=1$, that is $ab \equiv 1 \mod{n}$, and moreover notice
+      that if $(ab,n)=1$ and $(a,n)=1$, then $(b,n)=1$, thus $b \in
+      \Uc{(\faktor{\Z}{n\Z})}$, and is an inverse of $a$. Thus we have shown that
+      $\Uc{(\faktor{\Z}{n\Z})}$ is a group under $\cdot$. We call the group the
+      \textbf{group of units, modulo $n$}, or simply the \textbf{unit group $\mod{n}$}.
+      Moreover, we see that this group is commutative. We observe that it
+      $n=p$ is a prime, then  $\Uc{(\faktor{\Z}{pZ})}=\faktor{\Z}{p\Z}$. The concept
+      of a ``group of units'' can be expanded to more general algebraic structures
+      than $\faktor{\Z}{n\Z}$. Consider $\com{(\faktor{\Z}{n\Z})}{\{0\}}$ under multiplication
+      modulo $n$, $\cdot_n$  (abbreviated as $\cdot$). This is not a group as
+      not every element has an inverse. Specifically, take $n=6$, then in
+      $\faktor{\Z}{6\Z}$, $2 \cdot 3=6 \equiv 0 \mod{6} \notin
+      \com{(\faktor{\Z}{n\Z})}{\{0\}}$. However, one can still impose a group
+      structure with modular multiplication.
 
-\begin{example}
-    \begin{enumerate}
-        \item[(1)] The vector space axioms for some vector space $V$ specify
-            that under vector addition  $+$,  $(V,+)$ forms a group.
+      Define the set $\Uc{(\faktor{\Z}{n\Z})}=\{a \in \faktor{\Z}{n\Z} : (a,n)=1\}$,
+      that is it is the set of all integers modulo $n$, coprime with $n$. We have
+      that $\Uc{(\faktor{\Z}{n\Z})}$ is closed under $\cdot$. Notice that if
+      $(a,n)=1$, and $(b,n)=1$, then $(ab,n)=1$. Also notice that
+      $\Uc{(\faktor{\Z}{n\Z})} \subseteq \faktor{\Z}{n\Z}$, and so inherits
+      associativity. Moreover, notice that $(1,n)=1$, and $a1=1a=a \in
+      \Uc{(\faktor{\Z}{n\Z})}$, so $1 \mod{n}$ is the identity of the set. Now for
+      any $a \in \Uc{(\faktor{\Z}{n\Z})}$, since $(a,n)=1$, there exist $b,m \in
+      \Z$ such that $ab+mn=1$, that is $ab \equiv 1 \mod{n}$, and moreover notice
+      that if $(ab,n)=1$ and $(a,n)=1$, then $(b,n)=1$, thus $b \in
+      \Uc{(\faktor{\Z}{n\Z})}$, and is an inverse of $a$. Thus we have shown that
+      $\Uc{(\faktor{\Z}{n\Z})}$ is a group under $\cdot$. We call the group the
+      \textbf{group of units, modulo $n$}, or simply the \textbf{unit group $\mod{n}$}.
+      Moreover, we see that this group is commutative. We observe that it
+      $n=p$ is a prime, then  $\Uc{(\faktor{\Z}{pZ})}=\faktor{\Z}{p\Z}$. The concept
+      of a ``group of units'' can be expanded to more general algebraic structures
+      than $\faktor{\Z}{n\Z}$.
 
-        \item[(2)] Let $(A, \ast)$, $(B,\cdot)$ be groups under binary
-            operations $\ast$ and  $\cdot$. Consider the product $A \times B$
-            and take the map $\circ:(a_1,b_1)(a_2,b_2) \rightarrow (a_1 \ast a_2, b_1
-            \cdot b_2)$. Then $\circ$ is a binary operation on  $A \times B$.
-            Then  $(A \times B, \circ)$ forms a group. We have that since $A$
-            and  $B$ is closed, then so is  $A \times B$. Furthermore, by
-            associativity of  $\ast$ and  $\cdot$,  $((a_1,b_1) \circ (a_2,b_2))
-            \circ (a_3,b_3)=(a_1,b_1) \circ ((a_2,b_2) \circ (a_3,b_3))$; making
-            $\circ$ associative. Now if  $e_1$ and $e_2$ are the identities of
-            $A$ and  $B$ respevively, then  $(e_1,e_2)$ is the identiy for $A
-            \times B$; finding the inverse of an element  $(a,b)$ follow
-            similarly.
-    \end{enumerate}
+    \item[(3)] The vector space axioms for some vector space $V$ specify
+      that under vector addition  $+$,  $(V,+)$ forms a group.
+
+    \item[(4)] Let $(A, \ast)$, $(B,\cdot)$ be groups under binary
+      operations $\ast$ and  $\cdot$. Consider the product $A \times B$
+      and take the map $\circ:(a_1,b_1)(a_2,b_2) \rightarrow (a_1 \ast a_2, b_1
+      \cdot b_2)$. Then $\circ$ is a binary operation on  $A \times B$.
+      Then  $(A \times B, \circ)$ forms a group. We have that since $A$
+      and  $B$ is closed, then so is  $A \times B$. Furthermore, by
+      associativity of  $\ast$ and  $\cdot$,  $((a_1,b_1) \circ (a_2,b_2))
+      \circ (a_3,b_3)=(a_1,b_1) \circ ((a_2,b_2) \circ (a_3,b_3))$; making
+      $\circ$ associative. Now if  $e_1$ and $e_2$ are the identities of
+      $A$ and  $B$ respevively, then  $(e_1,e_2)$ is the identiy for $A
+      \times B$; finding the inverse of an element  $(a,b)$ follow
+      similarly.
+  \end{enumerate}
 \end{example}
 
 \begin{theorem}\label{1.2.1}
-    Let $G$ be a group under a binary operation  $\ast$ then the identy of  $G$
-    is unique, and the inverse of  $a \in G$ is unique.
+  Let $G$ be a group under a binary operation  $\ast$ then the identy of  $G$
+  is unique, and the inverse of  $a \in G$ is unique.
 \end{theorem}
 \begin{proof}
-    Suppose there exists $e,f \in G$ such that for any  $a \in G$  $ae=ea=a$ and
-     $af=fa=a$. Then we have that $fe=e$ and  $ef=fe=f$; thus  $e=f$.
+  Suppose there exists $e,f \in G$ such that for any  $a \in G$  $ae=ea=a$ and
+  $af=fa=a$. Then we have that $fe=e$ and  $ef=fe=f$; thus  $e=f$.
 
-     Now let  $a \in G$, and suppose  $a$ has inverses  $b,c \in G$, then
-     $ab=ba=e$ and  $ac=ca=e$, where  $e$ is the identity of  $G$. Then we have
-     $b=be=b(ac)=(ba)c=ec=c$, thus $b=c$.
+  Now let  $a \in G$, and suppose  $a$ has inverses  $b,c \in G$, then
+  $ab=ba=e$ and  $ac=ca=e$, where  $e$ is the identity of  $G$. Then we have
+  $b=be=b(ac)=(ba)c=ec=c$, thus $b=c$.
 \end{proof}
 \begin{remark}
-    Since the inverse of an element $a$ is unique, we will now denote it
-    $\inv{a}$.
+  Since the inverse of an element $a$ is unique, we will now denote it
+  $\inv{a}$.
 \end{remark}
 \begin{corollary}
-    $\inv{(\inv{a})}=a$ and $\inv{(ab)}=\inv{b}\inv{a}$
+  $\inv{(\inv{a})}=a$ and $\inv{(ab)}=\inv{b}\inv{a}$
 \end{corollary}
 \begin{proof}
-    Since inverses are unique, the $\inv{a} \in G$ has the unique inverse
-    $\inv{\inv{a}}$. Then  taking $a\inv{a}=e$, applying inverses, we get
-    $a(\inv{a}\inv{(\inv{a})})=e\inv{(\inv{a})}$, $a=\inv{(\inv{a})}$.
+  Since inverses are unique, the $\inv{a} \in G$ has the unique inverse
+  $\inv{(\inv{a})}$. Then  taking $a\inv{a}=e$, applying inverses, we get
+  $a(\inv{a}\inv{(\inv{a})})=e\inv{(\inv{a})}$, $a=\inv{(\inv{a})}$.
 
-    Now Let $a,b \in G$, then $ab\inv{(ab)}=e$. Applying the inverse of $a$ on
-    the right to both sides, we get  $b\inv{(ab)}=\inv{a}$; agian with the
-    inverse of $b$ yields  $\inv{(ab)}=\inv{b}\inv{a}$.
+  Now Let $a,b \in G$, then $ab\inv{(ab)}=e$. Applying the inverse of $a$ on
+  the right to both sides, we get  $b\inv{(ab)}=\inv{a}$; agian with the
+  inverse of $b$ yields  $\inv{(ab)}=\inv{b}\inv{a}$.
 \end{proof}
 
 \begin{theorem}[Generalized Associativity]\label{1.2.2}
-    Let $G$ be a group under a binary operation  $\ast$, then for any  $a_1,
-    a_2, \dots, a_n \in G$, the product $a_1 \ast a_1 \ast \dots \ast a_n$ is
-    independent of the ordering of any brackets.
+  Let $G$ be a group under a binary operation  $\ast$, then for any  $a_1,
+  a_2, \dots, a_n \in G$, the product $a_1 \ast a_1 \ast \dots \ast a_n$ is
+  independent of the ordering of any brackets.
 \end{theorem}
 \begin{proof}
-    By induction on $n$, for  $n=1$, we just have the element  $a_1$, for $n=2$
-    we have $a_1a_2$ has only one possible bracketing $(a_1b_1)$; and for $n=3$,
-    the associativty group law guarantees  $a_1(a_2a_3)=(a_1a_2)a_3$.
+  By induction on $n$, for $n=3$, we have the elements $a_1,a_2,a_3
+  \in G$, and by the group law of associativity, we are gauranteed
+  that $a_1 \ast (a_2 \ast a_3)=(a_1 \ast a_2) \ast a_3$.
 
-    Now for any $k<n$, the the braketing of  $k$ elements  $a_1, \dots, a_k$ is
-    can be reduced to the expression
-    \begin{equation*}
-        a_1 \ast (a_2 \ast (a_3 \ast ( \dots \ast a_k))).
-    \end{equation*}
-Now we see that $a_1 \ast \dots \ast a_n$ can be bracketed into the products:
-    \begin{equation*}
-        (a_1 \ast \dots \ast a_k) \ast (a_{k+1} \ast \dots \ast a_n)
-    \end{equation*}
-which can be bracketed, by hypothesis as:
-\begin{equation*}
-    (a_1 \ast (a_2 \ast (a_3 \ast ( \dots \ast a_k)))) \ast
-    (a_{k+1} \ast (a_{k+2} \ast (a_{k+3} \ast ( \dots \ast a_n))))
-\end{equation*}
-Therefore, applying the assocaitive group law to this product, we get that
-\begin{equation*}
-    a_1 \ast \dots \ast a_n=a_1 \ast (a_2 \ast (a_3 \ast ( \dots \ast a_n)))
-\end{equation*}
-This completes the proof.
+  Now, for $n \geq 3$, suppose that we can bracket the elements
+  independent of order, and consider the expression
+  \begin{equation*}
+    a_1 \ast (a_2 \ast (a_3 \ast ( \dots \ast (a_n \ast a_{n+1}))))
+  \end{equation*}
+  we may rebracket this expression as:
+  \begin{equation*}
+    (a_1 \ast (a_2 \ast (a_3 \ast ( \dots \ast a_n)))) \ast a_{n+1}
+  \end{equation*}
+  which by hypothesis, can be rebracketed as
+  \begin{equation*}
+    ((a_1 \ast \dots \ast a_k) \ast (a_{k+1} \ast \dots \ast a_n)) \ast a_{n+1}
+  \end{equation*}
+  which by the associative law, just gives us the result
+  \begin{equation*}
+    a_1 \ast \dots \ast a_{n+1}=a_1 \ast (a_2 \ast (a_3 \ast ( \dots \ast (a_n \ast a_{n+1}))))
+  \end{equation*}
+  which completes the proof
 \end{proof}
 
 \begin{theorem}[The Cancellation Laws]\label{1.2.3}
-    Let $G$ be a group under a binary operation  $\ast$. Then for  $a,b,c \in
-    G$, we have:
-    \begin{enumerate}
-        \item[(1)] $ab=ac$ implies  $b=c$ (Left Cancellation Law).
+  Let $G$ be a group under a binary operation  $\ast$. Then for  $a,b,c \in
+  G$, we have:
+  \begin{enumerate}
+    \item[(1)] $ab=ac$ implies  $b=c$.
 
-        \item[(2)] $ba=ca$ implies  $b=c$ (Right Cancellation Law).
-    \end{enumerate}
+    \item[(2)] $ba=ca$ implies  $b=c$.
+  \end{enumerate}
 \end{theorem}
 \begin{proof}
-    Suppose that $ab=ac$, then applying the inverse of $a$ on the left, we get
-     $(\inv{a}a)b=(\inv{a}a)c$, hence $eb=ec$, thus  $b=c$. Similarly, we get
-     $b=c$ if we apply  $\inv{a}$ to the right in the equation $ba=ca$.
+  Suppose that $ab=ac$, then applying the inverse of $a$ on the left, we get
+  $(\inv{a}a)b=(\inv{a}a)c$, hence $eb=ec$, thus  $b=c$. Similarly, we get
+  $b=c$ if we apply  $\inv{a}$ to the right in the equation $ba=ca$.
 \end{proof}
 \begin{corollary}
-    For $x,y \in G$, the equations  $ax=b$ and  $ya=b$ have unique solutions.
+  For $x,y \in G$, the equations  $ax=b$ and  $ya=b$ have unique solutions.
 \end{corollary}
 \begin{proof}
-    We have $x=b\inv{a}$ and $y=\inv{a}b$. Since inverses are unique, so are the
-    solutions $x$ and $y$.
+  We have $x=b\inv{a}$ and $y=\inv{a}b$. Since inverses are unique, so are the
+  solutions $x$ and $y$.
 \end{proof}
 
 \begin{definition}
-    Let $G$ be a group under a binary opeartion  $\ast$. For any $a \in G$, and
-    $n \in \Z^+$, we define the  \textbf{$n$-th power} of $a$ to be:
-    \begin{equation*}
-        a^n=\underbrace{a \ast \dots \ast a}_{n \text{ times.}}
-    \end{equation*}
-    We define $a^0=e$ and  $a^{-n}=(\inv{a})^n$.
+  Let $G$ be a group under a binary opeartion  $\ast$. For any $a \in G$, and
+  $n \in \Z^+$, we define the  \textbf{$n$-th power} of $a$ to be:
+  \begin{equation*}
+    a^n=\underbrace{a \ast \dots \ast a}_{n \text{ times.}}
+  \end{equation*}
+  We define $a^0=e$ and  $a^{-n}=(\inv{a})^n$.
 \end{definition}
 
 \begin{lemma}\label{1.2.4}
-    Let $G$ be a group under a binary operation  $\ast$, and let  $a \in G$ and
-     $m,n \in \Z^+$. Then:
-     \begin{enumerate}
-         \item[(1)] $a^ma^n=a^{m+n}$.
+  Let $G$ be a group under a binary operation  $\ast$, and let  $a \in G$ and
+  $m,n \in \Z^+$. Then:
+  \begin{enumerate}
+    \item[(1)] $a^ma^n=a^{m+n}$.
 
-         \item[(2)] $(a^m)^n=a^{mn}$.
-     \end{enumerate}
+    \item[(2)] $(a^m)^n=a^{mn}$.
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-    We have by definition that $a^ma^n=\underbrace{a \ast \dots \ast a}_{m
-    \text{ times.}}\underbrace{a \ast \dots \ast a}_{n \text{ times.}}=
-    \underbrace{a \ast \dots \ast a}_{m+n \text{ times.}}=a^{m+n}$.
+  We have by definition that $a^ma^n=\underbrace{a \ast \dots \ast a}_{m
+  \text{ times.}}\underbrace{a \ast \dots \ast a}_{n \text{ times.}}=
+  \underbrace{a \ast \dots \ast a}_{m+n \text{ times.}}=a^{m+n}$.
 
-    Likewise, $(a^m)^n=\underbrace{a^m \ast \dots \ast a^m}_{n \text{ times.}}=
-    \underbrace{a \ast \dots \ast a}_{nm \text{ times.}}=a^{mn}$.
+  Likewise, $(a^m)^n=\underbrace{a^m \ast \dots \ast a^m}_{n \text{ times.}}=
+  \underbrace{a \ast \dots \ast a}_{nm \text{ times.}}=a^{mn}$.
 \end{proof}
 
 We can now, unless context isn't clear enough, drop all mention to the binary
 operation of a group.
 
 \begin{definition}
-    We define the \textbf{order} of a group $G$ to be the number of elements of
-    $G$ and denote it  $\ord{G}$. That is, $\ord{G}=|G|$. If $G$ is infinite,
-    then we say that  $G$ has  \textbf{infinite order}; otherwise, we say $G$ is
-    of  \textbf{finite order}.
+  We definet the \textbf{order} of a group $G$ to be the number of
+  elements of  $G$  (i.e. the cardinality of $G$) and denote it $|G|$.
+  If $G$ is infinite, we say that $G$ has \textbf{infinite order} and
+  write $|G|=\infty$; otherwise, we say that $G$ has \textbf{finite
+  order}.
 \end{definition}
 
 \begin{definition}
-    Let $G$ be a group and let  $a \in G$. We define the \textbf{order} of $a$
-    to be the smallest positive integer  $n \in \Z^+$ for which $a^n=e$. If
-    there is no such integer $n$, then we say  $a$ has  \textbf{infinite order},
-    otherwise, we say $a$ has \textbf{finite order}, and write $\ord{a}=n$.
+  Let $G$ be a group and $a \in G$. We define the \textbf{order} of
+  $a$ to be the smallest postivie such integer $n \in \Z^+$ for which
+  $a^n=e$, and write $|a|=n$. If there is no such positive integer,
+  then we say that $a$ has \textbf{infinite order} and write
+  $|a|=\infty$; otherwise we say that $a$ is of \textbf{finite order}.
 \end{definition}
 
 We conclude the section with more examples and one last definition.
 
 \begin{lemma}\label{1.2.5}
-    Let $G$ be a group, suppose  $a,b \in G$ are elements with  $\ord{a}=m$,
-    $\ord{b}=n$, for $m,n \in \Z^+$, and that  $ab=ba$. Then  $\ord{ab}=[m,n]$.
+  Let $G$ be a group, suppose that  $a,b \in G$ are elements with
+  order $|a|=m$ and  $|b|=n$, for  $m,n \in \Z^+$. Suppose further
+  that $ab=ba$. Then  $|ab|=[m,n]$.
 \end{lemma}
 \begin{proof}
-    Let $\ord{ab}=k$ for $k \in \ \Z^+$. Since  $a$ and  $b$ commute, we get
-    $a^k=e$ and  $b^k=e$. Now, by the division theorem, there are integers
-    $q_1,q_2,r_1,r_2 \in \Z^+$ such that $k=q_1m+r_1$ and $k=q_2n+r_2$. Then we
-    get that $a^k=a^{q_1m+r_1}=a^{q_1m}a^{r_1}=a^{r_1}=e$. Since $\ord{a}=m$,
-    this makes $r_1=0$. Similarly, we get that $b^k=b^{r_2}=e$ implies $r_2=0$.
-    Therefore, $k=q_1m=q_2n$; moreover, $\ord{ab}=k$ is minimal by definition,
-    thus we get $\ord{ab}=k=[m,n]$.
+  Let $|ab|=k$ for $k \in \ \Z^+$. Since  $a$ and  $b$ commute, we get
+  $a^k=e$ and  $b^k=e$. Now, by the division theorem, there are integers
+  $q_1,q_2,r_1,r_2 \in \Z^+$ such that $k=q_1m+r_1$ and $k=q_2n+r_2$. Then we
+  get that $a^k=a^{q_1m+r_1}=a^{q_1m}a^{r_1}=a^{r_1}=e$. Since $|a|=m$,
+  this makes $r_1=0$. Similarly, we get that $b^k=b^{r_2}=e$ implies $r_2=0$.
+  Therefore, $k=q_1m=q_2n$; moreover, $|ab|=k$ is minimal by definition,
+  thus we get $|ab|=k=[m,n]$.
 \end{proof}
 \begin{corollary}
-    For $a_1, \dots, a_k \in G$, with $\ord{a_i}=n_i$ and $a_ia_j=a_ja_i$ for
-    all  $1 \leq i,j \leq n$, then  $\ord{a_1a_2 \dots a_k}=[n_1, \dots, n_k]$.
+  For $a_1, \dots, a_k \in G$, with $|a_i|=n_i$ and $a_ia_j=a_ja_i$ for
+  all  $1 \leq i,j \leq n$, then  $|a_1a_2 \dots a_k|=[n_1, \dots, n_k]$.
 \end{corollary}
 \begin{proof}
-    By induction, when $k=1$, the case is trivial. Now, for  $k=2$, the result
-    follows by the above theorem. Now suppose that $\ord{a_1 \dots a_k}=[n_1,
-    \dots, n_k]$. Take $a_{k+1} \in G$ with $\ord{a_{k+1}}=n_{k+1}$ and $(a_1
-    \dots a_k)a_{k+1}=a_{k+1}(a_1 \dots a_k)=a_1 \dots a_ka_{k+1}$. Then, by the
-    above theorem, we get $\ord{a_1 \dots a_ka_{k+1}}=[[n_1, \dots, n_k],
-    n_{k+1}]=[n_1, \dots, n_k, n_{k+1}]$.
+  By induction, when $k=1$, the case is trivial. Now, for  $k=2$, the result
+  follows by the above theorem. Now suppose that $|a_1 \dots a_k|=[n_1,
+  \dots, n_k]$. Take $a_{k+1} \in G$ with $|a_{k+1}|=n_{k+1}$ and $(a_1
+  \dots a_k)a_{k+1}=a_{k+1}(a_1 \dots a_k)=a_1 \dots a_ka_{k+1}$. Then, by the
+  above theorem, we get $|a_1 \dots a_ka_{k+1}|=[[n_1, \dots, n_k],
+  n_{k+1}]=[n_1, \dots, n_k, n_{k+1}]$.
 \end{proof}
 
 \begin{example}
-    \begin{enumerate}
-        \item[(1)] $\ord{\vbrack{e}}=1$.
-        \item[(1)] In any group $G$,  $\ord{e}=1$, and if $a \in G$ has
-            $\ord{a}=1$, then necessarily, $a=e$. That is in any group, the only
-            element of order  $1$ is the identity.
+  \begin{enumerate}
+    \item[(1)] $|\langle e \rangle|=1$
+    \item[(1)] In any group $G$,  $|e|=1$, and if $a \in G$ has
+      $|a|=1$, then necessarily, $a=e$. That is in any group, the only
+      element of order  $1$ is the identity.
 
-        \item[(2)] The additive groups $\Z$,  $\Q$,  $\R$, and  $\C$ have
-            infinite order, and their nonzero elements also have infinite order.
+    \item[(2)] The additive groups $\Z$,  $\Q$,  $\R$, and  $\C$ have
+      infinite order, and their nonzero elements also have infinite order.
 
-        \item[(3)] The multiplicative group $\C^*$ has infinite order, morover,
-            since $i^4=1$ and $i^3=-i$, $\ord{i}=4$.
+    \item[(3)] The multiplicative group $\C^*$ has infinite order, morover,
+      since $i^4=1$ and $i^3=-i$, $|i|=4$ (not to be confused with the
+      modulus of the complex number $i$).
 
-        \item[(4)] $\ord{\faktor{\Z}{n\Z}}=n$, and every element is of finite
-            order. $\ord{U(\Z/n\Z)}=\phi(n)$, where $phi$ is the Euler totient
-            function. Every element of $U(\Z/n\Z)$ also has finite order.
-    \end{enumerate}
+    \item[(4)] $|\faktor{\Z}{n\Z}|=n$, and every element is of finite
+      order. $|\Uc{(\faktor{\Z}{n\Z})}|=\phi(n)$, where $\phi$ is the Euler
+      totient function. Every element of $\Uc{(\faktor{\Z}{n\Z})}$ also has
+      finite order.
+  \end{enumerate}
 \end{example}
 
 \begin{definition}
-    Let $G=\{g_1, \dots, g_n\}$ be a finite group of order $n$ with $g_1=e$. We
-    define the \textbf{Cayley table}, or \textbf{multiplication table} of $G$ to
-    be the  $n \times n$ matrix defined by the entries $(g_{ij})$ where
-    \begin{equation*}
-        g_{ij}=g_ig_j
-    \end{equation*}
-    for $1 \leq i,j \leq n$.
+  Let $G=\{g_1, \dots, g_n\}$ be a finite group of order $n$ with $g_1=e$. We
+  define the \textbf{Cayley table}, or \textbf{multiplication table} of $G$ to
+  be the  $n \times n$ matrix defined by the entries $(g_{ij})$ where
+  \begin{equation*}
+    g_{ij}=g_ig_j
+  \end{equation*}
+  for $1 \leq i,j \leq n$.
 \end{definition}
