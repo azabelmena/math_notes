@@ -1,0 +1,213 @@
+\section{Definitions and Examples of Partially Ordered Sets}
+\label{section_1.1}
+
+\begin{definition}
+  Let $P$ be a set. A \textbf{partial order} on $P$ is a binary
+  relation $\leq$ on $P$ such that for every  $x,y, z \in P$:
+  \begin{enumerate}
+    \item[(1)] $x \leq x$.
+
+    \item[(2)] If $x \leq y$ and $y \leq x$, then $x=y$.
+
+    \item[(3)] If $x \leq y$ and $y \leq z$, then $x \leq z$.
+  \end{enumerate}
+  we call $P$ a \textbf{partially ordered} set, or \textbf{poset}. We
+  write $y \geq x$ to denote $x \leq y$. We call  $x$ and $y$
+  \textbf{comparable} if $x \leq y$ or $y \leq x$, otherwise, we say
+  that $x$ and $y$ are \textbf{incomparable} and write $x \| y$.
+\end{definition}
+
+\begin{example}\label{example_1.1}
+  \begin{enumerate}
+    \item[(1)] The relation of equality ``$=$'' is a partial order
+      relation on any set, called the discrete order.
+
+    \item[(2)] A \textbf{pre-order} on a set $P$ is a binary relation
+       $<$ on $P$ such that for any $x,y, z \in P$, $x < x$, and if
+       $x < y$ and $y < z$, then $x < z$. Then every partial order on
+       a set $P$ is a pre-order. Of course, not every pre-order is a
+       partial order.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  Let $P$ be a poset under the partial order $\leq$, and let $Q
+  \subseteq P$. We say that $Q$ \textbf{inherits} the order $\leq$ of
+   $P$ if for every $x,y \in Q$:
+   \begin{equation*}
+     x \leq y \text{ in } Q \text{ implies } x \leq y \text{ in } P
+   \end{equation*}
+   We also say that the order of $P$  \textbf{induces} the order on
+   $Q$.
+\end{definition}
+
+\begin{definition}
+  Let $P$ be a poset. We call $P$ a \textbf{chain}, or \textbf{totally
+  ordered set} for any $x,y \in P$, either $x \leq y$ or $y \leq x$;
+  that is, any two elements of $P$ are pair-wise comparable. We call
+  $P$ an  \textbf{anti-chain} if for every $x,y \in P$, $x \leq y$
+  implies $x=y$. If $P=\{0, 1, \dots, n-1\}$, we denote by
+  $\textbf{n}$ to be the set $P$ as a chain, and write
+  $\textbf{n}:0<1< \dots < n-1$. We denote by $\bar{\textbf{n}}$ to be
+  $P$ considered as an anti-chain.
+\end{definition}
+
+\begin{lemma}\label{lemma_1.1.1}
+  Any subset of a chain is also a chain.
+\end{lemma}
+\begin{proof}
+  Let $P$ be a chain under the order $\leq$, and let $Q \subseteq P$
+  have the induced order of $P$. Let  $x,y \in Q$, and suppose that $x
+  \nleq y$ in $Q$. Then  $x \nleq y$ in $P$; and since $P$ is a chain,
+  this makes  $y \leq x$ in $P$, so that  $y \leq x$ in $Q$.
+  By similar reasoning,  $y \nleq x$ in $Q$ implies that $x \leq y$ in
+  $Q$ so that $Q$ must also be a chain.
+\end{proof}
+
+\begin{lemma}\label{lemma_1.1.2}
+  Any subset of an anti chain is also an anti-chain.
+\end{lemma}
+\begin{proof}
+  Let $P$ be an anti-chain, and let $Q \subseteq P$ have the induced
+  order of $P$. For  $x,y \in Q$, suppose that $x \leq y$ in $Q$. Then
+   $x \leq y$ in $P$; and since $P$ is an anti-chain, $x=y$ in $P$.
+   This makes $x=y$ or  $y \leq x$ in $Q$, but again, if  $y \leq x$
+   in $Q$, then  $y \leq x$ in $P$ so that $x=y$ in $P$. This forces
+   $x=y$ in $Q$.
+\end{proof}
+
+\begin{example}\label{example_1.2}
+  \begin{enumerate}
+    \item[(1)] The real numbers $\R$ form a totally ordered set under
+      the usualy comparison $\leq$ of real numbers: Let $x,y \in \R$,
+      we say $x \leq y$ if $0<y-x$ or $0=y-x$.
+
+    \item[(2)] The natural numbers $\N=\{0, 1, 2, \dots\}$, integers
+      $\Z$, and rationals $\Q$ also form totally ordered sets under
+      their respective orders. For $\N$ and $\Z$, the order is the
+      same as that for $\R$. Now, let $\frac{a}{b}, \frac{c}{d} \in
+      \Q$. We write $\frac{a}{b} \leq \frac{c}{d}$ if, and only if
+      $0<cb-ad$ or  $cb-ad=0$. This gives the order on $\Q$.
+  \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{lemma_1.1.3}
+  Let $S$ be any set. Then the discrete order on $S$ induces the
+  anti-chain $S$.
+\end{lemma}
+
+\begin{definition}
+  We call two posets $P$ and $Q$, \textbf{order-isomorphic} if there
+  exists a map $\phi:P \xrightarrow{} Q$, called an
+  \textbf{order-isomorphism} such that for any $x,y \in
+  P$, $x \leq y$ in $P$ if, and only if  $\phi(x) \leq \phi(y)$ in
+  $Q$; that is, $\phi$ preserves order. We write $P \simeq Q$ to denote
+  order-isomorphism.
+\end{definition}
+
+\begin{lemma}\label{lemma_1.1.4}
+  Any order-isomorphism between posets is a bijective map.
+\end{lemma}
+\begin{proof}
+  Let $P$ and $Q$ be order-isomorphic posets via the order-isomorphism
+  $\phi:P \xrightarrow{} Q$. Observe by definition that $\phi$ must be
+  onto. Now, let $x,y \in P$, and suppose that $\phi(x)=\phi(y)$ in
+  $Q$. Then  $\phi(x) \leq \phi(y)$ and $\phi(y) \leq \phi(x)$ in $Q$.
+  This makes $x \leq y$ and $y \leq x$ in $P$, so that $x=y$ in  $P$.
+  This makes $\phi$ 1--1.
+\end{proof}
+
+\begin{example}\label{example_1.3}
+  \begin{enumerate}
+    \item[(1)] Not ever bijective map is an order isomorphism.
+      Consider the set $\textbf{2}:0<1$, and define $\phi:\textbf{2}
+      \xrightarrow{} \textbf{2}$ by $\phi(0)=1$ and $\phi(1)=0$. Then
+      $\phi$ is a bijection, but observe that $\phi(1) \leq \phi(0)$,
+      while $0<1$.
+
+    \item[(2)] The natural numbers $\N$ forms the chain $0<1<2< \dots$
+      which we label $\w$. We can observe that $\N$ is
+      order-isomorphic to the set $\Z^+=\{1, 2, \dots \}$. Let
+      \begin{aligned}
+        s: \N & \xrightarrow{} \Z^+  \\
+        n & \xrightarrow{} n+1  \\
+      \end{aligned}
+      be the successor function. Then $s$ defines a bijection of $\N$
+      onto $\Z^+$, moreover let $m,n \in \N$ with $m < n$. Then
+      $s(m)=m+1 < n+1=s(n)$ so that $s$ is the required
+      order-isomorphism.
+
+    \item[(3)] Define the partial order $\preccurlyeq$ on $\Z^+$ as
+      follows: for  $m,n \in \Z^+$, $m \preccurlyeq n$ if, and only if
+      there exists a $k \in \Z^+$ for which $n=km$; that is $m$
+      divides $n$. Then $\Z^+$ forms a partial order under
+    $\preccurlyeq$, but not a chain. Observe that $2 \preccurlyeq 6$
+    and $3 \preccurlyeq 6$, but that $2 \not\preccurlyeq 3$ (since $2$
+    and $3$ are prime) and $3 \not\preccurlyeq 2$ since $2 < 3$. From
+    here on, whenever we wish to say ``$m$ divides $n$'', we will
+    write $m \divides n$ instead of $m \preccurlyeq n$.
+
+  \item[(4)] Let $X$ be any set, then the powerset $2^X$ is ordered by
+    inclusion: For  $A,B \subseteq X$ write $A \leq B$ to mean $A
+    \subseteq B$. Then $2^X$ is a poset under $\leq$, but not
+    necessarily a chain. Let $A,B \subseteq X$ be disjoint sets. Then
+    $A \nleq B$ and $B \nleq A$ since neither can be contained in the
+    other by hypothesis.
+
+  \item[(5)] Let $G$ be a group, and let $H$ and $K$ be subgroups of
+    $G$. Write  $H \leq K$ to mean ``$H$ is a subgroup of $K$''. Then
+    the set of subgroups of $G$ is a poset under $\leq$. Moreover, by
+    definition, we have the immediate chain $H \leq K \leq G$.
+    However, this poset is not itself a chain in general.
+
+    Consider the unit group $\Uc(\faktor{\Z}{12\Z})=\langle 5,7
+    \rangle$. We have that $\langle 5 \rangle \leq \langle 5,7
+    \rangle$, and $\langle 7 \rangle \leq \langle 5,7 \rangle$, but
+    observe that $\langle 5 \rangle \nleq \langle 7 \rangle$ and
+    $\langle 7 \rangle \nleq \langle 5 \rangle$.
+
+  \item[(6)] The set of ideals in a ring also form a poset under
+    inclusion, but not in general a chain. However chains of ideals
+    play an important role in commutative algebra:
+
+    We call a collection $\{\af_n\}_{n=1}^\infty$ of
+    ideals in a commutative ring an \textbf{infinite ascending chain}
+    if
+    \begin{equation*}
+      \af_1 \subseteq \af_2 \subseteq \dots \subseteq \af_n \subseteq \dots
+    \end{equation*}
+    We call a commutative ring \textbf{noetherian} if every infinite
+    ascending chain $\{\af_n\}_{n=1}^\infty$ stabalizes: that is,
+    there exists a $k \in \Z^+$ such that for some $n$, $\af_n=\af_k$.
+
+  \item[(7)] Let $X$ be a topological space with topologies $\Tc_1$
+    and $\Tc_2$. We say that $\Tc_1$ is \textbf{finer} than $\Tc_2$ if
+    $\Tc_2 \subseteq \Tc_1$, and we also say that $\Tc_2$ is
+    \textbf{coarser} than $\Tc_1$. We call $\Tc_1$ and $\Tc_2$
+    \textbf{incomparable} if $\Tc_1 \nsubseteq \Tc_2$ and $\Tc_2
+    \nsubseteq \Tc_1$. The set of topological spaces on a set $X$ then
+    forms a poset under inclusion $\subseteq$. They do not in general
+    form a chain.
+
+    Likewise, we the open sets of a topological space $X$ also form a
+    poset under inclusion, and of course, they do not in general form
+    a chain.
+
+  \item[(8)] Let $X$ be a set. We define a  \textbf{predicate} on $X$
+    to be a statement made about elements in $X$ taking the values
+    ``true'' and ``false'', labeled $T$ and $F$. More formally, a
+    predicate on $X$ is a function  $p:X \xrightarrow{} \{T,F\}$. We
+    denote the set of all predicates on $X$ by $\Pb(X)$. Define a
+    partial order on $\Pb(X)$, $\implies$ as follows: For $p,q \in
+    \Pb(X)$, $p \implies q$ if, and only if $\{x \in X : p(x)=T\}
+  \subseteq \in X : q(x)=T\}$. That is, $p \implies q$ if, and only if
+   $p$ ``implies'' $q$.
+
+   Define now the map $\phi:\Pb(X) \xrightarrow{} 2^X$ by $\phi(p)=\{x
+   \in X : p(x)=T\}$. Then this map is a bijective map of $\Pb(X)$
+   onto $2^X$. Morever, by definition of the relation  $\implies$,
+   $\phi$ is an order-isomorphism and  $\Pb(X) \simeq 2^X$. That is,
+   $2^X$ under implication expresses itself as the set of all
+   predicates on the set $X$.
+  \end{enumerate}
+\end{example}
