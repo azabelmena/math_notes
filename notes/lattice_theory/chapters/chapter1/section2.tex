@@ -1,1 +1,197 @@
 \section{More Examples of Posets}
+
+In this section, we go over some more specific examples of Posets.
+
+%\begin{definition}
+  %Let $P$ be a poset. We call $P$ a  \textbf{interval order} if there
+  %exists a function $\phi:P \xrightarrow{} 2^\R$, taking such that for
+  %every $x \in P$, $\phi(x) \subseteq \R$ is an open bounded interval
+  %of the form $\phi(x)=(a_x,b_x)$, and $x \leq y$ in $P$ if, and only
+  %if  $a_x \leq b_y$ in $\R$.
+%\end{definition}
+
+%\begin{definition}
+  %We call a (possiobly infinite sequence) of $\{a_n\}$ of elements of
+  %$\F_2$ a  \textbf{binary string}. A binary string $\{a_n\}$ is said
+  %to be a \textbf{prefix} of a binary string $\{b_n\}$ if there exists
+  %a binary string $\{c_n\}$ such that (under concatenation) the string
+  %$\{a_n\}\{c_n\}=\{b_n\}$. We denote by $\Sigma^{\ast}$ the set of
+  %all finite binary strings, and by $\Sigma^{\ast\ast}$ the set of all
+  %infinite binary strings.
+%\end{definition}
+
+\begin{definition}
+  We call a (possibly infinite) sequence $\{a_n\}$ of elements of
+  $\F_2$ a \textbf{binary string}. If $\{a_n\}$ and $\{b_n\}$ are
+  binary strings, we call $\{a_n\}$ a \textbf{substring} of $\{b_n\}$
+  if $\{a_n\}$ is a subsequence of $\{b_n\}$ such that the terms of
+  $\{a_n\}$ are consecutive terms of $\{b_n\}$. We call $\{a_n\}$ a
+  \textbf{prefix} if $\{a_n\}$ is a substring of $\{b_n\}$ and $a_1=b_1$.
+  We denote by $\Sigma^\ast$ the set of all finite binary strings,
+  and by $\Sigma^{\ast\ast}$ the set of all infinite binary strings.
+\end{definition}
+
+\begin{lemma}\label{lemma_1.2.1}
+  $\Sigma^\ast \subseteq \Sigma^{\ast\ast}$.
+\end{lemma}
+\begin{proof}
+  Observe that any infinite binary string of $\Sigma^\ast$ contains,
+  as a substring a finite binary string.
+\end{proof}
+
+\begin{proposition}\label{proposition_1.2.2}
+  Define the binary relation $\leq$ on  $\Sigma^{\ast\ast}$ by:
+  \begin{equation*}
+    \text{ For all } \{u_n\}, \{b_n\} \in \Sigma^{\ast\ast}
+    \{u_n\} \leq \{v_n\} \text{ if, and only if } \{u_n\}=\{v_n\}
+    \text{ or } \{u_n\} \text{ is a prefix of } \{v_n\}
+  \end{equation*}
+  Then $\leq$ is a partial order on  $\Sigma^{\ast\ast}$.
+\end{proposition}
+\begin{proof}
+  Take $\{u_n\}, \{v_n\}, \{w_n\} \in \Sigma^{\ast\ast}$. We have that
+  $\{u_n\} \leq \{u_n\}$ since $\{u_n\}=\{u_n\}$.
+
+  Now, suppose that $\{u_n\} \leq \{v_n\}$ and $\{v_n\} \leq \{u_n\}$.
+  Then we have that either $\{u_n\}=\{v_n\}$ or $\{u_n\}$ is a prefix
+  of $\{v_n\}$ and $\{v_n\}$ is a prefix of $\{u_n\}$. Now, if
+  $\{u_n\}$ is a prefix of $\{v_n\}$, then the terms $u_1, u_2, \dots$
+  are consecutive terms of $\{v_n\}$, and $u_1=v_1$, by definition.
+  Likewise since $\{v_n\}$ is a prefix of $\{u_n\}$, the terms $v_1,
+  v_2, \dots$ are consecutive terms of $\{u_n\}$ and $v_1=u_1$. Now,
+  since $u_1, u_2, \dots$ are consecutive terms of $\{v_n\}$, and
+  $u_1=v_1$, we get $u_1=v_1, u_2=v_2, \dots u_m=v_m, \dots$ for some
+  $m \in \Z^+$; likewise, since $v_1, v_2, \dots$ are consecutive
+  terms of $\{u_n\}$ and $v_1=u_1$, we get $v_1=u_1, v_2=u_2, \dots,
+  v_k=u_k$ for some $k \in \Z^+$. Since $k$ and $m$ are arbitrary, we
+  conclude that $\{u_n\}=\{v_n\}$.
+
+  Now, suppose that $\{u_n\} \leq \{v_n\}$ and $\{v_n\} \leq \{w_n\}$.
+  Then $\{u_n\}=\{v_n\}$ or $\{u_n\}$ is a prefix of of $\{v_n\}$, and
+  $\{v_n\}=\{w_n\}$ or $\{v_n\}$ is a prefix of $\{w_n\}$. If
+  $\{u_n\}$ is a prefix of $\{v_n\}$, and $\{v_n\}$ is a prefix of
+  $\{w_n\}$, then necessarily by definition, $\{u_n\}$ must also be a
+  prefix of $\{w_n\}$. That is, either $\{u_n\}=\{w_n\}$ or $\{u_n\}$
+  is a prefix of $\{w_n\}$, so that $\{u_n\} \leq \{w_n\}$.
+\end{proof}
+
+\begin{example}\label{example_1.4}
+  In $\Sigma^{\ast\ast}$, under $\leq$, we have that  $0100 \leq
+  010011$, and $010 \| 100$, and that  $10101 \leq \bar{10101\dots}$
+  (that is, $10101$ repeated ad infinitum). One can think of the
+  elements of $\Sigma^{\ast}$ and $\Sigma^{\ast\ast}$ as encoding
+  information, and that the order $\{u_n\} \leq \{v_n\}$
+  ``approximates'' the information encoded by $\{u_n\}$ to the
+  information encoded by $\{v_n\}$.
+\end{example}
+
+\begin{definition}
+  Let $X$ and $Y$ be nonempty sets, and $f:X \xrightarrow{} Y$ a
+  function. A \textbf{partial map} of $f$ on $X$ is a function $\s:S
+  \xrightarrow{} Y$, where $S \subseteq Y$, and $\s(x)=f(x)$ on $S$.
+  If  $X=S$, then we call $\s$ a \textbf{total map} of $f$ on $X$. We
+  denote the set of all partial maps of $f$ on $X$ by $f:X
+  \partialmap Y$. If $f$ is implicitly given, we simply write $X
+  \partialmap Y$. We also write $\s:X \partialmap Y$ to denote that
+  $\s$ is a partial map of $f$ on $X$.
+\end{definition}
+
+\begin{proposition}\label{proposition_1.2.3}
+  Let $X$ and  $Y$ be non-empty sets, and define the relation $\leq$
+  on $X \partialmap Y$ by: for all  $\s,\t \in X \partialmap Y$
+  \begin{equation*}
+    \s \leq \t \text{ if and only if } \dom{\s} \subseteq \dom{\t}
+    \text{ and } \s(x)=\t(x) \text{ on } \dom{\s}
+  \end{equation*}
+\end{proposition}
+\begin{proof}
+  Let $\s,\t,\n \in X \partialmap Y$. We have that $\s \leq \s$, since
+  $\dom{\s} \subseteq \dom{\s}$ and $\s(x)=\s(x)$ on $\dom{\s}$.
+
+  Now, suppose that $\s \leq \t$ and $\t \leq \s$. Then $\dom{\s}
+  \subseteq \dom{\t}$ and $\s(x)=\t(x)$ on $\dom{\s}$, likewise,
+  $\dom{\t} \subseteq \dom{\s}$ and $\t(x)=\s(x)$ on $\dom{\t}$. But
+  then we get that $\dom{\s}=\dom{\t}$, and since $\s(x)=\t(x)$ on
+  $\dom{\s}=\dom{\t}$, we must have that $\s=\t$.
+
+  Finally, suppose that $\s \leq \t$, and $\t \leq \n$. Then $\dom{s}
+  \subseteq \dom{t}$ with $\s(x)=\t(x)$ on $\dom{\s}$, and $\dom{\t}
+  \subseteq \dom{\n}$ with $\t(x)=\n(x)$ on $\dom{\t}$. It follows
+  that $\dom{\s} \subseteq \dom{\n}$, and that $\s(x)=\t(x)=\n(x)$ on
+  $\dom{\s}$. So $\s \leq \n$.
+\end{proof}
+\begin{corollary}
+  Let $\s,\t \in X \partialmap Y$. Then $\s \leq \t$ if, and only if
+  $G(\s) \subseteq G(\t)$, where $G(f)=\{(x,y) \in X \times Y : y=f(x)\}$
+  is defined to be the graph of the function $f:X \xrightarrow{} Y$.
+\end{corollary}
+
+\begin{example}\label{example_1.5}
+  \begin{enumerate}
+    \item[(1)] Let $X$ and $Y$ be non-empty sets, and let $\Fc$ be a
+      collection of partial maps on  $X \partialmap Y$. Does there
+      exist a function $f:X \xrightarrow{} Y$ such that $\s \leq f$
+      for all $\s \in \Fc$? We pose a counter example to this. Suppose
+      there exist $\s,\t \in \Fc$ such that there are points $(x,y)
+      \in G(\s)$ and $(x,y') \in G(\t)$ for which $y \neq y'$. Then no
+      such function $f:X \xrightarrow{} Y$ for which $\s \leq f$
+      exists.
+
+      We call a subset $\Fc \subseteq X \partialmap Y$
+      \textbf{consistent} if there is a finite subset $\Gc \subseteq
+      \Fc$ for which there exists a $\r \in X \partialmap Y$ such that
+      $\s \leq \r$ for every $\s \in \Gc$.
+
+    \item[(2)] Let $X$ be a set of initial states and  $Y$ a set of
+      final states for two programs  $P$ and $Q$. One can view the
+      programs $P$ and $Q$ as partial maps on $X$; i.e.  $P,Q \in X
+      \partialmap Y$. In this case, when $P \leq Q$, we have that
+      $\dom{P} \subseteq \dom{Q}$, and $P(x)=Q(x)$ on $\dom{P}$. That
+      is, given the initial states for which the program $P$
+      terminates, the program $Q$ also terminates, and there are
+      initial states for which $Q$ terminates, but $P$ does not
+      terminate. In a sense we say that the program $Q$ is ``at least
+      as good as the program'' $P$.  In this case, we write $P
+      \sqsubseteq Q$, and say that the program $Q$ \textbf{refines}
+      the program $P$.
+  \end{enumerate}
+\end{example}
+
+\begin{proposition}\label{proposition_1.6}
+  Let $x \in \R$, and consider the collection of all closed bounded
+  intervals $[\bbar{x},\bar{x}]$ (where $-\infty \leq \bbar{x} \leq
+  \bar{x} \leq \infty$). Define the relation $\leq$ on this collection
+  by: for all $x=[\bbar{x},\bar{x}]$ and $y=[\bbar{y},\bar{y}]$
+  \begin{equation*}
+    x \leq y \text{ if, and only if } \bbar{x} \leq \bbar{y} \text{
+    and } \bar{x} \leq \bar{y} \text{ in } \R^\infty
+  \end{equation*}
+  Then $\leq$ is a partial order on the collection of all
+$[\bbar{x},\bar{x}]$.
+\end{proposition}
+\begin{proof}
+  Denote by $[\bbar{\R},\bar{\R}]$ the collection of all closed
+  bounded intervals of the form $[\bbar{x},\bar{x}]$, with $x \in \R$,
+  and where $-\infty \leq \bbar{x} \leq \bar{x} \leq \infty$. Recall
+  also that $\R^\infty=\R \cup \{-\infty,\infty\}$ is the set of
+  extended real numbers, and admits the usual ordering of $\R$, with
+  the addition that one can compare the symbols  $-\infty$ and
+  $\infty$ with elements of $\R$.
+
+  Denote by $x=[\bbar{x},\bar{x}]$, and take $x,y,z \in
+  [\bbar{\R},\bar{\R}]$. Observe first that $x \leq x$, since
+  $\bbar{x} \leq \bbar{x}$ and $\bar{x} \leq \bar{x}$ in $\R^\infty$.
+
+  Now, suppose that $x \leq y$ and $y \leq x$. Then $\bbar{x} \leq
+  \bbar{y}$ and $\bar{x} \leq \bar{x}$ in $\R^\infty$. Likewise,
+  $\bbar{y} \leq \bbar{x}$ and $\bar{y} \leq \bar{x}$ in $\R^\infty$.
+  Then in  $\R^\infty$, the usual order gives that $\bbar{x}=\bbar{y}$
+  and $\bar{x}=\bar{y}$ so that $x=y$ in  $[\bba{\R},\bar{\R}]$.
+
+  Now, suppose that $x \leq y$ and $y \leq z$. Then we get $\bbar{x}
+  \leq \bbar{y}$ and $\bar{x} \leq \bar{y}$ in $\R^\infty$. Likewise
+  $\bbar{y} \leq \bbar{z}$ and $\bar{y} \leq \bar{z}$ in $\R^\infty$.
+  Then by the transitivity of the order on $\R^\infty$, $\bbar{x} \leq
+  \bbar{z}$ and $\bar{x} \leq \bar{z}$ in $\R^\infty$, so that $x \leq
+  z$ in $[\bbar{\R},\bar{\R}]$.
+\end{proof}
