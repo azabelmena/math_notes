@@ -1,2 +1,304 @@
 \section{Sums and Products of Posets}
 \label{section_1.5}
+
+\begin{definition}
+  Let $P$ and $Q$ be disjoint posets. We define the \textbf{disjoint
+  union} of $P$ and $Q$ to be the poset $P \uplus Q$ together with
+  the partial order $\leq$ defined by: For all $x,y \in P \uplus Q$
+  $x \leq  y $ in $P \uplus Q$ if, and only if one and only one of
+  the following hold:
+  \begin{enumerate}
+    \item[(1)] $x,y \in P$ and $x \leq y$ in $P$.
+
+    \item[(2)] $x,y \in Q$ and $x \leq y$ in $Q$
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  Let $P$ and $Q$ be disjoint posets. The \textbf{linear sum} of $P$
+  and $Q$ is the poset $P \oplus Q$ together with the relation $\leq$
+  given by: For all $x,y \in P \oplus Q$, $x \leq y$ if, and only if
+  one and only one of the following hold:
+  \begin{enumerate}
+    \item[(1)] $x,y \in P$ and $x \leq y$ in $P$.
+
+    \item[(2)] $x,y \in Q$ and $x \leq y$ in $Q$
+
+    \item[(3)] $x \in P$ and $y \in Q$.
+  \end{enumerate}
+\end{definition}
+
+\begin{proposition}\label{proposition_1.5.1}
+  Let $P$ and $Q$ be disjoint posets. Then the disjoint union $P
+  \uplus Q$ and the linear sum $P \oplus Q$ are posets under their
+  respective partial orders.
+\end{proposition}
+
+\begin{proposition}\label{proposition_1.5.2}
+  Let $P$ be a poset. Then $P_\bot \simeq \textbf{1} \oplus P$.
+\end{proposition}
+\begin{proof}
+  Let $P$ be a poset not containing $0 \in \N$ (if not, make it into
+  one via an order-isomorphism), then $\textbf{1} \cap P=\emptyset$,
+  and form the union $\textbf{1} \cup P$ and make it into $\textbf{1}
+  \oplus P$ under the order relation of linear sums. Now, let $\phi:P
+  \xrightarrow{} P$ be the identity order-isomorphism, and extend
+  $\phi$ to $\phi_\bot:P_\bot \xrightarrow{} \textbf{1} \oplus P$, by
+  sending $\phi:\bbar{0} \xrightarrow{} 0$, and taking
+  $\phi_\bot=\phi(x)$ for all $x \in P$. Suppose that $x \leq y$ in
+  $P_\bot$, then either $x=\bbar{0}$ or $x \leq y$ in $P$. Then
+  $\phi_\bot(x)=0$, or $\phi_\bot(x)=\phi(x) \leq
+  \phi(y)=\phi_\bot(y)$ in $P$ (which also forces $x,y \in P$). By
+  definition of $\leq$ over $\textbf{1} \oplus P$, $\phi_\bot(x) \leq
+  \phi_\bot(y)$, and so $\phi_\bot$ is the relevant order-isomorphism.
+\end{proof}
+
+\begin{proposition}\label{proposition_1.5.3}
+  Let $P$,  $Q$, and  $R$ pairwise disjoint posets. Then the following
+  hold:
+  \begin{enumerate}
+    \item[(1)] $P \uplus (Q \uplus R)=(P \uplus Q) \uplus R$.
+    \item[(2)] $P \oplus (Q \oplus R)=(P \oplus Q) \oplus R$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  We only prove assertion (1) since assertion (2) follows from an
+  identical argument, taking into account the partial order of linear
+  sums instead of for disjoint unions.
+
+  Let $x,y \in P \uplus (Q \uplus R)$, and suppose that $x \leq y$ in
+  $P \uplus (Q \uplus R)$. Then either $x,y \in P$ and $x \leq y$ in
+  $P$, or  $x,y \in Q \uplus R$ and $x \leq y \in Q \uplus R$. That
+  is, either $x,y \in P$ and $x \leq y$ in $P$, or $x,y \in Q$ and $x
+  \leq y$ in $Q$, or  $x,y \in R$ and $x \leq y$ in $R$. It follows
+  then that $x,y \in P \uplus Q$ and $x \leq y$ in $P \uplus Q$, or
+  $x,y \in R$ and $x \leq y$ in $R$; that is, $x,y \in (P \uplus Q)
+  \uplus R$  and $x \leq y$ in $(P \uplus Q) \uplus R$. Therefore $P
+  \uplus (Q \uplus R) \subseteq (P \uplus Q) \uplus R$. The reverse
+  inclusion holds by an identical argument.
+\end{proof}
+
+\begin{example}\label{example_1.11}
+  \begin{enumerate}
+    \item[(1)] The Hasse diagrams for $\textbf{2} \uplus \textbf{3}$,
+      $\textbf{2} \oplus \textbf{3}$, and $\bar{\textbf{1}} \oplus
+      \textbf{2} \oplus \textbf{3}$ are drawn to be:
+      \[\begin{tikzcd}
+        && \bullet && \bullet \\
+        & \bullet & \bullet & \bullet && \bullet \\
+        \bullet & \bullet & \bullet \\
+        \bullet & \bullet & \bullet & \bullet && \bullet \\
+        {\textbf{2} \uplus \textbf{3}} && \bullet && \bullet \\
+                                       && {\textbf{2} \oplus \textbf{3} \simeq \textbf{5}} && {\bar{\textbf{1}} \oplus \bar{\textbf{2}} \oplus \bar{\textbf{3}}}
+                                       \arrow[from=1-5, to=4-4]
+                                       \arrow[from=1-5, to=4-6]
+                                       \arrow[no head, from=2-3, to=1-3]
+                                       \arrow[no head, from=3-2, to=2-2]
+                                       \arrow[no head, from=3-3, to=2-3]
+                                       \arrow[no head, from=4-1, to=3-1]
+                                       \arrow[no head, from=4-2, to=3-2]
+                                       \arrow[no head, from=4-3, to=3-3]
+                                       \arrow[no head, from=4-4, to=2-4]
+                                       \arrow[no head, from=4-4, to=2-6]
+                                       \arrow[no head, from=4-6, to=2-4]
+                                       \arrow[no head, from=4-6, to=2-6]
+                                       \arrow[no head, from=5-3, to=4-3]
+                                       \arrow[no head, from=5-5, to=4-4]
+                                       \arrow[no head, from=5-5, to=4-6]
+      \end{tikzcd}\]
+
+    \item[(2)] Define $M_n=\textbf{1} \oplus \bar{\textbf{n}} \oplus
+      \textbf{1}$. The Hasse diagrams for $M_3$, $M_2 \uplus M_3$, and
+      $M_2 \oplus M_3$ are drawn below:
+      \[\begin{tikzcd}
+        && \bullet & {M_2 \oplus M_3} && \bullet \\
+        & \bullet && \bullet & \bullet & \bullet & \bullet \\
+        & \bullet & \bullet && \bullet & \bullet && \bullet \\
+        \bullet & \bullet & \bullet & \bullet && \bullet & \bullet & \bullet & \bullet \\
+        {M_3} & \bullet &&& \bullet & {M_2 \uplus M_3} && \bullet
+        \arrow[no head, from=1-3, to=2-2]
+        \arrow[no head, from=1-6, to=2-7]
+        \arrow[no head, from=2-2, to=2-4]
+        \arrow[no head, from=2-2, to=3-3]
+        \arrow[no head, from=2-4, to=1-3]
+        \arrow[no head, from=2-4, to=2-5]
+        \arrow[no head, from=2-5, to=1-6]
+        \arrow[no head, from=2-5, to=2-6]
+        \arrow[no head, from=2-6, to=2-7]
+        \arrow[no head, from=2-7, to=3-6]
+        \arrow[no head, from=3-2, to=4-1]
+        \arrow[no head, from=3-3, to=2-4]
+        \arrow[no head, from=3-5, to=4-4]
+        \arrow[no head, from=3-6, to=2-5]
+        \arrow[no head, from=3-8, to=4-7]
+        \arrow[no head, from=4-1, to=5-2]
+        \arrow[no head, from=4-2, to=3-2]
+        \arrow[no head, from=4-3, to=3-2]
+        \arrow[no head, from=4-4, to=5-5]
+        \arrow[no head, from=4-6, to=3-5]
+        \arrow[no head, from=4-7, to=4-8]
+        \arrow[no head, from=4-7, to=5-8]
+        \arrow[no head, from=4-8, to=4-9]
+        \arrow[no head, from=4-9, to=3-8]
+        \arrow[no head, from=5-2, to=4-2]
+        \arrow[no head, from=5-2, to=4-3]
+        \arrow[no head, from=5-5, to=4-6]
+        \arrow[no head, from=5-8, to=4-9]
+      \end{tikzcd}\]
+  \end{enumerate}
+\end{example}
+
+\begin{proposition}\label{proposition_1.5.4}
+  Let $P_1, \dots, P_n$ be pairwise disjoint posets. Define the
+  relation $\leq$ on $P_1 \times \dots \times P_n$ by: for all $x,y \in
+  P_1 \times \dots \times P_n$, with $x=(x_1, \dots, x_n)$ and
+  $y=(y_1, \dots, y_n)$
+  \begin{equation*}
+    x \leq y \text{ in } P_1 \times \dots \times P_n \text{ if, and only if }
+    x_i \leq y_i \text{ in } P_i \text{ for all } 1 \leq i \leq n
+  \end{equation*}
+  Then $\leq$ is a partial order on  $P_1 \times \dots \times P_n$.
+\end{proposition}
+
+\begin{proposition}\label{proposition_1.5.5}
+  Let $P$ and $Q$ be disjoint posets, and define the relation $\leq$ o
+   $P \times Q$ by: for $x,y \in P \times Q$, where $x=(x_1,x_2)$ and
+   $y=(y_1,y_2)$
+   \begin{equation*}
+     x \leq y \text{ in } P \times Q \text{ if, and only if }
+     x_1 \leq y_1 \text{ or } x_1=y_1 \text{ and } x_2 \leq y_2 \text{ in } P \times Q
+   \end{equation*}
+   Then $\leq$ is a partial order on $P \times Q$.
+\end{proposition}
+
+\begin{definition}
+  Let $P$ and $Q$ be disjoint posets. We call the order of proposition
+  \ref{proposition_1.5.5} the \textbf{lexicographical order} on $P
+  \times Q$.
+\end{definition}
+
+\begin{example}\label{example_1.12}
+  The following are some examples of Hasse diagrams of products of
+  posets, under the ordering of proposition \ref{proposition_1.5.4}:
+\[\begin{tikzcd}[column  sep=small, row  sep=tiny]
+	&&&& \bullet &&& {\textbf{2} \times\textbf{3}} \\
+	&& \bullet & \bullet && \bullet \\
+	\bullet & \times & \bullet & {=} & \bullet && \bullet \\
+	\bullet && \bullet &&& \bullet \\
+	{\textbf{2}} && {\textbf{3}}
+	\arrow[no head, from=1-5, to=2-6]
+	\arrow[no head, from=2-4, to=1-5]
+	\arrow[no head, from=2-6, to=3-7]
+	\arrow[no head, from=3-3, to=2-3]
+	\arrow[no head, from=3-5, to=2-4]
+	\arrow[no head, from=3-5, to=2-6]
+	\arrow[no head, from=3-7, to=4-6]
+	\arrow[no head, from=4-1, to=3-1]
+	\arrow[no head, from=4-3, to=3-3]
+	\arrow[no head, from=4-6, to=3-5]
+\end{tikzcd}\]
+\[\begin{tikzcd}[column sep=small,row sep=small]
+	\bullet && \bullet && \bullet && \bullet \\
+	& \bullet && {\veq} && \bullet \\
+	\bullet && \bullet && \bullet && \bullet \\
+	&& \bullet && \bullet \\
+	& \bullet &&&& \bullet \\
+	&&& \bullet
+	\arrow[no head, from=2-2, to=1-1]
+	\arrow[no head, from=2-2, to=1-3]
+	\arrow[no head, from=2-6, to=1-5]
+	\arrow[no head, from=2-6, to=1-7]
+	\arrow[no head, from=3-1, to=5-2]
+	\arrow[no head, from=4-3, to=3-1]
+	\arrow[no head, from=4-3, to=3-5]
+	\arrow[no head, from=4-5, to=3-3]
+	\arrow[no head, from=4-5, to=3-7]
+	\arrow[no head, from=5-2, to=3-3]
+	\arrow[no head, from=5-6, to=3-5]
+	\arrow[no head, from=5-6, to=3-7]
+	\arrow[no head, from=6-4, to=4-3]
+	\arrow[no head, from=6-4, to=4-5]
+	\arrow[no head, from=6-4, to=5-2]
+	\arrow[no head, from=6-4, to=5-6]
+\end{tikzcd}\]
+\end{example}
+
+\begin{figure}[h]
+  \centering
+  \[\begin{tikzcd}
+    &&&& \bullet & \bullet \\
+    &&& \bullet & \bullet & \bullet & \bullet \\
+    & \bullet & \bullet && \bullet & \bullet \\
+    \bullet & \bullet & \bullet & \bullet \\
+    & \bullet & \bullet
+    \arrow[no head, from=1-5, to=1-6]
+    \arrow[no head, from=1-5, to=2-6]
+    \arrow[no head, from=1-5, to=3-2]
+    \arrow[no head, from=1-6, to=2-7]
+    \arrow[no head, from=1-6, to=3-3]
+    \arrow[no head, from=2-4, to=1-5]
+    \arrow[no head, from=2-4, to=2-5]
+    \arrow[no head, from=2-4, to=4-1]
+    \arrow[no head, from=2-5, to=1-6]
+    \arrow[no head, from=2-5, to=4-2]
+    \arrow[no head, from=2-6, to=2-7]
+    \arrow[no head, from=2-6, to=3-5]
+    \arrow[no head, from=2-6, to=4-3]
+    \arrow[no head, from=2-7, to=3-6]
+    \arrow[no head, from=2-7, to=4-4]
+    \arrow[no head, from=3-2, to=4-3]
+    \arrow[no head, from=3-3, to=3-2]
+    \arrow[no head, from=3-3, to=4-4]
+    \arrow[no head, from=3-5, to=2-4]
+    \arrow[no head, from=3-5, to=3-6]
+    \arrow[no head, from=3-5, to=5-2]
+    \arrow[no head, from=3-6, to=2-5]
+    \arrow[no head, from=3-6, to=5-3]
+    \arrow[no head, from=4-1, to=3-2]
+    \arrow[no head, from=4-2, to=3-3]
+    \arrow[no head, from=4-2, to=4-1]
+    \arrow[no head, from=4-3, to=5-2]
+    \arrow[no head, from=4-4, to=4-3]
+    \arrow[no head, from=4-4, to=5-3]
+    \arrow[no head, from=5-2, to=4-1]
+    \arrow[no head, from=5-3, to=4-2]
+    \arrow[no head, from=5-3, to=5-2]
+  \end{tikzcd}\]
+  \caption{The Hasse diagram on the tesseract $\textbf{2}^4 =
+  \textbf{2} \times \textbf{2} \times \textbf{2} \times \textbf{2}$.}
+  \label{figure_1.5}
+\end{figure}
+
+\begin{proposition}\label{proposition_1.5.6}
+  Let $X=\{1, \dots, n\}$, and define $\phi:2^X \xrightarrow{}
+  \textbf{2}^n$ by:
+  \begin{equation*}
+    \phi(A)=(\e_1, \dots, \e_n)
+  \end{equation*}
+  where
+  \begin{equation*}
+    \e_i=
+    \begin{cases}
+      1, &  \text{ if } i \in A \\
+      1, &  \text{ if } i \not\in A \\
+    \end{cases}
+  \end{equation*}
+  Then $\phi$ is an order-isomorphism between $2^X$ and
+  $\textbf{2}^n$.
+\end{proposition}
+\begin{proof}
+  Let $A, B \subseteq X$, and $\phi(A)=(\e_1, \dots, \e_n)$ and
+  $\phi(B)=(\d_1, \dots, \d_n)$. If $A \subseteq B$, then for every $i
+  \in A$, $i \in B$, so that $\e_i=1$ implies  $\d_i=1$, so that
+  $\e_i \leq \d_i$. Hence $\phi(A) \leq \phi(B)$. The reverse
+  implication holds similarly, that is, $\phi(A) \leq \phi(B)$ implies
+  $A \subseteq B$.
+
+  Now, observe that if $\phi(A)=\phi(B)$, then $(\e_1, \dots,
+  \e_n)=(\d_1, \dots ,\d_n)$ so $\e_i=\d_i$ for  all $1 \leq i \leq
+  n$. By definition of $\e_i$, this implies that $A=B$. Moreover,
+  suppose that $x=(\e_1, \dots, \e_n)$ in $\textbf{2}^n$. Define $A
+  \subseteq X$ to be the set $A=\{i \in X : \e_i=1\}$, then by
+  definition of $\phi$ and $\e_i$, $x=\phi(A)$. Therefore $\phi$ is
+  the required order-isomorphism between $2^X$ and $\textbf{2}^n$.
+\end{proof}
