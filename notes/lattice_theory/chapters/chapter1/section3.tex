@@ -1,1 +1,334 @@
-\section{Diagrams of Posets}
+\section{Hasse Diagrams of Posets}
+
+\begin{definition}
+  Let $P$ be a poset and  $x,y \in P$. We say that $y$
+  \textbf{covers} $x$ if  $x < y$, and  $x \leq z < y$ implies $x=z$
+  for any  $z \in P$. We write $x \covers y$.
+\end{definition}
+
+\begin{lemma}\label{lemma_1.3.1}
+  If $P$ is a finite poset, then  $x < y$ in $P$ if, and only if there
+  exists a finite sequence of coverings $x=x_0 \covers x_1 \covers
+  \dots \covers x_n=y$.
+\end{lemma}
+
+\begin{example}\label{example_1.6}
+  \begin{enumerate}
+    \item[(1)] In $\N$, we have  $m \covers n$ if, and only if
+      $n=s(m)$, where $s$ is the successor function. Indeed, suppoes
+      that  $m \covers n$. Then $m < n$ and  $m \leq k<n$ implies that
+      $m=k$, so that $s(m)=s(k)$. Now, suppose that $s(k) \neq n$,
+      since $k < n$ there is some $k<k'<n$ for which $s(k')=n$, but
+      then we have $m<k'<n$ which contradicts that $m \covers n$. Thus
+      we must have that $s(k)=n$, so that $s(m)=n$. On the otherhand,
+      by definition of $s$, if  $s(m)=n$, so that $m<n$. Now, if there
+     is some $k \in \N$ for which $m<k<n$, then $s(m)<s(k) \leq n$. Now
+     since $s(m)=n$, we get $s(m)<s(k) \leq s(m)$, so that
+     $s(m)=s(k)$. Hence $m=k$ and we get  $m \covers n$.
+
+   \item[(2)] Since $\R$ is a totally ordered set under it's order,
+     and since  $\Q$ is dense in  $\R$, there are no  $x,y \in \R$ for
+     which $x \covers y$.
+
+   \item[(3)] Let $X$ be a set, and let  $A,B \subseteq C$. Suppose
+     that $A \covers B$. Then $A \subseteq B$ with $A \neq B$, and if
+     $A \subseteq C \subseteq B$, (with $C \neq B$) then $A=C$. Then
+     there must be some element  $b \in \com{X}{A}$ for which $B=A
+     \cup \{b\}$. Conversely, suppose that $B=A \cup \{b\}$, for some
+     $b \in \com{X}{A}$. Then $A \subseteq B$ is strictly contained.
+     Now, suppose there is a $C \subseteq X$ for which $A \subseteq C
+     \subseteq B$, and $C \neq B$. Then $C \neq A \cup \{b\}$, and
+     since $A \subseteq C$, it must be that $b \notin C$. This puts
+     $C \subseteq A$, so that $C=A$.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  Let $P$ be a finite Poset. We define the  \textbf{Hasse diagram} of
+  $P$ to be the directed graph  $G(P)=(V(P),E(P))$, toghether with a
+  bijection $p:P \xrightarrow{} V(P)$, taking elements of $P$ to
+  vertices of  $G(P)$, and such that for all $x,y \in P$, the following
+  hold:
+  \begin{enumerate}
+    \item[(1)] If $x \covers y$ then $p(x)p(y) \in E(G)$ is a directed
+      edge.
+
+    \item[(2)] For $z \in P$, the vertex $p(z)$ is incident to the
+      edge $p(x)p(y)$ if, and only if $x=z$ or $y=z$.
+  \end{enumerate}
+\end{definition}
+
+\begin{example}\label{example_1.7}
+  \begin{enumerate}
+    \item[(1)] Let $P=\{a,b,c,d\}$. The two diagrams below are Hasse
+      diagrams for $P$:
+      \[\begin{tikzcd}
+        c & d && c && d \\
+        a & b &&& b \\
+          &&&& a
+          \arrow[from=2-1, to=1-1]
+          \arrow[from=2-1, to=1-2]
+          \arrow[from=2-2, to=1-1]
+          \arrow[from=2-2, to=1-2]
+          \arrow[no head, from=2-5, to=1-4]
+          \arrow[no head, from=2-5, to=1-6]
+          \arrow[no head, from=3-5, to=1-4]
+          \arrow[no head, from=3-5, to=1-6]
+          \arrow[no head, from=3-5, to=2-5]
+      \end{tikzcd}\]
+
+    \item[(2)] The following are also Hasse diagrams on differen sets.
+      \[\begin{tikzcd}
+        \bullet & \bullet & \vdots \\
+        \bullet & \bullet & \bullet & \bullet && \bullet && \bullet \\
+        \bullet & \bullet & \bullet && \bullet && \bullet \\
+        \bullet && \bullet \\
+        \\
+        \\
+        \\
+        \\
+        \\
+                &&&& \bullet
+                \arrow[from=2-1, to=1-1]
+                \arrow[from=2-1, to=1-2]
+                \arrow[from=2-2, to=1-2]
+                \arrow[from=2-3, to=1-3]
+                \arrow[from=2-4, to=3-5]
+                \arrow[from=2-6, to=3-7]
+                \arrow[from=3-1, to=2-1]
+                \arrow[from=3-1, to=2-2]
+                \arrow[from=3-2, to=2-2]
+                \arrow[from=3-3, to=2-3]
+                \arrow[from=3-5, to=2-6]
+                \arrow[dashed, from=3-7, to=2-8]
+                \arrow[from=4-1, to=3-1]
+                \arrow[from=4-3, to=3-3]
+      \end{tikzcd}\]
+
+    \item[(3)] The following is not a Hasse diagram since the vertex
+      $c$ is incident to the edge $ad$, but niether coincides witht
+      the vertices $a$ or $d$.
+      \[\begin{tikzcd}
+          && d \\
+          & c \\
+        a && b
+        \arrow[from=2-2, to=1-3]
+        \arrow[no head, from=3-1, to=2-2]
+        \arrow[from=3-3, to=1-3]
+        \arrow[from=3-3, to=2-2]
+      \end{tikzcd}\]
+
+    \item[(4)] The following is also a Hasse diagram
+      \[\begin{tikzcd}
+  & \bullet \\
+        \bullet & \bullet & \bullet \\
+        \bullet & \bullet & \bullet \\
+        \bullet & \bullet & \bullet \\
+        \bullet & \bullet & \bullet \\
+                & \bullet
+                \arrow[no head, from=1-2, to=2-3]
+                \arrow[no head, from=2-1, to=1-2]
+                \arrow[no head, from=2-1, to=3-1]
+                \arrow[no head, from=2-2, to=3-2]
+                \arrow[no head, from=2-3, to=3-3]
+                \arrow[no head, from=3-1, to=4-2]
+                \arrow[no head, from=3-2, to=4-3]
+                \arrow[no head, from=3-3, to=3-2]
+                \arrow[no head, from=4-1, to=4-2]
+                \arrow[no head, from=4-1, to=5-1]
+                \arrow[no head, from=4-2, to=5-2]
+                \arrow[no head, from=4-3, to=5-3]
+                \arrow[no head, from=5-1, to=6-2]
+                \arrow[no head, from=6-2, to=5-3]
+      \end{tikzcd}\]
+  \end{enumerate}
+\end{example}
+
+\pagebreak
+
+\begin{lemma}\label{lemma_1.3.2}
+  Let $P$ and $Q$ be posets, and $\phi:P \xrightarrow{} Q$ a
+  bijection. Then the following statements are equivalent:
+  \begin{enumerate}
+    \item[(1)] $\phi$ is an order-isomorphism.
+
+    \item[(2)] $x \covers y$ in $P$ if, and only if $\phi(x) \covers
+      \phi(y)$ in $Q$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  Suppose that $\phi$ is an order isomorphism, and that $x \covers y$
+  in $P$. Then $x<y$ in $P$ so that  $\phi(x)<\phi(y)$ in $Q$. Suppose
+  there exists a $w \in Q$ such that $\phi(x) \leq w<\phi(y)$.
+  Since $\phi$ is onto, there is a $z \in P$ for
+  which $w=\phi(z)$, moreover by order preservation we get that $x
+  \leq z<y$ Since $x \covers y$ $x=z$, so $\phi(z)=\phi(x)=w$,
+  therefore $\phi(x) \covers \phi(y)$. The converse follows by a
+  similar argument since $\phi$ is order-preserving.
+
+  Conversely, suppose that $x \covers y$ in  $Q$ if, and only if
+  $\phi(x) \covers \phi(y)$ in $Q$. Let $x<y$ in $P$. By lemma
+  \ref{lemma_1.3.1} there is a sequence of coverings $x=x_0 \covers
+  x_1 \covers \dots \covers x_n=y$. Then by hypothesis
+  $\phi(x)=\phi(x_0) \covers \phi(x_1) \covers \dots \covers
+  \phi(x_n)=\phi(y)$. By lemma \ref{lemma_1.3.1}, this makes
+  $\phi(x)<\phi(y)$, and hence $\phi$ is an order-isomorphism.
+\end{proof}
+
+\begin{proposition}\label{proposition_1.3.3}
+  Two finite posets are order-isomorphic if, and only if their Hasse
+  diagrams are graph isomorphic.
+\end{proposition}
+\begin{proof}
+  Let $P \simeq Q$ via the order-isomoprhism  $\phi:P \xrightarrow{}
+  Q$. Let $G(P)$ and $G(Q)$ be the Hasse diagrams of $P$ and $Q$
+  respectively, and let $p:P \xrightarrow{} V(P)$ and $q:Q
+  \xrightarrow{} V(Q)$ be the the bijections taking the elements of
+  $p$ onto the vertives of $G(P)$ and the elements of $Q$ onto the
+  vertices of $G(Q)$, respectively. Observe that if $x \in P$ then
+  $\phi(x) \in Q$, so that $p(x) \in V(P)$ is a vertex of $G(P)$ and
+  $q(\phi(x)) \in G(Q)$ is a vertex of $G(Q)$. Now, by lemma
+  \ref{lemma_1.3.2} $x \covers y$ in $P$ if, and only if $\phi(x)
+  \covers \phi(y)$ in $Q$. Then $p(x)p(y) \in E(P)$ is an edge in
+  $G(P)$ if, and only if $q(\phi(x))q(\phi(y)) \in E(Q)$ is an edge in
+  $G(Q)$. Therefore we have established a 1--1 correpsondence between
+  the vertices of $G(P)$ and the vertices of $G(Q)$, and a 1--1
+  correspondence between the edges of $G(P)$ and the edges of $G(Q)$.
+  This makes $G(P) \simeq G(Q)$ as directed graphs.
+\end{proof}
+
+\begin{figure}[h]
+  \centering
+  \[\begin{tikzcd}
+    {G(P)} & {p(a)} && {G(Q)} & {q(\phi(a))} \\
+    {p(b)} & {p(e)} & {p(d)} & {q(\phi(b))} & {q(\phi(e))} & {q(\phi(d))} \\
+           & {p(c)} &&& {q(\phi(c))}
+           \arrow["\Phi", curve={height=-24pt}, dashed, tail reversed, from=1-1, to=1-4]
+           \arrow[no head, from=1-2, to=2-1]
+           \arrow[no head, from=1-2, to=2-2]
+           \arrow[no head, from=1-5, to=2-4]
+           \arrow[no head, from=1-5, to=2-5]
+           \arrow[no head, from=2-1, to=3-2]
+           \arrow[no head, from=2-2, to=3-2]
+           \arrow[no head, from=2-3, to=1-2]
+           \arrow[no head, from=2-4, to=3-5]
+           \arrow[no head, from=2-5, to=3-5]
+           \arrow[no head, from=2-6, to=1-5]
+           \arrow[no head, from=3-2, to=2-3]
+           \arrow[no head, from=3-5, to=2-6]
+  \end{tikzcd}\]
+  \caption{A graph-isomorphism $\Phi$ between the Hasse diagrams
+  $G(P)$ and $G(Q)$, where $P$ and $Q$ are $5$ element posets.}
+  \label{figure_1.1}
+\end{figure}
+
+We conclude this section with some more examples of Hasse diagrams.
+
+\begin{example}\label{exmaple_1.8}
+  \begin{enumerate}
+    \item[(1)] The following Hasse diagrams are not graph-isomorphic.
+      \[\begin{tikzcd}
+  & 3 &&&&&& \bullet \\
+  & 3 &&& \bullet && \bullet \\
+        2 & 2 && \bullet & \bullet & \bullet & \bullet & \bullet \\
+        1 & 1 && \bullet & \bullet & \bullet & \bullet & \bullet \\
+        {\textbf{2}} & {\textbf{4}} &&& \bullet &&& \bullet \\
+        1 & 2 & 3 &&&& \bullet \\
+          & {\bar{\textbf{3}}}
+          \arrow[no head, from=2-2, to=1-2]
+          \arrow[no head, from=2-7, to=1-8]
+          \arrow[no head, from=2-7, to=3-8]
+          \arrow[no head, from=2-7, to=4-8]
+          \arrow[no head, from=3-2, to=2-2]
+          \arrow[no head, from=3-4, to=2-5]
+          \arrow[no head, from=3-5, to=2-5]
+          \arrow[no head, from=3-5, to=4-4]
+          \arrow[no head, from=3-5, to=4-6]
+          \arrow[no head, from=3-6, to=2-5]
+          \arrow[no head, from=3-7, to=1-8]
+          \arrow[no head, from=3-7, to=3-8]
+          \arrow[no head, from=3-7, to=5-8]
+          \arrow[no head, from=4-1, to=3-1]
+          \arrow[no head, from=4-2, to=3-2]
+          \arrow[no head, from=4-4, to=3-4]
+          \arrow[no head, from=4-5, to=3-4]
+          \arrow[no head, from=4-5, to=3-6]
+          \arrow[no head, from=4-6, to=3-6]
+          \arrow[from=4-7, to=1-8]
+          \arrow[no head, from=4-7, to=4-8]
+          \arrow[no head, from=4-7, to=5-8]
+          \arrow[no head, from=5-5, to=4-4]
+          \arrow[no head, from=5-5, to=4-5]
+          \arrow[no head, from=5-5, to=4-6]
+          \arrow[no head, from=6-7, to=3-8]
+          \arrow[no head, from=6-7, to=4-8]
+          \arrow[no head, from=6-7, to=5-8]
+      \end{tikzcd}\]
+
+    \item[(2)] The Hasse diagrams in figure \ref{figure_1.1}
+      illustrate the central proof of proposition
+      \ref{proposition_1.3.3}. Indeed, these two diagrams are
+      graph-isomorphic with an underlying graph isomorphism $\Phi$.
+      One can take the fact that in the graph $G(P)$, the edge
+      $p(a)p(b)$ correspondes to the covering $a \covers b$, and use
+      that to reconstruct the poset $P$. Moreover, one can also use
+      this to construct the poste $Q$, and it's corresponding Hasse
+      diagram.
+
+    \item[(3)] Concider the group $\Uc(\faktor{\Z}{12\Z})$ and the
+      Kelin-$4$ group $V_4$. These two groups are group-isomorphic with the
+      following graph-isomorphic Hasse diagrams:
+      \[\begin{tikzcd}
+  & {\langle 5,7 \rangle} &&& {V_4} \\
+        {\langle 5 \rangle} & {\langle 11 \rangle} & {\langle 7 \rangle} & {\langle a \rangle} & {\langle b \rangle} & {\langle c \rangle} \\
+                            & {\langle 1 \rangle} &&& {\langle e \rangle}
+                            \arrow[no head, from=1-2, to=2-2]
+                            \arrow[no head, from=1-2, to=2-3]
+                            \arrow[no head, from=1-5, to=2-4]
+                            \arrow[no head, from=2-1, to=1-2]
+                            \arrow[no head, from=2-2, to=3-2]
+                            \arrow[no head, from=2-3, to=3-2]
+                            \arrow[no head, from=2-4, to=3-5]
+                            \arrow[no head, from=2-5, to=1-5]
+                            \arrow[no head, from=2-6, to=1-5]
+                            \arrow[no head, from=3-2, to=2-1]
+                            \arrow[no head, from=3-5, to=2-5]
+                            \arrow[no head, from=3-5, to=2-6]
+      \end{tikzcd}\]
+      In the sense of groups, one can use these diagrams to relate the
+      group structure with the poset structure of the underlying
+      ground set. Then it follows that two groups are group-isomorphic
+      if, and only if their Hasse diagrams are graph-isomorphic if,
+      and only if their underlying posets are order-isormorphic.
+
+    \item[(4)] Now relate the group structure of the Klein-$4$ group
+      with the group structure of $S_3$, the permutation group on $3$
+      elements:
+      \[\begin{tikzcd}
+  && {S_3} \\
+  &&& {\langle (1 \ 2 \ 3) \rangle} && {V_4} \\
+        {\langle (1 \ 2) \rangle} & {\langle (1 \ 3) \rangle} & {\langle (2 \ 3) \rangle} && {\langle a \rangle} & {\langle b \rangle} & {\langle c \rangle} \\
+                                  && {\langle (1) \rangle} &&& {\langle e \rangle}
+                                  \arrow[no head, from=1-3, to=2-4]
+                                  \arrow[no head, from=1-3, to=3-1]
+                                  \arrow[no head, from=2-4, to=4-3]
+                                  \arrow[no head, from=2-6, to=3-5]
+                                  \arrow[no head, from=3-1, to=4-3]
+                                  \arrow[no head, from=3-2, to=1-3]
+                                  \arrow[no head, from=3-3, to=1-3]
+                                  \arrow[no head, from=3-5, to=4-6]
+                                  \arrow[no head, from=3-6, to=2-6]
+                                  \arrow[no head, from=3-7, to=2-6]
+                                  \arrow[no head, from=4-3, to=3-2]
+                                  \arrow[no head, from=4-3, to=3-3]
+                                  \arrow[no head, from=4-6, to=3-6]
+                                  \arrow[no head, from=4-6, to=3-7]
+      \end{tikzcd}\]
+      one immediately sees that $S_3 \not\simeq V_4$ as groups. In
+      general Hasse diagrams for group play a fundamental role in
+      their study and classifications and the subgroup structure can
+      be seen clearly with them. In actuallity, Hasse diagrams for
+      groups satisfy the conditions to be called another structure
+      called a lattice, which will be studied in chapter 2.
+  \end{enumerate}
+\end{example}
