@@ -16,40 +16,40 @@
 \begin{figure}[h]
   \centering
   \[\begin{tikzcd}
-  && \bullet &&&&& \bullet \\
+    && \bullet &&&&& \bullet \\
     \bullet && \bullet && \bullet & \bullet & \bullet & \bullet & \bullet & \bullet \\
     \bullet & \bullet & \bullet & \bullet & \bullet & \bullet && \bullet && \bullet \\
-            && \bullet &&&&& \bullet
-            \arrow[no head, from=1-8, to=2-6]
-            \arrow[no head, from=1-8, to=2-7]
-            \arrow[no head, from=1-8, to=2-8]
-            \arrow[no head, from=1-8, to=2-9]
-            \arrow[no head, from=1-8, to=2-10]
-            \arrow[no head, from=2-1, to=1-3]
-            \arrow[no head, from=2-3, to=1-3]
-            \arrow[no head, from=2-5, to=1-3]
-            \arrow[no head, from=2-7, to=3-6]
-            \arrow[no head, from=2-8, to=3-8]
-            \arrow[no head, from=2-8, to=3-10]
-            \arrow[no head, from=2-9, to=3-10]
-            \arrow[no head, from=2-10, to=3-10]
-            \arrow[no head, from=3-1, to=2-1]
-            \arrow[no head, from=3-2, to=2-1]
-            \arrow[no head, from=3-3, to=2-1]
-            \arrow[no head, from=3-3, to=2-3]
-            \arrow[no head, from=3-3, to=2-5]
-            \arrow[no head, from=3-4, to=2-5]
-            \arrow[no head, from=3-5, to=2-5]
-            \arrow[no head, from=3-6, to=2-6]
-            \arrow[no head, from=3-6, to=2-8]
-            \arrow[no head, from=3-8, to=4-8]
-            \arrow[no head, from=3-10, to=4-8]
-            \arrow[no head, from=4-3, to=3-1]
-            \arrow[no head, from=4-3, to=3-2]
-            \arrow[no head, from=4-3, to=3-3]
-            \arrow[no head, from=4-3, to=3-4]
-            \arrow[no head, from=4-3, to=3-5]
-            \arrow[no head, from=4-8, to=3-6]
+    && \bullet &&&&& \bullet
+    \arrow[no head, from=1-8, to=2-6]
+    \arrow[no head, from=1-8, to=2-7]
+    \arrow[no head, from=1-8, to=2-8]
+    \arrow[no head, from=1-8, to=2-9]
+    \arrow[no head, from=1-8, to=2-10]
+    \arrow[no head, from=2-1, to=1-3]
+    \arrow[no head, from=2-3, to=1-3]
+    \arrow[no head, from=2-5, to=1-3]
+    \arrow[no head, from=2-7, to=3-6]
+    \arrow[no head, from=2-8, to=3-8]
+    \arrow[no head, from=2-8, to=3-10]
+    \arrow[no head, from=2-9, to=3-10]
+    \arrow[no head, from=2-10, to=3-10]
+    \arrow[no head, from=3-1, to=2-1]
+    \arrow[no head, from=3-2, to=2-1]
+    \arrow[no head, from=3-3, to=2-1]
+    \arrow[no head, from=3-3, to=2-3]
+    \arrow[no head, from=3-3, to=2-5]
+    \arrow[no head, from=3-4, to=2-5]
+    \arrow[no head, from=3-5, to=2-5]
+    \arrow[no head, from=3-6, to=2-6]
+    \arrow[no head, from=3-6, to=2-8]
+    \arrow[no head, from=3-8, to=4-8]
+    \arrow[no head, from=3-10, to=4-8]
+    \arrow[no head, from=4-3, to=3-1]
+    \arrow[no head, from=4-3, to=3-2]
+    \arrow[no head, from=4-3, to=3-3]
+    \arrow[no head, from=4-3, to=3-4]
+    \arrow[no head, from=4-3, to=3-5]
+    \arrow[no head, from=4-8, to=3-6]
   \end{tikzcd}\]
   \caption{The Hasse diagram for the diherdral group $D_8$ and the
   corresponding diagram for its dual $D_8^\partial$.}
@@ -158,7 +158,7 @@
       \item[(8)] In $X \partialmap Y$, the bottom element is the
         partial map with empty domain.
 
-      \item[(9)] In $[\bbar{\R},\bar{\R}]$, the bottom element is the
+      \item[(9)] In $[\bbar{\R},\tbar{\R}]$, the bottom element is the
         interval $[-\infty, \infty]$.
   \end{enumerate}
 \end{example}
@@ -182,7 +182,7 @@
 
 \begin{definition}
   Let $S$ by any set. We define the \textbf{flat} on $S$ to be the
-  poset $\bar{S}_\bot$, ordered by the order relation of propostion
+  poset $\tbar{S}_\bot$, ordered by the order relation of propostion
   \ref{proposition_1.4.5}. That is, it is $S$ made into an anti-chain
   and then lifted.
 \end{definition}
@@ -191,7 +191,7 @@
   \centering
   \[\begin{tikzcd}
     \bullet & \bullet & \bullet & \bullet & \dots & \bullet & \dots \\
-            &&& \bullet & {\bar{\N}_\bot}
+            &&& \bullet & {\tbar{\N}_\bot}
             \arrow[no head, from=2-4, to=1-1]
             \arrow[no head, from=2-4, to=1-2]
             \arrow[no head, from=2-4, to=1-3]
@@ -201,7 +201,7 @@
             \arrow[no head, from=2-4, to=1-6]
             \arrow[dashed, no head, from=2-4, to=1-7]
   \end{tikzcd}\]
-  \caption{Hasse diagram of $\bar{\N}_\bot$}
+  \caption{Hasse diagram of $\tbar{\N}_\bot$}
   \label{figure_1.3}
 \end{figure}
 
@@ -231,23 +231,23 @@
 \begin{figure}[h]
   \centering
   \[\begin{tikzcd}
-  &&&&&&& a \\
+    &&&&&&& a \\
     {a_1} & {a_2} && {a_3} && \bullet \\
-          &&&& \bullet \\
-          &&&&& \bullet &&& \bullet \\
-          & \bullet & {P_1} & \bullet &&& \bullet & {P_2} && \bullet
-          \arrow[no head, from=1-8, to=2-6]
-          \arrow[no head, from=1-8, to=4-6]
-          \arrow[no head, from=1-8, to=4-9]
-          \arrow[no head, from=2-2, to=5-2]
-          \arrow[no head, from=2-4, to=5-4]
-          \arrow[no head, from=2-6, to=3-5]
-          \arrow[no head, from=4-9, to=5-10]
-          \arrow[no head, from=5-2, to=2-1]
-          \arrow[no head, from=5-2, to=2-4]
-          \arrow[no head, from=5-4, to=2-2]
-          \arrow[no head, from=5-7, to=4-6]
-          \arrow[no head, from=5-7, to=4-9]
+    &&&& \bullet \\
+    &&&&& \bullet &&& \bullet \\
+    & \bullet & {P_1} & \bullet &&& \bullet & {P_2} && \bullet
+    \arrow[no head, from=1-8, to=2-6]
+    \arrow[no head, from=1-8, to=4-6]
+    \arrow[no head, from=1-8, to=4-9]
+    \arrow[no head, from=2-2, to=5-2]
+    \arrow[no head, from=2-4, to=5-4]
+    \arrow[no head, from=2-6, to=3-5]
+    \arrow[no head, from=4-9, to=5-10]
+    \arrow[no head, from=5-2, to=2-1]
+    \arrow[no head, from=5-2, to=2-4]
+    \arrow[no head, from=5-4, to=2-2]
+    \arrow[no head, from=5-7, to=4-6]
+    \arrow[no head, from=5-7, to=4-9]
   \end{tikzcd}\]
   \caption{The Hasse diagrams of the posets $P_1$ and $P_2$. Here
     $P_1$ has the maximal elements $a_1, a_2, a_3$, but no greatest
@@ -294,7 +294,7 @@
     \item[(4)] Let $X$ and $Y$ be sets. The maximal elements of $X
       \partialmap Y$ are precisely the total maps.
 
-    \item[(5)] The maximal elements of $[\bbar{\R},\bar{\R}]$ are the
+    \item[(5)] The maximal elements of $[\bbar{\R},\tbar{\R}]$ are the
       $1$-element intervals, i.e. degenerate intervals.
   \end{enumerate}
 \end{example}

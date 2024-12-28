@@ -35,21 +35,21 @@
 \end{proposition}
 
 \begin{proposition}\label{proposition_1.5.2}
-  Let $P$ be a poset. Then $P_\bot \simeq \textbf{1} \oplus P$.
+  Let $P$ be a poset. Then $P_\bot \simeq \mathbf{1} \oplus P$.
 \end{proposition}
 \begin{proof}
   Let $P$ be a poset not containing $0 \in \N$ (if not, make it into
-  one via an order-isomorphism), then $\textbf{1} \cap P=\emptyset$,
-  and form the union $\textbf{1} \cup P$ and make it into $\textbf{1}
+  one via an order-isomorphism), then $\mathbf{1} \cap P=\emptyset$,
+  and form the union $\mathbf{1} \cup P$ and make it into $\mathbf{1}
   \oplus P$ under the order relation of linear sums. Now, let $\phi:P
   \xrightarrow{} P$ be the identity order-isomorphism, and extend
-  $\phi$ to $\phi_\bot:P_\bot \xrightarrow{} \textbf{1} \oplus P$, by
+  $\phi$ to $\phi_\bot:P_\bot \xrightarrow{} \mathbf{1} \oplus P$, by
   sending $\phi:\bbar{0} \xrightarrow{} 0$, and taking
   $\phi_\bot=\phi(x)$ for all $x \in P$. Suppose that $x \leq y$ in
   $P_\bot$, then either $x=\bbar{0}$ or $x \leq y$ in $P$. Then
   $\phi_\bot(x)=0$, or $\phi_\bot(x)=\phi(x) \leq
   \phi(y)=\phi_\bot(y)$ in $P$ (which also forces $x,y \in P$). By
-  definition of $\leq$ over $\textbf{1} \oplus P$, $\phi_\bot(x) \leq
+  definition of $\leq$ over $\mathbf{1} \oplus P$, $\phi_\bot(x) \leq
   \phi_\bot(y)$, and so $\phi_\bot$ is the relevant order-isomorphism.
 \end{proof}
 
@@ -80,35 +80,35 @@
 
 \begin{example}\label{example_1.11}
   \begin{enumerate}
-    \item[(1)] The Hasse diagrams for $\textbf{2} \uplus \textbf{3}$,
-      $\textbf{2} \oplus \textbf{3}$, and $\bar{\textbf{1}} \oplus
-      \textbf{2} \oplus \textbf{3}$ are drawn to be:
+    \item[(1)] The Hasse diagrams for $\mathbf{2} \uplus \mathbf{3}$,
+      $\mathbf{2} \oplus \mathbf{3}$, and $\tbar{\mathbf{1}} \oplus
+      \mathbf{2} \oplus \mathbf{3}$ are drawn to be:
       \[\begin{tikzcd}
         && \bullet && \bullet \\
         & \bullet & \bullet & \bullet && \bullet \\
         \bullet & \bullet & \bullet \\
         \bullet & \bullet & \bullet & \bullet && \bullet \\
-        {\textbf{2} \uplus \textbf{3}} && \bullet && \bullet \\
-                                       && {\textbf{2} \oplus \textbf{3} \simeq \textbf{5}} && {\bar{\textbf{1}} \oplus \bar{\textbf{2}} \oplus \bar{\textbf{3}}}
-                                       \arrow[from=1-5, to=4-4]
-                                       \arrow[from=1-5, to=4-6]
-                                       \arrow[no head, from=2-3, to=1-3]
-                                       \arrow[no head, from=3-2, to=2-2]
-                                       \arrow[no head, from=3-3, to=2-3]
-                                       \arrow[no head, from=4-1, to=3-1]
-                                       \arrow[no head, from=4-2, to=3-2]
-                                       \arrow[no head, from=4-3, to=3-3]
-                                       \arrow[no head, from=4-4, to=2-4]
-                                       \arrow[no head, from=4-4, to=2-6]
-                                       \arrow[no head, from=4-6, to=2-4]
-                                       \arrow[no head, from=4-6, to=2-6]
-                                       \arrow[no head, from=5-3, to=4-3]
-                                       \arrow[no head, from=5-5, to=4-4]
-                                       \arrow[no head, from=5-5, to=4-6]
+        {\mathbf{2} \uplus \mathbf{3}} && \bullet && \bullet \\
+        && {\mathbf{2} \oplus \mathbf{3} \simeq \mathbf{5}} && {\tbar{\mathbf{1}} \oplus \tbar{\mathbf{2}} \oplus \tbar{\mathbf{3}}}
+        \arrow[from=1-5, to=4-4]
+        \arrow[from=1-5, to=4-6]
+        \arrow[no head, from=2-3, to=1-3]
+        \arrow[no head, from=3-2, to=2-2]
+        \arrow[no head, from=3-3, to=2-3]
+        \arrow[no head, from=4-1, to=3-1]
+        \arrow[no head, from=4-2, to=3-2]
+        \arrow[no head, from=4-3, to=3-3]
+        \arrow[no head, from=4-4, to=2-4]
+        \arrow[no head, from=4-4, to=2-6]
+        \arrow[no head, from=4-6, to=2-4]
+        \arrow[no head, from=4-6, to=2-6]
+        \arrow[no head, from=5-3, to=4-3]
+        \arrow[no head, from=5-5, to=4-4]
+        \arrow[no head, from=5-5, to=4-6]
       \end{tikzcd}\]
 
-    \item[(2)] Define $M_n=\textbf{1} \oplus \bar{\textbf{n}} \oplus
-      \textbf{1}$. The Hasse diagrams for $M_3$, $M_2 \uplus M_3$, and
+    \item[(2)] Define $M_n=\mathbf{1} \oplus \tbar{\mathbf{n}} \oplus
+      \mathbf{1}$. The Hasse diagrams for $M_3$, $M_2 \uplus M_3$, and
       $M_2 \oplus M_3$ are drawn below:
       \[\begin{tikzcd}
         && \bullet & {M_2 \oplus M_3} && \bullet \\
@@ -173,7 +173,7 @@
 
 \begin{definition}
   Let $P$ and $Q$ be disjoint posets. We call the order of proposition
-  \ref{proposition_1.5.5} the \textbf{lexicographical order} on $P
+  \ref{proposition_1.5.5} the \mathbf{lexicographical order} on $P
   \times Q$.
 \end{definition}
 
@@ -181,11 +181,11 @@
   The following are some examples of Hasse diagrams of products of
   posets, under the ordering of proposition \ref{proposition_1.5.4}:
 \[\begin{tikzcd}[column  sep=small, row  sep=tiny]
-	&&&& \bullet &&& {\textbf{2} \times\textbf{3}} \\
+	&&&& \bullet &&& {\mathbf{2} \times\mathbf{3}} \\
 	&& \bullet & \bullet && \bullet \\
 	\bullet & \times & \bullet & {=} & \bullet && \bullet \\
 	\bullet && \bullet &&& \bullet \\
-	{\textbf{2}} && {\textbf{3}}
+	{\mathbf{2}} && {\mathbf{3}}
 	\arrow[no head, from=1-5, to=2-6]
 	\arrow[no head, from=2-4, to=1-5]
 	\arrow[no head, from=2-6, to=3-7]
@@ -264,14 +264,14 @@
     \arrow[no head, from=5-3, to=4-2]
     \arrow[no head, from=5-3, to=5-2]
   \end{tikzcd}\]
-  \caption{The Hasse diagram on the tesseract $\textbf{2}^4 =
-  \textbf{2} \times \textbf{2} \times \textbf{2} \times \textbf{2}$.}
+  \caption{The Hasse diagram on the tesseract $\mathbf{2}^4 =
+  \mathbf{2} \times \mathbf{2} \times \mathbf{2} \times \mathbf{2}$.}
   \label{figure_1.5}
 \end{figure}
 
 \begin{proposition}\label{proposition_1.5.6}
   Let $X=\{1, \dots, n\}$, and define $\phi:2^X \xrightarrow{}
-  \textbf{2}^n$ by:
+  \mathbf{2}^n$ by:
   \begin{equation*}
     \phi(A)=(\e_1, \dots, \e_n)
   \end{equation*}
@@ -284,7 +284,7 @@
     \end{cases}
   \end{equation*}
   Then $\phi$ is an order-isomorphism between $2^X$ and
-  $\textbf{2}^n$.
+  $\mathbf{2}^n$.
 \end{proposition}
 \begin{proof}
   Let $A, B \subseteq X$, and $\phi(A)=(\e_1, \dots, \e_n)$ and
@@ -297,8 +297,8 @@
   Now, observe that if $\phi(A)=\phi(B)$, then $(\e_1, \dots,
   \e_n)=(\d_1, \dots ,\d_n)$ so $\e_i=\d_i$ for  all $1 \leq i \leq
   n$. By definition of $\e_i$, this implies that $A=B$. Moreover,
-  suppose that $x=(\e_1, \dots, \e_n)$ in $\textbf{2}^n$. Define $A
+  suppose that $x=(\e_1, \dots, \e_n)$ in $\mathbf{2}^n$. Define $A
   \subseteq X$ to be the set $A=\{i \in X : \e_i=1\}$, then by
   definition of $\phi$ and $\e_i$, $x=\phi(A)$. Therefore $\phi$ is
-  the required order-isomorphism between $2^X$ and $\textbf{2}^n$.
+  the required order-isomorphism between $2^X$ and $\mathbf{2}^n$.
 \end{proof}

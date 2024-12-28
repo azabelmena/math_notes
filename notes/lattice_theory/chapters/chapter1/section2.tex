@@ -78,7 +78,7 @@ In this section, we go over some more specific examples of Posets.
 
 \begin{example}\label{example_1.4}
   In $\Sigma^{\ast\ast}$, under $\leq$, we have that  $0100 \leq
-  010011$, and $010 \| 100$, and that  $10101 \leq \bar{10101\dots}$
+  010011$, and $010 \| 100$, and that  $10101 \leq \tbar{10101\dots}$
   (that is, $10101$ repeated ad infinitum). One can think of the
   elements of $\Sigma^{\ast}$ and $\Sigma^{\ast\ast}$ as encoding
   information, and that the order $\{u_n\} \leq \{v_n\}$
@@ -160,39 +160,39 @@ In this section, we go over some more specific examples of Posets.
 
 \begin{proposition}\label{proposition_1.6}
   Let $x \in \R$, and consider the collection of all closed bounded
-  intervals $[\bbar{x},\bar{x}]$ (where $-\infty \leq \bbar{x} \leq
-  \bar{x} \leq \infty$). Define the relation $\leq$ on this collection
-  by: for all $x=[\bbar{x},\bar{x}]$ and $y=[\bbar{y},\bar{y}]$
+  intervals $[\bbar{x},\tbar{x}]$ (where $-\infty \leq \bbar{x} \leq
+  \tbar{x} \leq \infty$). Define the relation $\leq$ on this collection
+  by: for all $x=[\bbar{x},\tbar{x}]$ and $y=[\bbar{y},\tbar{y}]$
   \begin{equation*}
     x \leq y \text{ if, and only if } \bbar{x} \leq \bbar{y} \text{
-    and } \bar{x} \leq \bar{y} \text{ in } \R^\infty
+    and } \tbar{x} \leq \tbar{y} \text{ in } \R^\infty
   \end{equation*}
   Then $\leq$ is a partial order on the collection of all
-$[\bbar{x},\bar{x}]$.
+$[\bbar{x},\tbar{x}]$.
 \end{proposition}
 \begin{proof}
-  Denote by $[\bbar{\R},\bar{\R}]$ the collection of all closed
-  bounded intervals of the form $[\bbar{x},\bar{x}]$, with $x \in \R$,
-  and where $-\infty \leq \bbar{x} \leq \bar{x} \leq \infty$. Recall
+  Denote by $[\bbar{\R},\tbar{\R}]$ the collection of all closed
+  bounded intervals of the form $[\bbar{x},\tbar{x}]$, with $x \in \R$,
+  and where $-\infty \leq \bbar{x} \leq \tbar{x} \leq \infty$. Recall
   also that $\R^\infty=\R \cup \{-\infty,\infty\}$ is the set of
   extended real numbers, and admits the usual ordering of $\R$, with
   the addition that one can compare the symbols  $-\infty$ and
   $\infty$ with elements of $\R$.
 
-  Denote by $x=[\bbar{x},\bar{x}]$, and take $x,y,z \in
-  [\bbar{\R},\bar{\R}]$. Observe first that $x \leq x$, since
-  $\bbar{x} \leq \bbar{x}$ and $\bar{x} \leq \bar{x}$ in $\R^\infty$.
+  Denote by $x=[\bbar{x},\tbar{x}]$, and take $x,y,z \in
+  [\bbar{\R},\tbar{\R}]$. Observe first that $x \leq x$, since
+  $\bbar{x} \leq \bbar{x}$ and $\tbar{x} \leq \tbar{x}$ in $\R^\infty$.
 
   Now, suppose that $x \leq y$ and $y \leq x$. Then $\bbar{x} \leq
-  \bbar{y}$ and $\bar{x} \leq \bar{x}$ in $\R^\infty$. Likewise,
-  $\bbar{y} \leq \bbar{x}$ and $\bar{y} \leq \bar{x}$ in $\R^\infty$.
+  \bbar{y}$ and $\tbar{x} \leq \tbar{x}$ in $\R^\infty$. Likewise,
+  $\bbar{y} \leq \bbar{x}$ and $\tbar{y} \leq \tbar{x}$ in $\R^\infty$.
   Then in  $\R^\infty$, the usual order gives that $\bbar{x}=\bbar{y}$
-  and $\bar{x}=\bar{y}$ so that $x=y$ in  $[\bba{\R},\bar{\R}]$.
+  and $\tbar{x}=\tbar{y}$ so that $x=y$ in  $[\bba{\R},\tbar{\R}]$.
 
   Now, suppose that $x \leq y$ and $y \leq z$. Then we get $\bbar{x}
-  \leq \bbar{y}$ and $\bar{x} \leq \bar{y}$ in $\R^\infty$. Likewise
-  $\bbar{y} \leq \bbar{z}$ and $\bar{y} \leq \bar{z}$ in $\R^\infty$.
+  \leq \bbar{y}$ and $\tbar{x} \leq \tbar{y}$ in $\R^\infty$. Likewise
+  $\bbar{y} \leq \bbar{z}$ and $\tbar{y} \leq \tbar{z}$ in $\R^\infty$.
   Then by the transitivity of the order on $\R^\infty$, $\bbar{x} \leq
-  \bbar{z}$ and $\bar{x} \leq \bar{z}$ in $\R^\infty$, so that $x \leq
-  z$ in $[\bbar{\R},\bar{\R}]$.
+  \bbar{z}$ and $\tbar{x} \leq \tbar{z}$ in $\R^\infty$, so that $x \leq
+  z$ in $[\bbar{\R},\tbar{\R}]$.
 \end{proof}
