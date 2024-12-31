@@ -1,2 +1,146 @@
 \section{Maps between Posets}
 \label{section_1.7}
+
+\begin{definition}
+  Let $P$ and  $Q$ be posets, and  $\phi:P \xrightarrow{} Q$ a map.
+  \begin{enumerate}
+    \item[(1)] We say $\phi$ is an \textbf{order-preserving} map if
+      whenever $x \leq y$ in $P$,  $\phi(x) \leq \phi(y)$ in $Q$.
+
+    \item[(2)] We say $\phi$ is an \textbf{order-reversing} map if
+      whenever $x \leq y$ in $P$,  $\phi(y) \leq \phi(x)$ in $Q$.
+
+    \item[(3)] We say $\phi$ is an \textbf{order-embedding} provided
+      $x \leq y$ in $P$ if, and only if $\phi(x) \leq \phi(y)$ in $Q$.
+  \end{enumerate}
+\end{definition}
+
+\begin{example}\label{example_1.15}
+  \begin{enumerate}
+    \item[(1)] The diagram below illustrate two maps between posets.
+      $\phi_1$ is not order-preserving, and $\phi_2$ is an
+      order-embedding, but not an order-isomorphism.
+      \[\begin{tikzcd}[sep = tiny]
+        &&&&&&&&&&& {\phi_2(d)} \\
+        &&&&& {\phi_1(a)} && d &&& \bullet && \bullet \\
+        & b && d & {\xrightarrow{\phi_1}} & {\phi_1(d)} & b && c & {\xrightarrow{\phi_2}} && {\phi_2(b)} && {\phi_2(c)} \\
+        a && c &&& {\phi_1(b)=\phi_1(c)} && a &&&&& {\phi_2(a)}
+        \arrow[no head, from=2-11, to=1-12]
+        \arrow[no head, from=2-13, to=1-12]
+        \arrow[no head, from=3-2, to=4-3]
+        \arrow[no head, from=3-6, to=2-6]
+        \arrow[no head, from=3-7, to=2-8]
+        \arrow[no head, from=3-9, to=2-8]
+        \arrow[no head, from=3-12, to=2-11]
+        \arrow[no head, from=3-12, to=2-13]
+        \arrow[no head, from=3-14, to=2-13]
+        \arrow[no head, from=4-1, to=3-2]
+        \arrow[no head, from=4-3, to=3-4]
+        \arrow[no head, from=4-6, to=3-6]
+        \arrow[no head, from=4-8, to=3-7]
+        \arrow[no head, from=4-8, to=3-9]
+        \arrow[no head, from=4-13, to=3-12]
+        \arrow[no head, from=4-13, to=3-14]
+      \end{tikzcd}\]
+
+    \item[(2)] The map $\phi$ of the diagram below is an
+      order-preserving map, but not an order-embedding.
+      \[\begin{tikzcd}
+        & e \\
+        & d &&& {\phi(e)} \\
+        b && c & {\xrightarrow{\phi}} & {\phi(c)=\phi(d)} \\
+        & a &&& {\phi(a)=\phi(b)}
+        \arrow[no head, from=2-2, to=1-2]
+        \arrow[no head, from=3-1, to=2-2]
+        \arrow[no head, from=3-3, to=2-2]
+        \arrow[no head, from=3-5, to=2-5]
+        \arrow[no head, from=4-2, to=3-1]
+        \arrow[no head, from=4-2, to=3-3]
+        \arrow[no head, from=4-5, to=3-5]
+      \end{tikzcd}\]
+  \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{lemma_1.7.1}
+  Let $P$ and $Q$ be posets. If $\phi:P \xrightarrow{} Q$ is an
+  order-embedding, then $\phi$ is 1--1.
+\end{lemma}
+\begin{proof}
+  Let $\phi(x)=\phi(y)$. Then $\phi(x) \leq \phi(y)$ and $\phi(y) \leq
+  \phi(x)$ in $Q$. Then $x \leq y$ and $y \leq x$ in $P$, so $x=y$ in
+   $P$.
+\end{proof}
+\begin{corollary}
+  $\phi$ is an order-embedding of $P$ onto $Q$, then $\phi$ is an
+  order-isomorphism.
+\end{corollary}
+\begin{corollary}
+  If $\phi:P \xrightarrow{} Q$ is an order-embedding, then $P \simeq
+  \phi(P)$.
+\end{corollary}
+\begin{proof}
+  Restricting $\phi:P \xrightarrow{} \phi(P)$, since $\phi$ is an
+  embedding, it is 1--1 and takes $P$ onto $\phi(P)$.
+\end{proof}
+
+\begin{proposition}\label{proposition_1.7.2}
+  Let $P,Q$, and $R$ be posets, and $\phi:P \xrightarrow{} Q$ and
+  $\psi:Q \xrightarrow{} R$ order-preserving maps. Then $\psi \circ
+  \phi:P \xrightarrow{} R$ is an order-preserving map.
+\end{proposition}
+\begin{proof}
+  Let $x \leq y$ in $P$. Then $\phi(x) \leq \phi(y)$ in $Q$, so that
+  $\psi(\phi(x))=\psi \circ \phi(x) \leq \psi \circ
+  \phi(y)=\psi(\phi(y))$ in $R$.
+\end{proof}
+
+\begin{proposition}\label{proposition_1.7.3}
+  Let $P$ and $Q$ be posets. Then $P \simeq Q$ if, and only if there
+  exist order-preserving maps $\phi:P \xrightarrow{} Q$ and $\phi:Q
+  \xrightarrow{} P$ such that $\phi \circ \psi=\id_Q$, and $\psi \circ
+  \phi=\id_P$.
+\end{proposition}
+\begin{proof}
+  Suppose $P \simeq Q$ via the map  $\phi:P \xrightarrow{} Q$. Then
+  $\phi$ is a bijection and provides the corresponding inverse
+  $\psi=\inv{\phi}$.
+
+  Now, suppose there exist order-preserving maps $\phi:P
+  \xrightarrow{} Q$ and $\psi:Q \xrightarrow{} P$ such that $\phi
+  \circ \psi=\id_Q$ and $\psi \circ \phi=\id_P$. Then we have that
+  $\phi$ is 1--1 via the former composition, and that $\phi$ is onto
+  via the latter compostion. Since $\phi$ is also order-preserving,
+  this makes $\phi$ an order-isomorphism between $P$ and $Q$.
+\end{proof}
+
+\begin{definition}
+  Let $X$ be a set, and $Y$ a poset. We define the \textbf{point-wise
+  order} on $Y^X$ to be the relation $\leq$ defined on $Y^X$ by: for
+  all  $f,g \in Y^X$
+  \begin{equation*}
+    f \leq g \text{ in } Y^X \text{ if, and only if }
+    f(x) \leq g(x) \text{ in } Y \text{ for all } x \in X
+  \end{equation*}
+  If $X$ is a poset, we denote by  $Y^{\langle X \rangle}$ the set of
+  all order-preserving maps between $X$ and $Y$.
+\end{definition}
+
+\begin{proposition}\label{proposition_1.7.4}
+  Let $X$ be a set, and $Y$ a poset. Then the point-wise order on
+  $Y^X$ is a partial order relation.
+\end{proposition}
+\begin{corollary}
+  If $|X|=n$, then  $Y^X \simeq Y^n$.
+\end{corollary}
+\begin{corollary}
+  If $|Y|=2$, then $Y^X \simeq 2^X$.
+\end{corollary}
+\begin{corollary}
+  If $X$ is a poset, then $Y^{\langle X \rangle}$ inherits the
+  point-wise order of $Y^X$.
+\end{corollary}
+
+\begin{proposition}\label{proposition_1.7.5}
+  Let $X$ be a poset. Then $\mathbf{2}^{\langle X \rangle} \simeq
+  \Oc(X)^\partial$.
+\end{proposition}
