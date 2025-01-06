@@ -1,263 +1,265 @@
-\section{Euclidean Domains.}
+\section{Euclidean Domains}
+\label{section_6.1}
 
 \begin{definition}
-    Let $R$ be a commutative ring. We call a map  $N:R \xrightarrow{} \N$, with
-    $N(0)=0$ a \textbf{norm}, or, \textbf{degree}. If $N(a) \geq 0$, for all $a
-    \in R$, then we call $N$ \textbf{nonnegative} If $N(a)>0$ for all $a \in R$
-    then we call  $N$ \textbf{positive}.
+  Let $R$ be a commutative ring. We call a map  $N:R \xrightarrow{} \N$, with
+  $N(0)=0$ a \textbf{norm}, or, \textbf{degree}. If $N(a) \geq 0$, for all $a
+  \in R$, then we call $N$ \textbf{nonnegative} If $N(a)>0$ for all $a \in R$
+  then we call  $N$ \textbf{positive}.
 \end{definition}
 
 \begin{definition}
-    Let $R$ be a commutative ring, and  $N:R \xrightarrow{} \N$ a norm. We say
-    thay $R$ is a \textbf{Euclidean domain} if for all $a,b \in R$, with $b \neq
-    0$, there exist elements  $q,r \in R$ such that
-    \begin{equation*}
-        a=qb+r \text{ where } r=0 \text{ or } N(r)<N(b)
-    \end{equation*}
-    We call $q$ the  \textbf{quotient} and $r$ the  \textbf{remainder} of $a$
-    when  \textbf{divided} by $b$.
+  Let $R$ be a commutative ring, and  $N:R \xrightarrow{} \N$ a norm. We say
+  thay $R$ is a \textbf{Euclidean domain} if for all $a,b \in R$, with $b \neq
+  0$, there exist elements  $q,r \in R$ such that
+  \begin{equation*}
+    a=qb+r \text{ where } r=0 \text{ or } N(r)<N(b)
+  \end{equation*}
+  We call $q$ the  \textbf{quotient} and $r$ the  \textbf{remainder} of $a$
+  when  \textbf{divided} by $b$.
 \end{definition}
 
-\begin{example}\label{2.1}
-    \begin{enumerate}
-        \item[(1)] Let $F$ be any field, and  $N:F \xrightarrow{} \N$ defined by
-            $N(a)=0$ for all $a \in F$. Then  $N$ makes  $F$ into a Euclidean
-            domain. Take  $a,b \in F$, with  $b \neq 0$, and  $q=a\inv{b}$. Then
-            $a=qb+r$ where  $r=0$.
+\begin{example}\label{example_6.1}
+  \begin{enumerate}
+    \item[(1)] Let $F$ be any field, and  $N:F \xrightarrow{} \N$ defined by
+      $N(a)=0$ for all $a \in F$. Then  $N$ makes  $F$ into a Euclidean
+      domain. Take  $a,b \in F$, with  $b \neq 0$, and  $q=a\inv{b}$. Then
+      $a=qb+r$ where  $r=0$.
 
-        \item[(2)] The integers $\Z$ is a Euclidean domain with norm $N(a)=|a|$,
-            the absolute value of $a$. In fact, the motivation for Euclidean
-            rings comes from the division theorem, or Euclid's theorem for
-            integers.
+    \item[(2)] The integers $\Z$ is a Euclidean domain with norm $N(a)=|a|$,
+      the absolute value of $a$. In fact, the motivation for Euclidean
+      rings comes from the division theorem, or Euclid's theorem for
+      integers.
 
-        \item[(3)] Let $F$ be a field, and consider  $F[x]$. Let $N:F[x]
-            \xrightarrow{} \N$ be defined by $N:f \xrightarrow{} \deg{f}$. Then
-            $f$ is a Euclidean domain. If  $F$ is not a field, then it is not
-            necesarily true that $F[x]$ be a Euclidean domain.
+    \item[(3)] Let $F$ be a field, and consider  $F[x]$. Let $N:F[x]
+      \xrightarrow{} \N$ be defined by $N:f \xrightarrow{} \deg{f}$. Then
+      $f$ is a Euclidean domain. If  $F$ is not a field, then it is not
+      necesarily true that $F[x]$ be a Euclidean domain.
 
-        \item[(4)] Let $D \in \Z^+$ be squarefree, and consider  $\Z[\sqrt{D}]$.
-            Define $N:\Z[\sqrt{D}]=\N$ to be the absolute value of the field
-            norm, that is $N(a+b\sqrt{D})=\|a+b\sqrt{D}\|^2=a^2+Db^2$. We notice
-            that $\Z[\sqrt{D}]$ is an integral domain, but it is not a Euclidean
-            domain. This depends on our choice of $D$. Let  $D=-1$ so tha t
-            $\sqrt{D}=i$, and $i^2=-1$. Then the Gaussian integers, $\Z[i]$, is
-            a Euclidean domeain. Let $x=a+ib$,  $y=c+id$ with  $y \neq 0$. In
-            $\Q[i]$, the field of fractions, we have that $\frac{x}{y}=r+is$,
-            where
-            \begin{equation*}
-                r=\frac{ac+bd}{\|y\|^2} \text{ and } s=\frac{bc-ad}{\|y\|^2}
-            \end{equation*}
-            Now, let $p$ and  $q$ be the integers closest to $r$ and $s$,
-            respectively so that
-            \begin{equation*}
-                |r-p| \leq \frac{1}{2} \text{ and } |s-q| \leq \frac{1}{2}
-            \end{equation*}
-            Let $w=(r-p)+i(s-q)$, and take $z=wy$. Then we have  $z=x-(p+iq)y$,
-            so that $x=(p+iq)y+z$, moreover, we have $N(w)=(r-p)^2+(q-s)^2 \leq
-            \frac{1}{4}+\frac{1}{4}=\frac{1}{2}$. Since $\|\cdot\|$ is
-            multiplicative, we have
-            \begin{equation*}
-                N(w)N(y) \leq \frac{1}{2}N(y)
-            \end{equation*}
-            which makes $\Z[i]$ into a Euclidean domain.
+    \item[(4)] Let $D \in \Z^+$ be squarefree, and consider  $\Z[\sqrt{D}]$.
+      Define $N:\Z[\sqrt{D}]=\N$ to be the absolute value of the field
+      norm, that is $N(a+b\sqrt{D})=\|a+b\sqrt{D}\|^2=a^2+Db^2$. We notice
+      that $\Z[\sqrt{D}]$ is an integral domain, but it is not a Euclidean
+      domain. This depends on our choice of $D$. Let  $D=-1$ so tha t
+      $\sqrt{D}=i$, and $i^2=-1$. Then the Gaussian integers, $\Z[i]$, is
+      a Euclidean domeain. Let $x=a+ib$,  $y=c+id$ with  $y \neq 0$. In
+      $\Q[i]$, the field of fractions, we have that $\frac{x}{y}=r+is$,
+      where
+      \begin{equation*}
+        r=\frac{ac+bd}{\|y\|^2} \text{ and } s=\frac{bc-ad}{\|y\|^2}
+      \end{equation*}
+      Now, let $p$ and  $q$ be the integers closest to $r$ and $s$,
+      respectively so that
+      \begin{equation*}
+        |r-p| \leq \frac{1}{2} \text{ and } |s-q| \leq \frac{1}{2}
+      \end{equation*}
+      Let $w=(r-p)+i(s-q)$, and take $z=wy$. Then we have  $z=x-(p+iq)y$,
+      so that $x=(p+iq)y+z$, moreover, we have $N(w)=(r-p)^2+(q-s)^2 \leq
+      \frac{1}{4}+\frac{1}{4}=\frac{1}{2}$. Since $\|\cdot\|$ is
+      multiplicative, we have
+      \begin{equation*}
+        N(w)N(y) \leq \frac{1}{2}N(y)
+      \end{equation*}
+      which makes $\Z[i]$ into a Euclidean domain.
 
-        \item[(5)] Let $K$ be a field. We define a  \textbf{discrete valuation}
-            to be a map $\nu:K^\ast \xrightarrow{} \Z$ such that
-            \begin{enumerate}
-                \item[(i)] $\nu(ab)=\nu(a)+\nu(b)$.
+    \item[(5)] Let $K$ be a field. We define a  \textbf{discrete valuation}
+      to be a map $\nu:K^\ast \xrightarrow{} \Z$ such that
+      \begin{enumerate}
+        \item[(i)] $\nu(ab)=\nu(a)+\nu(b)$.
 
-                \item[(ii)] $\nu$ is onto.
+        \item[(ii)] $\nu$ is onto.
 
-                \item[(iii)] $\min{\{\nu(x),\nu(y)\}} \leq \nu(x+y)$, for all
-                    $x,y \in K^\ast$ for which  $x+y \neq 0$.
-            \end{enumerate}
-            We call the set $\nu{K}=\{x \in K^\ast : \nu(x) \geq 0\}$ the
-            \textbf{valuation ring} of $\nu$ and is a subring of  $K^\ast$. We
-            call an integral domain  $R$ a  \textbf{discrete valuation ring} if
-            there exists a discrete valuation $\nu$ on the field of fractions of
-             $R$, having  $\nu{R}$ as its valuation ring.
+        \item[(iii)] $\min{\{\nu(x),\nu(y)\}} \leq \nu(x+y)$, for all
+          $x,y \in K^\ast$ for which  $x+y \neq 0$.
+      \end{enumerate}
+      We call the set $\nu{K}=\{x \in K^\ast : \nu(x) \geq 0\}$ the
+      \textbf{valuation ring} of $\nu$ and is a subring of  $K^\ast$. We
+      call an integral domain  $R$ a  \textbf{discrete valuation ring} if
+      there exists a discrete valuation $\nu$ on the field of fractions of
+      $R$, having  $\nu{R}$ as its valuation ring.
 
-             It can be shown that discrete valuation rings are Euclidean
-             domains by the norm $N:0 \xrightarrow{} 0$ and $N=\nu$ on all
-             $R^\ast$.
-    \end{enumerate}
+      It can be shown that discrete valuation rings are Euclidean
+      domains by the norm $N:0 \xrightarrow{} 0$ and $N=\nu$ on all
+      $R^\ast$.
+  \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{2.1.1}
-    Every ideal in a Euclidean domain $R$, is a principle ideal.
+\begin{lemma}\label{lemma_6.1.1}
+  Every ideal in a Euclidean domain $R$, is a principle ideal.
 \end{lemma}
 \begin{proof}
-    If $I=(0)$, we are done. Now, let $N:R \xrightarrow{} \N$ be the norm of $R$,
-    and consider the image $N(I)=\{N(a) : a \in I\}$. By the well ordering
-    principle, $N(I)$ has a minimum element $N(d)$ for some $d \neq 0$ in  $I$
-    Notice that  $(d) \subseteq I$. Now, let $a \in I$. Since $R$ is a Euclidean
-    domain, there exist $q,r \in R$ for which
-    \begin{equation*}
-        a=qd+r \text{ where } r=0 \text{ or } N(r)<N(d)
-    \end{equation*}
-    Then notice that
-    \begin{equation*}
-        r=a-qd
-    \end{equation*}
-    putting $r \in I$ and  $N(r) \in N(I)$. Since $N(d)$ is the minimum element,
-    we must have $r=0$ so that  $a=qd$, which puts  $a \in (d)$. Therefore
-    $I=(d)$, making $I$ principle.
+  Let $\af$ be an ideal. If $\af=(0)$, we are done. Now, let $N:R \xrightarrow{}
+  \N$ be the norm of $R$, and consider the image $N(\af)=\{N(a) : a \in \af\}$. By
+  the well ordering principle, $N(\af)$ has a minimum element $N(d)$ for some
+  $d \neq 0$ in $\af$. Notice that  $(d) \subseteq \af$. Now, let $a \in \af$.
+  Since $R$ is a Euclidean domain, there exist $q,r \in R$ for which
+  \begin{equation*}
+    a=qd+r \text{ where } r=0 \text{ or } N(r)<N(d)
+  \end{equation*}
+  Then notice that
+  \begin{equation*}
+    r=a-qd
+  \end{equation*}
+  putting $r \in \af$ and  $N(r) \in N(\af)$. Since $N(d)$ is the minimum element,
+  we must have $r=0$ so that  $a=qd$, which puts  $a \in (d)$. Therefore
+  $\af=(d)$, making $\af$ principle.
 \end{proof}
 
-\begin{example}\label{2.2}
-    \begin{enumerate}
-        \item[(1)] The polynomial ring $\Z[x]$ is not a Euclidean domain. The
-            ideal $(2,x)$ is not principle.
+\begin{example}\label{example_6.2}
+  \begin{enumerate}
+    \item[(1)] The polynomial ring $\Z[x]$ is not a Euclidean domain. The
+      ideal $(2,x)$ is not principle.
 
-        \item[(2)] Consider $\Z[\sqrt{-5}]$, i.e. $D=-5$. Suppose the ideal
-            $(3,2+\sqrt{-5})$ is a principle ideal, that is
-            $(3,2+\sqrt{5})=(a+b\sqrt{-5})$ for some $a,b \in \Z$. Then we get
-            that $3=x(a+b\sqrt{-5})$ and $2+\sqrt{-5}=y(a+b\sqrt{-5})$. Then
-            notice that $N(x)=a^2+5b^2=9$, and since  $a^2+5b^2 \in \Z^+$, we
-            must have that $a^2+5b^2=1,3,9$.
-            \begin{enumerate}
-            \item[(i)] If $a^2+5b^2=9$, then $N(x)=1$ making $x=\pm 1$ and
-                $a+b\sqrt{-5}=\pm3$, which cannot happen since $2+\sqrt{-5}$ is
-                not divisible by $3$.
+    \item[(2)] Consider $\Z[\sqrt{-5}]$, i.e. $D=-5$. Suppose the ideal
+      $(3,2+\sqrt{-5})$ is a principle ideal, that is
+      $(3,2+\sqrt{5})=(a+b\sqrt{-5})$ for some $a,b \in \Z$. Then we get
+      that $3=x(a+b\sqrt{-5})$ and $2+\sqrt{-5}=y(a+b\sqrt{-5})$. Then
+      notice that $N(x)=a^2+5b^2=9$, and since  $a^2+5b^2 \in \Z^+$, we
+      must have that $a^2+5b^2=1,3,9$.
+      \begin{enumerate}
+        \item[(i)] If $a^2+5b^2=9$, then $N(x)=1$ making $x=\pm 1$ and
+          $a+b\sqrt{-5}=\pm3$, which cannot happen since $2+\sqrt{-5}$ is
+          not divisible by $3$.
 
-            \item[(ii)] the equation $a^2+5b^2=3$ cannot happen since it has no
-                integer solutions. This makes
+        \item[(ii)] the equation $a^2+5b^2=3$ cannot happen since it has no
+          integer solutions. This makes
 
-            \item[(iii)] $a^2+b\sqrt{5}=1$, which makes
-                $(a+\sqrt{-5})=\Z[\sqrt{-5}]$, moreover, we get the equation
-                $3x+y(2+\sqrt{-5})=1$ for any $x,y \in \Z[\sqrt{-5}]$.
-                Multplying both sides by $2-\sqrt{-5}$, we get that
-                $3|(2-\sqrt{-5})$ which is impossible.
-            \end{enumerate}
-            In all three cases, we were led to an impossibility, hence
-            $\Z[\sqrt{-5}]$ cannot be a Euclidean domain.
-    \end{enumerate}
+        \item[(iii)] $a^2+b\sqrt{5}=1$, which makes
+          $(a+\sqrt{-5})=\Z[\sqrt{-5}]$, moreover, we get the equation
+          $3x+y(2+\sqrt{-5})=1$ for any $x,y \in \Z[\sqrt{-5}]$.
+          Multplying both sides by $2-\sqrt{-5}$, we get that
+          $3|(2-\sqrt{-5})$ which is impossible.
+      \end{enumerate}
+      In all three cases, we were led to an impossibility, hence
+      $\Z[\sqrt{-5}]$ cannot be a Euclidean domain.
+  \end{enumerate}
 \end{example}
 
 \begin{definition}
-    Let $R$ be a commutative ring, and  $a,b \in R$ with  $b \neq 0$. We say
-    that $b$ \textbf{divides} $a$ if there is an  $x \in R$ for which  $a=bx$.
-    We write  $b|a$. We also say that $a$ is a \textbf{multiple} of $b$.
+  Let $R$ be a commutative ring, and  $a,b \in R$ with  $b \neq 0$. We say
+  that $b$ \textbf{divides} $a$ if there is an  $x \in R$ for which  $a=bx$.
+  We write  $b|a$. We also say that $a$ is a \textbf{multiple} of $b$.
 \end{definition}
 
 \begin{definition}
-    Let $R$ be a commutative ring. We call a nonzero element  $d \in R$ a
-    \textbf{greatest common divisor} of elements $a,b \in R$ if
-    \begin{enumerate}
-        \item[(1)] $d|a$ and  $d|b$.
+  Let $R$ be a commutative ring. We call a nonzero element  $d \in R$ a
+  \textbf{greatest common divisor} of elements $a,b \in R$ if
+  \begin{enumerate}
+    \item[(1)] $d|a$ and  $d|b$.
 
-        \item[(2)] If $c \in R$ is nonzero such that  $c|a$ and  $c|b$, then
-            $c|d$.
-    \end{enumerate}
-    We write $d=(a,b)$.
+    \item[(2)] If $c \in R$ is nonzero such that  $c|a$ and  $c|b$, then
+      $c|d$.
+  \end{enumerate}
+  We write $d=(a,b)$.
 \end{definition}
 
-\begin{lemma}\label{2.1.2}
-    Let $R$ be a commutative ring. For any $a,b \in R$ a nonzero element  $d \in
-    R$ is the greatest common divisor if
-    \begin{enumerate}
-        \item[(1)] $(a,b) \subseteq (d)$.
+\begin{lemma}\label{lemma_6.1.2}
+  Let $R$ be a commutative ring. For any $a,b \in R$ a nonzero element  $d \in
+  R$ is the greatest common divisor if
+  \begin{enumerate}
+    \item[(1)] $(a,b) \subseteq (d)$.
 
-        \item[(2)] If $c \in R$ is nonzero with $(a,b) \subseteq (c)$, then $(d)
-            \subseteq (c)$.
-    \end{enumerate}
-    In particular, $d=(a,b)$.
+    \item[(2)] If $c \in R$ is nonzero with $(a,b) \subseteq (c)$, then $(d)
+      \subseteq (c)$.
+  \end{enumerate}
+  In particular, $d=(a,b)$.
 \end{lemma}
 \begin{proof}
-    The first two statements follow from definition, and the last follows lemma
-    \ref{2.1.1}.
+  The first two statements follow from definition, and the last follows lemma
+  \ref{lemma_6.1.1}.
 \end{proof}
 
-\begin{lemma}\label{2.1.3}
-    If $R$ is a commutative ring, and $a,b \in R^\ast$, such that  $(a,b)=(d)$
-    for some $d \in R^\ast$, then $d$ is the greatest common divisor of $a$ and
-     $b$.
+\begin{lemma}\label{lemma_6.1.3}
+  If $R$ is a commutative ring, and $a,b \in R^\ast$, such that  $(a,b)=(d)$
+  for some $d \in R^\ast$, then $d$ is the greatest common divisor of $a$ and
+  $b$.
 \end{lemma}
 
-\begin{lemma}\label{2.1.4}
-    Let $R$ be an inetegral domain. If $c,d \in R$ generate the same principle
-    ideal, i.e. $(d)=(c)$, then $d=uc$ for some unit  $u \in R$.
+\begin{lemma}\label{lemma_6.1.4}
+  Let $R$ be an inetegral domain. If $c,d \in R$ generate the same principle
+  ideal, i.e. $(d)=(c)$, then $d=uc$ for some unit  $u \in R$.
 \end{lemma}
 \begin{proof}
-    If $c=0$ or  $d=0$, we are done. Suppose then that  $c,d \neq 0$. Since
-    $(d)=(c)$, we have that $d=xc$ and $c=yd$ for some  $x,y \in R$. Then
-    $d=(xy)d$, which makes $d(1-xy)=0$. Since $d \neq 0$, we get $xy=1$, making
-     $x$ and $y$ units of $R$.
+  If $c=0$ or  $d=0$, we are done. Suppose then that  $c,d \neq 0$. Since
+  $(d)=(c)$, we have that $d=xc$ and $c=yd$ for some  $x,y \in R$. Then
+  $d=(xy)d$, which makes $d(1-xy)=0$. Since $d \neq 0$, we get $xy=1$, making
+  $x$ and $y$ units of $R$.
 \end{proof}
 \begin{corollary}
-    If $R$ is commutative, then greatest common divisors are unique.
+  If $R$ is commutative, then greatest common divisors are unique.
 \end{corollary}
 
 \begin{definition}
-    We call an integral domain in which every principle ideal is generated by
-    two elements a \textbf{Bezout domain}.
+  We call an integral domain in which every principle ideal is generated by
+  two elements a \textbf{Bezout domain}.
 \end{definition}
 
-\begin{lemma}\label{2.1.5}
-    Every Euclidean domain is a Bezout domain.
+\begin{lemma}\label{lemma_6.1.5}
+  Every Euclidean domain is a Bezout domain.
 \end{lemma}
 
-\begin{theorem}[The Extended Euclidean Algorithm]\label{2.1.6}
-    Let $R$ be a Euclidean and $a,b \neq 0$ elements of  $R$. Let  $d=r_n$ be
-    the least nonzero remainder obtained by dividing $a$ from $b$ recursively
-    $n+1$ times. Then
-    \begin{enumerate}
-        \item[(1)] $d=(a,b)$ is the greatest common divisor of $a$ and  $b$.
+\begin{theorem}[The Extended Euclidean Algorithm]\label{theorem_6.1.6}
+  Let $R$ be a Euclidean and $a,b \neq 0$ elements of  $R$. Let  $d=r_n$ be
+  the least nonzero remainder obtained by dividing $a$ from $b$ recursively
+  $n+1$ times. Then
+  \begin{enumerate}
+    \item[(1)] $d=(a,b)$ is the greatest common divisor of $a$ and  $b$.
 
-        \item[(3)] There exist $x,y \in R$ for which  $ax+by=d$.
-    \end{enumerate}
+    \item[(3)] There exist $x,y \in R$ for which  $ax+by=d$.
+  \end{enumerate}
 \end{theorem}
 \begin{proof}
-    By lemma \ref{2.1.1}, we get that the ideal $(a,b)$ is principle, so there
-    exists a greatest common divisor of $a$ and  $b$. Now, let  $d=r_n$ be
-    obtained by dividing $a$ and $b$ recursively $(n+1)$ times. Then the
-    $(n+1)^{st}$ equation gives $r_{n-1}=q_{n+1}r_n$, so that $r_n|r_{n-1}$.
-    Now, by induction on $n$ if  $r_n|r+{k+1}$ and $r_n|r_k$ then the
-    $(k+1)^{st}$ equation gives $r_{k-1}=q_{k+1}r_k+r_{k+1}$, which implies that
-    $r_n|r_{k-1}$. Therefore we get in the $1^{st}$ equation that $r_n|b$, and in
-    the $0^{th}$ that $r_n|a$. That is,  $d|a$ and  $d|b$.
+  By lemma \ref{lemma_6.1.1}, we get that the ideal $(a,b)$ is principle, so there
+  exists a greatest common divisor of $a$ and  $b$. Now, let  $d=r_n$ be
+  obtained by dividing $a$ and $b$ recursively $(n+1)$ times. Then the
+  $(n+1)^{st}$ equation gives $r_{n-1}=q_{n+1}r_n$, so that $r_n|r_{n-1}$.
+  Now, by induction on $n$ if  $r_n|r+{k+1}$ and $r_n|r_k$ then the
+  $(k+1)^{st}$ equation gives $r_{k-1}=q_{k+1}r_k+r_{k+1}$, which implies that
+  $r_n|r_{k-1}$. Therefore we get in the $1^{st}$ equation that $r_n|b$, and in
+  the $0^{th}$ that $r_n|a$. That is,  $d|a$ and  $d|b$.
 
-    Now, notice that $r_0 \in (a,b)$ and that $r_1=b-qr_0 \in (b,r_0) \subseteq
-    (a,b)$. By induction on $r_n$, if  $r_{k-1},r_n \in (a,b)$ then
-    \begin{equation*}
-        r_{k+1}=r_{k-1}-q_{k+1}r_k \in (r_{k-1},r_n) \subseteq (a,b)
-    \end{equation*}
-    which puts $r_n \in (a,b)$ making $d=(a,b)$ the greatest common divisor.
+  Now, notice that $r_0 \in (a,b)$ and that $r_1=b-qr_0 \in (b,r_0) \subseteq
+  (a,b)$. By induction on $r_n$, if  $r_{k-1},r_n \in (a,b)$ then
+  \begin{equation*}
+    r_{k+1}=r_{k-1}-q_{k+1}r_k \in (r_{k-1},r_n) \subseteq (a,b)
+  \end{equation*}
+  which puts $r_n \in (a,b)$ making $d=(a,b)$ the greatest common divisor.
 \end{proof}
 
 \begin{definition}
-    Let $R$ be an integral domain, and let
-    $\tilde{R}=R^\ast \cup \{0\}$ the set of units together with $0$. We call
-    an element  $u \in \com{R}{\tilde{R}}$ a \textbf{universal side divisor} if
-    for all $x \in R$, there is a  $z \in \tilde{R}$ such that $u|x-z$.
+  Let $R$ be an integral domain, and let
+  $\tilde{R}=\Uc{(R)} \cup \{0\}$ the group of units together with $0$.
+  We call an element  $u \in \com{R}{\tilde{R}}$ a \textbf{universal side
+  divisor} if for all $x \in R$, there is a  $z \in \tilde{R}$ such that
+  $u|x-z$.
 \end{definition}
 
-\begin{lemma}\label{2.1.7}
-    Let $R$ be an integral domain which is not a field. If $R$ is a Euclidean
-    domain, then there exist universal side divisors.
+\begin{lemma}\label{lemma_6.1.7}
+  Let $R$ be an integral domain which is not a field. If $R$ is a Euclidean
+  domain, then there exist universal side divisors.
 \end{lemma}
 \begin{proof}
-    Notice that since $R$ is not a field, that $\tilde{R} \neq R$ and
-    $\com{R}{\tilde{R}}$ is nonempty. Let $N$ be the norm of  $R$, and let  $u
-    \in \com{R}{\tilde{R}}$ be of minimal norm. Then for all $x \in R$, take
-    $x=qu+r$ with  $r=0$ or  $N(r)<N(u)$> By minimality of $N(u)$, we get $r \in
-    \tilde{R}$.
+  Notice that since $R$ is not a field, that $\tilde{R} \neq R$ and
+  $\com{R}{\tilde{R}}$ is nonempty. Let $N$ be the norm of  $R$, and let  $u
+  \in \com{R}{\tilde{R}}$ be of minimal norm. Then for all $x \in R$, take
+  $x=qu+r$ with  $r=0$ or  $N(r)<N(u)$> By minimality of $N(u)$, we get $r \in
+  \tilde{R}$.
 \end{proof}
 
-\begin{example}\label{2.3}
-    Notice that $\pm 1$ are the only units in the ring
-    $\Z[1+\frac{\sqrt{-19}}{2}]$, so that $\tilde{R}=\{0,1,-1\}$. Suppose that
-    $u \in R$ is a universal side divisor, and let $N=\|\cdot\|^2$ be the field
-    norm; so that $N(a+(1+\frac{\sqrt{-19}}{2})b)=a^2+ab+5b^2$. If $a,b \in \Z$
-    and $b \neq 0$, then we have $a^2+ab+5b^2=(a+\frac{b}{2})^2+\frac{19}{4b^2}
-    \geq 5$ so that the smallest nonzero norms are $1$ for $x=1$ and $4$ for $x=2$.
-    Now, if $u$ is a universal side divisor, then  $u|2-0$ or  $u|(2 \pm 1)$
-    that is $u|2$,  $u|3$ or  $u|1$ making  $u$ a nonunit divsor. If  $2=xy$
-    then $4=N(x)N(y)$ and so that $N(x)=1$ or  $N(y)=1$. Hence the only
-    divisors of $2$ in  $\Z[1+\frac{\sqrt{-19}}{2}]$ are $\pm 1$ or  $\pm 2$.
-    Similarly the only divisors of  $3$ arew  $\pm 1$ or  $\pm 3$ hence  $u=\pm
-    2$ or  $u=\pm 3$. Letting  $x=\frac{1+\sqrt{-19}}{2}$, then $x$, nor  $x
-    \pm 1$ are divisible by any possible $u$. Therefore
-    $\Z[1+\frac{\sqrt{-19}}{2}]$ has no universal side divisors, and cannot be a
-    Euclidean domain.
-    \end{example}
+\begin{example}\label{example_6.3}
+  Notice that $\pm 1$ are the only units in the ring
+  $\Z[1+\frac{\sqrt{-19}}{2}]$, so that $\tilde{R}=\{0,1,-1\}$. Suppose that
+  $u \in R$ is a universal side divisor, and let $N=\|\cdot\|^2$ be the field
+  norm; so that $N(a+(1+\frac{\sqrt{-19}}{2})b)=a^2+ab+5b^2$. If $a,b \in \Z$
+  and $b \neq 0$, then we have $a^2+ab+5b^2=(a+\frac{b}{2})^2+\frac{19}{4b^2}
+  \geq 5$ so that the smallest nonzero norms are $1$ for $x=1$ and $4$ for $x=2$.
+  Now, if $u$ is a universal side divisor, then  $u|2-0$ or  $u|(2 \pm 1)$
+  that is $u|2$,  $u|3$ or  $u|1$ making  $u$ a nonunit divsor. If  $2=xy$
+  then $4=N(x)N(y)$ and so that $N(x)=1$ or  $N(y)=1$. Hence the only
+  divisors of $2$ in  $\Z[1+\frac{\sqrt{-19}}{2}]$ are $\pm 1$ or  $\pm 2$.
+  Similarly the only divisors of  $3$ arew  $\pm 1$ or  $\pm 3$ hence  $u=\pm
+  2$ or  $u=\pm 3$. Letting  $x=\frac{1+\sqrt{-19}}{2}$, then $x$, nor  $x
+  \pm 1$ are divisible by any possible $u$. Therefore
+  $\Z[1+\frac{\sqrt{-19}}{2}]$ has no universal side divisors, and cannot be a
+  Euclidean domain.
+\end{example}

@@ -1,103 +1,129 @@
-\section{Principle Ideal Domains.}
+\section{Principle Ideal Domains}
+\label{section_6.2}
 
 \begin{definition}
-    An integral domain $R$ is called a \textbf{principle ideal domain (PID)} if
-    every ideal in $R$ is principle.
+  An integral domain $R$ is called a \textbf{principle ideal domain (PID)} if
+  every ideal in $R$ is principle.
 \end{definition}
 
-\begin{example}\label{2.4}
-    \begin{enumerate}
-        \item[(1)] Every Euclidean domain is a PID, as dictated by lemma
-            \ref{2.1.1}. Hence the rings $\Z$ and  $\Z[i]$ are PIDs, however,
-            the polynomial ring $\Z[x]$ is not principle, recall the ideal
-            $(2,x)$.
+\begin{example}\label{example_6.4}
+  \begin{enumerate}
+    \item[(1)] Every Euclidean domain is a PID, as dictated by lemma
+      \ref{6.1.1}. Hence the rings $\Z$ and  $\Z[i]$ are PIDs, however,
+      the polynomial ring $\Z[x]$ is not principle, recall the ideal
+      $(2,x)$.
 
-        \item[(2)] The ring $\Z[\sqrt{-5}]$ is not a PID, consider the ideal
-            $(3,2+\sqrt{-5})$. However, notice that
-            $(3,1+\sqrt{-5})(3,1-\sqrt{-5})=(3)$ is principle, despite
-            $(3,1+\sqrt{-5})$ and $(3,1-\sqrt{-5})$ are not principle.
+    \item[(2)] The ring $\Z[\sqrt{-5}]$ is not a PID, consider the ideal
+      $(3,2+\sqrt{-5})$. However, notice that
+      $(3,1+\sqrt{-5})(3,1-\sqrt{-5})=(3)$ is principle, despite
+      $(3,1+\sqrt{-5})$ and $(3,1-\sqrt{-5})$ are not principle.
 
-        \item[(3)] The ring $\Z[1+\frac{\sqrt{-19}}{2}]$ is a PID, but not a
-            Euclidean domain.
-    \end{enumerate}
+    \item[(3)] The ring $\Z[1+\frac{\sqrt{-19}}{2}]$ is a PID, but not a
+      Euclidean domain.
+  \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{2.2.1}
-    Let $R$ be a principle ideal domain and let $d$ be a generator for the ideal
-    $(a,b)$, for $a,b \in R$. Then the following are true.
-    \begin{enumerate}
-        \item[(1)] $d=(a,b)$; i.e. $d$ is the greatest common divisor of $a$ and
-            $b$.
+\begin{lemma}\label{lemma_6.6.1}
+  Let $R$ be a principle ideal domain and let $d$ be a generator for the ideal
+  $(a,b)$, for $a,b \in R$. Then the following are true.
+  \begin{enumerate}
+    \item[(1)] $d=(a,b)$; i.e. $d$ is the greatest common divisor of $a$ and
+      $b$.
 
-        \item[(2)] There exist $x,y \in R$ for which  $ax+by=d$.
+    \item[(2)] There exist $x,y \in R$ for which  $ax+by=d$.
 
-        \item[(3)] $d$ is unique up to unit.
-    \end{enumerate}
+    \item[(3)] $d$ is unique up to unit.
+  \end{enumerate}
 \end{lemma}
 
-\begin{lemma}\label{2.2.2}
-    Every nonzero prime ideal in a principle ideal domain $R$ is maximal.
+\begin{lemma}\label{lemma_6.6.2}
+  Every nonzero prime ideal in a principle ideal domain $R$ is maximal.
 \end{lemma}
 \begin{proof}
-    Let $(p) \neq (0)$ be a prime ideal of $R$,. Let $(m)$ be an ideal of $R$
-    containing $(p)$. Then $p \in (m)$ so that $p=rm$ for some  $r \in R$. Now,
-    since $p$ is prime, and $rm \in (p)$, then either $r \in (p)$ or $m \in
-    (p)$. If $m \in (p)$, then $(p)=(m)$. Otherwise, if $r \in (p)$, then $r=ps$
-    for some  $s \in R$. Then  $p=rm=pms=p(ms)$ which makes $ms=1$, hence $m$ is
-    a unit, which makes $(m)=(0)$.
+  Let $(p) \neq (0)$ be a prime ideal of $R$,. Let $(m)$ be an ideal of $R$
+  containing $(p)$. Then $p \in (m)$ so that $p=rm$ for some  $r \in R$. Now,
+  since $p$ is prime, and $rm \in (p)$, then either $r \in (p)$ or $m \in
+  (p)$. If $m \in (p)$, then $(p)=(m)$. Otherwise, if $r \in (p)$, then $r=ps$
+  for some  $s \in R$. Then  $p=rm=pms=p(ms)$ which makes $ms=1$, hence $m$ is
+  a unit, which makes $(m)=(0)$.
 \end{proof}
 \begin{corollary}
-    If $R$ is any commutative ring, such that the polynomial ring $R[x]$ is a
-    principle ideal domain, then $R$ is necessarily a field.
+  If $R$ is any commutative ring, such that the polynomial ring $R[x]$ is a
+  principle ideal domain, then $R$ is necessarily a field.
 \end{corollary}
 \begin{proof}
-    If $R[x]$ is a PID, then $R \subseteq R[x]$, as a subring, must be an
-    integral domain. Consider now, the ideal $(x)$, then $\faktor{R[x]}{(x)}
-    \simeq R$ which makes $(x)$ prime by lemma \ref{1.4.4}. Therefore $(x)$ is
-    maximal, which then makes $R$ a field by lemma \ref{1.4.3}.
+  If $R[x]$ is a PID, then $R \subseteq R[x]$, as a subring, must be an
+  integral domain. Consider now, the ideal $(x)$, then $\faktor{R[x]}{(x)}
+  \simeq R$ which makes $(x)$ prime by lemma \ref{1.4.4}. Therefore $(x)$ is
+  maximal, which then makes $R$ a field by lemma \ref{1.4.3}.
 \end{proof}
 
 \begin{definition}
-    Let $R$ be a commutative ring, and  $N:R \xrightarrow{} \N$ a norm. We call
-    $N$ a \textbf{Dedekin-Hasse norm} if $N$ is a positive norm suc that for
-    all $a,b \in N$, either $a \in (b)$, or there exists an element $c \in
-    (a,b)$ such that $N(c)<N(b)$.
+  Let $R$ be a commutative ring, and  $N:R \xrightarrow{} \N$ a norm. We call
+  $N$ a \textbf{Dedekin-Hasse norm} if $N$ is a positive norm suc that for
+  all $a,b \in N$, either $a \in (b)$, or there exists an element $c \in
+  (a,b)$ such that $N(c)<N(b)$.
 \end{definition}
 
-\begin{lemma}[The Dedekin-Hasse Criterion]\label{2.2.3}
-    An integral domain $R$ is a PID if, and only if it has a Dedekin-Hasse norm.
+\begin{lemma}[The Dedekin-Hasse Criterion]\label{lemma_6.6.3}
+  An integral domain $R$ is a PID if, and only if it has a Dedekin-Hasse norm.
 \end{lemma}
 \begin{proof}
-    Let $I \neq (0)$ an ideal of $R$. Let $a \in I$ a nonzero element, so that
-    $(a,b) \subseteq I$. Since $N$ is Dedekin-Hasse, and by minimality of $b$,
-    we get that $a \in (b)$ so that $I=(b)$ is principle.
+  Let $I \neq (0)$ an ideal of $R$. Let $a \in I$ a nonzero element, so that
+  $(a,b) \subseteq I$. Since $N$ is Dedekin-Hasse, and by minimality of $b$,
+  we get that $a \in (b)$ so that $I=(b)$ is principle.
 \end{proof}
 
-\begin{example}\label{2.5}
-    Consider the ring $\Z[1+\frac{\sqrt{-19}}{2}]$. With norm  $N=\|\cdot\|^2$
-    the field norm. Let $x,y \in \Z[1+\frac{\sqrt{-19}}{2}]$ be nonzero elements
-    and that $\frac{x}{y} \notin \Z[1+\frac{\sqrt{-19}}{2}]$. Write
-    \begin{equation*}
-        \frac{x}{y}=\frac{a+b\sqrt{-19}}{c} \in \Q[1+\frac{\sqrt{-19}}{2}]
-    \end{equation*}
-    where $a,b,c$ are all coprime, with  $c>1$. Then there are integers $u,v,w$
-    with $av+bu+cw=1$, then  $au-19bv=cq+r$ for some quotient $q$ and remainder
-    $r$ with  $N(r) \leq \frac{c}{2}$ and let $s=u+v\sqrt{-19}$ and
-    $t=q-w\sqrt{-19}$. Then we find that
-    \begin{equation*}
-        0<N(\frac{x}{y}s-t) \leq \frac{1}{4}+\frac{19}{c^2}
-    \end{equation*}
-    Then $s=1, t=\frac{(a-1)+b\sqrt{-19}}{2} \in R$ satisfy $0<N(\frac{x}{y}s-t)$
+\begin{example}\label{example_6.5}
+  Consider the ring $\Z[1+\frac{\sqrt{-19}}{2}]$. With norm  $N=\|\cdot\|^2$
+  the field norm. Let $x,y \in \Z[1+\frac{\sqrt{-19}}{2}]$ be nonzero elements
+  and that $\frac{x}{y} \notin \Z[1+\frac{\sqrt{-19}}{2}]$. Write
+  \begin{equation*}
+    \frac{x}{y}=\frac{a+b\sqrt{-19}}{c} \in \Q[1+\frac{\sqrt{-19}}{2}]
+  \end{equation*}
+  where $a,b,c$ are all coprime, with  $c>1$. Then there are integers $u,v,w$
+  with $av+bu+cw=1$, then  $au-19bv=cq+r$ for some quotient $q$ and remainder
+  $r$ with  $N(r) \leq \frac{c}{2}$ and let $s=u+v\sqrt{-19}$ and
+  $t=q-w\sqrt{-19}$. Then we find that
+  \begin{equation*}
+    0<N(\frac{x}{y}s-t) \leq \frac{1}{4}+\frac{19}{c^2}
+  \end{equation*}
+  Then $s=1, t=\frac{(a-1)+b\sqrt{-19}}{2} \in R$ satisfy $0<N(\frac{x}{y}s-t)$
 
-    Now, suppose that $c=3$, then $3 \nmid (a^2+19b^2)$. Then $a^2+19b^2=3q+r$
-    with  $r=1$ or $r=2$. Then $s=a-b\sqrt{-19},t=q$ statisfy
-    $0<N(\frac{x}{y}s-t)$. Finally, for $c=4$, with $a,b$ not both even, so
-    that $a^2+19b^2$ is odd. Then $a^2+19b^2=4q+r$ so for $q,r \in \Z$ with
-    $0<r<4$, then $s=a-b\sqrt{-19}, t=q$ satisfy $0<N(\frac{x}{y}s-t)$. Now, if
-    both $a$ and  $b$ are odd, then  $a^2+19b^2 \equiv 1+3 \mod{8}$ so taht
-    $a^2+19b^2=8q+4$ for some  $q \in \Z$, then
-    \begin{equation*}
-        s=\frac{a-b\sqrt{-19}}{2} \text{ and } t=q
-    \end{equation*}
-    satisfy $0<N(\frac{x}{y}s-t)$.
+  Now, suppose that $c=3$, then $3 \nmid (a^2+19b^2)$. Then $a^2+19b^2=3q+r$
+  with  $r=1$ or $r=2$. Then $s=a-b\sqrt{-19},t=q$ statisfy
+  $0<N(\frac{x}{y}s-t)$. Finally, for $c=4$, with $a,b$ not both even, so
+  that $a^2+19b^2$ is odd. Then $a^2+19b^2=4q+r$ so for $q,r \in \Z$ with
+  $0<r<4$, then $s=a-b\sqrt{-19}, t=q$ satisfy $0<N(\frac{x}{y}s-t)$. Now, if
+  both $a$ and  $b$ are odd, then  $a^2+19b^2 \equiv 1+3 \mod{8}$ so taht
+  $a^2+19b^2=8q+4$ for some  $q \in \Z$, then
+  \begin{equation*}
+    s=\frac{a-b\sqrt{-19}}{2} \text{ and } t=q
+  \end{equation*}
+  satisfy $0<N(\frac{x}{y}s-t)$.
 \end{example}
+
+
+\begin{definition}
+  Let $R$ be a principle ideal domain. We call an infinite increasing sequence
+  of ideals $\{(a_n)\}$ of $R$ an \textbf{infinite ascending chain} of
+  ideals of $R$, and write
+  \begin{equation*}
+    (a_1) \subseteq (a_2) \subseteq \dots \subseteq (a_n) \subseteq \dots \subseteq (1)
+  \end{equation*}
+  We say that the infinite ascending chain $\{(a_n)\}$ \textbf{stabalizes} if
+  for some $k \geq n$, we have  $(a_n)=(a_k)$.
+\end{definition}
+
+\begin{lemma}\label{lemma_6.2.4}
+  In any principle ideal domian, infinite ascending chains of ideals
+  stabalize.
+\end{lemma}
+\begin{proof}
+  Let $\af_1 \subseteq \af_2 \subseteq \dots \subseteq \dots \subseteq
+  (1)$ an infinite ascending chain of ideals and let $\af=\bigcup{\af_k}$. Then
+  $\af$ is an ideal in  $R$, and since  $R$ is a PID,  $\af=(a)$ for some $a \in R$.
+  This makes  $a \in \af_n$ for some  $n$, and hence  $I_n \subseteq I$. This makes
+  $\af_n=\af$ for some $n \geq 1$, and hence this chain stabalizes.
+\end{proof}
+
