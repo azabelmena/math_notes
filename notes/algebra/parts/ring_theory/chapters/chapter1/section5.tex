@@ -1,189 +1,445 @@
-\section{Rings of Fractions.}
+\section{Operations on Ideals}
+\label{section_5.5}
 
-\begin{lemma}\label{1.5.1}
-    Let $R$ a commutative ring, and  $D \subseteq R$ be nonempty with $0 \notin
-    D$ such that $D$ contains no zero divisors of $R$ and that it is closed
-    under multiplication. Define the relation $\sim$ on  $R \times D$ by
-    \begin{equation*}
-        (a,b) \sim (c,d) \text{ if, and only if } ad-bc=0
-    \end{equation*}
-    Then $\sim$ is an equivalence relation on  $R \times D$.
+\begin{theorem}[The Binomial Theorem]\label{5.5.1}
+    Let $A$ be a commutative ring with identity. Then for all  $x,y \in A$, and
+     $n \in \Z^+$
+     \begin{equation*}
+         (x+y)^n=\sum_{r+s=n}{{n \choose r}x^ry^s}
+     \end{equation*}
+\end{theorem}
+
+\begin{lemma}\label{lemma_5.5.2}
+    Let $A$ be a commutative ring with identity, and $\Rf$ the set of all
+    nilpotent elements of $A$. Then $\Rf$ is an ideal of $A$.
 \end{lemma}
 \begin{proof}
-    We have $ab-ab=0$ so that  $(a,b) \sim (a,b)$. Moreover, if $ad-bc=0$, then
-     $bc-ad=0$ so that  $(a,b) \sim (c,d)$ implies $(c,d) \sim (a,b)$. Lastly,
-     let $(a,b) \sim (c,d)$ and $(c,d) \sim (e,f)$. Then $ad-bc=0$ and
-     $cf-ed=0$, so $af-eb=(ad-bc)f+d(cf-de)=0$ so that $(a,b) \sim (e,f)$.
-\end{proof}
-
-\begin{theorem}\label{1.5.2}
-    Let $R$ a commutative ring, and  $D \subseteq R$ be nonempty with $0 \notin
-    D$ such that $D$ contains no zero divisors of $R$ and that it is closed
-    under multiplication. Then there exists a commutative ring $Q$ with identity
-    such that  every element of  $D$ is a unit of $Q$.
-\end{theorem}
-\begin{proof}
-    Define the equivalence relation $\sim$ on  $R \times D$ by
-    \begin{equation*}
-        (a,b) \sim (c,d) \text{ if, and only if } ad-bc=0
-    \end{equation*}
-    Label the equivalence classes of $\sim$ over $R \times D$ as
-    $\frac{a}{b}=\{(c,d) \in R \times D : ad-bc=0\}$. Let
-    \begin{equation*}
-        Q=\faktor{R}{\sim}
-    \end{equation*}
-    The factor set of $\sim$ over $R \times D$ and define binary operations $+$
-    and  $\cdot$ by
-    \begin{align*}
-        \frac{a}{b}+\frac{c}{d}     &=  \frac{ad+bc}{bd}    \\
-        \frac{a}{b}\frac{c}{d}     &=  \frac{ac}{bd}    \\
-    \end{align*}
-
-    Suppose that $\frac{a}{b}=\frac{a'}{b'}$ and $\frac{c}{d}=\frac{c'}{d'}$.
-    Then $ab'-a'b=0$ and  $cd'-c'd=0$. Then
-    \begin{align*}
-        (ad+bc)(b'd')       &=  adb'd'+bcb'd'  \\
-                            &=  ab'dd'+cd'bb'   \\
-                            &=  a'bdd'+c'dbb'   \\
-                            &=  (a'd'c'd')bd    \\
-    \end{align*}
-    So that $+$ is well define. By similar reasoning,  $\cdot$ is also well
-    defined.
-
-    Now, let  $\frac{a}{b},\frac{c}{d} \in Q$. Then
-    $\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd} \in Q$, as $ad+bc \in R$, and
-    since  $b,d \in D$,  $bd \in D$. Moreover
-    \begin{equation*}
-        \frac{a}{b}+(\frac{c}{d}+\frac{e}{f})=\frac{a}{b}+\frac{cf+de}{df}
-        =\frac{adf+bcf+bde}{bdf}
-    \end{equation*}
-    and
-    \begin{equation*}
-        (\frac{a}{b}+\frac{c}{d})+\frac{e}{f}=\frac{ad-bc}{bd}+\frac{e}{f}
-        =\frac{adf+bcf+bde}{bdf}
-    \end{equation*}
-    so that $+$ is associative. Now, take  $c=0$ and  $d \in D$, and we have
-    \begin{equation*}
-        \frac{a}{b}+\frac{0}{d}=\frac{ad}{bd}=\frac{a}{b}
-    \end{equation*}
-    Since, $abd-abd=0$ making $\frac{ad}{bd}=\frac{a}{b}$. Similarly, take
-    $c=-a$ and  $d \in D$ and we get
-    \begin{equation*}
-        \frac{a}{b}+\frac{-a}{d}=\frac{0}{b}
-    \end{equation*}
-    So $\frac{0}{d}$ is the identity, and $\frac{-a}{d}$ is the inverse of
-    $\frac{a}{b}$. Lastly, since $R$ is commutative, this makes
-    \begin{equation*}
-        \frac{a}{b}+\frac{c}{d}=\frac{c}{d}+\frac{a}{b}
-    \end{equation*}
-
-    Now, notce that since $D$ is closed under multiplication, we have
-    \begin{equation*}
-        \frac{a}{b}\frac{c}{d}=\frac{ac}{bd} \in Q
-    \end{equation*}
-    Moreover,
-    \begin{equation*}
-        \frac{a}{b}(\frac{c}{d}\frac{e}{f})=\frac{a}{b}\frac{ce}{df}=\frac{ace}{bdf}
-        =\frac{ac}{bd}\frac{e}{f}=(\frac{a}{b}\frac{c}{d})\frac{e}{f}
-    \end{equation*}
-    Additionally, since $R$ is commutative, we get
-    \begin{equation*}
-        \frac{a}{b}\frac{c}{d}=\frac{c}{d}\frac{a}{b}
-    \end{equation*}
-    Lastly, take $c=d$ and  $d \in D$. Then
-    \begin{equation*}
-        \frac{a}{b}\frac{d}{d}=\frac{ad}{bd}=\frac{a}{b}
-    \end{equation*}
-    This makes $Q$ a commutative righ with identity. Moreover, every element of
-     $D$ is a unit in $Q$ Moreover $R \subseteq Q$ by taking $r \xrightarrow{}
-     \frac{r}{d}$ for some $d \in D$.
+    If $x \in \Rf$, then there is an  $n \in \Z^+$ for which  $x^n=0$, notice
+    that this also implies that  $(-x)^n=0$, so that $-x \in \Rf$. Now, let $x,y
+    \in \Rf$. Then for some $m,n \in \Z^+$, we have $x^m=0$ and $y^n=0$.
+    Consider then $(x+y)^{m+n-1}$. By the binomial theorem, we have
+     \begin{equation*}
+         (x+y)^n=\sum_{r+s=m+n-1}{{m+n-1 \choose r}x^ry^s}
+     \end{equation*}
+     Now, since $r+s=m+n-1$, notice that either  $r<m$, or  $s<n$, but not both.
+     This makes  $x^ry^s=0$ for all  $r,s$, so that  $(x+y)^{m+n-1}=0$. This
+     makes $\Rf$ a subgroup of  $A$. Lastly, notice that if  $a \in A$, and  $x
+     \in \Rf$, then for some  $n \in \Z^+$,  $ax^n=(ax)^n=0$, which makes $\Rf$
+     an ideal.
 \end{proof}
 \begin{corollary}
-    The ring $Q$ satisfies the following
-    \begin{enumerate}
-        \item[(1)] $Q$ contains a copy of $R$ as a subring, and every element of
-            $Q$ is of the form $r\inv{d}$. Moreover, if $D=\com{R}{\{0\}}$, then
-            $Q$ is a field.
-
-        \item[(2)] $Q$ is unique and the smallest ring containing a copy of  $R$
-            for which every element of  $D$ is a unit.
-    \end{enumerate}
+    $\faktor{A}{\Rf}$ has no nonzero nilpotent elements.
 \end{corollary}
 \begin{proof}
-    Imbed $R$ into $Q$ first. Define the map  $\iota:R \xrightarrow{} Q$ by
-    taking $r \xrightarrow{} \frac{rd}{d}$ where $d \in D$. Notice that
-    $\frac{rd}{d}=\frac{re}{e}$, so that $\iota$ is well defined. Now, since
-    $\frac{d}{d}$ is the identity of $Q$, we have
-    \begin{equation*}
-        \frac{rsd}{d}=\frac{arsd}{dd}=\frac{rd}{d}\frac{sd}{d}
-    \end{equation*}
-    So that $\iota$ is a ring homomorphism. Now, subce no  $d \in D$ is a zero
-    divisor, we have that $\ker{\iota}=(0)$ This makes  $\iota$ 1--1. Therefore,
-    by the first isomorphism theorem, we get
-    \begin{equation*}
-        \iota(R) \simeq R
-    \end{equation*}
-    Since $\iota(R) \subseteq Q$, $\iota$ is the required imbedding.
-
-    Now, if $D=\com{R}{\{0\}}$, this makes every $r \in R$, nonzero into a unit
-    of  $Q$. Then $Q$ has no zero divisors making it an integral domain, thus
-    $Q$ is a field.
-
-    Lastly, let $\phi:R \xrightarrow{} S$ be a 1--1 ring homomorphsim such that
-    every $\phi(d)$ is a unit in $S$, where $S$ is a commutative ring with unit
-    and $d \in D$. Define the map  $\Phi:Q \xrightarrow{} S$ by taking $r\inv{d}
-    \xrightarrow{} \phi(r\inv{d})$. Then $\Phi$ is a 1--1 ring homomorphism, so
-    that by the first isomorphism theorem,
-     \begin{equation*}
-         \Phi(Q) \simeq S
-     \end{equation*}
-     This makes $Q$ unique.
+    Let $x \in A$ be nilpotent, then $x \in \Rf$, so that $x+\Rf=\Rf$ in
+    $\faktor{A}{\Rf}$. Therefore, the only nilpotent element of
+    $\faktor{A}{\Rf}$ is $\Rf$ itself.
 \end{proof}
 
 \begin{definition}
-    Let $R$ a commutative ring, and  $D \subseteq R$ be nonempty with $0 \notin
-    D$ such that $D$ contains no zero divisors of $R$ and that it is closed
-    under multiplication. Define the equivalence relation $\sim$ on  $R \times D$
-    by
-    \begin{equation*}
-        (a,b) \sim (c,d) \text{ if, and only if } ad-bc=0
-    \end{equation*}
-    and let
-    \begin{equation*}
-        Q=\faktor{R \times D}{\sim}
-    \end{equation*}
-    Then we call the commutative ring $Q$, with identity  $1=\frac{d}{d}$, the
-    \textbf{ring of fractions} of $R$. If $D=\com{R}{\{0\}}$ and $R$ is an
-    integral domain, we call  $Q$ the \textbf{field of fractions}.
+    We define the \textbf{nilradical} of a commutative ring $A$, with identity,
+    to be the ideal, $\Nil{A}$, consisting of all nilpotent elements of $A$.
 \end{definition}
 
-\begin{lemma}\label{1.5.3}
-    If $R$ is an integral domain, and  $Q$ its field of fractions, and  $F$ is a
-    field containing  $R' \simeq R$, then the subfield of $F$ generated by $R$
-    is isomorphic to $Q$.
+\begin{lemma}\label{lemma_5.1.3}
+    Let $A$ be a commutative ring with identity. Then $\Nil{A}$ is the
+    intersection of all prime ideals of $A$; i.e.
+    \begin{equation*}
+        \Nil{A}=\bigcap_{\pf \subseteq A}{\pf} \text{ where } \pf \text{ is a
+        prime ideal of } A
+    \end{equation*}
 \end{lemma}
 \begin{proof}
-    Let $\phi:R \xrightarrow{} R'$ the ring isomorphism between $R$ and  $R'$.
-    Then the  $\phi:R \xrightarrow{} F$ is 1--1. Define then the map $\Phi:Q
-    \xrightarrow{} F$ by $r\inv{d} \xrightarrow{} \phi(r\inv{d})$. Then $\Phi$
-    is 1--1 and by the first isomorphism theorem, $\Phi(Q) \simeq Q$. Moreover,
-    $\Phi(R)=\phi(R)=R' \subseteq \Phi(Q)$. Now, for all $r,s \in R$, we have
-    $\phi(r\inv{s}) \in \Phi(Q)$ and since every element of $Q$ is of the form
-    $r\inv{s}$, any subfield containiing $R'$ contains  $\Phi(Q)$.
+    Let $\Rf$ be the intersection of all prime ideals of $A$. Suppose that  $x
+    \in A$ is nilpotent. Then $x^n=0$ for some $n \in \Z^+$, so that  $x^n \in
+    \pf$. Since $\pf$ is prime, $x \in \pf$, which puts $x \in \Rf$.
+
+    Conversely, suppose that  $x \in A$ is not nilpotent, and let $\Sigma$ be
+    the set of all ideals $\af$ for which $x \notin \af$. Notice that since $0$
+    is nilpotent in $A$, $0 \in \Sigma$, so that $\Sigma$ is nonempty.
+    Therefore, by Zorn's lemma, $\Sigma$ has a maximal element $\pf$. We claim
+    that this $\pf$ is prime. Suppose that  $a,b \notin \pf$, then  $\pf
+    \subseteq \pf+(a)$ and $\pf \not\subseteq \pf+(b)$. So $\pf+(a), \pf+(b)
+    \notin \Sigma$, by the maximality of $\pf$. This puts  $x^m \in \pf+(a)$ and
+    $x^n \in \pf+(b)$, for some $n,m \in \Z^+$. Thus  $x^{m+n} \in \pf+(ab)
+    \not\subseteq \Sigma$. Therefore, $ab \notin \pf$, which makes $\pf$ a prime
+    ideal for which $x \notin \pf$; i.e. $x \notin \Rf$.
 \end{proof}
 
-\begin{example}\label{1.18}
-    \begin{enumerate}
-        \item[(1)] The field of fractions of $\Z$ is $\Q$. Indeed, the
-            construction of the ring of fractions of a commutative ring with
-            identity is inspired by constructing $\Q$ from $\Z$.
+\begin{definition}
+    We define the \textbf{Jacobson radical} of a commutative ring $A$, with
+    identity, to be the intersection of all maximal ideals of $A$. We denote it
+    by  $\Jac{A}$.
+\end{definition}
 
-        \item[(2)] The field of fractions of $\Q$ is $\Q$ itself. In general if
-            $F$ is a field, it is its own field of fractions.
+\begin{lemma}\label{lemma_5.5.4}
+    Let $A$ be a commutative ring with identity. Then  $x \in \Jac{A}$ if, and
+    only if $1-xy$ is a unit in $A$ for some $y \in A$.
+\end{lemma}
+\begin{proof}
+    Suppose that $x \in \Jac{A}$, but that $1-xy$ is not a unit of $A$. Then by
+    lemma \ref{1.4.2}, we have $(1-xy) \subseteq \mf$ for some maximal ideal
+    $\mf$ of $A$; hence $1-xy \in \mf$. However, since $x \in \Jac{A}$, then $xy
+    \in \mf$, which puts $1 \in \mf$, so that $\mf=(1)$ which contradicts that
+    $\mf$ is maximal. Therefore,  $1-xy$ must be a unit.
 
-        \item [(3)] The field of fractions of $\Z[\sqrt{D}]$ is $\Q[\sqrt{D}]$.
+    Conversely, suppose that  $x \in \mf$ for some maximal ideal $\mf$ of $A$.
+    THen  $(\mf,x)=(1)$ so that $u+xy=1$ for some  $u \in \mf$ and  $y \in A$.
+    This makes  $1-xy \in \mf$ so that $1-\mf$ is not a unit.
+\end{proof}
 
-        \item[(4)] $2\Z$ as a subring has no zero divisors, so the field of
-            fractions of $2\Z$ is also $\Q$.
-    \end{enumerate}
+\begin{definition}
+  We define the \textbf{sum} of two ideals $\af$ and  $\bf$ to be the set
+  \begin{equation*}
+    \af+\bf=\{x+y : x \in \af \text{ and } y \in \bf\}
+  \end{equation*}
+  If $\{\af_\a\}$ is an arbitrary (not necesarily countable) collection of
+  ideals, then we define the \textbf{sum} of $\{\af_\a\}$ to be
+  \begin{equation*}
+    \sum{\af_\a}=
+    \Big{\{} \sum{x_\a} : x_\a \in \af_\a \text{ and almost all but finitely
+    many } x_\a=0 \Big{\}}
+  \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lemma_5.5.5}
+  The following are true for any ideals $\af$ and $\bf$:
+  \begin{enumerate}
+    \item[(1)] $\af+\bf$ is an ideal, and is the smallest ideal containing both
+      $\af$ and  $\bf$.
+
+    \item[(2)] $\af \cap \bf$ is an ideal, and is the largest ideal containing
+      both $\af$ and $\bf$.
+  \end{enumerate}
+\end{lemma}
+\begin{corollary}
+  Let $A$ be a ring with ideals $\af$ and $\bf$. Then we have the lattice
+  \[\begin{tikzcd}
+  & A \\
+  & {\af+\bf} \\
+    \af && \bf \\
+        & \af \cap \bf \\
+        & {(0)}
+        \arrow[no head, from=1-2, to=2-2]
+        \arrow[no head, from=2-2, to=3-1]
+        \arrow[no head, from=3-1, to=4-2]
+        \arrow[no head, from=4-2, to=3-3]
+        \arrow[no head, from=3-3, to=2-2]
+        \arrow[no head, from=4-2, to=5-2]
+  \end{tikzcd}\]
+\end{corollary}
+
+\begin{lemma}\label{lemma_5.5.6}
+  The following are true:
+  \begin{enumerate}
+    \item[(1)] If $\{\af_\a\}$ is a collection of ideals, then $\sum{\af_\a}$ is
+      an ideal, and is the smallest ideal containing all $\af_\a$.
+
+    \item[(2)] $\bigcap{\af_\a}$ is an ideal, and is the largest ideal
+      containing all $\af_\a$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{definition}
+  We define the \textbf{product} of two ideals $\af$ and $\bf$
+  \textbf{generated} all products $xy$ with $x \in \af$ and $b \in \bf$ to be
+  the set
+  \begin{equation*}
+    \af\bf=
+    \Big{\{} \sum{x_\a y_\b} : x_\a \in \af \text{ and } y_\b \in \bf \Big{\}}
+  \end{equation*}
+  If $\{\af_i\}_{i=1}^n$ is a finite collection of ideals, then the
+  \textbf{product} is defined to be
+  \begin{equation*}
+    \prod_{i=1}^{n}{\af_i}=
+    \Big{\{} \sum{\prod_{i=1}^n{x_i}} : x_i \in \af_i \Big{\}}
+  \end{equation*}
+  We define the \textbf{$n$-th power} of an ideal $\af$ to be
+  \begin{equation*}
+    \af^0=(1) \text{ for } n=0 \text{ and }
+    \af^n=\Big{\{} \sum{\prod_{i=1}^n{x_i}} : x_i \in \af  \Big{\}}
+    \text{ for } n>0
+  \end{equation*}
+\end{definition}
+
+\begin{example}\label{example_5.17}
+  \begin{enumerate}
+    \item[(1)] Let $m,n \in \Z^+$, then $m\Z+n\Z$ is the ideal generated by
+      the greatest common divisor $(m,n)$, of $m$ and $n$, and $m\Z \cap n\Z$
+      is the ideal generated by the least common multiple $[m,n]$, of $m$ and
+      $n$. Moreover, $(mn)=[m,n]$ if, and only if $m$ and $n$ are coprime; i.e.
+      $(m,n)=1$. Moreover, if $(m,n)=1$, the ideals $m\Z$ and $n\Z$
+      with $m\Z+\n\Z=\Z$ is just the set of all Diophantine equations
+      of the form
+      \begin{equation*}
+        mx+ny=1
+      \end{equation*}
+
+    \item[(2)] Consider the ideals $6\Z$ and  $10\Z$ of $\Z$. Then $6\Z+10\Z$ is
+      the ideal consisting of all integers of the form  $6x+10y$. Now, for
+      $x,y \in \Z$, since $(6,10)=2$, we have that $6\Z+10\Z \subseteq 2\Z$
+      since  $6x+10y=2(3x+5y)$. Now, we also have that $2=6 \cdot 2+10 \cdot
+      -1$ so that  $2 \in 6\Z+10\Z$ which makes $2\Z \subseteq 6\Z+10\Z$.
+      Thus, we have $6\Z+10\Z=2\Z$. In general, we have that $m\Z+n\Z=d\Z$
+      where $d=(m,n)$ is the greatest common divisor of $m$ and  $n$. The
+      ideal $6\Z10\Z$ gives all integers of the form $6x10y=6 \cdot 10
+      (xy)=60(xy)$, so that $6\Z10\Z=60\Z$.
+
+    \item[(3)] Let $I \subseteq \Z[x]$ the ideal of polynomials with even
+      constant term. Notce that $2,x=x+0 \in I$ so tht  $4,x^2 \in I^2=II$. So
+      that  $4+x^2\in I^2$ which is not in general divisible by elements in $I$.
+  \end{enumerate}
 \end{example}
+
+\begin{theorem}\label{theorem_5.5.7}
+  The following are true for any ideals $\af$,  $\bf$, and $\cf$ in a
+  commutative ring with identity:
+  \begin{enumerate}
+    \item[(1)] $\af+(\bf+\cf)=(\af+\bf)+\cf$, $\af(\bf\cf)=(\af\bf)\cf$, and
+      $\af (\bf \cap \cf)=(\af \cap \bf) \cap \cf$.
+
+    \item[(2)] $\af+\bf=\bf+\af$, $\af\bf=\bf\af$, and  $\af \cap \bf=\bf \cap
+      \af$.
+
+    \item[(3)] $\af(\bf+\cf)=\af\bf+\af\cf$.
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  Let $x \in \af$, $y \in \bf$, and $z \in \cf$, by associativity and
+  commutativity we have $x+(y+z)=(x+y)+z$, $x(yz)=(xy)z$; and where the
+  associativity of intersection follows from set theory. By similar reasoning ,
+  we also get  $\af+\bf=\bf+\af$,  $\af\bf=\bf\af$, and  $\af \cap \bf=\bf \cap
+  \af$.
+
+  Now, let  $h \in \af(\bf+\cf)$, then
+  $h=\sum{x_i(y_i+z_i)}=\sum(x_iy_i+x_iz_i)=\sum{x_iy_i}+\sum{x_iz_i} \in
+  \af\bf+\af\cf$. On the other hand, suppose $h \not\in \af(\bf+\cf)$, then by
+  similar reasoning, we get $h \not\in \af\bf+\af\cf$.
+\end{proof}
+
+\begin{example}\label{example_5.18}
+  Intersection and addition of ideals distribute over each other in $\Z$, but
+  this is not true in general.
+\end{example}
+
+\begin{theorem}[Modularity]\label{theorem_5.5.8}
+  If $\af$ and $\bf$, and $\cf$ are ideals in a commutative ring with
+  identity, and either $\bf \subseteq \af$, or
+  $\cf \subseteq \af$, then:
+  \begin{equation*}
+    \af \cap (\bf+\cf)=(\af \cap \bf)+(\af \cap \cf)
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  Suppose that $\bf \subseteq \af$, and take $h \in \af \cap (\bf+\cf)$. So $h
+  \in \af$, and $h=y+z$ with  $y \in \bf$ and $z \in \cf$. Then $y \in \af \cap
+  \bf \subseteq \af$, and $y+z \in \af$, so by group closure, $z \in \af$; i.e.
+  $z \in \af \cap \cf$. Therefore, $h \in (\af \cap \bf)+(\af \cap \cf)$.
+ in a commutative ring with identity
+  COnverselt, let $h=y+z$ with  $y \in \af \cap \bf$ and $z \in \af \cap \cf$.
+  Then $y \in \af$ and $y \in \bf$, and $z \in \af$ and $z \in \cf$. This makes
+  $h \in \af$ and $h \in \bf+\cf$, so $h \in \af \cap (\bf+\cf)$.
+\end{proof}
+
+\begin{theorem}\label{theorem_5.5.9}
+  For any ideals $\af$ and $\bf$:
+  \begin{equation}
+    (\af+\bf)(\af \cap \bf) \subseteq \af\bf
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  Let $h \in (\af+\bf)(\af \cap \cf)$. Then $h=\sum{(x_i+y_i)z_i}=
+  \sum{(x_iz_i+y_iz_i)} \subseteq \af\bf$.
+\end{proof}
+\begin{corollary}
+  If $\af+\bf=(1)$, then $\af\bf=\af \cap \bf$.
+\end{corollary}
+
+\begin{definition}
+  We call two ideals $\af$ and  $\bf$  \textbf{coprime} if $\af+\bf=(1)$.
+\end{definition}
+
+\begin{definition}
+  Let $A_1, \dots, A_n$ be commutative rings. The \textbf{direct product} of
+  $A_1, \dots, A_n$ is defined to be the set $\prod_{i=1}^n{A_i}$ of all tuples
+  $x=(x_1, \dots, x_n)$, with $x_i \in A_i$. We define addition and
+  multiplication of elements of $\prod{A_i}$ component-wise.
+\end{definition}
+
+\begin{lemma}\label{lemma_5.5.10}
+  The direct product of commutative rings is a commutative ring. Moreover, if
+  each ring has identity, so does their direct product.
+\end{lemma}
+
+\begin{theorem}\label{theorem_5.5.11}
+  Let $A$ be a commutative ring with ideals $\af_1, \dots, \af_n$. Define the
+  map $\pi:A \xrightarrow{} \prod_{i=1}^n{A}$ by $\pi:x \xrightarrow{}
+  (x_1+\af_1, \dots, x_n+\af_n)$. Then $\pi$ is a homomorphism, and we have
+  \begin{enumerate}
+    \item[(1)] If $\af_i$ and  $\af_j$ are coprime whenever $i \neq j$, then
+      \begin{equation*}
+        \prod_{i=1}^n{\af_i}=\bigcap_{i=1}^n{\af_i}
+      \end{equation*}
+
+    \item[(2)] $\pi$ is onto if, and only if $\af_i$ and $\af_j$ are coprime
+      whenever  $i \neq j$.
+
+    \item[(3)] $\pi$ is 1--1 if, and only if  $\bigcap{\af_i}=(0)$.
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  By induction on $n$ it was shown that for $n=2$ that if $\af_1,\af_2$ are
+  coprime, then $\af_1\af_2=\af_1 \cap \af_2$. Now, suppose that
+  \begin{equation*}
+    \bf=\prod_{i=1}^n{\af_i}=\bigcap_{i=1}^n{\af_i}
+  \end{equation*}
+  for all $n \geq 2$ and consider the case for $n+1$. Since
+  $\af_i+\af_{n+1}=(1)$ (they are coprime by hypothesis), we have $x_i+y_i=1$
+  where  $x_i \in \af_i$ and  $y_i \in \af_{n+1}$. Hence notice that
+  \begin{equation*}
+    \prod_{i=1}^n{x_i}=\prod_{i=1}^n{1-y_i} \equiv 1 \mod{\af_{n+1}}
+  \end{equation*}
+  so that $\bf+\af_{n+1}=(1)$. Hence $\bf\af_{n+1}=\bf \cap \af_{n+1}$ which
+  completes the proof.
+
+  Suppose now, that $\phi$ is onto. Then there exists an  $x \in A$ such that
+  $\phi(x)=(1,0, \dots, 0)$ so that $x \equiv 1 \mod{\af_1}$ and $x \equiv 0
+  \mod{a_i}$ for $i>1$. Hence  $1=(1-x)+x \in \af_1+\af_i$ for all $i>1$.
+  This makes  $\af_1$ and $\af_i$ coprime. We can repeat this argument for
+  any inex  $j \neq i$. Conversely suppose that $\af_1$ and $\af_i$ are
+  coprime. Then $\af_1+\af_i=(1)$ for all $i>1$ and we have  $u_i+v_i=1$ for
+  some  $u_i \in \af_1$ and $v_i \in \af_i$. Take then  $x=\prod{v_i}$. Then
+  \begin{equation*}
+    x=\prod{1-u_i} \equiv 1 \mod{\af_1} \text{ and } x \equiv 0 \mod{\af_i}
+  \end{equation*}
+  thus $\phi(x)=(1,0, \dots, 0)$. repeating for each index $j \neq i$, we get
+  that  $\phi$ is onto. Finally, observe that
+  \begin{equation*}
+    \ker{\phi}=\{x \in A : (x+\af_1, \dots,x+\af_n)=(\af_1, \dots, \af_n)\}=
+    \bigcap_{i=1}^n{\af_n}
+  \end{equation*}
+  Which gives us the equivalent condition for $\phi$ to be 1--1.
+\end{proof}
+
+\begin{example}\label{example_5.19}
+  In general, the union of ideals is not an ideal. Take $2,3 \in \Z$, then
+  $2+3=5 \not\in 2\Z \cup 3\Z$.
+\end{example}
+
+
+\begin{theorem}\label{theorem_5.5.12}
+  The following are true:
+  \begin{enumerate}
+    \item[(1)] If $\pf_1, \dots, \pf_n$ are prime ideals, and $\af$ is an ideal
+      contained in  $\bigcup{\pf_i}$, then $\af \subseteq \pf_i$ for some $i$.
+
+    \item[(2)] If $\af_1, \dots, \af_n$ are ideals, and $\pf$ is a prime ideal
+      containing  $\bigcap{\af_i}$, then $\af_i \subseteq \pf$ for some $i$.
+      Moreover, if  $\pf=\bigcap{\af_i}$, then $\pf=\af_i$.
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  For the first assertion, the result is vacaciously true for $n=1$. Now
+  suppose the result is true for all  $n \geq 1$. Then for every  $1 \leq i
+  \leq n$, there is an  $x_i \in \af$ such that  $x_i \in \pf_j$ whenever  $i
+  \neq j$. Now, if  $x_i \notin \pf_i$, we are done. Otherwise, $x_i \in \pf$,
+  and consider
+  \begin{equation*}
+    y=\sum_{i=1}^n{x_1x_2 \dots x_{i-1}x_{i+1} \dots x_n}
+  \end{equation*}
+  Then $y \in \af$ but $y \notin \pf_i$, which puts  $\af \not\subseteq
+  \pf_i$, for all $1 \leq i \leq n$, hence $\af \subseteq \pf_{n+1}$ and we
+  are done.
+
+  For the second assertion, suppose that $\af_i \not\subseteq \pf$ for all
+  $1 \leq i \leq n$. Then let  $x_i \in \af$ such that  $x_i \notin\pf$. Then
+  we have
+  \begin{equation*}
+    \prod{\x_i} \in \prod{\af_i}
+  \end{equation*}
+  but $\prod{x_i} \notin \pf$, hence $\bigacap{\af_i} \not\subseteq \pf$.
+\end{proof}
+\begin{corollary}
+  If $\pf=\bigcap{\af_i}$, then $\pf=\af_i$ for some  $1 \leq i \leq n$.
+\end{corollary}
+
+\begin{definition}
+  We define the \textbf{ideal quotient} of two ideals $\af$ and $\bf$ to be
+  \begin{equation*}
+    (\af:\bf)=\{x \in A : x\bf \subseteq \af\}
+  \end{equation*}
+  We call the ideal quotient $(0:\bf)$ the \textbf{annihilator} of $\bf$.
+\end{definition}
+
+\begin{example}\label{example_5.20}
+  Take $m,n \in \Z^+$. By unique factorization $m=\prod{p^{u_i}}$, and
+  $n=\prod{p^{v_j}}$. Take $w_k=\max{\{u_i-v_j,0\}}=u_i-\min{\{u_i,v_j\}}$, and
+  take $q=\prod{p^{w_k}}$. Then $(m\Z:n\Z)=q\Z$, so that $q=\frac{mn}{(m,n)}$.
+\end{example}
+
+\begin{lemma}\label{lemma_5.5.13}
+  The following are true for any ideals $\af$,  $\bf$ and  $\cf$.
+  \begin{enumerate}
+    \item[(1)] $\af \subseteq (\af:\bf)$.
+
+    \item[(2)] $(\af:\bf)\bf \subseteq \af$
+
+    \item[(3)] $((\af:\bf):\cf)=(\af:\bf\cf)=((\af:\cf):\bf)$.
+
+    \item[(4)] $(\bigcap{\af_\a}:\bf)=\bigcap{(\af_\a:\bf)}$ for any collection
+      $\{\af_\a\}$ of ideals.
+
+    \item[(5)] $(\af:\sum{\bf_\a})=\bigcap{(\af:\bf_\a)}$ for any collection
+      $\{\bf_\a\}$ of ideals.
+  \end{enumerate}
+\end{lemma}
+
+\begin{definition}
+  If $\af$ is an ideal, we define its \textbf{radical} to be
+  \begin{equation*}
+    \sqrt{\af}=\{x \in A : x^n \in \af \text{ for some } n \in \Z^+\}
+  \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lemma_5.5.14}
+  If $\af$ is an ideal, then so is $\sqrt{\af}$.
+\end{lemma}
+\begin{proof}
+  Take the natural map $\pi:A \xrightarrow{} \faktor{A}{\af}$. Then
+  $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{A}{\af}})$.
+\end{proof}
+
+\begin{lemma}\label{lemma_5.5.15}
+  The following are true for any ideals $\af$ and  $\bf$.
+  \begin{enumerate}
+    \item[(1)] $\af \subseteq \sqrt{\af}$.
+
+    \item[(2)] $\sqrt{\sqrt{\af}}=\sqrt{\af}$.
+
+    \item[(3)] $\sqrt{\af\bf}=\sqrt{\af \cap \bf}=\sqrt{\af} \cap \sqrt{\bf.}$
+
+    \item[(4)] $\sqrt{\af}=(1)$ if, and only if $\af=(1)$.
+
+    \item[(5)] $\sqrt{\af+\bf}=\sqrt{\sqrt{\af}+\sqrt{\bf}}$.
+
+    \item[(6)] If $\pf$ is a prime ideal, then $\sqrt{\pf^n}=\pf$ for any $n \in
+      \Z^+$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}\label{lemma_5.5.16}
+  If $\af$ is an ideal, then $\sqrt{\af}$ is the intersection of all prime
+  ideals containing $\af$.
+\end{lemma}
+\begin{proof}
+  $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{A}{\af}})=\inv{\pi}(\bigcap{\pf_\a})=
+  \bigcap{\inv{\pi}\pf_\a}$, and  $\inv{\pi}(\pf_\a)$ is a prime ideal
+  containing $\af$.
+\end{proof}
+
+\begin{lemma}\label{lemma_5.5.17}
+  Let $D$ be the set of all zero-divisors in a commutative ring. Then:
+  \begin{equation}
+    D=\bigcup_{\af \neq (0)}{(0:\af)}
+  \end{equation}
+\end{lemma}
