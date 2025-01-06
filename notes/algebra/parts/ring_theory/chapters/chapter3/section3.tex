@@ -1,21 +1,22 @@
-\section{Irreducibility of Polynomials.}
+\section{Irreducibility of Polynomials}
+\label{section_7.3}
 
 \begin{definition}
     Let $R$ be a ring, and  $p \in R[x]$. We call an element $\al \in R$ a
     \textbf{root} (or \textbf{zero}) of $p$ if  $p(\a)=0$.
 \end{definition}
 
-\begin{lemma}\label{3.3.1}
-    Let $F$ be a field, and  $p \in F[x]$. Then $p$ has a linear factor if, and
-    only if  $p$ has a root in  $F$.
+\begin{lemma}\label{lemma_7.3.1}
+    Let $k$ be a field, and  $p \in k[x]$. Then $p$ has a linear factor if, and
+    only if  $p$ has a root in  $k$.
 \end{lemma}
 \begin{proof}
     If $p$ has a linear factor, then it is of the form  $(x-\a)$ (assuming it is
-    monic), for some $\a \in F$. But then  $p(\a)=(\a-\a)q(\a)=0$ making $\a$ a
+    monic), for some $\a \in k$. But then  $p(\a)=(\a-\a)q(\a)=0$ making $\a$ a
     root.
 
-    Conversely, suppose that $p$ has a root  $\a \in F$. By the division
-    theorem, there exist $q, r \in F[x]$, $q(x) \neq 0$ for which
+    Conversely, suppose that $p$ has a root  $\a \in k$. By the division
+    theorem, there exist $q, r \in k[x]$, $q(x) \neq 0$ for which
     \begin{equation*}
         p(x)=q(x)(x-\a)+r(x) \text{ and } r(x) \text{ is constant}
     \end{equation*}
@@ -23,18 +24,18 @@
     hence we have a linear factor $(x-\a)$ of $p$.
 \end{proof}
 
-\begin{lemma}\label{3.3.2}
-    A polynomial $p$ over a field $F$ of degree $\deg{p}=2,3$ is irreducible if,
-    and only if it has no root in $F$.
+\begin{lemma}\label{lemma_7.3.2}
+    A polynomial $p$ over a field $k$ of degree $\deg{p}=2,3$ is irreducible if,
+    and only if it has no root in $k$.
 \end{lemma}
 
-\begin{lemma}\label{3.3.3}
+\begin{lemma}\label{lemma_7.3.3}
     Let $R$ be a unique factorization domain, and
     \begin{equation*}
         p(x)=a_0+a_1x+\dots+a_nx^n
     \end{equation*}
-    a polynomial of degree $n$ over $R$. Let $F$ be the field of fractions of
-    $R$,and $\frac{r}{s} \in F$ with $r$ and $s$ coprime. If $\frac{r}{s}$ is a
+    a polynomial of degree $n$ over $R$. Let $k$ be the field of fractions of
+    $R$,and $\frac{r}{s} \in k$ with $r$ and $s$ coprime. If $\frac{r}{s}$ is a
     root of $p$, then  $r|a_0$ and $s|a_n$.
 \end{lemma}
 \begin{proof}
@@ -52,7 +53,7 @@
     $r|a_0$.
 \end{proof}
 
-\begin{example}\label{example_3.4}
+\begin{example}\label{example_7.4}
     \begin{enumerate}
         \item[(1)] The polynomial $x^3+3x-1$ is irreducible in  $\Z[x]$. By
             Gauss' lemma, it suffices to show that it has no roots in $\Q$.
@@ -71,22 +72,22 @@
     \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{3.3.4}
-    Let $I \neq (1)$ be a proper ideal of an integral domain $R$, and  $p \in
-    R[x]$, is a nonnegative monic polynomial. If $p \mod{I}$ cannot be factored
-    in $\faktor{R}{I}[x]$, then $p$ is irreducible.
+\begin{lemma}\label{lemma_7.3.4}
+    Let $\af \neq (1)$ be a proper ideal of an integral domain $R$, and  $p \in
+    R[x]$, is a nonnegative monic polynomial. If $p \mod{\af}$ cannot be factored
+    in $\faktor{R}{\af}[x]$, then $p$ is irreducible.
 \end{lemma}
 \begin{proof}
-    Suppose that $p$ failes to factor in  $\faktor{\R}{I}[x]$, but that it is
+    Suppose that $p$ failes to factor in  $\faktor{\R}{\af}[x]$, but that it is
     reducible in $R[x]$. Then there exist $a,b \in R[x]$ monic and nonconstant
-    polynomials for which $p(x)=a(x)b(x)$. Then $p \equiv ab \mod{I}$ which is a
-    factorization in $\faktor{R}{I}[x]$; a contradiction!
+    polynomials for which $p(x)=a(x)b(x)$. Then $p \equiv ab \mod{\af}$ which is a
+    factorization in $\faktor{R}{\af}[x]$; a contradiction!
 \end{proof}
 \begin{remark}
     The converse is not true.
 \end{remark}
 
-\begin{example}\label{example_3.5}
+\begin{example}\label{example_7.5}
     \begin{enumerate}
         \item[(1)] Let $p(x)=x^2+x+1 \in \Z[x]$. Then $p \mod{2}$ is irreducible
             in $\faktor{\Z}{2\Z}$, so that $p$ is irreducible in  $\Z[x]$.
@@ -107,22 +108,22 @@
     \end{enumerate}
 \end{example}
 
-\begin{theorem}[The Eisenstein-Sch\"omann Criterion]\label{3.3.5}
-    Let $P$ a prime ideal of an integral domain $R$, and let
+\begin{theorem}[The Eisenstein-Sch\"omann Criterion]\label{theorem_7.3.5}
+    Let $\pf$ a prime ideal of an integral domain $R$, and let
     \begin{equation*}
         f(x)=a_0+a_1x+\dots+a_nx^n
     \end{equation*}
     a polynomial in $R[x]$ of degree $n \geq 1$. If $a_0, \dots, a_{n-1} \in
-    P$, and $a_0 \notin P^2$, then $f$ is irreducible.
+    \pf$, and $a_0 \notin \pf^2$, then $f$ is irreducible.
 \end{theorem}
 \begin{proof}
     Suppose that $f$ is reducible; i.e.  $f(x)=a(x)b(x)$, where $a,b \in R[x]$
-    are nonconstant polynomials. Reducing modulo $P$, and by the fact that
-    $a_0, \dots, a_{n-1} \in P$, we get $x^n \equiv ab \mod{P}$ in
-    $\faktor{R}{P}[x]$. Since $P$ is prime,  $\faktor{R}{P}$ is an integral
-    domain, so that either $a \mod{P}$ or $b \mod{P}$. have $0$ constant term.
+    are nonconstant polynomials. Reducing modulo $\pf$, and by the fact that
+    $a_0, \dots, a_{n-1} \in P$, we get $x^n \equiv ab \mod{\pf}$ in
+    $\faktor{R}{\pf}[x]$. Since $\pf$ is prime,  $\faktor{R}{\pf}$ is an integral
+    domain, so that either $a \mod{\pf}$ or $b \mod{\pf}$. have $0$ constant term.
     constant term. constant term. constant term, by supposition. However, $a_0$
-    is the product of the constant terms of $a$ and $b$, so that $a_0 \in P^2$,
+    is the product of the constant terms of $a$ and $b$, so that $a_0 \in \pf^2$,
     which is a contradiciton.
 \end{proof}
 \begin{corollary}
@@ -134,12 +135,12 @@
     $p^2 \nmid a_0$, then $f$ is irreducible in  $\Z[x]$, and in $\Q[x]$.
 \end{corollary}
 
-\begin{example}\label{example_3.6}
+\begin{example}\label{example_7.6}
     \begin{enumerate}
         \item[(1)] by Eisenstein's criterion for $p=5$,  $x^4+10x+5$ is
             irreducible in  $\Z[x]$.
 
-        \item[(2)] IF $a \in \Z$, and  $p$ is a prime such that  $p|a$, but $p^2
+        \item[(2)] If $a \in \Z$, and  $p$ is a prime such that  $p|a$, but $p^2
             \nmid a$, then the polynomial $x^n-a$ is irreducible in  $\Z[x]$ for
             all $n \geq 1$.
 
