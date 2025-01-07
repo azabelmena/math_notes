@@ -2,7 +2,7 @@
 \label{section_5.5}
 
 \begin{theorem}[The Binomial Theorem]\label{5.5.1}
-    Let $A$ be a commutative ring with identity. Then for all  $x,y \in A$, and
+    Let $R$ be a commutative ring with identity. Then for all  $x,y \in R$, and
      $n \in \Z^+$
      \begin{equation*}
          (x+y)^n=\sum_{r+s=n}{{n \choose r}x^ry^s}
@@ -10,81 +10,81 @@
 \end{theorem}
 
 \begin{lemma}\label{lemma_5.5.2}
-    Let $A$ be a commutative ring with identity, and $\Rf$ the set of all
-    nilpotent elements of $A$. Then $\Rf$ is an ideal of $A$.
+    Let $R$ be a commutative ring with identity, and $\rf$ the set of all
+    nilpotent elements of $R$. Then $\rf$ is an ideal of $R$.
 \end{lemma}
 \begin{proof}
-    If $x \in \Rf$, then there is an  $n \in \Z^+$ for which  $x^n=0$, notice
-    that this also implies that  $(-x)^n=0$, so that $-x \in \Rf$. Now, let $x,y
-    \in \Rf$. Then for some $m,n \in \Z^+$, we have $x^m=0$ and $y^n=0$.
+    If $x \in \rf$, then there is an  $n \in \Z^+$ for which  $x^n=0$, notice
+    that this also implies that  $(-x)^n=0$, so that $-x \in \rf$. Now, let $x,y
+    \in \rf$. Then for some $m,n \in \Z^+$, we have $x^m=0$ and $y^n=0$.
     Consider then $(x+y)^{m+n-1}$. By the binomial theorem, we have
      \begin{equation*}
          (x+y)^n=\sum_{r+s=m+n-1}{{m+n-1 \choose r}x^ry^s}
      \end{equation*}
      Now, since $r+s=m+n-1$, notice that either  $r<m$, or  $s<n$, but not both.
      This makes  $x^ry^s=0$ for all  $r,s$, so that  $(x+y)^{m+n-1}=0$. This
-     makes $\Rf$ a subgroup of  $A$. Lastly, notice that if  $a \in A$, and  $x
-     \in \Rf$, then for some  $n \in \Z^+$,  $ax^n=(ax)^n=0$, which makes $\Rf$
+     makes $\rf$ a subgroup of  $R$. Lastly, notice that if  $a \in R$, and  $x
+     \in \rf$, then for some  $n \in \Z^+$,  $ax^n=(ax)^n=0$, which makes $\rf$
      an ideal.
 \end{proof}
 \begin{corollary}
-    $\faktor{A}{\Rf}$ has no nonzero nilpotent elements.
+    $\faktor{R}{\rf}$ has no nonzero nilpotent elements.
 \end{corollary}
 \begin{proof}
-    Let $x \in A$ be nilpotent, then $x \in \Rf$, so that $x+\Rf=\Rf$ in
-    $\faktor{A}{\Rf}$. Therefore, the only nilpotent element of
-    $\faktor{A}{\Rf}$ is $\Rf$ itself.
+    Let $x \in R$ be nilpotent, then $x \in \rf$, so that $x+\rf=\rf$ in
+    $\faktor{R}{\rf}$. Therefore, the only nilpotent element of
+    $\faktor{R}{\rf}$ is $\rf$ itself.
 \end{proof}
 
 \begin{definition}
-    We define the \textbf{nilradical} of a commutative ring $A$, with identity,
-    to be the ideal, $\Nil{A}$, consisting of all nilpotent elements of $A$.
+    We define the \textbf{nilradical} of a commutative ring $R$, with identity,
+    to be the ideal, $\Nil{R}$, consisting of all nilpotent elements of $R$.
 \end{definition}
 
 \begin{lemma}\label{lemma_5.1.3}
-    Let $A$ be a commutative ring with identity. Then $\Nil{A}$ is the
-    intersection of all prime ideals of $A$; i.e.
+    Let $R$ be a commutative ring with identity. Then $\Nil{R}$ is the
+    intersection of all prime ideals of $R$; i.e.
     \begin{equation*}
-        \Nil{A}=\bigcap_{\pf \subseteq A}{\pf} \text{ where } \pf \text{ is a
-        prime ideal of } A
+        \Nil{R}=\bigcap_{\pf \subseteq R}{\pf} \text{ where } \pf \text{ is a
+        prime ideal of } R
     \end{equation*}
 \end{lemma}
 \begin{proof}
-    Let $\Rf$ be the intersection of all prime ideals of $A$. Suppose that  $x
-    \in A$ is nilpotent. Then $x^n=0$ for some $n \in \Z^+$, so that  $x^n \in
-    \pf$. Since $\pf$ is prime, $x \in \pf$, which puts $x \in \Rf$.
+    Let $\rf$ be the intersection of all prime ideals of $R$. Suppose that  $x
+    \in R$ is nilpotent. Then $x^n=0$ for some $n \in \Z^+$, so that  $x^n \in
+    \pf$. Since $\pf$ is prime, $x \in \pf$, which puts $x \in \rf$.
 
-    Conversely, suppose that  $x \in A$ is not nilpotent, and let $\Sigma$ be
+    Conversely, suppose that  $x \in R$ is not nilpotent, and let $\Sigma$ be
     the set of all ideals $\af$ for which $x \notin \af$. Notice that since $0$
-    is nilpotent in $A$, $0 \in \Sigma$, so that $\Sigma$ is nonempty.
+    is nilpotent in $R$, $0 \in \Sigma$, so that $\Sigma$ is nonempty.
     Therefore, by Zorn's lemma, $\Sigma$ has a maximal element $\pf$. We claim
     that this $\pf$ is prime. Suppose that  $a,b \notin \pf$, then  $\pf
     \subseteq \pf+(a)$ and $\pf \not\subseteq \pf+(b)$. So $\pf+(a), \pf+(b)
     \notin \Sigma$, by the maximality of $\pf$. This puts  $x^m \in \pf+(a)$ and
     $x^n \in \pf+(b)$, for some $n,m \in \Z^+$. Thus  $x^{m+n} \in \pf+(ab)
     \not\subseteq \Sigma$. Therefore, $ab \notin \pf$, which makes $\pf$ a prime
-    ideal for which $x \notin \pf$; i.e. $x \notin \Rf$.
+    ideal for which $x \notin \pf$; i.e. $x \notin \rf$.
 \end{proof}
 
 \begin{definition}
-    We define the \textbf{Jacobson radical} of a commutative ring $A$, with
-    identity, to be the intersection of all maximal ideals of $A$. We denote it
-    by  $\Jac{A}$.
+    We define the \textbf{Jacobson radical} of a commutative ring $R$, with
+    identity, to be the intersection of all maximal ideals of $R$. We denote it
+    by  $\Jac{R}$.
 \end{definition}
 
 \begin{lemma}\label{lemma_5.5.4}
-    Let $A$ be a commutative ring with identity. Then  $x \in \Jac{A}$ if, and
-    only if $1-xy$ is a unit in $A$ for some $y \in A$.
+    Let $R$ be a commutative ring with identity. Then  $x \in \Jac{R}$ if, and
+    only if $1-xy$ is a unit in $R$ for some $y \in R$.
 \end{lemma}
 \begin{proof}
-    Suppose that $x \in \Jac{A}$, but that $1-xy$ is not a unit of $A$. Then by
-    lemma \ref{1.4.2}, we have $(1-xy) \subseteq \mf$ for some maximal ideal
-    $\mf$ of $A$; hence $1-xy \in \mf$. However, since $x \in \Jac{A}$, then $xy
+    Suppose that $x \in \Jac{R}$, but that $1-xy$ is not a unit of $R$. Then by
+    lemma \ref{lemma_5.4.3}, we have $(1-xy) \subseteq \mf$ for some maximal ideal
+    $\mf$ of $R$; hence $1-xy \in \mf$. However, since $x \in \Jac{R}$, then $xy
     \in \mf$, which puts $1 \in \mf$, so that $\mf=(1)$ which contradicts that
     $\mf$ is maximal. Therefore,  $1-xy$ must be a unit.
 
-    Conversely, suppose that  $x \in \mf$ for some maximal ideal $\mf$ of $A$.
-    THen  $(\mf,x)=(1)$ so that $u+xy=1$ for some  $u \in \mf$ and  $y \in A$.
+    Conversely, suppose that  $x \in \mf$ for some maximal ideal $\mf$ of $R$.
+    Then  $(\mf,x)=(1)$ so that $u+xy=1$ for some  $u \in \mf$ and  $y \in R$.
     This makes  $1-xy \in \mf$ so that $1-\mf$ is not a unit.
 \end{proof}
 
@@ -108,14 +108,14 @@
     \item[(1)] $\af+\bf$ is an ideal, and is the smallest ideal containing both
       $\af$ and  $\bf$.
 
-    \item[(2)] $\af \cap \bf$ is an ideal, and is the largest ideal containing
-      both $\af$ and $\bf$.
+    \item[(2)] $\af \cap \bf$ is an ideal, and is the largest ideal
+      contained in both $\af$ and $\bf$.
   \end{enumerate}
 \end{lemma}
 \begin{corollary}
-  Let $A$ be a ring with ideals $\af$ and $\bf$. Then we have the lattice
+  Let $R$ be a ring with ideals $\af$ and $\bf$. Then we have the lattice
   \[\begin{tikzcd}
-  & A \\
+  & (1) \\
   & {\af+\bf} \\
     \af && \bf \\
         & \af \cap \bf \\
@@ -128,8 +128,7 @@
         \arrow[no head, from=4-2, to=5-2]
   \end{tikzcd}\]
 \end{corollary}
-
-\begin{lemma}\label{lemma_5.5.6}
+\begin{corollary}
   The following are true:
   \begin{enumerate}
     \item[(1)] If $\{\af_\a\}$ is a collection of ideals, then $\sum{\af_\a}$ is
@@ -138,7 +137,7 @@
     \item[(2)] $\bigcap{\af_\a}$ is an ideal, and is the largest ideal
       containing all $\af_\a$.
   \end{enumerate}
-\end{lemma}
+\end{corollary}
 
 \begin{definition}
   We define the \textbf{product} of two ideals $\af$ and $\bf$
@@ -191,7 +190,7 @@
   \end{enumerate}
 \end{example}
 
-\begin{theorem}\label{theorem_5.5.7}
+\begin{theorem}\label{theorem_5.5.6}
   The following are true for any ideals $\af$,  $\bf$, and $\cf$ in a
   commutative ring with identity:
   \begin{enumerate}
@@ -222,7 +221,7 @@
   this is not true in general.
 \end{example}
 
-\begin{theorem}[Modularity]\label{theorem_5.5.8}
+\begin{theorem}[Modularity]\label{theorem_5.5.7}
   If $\af$ and $\bf$, and $\cf$ are ideals in a commutative ring with
   identity, and either $\bf \subseteq \af$, or
   $\cf \subseteq \af$, then:
@@ -241,7 +240,7 @@
   $h \in \af$ and $h \in \bf+\cf$, so $h \in \af \cap (\bf+\cf)$.
 \end{proof}
 
-\begin{theorem}\label{theorem_5.5.9}
+\begin{theorem}\label{theorem_5.5.8}
   For any ideals $\af$ and $\bf$:
   \begin{equation}
     (\af+\bf)(\af \cap \bf) \subseteq \af\bf
@@ -256,24 +255,25 @@
 \end{corollary}
 
 \begin{definition}
-  We call two ideals $\af$ and  $\bf$  \textbf{coprime} if $\af+\bf=(1)$.
+  We call two ideals $\af$ and $\bf$ in a commutative ring with
+  identity \textbf{coprime} if $\af+\bf=(1)$.
 \end{definition}
 
 \begin{definition}
-  Let $A_1, \dots, A_n$ be commutative rings. The \textbf{direct product} of
-  $A_1, \dots, A_n$ is defined to be the set $\prod_{i=1}^n{A_i}$ of all tuples
-  $x=(x_1, \dots, x_n)$, with $x_i \in A_i$. We define addition and
-  multiplication of elements of $\prod{A_i}$ component-wise.
+  Let $R_1, \dots, R_n$ be commutative rings. The \textbf{direct product} of
+  $R_1, \dots, R_n$ is defined to be the set $\prod_{i=1}^n{R_i}$ of all tuples
+  $x=(x_1, \dots, x_n)$, with $x_i \in R_i$. We define addition and
+  multiplication of elements of $\prod{R_i}$ component-wise.
 \end{definition}
 
-\begin{lemma}\label{lemma_5.5.10}
+\begin{lemma}\label{lemma_5.5.9}
   The direct product of commutative rings is a commutative ring. Moreover, if
   each ring has identity, so does their direct product.
 \end{lemma}
 
-\begin{theorem}\label{theorem_5.5.11}
-  Let $A$ be a commutative ring with ideals $\af_1, \dots, \af_n$. Define the
-  map $\pi:A \xrightarrow{} \prod_{i=1}^n{A}$ by $\pi:x \xrightarrow{}
+\begin{theorem}\label{theorem_5.5.10}
+  Let $R$ be a commutative ring with ideals $\af_1, \dots, \af_n$. Define the
+  map $\pi:R \xrightarrow{} \prod_{i=1}^n{R}$ by $\pi:x \xrightarrow{}
   (x_1+\af_1, \dots, x_n+\af_n)$. Then $\pi$ is a homomorphism, and we have
   \begin{enumerate}
     \item[(1)] If $\af_i$ and  $\af_j$ are coprime whenever $i \neq j$, then
@@ -302,7 +302,7 @@
   so that $\bf+\af_{n+1}=(1)$. Hence $\bf\af_{n+1}=\bf \cap \af_{n+1}$ which
   completes the proof.
 
-  Suppose now, that $\phi$ is onto. Then there exists an  $x \in A$ such that
+  Suppose now, that $\phi$ is onto. Then there exists an  $x \in R$ such that
   $\phi(x)=(1,0, \dots, 0)$ so that $x \equiv 1 \mod{\af_1}$ and $x \equiv 0
   \mod{a_i}$ for $i>1$. Hence  $1=(1-x)+x \in \af_1+\af_i$ for all $i>1$.
   This makes  $\af_1$ and $\af_i$ coprime. We can repeat this argument for
@@ -315,7 +315,7 @@
   thus $\phi(x)=(1,0, \dots, 0)$. repeating for each index $j \neq i$, we get
   that  $\phi$ is onto. Finally, observe that
   \begin{equation*}
-    \ker{\phi}=\{x \in A : (x+\af_1, \dots,x+\af_n)=(\af_1, \dots, \af_n)\}=
+    \ker{\phi}=\{x \in R : (x+\af_1, \dots,x+\af_n)=(\af_1, \dots, \af_n)\}=
     \bigcap_{i=1}^n{\af_n}
   \end{equation*}
   Which gives us the equivalent condition for $\phi$ to be 1--1.
@@ -327,7 +327,7 @@
 \end{example}
 
 
-\begin{theorem}\label{theorem_5.5.12}
+\begin{theorem}\label{theorem_5.5.11}
   The following are true:
   \begin{enumerate}
     \item[(1)] If $\pf_1, \dots, \pf_n$ are prime ideals, and $\af$ is an ideal
@@ -366,7 +366,7 @@
 \begin{definition}
   We define the \textbf{ideal quotient} of two ideals $\af$ and $\bf$ to be
   \begin{equation*}
-    (\af:\bf)=\{x \in A : x\bf \subseteq \af\}
+    (\af:\bf)=\{x \in R : x\bf \subseteq \af\}
   \end{equation*}
   We call the ideal quotient $(0:\bf)$ the \textbf{annihilator} of $\bf$.
 \end{definition}
@@ -377,7 +377,7 @@
   take $q=\prod{p^{w_k}}$. Then $(m\Z:n\Z)=q\Z$, so that $q=\frac{mn}{(m,n)}$.
 \end{example}
 
-\begin{lemma}\label{lemma_5.5.13}
+\begin{lemma}\label{lemma_5.5.12}
   The following are true for any ideals $\af$,  $\bf$ and  $\cf$.
   \begin{enumerate}
     \item[(1)] $\af \subseteq (\af:\bf)$.
@@ -397,19 +397,19 @@
 \begin{definition}
   If $\af$ is an ideal, we define its \textbf{radical} to be
   \begin{equation*}
-    \sqrt{\af}=\{x \in A : x^n \in \af \text{ for some } n \in \Z^+\}
+    \sqrt{\af}=\{x \in R : x^n \in \af \text{ for some } n \in \Z^+\}
   \end{equation*}
 \end{definition}
 
-\begin{lemma}\label{lemma_5.5.14}
+\begin{lemma}\label{lemma_5.5.13}
   If $\af$ is an ideal, then so is $\sqrt{\af}$.
 \end{lemma}
 \begin{proof}
-  Take the natural map $\pi:A \xrightarrow{} \faktor{A}{\af}$. Then
-  $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{A}{\af}})$.
+  Take the natural map $\pi:R \xrightarrow{} \faktor{R}{\af}$. Then
+  $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{R}{\af}})$.
 \end{proof}
 
-\begin{lemma}\label{lemma_5.5.15}
+\begin{lemma}\label{lemma_5.5.14}
   The following are true for any ideals $\af$ and  $\bf$.
   \begin{enumerate}
     \item[(1)] $\af \subseteq \sqrt{\af}$.
@@ -427,17 +427,17 @@
   \end{enumerate}
 \end{lemma}
 
-\begin{lemma}\label{lemma_5.5.16}
+\begin{lemma}\label{lemma_5.5.15}
   If $\af$ is an ideal, then $\sqrt{\af}$ is the intersection of all prime
   ideals containing $\af$.
 \end{lemma}
 \begin{proof}
-  $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{A}{\af}})=\inv{\pi}(\bigcap{\pf_\a})=
+  $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{R}{\af}})=\inv{\pi}(\bigcap{\pf_\a})=
   \bigcap{\inv{\pi}\pf_\a}$, and  $\inv{\pi}(\pf_\a)$ is a prime ideal
   containing $\af$.
 \end{proof}
 
-\begin{lemma}\label{lemma_5.5.17}
+\begin{lemma}\label{lemma_5.5.16}
   Let $D$ be the set of all zero-divisors in a commutative ring. Then:
   \begin{equation}
     D=\bigcup_{\af \neq (0)}{(0:\af)}

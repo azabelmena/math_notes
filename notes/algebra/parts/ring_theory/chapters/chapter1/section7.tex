@@ -1,6 +1,6 @@
 \section{The Chinese Remainder Theorem}
 
-\begin{theorem}[The Chinese Remainder Theorem]\label{5.7.1}
+\begin{theorem}[The Chinese Remainder Theorem]\label{theorem_5.7.1}
   Let $\af_1, \dots, \af_k$ be ideals in a commutative ring $R$ with identity.
   Then the map
   \begin{align*}
@@ -15,8 +15,8 @@
   Moreover if for all $1 \leq i,j \leq k$ with  $i \neq j$,  $\af_i$ and  $\af_j$
   are coprime, then this map is onto with  $\bigcap{\af_i}=\prod{\af_i}$ so that
   \begin{equation*}
-    \faktor{R}{\af_1 \dots \af_k} \simeq \faktor{R}{\af_1} \times \dots \times
-    \faktor{R}{\af_k}
+    \faktor{R}{(\af_1, \dots, \af_k)} \simeq \faktor{R}{\af_1} \times \dots
+    \times \faktor{R}{\af_k}
   \end{equation*}
 \end{theorem}
 \begin{proof}
@@ -44,8 +44,9 @@
   if  $\af+\bf=(1)=R$, then for every $x \in \af\bf$,  $c=c \cdot 1=cx+cy \in \af\bf$ so
   that  $\af \cap \bf=\af\bf$.
 
-  Now, by induction on $k \geq 2$, takine  $\af=\af_1$ and $\bf=\af_2 \dots \af_k$ by
-  repeating the above argument, we get the result.
+  Now, by induction on $k \geq 2$, takine  $\af=\af_1$ and
+  $\bf=(\af_2, \dots, \af_k)$ by repeating the above argument, we get
+  the result.
 \end{proof}
 \begin{corollary}
   Let $n=p_1^{a_1} \dots p_k^{a_k} \in \Z^+$ be the prime factorization of
