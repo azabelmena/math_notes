@@ -113,7 +113,7 @@
   $R$, as an Abelian group. So, we have that $\faktor{R}{\af}$ is the
   quotient group of $R$ under $+$.
 
-  Finally, observe
+  Observe now:
   \begin{align*}
     (x+\af)(y+\af)  &=  xy+a\af+b\af+\af \\
                     &=  xy+(\af+\af+\af)  \\
@@ -121,14 +121,20 @@
   \end{align*}
   By distribution of multiplication over addition in $R$. Moreover,
   $\faktor{R}{\af}$ also inherits associativity in $\cdot$ of ultiplication in
-  $R$. Now, notice that:
-  \begin{equation*}
-    (a+\af)((b+\af)+c+\af)=(a+\af)((b+c)+\af)=a(b+c)+\af=(ab+ac)+\af=(ac+\af)+(bc+\af)
-  \end{equation*}
+  $R$. Finally:
+  \begin{align*}
+    (x+\af)((y+\af)+(z+\af))  &=  (x+\af)((y+z)+\af)  \\
+        &= x(y+z)+\af \\
+        &=  (xy+xz)+\af
+        &=  (xy+\af)+(xz+\af) \\
+  \end{align*}
   and
-  \begin{equation*}
-    ((a+\af)+(b+\af))(c+\af)=((a+b)+\af)(c+\af)=(a+b)c+\af=(ac_bc)+\af=(ac+\af)+(bc+\af)
-  \end{equation*}
+  \begin{align*}
+    ((x+\af)+(y+\af))(z+\af)  &=  ((x+y)+\af)(z+\af)  \\
+      &=  (x+y)z+\af  \\
+      &=  (xz+yz)+\af \\
+      &=  (xz+\af)+(yz+\af) \\
+  \end{align*}
   This makes $\faktor{R}{\af}$ a ring as required.
 \end{proof}
 \begin{corollary}
