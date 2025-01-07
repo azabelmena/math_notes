@@ -33,13 +33,13 @@
       homomorphism for any $n$.
 
     \item[(3)] For any ring $R$, define the \textbf{evaluation} map
-      $\ev:R[x] \xrightarrow{} R$ by taking $f(x) \xrightarrow{} f(0)$;
+      $\ev_0:R[x] \xrightarrow{} R$ by taking $f(x) \xrightarrow{} f(0)$;
       i.e. the polynomial $f$ evaluated at $0$.  $\ev$ is a ring
       homomorevsm. Moreover, notice that if
       $f(x)=a_0+a_1x+\dots+a_nx^n$, then $f(0)=a_0 \in \R$. So that
-      $\ev(R[x])=R$ This makes $\ev$ onto. Now, take  $\ev(f)=0$, Then
+      $\ev_0(R[x])=R$ This makes $\ev_0$ onto. Now, take  $\ev(f)=0$, Then
       those are all polynomials with constant term $a_0=0$ (this does not
-      make $\ker{\ev}=\langle e \rangle$). Again, $\ev$ is onto, but it
+      make $\ker{(\ev_0)}=\langle e \rangle$). Again, $\ev_0$ is onto, but it
       is not 1--1.
   \end{enumerate}
 \end{example}
@@ -175,16 +175,16 @@
       $\faktor{R[x]}{\af}$ has zero divisors. Consider
       $\faktor{\Z[x]}{\af}$.
 
-    \item[(3)] Let $A$ a ring, and  $X \neq \emptyset$. For the ring of
-      functions $A^X$, for a given $c \in X$, define the
+    \item[(3)] Let $A$ a ring, and  $X$ a non-empty set. For the ring of
+      functions $A^X$, given $c \in X$, define the
       \textbf{evaluation} map at $c$ by $\ev_c:f(x) \xrightarrow{} f(c)$.
       Notice that $\ev_c$ is a ring homomorphism, so that
-      $\faktor{A^X}{\ker{\ev_c}}$ forms a factor ring. In particular, if
+      $\faktor{A^X}{\ker{(\ev_c)}}$ forms a factor ring. In particular, if
       $A^X=A[x]$ the polynomial ring over $A$, and  $c=0$, then $\ev_c$ is
       just the evaluation map of polynomials.
 
-      Now, if  $X=(0,1]$, and $R=\R^{(0,1]}$, by the first isomorphism
-      theorem for groups, we have $\R \simeq \faktor{\R^{(0,1]}}{\ker{\ev_c}}$,
+      Now, if  $X=(0,1]$, and $A=\R^{(0,1]}$, by the first isomorphism
+      theorem for groups, we have $\R \simeq \faktor{\R^{(0,1]}}{\ker{(\ev_c)}}$,
       since $\ev_c(\R^{(0,1]})=\R$.
 
     \item[(4)] Let $n \geq 2$ and consider  $R^{n \times n}$. Let $\bf$ an ideal
