@@ -14,8 +14,9 @@
   \begin{equation*}
     \ker{\phi}=\{r \in R : \phi(r)=0\}
   \end{equation*}
-  Moreover, if $\phi$ is 1--1 and onto, we call $\phi$ an \textbf{isomorphism}
-  and say that $R$ and $S$ are \textbf{isomorphic}, and write $R \simeq S$.
+  Moreover, if $\phi$ is 1--1 and onto, we call $\phi$ a \textbf{ring
+  isomorphism} and say that $R$ and $S$ are \textbf{isomorphic},
+  and write $R \simeq S$.
 \end{definition}
 
 \begin{example}\label{example_5.9}
@@ -32,13 +33,13 @@
       homomorphism for any $n$.
 
     \item[(3)] For any ring $R$, define the \textbf{evaluation} map
-      $\phi:R[x] \xrightarrow{} R$ by taking $f(x) \xrightarrow{} f(0)$;
-      i.e. the polynomial $f$ evaluated at $0$.  $\phi$ is a ring
-      homomorphism. Moreover, notice that if
+      $\ev:R[x] \xrightarrow{} R$ by taking $f(x) \xrightarrow{} f(0)$;
+      i.e. the polynomial $f$ evaluated at $0$.  $\ev$ is a ring
+      homomorevsm. Moreover, notice that if
       $f(x)=a_0+a_1x+\dots+a_nx^n$, then $f(0)=a_0 \in \R$. So that
-      $\phi(R[x])=R$ This makes $\phi$ onto. Now, take  $\phi(f)=0$, Then
+      $\ev(R[x])=R$ This makes $\ev$ onto. Now, take  $\ev(f)=0$, Then
       those are all polynomials with constant term $a_0=0$ (this does not
-      make $\ker{\phi}=\langle e \rangle$). Again, $\phi$ is onto, but it
+      make $\ker{\ev}=\langle e \rangle$). Again, $\ev$ is onto, but it
       is not 1--1.
   \end{enumerate}
 \end{example}
@@ -88,22 +89,37 @@
 \end{proof}
 
 \begin{theorem}\label{theorem_5.3.3}
-  Let $R$ be aring, and $\af$ an ideal in $R$. Let  $\faktor{R}{\af}$ be the set
-  of all $a+\af$ with  $a \in R$. Define operations $+$ and $\cdot$ by
+  Let $R$ be a ring, and $\af$ an ideal in $R$. Let  $\faktor{R}{\af}$ be the set
+  of all $x+\af$ with  $x \in R$. Define operations $+$ and $\cdot$ by
   \begin{align*}
-    (a+\af)+(b+\af) &=  (a+b)+\af \\
-    (a+\af)(b+\af)  &=  ab+\af    \\
+    (x+\af)+(y+\af) &=  (x+y)+\af \\
+    (x+\af)(y+\af)  &=  xy+\af    \\
   \end{align*}
   Then $\faktor{R}{\af}$ forms a ring under $+$ and $\cdot$.
 \end{theorem}
 \begin{proof}
-  Notice that $(a+I)+(b+I)=(a+b)+(I+I)=(a+b)+2I=(a+b)+I$. Moreover,
-  $\faktor{R}{I}$ inherits associativity in $+$ from addition in $R$. Now,
-  take $0+I=I$ as the additive identity and  $-a+I$ as the inverse of  $a+I$
-  for each  $I$.
+  Observe first that $+$ and $\cdot$ are well-defined. Indeed, let
+  $x,y \in R$ and suppose $x+\af=x'+\af$ and $y+\af=y'+\af$. Then
+  $(x-x')+\af=\af$ and $(y-y')+\af=\af$ so $x-x',y-y' \in \af$. Then
+  there are $z,z' \in \af$ for which $x-x'=z$ and $y-y'=z'$, so that
+  $(x-x')+(y-y')=(x+y)-(x'+y')=z+z'$. Then $(x+y)-(x'+y') \in \af$, so
+  that $(x+y)-(x'+y')+\af=\af$. That is $(x+y)+\af=(x'+y')+\af$.
 
-  Now, notice, that $(a+\af)(b+\af)=ab+a\af+b\af+\af^2=ab+(\af+\af+\af)=
-  ab+\af$ by distribution of multiplication over addition in $R$. Moreover,
+  Similarly, $xy=(x'+z)(y'+z')=(x'y')+(x'z'+zy'+zz')$, so
+  $xy-x'y'=x'z'+zy'+zz'$, i.e. $xy-x'y' \in \af$, so that
+  $xy+\af=x'y'+\af$.
+
+  Now, observe that under $+$, the ideal $\af$ is a normal subgroup of
+  $R$, as an Abelian group. So, we have that $\faktor{R}{\af}$ is the
+  quotient group of $R$ under $+$.
+
+  Finally, observe
+  \begin{align*}
+    (x+\af)(y+\af)  &=  xy+a\af+b\af+\af \\
+                    &=  xy+(\af+\af+\af)  \\
+                    &=  xy+\af  \\
+  \end{align*}
+  By distribution of multiplication over addition in $R$. Moreover,
   $\faktor{R}{\af}$ also inherits associativity in $\cdot$ of ultiplication in
   $R$. Now, notice that:
   \begin{equation*}
@@ -113,10 +129,7 @@
   \begin{equation*}
     ((a+\af)+(b+\af))(c+\af)=((a+b)+\af)(c+\af)=(a+b)c+\af=(ac_bc)+\af=(ac+\af)+(bc+\af)
   \end{equation*}
-
-  Lastly, notice that $a+\af$ is just the left coset of  $a$ by $\af$ in $R$ as a
-  group under addition. So that $+$ and  $\cdot$ are coset addition and
-  multiplication, which are well defined.
+  This makes $\faktor{R}{\af}$ a ring as required.
 \end{proof}
 \begin{corollary}
   If $R$ has identity $1$, then $\faktor{R}{\af}$ has identity
@@ -126,14 +139,15 @@
 \begin{definition}
   Let $R$ be a ring and $\af$ an ideal in $R$. We call the ring
   $\faktor{R}{\af}$
-  under addition and muiltplication of cosets the \textbf{factor ring} (or
-  \textbf{quotient ring}) of $R$ over  $\af$.
+  under addition and muiltplication of cosets the \textbf{factor ring}
+  of $R$ over  $\af$.
 \end{definition}
 
 \begin{example}\label{example_5.10}
   \begin{enumerate}
     \item[(1)] We call $(0)=\langle 0 \rangle=\{0\}$ the \textbf{trivial ideal},
-      notice also that $R$ is also an ideal.
+      notice also that $R$ is also an ideal. If $R$ has identity $1$,
+      we write $R=(1)$ when considering it as an ideal.
 
     \item[(2)] For any $n \in \Z$, notice that if $a \in \Z$ and $m \in
       n\Z$, then  $m=nk$, for some  $k \in \Z$ so that  $am=n(ak)=ma \in
@@ -145,7 +159,7 @@
 
     \item[(2)] Let $R$ a ring, and consider  $R[x]$. Let $\af$ the set of all
       polynomials of degree greater than $2$ together with $0$. Then if
-      $f \in I$,  $\deg{f}>2$ or $f=0$. Then for any  $g \in R[x]$,
+      $f \in \af$,  $\deg{f}>2$ or $f=0$. Then for any  $g \in R[x]$,
       $\deg{fg}>2$ or, $fg=0$ and $\deg{gf}>2$ or $gf=0$. This
       makes  $\af$ an ideal of $R[x]$. Moreover, $p,q \in \af$ if and
       only if they have the same constant term. Notice then that
@@ -157,15 +171,15 @@
 
     \item[(3)] Let $A$ a ring, and  $X \neq \emptyset$. For the ring of
       functions $A^X$, for a given $c \in X$, define the
-      \textbf{evaluation} map at $c$ by $E_c:f(x) \xrightarrow{} f(c)$.
-      Notice that $E_c$ is a ring homomorphism, so that
-      $\faktor{A^X}{\ker{E_c}}$ forms a factor ring. In particular, if
-      $A^X=A[x]$ the polynomial ring over $A$, and  $c=0$, then  $E_c$ is
+      \textbf{evaluation} map at $c$ by $\ev_c:f(x) \xrightarrow{} f(c)$.
+      Notice that $\ev_c$ is a ring homomorphism, so that
+      $\faktor{A^X}{\ker{\ev_c}}$ forms a factor ring. In particular, if
+      $A^X=A[x]$ the polynomial ring over $A$, and  $c=0$, then $\ev_c$ is
       just the evaluation map of polynomials.
 
       Now, if  $X=(0,1]$, and $R=\R^{(0,1]}$, by the first isomorphism
-      theorem for groups, we have $\R \simeq \faktor{\R^{(0,1]}}{\ker{E_c}}$,
-      since $E_c(\R^{(0,1]})=\R$.
+      theorem for groups, we have $\R \simeq \faktor{\R^{(0,1]}}{\ker{\ev_c}}$,
+      since $\ev_c(\R^{(0,1]})=\R$.
 
     \item[(4)] Let $n \geq 2$ and consider  $R^{n \times n}$. Let $\bf$ an ideal
       of  $R$. Then  $\bf^{n \times n}=\{(a_{ij}) : a_{ij} \in \bf\}$ is an ideal
@@ -213,15 +227,15 @@
     {\faktor{R}{\ker{\phi}}}
     \arrow["\pi"', from=1-1, to=4-1]
     \arrow["\phi", from=1-1, to=1-4]
-    \arrow["{\bar{\phi}}"', from=4-1, to=1-4]
+    \arrow["{\Phi}"', from=4-1, to=1-4]
   \end{tikzcd}\]
 \end{theorem}
 \begin{proof}
   By the first isomorphism theorem for groups, $\phi$ is a group isomorphism.
   Now, let $K=\ker{\phi}$ and consider the map $\pi:R \xrightarrow{}
   \faktor{R}{I}$ by $a \xrightarrow{\pi} a+K$. Define the map
-  $\bar{\phi}:\faktor{R}{K} \xrightarrow{} \phi(R)$ such that $\bar{\phi}
-  \circ \pi=\phi$, then $\bar{\phi}$ defines the ring isomorphism.
+  $\Phi:\faktor{R}{K} \xrightarrow{} \phi(R)$ such that $\Phi
+  \circ \pi=\phi$, then $\Phi$ defines the ring isomorphism.
 \end{proof}
 \begin{proof}
   The map $\pi:R \xrightarrow{} \faktor{R}{I}$ defined by $a \xrightarrow{}
@@ -265,5 +279,8 @@
 
 \begin{remark}
   From here on, we abbreviate the elements of the factor ring
-  $\faktor{R}{\af}$ by $x \mod{\af}$ instead of $x+\af$.
+  $\faktor{R}{\af}$ by $x \mod{\af}$ instead of $x+\af$. We read $x
+  \mod{\af}$ ``$x$ modulo $\af$''. This notational convention is
+  justified by recognizing the factor ring $\faktor{R}{\af}$ as a
+  factor group with additional structure.
 \end{remark}

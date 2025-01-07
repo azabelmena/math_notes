@@ -7,7 +7,8 @@
   \textbf{additon} and \textbf{multiplication} such that:
   \begin{enumerate}
     \item[(1)] $R$ is an Abelian group over $+$, where we denote the
-      identity element as $0$ and the inverse of each $a \in R$ as $-a$.
+      identity element as $0$ and call it the \textbf{zero}-element,
+      and the inverse of each $a \in R$ as $-a$.
 
     \item[(2)] For any $a,b \in R$,  $ab \in R$ and $a(bc)=(ab)c$. That is,
       $R$ is closed under multiplication, and  multiplication is
@@ -16,8 +17,8 @@
     \item[(3)] $a(b+c)=ab+ac$ and $(a+b)c=ac+bc$.
   \end{enumerate}
   We call $R$ commutative if for all $a,b \in R$, $ab=ba$. If there
-  exists an element $1 \in R$ such that  $a1=1a=R$, then we call $R$ a
-  ring with  \textbf{identity}.
+  exists an element $1 \in R$ such that $a1=1a=R$ for all $a \in R$,
+  then we call $R$ a ring with  \textbf{identity}.
 \end{definition}
 
 \begin{definition}
@@ -27,54 +28,59 @@
 \end{definition}
 
 \begin{example}\label{example_5.1}
-  Let $R$ be an abelian group under an operation $+$, define the operation
-  $\cdot$ by  $(a,b) \xrightarrow{} ab=0$ for all $a,b \in R$. Then $R$ is a
-  ring under $+$ and  $\cdot$, called the  \textbf{trivial ring}. If
-  $R=\langle 0 \rangle$, the trivial group, then we call $R$ the  \textbf{zero
-  ring}. We write $R=(0)$ to denote the zero-ring.
+  \begin{enumerate}
+    \item[(1)] Let $R$ be an abelian group under an operation $+$, define the operation
+      $\cdot$ by  $(a,b) \xrightarrow{} ab=0$ for all $a,b \in R$. Then $R$ is a
+      ring under $+$ and  $\cdot$, called the  \textbf{trivial ring}. If
+      $R=\langle 0 \rangle$, the trivial group, then we call $R$ the  \textbf{zero
+      ring}. We write $R=(0)$ to denote the zero-ring.
 
-\item[(2)] The integers $\Z$ form a ring under the usual addition and
-  muiltiplication.
+    \item[(2)] The integers $\Z$ form a ring under the usual addition and
+      muiltiplication.
 
-\item[(3)] The sets of rational numbers $\Q$ and the set of real numbers
-  $\R$ are rings under their usual addition and multiplication; in fact,
-  they are fields. The complex numbers $\C$ also form a field under
-  complex addition and complex multiplication, where
-  \begin{align*}
-    +:(a+ib,c+id)   &   \xrightarrow{} (a+c)+i(b+d)   \\
-    \cdot:(a+ib,c+id)   &   \xrightarrow{} (ac-bd)+i(ad+bc)   \\
-  \end{align*}
+    \item[(3)] The sets of rational numbers $\Q$ and the set of real numbers
+      $\R$ are rings under their usual addition and multiplication; in fact,
+      they are fields. The complex numbers $\C$ also form a field under
+      complex addition and complex multiplication, where
+      \begin{align*}
+        +:(a+ib,c+id)   &   \xrightarrow{} (a+c)+i(b+d)   \\
+        \cdot:(a+ib,c+id)   &   \xrightarrow{} (ac-bd)+i(ad+bc)   \\
+      \end{align*}
 
-\item[(4)] The factor group of integers modulo $n$, $\faktor{\Z}{n\Z}$ is a
-  commutative ring under addition modulo $n$, and multiplication modulo
-  $n$, $\faktor{\Z}{n\Z}$ has identity $1 \mod{n}$. $\faktor{\Z}{n\Z}$
-  forms a field if, and only if $n=p^r$, where $p$ is a prime.
+    \item[(4)] The factor group of integers modulo $n$, $\faktor{\Z}{n\Z}$ is a
+      commutative ring under addition modulo $n$, and multiplication modulo
+      $n$, $\faktor{\Z}{n\Z}$ has identity $1 \mod{n}$. $\faktor{\Z}{n\Z}$
+      forms a field if, and only if $n=p^r$, where $p$ is a prime.
 
-\item[(5)] We define the \textbf{real quaternions} to be the set
-  $\Hb=\{a+ib_jc_kd : a,b,c,d \in \R, i^2=j^2=k^2=-1 \text{ and } ij=k,
-  jk=i, \text{ and } ki=j\}$. $\Hb$ is a ring under addition and
-  multiplication are defined for all $x=a+ib+jc+kd$ and $y=e+if+jg+kh$ to be:
-  \begin{align*}
-    +(x,y): &   \xrightarrow{} x+y=(a+e)+i(b+f)+j(c+g)+k(d+h)   \\
-    \cdot(x,y):  &   \xrightarrow{} xy= (a+ib+jc+kd)(e+if+jg+kh) \\
-  \end{align*}
+    \item[(5)] We define the \textbf{real quaternions} to be the set:
+      \begin{equation*}
+        \Hb=\{a+ib+jc+kd : a,b,c,d \in \R, i^2=j^2=k^2=-1 \text{ and }
+        ij=k, jk=i, \text{ and } ki=j\}
+      \end{equation*}
+      $\Hb$ is a ring under addition and
+      multiplication are defined for all $x=a+ib+jc+kd$ and $y=e+if+jg+kh$ to be:
+      \begin{align*}
+        +(x,y): &   \xrightarrow{} x+y=(a+e)+i(b+f)+j(c+g)+k(d+h)   \\
+        \cdot(x,y):  &   \xrightarrow{} xy= (a+ib+jc+kd)(e+if+jg+kh) \\
+      \end{align*}
 
-\item[(6)] Let $A$ be a ring and $R$ the set of all maps $f:X \xrightarrow{}
-  A$. Then $R$ forms a ring under function addition  $f+g(x)=f(x)+g(x)$ and
-  function multiplication $fg(x)=f(x)g(x)$. Notice that $R$ is commutative if,
-  and only if  $A$ is, moreover,  $R$ has identity if, and only if  $A$ has
-  identity.
+    \item[(6)] Let $A$ be a ring and $A^X$ the set of all maps $f:X \xrightarrow{}
+      A$. Then $R$ forms a ring under function addition  $f+g(x)=f(x)+g(x)$ and
+      function multiplication $fg(x)=f(x)g(x)$. Notice that $A^X$ is commutative if,
+      and only if  $A$ is, moreover, $A^X$ has identity if, and only if  $A$ has
+      identity.
 
-\item[(7)] We say a real-valued function $f:\R \xrightarrow{} \R$ has
-  \textbf{compact support} if there exist $a,b \in \R$ such that $f(x)=0$
-  for all $x \notin [a,b]$. The set of all functions with compact support
-  forms a ring without identity under function addition and function
-  multiplication.
+    \item[(7)] We say a real-valued function $f:\R \xrightarrow{} \R$ has
+      \textbf{compact support} if there exist $a,b \in \R$ such that $f(x)=0$
+      for all $x \notin [a,b]$. The set of all functions with compact support
+      forms a ring without identity under function addition and function
+      multiplication.
 
-\item[(8)] Let $X,Y \subseteq \R$. We denote the set of all continuous
-  functions  $f:X \xrightarrow{} Y$ by $C(X,Y)$. Then $C(X,Y)$ forms a
-  commutative ring with identity under function addition and function
-  multiplication.
+    \item[(8)] Let $X,Y \subseteq \R$. We denote the set of all continuous
+      functions  $f:X \xrightarrow{} Y$ by $C(X,Y)$. Then $C(X,Y)$ forms a
+      commutative ring with identity under function addition and function
+      multiplication.
+  \end{enumerate}
 \end{example}
 
 \begin{lemma}\label{lemma_5.1.1}
@@ -110,10 +116,10 @@
 \end{proof}
 
 \begin{definition}
-  Let $R$ be a ring. We call an element  $a \in R$ a  \textbf{zero divisor} if
-  $a \neq 0$ and there exists an element  $b \neq 0$ such that  $ab=0$.
-  Similarly, we call $a \in R$ a \textbf{unit} if there is a $b \in R$ for
-  which  $ab=ba=1$.
+  Let $R$ be a ring. We call a non-zero element $a \in R$ a
+  \textbf{zero-divisor} if there exists a non-zero element $b \in R$
+  such that $ab=0$. We all $a$ a uniot if there is a $b \in R$ such
+  that $ab=ba=1$.
 \end{definition}
 
 \begin{example}\label{example_5.2}
@@ -123,7 +129,7 @@
 
 \begin{definition}
   Let $R$ be a ring. We call the set of all units in  $R$ the \textbf{group
-  of units} and denote it $\Uc(R)$, or $R^\ast$.
+  of units} and denote it $\Uc(R)$.
 \end{definition}
 
 \begin{lemma}\label{lemma_5.1.2}
@@ -133,15 +139,16 @@
 \begin{proof}
   Let $a,b \in R$ be units in $R$. Then there are $c,d \in R$ for which
   $ac=ca=1$ and  $bd=db=1$. Consider then $ab$. Then  $ab(dc)=a(bd)c=ac=1$ and
-  $(dc)ab=d(ca)b=db=1$ so that $ab$ is also a unit in $R$. Moreover $R^\ast$
+  $(dc)ab=d(ca)b=db=1$ so that $ab$ is also a unit in $R$. Moreover $\Uc{(R)}$
   inherits the associativity of  $\cdot$ and $1$ serves as the identity
-  element of $R^\ast$. Lastly, if $a \in R^\ast$ is a unit there is a $b
+  element of $\Uc{(R)}$. Lastly, if $a \in \Uc{(R)}$ is a unit there is a $b
   \in R$ for which $ab=ba=1$. This also makes $b$ a unit in $R$, and the
   inverse of $a$.
 \end{proof}
 \begin{corollary}
   $a$ is a zero divisor if, and only if it is not a unit.
 \end{corollary}
+
 \begin{proof}
   Suppose that $a \neq 0$ is a zero divisor. Then there is a  $b \in R$ such
   that $b \neq 0$ and $ab=0$. Then for any $v \in R$,  $v(ab)=(va)b=0$ so that
@@ -161,11 +168,12 @@
     \item[(1)] $\Z$ has no zero divisors, and has as units the elements $-1$
       and $1$.
 
-    \item[(2)] For any $n \in \Z^+$, the units of  $\faktor{\Z}{n\Z}$ are
-      all elements $a \mod{n}$ such that $(a,n)=1$. That is
-      $\faktor{\Z}{n\Z}^\ast=U(\faktor{\Z}{n\Z})$; recall that
-      $U(\faktor{\Z}{n\Z})$ is called the unit group, or group of units of
-      $\faktor{\Z}{n\Z}$.
+
+    \item[(2)] For any $n \in \Z^+$, the unit group of the ring
+      $\faktor{\Z}{n\Z}$ is the group $\Uc{(\faktor{\Z}{n\Z})}$.
+      Observe that $a \in \Uc{(\faktor{\Z}{n\Z})}$ if, and only if
+      $(a,n)=1$, so that the group of units of the ring
+      $\faktor{\Z}{n\Z}$ coincides with the group definition.
 
     \item[(3)] Let $D \in \Q$ be squarefree. Define
       $\Q(\sqrt{D})=\{a+b\sqrt{D} : a,b \in \Q\}$. Then $\Q(\sqrt{D})$ is
@@ -228,14 +236,15 @@
 
     \item[(3)] The set $\Z+i\Z+j\Z+k\Z \subseteq \Hb$ is a subring of $\Hb$.
 
-    \item[(4)] If $F$ is a field, then any subring of $F$ is also an
+    \item[(4)] If $k$ is a field, then any subring of $k$ is also an
       integral domain by inheretence.
 
     \item[(5)] The set $\Z[\sqrt{D}]=\{a+b\sqrt{D} : a,b \in \Z\}$ is a
       subring of the quadratic field $\Q(\sqrt{D})$. Moreover if $D \equiv
       1 \mod{4}$, then the set
       \begin{equation*}
-        \Z[\frac{1+\sqrt{D}}{2}]=\{a+b\frac{1+\sqrt{D}}{2} : a,b \in \Z\}
+        \Z\Big{[}\frac{1+\sqrt{D}}{2}  \Big{]}
+        =\Big{\{} a+b\frac{1+\sqrt{D}}{2} : a,b \in \Z \Big{\}}
       \end{equation*}
       is also a subgring of $\Q(\sqrt{D})$. We call the subgring
       $\Z[\omega]$, where
@@ -251,8 +260,11 @@
       $\C$; in fact, it is field in $\C$.
 
     \item[(6)] Consider $\Q(\sqrt{D})$ where $D$ is squarefree. We define
-      the  \textbf{field norm} $N:\Q(\sqrt{D}) \xrightarrow{} D$ by taking
-      $(a+b\sqrt{D}) \xrightarrow{} (a+b\sqrt{D})(a-b\sqrt{D})=a^2-Db^2$.
+      the  \textbf{field norm} to be the map:
+      \begin{align*}
+        N: \Q(\sqrt{D}) & \xrightarrow{} D  \\
+        (a+b\sqrt{D}) & \xrightarrow{} (a+b\sqrt{D})(a-b\sqrt{D})=a^2-Db^2 \\
+      \end{align*}
       If $D=i^2=-1$, then  $N:a+ib \xrightarrow{} a^2+b^2$ which is the
       modulus of complex number restricted to $\Q$.
 
