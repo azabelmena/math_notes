@@ -23,13 +23,12 @@
     Then $p(\a)=q(\a)(\a-\a)+r(\a)$ so that $r(\a)=0$, which makes $r(x)=0$, and
     hence we have a linear factor $(x-\a)$ of $p$.
 \end{proof}
-
-\begin{lemma}\label{lemma_7.3.2}
+\begin{corollary}
     A polynomial $p$ over a field $k$ of degree $\deg{p}=2,3$ is irreducible if,
     and only if it has no root in $k$.
-\end{lemma}
+\end{corollary}
 
-\begin{lemma}\label{lemma_7.3.3}
+\begin{lemma}\label{lemma_7.3.2}
     Let $R$ be a unique factorization domain, and
     \begin{equation*}
         p(x)=a_0+a_1x+\dots+a_nx^n
@@ -72,13 +71,13 @@
     \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_7.3.4}
+\begin{lemma}\label{lemma_7.3.3}
     Let $\af \neq (1)$ be a proper ideal of an integral domain $R$, and  $p \in
     R[x]$, is a nonnegative monic polynomial. If $p \mod{\af}$ cannot be factored
     in $\faktor{R}{\af}[x]$, then $p$ is irreducible.
 \end{lemma}
 \begin{proof}
-    Suppose that $p$ failes to factor in  $\faktor{\R}{\af}[x]$, but that it is
+    Suppose that $p$ fails to factor in  $\faktor{\R}{\af}[x]$, but that it is
     reducible in $R[x]$. Then there exist $a,b \in R[x]$ monic and nonconstant
     polynomials for which $p(x)=a(x)b(x)$. Then $p \equiv ab \mod{\af}$ which is a
     factorization in $\faktor{R}{\af}[x]$; a contradiction!
@@ -101,14 +100,14 @@
 
         \item[(4)] The polynomial $xy+x+y+1=(x+1)(y+1)$ is reducible, but is
             irreducible $\mod{(x)}$ and $\mod{(y)}$ as well. This occures since
-            nonunit polynomials in $\Z[x,y]$ can reduce to units in the
+            non-unit polynomials in $\Z[x,y]$ can reduce to units in the
             quotient. Hence, to determine irreduciblity in $\Z[x,y]$ using
             ideals, it is necessary to first observe which elements reduce to
             quotients in the quotient ring.
     \end{enumerate}
 \end{example}
 
-\begin{theorem}[The Eisenstein-Sch\"omann Criterion]\label{theorem_7.3.5}
+\begin{theorem}[The Eisenstein-Sch\"onemann Criterion]\label{theorem_7.3.4}
     Let $\pf$ a prime ideal of an integral domain $R$, and let
     \begin{equation*}
         f(x)=a_0+a_1x+\dots+a_nx^n
@@ -137,8 +136,8 @@
 
 \begin{example}\label{example_7.6}
     \begin{enumerate}
-        \item[(1)] by Eisenstein's criterion for $p=5$,  $x^4+10x+5$ is
-            irreducible in  $\Z[x]$.
+        \item[(1)] By the Eisenstein-Sh\"onemann criterion for $p=5$,
+          $x^4+10x+5$ is irreducible in  $\Z[x]$.
 
         \item[(2)] If $a \in \Z$, and  $p$ is a prime such that  $p|a$, but $p^2
             \nmid a$, then the polynomial $x^n-a$ is irreducible in  $\Z[x]$ for

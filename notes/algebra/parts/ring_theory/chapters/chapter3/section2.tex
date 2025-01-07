@@ -2,14 +2,14 @@
 \label{section_7.2}
 
 \begin{lemma}[Gauss]\label{lemma_7.2.1}
-  Let $R$ be a unique factorization ring, with field of fractions $F$. and let
-  $p(x)$ a polynomial in $R[x]$. If $p$ is reducible in $F[x]$, then $p$ is
-  reducible in  $R[x]$. That is, if $p(x)=A(x)B(x)$, where $A,B \in F[x]$,
-  then there exist $r,s \in F$, nonzero, for which  $rA(x)=a(x) \in R[x]$,
+  Let $R$ be a unique factorization ring, with field of fractions $k$. and let
+  $p(x)$ a polynomial in $R[x]$. If $p$ is reducible in $k[x]$, then $p$ is
+  reducible in  $R[x]$. That is, if $p(x)=A(x)B(x)$, where $A,B \in k[x]$,
+  then there exist $r,s \in k$, nonzero, for which  $rA(x)=a(x) \in R[x]$,
   $sB(x)=b(x) \in R[x]$, and $p(x)=a(x)b(x)$.
 \end{lemma}
 \begin{proof}
-  Since $A,B \in F[x]$, they are quotients of elements of $R$. Then
+  Since $A,B \in k[x]$, they are quotients of elements of $R$. Then
   multiplying by a nonzero common divisor  $d \in R$, take  $dp(x)=a'(x)b'(x)$,
   where $a',b' \in R[x]$. Now, if $d$ is a unit, then take
   $a(x)=\inv{d}a'(x)$, and $b(x)=b'(x)$ and we are done. Suppose, then that
@@ -26,18 +26,18 @@
   $\frac{a'}{p_1}(x)$ has coefficients in $R$. Now, this leaves  $d$ with one
   fewer irreducible factors. Hence repeating the process for  $p_2, \dots,
   p_n$, cancel $d$ in the two polynomials and we get  $p(x)=a(x)b(x)$, where
-  $a,b \in R$, and  $a=rA$,  $b=sB$ for some  $r,s \in F$ nonzero.
+  $a,b \in R$, and  $a=rA$,  $b=sB$ for some  $r,s \in k$ nonzero.
 \end{proof}
 \begin{corollary}
   If the coefficients of $p$ are coprime, then  $p$ is irreducible in  $R[x]$
-  if, and only if it is irreducible in $F[x]$.
+  if, and only if it is irreducible in $k[x]$.
 \end{corollary}
 \begin{proof}
-  By above, if $p$ is reducible in  $F[x]$, it is reducible in $R[x]$.
+  By above, if $p$ is reducible in $k[x]$, it is reducible in $R[x]$.
   Conversley, let $a_0, \dots, a_n$ the coefficients of $p$, and suppose that
   $c=(a_0, \dots, a_1)=1$. Now, if $p$ is reducible in $R[x]$, since $d=1$,
   $p(x)=a(x)b(x)$, where neither $a,b \in R[x]$ are constant in $R[x]$. This
-  is also a factorization in $F[x]$.
+  is also a factorization in $k[x]$.
 \end{proof}
 
 \begin{theorem}\label{lemma_7.2.2}
@@ -46,7 +46,7 @@
 \end{theorem}
 \begin{proof}
   Certainly, if $R[x]$ is a UFD, so is $R$, since the constant polynomials
-  are just elements of  $R$. Now, suppose that  $R$ is a UFD, and let  $F$ be
+  are just elements of  $R$. Now, suppose that  $R$ is a UFD, and let $k$ be
   the field of fractions of  $R$, and  $p \in R[x]$ a polynomial with
   coefficients $a_0, \dots, a_n$. Let $d=(a_0, \dots, a_n)$. Then
   $p(x)=dp'(x)$, where the coefficients of $p'$ are coprime. Then such
@@ -55,9 +55,9 @@
   $R[x]$.
 
   Let $c=1$ the gratest common divisor of the coefficients of  $p'$. Since
-  $F[x]$ is a UFD, $p'$ can be uniquely factored in  $F[x]$. Hence, by
+  $k[x]$ is a UFD, $p'$ can be uniquely factored in  $k[x]$. Hence, by
   Gauss' lemma, there is a factorization of $p'$ in  $R[x]$, whose factors
-  are $F$-multiples of factoris in  $F[x]$. Since $c=1$, each of these
+  are $k$-multiples of factoris in $k[x]$. Since $c=1$, each of these
   factors must have coprime coefficients, and hence by the preceding
   corollary, each of these factors is irreducible in $R[x]$. That is, $p'$ is
   a finite product of irreducibles.
@@ -68,8 +68,8 @@
   \end{equation*}
   are two factorizations of $p'$ into irreducibles. Since  $c=1$, the
   coefficients of each factor in $p_i$ and  $q_j$ must be coprime, and
-  $\deg{p_i}>0$ and $\deg{q_j}>0$. Now, sicne the units of $F[x]$ are the
-  elements of $\Uc(F)$ , consider when $p'(x)=\frac{a}{b}q(x)$, where $a,b
+  $\deg{p_i}>0$ and $\deg{q_j}>0$. Now, sicne the units of $k[x]$ are the
+  elements of $\Uc(k)$ , consider when $p'(x)=\frac{a}{b}q(x)$, where $a,b
   \in R$ are nonzero. Then the coefficients in $q$ are coprime. Since the
   greatest commond divisror in a UFD is unique up to unit,  $a=ub$ for some
   unit  $u \in R$. And  $p'$ and $q$ are associate in $R[x]$. This makes
