@@ -4,7 +4,7 @@
 \begin{definition}
   Let $R$ be a commutative ring. We call a map  $N:R \xrightarrow{} \N$, with
   $N(0)=0$ a \textbf{norm}, or, \textbf{degree}. If $N(a) \geq 0$, for all $a
-  \in R$, then we call $N$ \textbf{nonnegative} If $N(a)>0$ for all $a \in R$
+  \in R$, then we call $N$ \textbf{non-negative} If $N(a)>0$ for all $a \in R$
   then we call  $N$ \textbf{positive}.
 \end{definition}
 
@@ -21,30 +21,29 @@
 
 \begin{example}\label{example_6.1}
   \begin{enumerate}
-    \item[(1)] Let $F$ be any field, and  $N:F \xrightarrow{} \N$ defined by
-      $N(a)=0$ for all $a \in F$. Then  $N$ makes  $F$ into a Euclidean
-      domain. Take  $a,b \in F$, with  $b \neq 0$, and  $q=a\inv{b}$. Then
+    \item[(1)] Let $k$ be any field, and  $N:k \xrightarrow{} \N$ defined by
+      $N(a)=0$ for all $a \in k$. Then  $N$ makes  $k$ into a Euclidean
+      domain. Take  $a,b \in k$, with  $b \neq 0$, and  $q=a\inv{b}$. Then
       $a=qb+r$ where  $r=0$.
 
     \item[(2)] The integers $\Z$ is a Euclidean domain with norm $N(a)=|a|$,
       the absolute value of $a$. In fact, the motivation for Euclidean
-      rings comes from the division theorem, or Euclid's theorem for
-      integers.
+      rings comes from the division theorem for integers.
 
-    \item[(3)] Let $F$ be a field, and consider  $F[x]$. Let $N:F[x]
+    \item[(3)] Let $k$ be a field, and consider  $k[x]$. Let $N:k[x]
       \xrightarrow{} \N$ be defined by $N:f \xrightarrow{} \deg{f}$. Then
-      $f$ is a Euclidean domain. If  $F$ is not a field, then it is not
-      necesarily true that $F[x]$ be a Euclidean domain.
+      $f$ is a Euclidean domain. If  $k$ is not a field, then it is not
+      necesarily true that $k[x]$ be a Euclidean domain.
 
     \item[(4)] Let $D \in \Z^+$ be squarefree, and consider  $\Z[\sqrt{D}]$.
       Define $N:\Z[\sqrt{D}]=\N$ to be the absolute value of the field
       norm, that is $N(a+b\sqrt{D})=\|a+b\sqrt{D}\|^2=a^2+Db^2$. We notice
-      that $\Z[\sqrt{D}]$ is an integral domain, but it is not a Euclidean
-      domain. This depends on our choice of $D$. Let  $D=-1$ so tha t
-      $\sqrt{D}=i$, and $i^2=-1$. Then the Gaussian integers, $\Z[i]$, is
-      a Euclidean domeain. Let $x=a+ib$,  $y=c+id$ with  $y \neq 0$. In
-      $\Q[i]$, the field of fractions, we have that $\frac{x}{y}=r+is$,
-      where
+      that $\Z[\sqrt{D}]$ is an integral domain, but it is not in
+      general a Euclidean domain. This depends on our choice of $D$.
+      Let  $D=-1$ so that $\sqrt{D}=i$, and $i^2=-1$. Then the Gaussian
+      integers, $\Z[i]$, is a Euclidean domeain. Let $x=a+ib$,
+      $y=c+id$ with  $y \neq 0$. In $\Q[i]$, the field of fractions of
+      $\Z[i]$, we have that $\frac{x}{y}=r+is$, where
       \begin{equation*}
         r=\frac{ac+bd}{\|y\|^2} \text{ and } s=\frac{bc-ad}{\|y\|^2}
       \end{equation*}
@@ -62,25 +61,25 @@
       \end{equation*}
       which makes $\Z[i]$ into a Euclidean domain.
 
-    \item[(5)] Let $K$ be a field. We define a  \textbf{discrete valuation}
-      to be a map $\nu:K^\ast \xrightarrow{} \Z$ such that
+    \item[(5)] Let $k$ be a field. We define a  \textbf{discrete valuation}
+      to be a map $\nu: \Uc(k) \xrightarrow{} \Z$ such that
       \begin{enumerate}
         \item[(i)] $\nu(ab)=\nu(a)+\nu(b)$.
 
         \item[(ii)] $\nu$ is onto.
 
         \item[(iii)] $\min{\{\nu(x),\nu(y)\}} \leq \nu(x+y)$, for all
-          $x,y \in K^\ast$ for which  $x+y \neq 0$.
+          $x,y \in k^\ast$ for which  $x+y \neq 0$.
       \end{enumerate}
-      We call the set $\nu{K}=\{x \in K^\ast : \nu(x) \geq 0\}$ the
-      \textbf{valuation ring} of $\nu$ and is a subring of  $K^\ast$. We
+      We call the set $\nu{k}=\{x \in \Uc{(k)} : \nu(x) \geq 0\}$ the
+      \textbf{valuation ring} of $\nu$ and is a subring of $\Uc{(k)}$. We
       call an integral domain  $R$ a  \textbf{discrete valuation ring} if
       there exists a discrete valuation $\nu$ on the field of fractions of
       $R$, having  $\nu{R}$ as its valuation ring.
 
       It can be shown that discrete valuation rings are Euclidean
       domains by the norm $N:0 \xrightarrow{} 0$ and $N=\nu$ on all
-      $R^\ast$.
+      $\Uc{(R)}$.
   \end{enumerate}
 \end{example}
 
@@ -155,24 +154,27 @@
 
 \begin{lemma}\label{lemma_6.1.2}
   Let $R$ be a commutative ring. For any $a,b \in R$ a nonzero element  $d \in
-  R$ is the greatest common divisor if
+  R$ is the greatest common divisor of $a$ and $b$ if, and only if:
   \begin{enumerate}
     \item[(1)] $(a,b) \subseteq (d)$.
 
     \item[(2)] If $c \in R$ is nonzero with $(a,b) \subseteq (c)$, then $(d)
       \subseteq (c)$.
   \end{enumerate}
-  In particular, $d=(a,b)$.
+  In particular, $(d)=(a,b)$.
 \end{lemma}
 \begin{proof}
-  The first two statements follow from definition, and the last follows lemma
-  \ref{lemma_6.1.1}.
+  By the properties of ideals, we have equivalence between the
+  statements of the lemma and the definition of the greatest common
+  divisor. Now, since $(a,b) \subseteq (d)$, since every ideal in a
+  Euclidean domain is principle, by lemma \ref{lemma_6.1.1},
+  $(d)=(a,b)$.
 \end{proof}
 
 \begin{lemma}\label{lemma_6.1.3}
-  If $R$ is a commutative ring, and $a,b \in R^\ast$, such that  $(a,b)=(d)$
-  for some $d \in R^\ast$, then $d$ is the greatest common divisor of $a$ and
-  $b$.
+  If $R$ is a commutative ring and $a,b \in R$ non-zero elements such
+  that $(a,b)=(d)$, for some non-zero $d \in R$, then $d$ is the
+  greatest common divisro of $a$ and $b$.
 \end{lemma}
 
 \begin{lemma}\label{lemma_6.1.4}
@@ -197,6 +199,11 @@
 \begin{lemma}\label{lemma_6.1.5}
   Every Euclidean domain is a Bezout domain.
 \end{lemma}
+\begin{proof}
+  Since every ideal of a Euclidean domain is principle, and every unit
+  of a Euclidean domain is the greatest common divisor of two other
+  units, by lemma \ref{lemma_6.1.4}, we have the result.
+\end{proof}
 
 \begin{theorem}[The Extended Euclidean Algorithm]\label{theorem_6.1.6}
   Let $R$ be a Euclidean and $a,b \neq 0$ elements of  $R$. Let  $d=r_n$ be
@@ -231,7 +238,7 @@
   $\tilde{R}=\Uc{(R)} \cup \{0\}$ the group of units together with $0$.
   We call an element  $u \in \com{R}{\tilde{R}}$ a \textbf{universal side
   divisor} if for all $x \in R$, there is a  $z \in \tilde{R}$ such that
-  $u|x-z$.
+  $u|(x-z)$.
 \end{definition}
 
 \begin{lemma}\label{lemma_6.1.7}

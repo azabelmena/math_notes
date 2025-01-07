@@ -3,12 +3,12 @@
 
 \begin{lemma}\label{lemma_6.4.1}
   Let $D \in \Z$ a square free integer. If for some $z \in \Z[\sqrt{D}]$,
-  $N(z)$ is $\pm$ a prime, then  $z$ is irreducible in
-  $\Z[\sqrt{D}]$.
+  $N(z)$ is $\pm{p}$ with $p \in \Z^+$ a prime, then
+  $z$ is irreducible in $\Z[\sqrt{D}]$.
 \end{lemma}
 \begin{proof}
   Let $z \in \Z[\sqrt{D}]$ an element with prime norm $N(z)=p$, where
-  $N=\|\cdot\|^2$. Then f  $z=vw$, for some  $v,w \in \Z[\sqrt{D}]$, then
+  $N=\|\cdot\|^2$. If $z=vw$, for some  $v,w \in \Z[\sqrt{D}]$, then
   $p=N(z)=N(v)N(r)$, so that either $N(v)=\pm 1$ or $N(w)=\pm 1$. In either
   case, $v$ or  $w$ is a unit in  $\Z[\sqrt{D}]$, which makes $z$ irreducible.
 \end{proof}
@@ -18,19 +18,19 @@
   \in \Z$, if, and only if  $p=2$, or  $p \equiv 1 \mod{4}$, for $p$ odd.
 \end{lemma}
 \begin{proof}
-  Certainly, $2=1^2+1$. Now suppose that  $p$ is an odd prim.e. IF  $p|n^2+1$,
+  Certainly, $2=1^2+1$. Now suppose that  $p$ is an odd prim.e. If  $p|n^2+1$,
   then  $n^2 \equiv -1 \mod{p}$. That is $n$ is of order $4$ in the unit group
-  $U(\faktor{\Z}{p\Z})$. So $p|n^2+1$ if, and only if  $U(\faktor{\Z}{p\Z})$
+  $\Uc{(\faktor{\Z}{p\Z})}$. So $p|n^2+1$ if, and only if  $\Uc{(\faktor{\Z}{p\Z})}$
   contains an element of order $4$; by Lagrange's theorem we then have that
   $4|p-1$, which makes $p \equiv 1 \mod{4}$.
 
   Conversely, if $p \equiv 1 \mod{4}$, then $4|(p-1)$. Now, if $m \in \Z$ such
   that  $m^2 \equiv 1 \mod{p}$, then $p|(m^2-1)=(m+1)(m-1)$ so that $m \equiv
-  \pm 1 \mod{p}$ and $m$ is unique. Now,  $U(\faktor{\Z}{p\Z})$ has a subgroup
+  \pm 1 \mod{p}$ and $m$ is unique. Now, $\Uc{(\faktor{\Z}{p\Z})}$ has a subgroup
   of order $4$. Notice that since the Klein-$4$ group, $V_4$ has three elements
-  of order $2$, and  $U(\faktor{\Z}{p\Z})$ has only one, then this subgroup
+  of order $2$, and  $\Uc{(\faktor{\Z}{p\Z})}$ has only one, then this subgroup
   cannot be $V_4$. The only other option is $\faktor{\Z}{4\Z}$. Thus
-  $U(\faktor{\Z}{p\Z})$ contains an element of order $4$, and we are done.
+  $\Uc{(\faktor{\Z}{p\Z})}$ contains an element of order $4$, and we are done.
 \end{proof}
 
 \begin{theorem}\label{lemma_6.4.3}

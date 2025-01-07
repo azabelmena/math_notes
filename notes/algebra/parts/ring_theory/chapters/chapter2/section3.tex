@@ -2,16 +2,17 @@
 \label{section_6.3}
 
 \begin{definition}
-  Let $R$ be an integral domain. A nonzero element  $r \in R$ that is not an
-  associate is called \textbf{irreducible} if whenever $r=ab$, then either $a$
-  or $b$ are units in $R$; otherwise, we call $r$ \textbf{reducible}.
-\end{definition}
-
-\begin{definition}
   Let $R$ be an integral domain. An element $p \in R$ is called \textbf{prime}
   if the ideal $(p)$ is a prime ideal. That is $p$ is not a unit and whenever
   $p|ab$, then either  $p|a$ or $p|b$. We call two elements $a,b \in R$
-  \textbf{associates} if $a=ub$ for some unit $u \in R$.
+  \textbf{associate} if $a=ub$ for some unit $u \in R$.
+\end{definition}
+
+
+\begin{definition}
+  Let $R$ be an integral domain. A nonzero element  $r \in R$ that is not an
+  associate is called \textbf{irreducible} if whenever $r=ab$, then either $a$
+  or $b$ are units in $R$; otherwise, we call $r$ \textbf{reducible}.
 \end{definition}
 
 \begin{lemma}\label{lemma_6.3.1}
@@ -29,7 +30,7 @@
   \begin{enumerate}
     \item[(1)] In the ring $\Z$ of integers, those elements which are
       irreducible are precisely those which are prime, since the ideals
-      $2\Z, 3\Z, \dots, p\Z, \dots$, for  $p$ a prime number are also the
+      $2\Z, 3\Z, \dots, p\Z, \dots$ for  $p$ a prime number are also the
       prime ideals of $\Z$
 
     \item[(2)] Irreducible elements need not be prime. The element $3 \in
@@ -49,7 +50,10 @@
   Let $R$ be a PID, and suppose that $p$ is irreducible. Let $(m)$ be the
   principle ideal containing $(p)$, then $p=rm$, and by irreducibility, either
   $r$ or $m$ are units, in either case, we get that either $(p)=(m)$ or
-  $(m)=(1)$. This makes $(p)$ a maximal ideal, and hence a prime ideal.
+  $(m)=(1)$. This makes $(p)$ a maximal ideal, and hence a prime
+  ideal. Now, since prime elements in integral domains are
+  irreducible, and PIDs are integral domains, the converse follows
+  from lemma \ref{lemma_6.3.1}.
 \end{proof}
 
 \begin{example}\label{example_6.7}
@@ -82,7 +86,7 @@
     \item[(1)] All fields are unique factorization domains.
 
     \item[(2)] Polynomial rings are unique factorization domains whenever
-      the ground ring $R$ is a unique factorization domain.
+      the ground ring is a unique factorization domain.
 
     \item[(3)] The subring $\Z[2i]$ of $\Z[i]$ is an integral domain, but it
       is not a UFD. Notice that both $2$ and  $2i$ are irreducible in
@@ -157,13 +161,13 @@
   Every Euclidean domain is a unique factorization domain.
 \end{corollary}
 \begin{proof}
-  Notice that Euclidean domains are PIDs by lemma \ref{lemma_6.1.1}.
+  Euclidean domains are PIDs by lemma \ref{lemma_6.1.1}.
 \end{proof}
 \begin{corollary}[The Fundamental Theorem of Arithmetic]
   $\Z$ is a unique factorization domain.
 \end{corollary}
 \begin{proof}
-  Notce that $\Z$ is a Euclidean domain.
+  $\Z$ is a Euclidean domain.
 \end{proof}
 \begin{corollary}
   There exists a multiplicative Dedekind-Hasse norm on $R$.
