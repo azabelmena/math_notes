@@ -2,7 +2,7 @@
 \label{section_7.3}
 
 \begin{definition}
-    Let $R$ be a ring, and  $p \in R[x]$. We call an element $\al \in R$ a
+    Let $R$ be a ring, and  $p \in R[x]$. We call an element $\a \in R$ a
     \textbf{root} (or \textbf{zero}) of $p$ if  $p(\a)=0$.
 \end{definition}
 
@@ -24,14 +24,18 @@
     hence we have a linear factor $(x-\a)$ of $p$.
 \end{proof}
 \begin{corollary}
-    A polynomial $p$ over a field $k$ of degree $\deg{p}=2,3$ is irreducible if,
+    A polynomial $p(x)$ over a field $k$ of degree $\deg{p}=2,3$ is irreducible if,
     and only if it has no root in $k$.
 \end{corollary}
 \begin{proof}
   If $p(x)$ is reducible of $\deg{p}=2,3$, then it has a linear
-  factor, so that $p(x)=(x-\a)q(x)$. where $\a$ is a root of $p$ and
+  factor, so that $p(x)=(x-\a)q(x)$. where $\a \in k$ is a root of $p$ and
   $\deg{q}=1,2$.
 \end{proof}
+\begin{corollary}
+  A polynomial $p(x)$ over $k$ of degree $\deg{p}=2,3$ is irreducible
+  over $k$ if, and only if it has no linear factors over $k$.
+\end{corollary}
 
 \begin{lemma}\label{lemma_7.3.2}
     Let $R$ be a unique factorization domain, and
@@ -48,7 +52,7 @@
     Multiplying both sides by $s^n$, we have
     \begin{equation*}
         s^na_0+s^na_1(\frac{r}{s^{n-1}})+\dots+a_nr^n=0
-    \end{equation*}
+   \end{equation*}
     so that
     \begin{equation*}
         a_nr^n=s(-a_0s^{n-1}- \dots -a_{n-1}r^{n-1})
