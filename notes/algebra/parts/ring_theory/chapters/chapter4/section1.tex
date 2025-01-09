@@ -4,12 +4,12 @@
 \begin{definition}
   We define the \textbf{characteristic} of a field $F$ to be the smallest
   positive integer  $p$, such that  $p \cdot 1=0$, where  $1$ is the identity
-  of  $F$. We write  $\Char{F}=p$, and if no such $p$ exists, then we write
-  $\Char{F}=0$.
+  of  $F$. We write  $\char{F}=p$, and if no such $p$ exists, then we write
+  $\char{F}=0$.
 \end{definition}
 
 \begin{lemma}\label{lemma_8.1.1}
-  Let $F$ be a field, then  $\Char{F}$ is either $0$, or a prime integer.
+  Let $F$ be a field, then  $\char{F}$ is either $0$, or a prime integer.
 \end{lemma}
 \begin{proof}
   Let $\char{F}=p$. If $p=0$, then we are done. Now suppose that  $p=mn$, with
@@ -18,7 +18,7 @@
   integral domain, this is impossible, and hence  $p$ must be prime.
 \end{proof}
 \begin{corollary}
-  If $\Char{F}=p$, then for all $a \in F$,  $pa=\underbrace{a+\dots+a}_{p
+  If $\char{F}=p$, then for all $a \in F$,  $pa=\underbrace{a+\dots+a}_{p
   \text{ times}}$.
 \end{corollary}
 \begin{proof}
@@ -27,11 +27,11 @@
 
 \begin{example}\label{example_8.1}
   \begin{enumerate}
-    \item[(1)] Both $\Q$ and  $\R$ have  $\Char=0$. Similarly,
-      $\Char{\Z}=0$, even though $\Z$ is just an integral domain.
+    \item[(1)] Both $\Q$ and  $\R$ have  $\char=0$. Similarly,
+      $\char{\Z}=0$, even though $\Z$ is just an integral domain.
 
-    \item[(2)] $\Char{\faktor{\Z}{p\Z}}=p$ and
-      $\Char{\faktor{\Z}{p\Z}[x]}=p$ for any prime $p$.
+    \item[(2)] $\char{(\faktor{\Z}{p\Z})}=p$ and
+      $\char{(\faktor{\Z}{p\Z}[x])}=p$ for any prime $p$.
   \end{enumerate}
 \end{example}
 
@@ -53,8 +53,8 @@
 
 \begin{definition}
   If $K$ is a field containing a field $F$, then we call  $K$  \textbf{field
-  extension} over $F$, and write  $\faktor{K}{F}$ (not the quotient field!) or
-  denote it by the diagram
+  extension} over $F$, and write  $\faktor{K}{F}$ (this is not a fator
+  set!) or denote it by the diagram
   \[\begin{tikzcd}
     K \\
     F
