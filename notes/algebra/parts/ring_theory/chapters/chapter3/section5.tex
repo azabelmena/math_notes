@@ -1,44 +1,145 @@
-\section{Gr\"obner Bases}
+\section{Monomial Orderings}
 \label{section_7.5}
 
+Throughout this section, we implicitly work in a multivariate
+polynomial ring, unless otherwise specified. We consider monomials
+over this ring, and omit all mention to it, unless otherwise
+specified.
+
 \begin{definition}
-  Let $R$ be a ring, and  $M$ the set of monomials in  $R[x_1, \dots,
-  x_n]$. We define the \textbf{monomial ordering} $\leq$ on $M$ to be
-  the lexicographic ordering on $M$. That is: identifying $(m,n)$ with
-  $mn$
+  Let $x_1^{a_1} \dots x_n^{a_n}$ be a monomial term in a multivariate
+  polynomial ring. We define the \textbf{multi-degree} of $x_1^{a_1} \dots
+  x_n^{a_n}$ to be the $n$-tuple $\a=(a_1, \dots, a_n)$ in $\N^n$. We
+  denote the monomials of a multivariate polynomial ring, usinge the
+  multi-degree by
   \begin{equation*}
-    m_1n_1 \leq m_2n_2 \text{ if, and only if }
-    m_1=m_2 \text{ or }  n_1 \leq n_2
+    X^\a=x_1^{a_1} \dots x_n^{a_n}
   \end{equation*}
 \end{definition}
 
-\begin{lemma}\label{lemma_7.5.2}
-  Let $R$ be a ring and  $M$ the set of all monomials in  $R[x_1,
-  \dots, x_n]$. Then $M$ is a partially ordered set under the monomial
-  ordering.
-\end{lemma}
-\begin{proof}
-  Exercise.
-\end{proof}
-\begin{corollary}
-  $M$ is a totally ordered set.
-\end{corollary}
-\begin{proof}
-  Exercise.
-\end{proof}
-\begin{corollary}
-  $M$ is well-ordered.
-\end{corollary}
-
-\begin{lemma}\label{7.5.3}
-  Let $R$ be a ring, and $M$ the set of monomials over $R[x_1, \dots,
-  x_n]$. Define the relation $\leq$ on $\Z^n$ by: for $\a,\b,\y \in
-  \Z^n$
+\begin{definition}
+  We define a \textbf{monomial ordering} on the collection of
+  monomials of a multivariate polynomial ring to be the relation
+  $\leq$ given by: For all $X^\a$ and  $X^\b$,
   \begin{equation*}
-    \a+\y \leq \b+\y \text{ if, and only if } \a \leq \b
+    X^\a \leq X^\b \text{ if, and only if }
+    X^\a X^\y \leq X^\b X^\y \text{ for all } X^\y
   \end{equation*}
-  where $\a=(a_1, \dots ,a_n), \b=(b_1, \dots, b_n), \y=(c_1, \dots,
-  c_n)$ correspond to the monomials $Ax_1^{a_1} \dots x_n^{a_n},
-  Bx_1^{b_1} \dots x_n^{b_n}$, and $Cx_1^{c_1} \dots x_n^{c_n}$ in
-  $M$. Then $\leq$ is equivalent to the monomial ordering on $M$.
+\end{definition}
+
+\begin{lemma}\label{lemma_7.5.1}
+  The collection of all monomials over a Noetherian ring is a
+  partially ordered set.
 \end{lemma}
+\begin{proof}
+  Fix $X^\y$. Then  $X^\a \leq X^\a$, since $X^\a X^\y=X^\a X^\y$.
+  Now, suppose that  $X^\a \leq X^\b$ and $X^\b \leq X^\a$. Then $X^\a
+  X^\y \leq X^\b X^\y$  and $X^\b X^\y \leq X^\a X^\y$, so that
+  $X^\a X^\y=X^\b X^\y$. This makes $X^\a=X^\b$.
+
+  Now, suppose that $X^\a \leq X^\b$ and $X^\b \leq X^\d$. Then $X^\a
+  X^\y \leq X^\b X^\y$ and $X^\b X^\y \leq X^\d X^\y$. So
+  $X^\a X^\y \leq X^\d X^\y$. Hence $X^\a \leq X^\d$.
+\end{proof}
+\begin{corollary}
+  Define the relation $\leq$ on the collection of multi-degrees of
+  monomials by: For all $\a, \b$
+  \begin{equation*}
+    \a \leq \b \text{ if, and only if }
+    \a+\y \leq \b+\y \text{ for all } \y
+  \end{equation*}
+  Then $\leq$ is a partial order. Moreover, it is equivalent to the
+  monomial ordering.
+\end{corollary}
+\begin{proof}
+  We have (under monomial ordering), that $X^\a \leq X^\b$ if, and only
+  if $X^\a X^\y \leq X^\b X^\y$, if, and only if $X^{\a+\y} \leq X^{\b+\y}$.
+  This establishes the equivalence between $\leq$ (on multi-degrees)
+  and the monomial ordering above.
+\end{proof}
+
+\begin{lemma}\label{lemma_7.5.2}
+  The monomials over a Noetherian ring are totally ordered under
+  monomial ordering.
+\end{lemma}
+\begin{proof}
+  Suppose that $X^\a \nleq X^\b$, and $X^\b \nleq X^\a$. Then there
+  exist $X^\y$ and  $X^\d$ for which  $X^\a X^\y \nleq X^\b X^\y$ and
+   $X^\b X^\d \nleq X^\a X^\d$. Observe that $X^\a \neq X^\b$.
+   Then we have:
+   \begin{equation*}
+     X^\b X^\y < X^\a X^\y \text{ and } X^\a X^\d < X^\b X^\d
+   \end{equation*}
+   which implies $X^\a<X^\b$ and $X^\b < X^\a$ so that $X^\a=X^\b$; a
+   contradiction! Hence the monomial ordering must be totally ordered.
+\end{proof}
+\begin{corollary}
+  $1 \leq X^\a$. In particular, the monomials of a multivariate
+  polynomial ring are well-ordered.
+\end{corollary}
+\begin{proof}
+  Take $\x=(0, \dots, 0)$, and $1=X^\x$. By total ordering, we have
+  either $1 \leq X^\a$ or $X^\a \leq 1$ for any $X^\a$. Now, suppose
+  that  $X^\a \leq 1$. Then for any $X^\y$
+  \begin{equation*}
+    X^\a X^\y \leq 1X^\y=X^\x X^\y
+  \end{equation*}
+  so that $\a+\y \leq \x+\y$, and hence $\a \leq \x$. Letting
+  $\a=(a_1, \dots, a_n)$, this makes $a_i=0$ in $\N$ for all
+  $1 \leq i \leq n$. Therefore $\a=\x$ and  $X^\a=X^\x$ in this case.
+  This proves that $1 \leq X^\a$ for all $X^\a$.
+
+  Now, obesever that by Hilbert's basis theorem, ideals generated my
+  monomials are finitely generated. Consier the polynomial:
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum_{i=1}^m{A_ix_1^{a_{i1}} \dots x_n^{a_{in}}}
+  \end{equation*}
+  Take $X=x_1 \dots x_n$, and $\a_i=(a_{i1}, \dots, a_{in})$. Then
+  \begin{equation*}
+    f(x_1, \dots x_n)=f(X)=\sum_{i=1}^m{A_iX^{\a_i}}
+  \end{equation*}
+  then $(f) \subseteq (X^{\a_1}, \dots, X^{\a_m})$. So that any
+  multivariate polynomial is characterized by an ideal finitely
+  generated by monomials. Now, let $M$ be the set of monomial terms of
+  $f$. We have $M$ is nonempty, since if $f(X)=0$ then
+  \begin{equation*}
+    f(X)=\sum_{i=1}^m{0X^{\a_i}} \in (X^{\a_1}, \dots, X^{\a_m})
+  \end{equation*}
+  Now, take the convention $X^{\a_1} \leq \dots \leq X^{\a_m}$. We
+  have that $M \subseteq (X^{\a_1}, \dots, X^{\a_m})$, so that $M$ has
+  an upper-bound, (possibly $X^\a_m$, and possible $X^{\a_m} \in M$).
+  So $M$ is a non-empty totally-ordered set bounded above. Therefore
+  by Zorn's lemma, $M$ has a maximum element. Therefore $M$ is a
+  well-ordered.
+\end{proof}
+
+\begin{definition}
+  We define the \textbf{lexicographic order} on monomials of a
+  multivariate polynomial ring to be the relation $\leq$ defined by:
+  For all $X^\a=x_1^{a_1} \dots x_n^{a_n}$ and $X^\b=x_1^{b_1} \dots
+  x_n^{b_n}$
+  \begin{equation*}
+    X^\a \leq X^\b \text{ if, and only if }
+    x_2^{a_2}=x_1^{b_1} \text{ and }
+    x_2^{a_2} \dots x_n^{a_n} \leq x_2^{b_2} \dots x_n^{b_n} \text{
+    under a monomial ordering}
+  \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lemma_7.5.3}
+    The lexicographic order on monomials is a monomial ordering.
+\end{lemma}
+\begin{proof}
+  Take $\a=(a_1, \a'), \b= (b_1,\b')$ and $\y=(c_1,\y')$ where
+  $\a'=(a_2, \dots, a_n), \b=(b_2, \dots, b_n)$ and $\y'=(c_2, \dots,
+  c_n)$. Then $X^\a \leq X^\b$ if, and only if $x_1^{a_1}=x_1^{b_1}$,
+  and $X^{\a'} \leq X^{\b'}$. Then observe that
+  \begin{equation*}
+    x_1^{a_1}x_1^{c_1}=x_1^{a_1+c_1} \leq x_1^{b_1+c_1}=x_1^{b_1}x_1^{c_1}
+  \end{equation*}
+  and
+  \begin{equation*}
+    X^{\a'}X^{\y'}=X^{\a'+\y'} \leq X^{\b'+\y'}=X^{\b'}X^{\y'}
+  \end{equation*}
+  so that $X^\a X^\y \leq X^\b X^\y$.
+\end{proof}
