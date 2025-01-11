@@ -1,58 +1,190 @@
-\section{The Chinese Remainder Theorem}
+\section{Rings of Fractions}
+\label{section_5.7}
 
-\begin{theorem}[The Chinese Remainder Theorem]\label{theorem_5.7.1}
-  Let $\af_1, \dots, \af_k$ be ideals in a commutative ring $R$ with identity.
-  Then the map
-  \begin{align*}
-    R   &   \xrightarrow{} \faktor{R}{\af_1} \times \dots \times
-    \faktor{R}{\af_k} \\
-    r   &   \xrightarrow{} (r+\af_1, \dots, r+\af_k)    \\
-  \end{align*}
-  is a ring homomorphism with kernel
+\begin{lemma}\label{lemma_5.7.1}
+  Let $R$ a commutative ring, and  $D \subseteq R$ be nonempty with $0 \notin
+  D$ such that $D$ contains no zero divisors of $R$ and that it is closed
+  under multiplication. Define the relation $\sim$ on  $R \times D$ by
   \begin{equation*}
-    K=\bigcap_{i=1}^k{\af_i}
+    (a,b) \sim (c,d) \text{ if, and only if } ad-bc=0
   \end{equation*}
-  Moreover if for all $1 \leq i,j \leq k$ with  $i \neq j$,  $\af_i$ and  $\af_j$
-  are coprime, then this map is onto with  $\bigcap{\af_i}=\prod{\af_i}$ so that
-  \begin{equation*}
-    \faktor{R}{(\af_1, \dots, \af_k)} \simeq \faktor{R}{\af_1} \times \dots
-    \times \faktor{R}{\af_k}
-  \end{equation*}
+  Then $\sim$ is an equivalence relation on  $R \times D$.
+\end{lemma}
+\begin{proof}
+  We have $ab-ab=0$ so that  $(a,b) \sim (a,b)$. Moreover, if $ad-bc=0$, then
+  $bc-ad=0$ so that  $(a,b) \sim (c,d)$ implies $(c,d) \sim (a,b)$. Lastly,
+  let $(a,b) \sim (c,d)$ and $(c,d) \sim (e,f)$. Then $ad-bc=0$ and
+  $cf-ed=0$, so $af-eb=(ad-bc)f+d(cf-de)=0$ so that $(a,b) \sim (e,f)$.
+\end{proof}
+
+\begin{theorem}\label{theorem_5.7.2}
+  Let $R$ a commutative ring, and  $D \subseteq R$ be nonempty with $0 \notin
+  D$ such that $D$ contains no zero divisors of $R$ and that it is closed
+  under multiplication. Then there exists a commutative ring $Q$ with identity
+  such that  every element of  $D$ is a unit of $Q$.
 \end{theorem}
 \begin{proof}
-  Let $k=2$, and  $\af_1=\af$ and $\af_2=\bf$. Consider the map
+  Define the equivalence relation $\sim$ on  $R \times D$ by
+  \begin{equation*}
+    (a,b) \sim (c,d) \text{ if, and only if } ad-bc=0
+  \end{equation*}
+  Label the equivalence classes of $\sim$ over $R \times D$ as
+  $\frac{a}{b}=\{(c,d) \in R \times D : ad-bc=0\}$. Let
+  \begin{equation*}
+    Q=\faktor{(R \times D)}{\sim}
+  \end{equation*}
+  The factor set of $\sim$ over $R \times D$ and define binary operations $+$
+  and  $\cdot$ by
   \begin{align*}
-    \phi:R  &   \xrightarrow{} R  \\
-    r   &   \xrightarrow{}  (r+,r+\bf)   \\
+    \frac{a}{b}+\frac{c}{d}     &=  \frac{ad+bc}{bd}    \\
+    \frac{a}{b}\frac{c}{d}     &=  \frac{ac}{bd}    \\
   \end{align*}
-  Then $rs \xrightarrow{} (rs+\af,rs+\bf)=(r+\af,r+\bf)(s+\af,s+\bf)$ so that $\phi$ is a
-  ring homomorphism. Now, let  $r \in \ker{\phi}$, then $(r+\af,r+\bf)=(\af,\bf)$ so
-  that $r \in \af \cap \bf$, conversly if  $r \in \af \cap \bf$ then  $r+\af=\af$ and
-  $r+\bf=\bf$ so that  $r \in \ker{\phi}$. Thereofore
+
+  Suppose that $\frac{a}{b}=\frac{a'}{b'}$ and $\frac{c}{d}=\frac{c'}{d'}$.
+  Then $ab'-a'b=0$ and  $cd'-c'd=0$. Then
+  \begin{align*}
+    (ad+bc)(b'd')       &=  adb'd'+bcb'd'  \\
+                        &=  ab'dd'+cd'bb'   \\
+                        &=  a'bdd'+c'dbb'   \\
+                        &=  (a'd'c'd')bd    \\
+  \end{align*}
+  So that $+$ is well define. By similar reasoning,  $\cdot$ is also well
+  defined.
+
+  Now, let  $\frac{a}{b},\frac{c}{d} \in Q$. Then
+  $\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd} \in Q$, as $ad+bc \in R$, and
+  since  $b,d \in D$,  $bd \in D$. Moreover
   \begin{equation*}
-    \ker{\phi}=\af \cap \bf
+    \frac{a}{b}+(\frac{c}{d}+\frac{e}{f})=\frac{a}{b}+\frac{cf+de}{df}
+    =\frac{adf+bcf+bde}{bdf}
+  \end{equation*}
+  and
+  \begin{equation*}
+    (\frac{a}{b}+\frac{c}{d})+\frac{e}{f}=\frac{ad-bc}{bd}+\frac{e}{f}
+    =\frac{adf+bcf+bde}{bdf}
+  \end{equation*}
+  so that $+$ is associative. Now, take  $c=0$ and  $d \in D$, and we have
+  \begin{equation*}
+    \frac{a}{b}+\frac{0}{d}=\frac{ad}{bd}=\frac{a}{b}
+  \end{equation*}
+  Since, $abd-abd=0$ making $\frac{ad}{bd}=\frac{a}{b}$. Similarly, take
+  $c=-a$ and  $d \in D$ and we get
+  \begin{equation*}
+    \frac{a}{b}+\frac{-a}{d}=\frac{0}{b}
+  \end{equation*}
+  So $\frac{0}{d}$ is the identity, and $\frac{-a}{d}$ is the inverse of
+  $\frac{a}{b}$. Lastly, since $R$ is commutative, this makes
+  \begin{equation*}
+    \frac{a}{b}+\frac{c}{d}=\frac{c}{d}+\frac{a}{b}
   \end{equation*}
 
-  Now, suppose that $\af$ and  $\bf$ are coprime, that is, $\af+\bf=(1)$. Then there
-  is an  $x \in \af$, and a  $y \in \bf$ such that  $x+y=1$. Then $\phi(x)=(0,1)$
-  and $\phi(y)=(1,0)$ and $x=1-y \in 1+\bf$. Now, take  $r+\af$,  $s+\bf$, then
+  Now, notce that since $D$ is closed under multiplication, we have
   \begin{equation*}
-    \phi(rx+sy)=\phi(r)\phi(x)+\phi(s)+\phi(y)=(r+\af,r+\bf)(0,1)+(s+\af,s+\bf)(1,0)
-    =(r+\af,s+\bf)
+    \frac{a}{b}\frac{c}{d}=\frac{ac}{bd} \in Q
   \end{equation*}
-  this makes $\phi$ onto, moreover notice that  $\af\bf \subseteq \af \cap \bf$, and
-  if  $\af+\bf=(1)=R$, then for every $x \in \af\bf$,  $c=c \cdot 1=cx+cy \in \af\bf$ so
-  that  $\af \cap \bf=\af\bf$.
-
-  Now, by induction on $k \geq 2$, takine  $\af=\af_1$ and
-  $\bf=(\af_2, \dots, \af_k)$ by repeating the above argument, we get
-  the result.
+  Moreover,
+  \begin{equation*}
+    \frac{a}{b}(\frac{c}{d}\frac{e}{f})=\frac{a}{b}\frac{ce}{df}=\frac{ace}{bdf}
+    =\frac{ac}{bd}\frac{e}{f}=(\frac{a}{b}\frac{c}{d})\frac{e}{f}
+  \end{equation*}
+  Additionally, since $R$ is commutative, we get
+  \begin{equation*}
+    \frac{a}{b}\frac{c}{d}=\frac{c}{d}\frac{a}{b}
+  \end{equation*}
+  Lastly, take $c=d$ and  $d \in D$. Then
+  \begin{equation*}
+    \frac{a}{b}\frac{d}{d}=\frac{ad}{bd}=\frac{a}{b}
+  \end{equation*}
+  This makes $Q$ a commutative righ with identity. Moreover, every element of
+  $D$ is a unit in $Q$ Moreover $R \subseteq Q$ by taking $r \xrightarrow{}
+  \frac{r}{d}$ for some $d \in D$.
 \end{proof}
 \begin{corollary}
-  Let $n=p_1^{a_1} \dots p_k^{a_k} \in \Z^+$ be the prime factorization of
-  $n$, where  $p_1 \neq \dots \neq p_k$. Then
-  \begin{equation*}
-    \faktor{\Z}{n\Z} \simeq U(\faktor{\Z}{p_1^{a_1}\Z}) \times \dots \times
-    U(\faktor{\Z}{p_1^{a_1}\Z})
-  \end{equation*}
+  The ring $Q$ satisfies the following
+  \begin{enumerate}
+    \item[(1)] $Q$ contains a copy of $R$ as a subring, and every element of
+      $Q$ is of the form $r\inv{d}$. Moreover, if $R$ is an integral
+      domain, and $D=\com{R}{\{0\}}$, then $Q$ is a field.
+
+    \item[(2)] $Q$ is unique and the smallest ring containing a copy of  $R$
+      for which every element of  $D$ is a unit.
+  \end{enumerate}
 \end{corollary}
+\begin{proof}
+  Imbed $R$ into $Q$ first. Define the map  $\iota:R \xrightarrow{} Q$ by
+  taking $r \xrightarrow{} \frac{rd}{d}$ where $d \in D$. Notice that
+  $\frac{rd}{d}=\frac{re}{e}$, so that $\iota$ is well defined. Now, since
+  $\frac{d}{d}$ is the identity of $Q$, we have
+  \begin{equation*}
+    \frac{rsd}{d}=\frac{arsd}{dd}=\frac{rd}{d}\frac{sd}{d}
+  \end{equation*}
+  So that $\iota$ is a ring homomorphism. Now, subce no  $d \in D$ is a zero
+  divisor, we have that $\ker{\iota}=(0)$ This makes  $\iota$ 1--1. Therefore,
+  by the first isomorphism theorem, we get
+  \begin{equation*}
+    \iota(R) \simeq R
+  \end{equation*}
+  Since $\iota(R) \subseteq Q$, $\iota$ is the required imbedding.
+
+  Now, if $D=\com{R}{\{0\}}$, this makes every $r \in R$, nonzero into a unit
+  of  $Q$. Then $Q$ has no zero divisors making it an integral domain, thus
+  $Q$ is a field.
+
+  Lastly, let $\phi:R \xrightarrow{} S$ be a 1--1 ring homomorphsim such that
+  every $\phi(d)$ is a unit in $S$, where $S$ is a commutative ring with unit
+  and $d \in D$. Define the map  $\Phi:Q \xrightarrow{} S$ by taking $r\inv{d}
+  \xrightarrow{} \phi(r\inv{d})$. Then $\Phi$ is a 1--1 ring homomorphism, so
+  that by the first isomorphism theorem,
+  \begin{equation*}
+    \Phi(Q) \simeq S
+  \end{equation*}
+  This makes $Q$ unique.
+\end{proof}
+
+\begin{definition}
+  Let $R$ a commutative ring, and  $D \subseteq R$ be nonempty with $0 \notin
+  D$ such that $D$ contains no zero divisors of $R$ and that it is closed
+  under multiplication. Define the equivalence relation $\sim$ on  $R \times D$
+  by
+  \begin{equation*}
+    (a,b) \sim (c,d) \text{ if, and only if } ad-bc=0
+  \end{equation*}
+  and let
+  \begin{equation*}
+    Q=\faktor{(R \times D)}{\sim}
+  \end{equation*}
+  Then we call the commutative ring $Q$, with identity  $1=\frac{d}{d}$, the
+  \textbf{ring of fractions} of $R$. If $D=\com{R}{\{0\}}$ and $R$ is an
+  integral domain, we call  $Q$ the \textbf{field of fractions}.
+\end{definition}
+
+\begin{lemma}\label{lemma_5.7.3}
+  If $R$ is an integral domain, and  $Q$ its field of fractions, and  $F$ is a
+  field containing  $R' \simeq R$, then the subfield of $F$ generated by $R$
+  is isomorphic to $Q$.
+\end{lemma}
+\begin{proof}
+  Let $\phi:R \xrightarrow{} R'$ the ring isomorphism between $R$ and  $R'$.
+  Then the  $\phi:R \xrightarrow{} F$ is 1--1. Define then the map $\Phi:Q
+  \xrightarrow{} F$ by $r\inv{d} \xrightarrow{} \phi(r\inv{d})$. Then $\Phi$
+  is 1--1 and by the first isomorphism theorem, $\Phi(Q) \simeq Q$. Moreover,
+  $\Phi(R)=\phi(R)=R' \subseteq \Phi(Q)$. Now, for all $r,s \in R$, we have
+  $\phi(r\inv{s}) \in \Phi(Q)$ and since every element of $Q$ is of the form
+  $r\inv{s}$, any subfield containiing $R'$ contains  $\Phi(Q)$.
+\end{proof}
+
+\begin{example}\label{example_5.23}
+  \begin{enumerate}
+    \item[(1)] The field of fractions of $\Z$ is $\Q$. Indeed, the
+      construction of the ring of fractions of a commutative ring with
+      identity is inspired by constructing $\Q$ from $\Z$.
+
+    \item[(2)] The field of fractions of $\Q$ is $\Q$ itself. In general if
+      $F$ is a field, it is its own field of fractions.
+
+    \item [(3)] The field of fractions of $\Z[\sqrt{D}]$ is $\Q[\sqrt{D}]$.
+
+    \item[(4)] $2\Z$ as a subring has no zero divisors, so the field of
+      fractions of $2\Z$ is also $\Q$.
+  \end{enumerate}
+\end{example}
