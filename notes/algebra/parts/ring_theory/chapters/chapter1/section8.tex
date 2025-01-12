@@ -1,0 +1,59 @@
+\section{The Chinese Remainder Theorem}
+\label{section_5.8}
+
+\begin{theorem}[The Chinese Remainder Theorem]\label{theorem_5.8.1}
+  Let $\af_1, \dots, \af_k$ be ideals in a commutative ring $R$ with identity.
+  Then the map
+  \begin{align*}
+    R   &   \xrightarrow{} \faktor{R}{\af_1} \times \dots \times
+    \faktor{R}{\af_k} \\
+    r   &   \xrightarrow{} (r+\af_1, \dots, r+\af_k)    \\
+  \end{align*}
+  is a ring homomorphism with kernel
+  \begin{equation*}
+    K=\bigcap_{i=1}^k{\af_i}
+  \end{equation*}
+  Moreover if for all $1 \leq i,j \leq k$ with  $i \neq j$,  $\af_i$ and  $\af_j$
+  are coprime, then this map is onto with  $\bigcap{\af_i}=\prod{\af_i}$ so that
+  \begin{equation*}
+    \faktor{R}{(\af_1, \dots, \af_k)} \simeq \faktor{R}{\af_1} \times \dots
+    \times \faktor{R}{\af_k}
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  Let $k=2$, and  $\af_1=\af$ and $\af_2=\bf$. Consider the map
+  \begin{align*}
+    \phi:R  &   \xrightarrow{} R  \\
+    r   &   \xrightarrow{}  (r+,r+\bf)   \\
+  \end{align*}
+  Then $rs \xrightarrow{} (rs+\af,rs+\bf)=(r+\af,r+\bf)(s+\af,s+\bf)$ so that $\phi$ is a
+  ring homomorphism. Now, let  $r \in \ker{\phi}$, then $(r+\af,r+\bf)=(\af,\bf)$ so
+  that $r \in \af \cap \bf$, conversly if  $r \in \af \cap \bf$ then  $r+\af=\af$ and
+  $r+\bf=\bf$ so that  $r \in \ker{\phi}$. Thereofore
+  \begin{equation*}
+    \ker{\phi}=\af \cap \bf
+  \end{equation*}
+
+  Now, suppose that $\af$ and  $\bf$ are coprime, that is, $\af+\bf=(1)$. Then there
+  is an  $x \in \af$, and a  $y \in \bf$ such that  $x+y=1$. Then $\phi(x)=(0,1)$
+  and $\phi(y)=(1,0)$ and $x=1-y \in 1+\bf$. Now, take  $r+\af$,  $s+\bf$, then
+  \begin{equation*}
+    \phi(rx+sy)=\phi(r)\phi(x)+\phi(s)+\phi(y)=(r+\af,r+\bf)(0,1)+(s+\af,s+\bf)(1,0)
+    =(r+\af,s+\bf)
+  \end{equation*}
+  this makes $\phi$ onto, moreover notice that  $\af\bf \subseteq \af \cap \bf$, and
+  if  $\af+\bf=(1)=R$, then for every $x \in \af\bf$,  $c=c \cdot 1=cx+cy \in \af\bf$ so
+  that  $\af \cap \bf=\af\bf$.
+
+  Now, by induction on $k \geq 2$, takine  $\af=\af_1$ and
+  $\bf=(\af_2, \dots, \af_k)$ by repeating the above argument, we get
+  the result.
+\end{proof}
+\begin{corollary}
+  Let $n=p_1^{a_1} \dots p_k^{a_k} \in \Z^+$ be the prime factorization of
+  $n$, where  $p_1 \neq \dots \neq p_k$. Then
+  \begin{equation*}
+    \faktor{\Z}{n\Z} \simeq U(\faktor{\Z}{p_1^{a_1}\Z}) \times \dots \times
+    U(\faktor{\Z}{p_1^{a_1}\Z})
+  \end{equation*}
+\end{corollary}

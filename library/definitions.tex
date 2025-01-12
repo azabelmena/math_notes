@@ -14,6 +14,7 @@
 \newcommand{\bbar}[1]{\underline{#1}}
 \newcommand\qedsymbol{\scriptsize{\textrm{\textsc{QED}}}.}
 \renewcommand{\tbar}[1]{\overline{#1}}
+\newcommand{\cl}[1]{\tbar{#1}}
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand*{\proofname}{Proof}
 
@@ -35,6 +36,7 @@
 \DeclareMathOperator{\Inn}{Inn}
 \DeclareMathOperator{\Out}{Out}
 \DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\Jac}{Jac}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\Nil}{Nil}
@@ -48,7 +50,6 @@
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\height}{height}
 \DeclareMathOperator{\trace}{trace}
-\DeclareMathOperator{\Char}{char}
-\DeclareMathOperator{\cl}{cl}
+\let\char\relax\DeclareMathOperator{\char}{char}
 \DeclareMathOperator{\re}{Re}
 \DeclareMathOperator{\im}{im}
