@@ -220,3 +220,52 @@ identity $1 \neq 0$, unless otherwise specified.
   chain of ideals of $R$ has at most  $\dim_k{R}-1$ distinct terms, which
   means that $R$ satisfies the ascending chain condition.
 \end{example}
+
+ \begin{theorem}\label{theorem_5.9.5}
+     Let $\af$ be an ideal in a ring $R$, and consider the natural map $\pi:R
+     \xrightarrow{} \faktor{R}{\af}$. The following are true.
+     \begin{enumerate}
+         \item[(1)] For every ideal $\bf'$ of $\faktor{R}{\af}$,
+             $\inv{\pi}(\bf')=\bf$ is an ideal of $R$ containing $\af$.
+             Moreover, for any ideal $\bf$ of $R$ containing $\af$, then
+             $\pi(\bf)=\bf'$.
+
+         \item[(2)] The ideal $\bf'$ of $\faktor{R}{\af}$ is a radical ideal if,
+             and only if $\bf$ is a radical ideal in $R$.
+
+         \item[(3)] If $\bf$ is finitely generated in $R$, then $\bf'$ is
+             finitely generated in $\faktor{R}{\af}$. Moreover,
+             $\faktor{R}{\af}$ is Noetherian if $R$ is Noetherian.
+     \end{enumerate}
+ \end{theorem}
+ \begin{proof}
+     Let $\bf'$ be an ideal of $\faktor{R}{\af}$. Since the natural map $\pi$ is
+     onto, there is an ideal $\bf \in R$ for which $\bf=\inv{\pi}(\bf')$. Now,
+     let $a,b \in \bf$, then $\pi(a),\pi(b) \in \bf'$, so that $\pi(a+b) \in
+     \bf'$ and $-\pi(a) \in \bf'$. Moreover, if $a \in \bf$, and $r \in R$, then
+     $r\pi(a)=\pi(ra) \in \bf'$, since $\bf'$ is an ideal. Now, since
+     $\ker{\pi}=\af$, we have that $\af \subseteq \bf$. So that $\bf$ is an
+     ideal containing $\af$. By similar reasoning, if $\bf$ is an ideal
+     containing $\af$, then $\bf'=\pi(\bf)$ is also an ideal.
+
+     Now, suppose that $\bf$ is a radical ideal. That is, $\bf=\sqrt{\bf}$. Since
+     $\bf=\inv{\pi}(\bf')$, we have $\inv{\pi}(\bf')=\sqrt{\inv{\pi}(\bf')}$.
+     Now, suppose that $\bf$ is a prime ideal, then if $ab \in \bf$, either $a
+     \in \bf$ or $b \in \bf$. This implies whenever $\pi(ab) \in \bf'$, either
+     $\pi(a) \in \bf'$ or $\pi(b) \in \bf'$. This makes $\bf'$ prime. Similarly,
+     if $\bf'$ is prime so is $\bf$. Finally, by definition of a maximal idea,
+     $\bf$ is maximal if, and only if $\bf'$ is maximal.
+
+     Finally, suppose that $\bf$ is finitely generated, then $\bf=(a_1, \dots,
+     a_n)=\inv{\pi}(\bf')$ for $a_1, \dots, a_n \in R$. Then every element of
+     $\bf$ is the sum of $a_1, \dots, a_n$. That is, $b=r_1a_1+\dots+r_na_n$ for
+     every $b \in \bf$, and $r_1, \dots, r_n \in R$. Now, since $b \in
+     \bf=\inv{\pi}(\bf')$, then $\pi(b)=r_1\pi(a_1)+\dots+r_n\pi(a_n) \in \bf'$,
+     so that $\bf'=(\pi(a_1), \dots, \pi(a_n))$. This makes $\bf'$ finitely
+     generated. We can then conclude that if $R$ is Noetherian, by theorem
+     \ref{1.4.2}, $\faktor{R}{\af}$ must also be Noetherian.
+ \end{proof}
+ \begin{corollary}
+     Let $k$ be a field and $\af$ an ideal of $k[x_1, \dots, x_n]$. Any ring of
+     the form $\faktor{k[x_1, \dots, x_n]}{\af}$ is a Noetherian ring.
+ \end{corollary}

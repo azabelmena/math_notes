@@ -1,104 +1,175 @@
-\section{Algebraic Subsets of The Plane}\label{section_1.6}
+\section{Hilbert's Nullstellensatz\label{section_1.7}}
 
-\begin{lemma}\label{1.6.1}
-    Let $k$ be a field, and let $f,g \in k[x,y]$ polynomials with no common
-    factor. Then the set $V(f,g)=V(f) \cap V(g)$ is a finite set of points.
+\begin{theorem}[The Weak Nullstellensatz]\label{theorem_1.7.1}
+    Let $k$ be an algebraically closed field, then if $\af$ is a proper ideal of
+     $k[x_1, \dots, x_n]$, $V(\af)$ is nonempty.
+\end{theorem}
+\begin{proof}
+    Since any proper ideal is contained in a maximal ideal, and algebraic sets
+    of maximal ideals are minimal, suppose, without loss of generality, that
+    $\af$ is a maximal ideal in $k[x_1, \dots, x_n]$. Take $l=\faktor{k[x_1,
+    \dots x_n]}{\af}$. Since $\af$ is maximal, $l$ is a field, and $k \subseteq
+    l$ is a subfield. Now, suppose that $k=l$, then for every  $i$, there is an
+    element  $a_i \in k$ such that $x_i-a_i \in \af$. But $(x_1-a_1, \dots,
+    x_n-a_n)$ is a maximal ideal, so that $\af=(x_1-a_1, \dots, x_n-a_n)$ and
+    $V(\af)=V(x_1-a_1, \dots, x_n-a_n)$ which is nonempty.
+\end{proof}
+
+\begin{lemma}[Zariski]\label{lemma_1.7.2}
+  Let $l$ be a field, ring-finite over a subfield $k$. Then  $l$ is
+  module-finite over $k$; in particular,  $l$ is algebraic over  $k$.
 \end{lemma}
 \begin{proof}
-    Notice that if $f$ and $g$ are coprime in $k[x,y] \simeq k[x][y]$, then they
-    are coprime in $k(x)[y]$, where $k(x)$ is the field of fractions of $k[x]$.
-    We have that $k(x)[y]$ is a PID, and that the ideal $(f,g)=(1)$. Then there
-    exist $r,s \in k(x)[y]$ for which $rf(x,y)+sg(x,y)=1$. There also exists a
-    $d \in k[x]$ such that $d(x)r=a(x,y)$ and and $d(x)s=b(x,y)$ in $k[x,y]$.
-    Then $a(x,y)f(x,y)+b(x,y)g(x,y)=d(x)(rf(x,y))+d(x)(rg(x,y))=d(x)$. Now, if
-    $A,B \in V(f,g)$, then $d(A)=0$. Now, $d$ has finitely many roots in $k$, so
-    that there are finitely many $x$-coordinates corresponding to the points of
-    $V(f,g)$. Similarly, in the PID $k(y)[x]$, we get that there are finitely
-    many $y$-coordinates corresponding to the points of $V(f,g)$. That is
-    $V(f,g)$ have finitely many points.
+  Let $v \in l$, and take $l=k(v)$. Consider the map $\phi:k[x] \xrightarrow{}
+  l$ taking $x \xrightarrow{} v$, and let $\ker{\phi}=(f)$, $f$ irreducible over
+   $k$. Then $\faktor{k[x]}{(f)} \simeq k[v]$, and $(f)$ is a prime ideal. Now, if
+   $f=0$, then $k[v] \simeq k(v)$, which makes $l=k(x)$, so that $l$ is not
+   ring-finite over  $k$; this is impossible by hypothesis. Then  $f \neq 0$,
+   (and  supposing, without loss of generality, that $f$ is monic), since $(f)$
+   is prime and $f$ is irreducible, then $(f)$ is maximal in $k[x]$. This makes
+   $k[v]$ a field, and $k[v]=k(v)$. Moreover, $f(v)=0$ so $v$ is algebraic over
+    $k$, and  $l=k[v]$, which makes $l$ module-finite over  $k$.
+
+    Now, let  $l=k[v_1, \dots, v_{n+1}]$, and suppose the result holds for $n$.
+    Let $k_1=k[v_1]$, then by induction on $n$  $l=k_1[v_2, \dots, v_{n+1}]$, is
+    module-finite over $k_1$. Suppose that $v_1$ is not algebraic over $k_1$.
+    Each $v_i$ satisfies  $v_i^{n_i}+a_{i1}v_i^{n_i-1}+\dots=0$, where $a_{i1}
+    \in k_1$. Let $a \in k_1$, then $av_i^{n_i}+aa_{i1}v_i^{n_i-1}+\dots=0$.
+    Then for any $z \in l$, there is an $m \in \Z^+$ for which $a^mz$ is an
+    integral element over  $k_1$. In particular, we have $z \in k(v_1)$. Now,
+    since $k(v_1) \simeq k(x)$, this is impossible, so that $l$ must be
+    module-finite over  $k$.
 \end{proof}
-\begin{corollary}
-    If $f$ is irreducible in $k[x,y]$ and $V(f)$ is finite, then $I(V(f))=(f)$,
-    and $V(f)$ is an irreducible algebraic set.
-\end{corollary}
+
+\begin{theorem}[Hilbert's Nullstellensatz]\label{theorem_1.7.3}
+    Let $k$ be an algebraically closed field, and  $\af$ an ideal of  $k[x_1,
+    \dots, x_n]$. Then $I(V(\af))=\sqrt{\af}$.
+\end{theorem}
 \begin{proof}
-    Suppose that $g \in I(V(f))$, then $V(f,g)$ is infinite, and by the above
-    lemma, we get that $g|f$. Then $g \in (f)$, so that $I(V(f))=(f)$. Moreover,
-    since $f$ is irreducible in the $k[x,y]$, if $ab \in (f)$, then either $a
-    \in (f)$ or $b \in (f)$, which makes $I(V(f))=(f)$ a prime ideal. This makes
-    $V(f)$ irreducible by lemma \ref{1.5.1}.
-\end{proof}
-\begin{corollary}
-    Suppose that $k$ an infinite field, then the irreducible algebraic sets of
-    $\A^2(k)$ are $\A^2(k)$ itself, the emptyset, point sets, and irreducible
-    plane curves $V(f)$, where $f \in k[x,y]$ is irreducible and $V(f)$ is
-    infinite.
-\end{corollary}
-\begin{proof}
-    Let $X \subseteq \A^2(k)$ an irreducible algebraic set. If $X$ is finite, or
-    $I(X)=(0)$, then it is either $\A^n(k)$, the emptyset, or a finite algebraic
-    set (i.e. a set of points). Suppose then, that $X$ is infinite. Then there
-    exists a nonconstant polynomial $f \in I(X)$. Now, since $X$ is irreducible,
-    $I(X)$ is prime, and hence contains an irreducible factor of $f$; thus,
-    suppose without loss of generality that $f$ is irreducible. Then $I(X)=(f)$;
-    for otherwise, if $g \in I(X)$ but $g \not\in (f)$, then $X \subseteq
-    V(f,g)$ is finite which is a contradiction. This makes $X=V(f)$ as required.
-\end{proof}
-\begin{corollary}
-    If $k$ is an algebraically closed field, and $f$ has the decomposition
-    $f=f_1^{n_1} \dots f_m^{n_m}$ into irreducible factore, then $V(f)=V(f_1)
-    \cup \dots V(f_m)$ is the decomposition of $V(f)$ into irreducible
-    components. Moreover, $I(V(f))=(f_1 \dots f_m)$.
-\end{corollary}
-\begin{proof}
-    By hypothesis, we have that each $f_i$ and $f_j$ are coprime whenever $i
-    \neq j$. That is, there exist no inclusions under each $V(f_i)$, so that the
-    decomposition $V(f)=V(f_1) \cup \dots \cup V(f_m)$ is the decompostion of
-    $V(f)$ into irreducible components. Now, we also have that
+    We have that $\sqrt{\af} \subseteq I(V(\af))$. Now, let $\af=(f_1, \dots,
+    f_r)$, since $k[x_1, \dots, x_n]$ is Noetherian, and let $g \in I(V(\af))$.
+    Let $\bf=(f_1, \dots, f_r,x_{n+1}g-1)$ an ideal of $k[x_1, \dots,
+    x_n,x_{n+1}]$. Then $\bf \subseteq \A^{n+1}(k)$ is empty, since $g$ vanishes
+    whenever all $f_i=0$. By the weak nullstellensats, this puts  $1 \in \bf$ so
+    that
     \begin{equation*}
-        I(V(f))=\bigcap_{i=1}^m{I(V(f_i))}=\bigcap_{i=1}^m{(f_i)}
+        1=\sum{a_i(x_1, \dots, x_{n+1})f_i(x_1, \dots, x_{n+1})}+b(x_1, \dots,
+        x_{n+1})(x_{n+1}g(x_1, \dots, x_n)-1)
     \end{equation*}
-    Now, since each polynomial divisible by $f_i$ is also divisible by $f_1
-    \dots f_m$, we get that $\bigcap{(f_i)}=(f_1 \dots f_m)$. Lastly, notice
-    that since $k$ is algebraically closed, and hence infinite, each $V(f_i)$ is
-    infinite.
+    Letting $y=\frac{1}{x_{n+1}}$, we get
+    \begin{equation*}
+        y^n=\sum{c_i(x_1, \dots, x_{n+1})f_i(x_1, \dots, x_{n+1})}+d(x_1, \dots,
+        x_{n+1})(g(x_1, \dots, x_n)-y)
+    \end{equation*}
+    Substituting $g$ for $y$ gives us
+    \begin{equation*}
+        g^n=\sum{c_i(x_1, \dots, x_{n+1})f_i(x_1, \dots, x_{n+1})} \in \sqrt{\af}
+    \end{equation*}
+    so that $I(V(\af)) \subseteq \sqrt{\af}$, and we are done.
+\end{proof}
+\begin{corollary}
+    If $\af$ is a radical ideal in  $k[x_1, \dots, x_n]$, then $I(V(\af))=\af$.
+\end{corollary}
+\begin{corollary}
+    If $\af$ is a prime ideal in $k[x_1, \dots, x_n]$, the $V(\af)$ is
+    irreducible. Moreover, there is a 1--1 correspondence between prime ideals
+    of $k[x_1, \dots, x_n]$ and irreducible sets of $\A^n(k)$; where maximal
+    ideals correspond to points.
+\end{corollary}
+\begin{corollary}
+    For any $f \in k[x_1, \dots, x_n]$, if $f=f_1^{r_1} \dots f_m^{m_r}$ is the
+    decomposition of $f$ into irreducible factors, then  $V(f)=V(f_1) \cup \dots
+    V(f_m)$ is the decomposition of $f$ into irreducible components, and
+    $I(V(f))=(f_1 \dots f_m)$ Moreover, there is a 1--1 correspondence between irreducible
+    polynomials of  $k[x_1, \dots, x_n]$, and irreducible hypersurfaces of
+    $\A^n(k)$.
+\end{corollary}
+\begin{corollary}
+    If $\af$ is an ideal of  $k[x_1, \dots, x_n]$, then $V(\af)$ is finite, if,
+    and only if $\faktor{k[x_1,\dots,x_n]}{\af}$ is a finite dimensional vector
+    space over $k$, with
+    \begin{equation*}
+        |V(\af)| \leq \dim{\faktor{k[x_1,\dots,x_n]}{\af}}
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    Suppose that $l=\faktor{k[x_1,\dots,x_n]}{\af}$ is a finite dimensional
+    vector space over $k$, and let  $P_1, \dots, P_n \in V(\af)$. Choose
+    polynomials $f_1, \dots, f_m \in k[x_1, \dots, x_n]$ such that $f_i(P_j)=0$
+    for any $i \neq j$, and $f_i(P_i)=1$. Consider now the residue classes of
+    $f_i$ in $\af$, if
+    \begin{equation*}
+        \sum{\l_i(f_i+\af)}=0 \text{ where } \l \in k
+    \end{equation*}
+    We have $\sum{\l_if_i} \in \af$, so that
+    \begin{equation*}
+        \l_i=(\sum{\l_if_i})(P_i)=0
+    \end{equation*}
+    which makes the collection of vectors $\{f_i+\af\}$ linearly independent in
+    $l$. This makes $V(\af)$ finite with $|V(\af)|=m \leq \dim{l}$.
+
+    Conversely, suppose that $V(\af)$ is finite, and that $V(\af)=\{P_1, \dots,
+    P_m\}$, where $P_i=(a_{i1}, \dots, a_{im})$, and
+    \begin{equation*}
+        f_j(x_1, \dots, x_n)=\prod_{j=1}^m{(x_j-a_{ij})} \text{ in } k[x_1,
+        \dots, x_n]
+    \end{equation*}
+    Then $f_j \in I(V(\af))$, so that $f^N \in \af$ for some $N \in \Z^+$. Taking
+    $N$ large enough and $(f_j+\af)^N=0$, we get $(x_j+\af)^N$ is a $k$-linear
+    combination of the vectors $\{1, x_1+\af, \dots, (x_n+\af)^{rN-1}\}$. By
+    induction, we see that for any $s \geq N$, $(x_j+\af)^s$ is a $k$-linear
+    combination of the vectors $\{1+\af, \dots, (x_j+\af)^{rN-1}\}$. Then the
+    collection of vectors $\{(x_1+\af)^m_1, \dots, (x_n+\af)^{m_n}\}$, with
+    $m_i<rN$ generates $\faktor{k[x_1,\dots,x_n]}{\af}$ as a finite dimensional
+    vector space over $k$.
 \end{proof}
 
-\begin{example}\label{example_1.14}
-    \begin{enumerate}
-        \item[(1)] Consider $f(x,y)=x^2+y^2+1$ over $\R$. We have that $f$ is
-            irreducible, and that $V(f)$ is finite (in fact $V(f)=\emptyset$),
-            so that $I(V(f))=(f)$. Moreover, since $f$ has no roots in $\R$, we
-            observe that $(f)=(1)$. This result could've also been extracted
-            using the fact that $I(V(f))=I(\emptyset)=\R[x,y]=(1)$.
+\begin{example}\label{example_1.6}
+  \begin{enumerate}
+    \item[(1)] Consider when $k$ is not an algebraically closed field; in
+      particular,  $k=\R$, and let  $f(x,y)=x^2-y+1$. We have then that $(f)$ is
+      a proper ideal of $\R[x,y]$, however, $V(f)=\emptyset$ since the only
+      solutions to the equation $y=x^2+1$ are $(i,0)$ and $(-i,0)$, where
+      $i^2=-1$. That is, $V(f)=V(x-i) \cup V(x+i) \not\subseteq \A^2(\R)$. This
+      shows that  the weak nullstellensatz does not hold in general for
+      non-algebraically closed fields. In consequences, niether will Hilbert's
+      nullstellensatz, and any of its subsequent corollaries.
 
-        \item[(2)] Consider $X \subseteq \A^2(\R)$ an algebraic set. Then there
-            is some $S=(f_1, \dots, f_n) \in \R[x,y]$ for which $X=V(S)=V(f_1,
-            \dots, f_n)=V(f_1) \cap \dots \cap V(f_n)$. Now, by the above
-            corollories, and assuming that each $f_i$ is pairwise coprime,
-            $X=V(S)$ is a finite set of points. Take
-            \begin{equation*}
-                f(x,y)=\sum_{i=1}^n{f_i^2(x,y)}
-            \end{equation*}
-            which has finitely many roots as a polynomial in $\R[x][y]$, and as
-            a polynomial in $\R[y][x]$. Then $(f)=(f_1, \dots ,f_n)$ so that
-            $X=V(f)$. In geneal, we want to work over algebraically closed
-            fields to avoid this, since the intersections of hypersurfaces need
-            not be finite.
-    \end{enumerate}
-\end{example}
+    \item[(2)] Let $f(x,y,z)=x^2+y^2-1$ and $g(x,y,z)=x^2-z^2-1$ in $V(f,g)$.
+      Suppose that $P=(x,y,z) \in V(f,g)$, then we get $x^2+y^2-1=x^2-z^2-1$, so
+      that  $y^2+z^2=(y-iz)(y+iz)=0$ and $i^2=-1$. That is  $P \in (V(y-iz) \cup
+      V(y+iz)) \cap V(f)=V(f,y-iz) \cup V(f,y+iz)$. Conversely, if $P=(x,y,z)$
+      is such that $x^2+y^2-1=0$ and either  $y-iz=0$ or $y+iz=0$, then we get
+      that  $x^2+y^2-1=y^2+z^2$, so that $x^2-z^2-1=0$ and  $P \in V(f,g)$. That
+      is,
+      \begin{equation*}
+        V(x^2+y^2-1,x^2-z^2-1)=V(x^2+y^2-1,y-iz) \cup V(x^2+y^2-1,y+iz)
+      \end{equation*}
+      Lastly, observe that $\faktor{\C[x,y,z]}{(f,y\pm{iz})} \simeq
+      \faktor{\C[x,y]}{(f)}$, and since $f$ is prime in $\C[x,y,z]$ we get
+      that $V(f,y\pm{iz})$ is irreducible.
 
-\begin{example}\label{example_1.14}
-    \begin{enumerate}
-        \item[(1)] We have that $V(y^2-xy-x^2y+x^3)=V(x-y) \cup V(x^2+y)$ over
-            both $\R$ and $\C$.
+    \item[(3)] Consider $V=V(x^2-y,x^3-z)=\{(t,t^2,t^3) \in \A^3(\C) : t \in
+      \C\}$, the twisted cubic. Observe that $\faktor{\C[x,y,z]}{(x^2-y,x^3-z)}
+      \simeq \C[t]$ via the map $x \xrightarrow{} t$, $y \xrightarrow{} t^2$, $z
+      \xrightarrow{} z^3$. This makes $(x^2-y,x^3-z)$ prime in $\C[x,y,z]$, and
+      hence $V(x^2-y,x^3-z)$ is irreducible. Moreover, by Hilbert's
+      Nullstellensatz, and that fact that prime ideals are radical, we have
+      $I(V)=\sqrt{(x^2-y,x^3-z)}=(x^2-y,x^3-z)$.
 
-        \item[(2)] The set $V(y^2-x(x^2-1))$ is irreducible over both $\R$ and
-            $\C$ since the polynomial  $y^2-x(x^2-1)$ is an irreducible
-            polynomial over both $\R$ and  $\C$.
+    \item[(4)] For any $\l \in k$, $k$ an algebraically closed field, the
+      algebraic set $V(y^2-x(x-1)(x-\l))$ is irreducible. Observe that
+      $y^2-x(x-1)(x-\l)$ is a monic polynomial of degree $2$ over $k[x]$, and
+      moreover since $x(x-1)(x-\l)$ has degree $3$ over $k$, $y^2-x(x-1)(x-\l)$
+      is irreducible over $k$.
 
-        \item[(3)] $V(x^3+x-x^2y-y)$ is irreducible over $\R$, but
-            $V(x^3+x-x^2y-y)=V(x-i) \cup V(x+i) \cup V(x-y)$ over $\C$, where
-            $i^2=-1$.
-    \end{enumerate}
+    \item[(5)] Let $\af=(y^2-x^2,y^2+x^2)$ in $\C[x,y]$ and let $P=(X,Y)$ such
+      that $Y^2-X^2=0$ and  $Y^2+X^2=0$. Then  $Y=\pm{X}, \pm{iX}$. Then
+      $V(\af)=\{(X,X), (X,-X), (X,iX), (X,-iX)\}$, and $|V(\af)|=4$. This makes
+      $\faktor{\C[x,y]}{\af}$ a finite dimensional vector space of dimension at
+      most $\dim{\faktor{\C[x,y]}{\af}}=4$. Moreover, since
+      $\deg{(y^2-x^2)}=\deg{(y^2+x^2)}=2$, we have that $4 \leq
+      \dim{\faktor{\C[x,y]}{\af}}$. This makes $\faktor{\C[x,y]}{\af}$ a vector
+      space of dimension exactly $4$ over $\C$.
+  \end{enumerate}
 \end{example}

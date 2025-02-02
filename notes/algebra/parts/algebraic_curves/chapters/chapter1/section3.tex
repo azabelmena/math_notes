@@ -1,232 +1,172 @@
-\section{Hilbert's Basis Theorem}\label{section_1.4}
+\section{Irreducible Components}\label{section_1.5}
 
 \begin{definition}
-    Let $R$ be a ring . We say a sequence of ideals $\{\af_n\}$ is an
-    \textbf{ascending chain} of ideals if $\af_n \subseteq \af_{n+1}$ for all
-    $n \in \Z^+$. We say that the chain  $\{\af_n\}$ \textbf{stabalizes} if there
-    exists some $k \geq n$, $\af_k=\af_n$.
+    Let $k$ be a field. We call an algebraic set $X \subseteq \A^n(k)$
+    \textbf{reducible} if it can be written as the union of two algebraic sets;
+    that is, there exist $X_1,X_2 \subseteq \A^n(k)$ such that $X=X_1 \cup X_2$.
+    We call an algebraic set \textbf{irreducible} if it is not reducible.
 \end{definition}
 
-\begin{definition}
-    Let $R$ be a ring. We call $A$ \textbf{Noetherian} if every ascending chain
-    of ideals of $A$ stabalizes. We say that $A$ satisfies the \textbf{ascending
-    chain condition} on ideals.
-\end{definition}
+\begin{example}\label{example_1.11}
+    \begin{enumerate}
+        \item[(1)] The algebraic sets defined by the equations $y^2=x^3-x$,
+            $y^2=x^3+x^2$, and $z^2=x^2+y^2$ in $\A^2(\R)$ and $\A^3(\R)$,
+            respecively, are irreducible.
 
-\begin{lemma}\label{1.4.1}
-    If $\af$ is an ideal of a Noetherian ring $R$, then the factor ring
-    $\faktor{A}{\af}$ is also Noethrian. In particular, the image of a Noetherian
-    ring under any ring homomorphism is Noetherian.
+        \item[(2)] The algebraic set described by the equation
+            $y^2-xy-x^2y+x^2=0$ is reducible in $\A^2(\R)$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{1.5.1}
+    An algebraic set is irreducible if, and only if its ideal is prime.
 \end{lemma}
 \begin{proof}
-    This follows by the isomorphism theorems for ring homomorphisms.
+    Let $k$ be a field, and  $X \subseteq \A^n(k)$. Suppose that the ideal
+    $I(X)$ is not prime. Let $f_1f_2 \in I(X)$, but $f_1,f_2 \not\in I(X)$.
+    Then
+    \begin{equation*}
+        X=(X \cap V(f_1)) \cup (X \cap V(f_2))
+    \end{equation*}
+    and $X \cap V(f_1) \subseteq X$ and $X \cap V(f_2) \subseteq X$. This makes
+    $X$ reducible, by definition.
+
+    Conversely, suppose that $X$ is reducible, and that $X=X_1 \cup X_2$ for
+    $X_1, X_2 \subseteq \A^n(k)$. Then $I(X) \subseteq I(X_1)$ and $I(X)
+    \subseteq I(X_2)$. Let $f_1 \in I(X_1)$ and $f_2 \in I(X_2)$, but $f_1,f_2
+    \not\in I(X)$. Then $f_1f_2 \in I(X)$, but $f_1,f_2 \not\in I(X)$, so that
+    $I(X)$ is not prime.
 \end{proof}
 
-\begin{theorem}\label{1.4.2}
-    The following are equivalent for any ring $R$.
+\begin{example}\label{example_1.12}
     \begin{enumerate}
-        \item[(1)] $R$ is Noetherian.
+        \item[(1)] Consider the polynomial $f(z,w)=w-z^2$ in $\C[z,w]$, and let
+            $g \in I(V(f))$. Then for every point $P \in V(f)$, $g(P)=0$.
+            Moreover, by the division theorem for polynomials, there
+            are polynomials $q,r \in
+            (\C[z])[w]$ for which
+            \begin{equation*}
+                g(z,w)=f(z,w)q(z,w)+r(z,w) \text{ where } r=0 \text{ or }
+                \deg_w{r} < \deg_w{f}
+            \end{equation*}
+            Notice that the degree of $r$ in  $w$,  $\deg_w{r}=0$ so that $r \in
+            \C[z]$. Now, since $g(P)=f(P)q(P)+r(P)=r(P)=0$, and $r$ is a
+            polynomial only in $z$, then $r(z,w)=r(z)=0$. That is
+            $g(z,w)=f(z,w)q(z,w)$ so that $g \in (f)$. This makes $I(V(f))=(f)$.
+            Lastly, notice that $\faktor{\C[z,w]}{(f)} \simeq \C[z]$ which is an
+            integral domain. This makes $(f)$ a prime ideal, and hence the
+            algebraic set $V(w-z^2)$ is irreducible.
 
-        \item[(2)] Every nonempty collection of ideals of $R$ contains a maximal
-            element under inclusion.
+        \item[(2)] Let $f(z,w)=w^4-z^2$ and $g(z,w)=w^4-z^2w^2+zw^2-z^2$. Then
+            observe that
+            \begin{align*}
+                V(f,g)  &= V(f) \cap V(g) \\
+                        &=  (V(w^2-z) \cup V(w^2+z)) \cap
+                                (V(w+z) \cup V(w-z) \cup V(w^2+z)) \\
+                        &= V(w^2+z) \\
+            \end{align*}
 
-        \item[(3)] Every ideal of $R$ is finitely generated.
+        \item[(3)] Consider the polynomial $f(x,y)=y^2+x^2(x-1)^2$. $f$ factors
+            into
+            \begin{equation*}
+                f(x,y)=(x^2-x-iy)(x^2-x+iy)
+            \end{equation*}
+            in $\C[x,y]$, where $i^2=-1$. This makes $f$ irreducible in $\R[x,y]$.
+            However, notice that $f(x,y)=0$ only at the points $(1,0)$ and
+            $(0,0)$, so that $|V(f)|=2$. This makes $V(f)$ reducible as an
+            algebraic set in $\A^2(\R)$.
     \end{enumerate}
+\end{example}
+
+\begin{example}\label{example_1.13}
+    \begin{enumerate}
+        \item[(1)] Let $k$ be a finite field. Then very subset of $\A^n(k)$ is
+            an algebraic set, and so we can partition $\A^n(k)=X \cup Y$, where
+            $X$ and $Y$ are algebraic, and  $X \neq \A^n(k)$ and $Y \neq
+            \A^n(k)$. This makes $\A^n(k)$ reducible. One can also observe that
+            the ideal $(0)$ is not prime in $k[x_1, \dots, x_n]$ for finite
+            fields.
+
+        \item[(2)] Now, suppose that $k$ is an infinite field. Then the ideal
+            $(0)$ is prime in $k[x_1, \dots, x_n]$, so that $I(\A^n(k))=(0)$ is
+            prime. This makes $\A^n(k)$ irreducible.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{1.5.2}
+    Any collection of algebraic sets has a minimal member.
+\end{lemma}
+\begin{proof}
+    If $\{X_\a\}$ is a collection of algebraic sets in $\A^n$, then by theorem
+    \ref{1.4.2} the collection of ideals $\{I(X_\a)\}$ has a maximal member.
+    Choose such a maximal member $I(X_{\a_0})$, then the corresponding algebraic
+    set $X_{\a_0}$ is a minimal member of the collection $\{X_\a\}$.
+\end{proof}
+
+\begin{theorem}\label{1.5.3}
+    Any algebraic set can be uniquely expressed as the disjoint union of
+    irreducible algebraic sets. That is; for any algebraic set $X \subseteq
+    \A^n$, there exist unique pairwise disjoint $X_1, \dots, X_m \subseteq \A^n$
+    for which
+    \begin{equation*}
+        X=X_1 \cup \dots \cup X_m
+    \end{equation*}
 \end{theorem}
 \begin{proof}
-    Let $R$ be Noetherian, and let  $\Sc$ an nonempty collection of ideals of
-    $R$. Choose an ideal  $\af_1 \in \Sc$. If $\af_1$ is maximal, we are done. If
-    not, then there is an ideal $\af_2 \in \Ac$ for which  $\af_1 \subseteq \af_2$.
-    Now, if $\af_2$ is maximal, we are done. Otherwise, proceeding inductively, if
-    there are no maximal ideals of $R$ in $\Sc$, then by the axiom of choice,
-    construct the infinite strictly increasing chain
+    We first show that such a decomposition exists for every algebraic set in
+    $\A^n$. Let  $\Sc$ be the collection of all algebraic sets which cannot be
+    expressed as a (not necessarily disjoint) union of (not necessarily unique)
+    irreducible algebraic sets. Let $X$ be a minimal element of $\Sc$. Then
+    $X$ is not irreducible. Hence there exist $X_1, X_2 \subseteq \A^n$ for
+    which $X=X_1 \cup X_2$; suppose further that $X_1,X_2 \subseteq X$. By the
+    minimality of $X$,  $X_1, X_2 \not\in \Sc$, so that
     \begin{equation*}
-         \af_1 \subseteq \af_2 \subseteq \dots
+        X_i=\bigcup_{j=1}^{m_i}{X_{ij}}
     \end{equation*}
-    of ideal of $R$. This contradicts that  $R$ is Noetherian, so  $\Sc$ must
-    contain a maximal element.
+    where each $X_{ij}$ is irreducible. This makes
+    \begin{equation*}
+        X=\bigcup_{i=1,j=1}^{m,m_i}{X_{ij}}
+    \end{equation*}
+    which contradicts that $X \in \Sc$. Therefore $\Sc$ must be empty, and every
+    algebraic set can be expressed as the union of irreducible algebraic sets.
 
-    Now, suppose that any nonempty collection of ideals of  $R$ contains
-    a maximal element. Let  $\Sc$ the collection of all finitely generated
-    ideals of $R$, and let $\af$ be any ideal of  $R$. By hypothesis, $\Sc$ has a
-    maximal element  $\af'$. Now suppose that $\af \neq \af'$, and choose an
-    $x \in \com{\af}{\af'}$, then the ideal generated by $\af'$ and  $x$ is finitely
-    generated, and so is in  $\Sc$; but that contradicts the maximality of  $\af'$.
-    Therefore we must have  $\af=\af'$.
-
-    Finally, suppose every ideal of $R$ is finitely genrated, and let
-    $\af=(a_1, \dots, a_n)$. Let
+    Now, take  $X=X_1 \cup \dots X_m$, where each $X_i$ is irreducible, and
+    discard all those $X_i$ for which  $X_i \subseteq X_j$ for all $i \neq j$.
+    This makes $X$ a disjoint union. Now, suppose that  $X=Y_1 \cup \dots Y_r$.
+    Then
     \begin{equation*}
-        \af_1 \subseteq \af_2 \subseteq \dots
+        X_i=\bigcup_{j=1}^r{(Y_j \cap X_i)}
     \end{equation*}
-    an ascending chain of ideals of $R$ for which
-    \begin{equation*}
-        \af=\bigcup_{n \in \Z^+}{\af_n}
-    \end{equation*}
-    Since $a_i \in \af$ for each  $1 \leq j \leq n$, we have that  $a_i \in
-    \af_{i_j}$ and $i \in \Z^+$. Now, let  $m=\max{\{j_1, \dots, j_n\}}$ and
-    coinsider the ideal $\af_m$. Then  $a_i \in \af_m$ for each $i$, which makes
-    $\af \subseteq \af_m$. That is, $\af_n=\af_m$ for some  $n \geq m$; which
-    makes $R$ Noetherian.
+    so that $X_i \subseteq Y_j$ for some $j$. Similarly, we get that  $Y_j
+    \subseteq X_k$ for some $k$. Thus $X_i \subseteq X_k$, but since $X$ is
+    already a disjoint union, this makes  $i=k$ so that $X_i=Y_j$ and $m=r$.
+    Thus the decomposition of $X$ into mutually disjoint irreducible algebraic
+    sets is unique.
 \end{proof}
 \begin{corollary}
-    Every proper ideal of a Noetherian ring is contained in a maxima ideal.
+    If $X,Y \in \A^n$ are algebraic such that $X \subseteq Y$, then each
+    irreducible component of $X$ is contained in an irreducible component of
+    $Y$.
 \end{corollary}
 \begin{proof}
-    Consider again the Noetherian ring $R$ from above. Let $\af$ be a proper ideal
-    of  $R$, and consider the collection $\Sc$ of proper ideals of $R$
-    containing  $\af$. Then $\Sc$ contains a maximal member $\bf$ with $\af
-    \subseteq \bf$. Now, sine $\bf$ is maximal in $\Sc$ there is no other proper
-    ideal $\bf'$ containing $\af$ for which $\bf \subseteq \bf' \subseteq R$.
-    This by definition makes $\bf$ a maximal ideal.
+    Let
+    \begin{align*}
+        X   &= \bigcup_{i=1}^m{X_i} \\
+        Y   &= \bigcup_{j=1}^n{Y_j} \\
+    \end{align*}
+    where $X_i$ and $Y_j$ are the irreducible components of  $X$ and  $Y$,
+    respectively for all  $1 \leq i \leq m$ and $1 \leq j \leq n$. Now, consider
+    the collection $\Sc$ of all irreducible components of $X$ not contained in
+    an irreducible component of $Y$ Then $\Sc$ has a minimal member  $X'$, such
+    that for every $1 \leq j \leq n$, $X' \not\subseteq Y_j$, then $X'
+    \not\subseteq Y$. Now, since $X'$ is an irreducible component, we get  $X'
+    \subseteq X \subseteq Y$, which is a contradicion. This makes $\Sc$ the
+    emptyset.
 \end{proof}
 
-\begin{example}\label{example_1.9}
-    \begin{enumerate}
-        \item[(1)] Every principle ideal domain (PID) is Noetherian, since any
-            collection of ideals has a maximal element. Moreover PIDs satisfy the
-            ascending chain condition.
-
-        \item[(2)] The rings $\Z$, $\Z[i]$, and $k[x]$ (where $k$ is a field)
-            are Noetherian.
-
-        \item[(3)] The multivariate polynomial ring $\Z[x_1, x_2, \dots]$ is not
-            Noetheria, since the ideal $(x_1, x_2, \dots)$ is not finitely
-            generated.
-    \end{enumerate}
-\end{example}
-
-\begin{example}\label{example_1.10}
-    Let $k$ be any field, and consider the collection  $\Sc=\{(x_1-a_1), \dots,
-    (x_m-a_m)\}$ of ideals in $k[x_1, \dots, x_n]$. Then each $(x_i-a_i)$ is a
-    maxmial member of $\Sc$, however none of them are maximal ideals. Observe
-    the polynomial  $f(x_1, \dots, x_n)=(x_1-a_1) \dots (x_m-a_m)$. Then
-    $(x_i-a_i) \subseteq (f)$ for each $1 \leq i \leq m$.
-\end{example}
-
 \begin{definition}
-    We call a ring in which every ideal is finitely generated a
-    \textbf{Noetherian ring}.
+    Let $k$ be a field, and $X \subseteq \A^n(k)$ an algebraic set. Let $X=X_1
+    \cup \dots X_m$ the decomposition of $X$ into the union of pairwise disjoint
+    irreducible algebraic sets. We call each $X_i$ an \textbf{irreducible
+    component} of $X$.
 \end{definition}
-
-\begin{theorem}[Hilbert's Basis Theorem]\label{1.4.3}
-    If $R$ is a Noetherian ring, then so is the polynomial ring $R[x]$.
-\end{theorem}
-\begin{proof}
-    Let $\af$ be an ideal of  $R[x]$, and let $L$ be the set of all leading
-    coefficients of polyonimials in $\af$. Notice that since  $0 \in \af$, then  $0
-    \in L$, so that $L$ is nonempty. Moreover, let $f(x)=ax^d+\dots$ and
-    $g(x)=bx^e+\dots$ polynomials in $\af$ of degree  $\deg{f}=d$ and $\deg{g}=e$,
-    with leading coefficients $a, b \in R$. Then for any  $r \in R$, we have the
-    coefficient  $ra-b=0$, or  $ra-b$ is the leading coefficient of the
-    polynomial  $rx^ef-x^dg \in \af$. In either case, we get  $ra-b \in L$. This
-    makes  $L$ an ideal of  $R$. Now, since  $R$ is Noetherian  $L$ is finitely
-    generated ; let $L=(a_1, \dots, a_n)$. Then for every $1 \leq  i \leq n$,
-    let  $f_i \in \af$ the polynomial of degree  $\deg{f_i}=e_i$ whose leading
-    coefficient is $a_i$. Take, then  $N=\max{\{e_1, \dots, e_n\}}$. Then for
-    any $d \in \faktor{\Z}{N\Z}$, let $L_d$ be the set of all leading
-    coefficients of polynomials in  $\af$, of degree $d$, together with $0$. Let
-    $f_{di} \in \af$ a polynomial of degree $\deg{f_{di}}=d$ with leading
-    coefficient $b_{di}$. We wish to show that
-    \begin{equation*}
-        \af=(f_1, \dots, f_n) \cup (f_{d1}, \dots f_{nd})
-    \end{equation*}
-
-    Let $\af'=(f_1, \dots, f_n) \cup (f_{d1}, \dots f_{nd})$. By construction,
-    since the generators were chosen from $\af$,  $\af' \subseteq \af$. Now, if
-    $\af \neq \af'$. Then there is a nonzero polynomial $f \in \af$ of minimum degree
-     not contained in $\af'$  (i.e $f \notin \af'$). Let $\deg{f}=d$, and let $a$ be
-     the leading coefficient of  $f$. Suppose that  $d \geq N$. Since  $a \in
-     L$, $a$ is an  $R$-linear combination of the generators of  $L$; i.e.
-     \begin{equation*}
-         a=r_1a_1+\dots+r_na_n
-     \end{equation*}
-     where $r_1, \dots, r_n \in R$. Let
-     \begin{equation*}
-        g=r_1x^{d-e_1}f_1+\dots+r_nx^{d-e_n}f_n
-     \end{equation*}
-     then $g \in \af'$ and has degree $\deg{g}=d$ and leading coefficient $a$.
-     Hence  $f-g \in \af'$ is of smaller degree, and by the minimality of  $f$,
-     $f-g=0$, which makes  $f=g \in \af'$; a contradiction. THerefore $\af=\af'$
-
-     Now, if $d<N$, then  $a \in L_d$, and so is an  $R$-linear combniation of
-     generators of  $L_d$; that is
-     \begin{equation*}
-         a=r_1b_{d1}+\dots+r_nb_{dn}
-     \end{equation*}
-     where $r_1, \dots, r_n \in R$. Then let
-     \begin{equation*}
-         g=r_1f_{d1}+\dots+r_nf_{dn}
-     \end{equation*}
-     then $g \in \af'$ is a polynomial of degree  $\deg{g}=d$ and leading
-     coefficient $a$; which gives us the above contraditction.
-
-     Therefore, $\af=\af'$, and since $\af'$ is finitely generated,  $R[x]$ is
-     Noetherian.
- \end{proof}
- \begin{corollary}
-     Let $k$ be a field. Then the polynomial ring in  $n$ variables  $k[x_1,
-     \dots, x_n]$ is Noetherian.
- \end{corollary}
-
- \begin{theorem}\label{1.4.4}
-     Every algebraic set is the intersection of a finite number of
-     hypersurfaces.
- \end{theorem}
- \begin{proof}
-     Let $\af$ be an iddeal in the ring $k[x_1, \dots, x_n]$ for some field $k$,
-     and consider the set $V(\af)$. Since $k[x_1, \dots, x_n]$ is Noetherian,
-     then $\af=(f_1, \dots, f_n)$, so that
-     \begin{equation*}
-         V(\af)=V(f_1) \cap \dots \cap V(f_n)
-     \end{equation*}
- \end{proof}
-
- \begin{theorem}\label{1.4.4}
-     Let $\af$ be an ideal in a ring $R$, and consider the natural map $\pi:R
-     \xrightarrow{} \faktor{R}{\af}$. The following are true.
-     \begin{enumerate}
-         \item[(1)] For every ideal $\bf'$ of $\faktor{R}{\af}$,
-             $\inv{\pi}(\bf')=\bf$ is an ideal of $R$ containing $\af$.
-             Moreover, for any ideal $\bf$ of $R$ containing $\af$, then
-             $\pi(\bf)=\bf'$.
-
-         \item[(2)] The ideal $\bf'$ of $\faktor{R}{\af}$ is a radical ideal if,
-             and only if $\bf$ is a radical ideal in $R$.
-
-         \item[(3)] If $\bf$ is finitely generated in $R$, then $\bf'$ is
-             finitely generated in $\faktor{R}{\af}$. Moreover,
-             $\faktor{R}{\af}$ is Noetherian if $R$ is Noetherian.
-     \end{enumerate}
- \end{theorem}
- \begin{proof}
-     Let $\bf'$ be an ideal of $\faktor{R}{\af}$. Since the natural map $\pi$ is
-     onto, there is an ideal $\bf \in R$ for which $\bf=\inv{\pi}(\bf')$. Now,
-     let $a,b \in \bf$, then $\pi(a),\pi(b) \in \bf'$, so that $\pi(a+b) \in
-     \bf'$ and $-\pi(a) \in \bf'$. Moreover, if $a \in \bf$, and $r \in R$, then
-     $r\pi(a)=\pi(ra) \in \bf'$, since $\bf'$ is an ideal. Now, since
-     $\ker{\pi}=\af$, we have that $\af \subseteq \bf$. So that $\bf$ is an
-     ideal containing $\af$. By similar reasoning, if $\bf$ is an ideal
-     containing $\af$, then $\bf'=\pi(\bf)$ is also an ideal.
-
-     Now, suppose that $\bf$ is a radical ideal. That is, $\bf=\sqrt{\bf}$. Since
-     $\bf=\inv{\pi}(\bf')$, we have $\inv{\pi}(\bf')=\sqrt{\inv{\pi}(\bf')}$.
-     Now, suppose that $\bf$ is a prime ideal, then if $ab \in \bf$, either $a
-     \in \bf$ or $b \in \bf$. This implies whenever $\pi(ab) \in \bf'$, either
-     $\pi(a) \in \bf'$ or $\pi(b) \in \bf'$. This makes $\bf'$ prime. Similarly,
-     if $\bf'$ is prime so is $\bf$. Finally, by definition of a maximal idea,
-     $\bf$ is maximal if, and only if $\bf'$ is maximal.
-
-     Finally, suppose that $\bf$ is finitely generated, then $\bf=(a_1, \dots,
-     a_n)=\inv{\pi}(\bf')$ for $a_1, \dots, a_n \in R$. Then every element of
-     $\bf$ is the sum of $a_1, \dots, a_n$. That is, $b=r_1a_1+\dots+r_na_n$ for
-     every $b \in \bf$, and $r_1, \dots, r_n \in R$. Now, since $b \in
-     \bf=\inv{\pi}(\bf')$, then $\pi(b)=r_1\pi(a_1)+\dots+r_n\pi(a_n) \in \bf'$,
-     so that $\bf'=(\pi(a_1), \dots, \pi(a_n))$. This makes $\bf'$ finitely
-     generated. We can then conclude that if $R$ is Noetherian, by theorem
-     \ref{1.4.2}, $\faktor{R}{\af}$ must also be Noetherian.
- \end{proof}
- \begin{corollary}
-     Let $k$ be a field and $\af$ an ideal of $k[x_1, \dots, x_n]$. Any ring of
-     the form $\faktor{k[x_1, \dots, x_n]}{\af}$ is a Noetherian ring.
- \end{corollary}
