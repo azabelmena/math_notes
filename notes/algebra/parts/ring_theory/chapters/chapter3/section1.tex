@@ -149,3 +149,100 @@ maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
   $(f)=(1)=\Q[x,y]$ which is impossible.
 \end{enumerate}
 \end{example}
+
+\begin{lemma}\label{lemma_7.1.4}
+    Let $k$ be an infinite field, and suppose  $f \in k[x_1, \dots, x_n]$ is a
+    polynomial such that $f(a_1,\dots,a_n)=0$ for all $a_1, \dots, a_n \in k$.
+    Then $f$ must be the zero polynomial.
+\end{lemma}
+\begin{proof}
+    Observe that
+    \begin{equation*}
+        f(x_1, \dots, x_n)=\sum{f_i(x_1,\dots,x_{n-1})x_n^i}
+    \end{equation*}
+    where $f \in k[x_1, \dots, x_{n-1}]$. Now, for $n=1$, if we have  $f \in
+    k[x_1]$, then if $f(a_1)=0$ for all $a_1 \in k$, then $f(x_1)=0$ in $k$.
+    Suppose now that the the polynomial $f(x_1,\dots,x_n)$ satisfies
+    \begin{equation*}
+        f(a_1, \dots, a_n)=0 \text{ for all } a_1,\dots,a_n \in k
+    \end{equation*}
+    and consider a the polynomial $f$ as a polynomial in $k[x_1, \dots,
+    x_n,x_{n+1}] \simeq k[x_1,\dots,x_n][x_{n+1}]$, then we have
+    \begin{equation*}
+        f(x_1,\dots, x_n, x_{n+1})=\sum{f_i(x_1, \dots, x_n)x_{n+1}^i}
+    \end{equation*}
+    Now, if $f(a_1, \dots, a_n,a_{n+1})=0$ for all $a_1, \dots, a_n,a_{n+1} \in
+    k$, we have that
+    \begin{equation*}
+        f(a_1,\dots, a_n, a_{n+1})=\sum{f_i(a_1, \dots, a_n)a_{n+1}^i}=0
+    \end{equation*}
+    Now, $f$ has finitely many roots when considered as a polynomial in $k
+    [x_1, \dots, x_n]$, and if $ a_1, \dots, a_n$ are roots of $f_i$, by
+    hypothesis, $f_i=0$ for each  $i$, so that
+    \begin{equation*}
+        f(a_1,\dots, a_n, a_{n+1})=\sum{f_i(a_1, \dots,
+        a_n)a_{n+1}^i}=\sum{0a_{n+1}^i}=0
+    \end{equation*}
+    which makes $f(x_1, \dots, x_{n+1})=0$ in $k[x_1, \dots, x_{n+1}]$.
+\end{proof}
+
+\begin{lemma}\label{lemma_7.1.5}
+    If $k$ is a field, then there exist infinitely many monic irreducible
+    polynomials in $k[x]$.
+\end{lemma}
+\begin{proof}
+    Suppose that there exist finitely many monic irreducible polynomials in
+    $k[x]$, and let $p_1, \dots, p_n$ an enumeration of all of them. Consider
+    the polynomial
+    \begin{equation*}
+        p(x)=p_1(x) \dots p_n(x)+1
+    \end{equation*}
+    Then for every $p_i$, we have that  $p \equiv 1 \mod{p_i}$ so that no $p_i$
+    divides  $p$.  Since ech  $p_i$ is monic and irreducible, this makes  $p$
+    irreducible, contradiction the given enumeration.
+\end{proof}
+
+%\begin{lemma}\label{lemma_7.1.6}
+    %Every algebraically closed field is infinite.
+%\end{lemma}
+%\begin{proof}
+    %Let $k$ be an algebraically closed field. Suppose also that $k$ were finite,
+    %and let  $k=\{a_1, \dots, a_n\}$. Let $f(x) \in k[x]$ be the following
+    %polynomial
+    %\begin{equation*}
+        %f(x)=(x-a_1) \dots (x-a_n)+1
+    %\end{equation*}
+    %Then $f$ has no roots at in $k$. Since  $k$ is algebraically closed, there
+    %must be an element $a \in k$ for which $a$ is a root of $f$, i.e, $f(a)=0$.
+    %This forces $a=a_i$  for some $1 \leq i \leq n$. Since $f(a_i) \neq 0$, this
+    %forces $a \neq a_i$ for all $i$, so that $k=\{a_1, \dots, a_n,a\}$, which
+    %contradicts the finiteness of $k$.
+%\end{proof}
+
+%\begin{lemma}\label{lemma_7.1.7}
+    %Let $k$ be a field, and let $f \in k[x_1, \dots, x_n]$. Then for some $a_1,
+    %\dots, a_n \in k$,
+    %\begin{equation*}
+        %f(x_1,\dots,x_n)=\sum{\l_{(i)}(x_1-a_1)^{i_1} \dots (x_n-a_n)^{i_n}}
+    %\end{equation*}
+%\end{lemma}
+%\begin{proof}
+    %Consider the monomials $x_1^{i_1} \dots x_n^{i_n}$ of $f$, and recall that
+    %$x_1^{i_1} \dots x_n^{i_n} \in k[x_1, \dots, x_{n-1}][x_n]$. Suppose that
+    %$a_1$ is a root of $x_1^{i_1} \dots x_n^{i_n}$, and that it factors into,
+    %say $f(x_1, \dots, x_n)=\l_1(x_1-a_1)^{i_1} x_2^{i_2} \dots x_n^{i_n}$.
+    %Supposing then that $a_2, \dots, a_n$ are all roots, we can obtain the
+    %factorization $\l_{(i)}(x_1-a_1)^{i_1} \dots (x_n-a_n)^{i_n}$ (this
+    %factorization is independent of the ordering of $a_1, \dots, a_n$ since one
+    %can always permute the roots of a polynomial). This gives us the required
+    %result.
+%\end{proof}
+%\begin{corollary}
+    %If $f(a_1, \dots, a_n)=0$ then $f(x_1, \dots, x_n)=\sum{(x_i-a_i)g_i(x_1,
+    %\dots, x_n)}$ For some $g_i \in k[x_1, \dots, x_n]$ not necessarily unique.
+%\end{corollary}
+%\begin{proof}
+    %Observe the monomials $(x_1-a_1)^{i_1} \dots
+    %(x_n-a_n)^{i_n}=(x_j-a_j)((x_1-a_1)^{i_1} \dots (x_j-a_j)^{i_j-1} \dots
+    %(x_n-a_n)^{i_n})=(x_j-a_i)g_j(x_1, \dots, x_n)$.
+%\end{proof}
