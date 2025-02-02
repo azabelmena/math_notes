@@ -122,30 +122,30 @@
   permutes the terms of $f$. So that  $\Pi$ dictates the required isomorphism.
 \end{proof}
 
-%\begin{example}\label{label_7.3}
-%\begin{enumerate}
-%\item[(1)] Consider the ideals $(x)$ and $(x,y)$ in $\Q[x,y]$. We have
-%that $(x)$ is a prime ideal in $\Q[x,y]$, since $\Q[x,y] \simeq
-%\Q[y,x]=\Q[y][x]$. Moreover, let $fg \in (x,y)$ so that
-%$fg(x,y)=xyr(x,y)$ for some $r \in \Q[x,y]$. Then $xy|fg$ which
-%makes  $xy|f$ or  $xy|g$, so that $f \in (x,y)$ or $g \in (x,y)$.
-%This makes $(x,y)$ a prime ideal. Notice, however, that $(x)
-%\subseteq (x,y)$, so that $(x)$ is not maximal. $(x,y)$, however is
-%a maximal ideal in $\Q[x,y]$.
+\begin{example}\label{label_7.3}
+\begin{enumerate}
+\item[(1)] Consider the ideals $(x)$ and $(x,y)$ in $\Q[x,y]$. We have
+that $(x)$ is a prime ideal in $\Q[x,y]$, since $\Q[x,y] \simeq
+\Q[y,x]=\Q[y][x]$. Moreover, let $fg \in (x,y)$ so that
+$fg(x,y)=xyr(x,y)$ for some $r \in \Q[x,y]$. Then $xy|fg$ which
+makes  $xy|f$ or  $xy|g$, so that $f \in (x,y)$ or $g \in (x,y)$.
+This makes $(x,y)$ a prime ideal. Notice, however, that $(x)
+\subseteq (x,y)$, so that $(x)$ is not maximal. $(x,y)$, however is
+a maximal ideal in $\Q[x,y]$.
 
-%\item[(2)] Notice that $(x,y)$ is a prime ideal in $\Z[x,y]$, since
-%$\Z[x,y]$ is a subring of $\Q[x,y]$, and $(x,y)$ is prime in
-%$\Q[x,y]$. Similarly, $(2,x,y)$ is prime in $\Z[x,y]$. Notice
-%however that $(x,y) \subseteq (2,x,y)$ so that $(x,y)$ is not
-%maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
+\item[(2)] Notice that $(x,y)$ is a prime ideal in $\Z[x,y]$, since
+$\Z[x,y]$ is a subring of $\Q[x,y]$, and $(x,y)$ is prime in
+$\Q[x,y]$. Similarly, $(2,x,y)$ is prime in $\Z[x,y]$. Notice
+however that $(x,y) \subseteq (2,x,y)$ so that $(x,y)$ is not
+maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
 
-%\item[(3)] Notice that $(x,y)$ is not a principle ideal in $\Q[x,y]$.
-%Suppose that it were, then $(x,y)=(f)$ for some $f(x,y) \in
-%\Q[x,y]$. Then we have that $x \in (f)$ and $y \in (f)$ so that
-%$f|x$ and  $f|y$. That is, $x=f(x,y)r(x,y)$ and $y=f(x,y)q(x,y)$.
-%Then $x+y=f(x,y)(r(x,y)+q(x,y))$. Notice also that $\deg{f} \leq 1$.
-%Then if $\deg{f}=0$, $f$ is a unit, and we get  $(f)=\Q[x,y]$. On
-%the other hand, if $\deg{f}=1$, and since
-%$x+y=f(x,y)(r(x,y)+q(x+y))$, we have that
-%\end{enumerate}
-%\end{example}
+\item[(3)] Notice that $(x,y)$ is not a principle ideal in $\Q[x,y]$.
+  Indeed, suppose there is an $f(x,y) \in \Q[x,y]$ for which
+  $(x,y)=(f)$. Then $x \in (f)$ and $y \in (f)$, so that $f \divides
+  x$ and  $f \divides y$. Hence $f \divides (x+y)$, so
+  $x+y=f(x,y)g(x,y)$ for some $g \in \Q[x,y]$ not a unit. Now,
+  $\deg{f} \leq 1$, and since $g$ is not a unit, $\deg{g}=1$, which
+  makes $\deg{f}=0$. Therefore $f(x,y)$ is a unit in $\Q[x,y]$ so that
+  $(f)=(1)=\Q[x,y]$ which is impossible.
+\end{enumerate}
+\end{example}
