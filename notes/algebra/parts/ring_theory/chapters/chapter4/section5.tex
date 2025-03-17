@@ -2,101 +2,154 @@
 \label{section_8.5}
 
 \begin{definition}
-  We define the \textbf{algebraic closure} of a field $F$ to be the algebraic
-  extension, $\cl{F}$, over $F$ for which every polynomial over  $F$ splits.
-  We call a field  $K$  \textbf{algebraically closed} if every polynomial over
-  $K$ has at least one root in  $K$.
+  Let $F$ be a field. We call an extension field $K$ over $F$ an
+  \textbf{algebraic closure} of $F$ if it is algerbaic over $F$, and
+  any polynomial over $F$ splits completely over $K$.
 \end{definition}
 
-\begin{lemma}\label{lemma_8.5.1}
-  A field $K$ is algebraically closed if, and only if every polynomial over
-  $K$ has all of its roots in  $K$.
-\end{lemma}
-\begin{proof}
-  Certainly, if a polynomial $f$ over  $K$ contains all of its roots in  $K$,
-  then  $K$ is algebraically closed, by definition.
+\begin{definition}
+  A field $K$ is said to be  \textbf{algebraically closed} provided
+  any polynomial over $K$ has at least one root in $K$.
+\end{definition}
 
-  Now, suppose that  $K$ is algebraically closed, and let  $f$ a polynomial
-  over  $K$. Then  $f$ contains at least one root in $K$. Hence
-  $f(x)=(x-\a)f_1(x)$ for some root $\a$ of $f$, and where $f_1 \in K[x]$. But
-  then by definition again, $f_1$ contains at least one root in $K$. Hence,
-  we proceed until we exhaust all the roots of  $f$, and obtain that every
-  root of  $f$ lies in  $K$.
+\begin{proposition}
+  Let $K$ be a field. Then $K$ is algebraically closed if, and only if
+  every polynomial over $K$ contains all its roots in $K$.
+\end{proposition}
+\begin{proof}
+  Let $f(x) \in K[x]$, and let $\deg{f}=n$. Now, suppose  $K$ is
+  algebraically closed. Then $f(x)$ has a root $\a_1 \in K$ and
+  $f(x)$ splits as
+  \begin{equation*}
+    f(x)=(x-\a)f_1(x)
+  \end{equation*}
+  where $f_1(x) \in K[x]$ and $\deg{f_1}=n-1$. Now, by definition
+  again, $f_1(x)$ has a root $\a_2 \in K$ so that $f(x)$ splits as:
+  \begin{equation*}
+    f(x)=(x-\a_1)(x-\a_2)f_2(x)
+  \end{equation*}
+  where $f_2(x) \in K[x]$ and $\deg{f_2}=n-2$. Proceeding recursively
+  on each subsequent factor, we exhaust all the roots of $f(x)$, and
+  obtain them as elements of $K$ by definition. Conversely, if every
+  polynomial over $K$ contains all its roots in $K$, by definition $K$
+  is algebraically closed.
 \end{proof}
 \begin{corollary}
-  $K$ is algebraically closed if, and only if  $\cl{K}=K$.
+  $K$ is algebraically closed if, and only if every polynomial over
+  $K$ splits completely over $K$.
+\end{corollary}
+\begin{corollary}
+  If $f(x) \in K[x]$ has degree $\deg{f}=n$, then $f(x)$ has exactly
+  $n$-roots in $K$.
 \end{corollary}
 
-\begin{lemma}\label{lemma_8.5.2}
-  Let $F$ be a field, and  $\cl{F}$ its algebraic closure. Then $\cl{F}$ is
-  algebraically closed; i.e. $\cl{(\cl{F})}=\cl{F}$.
-\end{lemma}
+\begin{proposition}\label{proposition_8.5.2}
+  If $K$ is algebraically closed, then  $K$ is an algebraic closure
+  of itself.
+\end{proposition}
 \begin{proof}
-  Let $f \in \cl{F}[x]$, and $\a$ a root of  $f$. Then  $\a$ generates all of
-  $\cl{F}(\a)$, making $\cl{F}$ algebraic over $F$. Hence  $\a$ is algebraic
-  over  $F$, but  $\a \in \cl{F}$, so that $\cl{(\cl{F})}=\cl{F}$.
+  By the above proposition, we observe that if $K$ is algebraically
+  closed, then every polynomial over $K$ splits completely over $K$,
+  and that $K$ is algebraic over itself.
 \end{proof}
 
-\begin{lemma}\label{lemma_8.5.3}
-  For every field $F$, there exists an algebraically closed set containing
-  $F$.
-\end{lemma}
+\begin{proposition}\label{propostion_8.5.3}
+  Let $K$ be an algebraic closure of a field $F$. Then $K$ is
+  algebraically closed.
+\end{proposition}
 \begin{proof}
-  Consider the polynomial ring $F[\dots, x_n, \dots]$ where $f(x_n)$ is a
-  nonconstant polynomial over $f$. Consider the ideal  $(f)$. Then, if
-  $(f)=(1)$, then
-  \begin{equation*}
-    g_1f_1(x_1)+\dots+g_nf_n(x_n)=1
-  \end{equation*}
-  where $g_i \in F[x_i]$. Then we get
-  \begin{equation*}
-    g_1(x_1, \dots, x_m)f_1(x_1)+\dots+g_n(x_1, \dots, x_m)f_n(x_n)=1
-  \end{equation*}
-  Now, let $F'$ an extension of  $F$ containing a root  $\a_i$ of  $f_i$. Then
-  we observe that  $0=1$ in the above equation which is a blatant
-  contradiciton. S o $(f)$ must be a proper ideal.
-
-  Now, by Zorn's lemma, there exists a maximal ideal $M$ containing $I$. Then
-  the quotient
-  \begin{equation*}
-    K_1=\faktor{F[\dots, x_n, \dots]}{M}
-  \end{equation*}
-  is a field containing an imbedding of $F$. Moreover,  $f$ has a root in
-  $K_1$, so that $f(x_n) \in  (f) \subseteq M$. Then $K_1$ is a field in which
-  every polynomial over $F$ has a root. Proceeding as before with  $K_1$, we
-  obtain $K_2$ in which every polynomial over $K_1$ has a root. Hence,
-  proceeding recursively, we obtain the sequence
-  \begin{equation*}
-    F=K_0 \subseteq K_1 \subseteq K_n \subseteq \dots
-  \end{equation*}
-  in which everypolynomial over $K_n$ has all its roots in $K_{n+1}$. Now, let
-  \begin{equation*}
-    K=\bigcup{K_n}
-  \end{equation*}
-  Then $F \subseteq K$, and every polynomial over $K$ has a root in  $K_N$,
-  for  $N$ large enough; but  $K_N \subseteq K$, so that  $K$ is algebraically
-  closed.
+  Let $f(x) \in K[x]$, and let $\a$ a root of $f(x)$ (in some
+  extension, not necessarily $K$). Then $\a$ generates the algebraic
+  extension $K(\a)$ over $K$. Now by definition, since $K$ is
+  algebraic over $F$,  we get that $K(\a)$ is algebraic over $F$, and
+  hence $\a$ is algerbaic over $F$. This puts $\a \in K$, and hence
+  $K$ must be algebraically closed.
 \end{proof}
 
-\begin{lemma}\label{lemma_8.5.4}
-  Let $K$ be algebraically closed, and let  $F \subseteq K$. Then the
-  collection of elements of the algbraic closure $\cl{F}$ of $K$ that are
+\begin{proposition}\label{proposition_8.5.4}
+  Let $F$ be a field. Then there exists an algebraically closed field
+  containing $F$.
+\end{proposition}
+\begin{proof}
+  For any $f(x) \in F[x]$, denote $x_f$ an indeterminate. Now,
+  consider the ideal $\ff \subseteq F[\dots, x_f,\dots]$ generated by
+  those $f(x_f)$. If $\ff$ is not a proper ideal, so that $1 \in \ff$,
+  then we get
+  \begin{equation*}
+    g_1(\dots, x_{f_1}, \dots)f_1(x_{f_1})+
+    \dots+g_n(\dots, x_{f_n},\dots)f_n(x_{f_n})=1
+  \end{equation*}
+  where $g_i(\dots, x_{f_i}, \dots) \in F[\dots, x_f, \dots]$. Now,
+  let $F'$ a finite extension containing roots $\a_{f_i}$ of
+  $f_i(x_{f_i})$, then we get:
+  \begin{equation*}
+    g_1(\dots, \a_{f_1}, \dots)f_1(\a_{f_1})+\dots+
+    g_n(\dots, \a_{f_n}, \dots)f_n(\a_{f_n})=0
+  \end{equation*}
+  which gives $1=0$ in $F$, which is impossible since $F$ is a field.
+  Therefore $1 \notin \ff$ and  $\ff$ is a proper ideal. Hence by
+  Zorn's lemma, $\ff$ is contained in a maximal ideal $\mf$. Now
+  letting
+  \begin{equation*}
+    K_1=\faktor{F[\dots, x_f, \dots]}{\mf}
+  \end{equation*}
+  $K_1$ is a field containing an isomorphic copy of $F$. Moreover, a
+  polynomial $f \in F[x_f]$ has a root in $K_1$, since $f \in \ff
+  \subseteq \mf$.
+
+  Repeating the above process with $K_1$, we obtain $K_2$, and
+  proceeding inductively we obtaine the tower
+  \begin{equation*}
+    F=K_0 \subseteq K_1 \subseteq K_2 \subseteq \dots
+    \subseteq K_j \subseteq \dots
+  \end{equation*}
+  where every polynomial iver $K_j$ has roots in $K_{j+1}$. Now, let:
+  \begin{equation*}
+    K=\bigcup_{j=0}^\infty{K_j}
+  \end{equation*}
+  Then $K$ is a field containing an isomorphic copy of $F$. Now if
+  $h(x) \in K[x]$, then $h(x)$ has coefficients in some $K_N$ for $N
+  \geq 1$ large enough, and hence has roots in $K_{N+1}$. That is
+  $h(x)$ has roots in $K$. Therefore $K$ is algebraically closed.
+\end{proof}
+
+\begin{proposition}\label{proposition_8.5.5}
+  Let $K$ be an algebraically closed field, and $F \subseteq K$ a
+  subfield. Then the collection $\bar{F}$ of elements of $K$ which are
   algebraic over $F$ is an algebraic closure of $F$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
-  By definition, $\faktor{\cl{F}}{F}$ is algebraic. Then every polynomial $f$
-  over  $F$ splits over  $K$ into linear factors $(x-\a)$, where $\a$ is a
-  root of $f$. So  $\a$ is algebraic over  $F$, and hence  $\a \in \cl{F}$.
-  then all linear factors have a coefficient in $\cl{F}$, so that $f$ splits
-  completely over  $\cl{F}$.
+  By definition, $\bar{F}$ is algebraic over $F$. Now, observe that
+  every polynomial $f(x)$ over $K$ splits completely over  $K$ into
+  linear factors of the form  $x-\a$, with  $\a$ a root of  $f(x)$.
+  This makes $\a$ algebraic over  $F$, and hence  $\a \in \bar{F}$.
+  That is, $f(x)$ splits completely over $\bar{F}$, so that $\bar{F}$
+  is an algebraic closure of $F$.
+\end{proof}
+
+\begin{proposition}
+  Let $\phi:F \xrightarrow{} F'$ be a field isomoprhism, and let $K$
+  and $K'$ be algbebraic closures of $F$ and $F'$ respectively. Then
+  $\phi$ extends to a field isomorphism $\s:K \xrightarrow{} K'$.
+\end{proposition}
+\begin{corollory}
+  Any two algebraic closures over a given field are isomorphic.
+\end{corollory}
+\begin{proof}
+  Again, take $F'=F$ and $\phi:F \xrightarrow{} F$ the identity
+  isomorphism.
 \end{proof}
 \begin{corollary}
-  Algebraic closures are unique up to isomorphism.
+  Any algebraic closure of $F$ is isomorphic to the field $\bar{F}$ of
+  all elements algebraic over $F$.
 \end{corollary}
 
-\begin{theorem}[The Fundamental Theorem of Algebra]\label{theorem_8.5.5}
-  $\C$ is algebraically closed.
+\begin{theorem}[The Fundamental Theorem of Algebra]\label{theorem_8.5.7}
+  The field of complex numbers $\C$ is algebraically closed.
 \end{theorem}
 \begin{corollary}
-  $\C$ contains the an algebraic closuder of any of its subfields.
+  $\C$ contains the algebraic closure of any of its subfields.
 \end{corollary}
+\begin{proof}
+  This is immediate from proposition \ref{proposition_8.5.5}.
+\end{proof}
