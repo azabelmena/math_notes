@@ -2,330 +2,589 @@
 \label{section_8.2}
 
 \begin{definition}
-  Let $\faktor{K}{F}$ be a field extension. We say that an element $\a \in K$
-  is  \textbf{algebraic} over $F$, provided there exists a polynomial over $F$
-  having $\a$ as a root. Otherwise we call $\a$  \textbf{transcendental}. If
-  every $\a \in K$ is algebraic, we call $K$ \textbf{algebraic} and
-  $\faktor{K}{F}$ an \textbf{algebraic extension}.
+  Let $F$ be a field, and $K$ an extension of $F$. An element $\a \in K$
+  is said to be \textbf{algebraic} over $F$ provided there exists a
+  nonzero polynomial $f(x)$ over $F$ for which $\a$ is a root over
+  $K$; i.e. $f(\a)=0$. If no such polynomial $f$ exists, we call $\a$
+  \textbf{transcendental} over $F$.
 \end{definition}
 
-\begin{lemma}\label{lemma_8.2.1}
-  Let $\a$ be algebraic over a field  $F$. Then there exista a unique monic
-  irreducible polynomial  $m \in F[x]$ having $\a$ as a root. Moreover, if  $f
-  \in F[x]$ is a polynomial, then $f$ has $\a$ as a root if, and only if $m|f$.
-\end{lemma}
+\begin{definition}
+  Let $F$ be a field. We call an extension $K$ \textbf{algebraic} over
+  $F$ if every element of $K$ is algebraic over $F$.
+\end{definition}
+
+\begin{proposition}\label{proposition_8.2.1}
+  If $\a$ is algebraic over a field $F$, then it is algebraic over any
+  extension of $F$.
+\end{proposition}
 \begin{proof}
-  Let $m$ a polynomial of minimal degree having  $\a$ as a root. Suppose, also
-  that  $,$ is monic. Now, if  $m$ were reducible, then $m(x)=a(x)b(x)$ for
-  some $a,b \in F[x]$ polynomials both of degree less than $\deg{m}$. Then we
-  also have that $a(\a)=b(\a)=0$, which contradicts that $m$ is the polynomial
-  of minimal degree satisfying that condition. Hence,  $m$ is irreducible.
-
-  Now, let  $f \in F[x]$ have $\a$ as a root, then by the divison theorem,
-  there exist  $q,r \in F[x]$, with $q \neq 0$ for which
+  Let $K$ be an extension for which $\a \in K$ is algebraic over $F$.
+  Then there is a polynomial $f(x) \in F[x]$ for which $f(\a)=0$ over
+  $K$. Now, consider the tower
   \begin{equation*}
-    f(x)=q(x)m(x)+r(x) \text{ where } \deg{r}<\deg{m}
+    F \subseteq E \subseteq K
   \end{equation*}
-  Now, since $f(\a)=q(\a)m(\a)+r(\a)=0$, then $r(x)=0$ for all $x$ lest we
-  contradict the minimality of $m$. Hence $m|f$. Conversely, if $m|f$, then
-  $f$ has $\a$ as a root.
+  Since $f(\a)=0$ in $K[x]$, $f(\a)=0$ in $E[x]$, and observe that $K$
+  is an extension of $E$. Then $\a$ is algeraic over $E$. On the
+  otherhand, if we have the tower
+  \begin{equation*}
+    F \subseteq K \subseteq E
+  \end{equation*}
+  since $\a \in K$, we have $\a \in E$ so that $f(\a)=0$ over $E$, and
+  hence $\a$ must also be algebraic over $K$.
+\end{proof}
 
-  Now, let $g$ a polynomial of minimal degree for which  $g(\a)=0$. Then by
-  above, we have that $\deg{g}=\deg{m}$, and that moreover, $m|g$ and  $g|m$.
-  therefore  $g=m$ and uniqueness is established.
+\begin{proposition}\label{proposition_8.2.2}
+  If $\a$ is algebraic over a field $F$, then there exists a unique
+  monic irreducible polynomial $m_{\a,F}(x)$ over $F$ for which $\a$
+  is a root. Moreover, if $f(x)$ is a polynomial over $F$ having $\a$ as
+  a root, then $m_{\a,F}(x)$ divides $f(x)$.
+\end{proposition}
+\begin{proof}
+  Let $K$ be an extension of $F$, and $\a \in K$. Let $g(x) \in F[x]$
+  be of minimal degree, such that $g(\a)=0$. Suppose also, without
+  loss of generality, that $g(x)$ is monic. Let $a(x),b(x) \in F[x]$
+  such that $g(x)=a(x)b(x)$. Then $\deg{a} \leq \deg{g}$ and
+  $\deg{b} \leq \deg{g}$. Moreover, $g(\a)=a(\a)b(\a)=0$. Since $K$
+  is an integral domain, either $a(\a)=0$, or $b(\a)=0$. This
+  contradicts that $g(x)$ is the polynomial of minimal degree for
+  which $g(\a)=0$. Therefore, $g(x)$ must be irreducible.
+
+  Now, let $f(x) \in F[x]$ such that $f(\a)=0$. By the division
+  theorem, there exist polynomials $q(x),r(x) \in F[x]$ for which
+  \begin{equation*}
+    f(x)=q(x)g(x)+r(x) \text{ where } r(x)=0 \text{ or }
+    \deg{r}<\deg{g}
+  \end{equation*}
+  Suppose that $r(x) \neq 0$. Since $f(\a)=0$ and $g(\a)=0$, it
+  follows that $r(\a)=0$. But $\deg{r}<\deg{g}$ which contradicts the
+  minimality of $g(x)$. Therefore $r(x)=0$ over $F$, and  $g|f$.
+
+  Lastly, suppose there is another monici irreducible polynomial
+  $g'(x) \in F[x]$ of minimal degree for which $g'(\a)=0$. Then by
+  above, we have that $g'|g$ and $g|g'$. By monic irreduciblity, we
+  must have that  $g(x)=g'(x)$.
 \end{proof}
 \begin{corollary}
-  Let $\faktor{L}{F}$ be an extension, and $\a$ algebraic over $F$. Let
-  $m_{\a,F}$ the unique monic irreducible polynomial over $F$ having  $\a$ as
-  root, and  $m_{\a,L}$ the unique monic irreducible polynomial over $L$
-  having  $\a$ as root. Then $m_{\a,L}|m_{\a,F}$ in $L[x]$.
+  If $\faktor{L}{F}$ is an extension, and  $m_{\a,F}(x) \in F[x]$, and
+  $m_{\a,L} \in L[x]$ are the monic irreducible polynomials described
+  above for some $\a \in L$, then $m_{\a,L}(x)$ divides $m_{\a,F}(x)$
+  in $L[x]$.
 \end{corollary}
 
 \begin{definition}
-  Let $F$ be a field, and $\a$ algebraic over $F$. We define the
-  \textbf{minimal polynomial} $m_{\a,F}$, to be the polynomial over $F$ of
-  minimal degree having  $\a$ as a root. If the field is clear, we instead
-  write  $m_\a$, or even just  $m$ when the root itself is also clear. We
-  define the  \textbf{degree} of $\a$ to be  $\deg{\a}=\deg{m_{\a}}$.
+  Let $F$ be a field, and $K$ be an extension of $F$, and let $\a \in
+  K$ be algebraic over $F$. We define the \textbf{minimal polynomial}
+  of $\a$ over $F$ to be the unique monic irreducible polynomial
+  $m_{\a,F}(x)$ over $F$ for which  $m_{\a,F}(\a)=0$. We define the
+  \textbf{degree} of $\a$ over $F$ to be $\deg_F{\a}=\deg{m_{\a,F}}$.
+  When the extension $K$ is understood, we simply write $m_\a(x)$ and
+  $\deg{\a}$.
 \end{definition}
 
-\begin{lemma}\label{lemma_8.2.2}
-  Let $\a$ algebraic over  $F$. Then
+\begin{proposition}\label{proposition_8.2.3}
+  Let $\a$ be algebraic over a field  $F$. Then
   \begin{equation*}
-    F(\a) \simeq \faktor{F[x]}{(m_{\a,F})}
+    F(\a) \simeq \faktor{F[x]}{(m_\a)}
   \end{equation*}
-\end{lemma}
+\end{proposition}
+\begin{proof}
+  Since $m_\a(x)$ is monic and irreducible over $F$, $(m_\a)$ is a
+  maximal ideal in $F[x]$. Thus
+  \begin{equation*}
+    \faktor{F[x]}{(m_\a)}
+  \end{equation*}
+  is a field. Now, by by definition of $\a$ as an algebraic element,
+  and by theorem \ref{theorem_8.1.8}, the result follows.
+\end{proof}
 \begin{corollary}
-  $[F(\a) : F]=\deg{m_\a}=\deg{\a}$.
+  $[F(\a):F]=\deg{m_\a}=\deg{\a}$.
 \end{corollary}
 
-\begin{example}\label{example_7.5}
-  \item[(1)] The minimal polynomial for $\sqrt{2}$ over $\Q$ is $x^2-2$.
+\begin{example}\label{example_8.5}
+  \begin{enumerate}
+    \item[(1)] $m_{\sqrt{2}}(x)&= x^2-2$ over $\Q$ and
+      $[\Q(\sqrt{2}):\Q]=\deg{m_{\sqrt{2}}}=\deg{\sqrt{2}}=2$.
+      Similarly, $m_{\sqrt[3]{2}}(x)=x^3-2$ over $\Q$, and
+      $[\Q(\sqrt[3]{2}):\Q]=\deg{m_{\sqrt[3]{2}}}=\deg{\sqrt[3]{2}}=3$.
+      We can also observer that $m_{\xi\sqrt[3]{2}}(x)=
+      m_{\bar{\xi}\sqrt[3]{2}}(x)=m_{\sqrt[3]{2}}(x)$ over $\Q$, where
+      \begin{equation*}
+        \xi=-\frac{1}{2}+i\frac{\sqrt{3}}{2}
+      \end{equation*}
+      and $\bar{\xi}$ is the corresponding complex conjugate.
 
-  \item[(3)] The minimal polynomial for $\sqrt[3]{2}$ over $\Q$ is $x^3-2$.
+    \item[(2)] For every $n>1$,  $x^n-2$ is monic irreducible over
+      $\Q$ by the Eisenstein-Sch\"onemann criterion. Now, denote
+      $\a=\sqrt[n]{2}$, then:
+      \begin{align*}
+        \Q(\sqrt[n]{2}) &\simeq \faktor{\Q[x]}{(x^n-2)} \\
+          &= \{a_0+a_1\sqrt[n]{2}+a_2\sqrt[n]{2^2}+
+            \dots+a_{n-1}\sqrt[n]{2^{n-1}} :
+          a_0, \dots, a_{n-1} \in \Q\}  \\
+      \end{align*}
+      Let $m(x)$ is the minimal polynomial of $\sqrt[n]{2}$ over
+      $\Q$. Then $m(x)|x^n-2$, so that $\deg{\sqrt[n]{2}} \leq n$.
+      Now, since $m(\sqrt[n]{2})=0$, and $m(x)$ is monic and
+      irreducible, we get
+      \begin{align*}
+        \Q(\sqrt[n]{2}) &\simeq \faktor{\Q[x]}{(m)} \\
+          &= \{b_0+b_1\sqrt[n]{2}+b_2\sqrt[n]{2^2}+
+            \dots+b_{m}\sqrt[n]{2^{m}} :
+          a_0, \dots, a_{n-1} \in \Q\}  \\
+      \end{align*}
+      for some $0 \leq m \leq n-1$. We then get that the two sets
+      \begin{align*}
+        \{ 1, \sqrt[n]{2}, \dots, \sqrt[n]{2^{n-1}} \} &&
+        \{ 1, \sqrt[n]{2}, \dots, \sqrt[n]{2^{m}} \}  \\
+      \end{align*}
+      span $\Q(\sqrt[n]{2})$. Since $[\Q(\sqrt[n]{2}):\Q]=n$, we get
+      $m=n-1$, so $\deg{m}=\deg{\sqrt[n]{2}}=n$ over $\Q$. Since $m(x)$
+      and divides $x^n-2$, it follows that $m(x)=x^n-2$. Thereofore,
+      $x^n-2$ is irreducible over  $\Q$.
+      Now, observe that over $\R$, $m(x)=x-\sqrt[n]{2}$, so that
+      $[R(\sqrt[n]{2}):\R]=1$, hence $\R(\sqrt[n]{2})=\R$.
 
-  \item[(3)] Let $n>1$, then by the Eisenstein-Sch\"omann criterion, $x^n-2$
-    is irreducible over  $\Q$. Moreover, $x^n-2$ has as root in  $\R$
-    $\sqrt[n]{2}$. Then $\Q(\sqrt[n]{2})$ is a field of degree
-    $[\Q(\sqrt[n]{2}) : \Q]=2$. Moreover $x^n-2$ is the minimal polynomial
-    of  $\sqrt[n]{2}$. Notice, that over $\R$,  $\deg{\sqwrt[n]{2}}=1$, and
-    that $m_{\sqrt[n]{2},\R}(x)=x-\sqrt[n]{2}$.
+    \item[(3)] Take $p(x)=x^3-3x-1$ over $\Q$ which is irreducible by
+      the Eisenstein-Sch\"onemann criterion. Let $\a$ a root of
+      $p(x)$, then $[\Q(\a):\Q]=3$.
+  \end{enumerate}
+\end{example}
 
-  \item[(4)] Consider $p(x)=x^3-3x-1$ over $\Q$. Notice that  $p$ is
-    irreducible over  $\Q$ and let $\a$ a root of  $p$. Then
-    $[\Q(\a):\Q]=3$.
-  \end{example}
+\begin{proposition}\label{proposition_8.4.2}
+  Let $F$ be a field. An element $\a$ in some extension of $F$ is
+  algebraic over $F$ if, and only if the simple extension
+  $\faktor{F(\a)}{F}$ is finite.
+\end{proposition}
+\begin{proof}
+  Suppose that $\a$ is algebraic over $F$, and let $m_\a(x)$ the
+  minimal polynomial of $\a$ over $F$. Then by proposition
+  \ref{proposition_8.2.3}
+  \begin{equation*}
+    F(\a) \simeq \faktor{F[x]}{(m_\a)}
+  \end{equation*}
+  and $[F(\a):F]=\deg{m_\a}<\infty$. This makes $\faktor{F(\a)}{F}$ a
+  finite simple extension.
 
-  \begin{lemma}\label{lemma_8.2.3}
-    An element $\a$ is algebraic over a field  $F$ if, and only if the simple
-    extension  $\faktor{F(\a)}{F}$ is finite.
-  \end{lemma}
-  \begin{proof}
-    If $\a$ is algebraic over $F$ then  $[F(\a):F]=\deg{\a} \leq n$ if $\a$
-    satisfies a polynomial of degree  $n$. Conversely, if  $\a$ is an element
-    of the finite extenson  $\faktor{K}{F}$, of degree $n$, then the set
-    $\{1,\a, \dots, \a^n\}$ is linearly dependent over $F$. Hence there exist
-    $b_0, \dots, b_n \in F$ not all $0$ for which
-    \begin{equation*}
-      b_0+b_1\a+\dots+a_n\a^n=0
-    \end{equation*}
-    making $\a$ a root of a nonzero polynomial over $F$ of degree $\deg \leq n$.
-  \end{proof}
-  \begin{corollary}
-    If an extension $\faktor{K}{F}$ is finite, then it is algebraic.
-  \end{corollary}
-  \begin{proof}
-    If $\a \in K$ is algebraic, then  $\faktor{K}{F}$ implies that
-    $\faktor{F(\a)}{F}$ is finite, since $F(\a) \subseteq K$.
-  \end{proof}
+  Conversely, suppose that $[F(\a):F]=n$, for some $n \geq 1$. Since
+  $\{ 1, \a, \dots, \a^{n-1} \}$ is a basis for $F(\a)$ as a vector
+  space over $F$, the elements
+  \begin{align*}
+    1 &&  \a  &&  \dots &&  \a^{n-1}  &&  \a^n  \\
+  \end{align*}
+  are linearly dependent, and hence there exist $b_0, \dots, b_n \in
+  F$, not all $0$ for which
+  \begin{equation*}
+    b_0+b_1\a+\dots+b_{n-1}\a^{n-1}+b_n\a^n=0
+  \end{equation*}
+  define $m(x) \in F[x]$ by $m(x)=b_0+b_1x+\dots+b_nx^n$. Then
+  $f(\a)=0$ by above, and hence $\a$ is by definition algebraic over
+  $F$.
+\end{proof}
+\begin{corollary}
+  If $\faktor{K}{F}$ is a finite extension, then $\faktor{K}{F}$ is
+  algebraic.
+\end{corollary}
+\begin{proof}
+  Let $\a \in K$. Then we have the tower $F \subseteq F(\a) \subseteq
+  K$, and $[F(\a):F] \leq [K:F]<\infty$. This make $\a$ algebraic over
+  $F$.
+\end{proof}
 
-  \begin{example}\label{example_8.6}
-    Let $F$ a field of  $\Char{F} \neq 2$, and let $K$ an extension field of
-    $F$ of degree $[K:F]=2$. Let $\a \in K$  not in $F$, then  $\a$ satisfies
-    an polynomial of at most degree  $2$ over $F$. Now, since  $\a \notin F$,
-    this polynomial must have degree greater than $1$. Hence it satisfies a
-    polynomial of degree $2$. Then the minimal polynomial of  $\a$ is a
-    quadratic
-    \begin{equation*}
-      m_\a(x)=x^2+bx+c \text{ with } b,c \in F
-    \end{equation*}
-    Since $F \subseteq F(\a) \subseteq K$, and $F(\a)$ is a vector space over
-    $F$ of dimension  $2$, then we must have  $K=F(\a)$; that is
-    $\faktor{K}{F}$ is simple.
+\begin{example}\label{example_8.6}
+  \begin{enumerate}
+    \item[(1)] Let $F$ be a field of  $\char \neq 2$, and let
+      $\faktor{K}{F}$ an extension with $[K:F]=2$. Take $\a \in K$,
+      since $[F(\a):F] \leq 2$, we have $\deg{\a} \leq 2$. Now, let
+      $m_\a(x)$ the minimal polynomial of $\a$ over  $F$. If
+      $\deg{m_\a}=1$ then
+      \begin{equation*}
+        m_\a(x)=x-\a
+      \end{equation*}
+      which puts $\a \in F$, making $K=F$, which is impossible since
+      $[K:F]=2$. Therefore $\deg{m_\a}=2$ and $m_\a(x)$ has the form:
+      \begin{equation*}
+        m_\a(x)=x^2+bx+c \text{ where } b,c \in F
+      \end{equation*}
+      solving for $\a$ in the equation $m_\a(\a)=0$, we get:
+      \begin{equation*}
+        \a=-\frac{b}{2} \pm \frac{\sqrt{b^2-4c}}{2}
+      \end{equation*}
+      Now, if $b^2-4c=y^2$ for some  $y \in F$, we get
+      \begin{equation*}
+        \a=-\frac{b}{2} \pm \frac{y}{2} \in F
+      \end{equation*}
+      which is impossible. So $b^2-4c$ is not square in  $F$. Now, let
+       $\b=\sqrt{b^2-4c}$. We get
+       \begin{equation*}
+         b^2-(b^2-4c)=0
+       \end{equation*}
+       which is monic irreducible in $F$; more over there does not
+       exist a polynomial of lower degree having $\b$ as a root,
+       therefore:
+       \begin{equation*}
+         m_\b(x)=x^2-(b^2-4c)
+       \end{equation*}
 
-    Now, the roots of $m_\a$ are
-    \begin{equation*}
-      \a=\frac{-b \pm \sqrt{b^2-4c}}{2}
-    \end{equation*}
-    Since $\a \notin F$,  $b^2-4c$ is not a square in $F$, and
-    $\sqrt{b^2-4c}$ is a root of the equation $x^2-(b^2-4c)=0$ in $K$.
+       Now, we claim that $F(\a)=F(\b)$. Certainly, $\a \in F(\b)$
+       since
+       \begin{equation*}
+         \a=-\frac{b}{2} \pm \frac{\b}{2}
+       \end{equation*}
+       By simmilar reasoning, $\b=2\a \pm b^2$ so that $\b \in F(\a)$.
+       Therefore $F(\a)=F(\b)$. Now since $\a \in K$, this also puts
+       $\b \in K$.
 
-    Conversely,  $\sqrt{b^2-4c}=\pm (b+2\a)$ which puts $\sqrt{b^2-4c} \in
-    F(\a)$. That is $F(\sqrt{b^2-4c})=\F(\a)$. Moreover, $x^2-(b^2-4c)$ does
-    not have solutions in $K$.
+       Now, let $D=b^2-4c$ so that  $F(\b)=F(\sqrt{D})$ (by similar
+       computations to above). We call fields of the form
+       $F(\sqrt{D})$ \textbf{quadratic extensions} of the field $F$.
+       Indeed, we proved that if $\faktor{K}{F}$ is an extension of
+       degree $2$, then it is a quadratic extension. We call
+       $D=b^2-4c$ the \textbf{discriminant} of $F(\sqrt{D})$.
+  \end{enumerate}
+\end{example}
 
-    We call field extensions  $\faktor{K}{F}$ of degree $2$ \textbf{quadratic
-    field extension}, where $K=F(\sqrt{D})$, and $D$ is a squarefree element of
-    $F$.
-  \end{example}
+\begin{theorem}\label{theorem_8.2.5}
+  Let $F$ be a field, and $\faktor{L}{K}$ and $\faktor{K}{F}$ be
+  extensions. Then
+  \begin{equation*}
+    [L:F]=[L:K][K:F]
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  Take $[L:K]=m$ and $[K:F]=n$, and let $\{ \a_1, \dots, \a_m\}$ and
+  $\{ \b_1, \dots, \b_n\}$ be bases for the extensions $\faktor{L}{K}$
+  annd $\faktor{K}{F}$, respectively. We claim that $\{\a_1\b_1,
+  \dots, \a_m\b_m\}$ is a basis for the extension $\faktor{L}{F}$.
 
-  \begin{theorem}\label{theorem_8.2.4}
-    Let $F \subseteq K \subseteq L$. Then  $[L:F]=[L:K][K:F]$.
-  \end{theorem}
-  \begin{proof}
-    Let $[L:K]=m$ and $[K:F]=n$. Let $\{\a_1, \dots, \a_m\}$ and $\{\b_1,
-    \dots, \b_n\}$ be bases for the extensions $\faktor{L}{K}$ and
-    $\faktor{K}{F}$. Now, the elements of $L$ over  $K$ are of the form
-    \begin{equation*}
-      a_1\a_1+\dots+a_m\a_m \text{ where } a_i \in K \text{ for all } 1 \leq
-      i \leq m
-    \end{equation*}
-    Since each $a_i \in K$, which is an extension over  $F$, they have the form
-    \begin{equation*}
-      a_i=b_{i1}\b_{i1}+\dots+b_{in}\beta_{in} \text{ where } b_{ij} \in F
-      \text{ for all } 1 \leq j \leq n
-    \end{equation*}
-    That is, every element of $L$, as a vector space over $F$ are of the form
-    \begin{equation*}
-      \sum{b_{ij}\a_i\b_j}
-    \end{equation*}
-    So the set $\{\a_1\b_1, \dots \a_m\b_n\}$ spans $L$. It remains to show that
-    this set is linearly in dependent.
+  Indeed, observe that every element of $L$ has the form:
+  \begin{equation*}
+    a_1\a_1+\dots+a_m\a_m \text{ where } a_1, \dots, a_m \in K
+  \end{equation*}
+  and every element $a_i \in K$ has the form:
+  \begin{equation*}
+    a_i=b_{i1}\b_1+\dots+b_{in}\b_n \text{ where } b_{i1}, \dots, b_{in} \in F
+  \end{equation*}
+  therefore, every element of $L$ has the form
+  \begin{equation*}
+    \sum{b_{ij}\a_i\b_j} \text{ where } b_{ij} \in F
+  \end{equation*}
+  Therefore $\Span_F{L}=\{\a_1\b_1, \dots, \a_m\b_n\}$.
 
-    Suppose that
-    \begin{equation*}
-      \sum{b_{ij}\a_i\b_j}=0
-    \end{equation*}
-    for some $b_{ij} \in F$. Since $\{\a_1, \dots, \a_m\}$ are linearly
-    indpendent in $L$ over  $K$, we have that the coefficients
-    $a_1=\dots=a_n=0$ which makes
-    \begin{equation*}
-      a_i=b_{i1}\b_{i1}+\dots+b_{in}\b_{in}=0
-    \end{equation*}
-    Now, since $\{\b_1, \dots, \b_n\}$ is linearly independent in $K$ over
-    $F$, this implies that $b_{i1}=\dots=b_{in}=0$ which makes the collection
-    $\{\a_1\b_1, \dots \a_m\b_n\}$ linearly independent, and hence, a basis.
-    Moreover, notice that this basis has size $mn$.
-  \end{proof}
+  Now, suppose that
+  \begin{equation*}
+    \sum{b_{ij}\a_i\b_j}=0 \text{ for } b_{ij} \in F
+  \end{equation*}
+  taking $a_i=b_{i1}\b_1+\dots+b_{in}\b_n$ in $K$, since $\{\a_1,
+  \dots, \a_m\}$ is linearly independent over $K$ we get
+  \begin{equation*}
+    a_1\a_1+\dots+a_m\a_m=0 \text{ for } a_1, \dots, a_m \in K
+  \end{equation*}
+  implies $a_1=\dots=a_m=0$. Hence
+  \begin{equation*}
+    b_{i1}\b_1+\dots+b_{in}\b_n=0 \text{ for } b_{i1}, \dots, b_{in} \in F
+  \end{equation*}
+  for all $1 \leq i \leq m$. Since $\{\b_1, \dots, \b_n\}$ is
+  linearly independent over $F$, we get $b_{i1}=\dots=b_{in}=0$ for
+  all $1 \leq i \leq m$. This makes the spanning set $\{\a_1\b_1,
+  \dots, \a_m\b_n\}$ linearly independent over $F$. Therefore
+  $\{\a_1\b_1, \dots, \a_m\b_n\}$ is a basis for $\faktor{L}{F}$. Now,
+  $\{\a_1\b_1, \dots, \a_m\b_n\}$ has $mn$ elements since $\{\a_1,
+  \dots, a_m\}$ has $m$ elements and  $\{\b_1, \dots, \b_n\}$ has $n$
+  elements. Therefore, as a vector space, $\dim_F{L}=mn=\dim_K{L} \cdot
+  \dim_F{K}$. That is, $[L:F]=[L:K][K:F]$.
+\end{proof}
+\begin{corollary}
+  The extension $\faktor{L}{F}$ is finite if both $\faktor{L}{K}$ and
+  $\faktor{K}{F}$ are finite. Moreover, we have $[K:F] \divides
+  [L:F]$.
+\end{corollary}
 
-  \begin{example}\label{example_8.7}
-    \begin{enumerate}
-      \item[(1)] The element $\sqrt{2} \notin \Q(\a)$, where $\a$ is the root
-        of  $x^3-3x-1$; since  $[\Q(\sqrt{2}) : \Q]=2$, and
-        $[\Q(\a):\Q]=3$.
+\begin{example}\label{example_8.7}
+  \begin{enumerate}
+    \item[(1)] Let $\a$ be a root of $x^3-3x-1$ over $\Q$. Then
+      $\sqrt{2} \notin \Q(\a)$. Now, $[\Q(\sqrt{2}):\Q]=2$
+      and $[\Q(\a):\Q]=3$. Since $2 \nmid 3$, $\Q(\sqrt{2})
+      \not\subseteq \Q(\a)$.
 
-      \item[(2)] We have $[\Q(\sqrt[6]{2}):\Q]=6$, and since
-        $(\sqrt[6]{2})^3=\sqrt{2}$, we observe that $\Q(\sqrt{2}) \subseteq
-        \Q(\sqrt[6]{2})$. Moreover, notice that by theorem \ref{8.2.4}
-        $[\Q(\sqrt[6]{2}):Q(\sqrt{2})]=3$. Then we have the following
-        tower of fields for
-        \begin{equation*}
-          \Q \subseteq \Q(\sqrt{2}) \subseteq \Q(\sqrt[6]{2})
-        \end{equation*}
-        \[\begin{tikzcd}
-          {\Q(\sqrt[6]{2})} \\
-          {\Q(\sqrt{2})} \\
-          {\Q}
-          \arrow[no head, from=1-1, to=2-1]
-          \arrow[no head, from=2-1, to=3-1]
-        \end{tikzcd}\]
-    \end{enumerate}
-  \end{example}
+    \item[(2)] Let $\sqrt[6]{2}$ the root of $x^6-2$ over $\Q$. Then
+      $[\Q(\sqrt[6]{2}):\Q]=6=2 \cdot 3$. Now,
+      $(\sqrt[6]{2})^3=\sqrt{2}$, so that $\Q(\sqrt{2}) \subseteq
+      \Q(\sqrt[6]{2})$, and we have the tower
+      \[\begin{tikzcd}
+        {\Q(\sqrt[6]{2})} \\
+        {\Q(\sqrt{2})} \\
+        \Q
+        \arrow[no head, from=2-1, to=1-1]
+        \arrow[no head, from=3-1, to=2-1]
+      \end{tikzcd}\]
+      where $[\Q(\sqrt[6]{2}):\Q(\sqrt{2})]=3$.
+  \end{enumerate}
+\end{example}
 
-  \begin{lemma}\label{lemma_8.2.5}
-    Let $\a,\b$ be algebraic over a field  $F$. Then  $F(\a,\b)=(F(\a))(\b)$.
-  \end{lemma}
-  \begin{proof}
-    By definition, $F(\a,\b)$ contains $F$, and  $\a$, and hence contains
-    $F(\a)$. It also contains $\b$ so that  $(F(\a))(\b) \subseteq  F(\a,\b)$.
-    By the same argument, $(F(\a))(\b)$ contains $F$,  $\a$ and  $\b$ so that
-    $F(\a,\b) \subseteq (F(\a))(b)$.
-  \end{proof}
-  \begin{corollary}
-    The elements of $F(\a,\b)$ are of the form $\sum{a_{ij}\a^ib^j}$, where $1
-    \leq i \leq \deg{\a}$ and $1 \leq j \leq \deg{\b}$.
-  \end{corollary}
+\begin{definition}
+  Let $F$ be a field. We call an extension $K$ of $F$
+  \textbf{finitely generated} if there exist $\a_1, \dots, \a_n \in K$
+  for which $K=F(\a_1, \dots, \a_n)$.
+\end{definition}
 
-  \begin{example}\label{example_8.8}
-    Consider $\Q(\sqrt{2},\sqrt{3})$ generated by $\sqrt{2}$ and $\sqrt{3}$.
-    Notice that $\deg{\sqrt{3}}=2$ over $\Q$ so that $[\Q(\sqrt{2},\sqrt{3}) :
-    \Q(\sqrt{2})] \leq 2$. Now $[\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2})]=2$ if, and
-    only if the polynomial  $x^2-3$ is irreducible over  $\Q(\sqrt{2})$. Then
-    it is irreducible if, and onyl if $\sqrt{2} \in \Q(\sqrt{3})$. It can be
-    shown that this is not the case by trying to find $a,b \in \Q$ for which
-    $\sqrt{3}=a+b\sqrt{2}$. Moreover we have
-    \begin{equation*}
-      [\Q(\sqrt{2},\sqrt{3}):\Q]=4
-    \end{equation*}
-  \end{example}
+\begin{lemma}\label{lemma_8.2.6}
+  Let $F$ be a field, and $\a$ and $\b$ elements of some extension of
+  $F$. Then $F(\a,\b)=(F(\a))(\b)$.
+\end{lemma}
+\begin{proof}
+  Observe that $F(\a) \subseteq F(\a,\b)$ and $\b \in F(\a,\b)$ so
+  that we have $(F(\a))(\b) \subseteq F(\a,\b)$. Now, $F \subseteq
+  (F(\a))(\b)$ and $\a,\b \in (F(\a))(\b) \subseteq F(\a,\b)$. Since
+  $F(\a,\b)$ is the minimal such field containing $F$, and $\a$, and
+  $\b$ we get the reverse inclusion  $F(\a,\b) \subseteq (F(\a))(\b)$.
+\end{proof}
+\begin{corollary}
+  If $\a_1, \dots, \a_{n+1}$ are elements of some extension of $F$,
+  then $F(\a_1, \dots, \a_n, \a_{n+1})=(F(\a_1, \dots,
+  \a_n))(\a_{n+1})$.
+\end{corollary}
+\begin{proof}
+  We proceed recursively from above.
+\end{proof}
+\begin{corollary}
+  If $\faktor{K}{F}$ is an extension, and $\a_1, \dots, \a_n \in K$,
+  then there exists a tower of extensions:
+  \begin{equation*}
+    F=F_0 \subseteq F_1 \subseteq \dots \subseteq F_n=K
+  \end{equation*}
+  wehere $F_{i+1}=F_i(\a_{i+1})$. Moreover, if $\a_1, \dots, \a_n$ are
+  algebraic over $F$, with $[F_{i+1}:F_i]=m_i$, then
+  $\faktor{F_{i+1}}{F_i}$ is a simple extension and $[K:F]=m_1 \dots
+  m_n$.
+\end{corollary}
 
-  \begin{theorem}\label{theorem_8.2.6}
-    An extension field $\faktor{K}{F}$ is finite if, and only if it is
-    generated by finitely many algebraic elements over $F$.
-  \end{theorem}
-  \begin{proof}
-    Let $\faktor{K}{F}$ finite of degree $n$, and  $\{\a_1, \dots, \a_n\}$ a
-    basis. Then by theorem \ref{8.2.4},  $[F(\a_i):F]|[K:F]$ for all $1 \leq i
-    \leq n$. So each  $\a_i$ is algebraic over  $F$. Then  $K$ is generated by
-    finitely many algebraic elements.
+\begin{example}\label{example_8.8}
+  \begin{enumerate}
+    \item[(1)] $\Q(\sqrt[6]{2}, \sqrt{2})=\Q(\sqrt[6]{2})$ since
+      $\sqrt{2}=(\sqrt[6]{2})^3$.
 
-    Conversely, let $K=F(\a_1, \dots, \a_k)=(F(\a_1, \dots a_{k-1}))(\a_k)$ We
-    obtain $K$ by taking the extensions $\faktor{F_{i+1}}{F_i}$ iteratively,
-    where $F_{i+1}=F_i(\a_{i+1})$, and obtain the sequence
-    \begin{equation*}
-      F=F_0 \subseteq \dots \subseteq F_k=K
-    \end{equation*}
-    Now, if the elements $\a_1, \dots, \a_k$ are algebraic over $F$, each of
-    $\deg{\a_i}=n_i$ for $1 \leq i \leq k$, then the extension
-    $\faktor{F_{i+1}}{F_i}$ is a simple extension, and
-    $[F_{i+1}:F_i]=\deg{m_{\a_{i+1}}} \leq \deg{\a_{i+1}}=n_{i+1}$. Then we
-    have
-    \begin{equation*}
-      [K:F]=[F_k:F_{k-1}] \dots [F_1,F] \leq n_1 \dots n_k
-    \end{equation*}
-    which makes $\faktor{K}{F}$ a finite extension.
-  \end{proof}
-  \begin{corollary}
-    If $\a,\b$ are algebraic over $F$, then so are $\a \pm \b$,  $\a\b$, and
-    $\a\inv{\b}$ (for $\b \neq 0$).
-  \end{corollary}
-  \begin{corollary}
-    If $\faktor{L}{F}$ is an extension, then the collection of elements of $L$
-    which are algebraic over  $F$ forms a subfield of  $L$.
-  \end{corollary}
+    \item[(2)] Observe $\Q(\sqrt{2},\sqrt{3})$ over $\Q$. We have
+      $\deg{\sqrt{3}}=2$, and $[\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2})]
+      \leq 2$. Indeed, if $x^2-3$ is irreducible over $\Q(\sqrt{2})$,
+      then $[\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2})]=2$. Now, suppose that
+      $\sqrt{3} \in \Q(\sqrt{2})$. Then
+      \begin{equation*}
+        \sqrt{3}=a+b\sqrt{2}
+      \end{equation*}
+      squaring both sides, we get
+      \begin{equation*}
+        3=(a^2+2b^2)+2ab\sqrt{2}
+      \end{equation*}
+      Taking $ab \neq 0$ we get
+      \begin{equation*}
+        \sqrt{2}=\frac{3}{ab}-\frac{a^2+2b^2}{ab}
+      \end{equation*}
+      which puts $\sqrt{2} \in \Q$, impossible. Now, if $b=0$, then
+      $3=a^2$ so that $\sqrt{3} \in \Q$, again impossible. If $a=0$,
+      then  $3=2b^2$ so that $\sqrt{6}=2b \in \Q$, which is again
+      impossible. Therefore $\sqrt{3} \notin \Q(\sqrt{2})$. Hence
+      $x^3-2$ is irreducible over $\Q(\sqrt{2})$. This make
+      $[\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2})]=2$. Then we have
+      \begin{equation*}
+        [\Q(\sqrt{2},\sqrt{3}):\Q]=[\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2})]
+        [\Q(\sqrt{2}):\Q]=2 \cdot 2=4
+      \end{equation*}
+      and we have the lattice of fields labeled with the corresponding
+      degrees:
+      \[\begin{tikzcd}
+  & {\Q(\sqrt{2},\sqrt{3})} \\
+        {\Q(\sqrt{2})} && {\Q(\sqrt{3})} \\
+                       & \Q
+                       \arrow["2", no head, from=2-1, to=1-2]
+                       \arrow["2"', no head, from=2-3, to=1-2]
+                       \arrow["4", no head, from=3-2, to=1-2]
+                       \arrow["2", no head, from=3-2, to=2-1]
+                       \arrow["2"', no head, from=3-2, to=2-3]
+      \end{tikzcd}\]
+  \end{enumerate}
+\end{example}
 
-  \begin{example}\label{example_8.9}
-    \begin{enumerate}
-      \item[(1)] Consider the extension $\faktor{\C}{\Q}$, and let $\cl{\Q}$
-        the subfield of all elements of $\C$ which are algebraic over
-        $\Q$. Then $\sqrt[n]{2} \in \cl{Q}$ for all $n \geq 1$, so that
-        $[\cl{\Q}:\Q] \geq n$. This makes $\cl{\Q}$ an infinite algebraic
-        extension, and we call $\cl{\Q}$ the \textbf{field of algebraic
-        numbers}.
+\begin{theorem}\label{theorem_8.2.7}
+  Let $F$ be a field. The extension $\faktor{K}{F}$ is finite if, and
+  only if $K$ is generated by finitely many algebraic elements over
+  $F$.
+\end{theorem}
+\begin{proof}
+  Suppose that $\faktor{K}{F}$ is finite, with $[K:F]=n$, and let $\{
+  \a_1, \dots, \a_n \}$ be a basis for $\faktor{K}{F}$. Construct the
+  tower of fields
+  \begin{equation*}
+    F=F_0 \subseteq F_1 \subseteq \dots \subseteq F_n=K
+  \end{equation*}
+  where $F_{i+1}=F_i(\a_{i+1})$ for all $0 \leq i \leq n-1$. Then
+  $[F_{i+1}:F] \divides [K:F]$, so the extension $\faktor{F_{i+1}}{F}$ is
+  finite. Moreover, since $\faktor{F_{i+1}}{F}$ is a simple extension,
+  this makes $\a_{i+1}$ algebraic over $F$ for all $0 \leq i \leq
+  n-1$.
 
-      \item[(2)] Consider $\cl{\Q} \cap \R$ as a subfield of $\R$ (i.e. the
-        subfield of all algebraic elements of $\Q$). Since  $\Q$ is
-        countable, so is the field  $\Q[x]$, and each polynomial in $\Q[x]$
-        has at most $n$ roots in  $\R$, hence the number of all algebraic
-        elements of $\R$ over $\Q$ is also countable. This means that
-        $\cl{\Q}$ must also be countable. Now, since $\R$ is uncountable,
-        then there exist uncountably transcendental numbers of  $\R$ over
-        $\Q$. Most notably the irrational numbers  $\pi$ and  $e$ are
-        transcendental.
-    \end{enumerate}
-  \end{example}
+  Now, suppose we have a finite set $\{\a_1, \dots, \a_n\}$ of
+  elements of $K$ which are algebraic over $F$. Suppose that
+  $K=F(\a_1, \dots, \a_n)$. Then by definition, we get the
+  corresponding tower of fields
+  \begin{equation*}
+    F=F_0 \subseteq F_1 \subseteq \dots \subseteq F_n=K
+  \end{equation*}
+  where $F_{i+1}=F_i(\a_{i+1})$ for all $0 \leq i \leq n-1$. Now, the
+  extensions $\faktor{F_{i+1}}{F_i}$ are simple extensions, take
+  $[F_{i+1}:F_i] \leq m_i$, where $\deg{\a_i}=m_i$. Then we get
+  \begin{equation*}
+    [K:F]=[F_n:F_{n-1}]\dots[F_1,F_0]\leq m_1 \dots m_n
+  \end{equation*}
+  which makes $\faktor{K}{F}$ a finite extension.
+\end{proof}
+\begin{corollary}
+  The set of all elements algebraic over $F$ forms an extension field
+  of $F$.
+\end{corollary}
+\begin{proof}
+  Let $K$ be the collection of all elements which are algerbaic over
+  $F$ (over any given extension). Then $F \subseteq K$. Now, observe
+  for any two elements $\a$ and $\b$ algebraic over $F$, that $\a \pm
+  \b$, $\a\b$ are algebraic over $F$. Additionally, $\a\inv{\b}$ is
+  algebraic over $F$, provided  $\b \neq 0$ and $\inv{\a}$ is
+  algebraic over $F$, provided that $\a \neq 0$.
+\end{proof}
 
-  \begin{theorem}\label{theorem_8.2.7}
-    If $K$ is algebraic over  $F$, and  $L$ algebraic over  $K$, then  $L$ is
-    algebraic over  $F$.
-  \end{theorem}
-  \begin{proof}
-    Let $\a \in L$, since  $L$ is algebraic over  $K$, there exists a  $p \in
-    K[x]$ having $\a$ as root. Let $p(x)=a_0+a_1x+\dots+a_nx^n$. Consider then
-    $F(\a,a_0, \dots, a_n)$. Since $\faktor{K}{F}$ is algebraic, $a_0, \dots,
-    a_n$ are algebraic over $F$, and so  $F(\a, a_0, \dots, a_n)$ is a finite
-    extension over $F$. Then $\a$ generates an extension field of degree less
-    than $n$, and we get
-    \begin{equation*}
-      [F(\a, a_0, \dots, a_n):F]=
-      [F(\a, a_0, \dots, a_n):F(a_0, \dots, a_n)][F(a_0, \dots,a_n):F]
-    \end{equation*}
-    is finite, and $F(\a,a_0, \dots, a_n)$ is algebraic over $F$. That is,
-    $\a$ is algebraic over  $F$, and so  $L$ is algbraic over  $F$.
-  \end{proof}
+\begin{example}\label{example_8.9}
+  \begin{enumerate}
+    \item We define the \textbf{field of algebraic numbers} over $\Q$
+      to be the set $\bar{\Q}$ of all elements of $\C$ which are
+      algebraic over $\Q$.
 
-  \begin{definition}
-    Let $K_1$ and $K_2$ subfields of a field $K$. The  \textbf{composite field}
-    $K_1K_2$ is the smallest subfield of $K$ containing both  $K_1$ and $K_2$.
-  \end{definition}
+      Now, $\bar{\Q}$ is algebraic over $\Q$ by definition. In
+      particular, observe for any $n \in \Z^+$, that $\sqrt[n]{2}
+      \in \bar{\Q}$, so that $[\bar{\Q}:\Q] \geq n$ and
+      $\faktor{\bar{\Q}}{\Q}$ is an infinite algebraic extension of
+      $\Q$.
 
-  \begin{example}\label{example_8.10}
-    The composite field of $\Q(\sqrt[3]{2})$ and $\Q(\sqrt{2})$ is
-    $\Q(\sqrt[6]{2})$.
-  \end{example}
+    \item[(2)] Recall that $\Q$ is countable, hence $\Q[x]$ is also
+      countable. Now, let $f(x) \in \Q[x]$ a polynomial of
+      $\deg{f}=n$. Then $f(x)$ has at most $n$ roots in $\R$. Now, let
+      $\bar{\Q}_n$ the set of all algebraic elements (in $\R$) over
+      $\Q$ of degree $n$. Then $\bar{\Q}_n$ is countable, and observe
+      that
+      \begin{equation*}
+        \bar{\Q} \cap \R=\bigcup_{n \in \Z^+}{\bar{\Q}_n}
+      \end{equation*}
+      is a countable union of countable sets. This makes $\bar{\Q}
+      \cap \R$ countable. Now, observe that since $\R$ is uncountable,
+      there exist uncountably many numbers in  $\R$ which are not
+      algebraic over $\Q$.
+  \end{enumerate}
+\end{example}
 
-  \begin{lemma}\label{lemma_8.2.8}
-    Let $K_1$ and $K_2$ be extensions of a field $F$ contained in a field  $K$.
-    Then  $[K_1K_2:F] \leq [K_1:F][K_2:F]$ with equality holding if, and only
-    if a basis of $F$ in the other field is linearly independent. Moreover if
-    $\{\a_1, \dots, \a_m\}$ and $\{\b_1, \dots, \b_n\}$ are bases for $K_1$ and
-    $K_2$, then $\{\a_1,\b_1, \dots, \a_m\b_n\}$ span $K_1$ and $K_2$.
-    \[\begin{tikzcd}
-        & {K_1K_2} \\
-      K_1 && K_2 \\
+\begin{theorem}\label{theorem_8.2.8}
+  Let $F$ be a field. If $K$ is an algebraic extension over $F$, and
+  $L$ an algebraic extension over  $K$, then  $L$ is an algerbaic
+  extension over  $F$.
+\end{theorem}
+\begin{proof}
+  Let $\a \in L$. Then $\a$ is algebraic over  $K$, so there exists a
+  polynomial $f(x)=a_0+a_1x+\dots+a_nx^n$ over $K$, for which
+  \begin{equation*}
+    a_0+a_1\a+\dots+a_n\a^n=0 \text{ where } a_0, \dots, a_n \in K
+  \end{equation*}
+  Since each $a_i$ is algebraic over $F$, consider the field
+  $F''=F(\a,a_0,\dots,a_n)$. Let $F'=F(a_0, \dots, a_n)$. Then the
+  extension $\faktor{F''}{F}$ is finite. Moreover, since $\deg{\a}
+  \leq n$, we have:
+  \begin{equation*}
+    [F'':F]=[F'':F'][F':F]
+  \end{equation*}
+  is also finite, hence $\faktor{F'}{F}$ is algebraic. Since $\a$ is
+  algebraic over $F$ this makes the extension $\faktor{L}{F}$
+  an algebraic extension.
+\end{proof}
+
+\begin{definition}
+  Let $K_1$ and $K_2$ be subfields of a field $K$. We define the
+  \textbf{composite field} of $K_1$ and $K_2$ to be the smallest
+  subfield of $K$ containing both $K_1$ and $K_2$. We denote the
+  composite field by $K_1K_2$.
+\end{definition}
+
+\begin{example}\label{example_8.10}
+  Since $(\sqrt[6]{2})^3=\sqrt{2}$ and $(\sqrt[6]{2})^2=\sqrt[3]{2}$,
+  we get the composite field
+  $\Q(\sqrt[6]{2})=\Q(\sqrt{2})\Q(\sqrt[3]{2})$.
+\end{example}
+
+\begin{proposition}\label{proposition_8.2.9}
+  If $K_1$ and $K_2$ are finite extensions of a field $F$, and  $\{
+  \a_1, \dots, \a_m \}$ is a basis of $\faktor{K_1}{F}$ and $\{ \b_1,
+  \dots, \b_n \}$ is a basis of $\faktor{K_2}{F}$, then
+  \begin{equation*}
+    K_1K_2=F(\a_1, \dots, \a_m,\b_1, \dots, \b_n)
+  \end{equation*}
+  and
+  \begin{equation*}
+    [K_1K_2:F] \leq [K_1:F][K_2:F]
+  \end{equation*}
+  where equality holds if, and only if the span of $K_1K_2$,
+  $\{\a_1\b_1, \dots, \a_m\b_n\}$ is linearly independent.
+\end{proposition}
+\begin{proof}
+  By hypothesis, we have $[K_1:F]=m$ and $[K_2:F]=n.$ Now since both
+  extensions $\faktor{K_1}{F}$ and $\faktor{K_2}{F}$ are finite, they
+  are finitely generated by their respective bases:
+  \begin{align*}
+    K_1 &=  F(\a_1, \dots, \a_m)  \\
+    K_2 &=  F(\b_1, \dots, \b_n)  \\
+  \end{align*}
+  so we have
+  \begin{align*}
+    K_1K_2  &=  F(\a_1, \dots, \a_m)F(\b_1, \dots, \b_n)  \\
+            &= F(\a_1, \dots, \a_m)(\b_1, \dots, \b_n) \\
+            &= F(\a_1, \dots, \a_m, \b_1, \dots, \b_n) \\
+  \end{align*}
+  Now, observe that
+  \begin{align*}
+    \a_i^k=a_1\a_1+\dots+a_m\a_m \text{ where } a_1 \dots, a_m \in F \\
+    \b_j^k=b_1\b_1+\dots+b_n\b_n \text{ where } b_1 \dots, b_n \in F \\
+  \end{align*}
+  taking $c_{ij}=a_ib_j$, for all $1 \leq i \leq m$ and $1 \leq j \leq n$,
+  we get
+  \begin{equation*}
+    (\a_i\b_j)^k=\sum_{i,j=1}^{m,n}{c_{ij}\a_ib_j}
+  \end{equation*}
+  so that $\Span_F{K_1K_2}=\{\a_1\b_1, \dots \a_m\b_n\}$. Therefore
+  $[K_1K_2:F] \leq mn$.
+
+  Lastly, if $[K_1K_2:F]=mn$, then $\{\a_1\b_1, \dots, \a_m\b_n\}$ is
+  linearly independent, and hence a basis for $K_1K_2$ over $F$. This
+  makes $\{\a_1, \dots, \a_m\}$ linearly independent over $K_2$ and
+  $\{\b_1, \dots, \b_n\}$ linearly independent over $K_1$. Now,
+  observing that $K_1K_2=K_1(\b_1, \dots, \b_n)$, $\{\b_1 \dots,
+  \b_n\}$ spans $K_1K_2$ and hence is a basis over $K_1K_2$ over $K_1$.
+  Similarly $\{\a_1, \dots, \a_m\}$ is a basis for $K_1K_2$ over
+  $K_2$. The converse follows easily, considering the lattice with the
+  corresponding degrees:
+  \[\begin{tikzcd}
+  & {K_1K_2} \\
+    {K_1} && {K_2} \\
           & F
-          \arrow["{\leq m}"', no head, from=1-2, to=2-1]
-          \arrow["n"', no head, from=2-1, to=3-2]
-          \arrow["m"', no head, from=3-2, to=2-3]
-          \arrow["{\leq n}"', no head, from=2-3,to=1-2]
-    \end{tikzcd}\]
-  \end{lemma}
-  \begin{corollary}
-    If $[K_1:F]=m$, and $[K_2:F]=n$ with $m$ and  $n$ coprime, then
-    $[K_1K_2:F]=[K_1:F][K_2:F]$.
-  \end{corollary}
-  \begin{proof}
-    We have that $m,n|[K_1K_2:F]$ and since $K_1,K_2 \subseteq K_1K_2$ are
-    subfields of $K_1K_2$, we get the least common multiple $[m,n]|[K_1K_2:F]$.
-    Now, since $(m,n)=1$, we get $[m,n]=mn$ so that $mn \leq =[K_1K_2:F]$.
-  \end{proof}
+          \arrow["{\leq n}", from=2-1, to=1-2]
+          \arrow["{\leq m}"', from=2-3, to=1-2]
+          \arrow["m", from=3-2, to=2-1]
+          \arrow["n"', from=3-2, to=2-3]
+  \end{tikzcd}\]
+\end{proof}
+\begin{corollary}
+  If $(m,n)=1$, then $[K_1K_2:F]=[K_1:F][K_2:F]$.
+\end{corollary}
+\begin{proof}
+  Observe that $m,n \divides [K_1K_2:F]$, so that $mn \divides
+  [K_1K_2:F]$. Since $[K_1K_2:F] \leq mn$ we are done.
+\end{proof}
+
+\begin{example}\label{example_8.11}
+  $[\Q(\sqrt[6]{2}):Q]=[\Q(\sqrt{2}):\Q][\Q(\sqrt{3}):\Q]=2 \cdot
+  3=6$.
+\end{example}
