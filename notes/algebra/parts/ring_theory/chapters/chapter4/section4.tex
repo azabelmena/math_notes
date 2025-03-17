@@ -2,203 +2,298 @@
 \label{section_8.4}
 
 \begin{definition}
-  Let $K$ be an extension of a field  $F$. We say a polynomial  $f$ over  $F$
-  \textbf{splits completely} over $K$ if  $f$ factors into linear factors
-  over  $K$. If  $f$ splits completely over  $K$, and in no other proper
-  subfield, then we say  $K$ is the  \textbf{splitting field} of $f$ over
-  $F$.
+  Let $F$ be a field, and $K$ an extension over $F$. We say a
+  polynomial $f(x) \in F[x]$ \textbf{splits} over $K$ if there exists
+  factors of $f(x)$ over $K$. That is:  $f(x)=g(x)h(x)$ where
+  $g(x),h(x) \in K[x]$. We say that $f(x)$ \textbf{splits completely}
+  over $K$ if $f(x)$ splits into linear factors over $K$.
 \end{definition}
 
-\begin{theorem}\label{theorem_8.4.1}
-  If $f$ is a polynomial over a field  $F$, then there exists a splitting
-  field  $K$ of  $f$ over  $F$.
+\begin{definition}
+  Let $F$ be a field. We call an extension $K$ of $F$ a
+  \textbf{splitting field} for a polynomial $f(x) \in F[x]$ provided
+  it is the smallest extension of $F$ over which $f(x)$ splits
+  completely.
+\end{definition}
+
+\begin{proposition}\label{proposition_8.4.1}
+  Let $F$ be a field. Then a polynomial $f(x)$ over $F$ of degree at
+  most $n$ has at most $n$ roots over $F$. In particular, $f(x)$ has
+  exactly $n$ roots over $F$ if, and only if $f(x)$ splits completely
+  over $F$.
+\end{proposition}
+
+\begin{theorem}\label{theorem_8.4.2}
+  For any field $F$, and any polynomial $f(x)$ over $F$, there exists
+  a splitting field for $f(x)$ over $F$.
 \end{theorem}
 \begin{proof}
-  Let $E$ an extension of  $F$ with  $[E:F]=n$. By induction on $n$, for
-  $n=1$, we take  $E=F$ and we are done. Now, for  $n \geq 1$, suppose the
-  irreducible factors of  $f$ are of $\deg=1$. Then $f$ has all its roots in
-  $F$, and hence splits completely over $F$. Then take $E=F$. On the other
-  hand, if  $f$ has at least one irreducible factor of $\deg \geq 2$, then
-  there is an extension $E_1$ of $F$ for which $f$ has the factor $(x-\a)$ for
-  some root $\a$. Then $f(x)=(x-\a)f_1(x)$ where $\deg{f_1}=n-1$. Therefore by
-  the induction hypothesis, there is an extension $E$ of  $E_1$ containing all
-  the roots of $f_1$. Hence, it contains all the roots of $f$ and  $f$ splits
-  completely over  $E$.
+  Let $\deg{f}=n$. If $n=1$, then $f(x)$ is its own linear factor and
+  hence splits completely over $F$. Take the splitting field $K=F$.
 
-  Now, let $K$ be the intersection of all subfields of $E$ for which $f$
-  splite; i.e. all subfields containing the roots of $f$. Then by definition,
-  $K$ is the splitting field of  $f$ over  $F$.
+  Now, for $n \geq 1$, if $f(x)$ has all irreducible factors of degree
+  $1$, then by definition $f(x)$ splits completely over $F$, hence
+  take the splitting field $K=F$.
+
+  Now, if $f(x)$ does not have irreducible factors all of degree $1$,
+  there exists an irreducible factor $p(x)$ of $\deg{p} \geq 2$. Now,
+  by theorem \ref{theorem_8.1.5}, there is an extension $E_1$ of $F$
+  containing a root  $\a$ of  $p(x)$. So $f(x)$ splits over $E_1$ as:
+  \begin{equation*}
+    f(x)=(x-\a)f_1(x) \text{ where } \deg{f_1}=n-1
+  \end{equation*}
+  where $f_1(x) \in E_1[x]$. Therefore, by induction on $n$, there
+  exists an extension $\faktor{E}{E_1}$ over which $f_1(x)$ splits
+  completely. Now, $\a \in E'$ so that $f(x)$ splits completely over
+  $E$. Consider all $F \subseteq E' \subseteq E$ for which $f(x)$
+  splits completely over $E'$, and let:
+  \begin{equation*}
+    K=\bigcap_{F \subseteq E' \subseteq E}{E'}
+  \end{equation*}
+  then by definition, $K$ is a splitting field for $f(x)$ over $F$.
 \end{proof}
 
 \begin{definition}
-  We call an extension $K$ over a field  $F$  \textbf{normal}, if for any
-  irreducible polynomial $f$ over $F$ with atleast one root in $K$, $f$ splits
-  completely in  $K$ over $F$. That is to say, $K$ contains the splitting
-  field of  $f$ over  $F$.
+  Let $F$ be a field, and $K$ an extension of $F$. We call $K$ a
+  \textbf{normal extension} of $F$ if it is algebraic over $F$, and it
+  is a splitting field for a collection of polynomials over $F$.
 \end{definition}
 
-\begin{example}\label{example_8.11}
+\begin{example}\label{example_8.12}
   \begin{enumerate}
-    \item[(1)] The splitting field of $x^2-2$ over  $\Q$ is  $\Q(\sqrt{2})$,
-      since $x^2-2=(x+\sqrt{2})(x-\sqrt{2})$ and $\pm{\sqrt{2}} \in
-      \Q(\sqrt{2})$ and $[\Q(\sqrt{2}):\Q]=2$, so there is no other
-      subfield in between.
+    \item[(1)] The splitting field of $x^2-2$ over $\Q$ is
+      $\Q(\sqrt{2})$, since $x^2-2=(x-\sqrt{2})(x+\sqrt{2})$, and
+      $\pm{\sqrt{2}} \in \Q(\sqrt{2})$.
 
-    \item[(2)] The splitting field for
-      $(x^2-2)(x^2-3)=(x+\sqrt{2})(x-\sqrt{2})(x+\sqrt{3})(x-\sqrt{3})$ is
-      $\Q(\sqrt{2},\sqrt{3})$. Now, $[\Q(\sqrt{2},\sqrt{3}):Q]=4$ and the
-      lattice of fields is
-      \[\begin{tikzcd}
-                & {\Q(\sqrt{2},\sqrt{3})} \\
-        {\Q(\sqrt{2})} & {\Q(\sqrt{6})} & {\Q(\sqrt{3})} \\
-                       & {\mathbb{Q}}
-                       \arrow["2", no head, from=1-2, to=2-2]
-                       \arrow["2", no head, from=2-2, to=3-2]
-                       \arrow["2"', no head, from=3-2, to=2-3]
-                       \arrow["2"', no head, from=2-3, to=1-2]
-                       \arrow["2"', no head, from=1-2, to=2-1]
-                       \arrow["2"', no head, from=2-1, to=3-2]
-      \end{tikzcd}\]
-
-    \item[(3)] Let $\xi=i\frac{\sqrt{3}}{2}$. Notice that $x^3-2$ factors
-      into
-      $x^3-2=(x-\sqrt[3]{2})(x+\sqrt[3]{2}(-1+\xi))(x+\sqrt[3]{2}(-1-\xi))$.
-      Now, $-1+\xi,-1-\xi \notin \Q(\sqrt[3]{2})$, so $\Q(\sqrt[3]{2})$
-      is not the splitting field for $x^3-2$. Let  $K$ be the splitting
-      field of  $x^3-2$. Then  $K$ conmtains $-1 \pm \xi$, so that
-      $i\sqrt{3} \in K$. Thus
+    \item[(2)] Observe that $x^2-2$ and  $x^2-3$ over $\Q$ have as
+      splitting fields $\Q(\sqrt{2})$ and $\Q(\sqrt{3})$,
+      respectively. Now, $x^2-2$ does not split completely over
+      $\Q(\sqrt{3})$, and $x^2-3$ does not split completely over
+      $\Q(\sqrt{2})$ (see example \ref{example_8.8}(2)). Observe that
+      $\pm{\sqrt{2}},\pm{\sqrt{3}} \in \Q(\sqrt{2},\sqrt{3})$, and
+      that
       \begin{equation*}
-        K=\Q(\sqrt[3]{2},i\sqrt{3})
+        (x^2-2)(x^2-3)=(x-\sqrt{2})(x+\sqrt{2})(x-\sqrt{3})(x+\sqrt{3})
       \end{equation*}
-      Moreover, $[\Q(\sqrt[3]{2},i\sqrt{3}):\Q(\sqrt[3]{2})] \geq 2$
-      and since $\Q(\sqrt[3]{2})$ is not the splitting field,
-      $[\Q(\sqrt[3]{2},i\sqrt{3}):\Q(\sqrt[3]{2})]=2$. Hence
-      $[\Q(\sqrt[3]{2},i\sqrt{3}):\Q]=6$. We have the following lattice.
+      Observe also that $\Q(\sqrt{6}) \subseteq \Q(\sqrt{2},\sqrt{3})$
+      but that $(\sqrt{6}^2-2)(\sqrt{6}^2-3)=3 \cdot 2=6 \neq 0$ in
+      $\Q$, so  $\sqrt{6}$ is not a root of $(x^2-2)(x^2-3)$. Hence
+      the splitting field for $(x^2-2)(x^2-3)$ is
+      $\Q(\sqrt{2},\sqrt{3})$. We have the following lattice with the
+      corresponding degrees:
       \[\begin{tikzcd}
-                & {\Q(\sqrt[3]{2},i\sqrt{3})} \\
-                && {\Q(\sqrt[3]{2})} & {\Q(\sqrt[3]{2}(-1+\xi))} & {\Q(\sqrt[3]{2}
-                (-1-\xi))} \\
-                {\mathbb{Q}(i\sqrt{3})} \\
-                & {\mathbb{Q}}
-                \arrow[no head, from=1-2, to=3-1]
-                \arrow[no head, from=3-1, to=4-2]
-                \arrow[no head, from=4-2, to=2-4]
-                \arrow[no head, from=2-4, to=1-2]
-                \arrow[no head, from=1-2, to=2-3]
-                \arrow[no head, from=2-3, to=4-2]
-                \arrow[no head, from=1-2, to=2-5]
-                \arrow[no head, from=2-5, to=4-2]
+  & {\Q(\sqrt{2}, \sqrt{3})} \\
+        {\Q(\sqrt{2})} & {\Q(\sqrt{6})} & {\Q(\sqrt{3})} \\
+                       & \Q
+                       \arrow["2", no head, from=2-1, to=1-2]
+                       \arrow["2"', no head, from=2-2, to=1-2]
+                       \arrow["2"', no head, from=2-3, to=1-2]
+                       \arrow["2", no head, from=3-2, to=2-1]
+                       \arrow["2"', no head, from=3-2, to=2-2]
+                       \arrow["2"', no head, from=3-2, to=2-3]
+      \end{tikzcd}\]
+      Observe this is the complete lattice as compared to the lattice
+      found in example \ref{example_8.8}(2).
+
+    \item[(3)] Consider $x^3-2$ over  $\Q$ which has roots
+      \begin{align*}
+        \sqrt[3]{2} &&  \xi\sqrt[3]{2}  &&  \bar{\xi}\sqrt[3]{2}  \\
+      \end{align*}
+      where
+      \begin{equation*}
+        \xi=-\frac{1}{2}+i\frac{\sqrt{3}}{2}
+      \end{equation*}
+      with complex conjugate $\bar{\xi}$ and where $i^2+1=0$.
+      Observe $\xi, \bar{\xi} \notin \Q(\sqrt[3]{2})$, however $\xi,
+      \bar{\xi} \in \Q(\sqrt[3]{2}, i\sqrt{3})$ is the smalles subfield
+      containing all the roots of $x^3-2$ over $\Q$. So the splitting
+      field of $x^3-2$ over  $\Q$ is $\Q(\sqrt[3]{2}, i\sqrt{3})$. We get
+      \begin{equation*}
+        [\Q(\sqrt[3]{2}, i\sqrt{3}):\Q]=
+        [\Q(\sqrt[3]{2}, i\sqrt{3}):\Q(i\sqrt{3})][\Q(i\sqrt{3}):Q]=6
+      \end{equation*}
+      so that $[\Q(\sqrt[3]{2}, i\sqrt{3}):\Q(i\sqrt{3})]=3$ and we have
+      the following lattice:
+      \[\begin{tikzcd}
+    &&& {\Q(\sqrt[3]{2}, i\sqrt{3})} \\
+        {\Q(\bar{\xi})} & {\Q(\xi)} & {\Q(\sqrt[3]{2})} \\
+                        &&&& {\Q(i\sqrt{3})} \\
+                        &&& \Q
+                        \arrow[no head, from=2-1, to=1-4]
+                        \arrow[no head, from=2-2, to=1-4]
+                        \arrow[no head, from=2-3, to=1-4]
+                        \arrow[no head, from=3-5, to=1-4]
+                        \arrow[no head, from=4-4, to=2-1]
+                        \arrow[no head, from=4-4, to=2-2]
+                        \arrow[no head, from=4-4, to=2-3]
+                        \arrow[no head, from=4-4, to=3-5]
       \end{tikzcd}\]
 
-    \item[(4)] Notice that $x^4+4=(x^2+2x+2)(x^2-2x+2)$ over $\Q$ which is
-      irreducible by Eisenstein's criterion. Using the quadratic formula,
-      we get $\pm{1}$ and $\pm{i}$ as the roots, moreover, notice that
-      $\pm{1},\pm{i} \in \Q(i)$ and since $[\Q(i):\Q]=2$ there are no
-      subfields between $\Q$ and  $\Q(i)$ so that $\Q(i)$ is the splitting
-      field of $x^4+4$ over  $\Q$.
+    \item[(4)] $x^4+4=(x^2+2x+2)(x^2-2x+2)$ over $\Q$, and where the
+      polynomials $x^2 \pm 2x+2$ are irredcucible over $\Q$ by the
+      Eisenstein-Shc\"onemann criterion. Now, we get
+      \begin{equation*}
+        x^2 \pm 2x+2=x \pm 1, x \pm i
+      \end{equation*}
+      where $i^2+1=0$, so that
+      \begin{equation*}
+        x^4+4=(x-1)(x+1)(x+i)(x-i)
+      \end{equation*}
+      and the splitting field for $x^4+4$ over $\Q$ is the quadratic
+      extension $\Q(i)$ of discriminant $-1$.
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_8.4.2}
-  A splitting field of a polynomial of degree $n$ over a field  $F$ is of
-  degree at most  $n!$ over  $F$.
-\end{lemma}
+\begin{proposition}\label{proposition_8.4.3}
+  Let $F$ be a field, and $f(x)$ a polynomial over $F$. If
+  $\deg{f}=n$, then any splitting field of $f(x)$ over $F$ has degree
+  at most $n!$.
+\end{proposition}
 \begin{proof}
-  Let $f \in F[x]$ a polynomial of $\deg{f}=n$. Adjoining one root of $f$ to
-  $F$, we have an extension $\faktor{F_1}{F}$ of degree $[F_1:F]=n$. Now,$f$
-  over $F_1$ has at leas one linear factor, and so any root of $f$ satisfies a
-  polynomial of degree $n-1$. Hence proceeding inductively gives the result.
-\end{proof}
-
-\begin{example}\label{example_8.12}
-  Consider the polynomial $x^n-1$ over  $\Q$. Then the roots of  $x^n-1$ are
-  of the form  $\xi$ where  $\xi^n=1$. Notice, that in  $\C$,
-  $\xi=e^{\frac{2i\pi}{n}}$, so that $\C$ contains a splitting field of
-  $x^n-1$. Hence  $\Q(\xi) \subseteq \C$ is a splitting field of $x^n-1$ over
-  $\Q$. Notice that the set of all roots $\xi$ of  $x^n-1$ forms a cyclic
-  group generated by $\xi$.
-\end{example}
-
-\begin{definition}
-  Consider a field $F$ and the polynomial $x^n-1$ over $F$. We call the roots
-  $\xi$ of  $x^n-1$, where  $\xi^n=1$ the  \textbf{primitive $n$-th roots of
-  unity} over $F$. We call  $F(\xi)$ the \textbf{cyclotomic field} over $F$.
-\end{definition}
-
-\begin{example}\label{example_8.13}
-  Let $p$ be a prime, and consider the splitting field $x^p-2$ over  $\Q$. If
-  $\a$ is a root, then $\a^p=2$ so that $(\xi\a)^p=2$ where $\xi$ is a
-  primitive  $p$-th root of unity over  $\Q$. So the roots of $x^2-2$ are
+  Let $\a$ be a root of $f(x)$, and let $K$ be a splitting field of
+  $f(x)$ over $F$. Then
   \begin{equation*}
-    \sqrt[p]{2}    \text{ and }  \xi\sqrt[p]{2}
+    f(x)=(x-\a)g(x)
   \end{equation*}
-  Notice that $\frac{\xi\sqrt[p]{2}}{\sqrt[p]{2}}=\xi$ so the splitting field
-  contains $\Q(\xi,\sqrt[p]{2})$, Moreover, $\Q(\xi,\sqrt[p]{2})$ contains
-  all the roots of $x^p-2$ so that  $\Q(\xi,\sqrt[p]{2})$ is the splitting
-  field of $x^p-2$ over  $\Q$.
+  over $F(\a)$ and $F(\a)
+  \subseteq K$, and $\deg{g} \leq n-1$. Appending a root $\b$ of
+  $g(x)$ over $F(\a)$, we get
+  \begin{equation*}
+    f(x)=(x-\a)(x-\b)h(x)
+  \end{equation*}
+  over $F(\a,\b) \subseteq K$, where $\deg{h} \leq n-2$. Recursing
+  over the roots of $f(x)$, since $f(x)$ splits completely over $K$,
+  we get
+  \begin{equation*}
+    [K:F] \leq n(n-1)(n-2)\dots 2 \cdot 1=n!
+  \end{equation*}
+\end{proof}
+\begin{corollary}
+  If $f(x)$ is irreducible over $F$, then  $[K:F]=n!$.
+\end{corollary}
 
-  Notice, that  $\Q(\xi) \subseteq \Q(\xi,\sqrt[p]{2})$ so that
-  $[\Q(\xi,\sqrt[p]{2}):\Q(\xi)] \leq p$. not, since $\Q(\sqrt[p]{2})$ is
-  also a subfield, we get $[\Q(\xi,\sqrt[p]{2}):Q] \leq p(p-1)$. Since
-  $(p,p-1)=1$ (i.e. they are coprime), we have
-  $p(p-1)|[\Q(\xi,\sqrt[p]{2}):\Q]$ so that $[p]{2}):\Q]=p(p-1)$. We have the
-  follwing lattice.
-  \[\begin{tikzcd}
-        & {\mathbb{Q}(\xi,\sqrt[p]{2})} \\
-    {\mathbb{Q}(\xi)} && {\mathbb{Q}(\sqrt[p]{2})} \\
-                      & {\mathbb{Q}}
-                      \arrow[no head, from=1-2, to=2-1]
-                      \arrow[no head, from=2-1, to=3-2]
-                      \arrow[no head, from=3-2, to=2-3]
-                      \arrow[no head, from=2-3, to=1-2]
-  \end{tikzcd}\]
+\begin{example}[The Cyclotomic Field over $\Q$]\label{example_8.13}
+  \begin{enumerate}
+    \item[(1)] Let $x^n-1$ over $\Q$ whose roots are the $n$-th roots
+      of unity $\xi^n=1$. If  $K$ is the splitting field of  $x^n-1$
+      over $\Q$, then the set of all $n$-th roots of unity form a
+      cyclic group. Moreover, by above, we get $[K:\Q]=n!$, since
+      $x^n-1$ is irreducible
+      over  $\Q$. Now, observe that
+      \begin{equation*}
+        \Q \subseteq K \subseteq \C
+      \end{equation*}
+      so that in $\C$ the $n$-th roots of unity of $\Q$ have the form
+      \begin{equation*}
+        \xi_k=\exp{\frac{2i\pi{k}}{n}} \text{ where } 1 \leq k \leq n
+      \end{equation*}
+      and where $i^2+1=0$. We call the generators of the cyclic group of
+      $n$-th roots of unity  \textbf{primitive} over  $\Q$. Indeed, the
+      splitting field of $x^n-1$ over $\Q$ is $\Q(\xi)$, and is called the
+      \textbf{cyclotomic field} of $n$-th roots of unity over $\Q$.
+
+    \item[(2)] Let $p \in \Z^+$ a prime, and let $K$ be the splitting
+      field of  $x^p-2$ over $\Q$. If $\a$ is a root of  $x^2-2$ over
+      $\Q$, then  $\a^p=2$. Now, letting $\xi$ a $p$-th root of unity
+      over $\Q$, we have
+      \begin{equation*}
+        (\xi\a)^p=\xi^p\a^p=\a^p=2
+      \end{equation*}
+      so that $\xi\a$ is also a root. So the roots of  $x^p-2$ are of
+      the form $\xi^k\a$ where $\a=\sqrt[p]{2}$, $\xi^p=1$ and $1
+      \leq k \leq p$. Therefore the splitting field of $x^p-2$ over
+      $\Q$ is  $\Q(\xi, \sqrt[p]{2})$.
+
+      Now, observe that $\Q(\xi),\Q(\sqrt[p]{2}) \subseteq
+      \Q(\xi, \sqrt[p]{2})$, and
+      \begin{equation*}
+        [\Q(\xi):\Q]=p-1 \text{ and } [\Q(\sqrt[p]{2}):\Q]=p
+      \end{equation*}
+      so $[\Q(\xi, \sqrt[p]{2}):\Q]=p(p-1)$. This shows that $x^p-2$
+      is irreducible over $\Q$ and that $\Q(\xi)$ and
+      $\Q(\sqrt[p]{2})$ are the only proper non-trivial subfields of
+      $\Q(\xi,\sqrt[p]{2})$. Hence we have the lattice:
+      \[\begin{tikzcd}
+  & {\Q(\xi, \sqrt[p]{2})} \\
+        {\Q(\xi)} && {\Q(\sqrt[p]{2})} \\
+                  & \Q
+                  \arrow[no head, from=2-1, to=1-2]
+                  \arrow[no head, from=2-3, to=1-2]
+                  \arrow[no head, from=3-2, to=2-1]
+                  \arrow[no head, from=3-2, to=2-3]
+      \end{tikzcd}\]
+  \end{enumerate}
 \end{example}
 
-\begin{theorem}\label{theorem_8.4.3}
-  Let $\phi:F \xrightarrow{} F'$ a field isomorphism. Let $f$ and  $f'$
-  polynomials over  $F$ and  $F'$, where  $f'$ is obtained by applying  $\phi$
-  to the coefficients of  $f$. Let  $E$ and  $E'$ be splitting fields of $f$
-  and  $f'$ over $F$ and $F'$, respectively. Then $\phi$ extends to an
-  isomorphism betweenn $E$ and $E'$; i.e. $E \simeq E'$.
+\begin{theorem}\label{theorem_8.4.4}
+  Let $\phi:F \xrightarrow{} F'$ an isomorphsm of fields, and let
+  $f(x) \in F[x]$, and define $f'(x) \in F'[x]$ by $f'(x)=\phi \circ
+  f(x)$. Let $K$ and $K'$ be splitting fields of $F$ and $F'$,
+  respectively, then $\phi$ extends to a field isomorphism $\s:K
+  \xrightarrow{} K'$ given by the following diagram:
   \[\begin{tikzcd}
-    E & {E'} \\
+    K & {K'} \\
     F & {F'}
-    \arrow[from=1-1, to=1-2]
-    \arrow["\phi", from=2-1, to=2-2]
-    \arrow[no head, from=1-2, to=2-2]
-    \arrow[no head, from=1-1, to=2-1]
+    \arrow["\s", from=1-1, to=1-2]
+    \arrow[no head, from=2-1, to=1-1]
+    \arrow["\phi"', from=2-1, to=2-2]
+    \arrow[no head, from=2-2, to=1-2]
   \end{tikzcd}\]
 \end{theorem}
 \begin{proof}
-  Let $\deg{f}=n$. By induction on $n$. If  $f$ has all its roots in $F$, $f$
-  splits completely over  $F$, and  $f'$ over  $F'$. Then take  $E=F$ and
-  $E'=F'$ and we are done for $n=1$.
+  Let $\deg{f}=n$, so that $\deg{f'}=n$. By induction on $n$. If $n=1$
+  and $f(x)$ has all it's roots in $F[x]$, then $f(x)$ splits
+  completely over $F$. Hence $f'(x)$ must also split completely over
+  $F'$. Take then the splitting fields to be $K=F$ and $K'=F'$, and
+  take $\s:K \xrightarrow{} K'$ to be $\phi$.
 
-  Now, for  $n \geq 1$, suppose the theorem is true. Let $p$ an irreducible
-  factor of $f$, and $p'$ an irreducible factor of  $f'$. If  $\a$ and  $\a'$
-  are roots of  $p$ and  $p'$, respectively, then extend $\phi$ to  $F(\a)$
-  and $F'(\a')$. Then $f(x)=(x-\a)f_1(x)$ and $f'(x)=(x-\a')f_1'(x)$; with
-  $\deg{f_1}=\deg{f_1'}=n-1$. Then let $E$ the splitting field of $f_1$ over
-  $F(\a)$, and $E'$ the splitting field of  $f_1'$ over $F'(\a')$
+  Now, suppose that the theorem is true for any polynomial of degree
+  less than or equal to $n$. let $f(x) \in F[x]$ be of degree
+  $\deg{f}=n+1$. Since $f'(x)=\phi \circ f$, $\deg{f'}=n+1$ over $F'$.
+  Now, let $p(x) \in F[x]$ and $p'(x) \in F'[x]$ be irreducible
+  factors of $f(x)$ and $f'(x)$, respectively, each of degree greater
+  than or equal to $2$ (indeed, notice $p'(x)=\phi \circ p(x)$). Let
+  $\a \in K$ a root of $p(x)$ and $\b \in K'$ a root of $p'(x)$. Now
+  extend $\phi$ to a field isomorphism  $\s':F(\a) \xrightarrow{}
+  F'(\b)$ as shown:
   \[\begin{tikzcd}
-    E & {E'} \\
-    {F(\alpha')} & {F'(\alpha')} \\
+    {F(\a)} & {F'(\b)} \\
     F & {F'}
-    \arrow["\phi"', from=3-1, to=3-2]
-    \arrow[from=2-1, to=2-2]
-    \arrow[from=1-1, to=1-2]
-    \arrow[no head, from=1-1, to=2-1]
-    \arrow[no head, from=2-1, to=3-1]
-    \arrow[no head, from=1-2, to=2-2]
-    \arrow[no head, from=2-2,to=3-2]
+    \arrow["{\s'}", from=1-1, to=1-2]
+    \arrow[no head, from=2-1, to=1-1]
+    \arrow["\phi"', from=2-1, to=2-2]
+    \arrow[no head, from=2-2, to=1-2]
   \end{tikzcd}\]
-  The the roots of $f_1$ and  $f_1'$ are in  $E$ and  $E'$, respectively, and
-  hence so are the roots of $f$ and  $f'$. Then by the induction hypothesis,
-  we can extend  $\phi$ to  $E$ and  $E'$ so that  $E \simeq E'$.
+  Now
+  \begin{equation*}
+    f(x)=(x-\a)f_1(x) \text{ and } f'(x)=(x-\b)f_1'(x)
+  \end{equation*}
+  over $F(\a)$ and $F'(\b)$, respectively. Moreover $\deg{f_1}=n$ and
+  $\deg{f_1'}=n$. Lastly observe the towers
+  \begin{equation*}
+    F \subseteq F(\a) \subseteq K \text{ and }
+    F' \subseteq F'(\b) \subseteq K'
+  \end{equation*}
+  so by the induction hypothesis, $\s'$ extends to a field isomorphism
+  $\s:K \xrightarrow{} K'$ shown below:
+  \[\begin{tikzcd}
+    K & {K'} \\
+    {F(\a)} & {F'(\b)} \\
+    F & {F'}
+    \arrow["\s", from=1-1, to=1-2]
+    \arrow[no head, from=2-1, to=1-1]
+    \arrow["{\s'}", from=2-1, to=2-2]
+    \arrow[no head, from=2-2, to=1-2]
+    \arrow[no head, from=3-1, to=2-1]
+    \arrow["\phi", from=3-1, to=3-2]
+    \arrow[no head, from=3-2, to=2-2]
+  \end{tikzcd}\]
+  Restricting $\s$ to $F$, we get $\phi$.
 \end{proof}
 \begin{corollary}
-  Any two splitting fields of a given polynomial over a field are isomorphic.
+  Any two splitting fields of a polynomial over $F$ are isomorphic.
 \end{corollary}
 \begin{proof}
-  Take $\phi$ to be the identity map.
+  Take $F'=F$ and let $\phi:F \xrightarrow{} F$ the identity
+  isomoprhism.
 \end{proof}
