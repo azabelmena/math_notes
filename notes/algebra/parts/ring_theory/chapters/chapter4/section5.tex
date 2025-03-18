@@ -127,22 +127,63 @@
   is an algebraic closure of $F$.
 \end{proof}
 
-\begin{proposition}
-  Let $\phi:F \xrightarrow{} F'$ be a field isomoprhism, and let $K$
-  and $K'$ be algbebraic closures of $F$ and $F'$ respectively. Then
-  $\phi$ extends to a field isomorphism $\s:K \xrightarrow{} K'$.
-\end{proposition}
-\begin{corollory}
-  Any two algebraic closures over a given field are isomorphic.
-\end{corollory}
+\begin{theorem}\label{theorem_8.5.6}
+  Let $F$ be a field. Then any two algebraic closures of $F$ are
+  isomorphic.
+\end{theorem}
 \begin{proof}
-  Again, take $F'=F$ and $\phi:F \xrightarrow{} F$ the identity
-  isomorphism.
+  Let $K$ and $K'$ be algebraic closures of $F$. Define $\io:F
+  \xrightarrow{} F$ to be the identity map on $F$. Now, by the
+  corollary to theorem \ref{theorem_8.4.4}, any two splitting fields
+  of a polynomial $f(x) \in F[x]$ are isomorphic. Now, let $\{E_f\}$
+  the collection of all splitting fields over $F$, indexed by
+  polynomials in $F[x]$. Define the maps $\io_f:E_f \xrightarrow{} K'$
+  such that $\io_f|_F=\io$. Now, define
+  \begin{equation*}
+    E=\bigcup_{f(x) \in F[x]}{E_f}
+  \end{equation*}
+  and define $\io_E:E \xrightarrow{} K'$ such that
+  $\io_E|_{E_f}=\io_f$. Then $\io_E|_F=\io$. Now, we get the following
+  tower of fields for any polynomial $f(x)$ over $F$:
+  \begin{equation*}
+    F \subseteq E_f \subseteq E
+  \end{equation*}
+  so that $E$ is an upperbound for the collection $\{E_f\}$ ordered by
+  inclusion. Therefore, by Zorn's lemma, the collection $\{E_f\}$ has
+  a maximal element.
+
+  Take $E$ to be the maximal element of $\{E_f\}$. Now, we claim that
+  $E=K$. Indeed, suppose not, and observe that since $K$ is an
+  algebraic closure of $F$, $E \subseteq K$. Now, take $\a \in
+  \com{K}{E}$, and let $m_\a(x)$ the minimal polynomial of $\a$ over
+  $F$, and construct the field $E(\a)$. Since $K$ is algebraic over
+  $F$, $K$ must also be algebraic over $E$. Now, since $K'$ is also an
+  algebraic closure of $F$, $m_\a(x)$ has a root $\b \in K'$. Define
+  now the map $\io_E':E(\a) \xrightarrow{} K'$ by $\io_E'|_E=\io_E$,
+  and $\io_E'(\a)=\b$. Observe that $E(\a)$ is the splitting field of
+  $m_\a(x)$ over $F$, so that $E(\a) \subseteq \{E_f\}$; moreover, $E
+  \subseteq E(\a)$. But that contradicts the maximality of $E$,
+  therefore we must have that $E=K$. Therefore, we take
+  $\io_E=\io_K:K \xrightarrow{} K'$, and we have extended the
+  identity $\io:F \xrightarrow{} F$ to a 1--1 homomorphism $\io_K$.
+
+  Lastly, let $\b \in K'$, and let $m_\b(x)$ the minimal polynomial of
+  $\b$ over $F$. Then $m_\b(x)$ splits completely over $K'$ as:
+  \begin{equation*}
+    m_\b(x)=(x-\b_1) \dots (x-\b_d) \text{ where } \deg{m_\b}=d
+  \end{equation*}
+  in particular, $\b=\b_j$ for some $1 \leq j \leq d$. Now, applying
+  $\io_K$ to $m_\b(x)$ over $F$, and observing that $\io_K|_F=\io$, we
+  get that $\io_K \circ m_\b(x)=m_\b(x)$, and $m_\b(x)$ splits over
+  $K$ as:
+  \begin{equation*}
+    m_\b(x)=(x-\io_K(\a_1)) \dots (x-\io_K(\a_d))
+  \end{equation*}
+  where $\a_1, \dots, \a_d \in K$ are roots of $m_\b(x)$ over $K$.
+  Therefore we have that $\b_j=\io_K(\a_i)$ for all $1 \leq i,j \leq
+  d$. This show that $\io_K$ is onto. Therefore, $\io:F \xrightarrow{}
+  F$ extends to an isomorphism $\io_K:K \xrightarrow{} K'$.
 \end{proof}
-\begin{corollary}
-  Any algebraic closure of $F$ is isomorphic to the field $\bar{F}$ of
-  all elements algebraic over $F$.
-\end{corollary}
 
 \begin{theorem}[The Fundamental Theorem of Algebra]\label{theorem_8.5.7}
   The field of complex numbers $\C$ is algebraically closed.
