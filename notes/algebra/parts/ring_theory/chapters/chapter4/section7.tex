@@ -1,25 +1,68 @@
-\section{Cyclotomic Polynomials}
+\section{Cyclotomic Fields and Cyclotomic Polynomials}
 \label{section_8.7}
 
 \begin{definition}
-  We define \textbf{Euler's totient} to be the map $\phi:\Z \xrightarrow{} \Z$
-  defined by the rule $\phi(n)=|\{a \in \Z : (a,n)=1\}|$. That is, $\phi$
-  of  $n$ is the number of all integers less than  $n$, coprime to  $n$.
+  Let $F$ be a field. We call the roots of the polynomial $x^n-1$ over
+  $F$ the \textbf{n}-th roots of unity over $F$. If  $\xi$ is an
+  $n$-th root of unity over $F$, we call the splitting field $F(\xi)$
+  of $x^n-1$ over $F$ the \textbf{cyclotomic field} of $n$-th roots of
+  unity over $F$.
 \end{definition}
+
+\begin{proposition}\label{proposition_8.7.1}
+  Let $F$ be a field, and let $\xi$ and $\z$  $n$-th roots of unity
+  over $F$, then $F(\xi) \simeq F(\z)$. That is: cyclotomic fields are
+  unique up to isomorphism.
+\end{proposition}
+\begin{proof}
+  $F(\xi)$ and $F(\z)$ are splitting fields for $x^n-1$ over $F$, so
+  the result follows from the corollary to theorem
+  \ref{theorem_8.4.4}.
+\end{proof}
+
+\begin{proposition}\label{proposition_8.7.2}
+  Let $F$ be a field, and $\Xi_n(F)$ the set of all $n$-th roots of
+  unity over $F$. Then $\Xi_n(F)$ is a cyclic group under the
+  multiplication of the cyclotomic field over $F$. Indeed, it is a
+  subgroup of the cyclotomic field over $F$.
+\end{proposition}
+\begin{proof}
+  Take $\a,\b \in \Xi_n(F)$. Then $\a^n=1$ and $\b^n=1$. Then
+  $(\a\b)^n=\a^n\b^n=1$. Moreover, $(\inv{\a})^n=\inv{(\a^n)}=1$.
+  This makes $\Xi_n(F)$ a subgroup of the cyclotomic field $F(\xi)$,
+  where $\xi$ is an $n$-th root of unity.
+
+  Now, take $\xi$ an $n$-th root of unity over $F$. Then $\xi^n=1$.
+  Consider $0 \leq k \leq n$, then $(\xi^k)^n=(\xi^n)^k=1$, so
+  that $\xi^k$ is also an $n$-th root of unity. This makes $\Xi_n(F)$
+  cyclic.
+\end{proof}
 
 \begin{definition}
-  We define $\Xi_n$ to be the \textbf{group of all primitive $n$-th roots of
-  unity}, $\xi$ for which  $\xi^n=1$.
+  Let $F$ be a field, and $\Xi_n(F)$ the cyclic group of $n$-th roots
+  of unity over $F$. We call a generator of $\Xi_n(F)$ a
+  \textbf{primitive} $n$-th root of unity over $F$.
 \end{definition}
 
-\begin{lemma}\label{lemma_8.7.1}
-  $\Xi_n \simeq \faktor{\Z}{n\Z}$.
-\end{lemma}
+\begin{proposition}\label{proposition_8.7.3}
+  Let $F$ be a field. Then an $n$-th root of unity $\xi \in \Xi_n(F)$
+  is primitive if, and only if its multiplicative order is coprime to
+  $n$.
+\end{proposition}
+\begin{proof}
+  This follows from results from cyclic groups; i.e. see lemma
+  \ref{lemma_2.3.7}.
+\end{proof}
+
+\begin{proposition}\label{proposition_8.7.4}
+  Let $F$ be a field. Then $\Xi_n(F) \simeq \faktor{\Z}{n\Z}$.
+\end{proposition}
 \begin{proof}
   The map $a \xrightarrow{} \xi^a$ defines the required isomorphism.
 \end{proof}
 \begin{corollary}
-  $\ord{\Xi_n}=\phi(n)$ where $\phi$ is Euler's totient.
+  There are exactly $\phi(n)$ primitive $n$-th roots of unity over
+  $F$.
 \end{corollary}
 \begin{proof}
   Since $\xi^n \equiv \xi^{0 \mod{n}} \equiv 1$, we have every non identity
@@ -35,17 +78,15 @@
 \end{proof}
 
 \begin{definition}
-  We define the \textbf{$n$-th cyclotomic polynomial} to be the polynomial
-  \begin{equation*}
-    \Phi_n(x)=\prod{x-\xi}
-  \end{equation*}
-  having as roots all $n$-primitive roots of unity.
+  Let $F$ be a field. We define the \textbf{$n$-th cyclotomic
+  polynomial} to be the polynomial $\Phi_n(x)$ over $F$,
+  having as roots all $n$-primitive roots of unity over $F$.
 \end{definition}
 
-\begin{lemma}\label{lemma_8.7.2}
-  The $n$-th cyclotomic polynomial  $\Phi_n$ has degree
+\begin{proposition}\label{proposition_8.7.5}
+  The $n$-th cyclotomic polynomial  $\Phi_n(x)$ has degree
   $\deg{\Phi_n}=\phi(n)$, where $\phi$ is Euler's totient.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Recall that $\ord{\Xi_n}=\phi(n)$, and since the elements of $\Xi_n$ are the
   roots of  $\Phi_n$, there are  $\phi(n)$ such roots. This puts
@@ -57,7 +98,7 @@
   of unity  $\xi$, that is $\xi^n=1$. If $x^n-1 \in F[x]$, $F$ a field, the
   the splitting field of  $x^n-1$ is  $F(\xi)$. Then we have
   \begin{equation*}
-    x^n-1=\prod_{\xi \in \Xi_n}{(x-\xi)}
+    x^n-1=\prod_{\xi \in \Xi_n(F)}{(x-\xi)}
   \end{equation*}
   Now, grouping those factors where $\xi^d=1$ for some  $d|n$, then we have
   \begin{equation*}
@@ -73,7 +114,7 @@
   We have  $\Phi_1(x)=x-1$ and $\Phi_2(x)=x+1$. Now,
   $\Phi_3(x)=\Phi_1(x)\Phi_3(x)=(x-1)\Phi_3(x)$, so that
   \begin{equation*}
-    Phi_n(x)=x^2+x+1
+    \Phi_n(x)=x^2+x+1
   \end{equation*}
   We have
   $\Phi_4(x)=\Phi_1(x)\Phi_2(x)\Phi_4(x)=(x-1)(x+1)\Phi_4(x)=(x^2-1)\Phi_4(x)$.
@@ -98,9 +139,9 @@
   \end{equation*}
 \end{example}
 
-\begin{lemma}\label{lemma_8.7.3}
+\begin{proposition}\label{proposition_8.7.6}
   $\Phi_n(x)$ is monic over $\Z$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Notice that since $x^n-1=\prod{\Phi_d(x)}$, is monic, then each $\Phi_d$
   must also be monic for all  $d|n$.
@@ -112,12 +153,16 @@
   Then  $x^n-1=f(x)\Phi_n(x)$, where $f(x)=\prod{\Phi_d(x)}$ is monic over
   $\Z$. Moreover,  $f|x^n-1$, in the splitting field $\Q(\xi)$ (since we take
   $1_F \xrightarrow{} F_\Z$), where $\xi^n=1$. Then  $f|x^n-1$ over  $\Q$ by
-  the division theorem, and by Gauss' lemma, $f|x^n-1$ in $\Z$. So $\Phi_n \in
+  the division theorem, and by Gauss' proposition, $f|x^n-1$ in $\Z$. So $\Phi_n \in
   \Z[x]$.
 \end{proof}
+\begin{corollary}
+  For any field $F$, and  $\xi$ a primitive $n$-th root of unity,
+  $F(\xi) \simeq \Q(\xi)$.
+\end{corollary}
 
-\begin{theorem}\label{lemma_8.7.4}
-  $\Phi_n$ is irreducible over  $\Z$.
+\begin{theorem}\label{theorem_8.7.4}
+  $\Phi_n(x)$ is irreducible over  $\Z$.
 \end{theorem}
 \begin{proof}
   Again, if $x^n-1 \in F[x]$ for some field $F$, take  $1_F \xrightarrow{}
@@ -142,7 +187,8 @@
   roots. Therefore $\xi^p$ is a root of  $f$.
 \end{proof}
 \begin{corollary}
-  $[\Q(\xi):\Q]=\phi(n)$.
+  For any field $F$ and $\xi$ a primitive $n$-th root of unity,
+  $[F(\xi):F]=\phi(n)$. In particular, $[\Q(\xi):\Q]=\phi(n)$.
 \end{corollary}
 \begin{proof}
   We have by above that $\Phi_n$ is the minimal polynomial for  $\xi$ over
