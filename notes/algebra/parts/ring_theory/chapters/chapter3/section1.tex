@@ -49,9 +49,9 @@
   monomials of $f$ have the same degree, we call  $f$ a \textbf{form}.
 \end{definition}
 
-\begin{lemma}\label{lemma_7.1.2}
+\begin{proposition}\label{proposition_7.1.2}
   Let $R$ be a ring. Then  $R[x_1, \dots, x_n]$ is a ring.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   By definition $R[x_1, \dots, x_n]=(R[x_1, \dots, x_{n-1}])[x_n]$.
   Recurse the definition until we get $(((R[x_1])[x_2]) \dots
@@ -108,12 +108,12 @@
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_7.1.3}
+\begin{proposition}\label{proposition_7.1.3}
   Let $R$ be a commutative ring, and  $\pi$ a permutation of the set  $\{1,
   \dots n\}$. Then $R[x_1, \dots, x_n] \simeq R[x_{\pi(1)}, \dots,
   x_{\pi(n)}]$. That is, multivariate polynomial rings are independent of the
   ordering of their variables.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Define the map $\Pi:R[x_1, \dots, x_n] \xrightarrow{} R[x_{\pi(1)}, \dots,
   x_{\pi(n)}]$ termwise by first sending $x_1 \dots x_n \xrightarrow{}
@@ -150,11 +150,11 @@ maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
 \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_7.1.4}
+\begin{proposition}\label{proposition_7.1.4}
     Let $k$ be an infinite field, and suppose  $f \in k[x_1, \dots, x_n]$ is a
     polynomial such that $f(a_1,\dots,a_n)=0$ for all $a_1, \dots, a_n \in k$.
     Then $f$ must be the zero polynomial.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Observe that
     \begin{equation*}
@@ -186,10 +186,10 @@ maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
     which makes $f(x_1, \dots, x_{n+1})=0$ in $k[x_1, \dots, x_{n+1}]$.
 \end{proof}
 
-\begin{lemma}\label{lemma_7.1.5}
+\begin{proposition}\label{proposition_7.1.5}
     If $k$ is a field, then there exist infinitely many monic irreducible
     polynomials in $k[x]$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Suppose that there exist finitely many monic irreducible polynomials in
     $k[x]$, and let $p_1, \dots, p_n$ an enumeration of all of them. Consider
@@ -202,9 +202,67 @@ maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
     irreducible, contradiction the given enumeration.
 \end{proof}
 
-%\begin{lemma}\label{lemma_7.1.6}
+\begin{theorem}\label{theorem_7.1.6}
+  Let $\phi:R \xrightarrow{} S$ be a ring homomorphism, and let $s_1,
+  \dots, s_n \in S$. Then $\phi$ extends to a ring homomorphism
+  $\Phi:R[x_1, \dots, x_n] \xrightarrow{} S$ such that $\Phi(x_i)=s_i$
+  for all $1 \leq i \leq n$. Moreover, such an extension is unique.
+\end{theorem}
+\begin{proof}
+  Define the homomorphism $\Phi:R[x_1, \dots, x_n] \xrightarrow{} S$
+  by $\Phi:f(x_1, \dots, x_n) \xrightarrow{} f(s_1, \dots, s_n)$, and
+  $\Phi(x)=\phi(x)$ for all $x \in R$. Then for $f(x_1, \dots, x_n),
+  g(x_1, \dots, x_n) \in R[x_1, \dots, x_n]$ we have:
+  \begin{align*}
+    \Phi(f(x_1, \dots, x_n)+g(x_1, \dots, x_n)) &= \Phi((f+g)(x_1, \dots, x_n)) \\
+    &= (f+g)(s_1, \dots, s_n) \\
+    &= f(s_1, \dots, s_n)+g(s_1, \dots, s_n) \\
+    &= \Phi(f(x_1, \dots, x_n))+\Phi(g(x_1, \dots, x_n)) \\
+  \end{align*}
+  and
+  \begin{align*}
+    \Phi(f(x_1, \dots, x_n)g(x_1, \dots, x_n)) &= \Phi((fg)(x_1, \dots, x_n)) \\
+    &= (fg)(s_1, \dots, s_n) \\
+    &= f(s_1, \dots, s_n)g(s_1, \dots, s_n) \\
+    &= \Phi(f(x_1, \dots, x_n))\Phi(g(x_1, \dots, x_n)) \\
+  \end{align*}
+  moreover, setting $m_i(x_1, \dots, x_n)=x_i$, we have for all $1
+  \leq i \leq n$ $\Phi(x_i)=\Phi(m_i(x_1, \dots, x_n))=m_i(s_1, \dots,
+  s_n)=s_i$. Lastly, Taking for any $c \in R$ the constant
+  polynomial $c(x_1, \dots, x_n)=c+\sum{0x_1^{d_1} \dots x_n^{d_n}}$,
+  we get $\Phi(c)=\Phi(c(x_1 ,\dots, x_n))=\phi(c)+\sum{0s_1^{d_1}
+  \dots s_n^{d_n}}$, so that $\Phi(c)=\phi(c)$ for all $c \in R$.
+  Indeed, $\Phi$ is a required extension for $\phi$.
+
+  Now, suppose there is another homomorphism $\Psi:R[x_1, \dots, x_n]
+  \xrightarrow{} S$ for which $\Psi|_R=\phi$ and $\Psi(x_i)=s_i$ for
+  all $1 \leq i \leq n$. Define the the homomorphism $\Phi-\Psi:R[x_1,
+  \dots, x_n] \xrightarrow{} S$ by $\Phi-\Psi(f(x_1, \dots,
+  x_n))=\Phi(f(x_1, \dots, x_n))-\Psi(f(x_1, \dots, x_n))$. Observe
+  that since $\Phi|_R=\phi=\Psi|_R$, then $\Phi=\Psi$ on $R$. Now, by
+  definition, we have $\Phi-\Psi(x_i)=\Phi(x_i)-\Psi(x_i)=s_i-s_i=0$,
+  so $x_i \in \ker{(\Phi-\Psi)}$. Then observe if $f(x_1, \dots,
+  x_n)=\sum{ax^{d_1} \dots x_n^{d_n}}$, then
+  \begin{align*}
+    \Phi(f(x_1, \dots, x_n))=\sum{a\Phi(x_1)^{d_1} \dots \Phi(x_n)^{d_n}}
+    &= \sum{as_1^{d_1} \dots s_n^{d_n}} \\
+  \end{align*}
+  and
+  \begin{align*}
+    \Psi(f(x_1, \dots, x_n))=\sum{a\Psi(x_1)^{d_1} \dots \Psi(x_n)^{d_n}}
+    &= \sum{as_1^{d_1} \dots s_n^{d_n}} \\
+  \end{align*}
+  so that $\Phi-\Psi(f(x_1, \dots, x_n))=\Phi(f(x_1, \dots,
+  x_n))\Psi(f(x_1, \dots, x_n))=0$ hence $\ker{(\Phi-\Psi)}=R[x_1,
+  \dots, x_n]$. That is, for every $f(x_1, \dots, x_n) \in R[x_1,
+  \dots, x_n]$, $\Phi-\Psi(f(x_1, \dots, x_n))=0$. That is,
+  $\Phi(f(x_1, \dots, x_n))=\Psi(f(x_1, \dots, x_n))$, and we are
+  done.
+\end{proof}
+
+%\begin{proposition}\label{proposition_7.1.6}
     %Every algebraically closed field is infinite.
-%\end{lemma}
+%\end{proposition}
 %\begin{proof}
     %Let $k$ be an algebraically closed field. Suppose also that $k$ were finite,
     %and let  $k=\{a_1, \dots, a_n\}$. Let $f(x) \in k[x]$ be the following
@@ -219,13 +277,13 @@ maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
     %contradicts the finiteness of $k$.
 %\end{proof}
 
-%\begin{lemma}\label{lemma_7.1.7}
+%\begin{proposition}\label{proposition_7.1.7}
     %Let $k$ be a field, and let $f \in k[x_1, \dots, x_n]$. Then for some $a_1,
     %\dots, a_n \in k$,
     %\begin{equation*}
         %f(x_1,\dots,x_n)=\sum{\l_{(i)}(x_1-a_1)^{i_1} \dots (x_n-a_n)^{i_n}}
     %\end{equation*}
-%\end{lemma}
+%\end{proposition}
 %\begin{proof}
     %Consider the monomials $x_1^{i_1} \dots x_n^{i_n}$ of $f$, and recall that
     %$x_1^{i_1} \dots x_n^{i_n} \in k[x_1, \dots, x_{n-1}][x_n]$. Suppose that
