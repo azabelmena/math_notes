@@ -42,11 +42,20 @@
   and is the set of all \textbf{multivariate polynomials} of the form $f(x_1,
   \dots,x_n)=\sum{ax_1^{d_1} \dots x_n^{d_n}}$. We call the monic term
   $x_1^{d_1} \dots x_n^{d_n}$ of $f$ a  \textbf{monomial}. We define the
-  \textbf{degree} of a monomial to be $\deg{x_1^{d_1} \dots
-  x_n^{d_n}}=d_1+\dots+d_n$ and we define the \textbf{total degree}
+  \textbf{degree} of a monomial to be $\deg{(x_1^{d_1} \dots
+  x_n^{d_n})}=d_1+\dots+d_n$ and we define the \textbf{total degree}
   of $f$ to be $\deg{f}=\max{\{\deg{x_1^{d_1} \dots x_n^{d_n}}\}}$
   (i.e. the maximum degree of all monomials of $f$). If all the
   monomials of $f$ have the same degree, we call  $f$ a \textbf{form}.
+\end{definition}
+
+\begin{definition}
+  Let $R$ be a ring. We define the \textbf{addition}, $+$, on
+  $R[x_1, \dots, x_n]$ recursively to be the addition of polynomials
+  in $(R[x_1, \dots, x_{n-1}])[x_n]$. We define
+  \textbf{multiplication}, $\cdot$, on $R[x_1, \dots, x_n]$ recursively
+  to be the multiplication of polynomials in $(R[x_1, \dots,
+  x_{n-1}])[x_n]$.
 \end{definition}
 
 \begin{proposition}\label{proposition_7.1.2}
@@ -58,6 +67,10 @@
   [x_{n-1}])[x_n]$. The result follows by observing that $R[x_1]$ is a
   ring.
 \end{proof}
+\begin{corollary}
+  $R[x_1, \dots, x_n]$ is a ring under the addition and multiplication
+  of multivariate polynomials.
+\end{corollary}
 
 \begin{example}\label{example_7.2}
   \begin{enumerate}
@@ -76,7 +89,7 @@
 
     \item[(2)] The polynomial $p(x,y,z)=4y^2z^5-3xy^3z+2x^2y$ over
       $\Z[x,y,z]$ has degree $\deg{p}=7$ and the polynomial
-      $q(x,y,z)=5x^2y^3z^4 -9x^2z+7x^2$ has degreee $\deg{q}=9$. The
+      $q(x,y,z)=5x^2y^3z^4 -9x^2z+7x^2$ has degree $\deg{q}=9$. The
       polynomials
       \begin{equation*}
         p+q(x,y,z)  &=  5x^2y^3z^4+4y^2z^5-3xy^3z+2x^2y-9x^2z+7x^2   \\
