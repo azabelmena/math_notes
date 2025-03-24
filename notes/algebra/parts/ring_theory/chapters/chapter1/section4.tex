@@ -90,7 +90,7 @@
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_5.4.1}
+\begin{proposition}\label{proposition_5.4.1}
   Let $\af$ an ideal in ring $R$ with identity. Then
   \begin{enumerate}
     \item[(1)] $\af=(1)$ if, and only if $\af$ contains a unit.
@@ -98,7 +98,7 @@
     \item[(2)] If $R$ is commutative, then $R$ is a field if, and only if
       its only ideals are $(0)$ and $(1)$.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Recall that $R=(1)$. Now, if $\af=(1)$, then $1 \in \af$, and  $1$ is a unit.
   Conversly, suppose that $u \in I$ with $u$ a unit. By definition, we have
@@ -121,10 +121,10 @@
   since $\ker{\phi} \neq R$, we must have $\ker{\phi}=(0)$.
 \end{proof}
 
-\begin{lemma}\label{lemma_5.4.2}
+\begin{proposition}\label{proposition_5.4.2}
   A ring with identity $1 \neq 0$ is a division ring, if and only if
   every non-zero element is a unit.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   This follows by definition of a division ring.
 \end{proof}
@@ -142,7 +142,7 @@
   Conversely, suppose that $D$ is a ring with $1 \neq 0$, and it's
   only ideals are $(0)$ and $(1)$. Observe that $0 \in (0)$. Now, let
   $a \in D$ be non-zero. Then $a \in (1)$, so there is a non-zero $b
-  \in D$ for which $ab=1$, which makes $a$ a unit. By the above lemma,
+  \in D$ for which $ab=1$, which makes $a$ a unit. By the above proposition,
   this makes $D$ a division ring.
 \end{proof}
 \begin{corollary}
@@ -167,10 +167,10 @@
   then either $\mf=\af$ or $\af=R$.
 \end{definition}
 
-\begin{lemma}\label{lemma_5.4.3}
+\begin{proposition}\label{proposition_5.4.3}
   If $R$ is a ring with identity, every proper ideal is contained in a maximal
   ideal.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $\af$ a proper ideal of $R$. Let $\Sc=\{\bf : \bf \neq (1) \text{ is a proper
   ideal, and } \af \subseteq \bf \}$. Then $\Sc \neq \emptyset$, as
@@ -189,14 +189,14 @@
   Now, if  $1 \in \jf$, then $J=(1)$ and $\jf$ is not proper, and $\af=(1)$ by
   definition of $\jf$. This is a contradiction as $\af$ must be
   proper. Therefore $\jf$ must also be a proper ideal. Therefore,
-  $\Cc$ has an upperbound in $\Sc$, therefore, by Zorn's lemma,
+  $\Cc$ has an upperbound in $\Sc$, therefore, by Zorn's proposition,
   $\Sc$ has a maximal element $\mf$.
 \end{proof}
 
-\begin{lemma}\label{lemma_5.4.4}
+\begin{proposition}\label{proposition_5.4.4}
   Let $R$ be a commutative ring with idenity. An ideal $\mf$ is maximal if,
   and only if $\faktor{R}{\mf}$ is a field.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   If $\mf$ is maximal, then there is no ideal $\af \neq (1)$ for which
   $\mf \subseteq \af \subseteq (1)$ By the fourth isomorphism theorem,
@@ -242,11 +242,11 @@
   $ab \in \pf$, either $a \in \pf$ or $b \in \pf$.
 \end{definition}
 
-\begin{lemma}\label{lemma_5.4.5}
+\begin{proposition}\label{proposition_5.4.5}
   Let $R$ be a commutative ring with identity $1 \neq 0$. An ideal
   $\pf \neq (1)$ of $R$ is prime if, and only if $(ab) \subseteq \pf$
   implies $(a) \subseteq \pf$ or $(b) \in \pf$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   This follows directly from definition.
 \end{proof}
@@ -255,10 +255,10 @@
   The prime ideals of $\Z$ are $p\Z$ with  $p$ prime together with $(0)$.
 \end{example}
 
-\begin{lemma}\label{lemma_5.4.6}
+\begin{proposition}\label{proposition_5.4.6}
   An ideal $\pf$ in a commutative ring $R$ with identity, is prime if, and
   only if $\faktor{R}{\pf}$ is an integral domain.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Suppose that $\pf$ is prime, and let  $(a+\pf)(b+\pf)=ab+\pf=\pf$. This gives us
   that $ab \in \pf$ and hence  $a \in \pf$ or  $b \in \pf$. Then either $a+\pf=\pf$

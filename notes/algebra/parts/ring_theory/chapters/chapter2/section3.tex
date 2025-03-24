@@ -15,9 +15,9 @@
   or $b$ are units in $R$; otherwise, we call $r$ \textbf{reducible}.
 \end{definition}
 
-\begin{lemma}\label{lemma_6.3.1}
+\begin{proposition}\label{proposition_6.3.1}
   In an integral domain, a prime element is always irreducible.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $(p)$ be a nonzero prime ideal with $p=ab$, for some  $a,b \in R$. Then
   $ab \in (p)$, so that either $a \in (p)$, or $b \in (p)$. Suppose that $a
@@ -42,10 +42,10 @@
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_6.3.2}
+\begin{proposition}\label{proposition_6.3.2}
   In a principle ideal domain, a nonzero element is prime if, and only if it
   is irreducible.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $R$ be a PID, and suppose that $p$ is irreducible. Let $(m)$ be the
   principle ideal containing $(p)$, then $p=rm$, and by irreducibility, either
@@ -53,7 +53,7 @@
   $(m)=(1)$. This makes $(p)$ a maximal ideal, and hence a prime
   ideal. Now, since prime elements in integral domains are
   irreducible, and PIDs are integral domains, the converse follows
-  from lemma \ref{lemma_6.3.1}.
+  from proposition \ref{proposition_6.3.1}.
 \end{proof}
 
 \begin{example}\label{example_6.7}
@@ -63,8 +63,8 @@
       PID.
 
     \item[(2)] Notice that since $\Z$ is a PID, then the fact that
-      irreducible and prime elements coincide is guaranteed by lemma
-      \ref{lemma_6.3.2}.
+      irreducible and prime elements coincide is guaranteed by proposition
+      \ref{proposition_6.3.2}.
   \end{enumerate}
 \end{example}
 
@@ -97,10 +97,10 @@
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_6.3.3}
+\begin{proposition}\label{proposition_6.3.3}
   In a unique factorization domain $R$, a nonzero element is prime if, and
   only if it is irreducible.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Since prime elements are irreducible, it remains to show that irreducible
   elements are prime. Let $p$ be irreducible and suppose that  $p|ab$, for
@@ -110,7 +110,7 @@
   $b$. In either case, we get that $p|a$ or $p|b$, and hence  $p$ is prime.
 \end{proof}
 
-\begin{lemma}\label{lemma_6.3.4}
+\begin{proposition}\label{proposition_6.3.4}
   Let $a,b \in R$ nonzero elements of a unique factorization domain $R$. If
   $a=up_1^{e_1} \dots p_n^{e_n}$ and $b=vp_1^{f_1} \dots p_n^{f_n}$, where
   $u,v \in R$ are units, then the element
@@ -118,7 +118,7 @@
     d=p_1^{\min\{e_1,f_1\}} \dots p_n^{\min\{e_n,f_n\}}
   \end{equation*}
   os the greatest common divisor of $a$ and  $b$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Notice that by definition of $d$, that  $d|a$ and  $d|b$. Now, let  $c$ be a
   common divisor of  $a$ and  $b$ with the unique prime factorization
@@ -129,7 +129,7 @@
   notice that since each $g_i \leq e_i,f_i$, that  $c|d$, and so  $d=(a,b)$.
 \end{proof}
 
-\begin{theorem}\label{lemma_6.3.5}
+\begin{theorem}\label{proposition_6.3.5}
   Every principle ideal domain is a unique factorization domain.
 \end{theorem}
 \begin{proof}
@@ -143,7 +143,7 @@
   \begin{equation*}
     (r) \subseteq (r_1) \subseteq (r_{11}) \subseteq \dots \subseteq (1)
   \end{equation*}
-  and since $R$ is a PID, by lemma \ref{lemma_6.2.4} this chain stabalizes. Thus
+  and since $R$ is a PID, by proposition \ref{proposition_6.2.4} this chain stabalizes. Thus
   $r$ can be factored into irreducible elements; since this process terminates.
 
   Now, by induction on $n$, for  $n=0$, we notice that  $r$ is a unit, and we
@@ -161,7 +161,7 @@
   Every Euclidean domain is a unique factorization domain.
 \end{corollary}
 \begin{proof}
-  Euclidean domains are PIDs by lemma \ref{lemma_6.1.1}.
+  Euclidean domains are PIDs by proposition \ref{proposition_6.1.1}.
 \end{proof}
 \begin{corollary}[The Fundamental Theorem of Arithmetic]
   $\Z$ is a unique factorization domain.

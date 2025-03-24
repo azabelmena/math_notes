@@ -83,9 +83,9 @@
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_6.1.1}
+\begin{proposition}\label{proposition_6.1.1}
   Every ideal in a Euclidean domain $R$, is a principle ideal.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $\af$ be an ideal. If $\af=(0)$, we are done. Now, let $N:R \xrightarrow{}
   \N$ be the norm of $R$, and consider the image $N(\af)=\{N(a) : a \in \af\}$. By
@@ -152,7 +152,7 @@
   We write $d=(a,b)$.
 \end{definition}
 
-\begin{lemma}\label{lemma_6.1.2}
+\begin{proposition}\label{proposition_6.1.2}
   Let $R$ be a commutative ring. For any $a,b \in R$ a nonzero element  $d \in
   R$ is the greatest common divisor of $a$ and $b$ if, and only if:
   \begin{enumerate}
@@ -162,25 +162,25 @@
       \subseteq (c)$.
   \end{enumerate}
   In particular, $(d)=(a,b)$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   By the properties of ideals, we have equivalence between the
-  statements of the lemma and the definition of the greatest common
+  statements of the proposition and the definition of the greatest common
   divisor. Now, since $(a,b) \subseteq (d)$, since every ideal in a
-  Euclidean domain is principle, by lemma \ref{lemma_6.1.1},
+  Euclidean domain is principle, by proposition \ref{proposition_6.1.1},
   $(d)=(a,b)$.
 \end{proof}
 
-\begin{lemma}\label{lemma_6.1.3}
+\begin{proposition}\label{proposition_6.1.3}
   If $R$ is a commutative ring and $a,b \in R$ non-zero elements such
   that $(a,b)=(d)$, for some non-zero $d \in R$, then $d$ is the
   greatest common divisro of $a$ and $b$.
-\end{lemma}
+\end{proposition}
 
-\begin{lemma}\label{lemma_6.1.4}
+\begin{proposition}\label{proposition_6.1.4}
   Let $R$ be an inetegral domain. If $c,d \in R$ generate the same principle
   ideal, i.e. $(d)=(c)$, then $d=uc$ for some unit  $u \in R$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   If $c=0$ or  $d=0$, we are done. Suppose then that  $c,d \neq 0$. Since
   $(d)=(c)$, we have that $d=xc$ and $c=yd$ for some  $x,y \in R$. Then
@@ -196,13 +196,13 @@
   two elements a \textbf{Bezout domain}.
 \end{definition}
 
-\begin{lemma}\label{lemma_6.1.5}
+\begin{proposition}\label{proposition_6.1.5}
   Every Euclidean domain is a Bezout domain.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Since every ideal of a Euclidean domain is principle, and every unit
   of a Euclidean domain is the greatest common divisor of two other
-  units, by lemma \ref{lemma_6.1.4}, we have the result.
+  units, by proposition \ref{proposition_6.1.4}, we have the result.
 \end{proof}
 
 \begin{theorem}[The Extended Euclidean Algorithm]\label{theorem_6.1.6}
@@ -216,7 +216,7 @@
   \end{enumerate}
 \end{theorem}
 \begin{proof}
-  By lemma \ref{lemma_6.1.1}, we get that the ideal $(a,b)$ is principle, so there
+  By proposition \ref{proposition_6.1.1}, we get that the ideal $(a,b)$ is principle, so there
   exists a greatest common divisor of $a$ and  $b$. Now, let  $d=r_n$ be
   obtained by dividing $a$ and $b$ recursively $(n+1)$ times. Then the
   $(n+1)^{st}$ equation gives $r_{n-1}=q_{n+1}r_n$, so that $r_n|r_{n-1}$.
@@ -241,10 +241,10 @@
   $u|(x-z)$.
 \end{definition}
 
-\begin{lemma}\label{lemma_6.1.7}
+\begin{proposition}\label{proposition_6.1.7}
   Let $R$ be an integral domain which is not a field. If $R$ is a Euclidean
   domain, then there exist universal side divisors.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Notice that since $R$ is not a field, that $\tilde{R} \neq R$ and
   $\com{R}{\tilde{R}}$ is nonempty. Let $N$ be the norm of  $R$, and let  $u

@@ -25,7 +25,7 @@ underlying structures of specific sets.
   consist of left group actions, so we drop the indication.
 \end{remark}
 
-\begin{lemma}\label{lemma_4.1.1}
+\begin{proposition}\label{proposition_4.1.1}
   Let $G$ be a group acting on a set $S$. For each $g \in G$, define the map
   $s_g:S \rightarrow S$ by $s_g:a \rightarrow ga$. Then:
   \begin{enumerate}
@@ -34,7 +34,7 @@ underlying structures of specific sets.
     \item [(2)] The map $G \rightarrow A(S)$ defined by $g \rightarrow
       s_g$ is a homomorphism.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $a,b \in S$ and suppose that $s_g(a)=s_g(b)$. Then $ga=gb$,
   and by the cancellation laws,  $a=b$. This makes $s_g$  $1-1$. On the
@@ -48,7 +48,7 @@ underlying structures of specific sets.
   $\phi(gg')(a)=s_{gg'}(a)=(gg')a=g(g'a)=s_gs_{g'}(a)= \phi(g)\phi(g')$.
 \end{proof}
 \begin{remark}
-  The main takeaway of this lemma is that group actions on a set $S$ are
+  The main takeaway of this proposition is that group actions on a set $S$ are
   merely permutations of the elements of  $S$.
 \end{remark}
 
@@ -72,10 +72,10 @@ underlying structures of specific sets.
   A\}$
 \end{definition}
 
-\begin{lemma}\label{lemma_4.1.2}
+\begin{proposition}\label{proposition_4.1.2}
   The kernel of a group action is precisely the kernel of the associated
   permutation representation.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $G$ be a group acting on a set  $A$. Now, for any  $g \in \ker{A}$, we
   have $ga=a$ for all  $a \in A$. Now let $\sigma:a \rightarrow ga$, and
@@ -109,10 +109,10 @@ actions.
   \end{equation*}
 \end{definition}
 
-\begin{lemma}\label{lemma_4.1.4}
+\begin{proposition}\label{proposition_4.1.4}
   Let $G$ be group acting on a set  $S$. Then for any  $s \in S$,  $\stab{s}
   \leq G$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   For $a,b \in \stab{s}$, we have $(ab)s=a(bs)=as=s$, so $ab \in \stab{a}$.
   Likewise, $\inv{a} \in \stab{s}$.
@@ -121,7 +121,7 @@ actions.
   $\ker{S} \leq G$.
 \end{corollary}
 \begin{proof}
-  The proof is identical to that of the above lemma.
+  The proof is identical to that of the above proposition.
 \end{proof}
 \begin{corollary}
   $\stab{s} \leq \ker{s}$.
@@ -158,9 +158,9 @@ actions.
   of $A$, $gA\inv{g}$ to be the image of this action.
 \end{definition}
 
-\begin{lemma}\label{lemma_4.1.5}
+\begin{proposition}\label{proposition_4.1.5}
   Conjugation is a group action.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $G$ be  and $A$ a nonempty set. Take the map  $G \times A \rightarrow A$
   via $(g,a) \rightarrow ga\inv{g}$. Then for $e \in G$ the identity,
@@ -169,10 +169,10 @@ actions.
   action, and $G$ acts on $A$ via conjugation.
 \end{proof}
 
-\begin{lemma}\label{lemma_4.1.6}
+\begin{proposition}\label{proposition_4.1.6}
   Let  $G$ be a group acting on a set $A \subseteq G$ via conjugation. Then
   $\stab{A}=N(A)$.
-\end{lemma}
+\end{proposition}
 
 \begin{example}\label{example_4.2}
   Let $G$ be a group, and  $A \neq \emptyset$. Then:
@@ -245,7 +245,7 @@ actions.
   \end{enumerate}
 \end{example}
 
-\begin{theorem}\label{lemma_4.1.3}
+\begin{theorem}\label{proposition_4.1.3}
   For any group $G$ acting on a nonempty set $S$, there is a 1--1 correspondence
   of teh actions of  $G$ onto homomorphisms of  $G$ into $A(S)$.
 \end{theorem}
@@ -261,11 +261,11 @@ actions.
   homomorphism of  $G$ into $A(S)$.
 \end{definition}
 
-\begin{lemma}\label{lemma_4.1.4}
+\begin{proposition}\label{proposition_4.1.4}
   Let $G$ be a group acting on a nonempty set $A$. The  $\sim$ on $A$ defined
   by  $a \sime b$ if, and only if  $a=gb$ for some  $g \in G$ is an
   equivalence relation.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   We have $a=ea$, so  $a \sim a$. Now, if $a \sim b$, then  $a=gb$ for  $g \in
   G$. Then  $b=\inv{g}a$ so that $b \sim a$. Now let  $a \sim b$ and  $b \sim

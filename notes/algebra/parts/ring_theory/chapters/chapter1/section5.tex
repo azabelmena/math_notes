@@ -9,10 +9,10 @@
      \end{equation*}
 \end{theorem}
 
-\begin{lemma}\label{lemma_5.5.2}
+\begin{proposition}\label{proposition_5.5.2}
     Let $R$ be a commutative ring with identity, and $\rf$ the set of all
     nilpotent elements of $R$. Then $\rf$ is an ideal of $R$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     If $x \in \rf$, then there is an  $n \in \Z^+$ for which  $x^n=0$, notice
     that this also implies that  $(-x)^n=0$, so that $-x \in \rf$. Now, let $x,y
@@ -41,14 +41,14 @@
     to be the ideal, $\Nil{R}$, consisting of all nilpotent elements of $R$.
 \end{definition}
 
-\begin{lemma}\label{lemma_5.1.3}
+\begin{proposition}\label{proposition_5.1.3}
     Let $R$ be a commutative ring with identity. Then $\Nil{R}$ is the
     intersection of all prime ideals of $R$; i.e.
     \begin{equation*}
         \Nil{R}=\bigcap_{\pf \subseteq R}{\pf} \text{ where } \pf \text{ is a
         prime ideal of } R
     \end{equation*}
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Let $\rf$ be the intersection of all prime ideals of $R$. Suppose that  $x
     \in R$ is nilpotent. Then $x^n=0$ for some $n \in \Z^+$, so that  $x^n \in
@@ -57,7 +57,7 @@
     Conversely, suppose that  $x \in R$ is not nilpotent, and let $\Sigma$ be
     the set of all ideals $\af$ for which $x \notin \af$. Notice that since $0$
     is nilpotent in $R$, $0 \in \Sigma$, so that $\Sigma$ is nonempty.
-    Therefore, by Zorn's lemma, $\Sigma$ has a maximal element $\pf$. We claim
+    Therefore, by Zorn's proposition, $\Sigma$ has a maximal element $\pf$. We claim
     that this $\pf$ is prime. Suppose that  $a,b \notin \pf$, then  $\pf
     \subseteq \pf+(a)$ and $\pf \not\subseteq \pf+(b)$. So $\pf+(a), \pf+(b)
     \notin \Sigma$, by the maximality of $\pf$. This puts  $x^m \in \pf+(a)$ and
@@ -72,13 +72,13 @@
     by  $\Jac{R}$.
 \end{definition}
 
-\begin{lemma}\label{lemma_5.5.4}
+\begin{proposition}\label{proposition_5.5.4}
     Let $R$ be a commutative ring with identity. Then  $x \in \Jac{R}$ if, and
     only if $1-xy$ is a unit in $R$ for some $y \in R$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Suppose that $x \in \Jac{R}$, but that $1-xy$ is not a unit of $R$. Then by
-    lemma \ref{lemma_5.4.3}, we have $(1-xy) \subseteq \mf$ for some maximal ideal
+    proposition \ref{proposition_5.4.3}, we have $(1-xy) \subseteq \mf$ for some maximal ideal
     $\mf$ of $R$; hence $1-xy \in \mf$. However, since $x \in \Jac{R}$, then $xy
     \in \mf$, which puts $1 \in \mf$, so that $\mf=(1)$ which contradicts that
     $\mf$ is maximal. Therefore,  $1-xy$ must be a unit.
@@ -102,7 +102,7 @@
   \end{equation*}
 \end{definition}
 
-\begin{lemma}\label{lemma_5.5.5}
+\begin{proposition}\label{proposition_5.5.5}
   The following are true for any ideals $\af$ and $\bf$:
   \begin{enumerate}
     \item[(1)] $\af+\bf$ is an ideal, and is the smallest ideal containing both
@@ -111,7 +111,7 @@
     \item[(2)] $\af \cap \bf$ is an ideal, and is the largest ideal
       contained in both $\af$ and $\bf$.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{corollary}
   Let $R$ be a ring with ideals $\af$ and $\bf$. Then we have the lattice
   \[\begin{tikzcd}
@@ -266,10 +266,10 @@
   multiplication of elements of $\prod{R_i}$ component-wise.
 \end{definition}
 
-\begin{lemma}\label{lemma_5.5.9}
+\begin{proposition}\label{proposition_5.5.9}
   The direct product of commutative rings is a commutative ring. Moreover, if
   each ring has identity, so does their direct product.
-\end{lemma}
+\end{proposition}
 
 \begin{theorem}\label{theorem_5.5.10}
   Let $R$ be a commutative ring with ideals $\af_1, \dots, \af_n$. Define the
@@ -377,7 +377,7 @@
   take $q=\prod{p^{w_k}}$. Then $(m\Z:n\Z)=q\Z$, so that $q=\frac{mn}{(m,n)}$.
 \end{example}
 
-\begin{lemma}\label{lemma_5.5.12}
+\begin{proposition}\label{proposition_5.5.12}
   The following are true for any ideals $\af$,  $\bf$ and  $\cf$.
   \begin{enumerate}
     \item[(1)] $\af \subseteq (\af:\bf)$.
@@ -392,7 +392,7 @@
     \item[(5)] $(\af:\sum{\bf_\a})=\bigcap{(\af:\bf_\a)}$ for any collection
       $\{\bf_\a\}$ of ideals.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 
 \begin{definition}
   If $\af$ is an ideal, we define its \textbf{radical} to be
@@ -401,15 +401,15 @@
   \end{equation*}
 \end{definition}
 
-\begin{lemma}\label{lemma_5.5.13}
+\begin{proposition}\label{proposition_5.5.13}
   If $\af$ is an ideal, then so is $\sqrt{\af}$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Take the natural map $\pi:R \xrightarrow{} \faktor{R}{\af}$. Then
   $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{R}{\af}})$.
 \end{proof}
 
-\begin{lemma}\label{lemma_5.5.14}
+\begin{proposition}\label{proposition_5.5.14}
   The following are true for any ideals $\af$ and  $\bf$.
   \begin{enumerate}
     \item[(1)] $\af \subseteq \sqrt{\af}$.
@@ -425,21 +425,21 @@
     \item[(6)] If $\pf$ is a prime ideal, then $\sqrt{\pf^n}=\pf$ for any $n \in
       \Z^+$.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 
-\begin{lemma}\label{lemma_5.5.15}
+\begin{proposition}\label{proposition_5.5.15}
   If $\af$ is an ideal, then $\sqrt{\af}$ is the intersection of all prime
   ideals containing $\af$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{R}{\af}})=\inv{\pi}(\bigcap{\pf_\a})=
   \bigcap{\inv{\pi}\pf_\a}$, and  $\inv{\pi}(\pf_\a)$ is a prime ideal
   containing $\af$.
 \end{proof}
 
-\begin{lemma}\label{lemma_5.5.16}
+\begin{proposition}\label{proposition_5.5.16}
   Let $D$ be the set of all zero-divisors in a commutative ring. Then:
   \begin{equation}
     D=\bigcup_{\af \neq (0)}{(0:\af)}
   \end{equation}
-\end{lemma}
+\end{proposition}

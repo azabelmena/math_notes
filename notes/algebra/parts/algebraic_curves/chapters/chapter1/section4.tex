@@ -1,9 +1,9 @@
 \section{Algebraic Subsets of The Plane}\label{section_1.6}
 
-\begin{lemma}\label{1.6.1}
+\begin{proposition}\label{1.6.1}
     let $k$ be a field, and let $f,g \in k[x,y]$ polynomials with no common
     factor. then the set $v(f,g)=v(f) \cap v(g)$ is a finite set of points.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     notice that if $f$ and $g$ are coprime in $k[x,y] \simeq k[x][y]$, then they
     are coprime in $k(x)[y]$, where $k(x)$ is the field of fractions of $k[x]$.
@@ -23,10 +23,10 @@
 \end{corollary}
 \begin{proof}
     suppose that $g \in i(v(f))$, then $v(f,g)$ is infinite, and by the above
-    lemma, we get that $g|f$. then $g \in (f)$, so that $i(v(f))=(f)$. moreover,
+    proposition, we get that $g|f$. then $g \in (f)$, so that $i(v(f))=(f)$. moreover,
     since $f$ is irreducible in the $k[x,y]$, if $ab \in (f)$, then either $a
     \in (f)$ or $b \in (f)$, which makes $i(v(f))=(f)$ a prime ideal. this makes
-    $v(f)$ irreducible by lemma \ref{1.5.1}.
+    $v(f)$ irreducible by proposition \ref{1.5.1}.
 \end{proof}
 \begin{corollary}
     suppose that $k$ an infinite field, then the irreducible algebraic sets of

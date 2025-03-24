@@ -34,9 +34,9 @@
   \textbf{disjoint} if they share no entries.
 \end{definition}
 
-\begin{lemma}\label{lemma_1.3.2}
+\begin{proposition}\label{proposition_1.3.2}
   The cycle decomposition of a given permutation $s \in S_n$ is finite.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $s=(a_0 \ \dots  \ a_{n-1})$ be the cycle decomposition of $s$. Then by
   definition, we get  $s:a_{n-1} \rightarrow a_{(n-1)+1}=a_n=a_0$.
@@ -56,14 +56,14 @@ Now, since cycles of permutations of $S_n$ are finite, we can define the
   \textbf{$k$-cycle}.
 \end{definition}
 
-\begin{lemma}\label{lemma_1.3.3}
+\begin{proposition}\label{proposition_1.3.3}
   For any permutation $s \in S_n$, the elements of  $\faktor{\Z}{n\Z}$ can be
   grouped into $k$ cycles of the form:
   \begin{equation}
     (a_0 \ a_2 \ \dots \ a_{m_1})(a_{m_1+1} \ \dots \ a_{m_2}) \dots
     (a_{m_{k-1}} \ \dots \ a_m_k)
   \end{equation}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Since $s$ is  $1-1$ and onto,  $s$ will permute through the entirety of
   $\faktor{\Z}{n\Z}$; so every integer $\mod{n}$ will be represented in the
@@ -128,7 +128,7 @@ permutation.
 The cycle decomposition algorthm provides a way of finding the cycle
 decomposition $s$; what about $\inv{s}$, when we are given $s$?
 
-\begin{lemma}\label{lemma_1.3.4}
+\begin{proposition}\label{proposition_1.3.4}
   Let $s \in S_n$ be a permutation with the cycle decomposition
   \begin{equation*}
     s=(a_0 \ a_2 \ \dots \ a_{m_1})(a_{m_1+1} \ \dots \\ a_{m_2}) \dots
@@ -139,7 +139,7 @@ decomposition $s$; what about $\inv{s}$, when we are given $s$?
     \inv{s}=(a_{m_1}  \dots \ a_2 \ \ a_0)(a_{m_2} \ \dots \ a_{m_1+1}) \dots
     (a_m_k \ \dots \ a_{m_{k-1}})
   \end{equation*}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   If $s:a_{m_i} \rightarrow a_{m_i+1}$, then $\inv{s}:a_{m_i+1} \rightarrow
   a_{m_i}$. Then by the cycle decomposition algorithm we can derive equation
@@ -165,7 +165,7 @@ We finally come wish to introduce the ``product'' of cycles.
 
 We can now rephrase theorem \ref{theorem_1.3.1} as:
 
-\begin{theorem}\label{lemma_1.3.5}
+\begin{theorem}\label{proposition_1.3.5}
   Define $S_n$ to be the set of all cycle decompositions of permutations of
   the elements of  $\faktor{\Z}{n\Z}$. Then $S_n$ is a group under cycle
   products.
@@ -177,9 +177,9 @@ We can now rephrase theorem \ref{theorem_1.3.1} as:
   Disjoint cycles commute.
 \end{corollary}
 
-\begin{lemma}\label{lemma_1.3.6}
+\begin{proposition}\label{proposition_1.3.6}
   Let $s \in S_n$ be a $k$-cycle. Then $|s|=k$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   We have that $s=(a_1 \ a_2 \ \dots \ a_k)$, thus $s$ maps  $a_i
   \rightarrow a_{i+1}$, for $i \in \faktor{\Z}{k\Z}$; also notice that

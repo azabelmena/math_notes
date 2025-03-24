@@ -2,11 +2,11 @@
 
 We reiterate some previous results about finite fields.
 
-\begin{lemma}\label{2.3.1}
+\begin{proposition}\label{2.3.1}
     Let $E$ be a finite field over  $\F_p$. Then $E$ is an extension of finite
     degree $[E:\F_p]=n$. Moreover, if $|E|=p^n$, and $E$ is the splitting field
     of the polynomial $x^{p^n}-x$ over $\F_p$.
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
     Suppose that $E$ is a finite field, but that the extension
@@ -78,9 +78,9 @@ We reiterate some previous results about finite fields.
     irreducible over  $\F_p$.
 \end{example}
 
-\begin{lemma}\label{2.3.2}
+\begin{proposition}\label{2.3.2}
     The finite field $\F_{p^n}$ is simple.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     We have that $\Uc(\F_p)$ is a multiplicative group of finite order;
     moreover, it is the finite subgroup of the multiplicative group of a field.
@@ -89,10 +89,10 @@ We reiterate some previous results about finite fields.
     polynomial of degree $n$ over  $\F_p$.
 \end{proof}
 
-\begin{lemma}\label{2.3.3}
+\begin{proposition}\label{2.3.3}
     $x^{p^n}-x$ is precisely the product of all irreducible polynomials of
     degree $\deg=d$, $d|n$ over  $\F_p$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Consider $\F_{p^r}$ as the quotient ring $\faktor{\F_p[x]}{(m)}$, where
     $m(x)$ os the minimal polynomial of a root $\a$ of  $x^{p^n}-x$. Then it
@@ -126,7 +126,7 @@ We reiterate some previous results about finite fields.
 \end{theorem}
 \begin{proof}
     Let $\psi(n)$ the number of irreducible polynomials of degree $\deg=n$ over
-    $\F_p$. By the above lemma, we get that  $p^n=\sum_{d|n}{d\psi(d)}$. Using
+    $\F_p$. By the above proposition, we get that  $p^n=\sum_{d|n}{d\psi(d)}$. Using
     the M\"obius inversion formula for $n\psi(n)$, we get that
     $n\psi(n)=\sum_{d|n}{\mu(d)p^{\frac{n}{d}}}$.
 \end{proof}

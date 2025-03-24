@@ -11,17 +11,17 @@
     field extension.
 \end{definition}
 
-\begin{lemma}\label{2.1.1}
+\begin{proposition}\label{2.1.1}
     Let $K$ be a field. Then  $\Aut{K}$ is a group. Moreover, if $K$ is an
     extension of a field $F$, then $\Aut{\faktor{K}{F}} \leq \Aut{K}$.
-\end{lemma}
+\end{proposition}
 
-\begin{lemma}\label{2.1.2}
+\begin{proposition}\label{2.1.2}
     Let $K$ be an extension of  $F$, and let  $\a \in K$ algebraic over  $F$.
     Then for every  $\s \in \Aut{\faktor{K}{F}}$, $\s\a$ is a root of the
     minimal polynomial of  $\a$ over  $F$; that is,  $\Aut{\faktor{K}{F}}$
     permutes the roots of irreducible polynomials.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Suppose that $a_0+a_1\a+\dots+a_{n-1}\a^{n-1}+\a^n=0$, where $a_i \in F$
     for all  $1 \leq i \leq n$, and  $a_n=1$. Notice that if $\s$ is an
@@ -60,10 +60,10 @@
     \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{2.1.3}
+\begin{proposition}\label{2.1.3}
     Let $H \leq \Aut{K}$ for some field $K$. Then the collection  $F$ of
     elements of  $K$ fixed by $H$ is a subfield of $K$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     LEt $h \in H$, and $a,b \in F$. Then $ha=a$,  $hb=b$, so that  $h(a \pm b)=a
     \pm b$, and $h(ab)=ab$, and $h(\inv{a})=\inv{(ha)}=\inv{a}$.
@@ -74,11 +74,11 @@
     of $H$ to be the subfield of $K$ fixed by  $H$, and we denote it  $\Fc(H)$.
 \end{definition}
 
-\begin{lemma}\label{2.1.4}
+\begin{proposition}\label{2.1.4}
     If $F_1 \subseteq F_2 \subseteq K$ are subfields of a field $K$, then
     $\Aut{\faktor{K}{F_2}} \subseteq \Aut{\faktor{K}{F_1}}$. Moreover,
     if $H_1 \leq H_2 \leq \Aut{K}$, then $\Fc(H_2) \subseteq \Fc(H_1)$.
-\end{lemma}
+\end{proposition}
 
 \begin{example}\label{example_2.2}
     \begin{enumerate}
@@ -96,13 +96,13 @@
     \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{2.1.5}
+\begin{proposition}\label{2.1.5}
     Let $E$ be the splitting field over a field $F$ of a polynomial $f(x)$ over
     $F$. Then
     \begin{equation*}
         \ord{\Aut{\faktor{E}{F}}} \leq [E:F]
     \end{equation*}
-\end{lemma}
+\end{proposition}
 \begin{proof}
     By induction on $[E:F]$. If $[E:F]=1$, then $E=F$, and we are done. Now, for
      $[E:F] \geq 1$, $f(x)$ has atleast one irreducible factor $p(x)$ of degree
@@ -154,10 +154,10 @@
     \textbf{Galois group} of $\faktor{K}{F}$, and write $\Gal{\faktor{K}{F}}$.
 \end{definition}
 
-\begin{lemma}\label{2.1.6}
+\begin{proposition}\label{2.1.6}
     An extension $K$ over a field $F$ is Galois over if and only if it is normal
     and seperable.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     If $K$ is Galois over $F$, the result follws by definition. Now, let $K$ be
     normal and seperable. Let $\a \in K$. Then the minimal polynomial $m$ of

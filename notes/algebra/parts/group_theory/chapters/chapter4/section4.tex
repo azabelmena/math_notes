@@ -7,19 +7,19 @@
   and call it the \textbf{automorphism group} of $G$.
 \end{definition}
 
-\begin{lemma}\label{lemma_4.4.1}
+\begin{proposition}\label{proposition_4.4.1}
   Let $G$ be a group, then  $\Aut{G}$ is a group.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $s,t \in \Aut{G}$. Notice then that $s,t \in A(G)$.
 \end{proof}
 
-\begin{lemma}\label{lemma_4.4.2}
+\begin{proposition}\label{proposition_4.4.2}
   Let $G$ be a group and let  $H \unlhd G$ be a normal subgroup of $G$. Then
   $G$ acts via conjugation on  $H$ as automorphisms. More preciesly, the map
   $H \xrightarrow{} H$ given by $h \xrightarrow{} gh\inv{g}$ is an
   automorphsim of $H$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   We have tha the map $H \xrightarrow{} H$ given by $h \xrightarrow{}
   gh\inv{g}$, for some $g \in G$ is onto since  $H \unlhd G$. Moreover, we
@@ -70,9 +70,9 @@
   by  $\Inn{G}$.
 \end{definition}
 
-\begin{lemma}\label{lemma_4.4.3}
+\begin{proposition}\label{proposition_4.4.3}
   For any group $G$,  $\Inn{G} \leq \Aut{G}$.
-\end{lemma}
+\end{proposition}
 \begin{corollary}
   $\Inn{G} \simeq \faktor{G}{Z(G)}$.
 \end{corollary}
@@ -114,7 +114,7 @@
   every $s \in \Aut{G}$. We write $H \Char{G}$
 \end{definition}
 
-\begin{lemma}\label{lemma_4.4.4}
+\begin{proposition}\label{proposition_4.4.4}
   The following are true for any group $G$ and  $H \leq G$.
   \begin{enumerate}
     \item[(1)] If $H \Char{G}$, then $H \unlhd{G}$.
@@ -125,7 +125,7 @@
     \item[(3)] If $K \leq H \unlhd G$ such that  $K \Char{H}$, then $K
       \unlhd G$.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   \begin{enumerate}
     \item[(1)] Let $H \Char{G}$. Then for every $s \in \Aut{G}$, $s(H)=H$.
@@ -142,7 +142,7 @@
   \end{enumerate}
 \end{proof}
 
-\begin{theorem}\label{lemma_4.4.5}
+\begin{theorem}\label{proposition_4.4.5}
   The automorphism group of a cyclic group of order $n$ is isomorphic to the
   unit group $\Uc{(\faktor{\Z}{n\Z})}$.
 \end{theorem}
@@ -152,7 +152,7 @@
   \faktor{\Z}{n\Z}$, since $|x|=n$. Now we have that since $\psi$ is an
   automorphism, it is uniquely determinde by $a$. Let $\psi_a$ be such an
   automorphism. We also get that  $\psi_a:x \xrightarrow{} x^a$ preserves
-  order so that $|x|=|x^a|=n$ and by lemma \ref{lemma_2.3.6}, $(a,n)=1$.
+  order so that $|x|=|x^a|=n$ and by proposition \ref{proposition_2.3.6}, $(a,n)=1$.
   Therefore we have a map $\Psi:\Aut{Z_n} \xrightarrow{} U(\faktor{\Z}{n\Z})$
   taking $\psi_a \xrightarrow{} a$. We have that this map is 1--1 by above,
   and moreover it is onto. Lastly, notice that
@@ -172,10 +172,10 @@
   $pq=1+kq$ for some  $k \in \Z^+$. Now,  $q|pq$ and  $q|kq$, but  $q \not{|}
   1$; so there must be an element of $G$ of order $q$. Let $x$ be such
   element and let  $H=\langle x \rangle$. Then $[G:H]=p$ which is the
-  smallest prime dividing $|G|$. By lemma \ref{lemma_4.2.2}, we get that $H
+  smallest prime dividing $|G|$. By proposition \ref{proposition_4.2.2}, we get that $H
   \unlhd G$. This makes  $C(H)=H$ so that $\faktor{G}{H} \simeq
   \faktor{N(H)}{H}$ is a group of order $p$, isomorphic to a subgroup of
-  $\Aut{H}$, by the corllary to lemma \ref{lemma_4.4.2}. Now, by theorem
+  $\Aut{H}$, by the corllary to proposition \ref{proposition_4.4.2}. Now, by theorem
   \ref{theorem_4.4.5}, we get that $|\Aut{H}|=\phi(q)=q-1$, where $phi$ is
   Euler's Totient function. This makes $p|q-1$ which cannot happen. Therefore
   $Z(G)$ is nontrivial and $G$ must be Abelian.
@@ -227,9 +227,9 @@
   Abelian.
 \end{example}
 
-\begin{lemma}\label{lemma_4.4.7}
+\begin{proposition}\label{proposition_4.4.7}
   For any group $G$,  $\Inn{G} \unlhd \Aut{G}$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   We have that $\Inn{G} \leq \Aut{G}$. Now, let $s \in \Aut{G}$, and consider
   the map $\phi_g:x \xrightarrow{} gx\inv{g}$ of conjugation by some $g \in G$.
@@ -242,10 +242,10 @@
   the \textbf{outer automorphism group} of $G$.
 \end{definition}
 
-\begin{lemma}\label{lemma_4.4.8}
+\begin{proposition}\label{proposition_4.4.8}
   Let $G$ be Abelian of order $pq$, where $p,q \in \Z^+$ are distinct primes.
   Then $G$ is cyclic.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   By Cauchy's theorem, we have that $p|pq$ and  $q|pq$, so there exist
   elements  $x,y \in G$ such that  $|x|=p$ and $|y|=q$. Then we have

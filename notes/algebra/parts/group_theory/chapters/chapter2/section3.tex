@@ -12,16 +12,16 @@
   i.e.  $H=\langle \{x\} \rangle$.
 \end{remark}
 
-\begin{lemma}\label{lemma_2.3.1}
+\begin{proposition}\label{proposition_2.3.1}
   If $G=\langle g \rangle$, then $G=\langle \inv{g} \rangle$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   For any $h \in G$, if  $h=g^n$, then $\inv{h}=x^{-n}=(\inv{x})^n$.
 \end{proof}
 
-\begin{lemma}\label{lemma_2.3.2}
+\begin{proposition}\label{proposition_2.3.2}
   If $G$ is a cyclic group, then  $G$ is Abelian.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $G=\langle g \rangle$ and for any $m,n \in \Z^+$. Then
   $g^mg^n=g^{m+n}=g^{n+m}=g^mg^n$.
@@ -42,9 +42,9 @@
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_2.3.3}
+\begin{proposition}\label{proposition_2.3.3}
   Let $G=\langle g \rangle$ be a finite cyclic group, Then $|G|=|g|$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $|g|=n$, by the division theorem, there exists $t,q,r \in \Z$ such
   that  $t=nq+r$, with $0 \leq r < n$ ; i.e. $ t \equiv r \mod{n}$, so
@@ -62,11 +62,11 @@
   since $g$ generates  $G$, this contradicts the finiteness of  $G$.
 \end{proof}
 
-\begin{lemma}\label{lemma_2.3.4}
+\begin{proposition}\label{proposition_2.3.4}
   Let $G$ be a group and let  $g \in G$ and let  $m,n \in \Z^+$ distinct, such
   that  $g^n=e$ and  $g^m=e$. Then  $g^{(m,n)}=e$. Moreover, $|g|$
   divides $m$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   There exist $p,q \in \Z$ such that $mp+nq=(m,n)$. Then by hypothesis,
   $g^{(m,n)}=(g^m)^p(g^n)^q=e$. Morevoer, assuming, without loss of
@@ -74,7 +74,7 @@
   either $|g|=m$, or $m=d|g|$ for some $d \in \Z^+$.
 \end{proof}
 
-\begin{theorem}\label{lemma_2.3.5}
+\begin{theorem}\label{proposition_2.3.5}
   If $G$ and  $H$ are finite cyclic groups with  $|G|=|H|$, then $G
   \simeq H$.
 \end{theorem}
@@ -117,7 +117,7 @@
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_2.3.6}
+\begin{proposition}\label{proposition_2.3.6}
   If $G$ is a group, and  $g \in G$, and  $k \in \Z^*$, then the following are
   true:
   \begin{enumerate}
@@ -125,7 +125,7 @@
 
     \item[(2)] If $|g|=n$, then  $|g^k|=\frac{n}{(n,k)}$.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Suppose that $g$ is of infinite order, but that $|g^k|=m$ for some $m
   \in \Z^+$. Then  $(g^k)^m=g^{km}=e$. Now, either $km>0$, or  $-km>0$, thus,
@@ -146,7 +146,7 @@
   If $k|n$, then  $(n,k)=k$.
 \end{proof}
 
-\begin{lemma}\label{lemma_2.3.7}
+\begin{proposition}\label{proposition_2.3.7}
   Let $\langle g \rangle$ be a cyclic group, then:
   \begin{enumerate}
     \item[(1)] If $g$ is of infinite order, then  $\langle g
@@ -155,9 +155,9 @@
     \item[(2)] If $|g|=n$, then $\langle g \rangle=\langle g^k
       \rangle$ if, an only if $(n,k)=1$.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
-  First, if $k=\pm 1$, tjem  $g^k=g$ or  $g^k=\inv{g}$. By lemma \ref{2.3.1},
+  First, if $k=\pm 1$, tjem  $g^k=g$ or  $g^k=\inv{g}$. By proposition \ref{2.3.1},
   we get the result. Now suppose $\langle g \rangle=\langle g^k \rangle$ for
   $k>1$. Then $g=g^k$ for some  $k>1$. If  $k$ is odd, then  $k=2l+1$ and if
   $k$ is even, $k=2l$ for  $l \in \Z^+$. Then  $g=g^{2l+1}=g^{2l}g$, making

@@ -19,9 +19,9 @@ to infer properties of one group from the other.
   $\phi(ab)=\phi(a)\phi(b)$.
 \end{remark}
 
-\begin{lemma}\label{lemma_1.5.1}
+\begin{proposition}\label{proposition_1.5.1}
   Isomorphism of groups is an equivalence relation.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $G$ and  $H$ be groups. First, take $\phi:G \rightarrow G$ by $\phi:g
   \rightarrow g$, then $\phi$ is an isomorphism, so $G \simeq G$.
@@ -69,7 +69,7 @@ to infer properties of one group from the other.
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_1.5.2}
+\begin{proposition}\label{proposition_1.5.2}
   Let $G$ and  $H$ be groups, and let  $\phi:G \rightarrow H$ be a
   homomorphism. Then the following are true:
   \begin{enumerate}
@@ -78,7 +78,7 @@ to infer properties of one group from the other.
 
     \item[(2)] $\phi(\inv{a})=\inv{\phi(a)}$.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   We have that $\phi(e)=\phi(a\inv{a})=\phi(a)\phi(\inv{a})$. Thus by
   cancellation, we get $\inv{\phi(a)}=\phi(\inv{a})$. By consequence, we also
@@ -98,7 +98,7 @@ to infer properties of one group from the other.
   $\phi(a^{-n})=\phi((\inv{a})^n)=\phi(\inv{a})^n=\phi(a)^{-n}$.
 \end{proof}
 
-\begin{lemma}\label{lemma_1.5.3}
+\begin{proposition}\label{proposition_1.5.3}
   Let $G$ and  $H$ be groups and suppose  $G \simeq H$. Then the following are
   true:
   \begin{enumerate}
@@ -109,7 +109,7 @@ to infer properties of one group from the other.
     \item[(3)] For all $x \in G$, $|x|=|\phi(x)|$, where $\phi:G
       \xrightarrow{} H$ is the underlying isomorphism.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $G \simeq H$,  via the isomorphism  $\phi$. Then since $\phi$ is  $1-1$
   and onto, every element of  $G$ must get mapped to every element of  $H$.
@@ -150,15 +150,15 @@ to infer properties of one group from the other.
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_1.5.4}
+\begin{proposition}\label{proposition_1.5.4}
   Let $G$ and  $H$ be groups with representations; let  $G=\langle S : R_1,
   \dots R_n \rangle$ and $H=\langle T : R_1', \dots, R_n'\rangle$. Then if the
   relations $R_i$ is satisfied by the elements of $H$, for each  $1 \leq i
   \leq n$, then there exits a unique homomorphism  $\phi$ definied by
   $\phi:R_i \rightarrow R_i'$.
-\end{lemma}
+\end{proposition}
 \begin{remark}
-  We defer the proof of this lemma.
+  We defer the proof of this proposition.
 \end{remark}
 
 \begin{example}\label{example_1.14}
@@ -211,9 +211,9 @@ to infer properties of one group from the other.
 
 We finish with some results.
 
-\begin{lemma}\label{lemma_1.5.5}
+\begin{proposition}\label{proposition_1.5.5}
   Let $A$ and  $B$ be groups. Then  $A \times B \simeq B \times A$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Take the map $A \times B \rightarrow B \times A$ by taking $(a,b)
   \rightarrow (b,a)$. This map is $1-1$ and onto, for $(b,a)=(b',a')$ implies
@@ -222,13 +222,13 @@ We finish with some results.
   there is an isomorphism from  $A \times B$ onto  $B \times A$.
 \end{proof}
 
-\begin{lemma}\label{lemma_1.5.7}
+\begin{proposition}\label{proposition_1.5.7}
   Let $A$,  $B$,  $C$ be groups. Then  $(A \times B) \times C \simeq A \times
   (B \times C)$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Consider the map $(A \times B) \times C \rightarrow A \times (B \times C)$
   by taking $(a,(b,c)) \rightarrow ((a,b),c)$. This map is $1-1$ and onto by
-  the same reasoning used in the above lemma, moreover, this map is a
+  the same reasoning used in the above proposition, moreover, this map is a
   homomorphsm by closure. This completes the proof.
 \end{proof}

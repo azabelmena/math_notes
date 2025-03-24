@@ -22,19 +22,19 @@
   the multi-degree of $LT(f)$, and we denote it $\partial{f}$.
 \end{definition}
 
-\begin{lemma}\label{lemma_7.6.1}
+\begin{proposition}\label{proposition_7.6.1}
   Let $f_1, \dots, f_m$ be multivariate polynomials over a Noetherian
   ring. Then
   \begin{equation*}
     (LT(f_1), \dots, LT(f_m)) \subseteq LT(f_1, \dots, f_m)
   \end{equation*}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Observe that since $f_i \in \af$ for each $1 \leq i \leq m$, then
   $LT(f_i) \in LT(\af)$ for each $1 \leq i \leq m$.
 \end{proof}
 
-\begin{lemma}\label{lemma_7.6.2}
+\begin{proposition}\label{proposition_7.6.2}
   Let $k$ be field, and $f,g \in k[x_1, \dots, x_n]$. Then
   the following are true:
   \begin{enumerate}
@@ -43,7 +43,7 @@
     \item[(2)] $LT(f+g) \leq \max{\{LT(f), LT(g)\}}$ with equality
       holding if $LT(f) \neq LT(g)$.
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $AX^\a=LT(f)$ and $BX^\b=LT(g)$, and make the convention $f(x_1,
   \dots, x_n)=f(X)$. Then we have for some $h,h' \in R[x_1, \dots,
@@ -79,12 +79,12 @@
   \end{enumerate}
 \end{corollary}
 
-\begin{lemma}\label{lemma_7.6.3}
+\begin{proposition}\label{proposition_7.6.3}
   Let $R$ be a Noetherian ring. Let $\af=(X^{\a_1}, \dots, X^{\a_m})$ in $R[x_1,
   \dots x_n]$ and ideal and $f \in R[x_1, \dots, x_n]$. Then $f \in
   \af$ if, and only if each monomial term of $f$ is a multiple of some
   monomial  $X^\a_i$ generating $\af$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Suppose that $f \in \af$. Then
   \begin{equation*}

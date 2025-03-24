@@ -1,11 +1,11 @@
 \section{Factorization in the Gaussian Integers}
 \label{section_6.4}
 
-\begin{lemma}\label{lemma_6.4.1}
+\begin{proposition}\label{proposition_6.4.1}
   Let $D \in \Z$ a square free integer. If for some $z \in \Z[\sqrt{D}]$,
   $N(z)$ is $\pm{p}$ with $p \in \Z^+$ a prime, then
   $z$ is irreducible in $\Z[\sqrt{D}]$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $z \in \Z[\sqrt{D}]$ an element with prime norm $N(z)=p$, where
   $N=\|\cdot\|^2$. If $z=vw$, for some  $v,w \in \Z[\sqrt{D}]$, then
@@ -13,10 +13,10 @@
   case, $v$ or  $w$ is a unit in  $\Z[\sqrt{D}]$, which makes $z$ irreducible.
 \end{proof}
 
-\begin{lemma}\label{lemma_6.4.2}
+\begin{proposition}\label{proposition_6.4.2}
   A prime $\p \in \Z^+$ divides an integer of the form  $n^2+1$, for some  $n
   \in \Z$, if, and only if  $p=2$, or  $p \equiv 1 \mod{4}$, for $p$ odd.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Certainly, $2=1^2+1$. Now suppose that  $p$ is an odd prim.e. If  $p|n^2+1$,
   then  $n^2 \equiv -1 \mod{p}$. That is $n$ is of order $4$ in the unit group
@@ -33,7 +33,7 @@
   $\Uc{(\faktor{\Z}{p\Z})}$ contains an element of order $4$, and we are done.
 \end{proof}
 
-\begin{theorem}\label{lemma_6.4.3}
+\begin{theorem}\label{proposition_6.4.3}
   $\Z[i]$ is a unique factorization domain.
 \end{theorem}
 \begin{proof}
@@ -62,7 +62,7 @@
   done.
 \end{proof}
 
-\begin{theorem}\label{lemma_6.4.4}
+\begin{theorem}\label{proposition_6.4.4}
   The following statements are true.
   \begin{enumerate}
     \item[(1)] A prime $p \in \Z^+$ is the sum of two integer squares if,
@@ -85,7 +85,7 @@
   3 \mod{4}$, it is not the sum of two squares, and hence it is irreducible in
   $\Z[i]$.
 
-  Now, if $p \equiv 1 \mod{4}$, by lemma \ref{6.4.2}, we have $p|n^2+1$ for
+  Now, if $p \equiv 1 \mod{4}$, by proposition \ref{6.4.2}, we have $p|n^2+1$ for
   some integer  $n \in \Z$. Then  $p|(n+i)(n-i)$. Suppose then, that $p$ was
   irreducible. Then either $p|(n+i)$ or $p|(n-i)$; however since $p$ is a real
   number, we have $p$ dividing both. Thus $p|((n+i)-(n-i))=2i$, which cannot

@@ -21,12 +21,12 @@
   of all polynomial functions by $\Pc(V,k)$.
 \end{definition}
 
-\begin{lemma}\label{lemma_2.1.1}
+\begin{proposition}\label{proposition_2.1.1}
   Let $V$ be an affine variety. Then $\Pc(V,k)$ is a ring, in particular, it is
   a subring of $\Fc(V,k)$. Moreover, two polynomials $F,G \in k[x_1, \dots,
   x_n]$ determine the same polynomial function if, and only if $F \equiv G
   \mod{I(V)}$ in $\Oc(V)$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $f$ and  $g$ polynomial functions, the there exist polynomials $F,G$ over
   $k$ such that for any  $P \in V$, $f(P)=F(P)$ and $g(P)=G(P)$. This makes
@@ -56,16 +56,16 @@
   also a variety.
 \end{definition}
 
-\begin{lemma}\label{lemma_2.1.2}
+\begin{proposition}\label{proposition_2.1.2}
   A subset $W$ of a variety  $V$ is a subvariety if, and only if  $W$
   corresponds to a prime ideal in  $\Oc(V)$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   By Hilbert's Nullstellensatz prime ideals in $\Oc(V)$ corresponde to
   irreducible algebraic subsets of $V$.
 \end{proof}
 
-\begin{lemma}\label{lemma_2.1.3}
+\begin{proposition}\label{proposition_2.1.3}
   Let $V$ be a variety in  $\A^n(k)$, and $W$ a subvariety of $V$. Denote by
   $I_V(W)$ the ideal of $\Oc(V)$ corresponding to $W$; that is  $I_V(W)=I(W)
   \mod{I(V)}$. Then the following are true:
@@ -75,7 +75,7 @@
 
     \item[(2)] $\Oc(W) \simeq \faktor{\Oc(V)}{I_V(W)}$
   \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $f$ be a polynomial function on  $V$, and  $F \in k[x_1, \dots, x_n]$ the
   polynomial determining $F$. Now, let $G \in k[x_1, \dots, x_n]$ such that
@@ -116,12 +116,12 @@
   We call each $\phi_i$ a \textbf{component polynomial} of $\phi$.
 \end{definition}
 
-\begin{lemma}\label{lemma_2.1.4}
+\begin{proposition}\label{proposition_2.1.4}
   Let $\phi:V \xrightarrow{} W$ be any polynomial map. Then there exists a
   homomorphism $\Phi:\Fc(W,k) \xrightarrow{} \Fc(V,k)$ defined by $f
   \xrightarrow{} f \circ \phi$. Moreover, if $\phi$ is a polynomial map, then
   $\Phi$ restricts to a homomorphism from  $\Oc(W) \xrightarrow{} \Oc(V)$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Define $\Phi:\Fc(W,k) \xrightarrow{} \Fc(W,k)$ by $f \xrightarrow{} f \circ
   \phi$. Let $f,g \in \Fc(V,k)$, then $(f+g) \circ \phi=(f \circ \phi)+(g \circ
@@ -134,15 +134,15 @@
   \circ \phi$ where $f:W \xrightarrow{} k$. Now, since $\phi$ is a polynomial
   map, we get $f \circ \phi(P)=f(\phi_1(P), \dots, \phi_m(P))=f \circ (\phi_1, \dots,
   \phi_m)(P) \in k[x_1, \dots, x_n]$. Then $g-(f \circ (\phi_1, \dots, \phi_m))(P)=0$ for
-  all $P \in V$. By lemma \ref{lemma_2.1.1}, this makes $g \equiv f \cirt (\phi_1,
+  all $P \in V$. By proposition \ref{proposition_2.1.1}, this makes $g \equiv f \cirt (\phi_1,
   \dots, \phi_m) \mod{I(V)}$, so $g \in \Oc(V)$. Thus $\Phi(\Oc(W)) \subseteq
   \Oc(V)$, and $\Phi$ can be restricted.
 \end{proof}
 
-\begin{lemma}\label{lemma_2.1.5}
+\begin{proposition}\label{proposition_2.1.5}
   Any polynomial map $\phi:\A^n(k) \xrightarrow{} \A^m(k)$ uniquely determines its
   coordinate polynomials.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $P \in V$, and suppose there are polynomials $\phi_1, \dots, \phi_m$ and $\psi_1,
   \dots, \psi_m$ such that $\phi(P)=(\phi_1(P), \dots, \phi_m(P))$ and
@@ -153,7 +153,7 @@
         &=  (\phi_1-\psi_1(P), \dots, \phi_m-\psi_m(P))  \\
         &=  0
   \end{align*}
-  so for each $1 \leq i \leq m$, $\phi_i-\psi_i(P)=0$, by lemma \ref{lemma_1.1.4},
+  so for each $1 \leq i \leq m$, $\phi_i-\psi_i(P)=0$, by proposition \ref{proposition_1.1.4},
   $\phi_i-\psi_i=0$ and we are done.
 \end{proof}
 
@@ -169,7 +169,7 @@
   k[x_1, \dots, x_n]$, $1 \leq i \leq m$ such that $\a(x_i \mod{I(W)}) \equiv
   \phi_i \mod{I(V)}$. Define $T=(\phi_1, \dots, \phi_m)$. Then $T:\A^n(k) \xrightarrow{}
   \A^m(k)$ is a polynomial map by definition. Define $\tilde{T}:\Fc(\A^m,k)
-  \xrightarrow{} \Fc(\A^n,k)$ as in \ref{lemma_2.1.2}, by that same lemma,
+  \xrightarrow{} \Fc(\A^n,k)$ as in \ref{proposition_2.1.2}, by that same proposition,
   $\tilde{T}$ restricts to $\Oc(W) \xrightarrow{} \Oc(V)$. Now, take $g \in
   \tilde{T}(\Oc(W))$. Then $g=f \circ T$, where $f \equiv 0 \mod{I(W)}$. Then $f
   \circ \tilde{T} \equiv 0 \mod{I(V)}$, and so we have $g \equiv  f \circ \tilde{T}
@@ -193,10 +193,10 @@
   $W$  \textbf{isomorphic} if such a $\phi$ exists, and we write  $V \simeq W$.
 \end{definition}
 
-\begin{lemma}\label{lemma_2.1.5}
+\begin{proposition}\label{proposition_2.1.5}
   Two affine varieties are isomorphic if, and only if their coordinate rings are
   isomorphic.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Suppose $V$ and $W$ are isomorphic, and let $\phi:V \xrightarrow{} W$ the
   underlying isomorphism. Define then $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$ the
@@ -208,12 +208,12 @@
   \Oc(W)$. The converse holds by similar reasoning.
 \end{proof}
 
-\begin{lemma}\label{lemma_2.1.8}
+\begin{proposition}\label{proposition_2.1.8}
   Let $V$, $W$, and $Z$ be affine varieties, and  $\phi:V \xrightarrow{} W$
   and $\psi:W \xrightarrow{} Z$ be polynomial maps with induced homomorphisms
   $\Phi$ and  $\Psi$ respectively. Then  $\psi \circ \phi:V \xrightarrow{} Z$ is
   a polynomial map with induced homomorphism $\Phi \circ \Psi$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $\phi=(\phi_1, \dots, \phi_m)$ and $\psi=(\psi_1, \dots, \psi_l)$ Then
   $\psi \circ \phi(P)=\psi(\phi_1(P), \dots, \phi_m(P))=(\psi_1(Q), \dots,
@@ -224,12 +224,12 @@
   \Oc(V)$, so that $\psi \circ \phi$ induces  $\Phi \circ \Psi$.
 \end{proof}
 
-\begin{lemma}[The Irreducibility Criterion for Algebraic sets]\label{lemma_2.1.9}
+\begin{proposition}[The Irreducibility Criterion for Algebraic sets]\label{proposition_2.1.9}
   Let $V$ and  $W$ be affine varieties, and  $\phi:V \xrightarrow{} W$ a
   polynomial map of $V$ onto $W$. Then if $X$ is an algebraic subset of  $W$,
   $\inv{\phi}(X)$ is algebraic in $V$. Moreover, if  $\inv{\phi}(X)$ is
   irreducible in $V$, then  $X$ is irreducible in  $W$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$ be the induced homomorphism
   corresponding to $\phi$. Since  $X$ is algebraic in  $W$, it corresponds to a
@@ -301,15 +301,15 @@
   \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_2.1.10}
+\begin{proposition}\label{proposition_2.1.10}
   Let $V$ and  $W$ be affine varieties, and  $\phi:V \xrightarrow{} W$ a
   polynomial map. If $V' \subseteq V$ and $W' \subseteq W$ are subvarieis for
   which $\phi(V') \subseteq W'$, then $\phi$ restricts to a polynomial map from
    $V' \xrightarrow{} W'$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $\Phi:\Oc(W) \xrightarrow{} \Oc(V)$ be the induced homomorphism
-  corresponding to $\phi$. Then we have by lemma \ref{lemma_2.1.3} that
+  corresponding to $\phi$. Then we have by proposition \ref{proposition_2.1.3} that
   $\Oc(W') \simeq \faktor{\Oc(W)}{I_W(W')}$ and $\Oc(V') \simeq
   \faktor{\Oc(V)}{I_V(V')}$. Since $\phi(V') \subseteq W'$, we get
   $\Phi(I_W(W')) \subseteq I_V(V')$. Then $\Phi$ restricts to a homomorphism

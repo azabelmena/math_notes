@@ -7,11 +7,11 @@ We now go over transpositions and the generation of $S_n$.
   A $2$-cycle in  $S_n$ is called a \textbf{transposition}.
 \end{definition}
 
-\begin{lemma}\label{lemma_3.6.1}
+\begin{proposition}\label{proposition_3.6.1}
   Every element of $S_n$ can be written as a product of transpositions in
   $S_n$. That is,  $S_n=\langle T \rangle $, where $T=\{(i \ j) : 1 \leq i \leq j \leq
   n\}$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Observe that $(a_1 \ a_2 \ \dots \ a_m)=(a_1 \ a_m)(a_1 \ a_{m-1}) \dots
   (a_1 \ a_2)$ for any $m$-cycle.
@@ -55,10 +55,10 @@ $s(\Delta)=\pm\Delta$.
   $\epsilon(s)=-1$.
 \end{definition}
 
-\begin{lemma}\label{lemma_3.6.2}
+\begin{proposition}\label{proposition_3.6.2}
   The sign map of a permutation $\epsilon:S_n \rightarrow \rangle -1,1
   \rangle$ is a homomorphism.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   By definition, for $s,t \in S_n$, we have
   $ts(\Delta)=\prod{(x_{ts(i)}-x_{ts(j)})}$. Now suppose that $s(\Delta)$ has
@@ -116,9 +116,9 @@ We can now define the following group:
   of  $\epsilon$. That is, it is the group of all even permutations of $S_n$.
 \end{definition}
 
-\begin{lemma}\label{lemma_3.6.4}
+\begin{proposition}\label{proposition_3.6.4}
   $|A_n|=\frac{1}{2}n!$ .
-\end{lemma}
+\end{proposition}
 \begin{proof}
   By the first isomorphism theorem, we have that
   $\faktor{S_n}{A_n}=\epsilon(S_n)=\langle -1 ,1 \rangle$. So
@@ -150,10 +150,10 @@ We can now define the following group:
   $\epsilon(s)=\epsilon(t_1) \dots \epsilon(t_k)$.
 \end{proof}
 
-\begin{lemma}\label{lemma_3.6.5}
+\begin{proposition}\label{proposition_3.6.5}
   A permutation $s$ is odd if, and only if the number of cycles of even length
   in the decomposition of $s$ is odd.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   For any $s \in S_n$, let  $a_1, \dots, a_k$ be its cycle decomposition. Then
   $\epsilon(s)=\epsilon(a_1) \dots \epsilon(a_k)$, where $\epsilon(a_i)=-1$

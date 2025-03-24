@@ -1,13 +1,13 @@
 \section{Unique Factorization of Polynomials}
 \label{section_7.2}
 
-\begin{lemma}[Gauss]\label{lemma_7.2.1}
+\begin{proposition}[Gauss]\label{proposition_7.2.1}
   Let $R$ be a unique factorization ring, with field of fractions $k$. and let
   $p(x)$ a polynomial in $R[x]$. If $p$ is reducible in $k[x]$, then $p$ is
   reducible in  $R[x]$. That is, if $p(x)=A(x)B(x)$, where $A,B \in k[x]$,
   then there exist $r,s \in k$, nonzero, for which  $rA(x)=a(x) \in R[x]$,
   $sB(x)=b(x) \in R[x]$, and $p(x)=a(x)b(x)$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Since $A,B \in k[x]$, they are quotients of elements of $R$. Then
   multiplying by a nonzero common divisor  $d \in R$, take  $dp(x)=a'(x)b'(x)$,
@@ -40,7 +40,7 @@
   is also a factorization in $k[x]$.
 \end{proof}
 
-\begin{theorem}\label{lemma_7.2.2}
+\begin{theorem}\label{proposition_7.2.2}
   A ring $R$ is a unique factorization domain if, and only if  $R[x]$ is a
   unique factorization domain.
 \end{theorem}
@@ -56,7 +56,7 @@
 
   Let $c=1$ the gratest common divisor of the coefficients of  $p'$. Since
   $k[x]$ is a UFD, $p'$ can be uniquely factored in  $k[x]$. Hence, by
-  Gauss' lemma, there is a factorization of $p'$ in  $R[x]$, whose factors
+  Gauss' proposition, there is a factorization of $p'$ in  $R[x]$, whose factors
   are $k$-multiples of factoris in $k[x]$. Since $c=1$, each of these
   factors must have coprime coefficients, and hence by the preceding
   corollary, each of these factors is irreducible in $R[x]$. That is, $p'$ is

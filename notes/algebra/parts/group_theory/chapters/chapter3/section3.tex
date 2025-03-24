@@ -48,9 +48,9 @@
   $[G : H]=\frac{|H|}{|H|}$.
 \end{remark}
 
-\begin{lemma}\label{lemma_3.3.2}
+\begin{proposition}\label{proposition_3.3.2}
   If $G$ is a finite group, and  $g \in G$, then $|g| \big{|} |G|$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Consider the cyclic subgroup $\langle g \rangle \leq G$. By
   Lagrange's theorem, we have $|\langle g \rangle|=|g| \big{|} |G|$.
@@ -62,12 +62,12 @@
   $g^{|G|}=g^{k|g|}=(g^{|g|})^k=e^k=e$, for some $k \in \Z^+$.
 \end{proof}
 
-\begin{lemma}\label{lemma_3.3.3}
+\begin{proposition}\label{proposition_3.3.3}
   IF $G$ is a finite group of prime order $p$, then $G$ is cyclic.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $|G|=p$ a prime, and let $g \in G$ be such that $g \neq e$. Then
-  $|g|>1$; moreover, we have $|g| \big{|} p$, by lemma \ref{lemma_3.3.2}. Then
+  $|g|>1$; moreover, we have $|g| \big{|} p$, by proposition \ref{proposition_3.3.2}. Then
   either $|g|=1$ or $|g|=p$. By our choice of $g$, its order cannot be
   $1$, thus  $|g|=p=|G|$. Then $|\langle g \rangle|=|G|$, and since
   $\langle g \rangle \leq G$, we can conclude that $G=\langle g \rangle$.
@@ -88,14 +88,14 @@
       This makes $N(H)=H$ or $N(H)=S_3$. Notice, then that $(1 \ 2)(1 \ 2
       \ 3)(1 \ 2)=(1 \ 2 \ 3)$, and $(1 \ 2)=\inv{(1 \ 2)}$, so $(1 \ 2)$
       conjugates $(1 \ 2 \ 3)$, so $(1 \ 2) \in N(H)$. This makes $N(H)
-      \neq H$, so $N(H)=S_3$; by lemma \ref{lemma_3.2.4}, $H \unlhd S_3$.
+      \neq H$, so $N(H)=S_3$; by proposition \ref{proposition_3.2.4}, $H \unlhd S_3$.
 
     \item[(2)] Let $G$ be any group, and let  $H \leq G$, such that
       $[G:H]=2$. Thent he total number of left cosets in $G$ is  $H$ and
       $gH$. Now, suppose that  $Hg=H$, since $g \in Hg$, we get $g \in H$,
       this makes  $Hg=H$, but this also makes $gH=H$, implying  $[G:H]=1$,
-      which cannot happen. Thus it must be that $Hg=gH$. By lemma
-      \ref{lemma_3.2.4}, this makes $H \unlhd G$.
+      which cannot happen. Thus it must be that $Hg=gH$. By proposition
+      \ref{proposition_3.2.4}, this makes $H \unlhd G$.
 
     \item[(3)] The relation $\unlhd$ defined by $H \unldh G$ if  $H$ is a
       normal subgroup of  $G$, is not in general transitive. Take $D_8$.
@@ -152,7 +152,7 @@ For some nonexamples, we have:
   then $G$ has an element of order  $p^a$.
 \end{theorem}
 
-\begin{theorem}\label{lemma_3.3.6}
+\begin{theorem}\label{proposition_3.3.6}
   Let $H$ and  $K$ be subgroups of a group, and let  $HK=\{hk : h \in H, k \in
   K\}$. If $H$ and $K$ are finite, then
   \begin{equation}
@@ -173,10 +173,10 @@ For some nonexamples, we have:
   the result.
 \end{proof}
 
-\begin{lemma}\label{lemma_3.3.7}
+\begin{proposition}\label{proposition_3.3.7}
   If $H$ and $K$ are subgroups of a group, then $HK$ is a subgroup if, and
   only if  $HK=KH$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Suppose first, that $HK=KH$. Let $a,b \in HK$, then $a=hk$ and  $b=h'k'$ so
   $ab=(hk)(h'k')=h(kh')k'=h(h''k'')k=(hh'')(k''k) \in HK$. Aditionaly,

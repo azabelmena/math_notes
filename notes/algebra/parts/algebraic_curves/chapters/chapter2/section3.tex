@@ -1,10 +1,10 @@
 \section{Rational Functions and Local Rings of Affine Varieties}
 \label{section_2.3}
 
-\begin{lemma}\label{lemma_2.3.1}
+\begin{proposition}\label{proposition_2.3.1}
   Let $k$ be a field, and  $V \subseteq \A^n(k)$ an affine variety.
   Then the ring of fractions $k(V)$ of $\Oc(V)$ is a field.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Since $\Oc(V)$ is an integral domain, the ring of fractions $k(V)
   \simeq \Oc(V) \times (\com{\Oc(V)}{\{0\}})$ is infact the field of
@@ -68,13 +68,13 @@
   $f$ the \textbf{pole set} of $f$.
 \end{definition}
 
-\begin{lemma}\label{lemma_2.3.2}
+\begin{proposition}\label{proposition_2.3.2}
   Let $k$ be a field and  $V \subseteq \A^n(k)$ an affine variety, and
   let $P \in V$. Then we have the following chain
   \begin{equation*}
     k \subseteq \Oc(V) \subseteq \Oc_P(V) \subseteq k(V)
   \end{equation*}
-\end{lemma}
+\end{proposition}
 
 \begin{proposition}\label{proposition_2.3.3}
   Let $V$ be an affine variety and  $f$ a rational function on  $V$.
@@ -102,7 +102,7 @@
    $f$. Then we have $bf=a \in \Oc(V)$ and $b(P)=0$ so that $b \in
    V(J(f))$. This makes the $V(J(f))$ precisely the pole set of $f$.
 
-   For the second assertion, we have by lemma \ref{lemma_2.3.2}, that
+   For the second assertion, we have by proposition \ref{proposition_2.3.2}, that
    $\Oc(V) \in \bigcap_{P \in V}{\Oc_P(V)}$. Now, let $f \in
    \bigcap_{P \in V}{\Oc_P(V)}$. Then $f$ is defined at every point of
    $V$, so that  $V(J(f))$ is empty. That is, $J(f)=(1)$, so that
@@ -118,11 +118,11 @@
   \end{equation*}
 \end{definition}
 
-\begin{lemma}\label{lemma_2.3.4}
+\begin{proposition}\label{proposition_2.3.4}
   Let $V$ be an affine variety, and let $f=\frac{a}{b}$ a rational
   function on $V$. If $f$ is defined at a point $P$, then the value
   $f(P)$ is independent of choice of $a$ and $b \neq 0$.
-\end{lemma}
+\end{proposition}
 
 \begin{definition}
   LLet $V$ be an affine variety and $P \in V$. We define the
@@ -132,13 +132,13 @@
   \end{equation*}
 \end{definition}
 
-\begin{lemma}\label{lemma_2.3.5}
+\begin{proposition}\label{proposition_2.3.5}
   Let $k$ be a field, $V \subseteq \A^n(k)$ and affine variety, and
   let $P \in V$. Then $\mf_P(V)$ is an ideal of $\Oc_P(V)$ and
   \begin{equation*}
     \faktor{\Oc_P(V)}{\mf_P(V)} \simeq k
   \end{equation*}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $f,g \in \mf_P(V)$, then $f-g(P)=f(P)-g(P)=0$ so $f-g \in
   \mf_P(V)$. Taking $g \in \Oc_P(V)$, we get $gf(P)=g(P)f(P)=g(P)0=0$
@@ -159,10 +159,10 @@
   $k$ is a field.
 \end{proof}
 
-\begin{lemma}\label{lemma_2.3.6}
+\begin{proposition}\label{proposition_2.3.6}
   Let $V$ be an affine variety and $P \in V$, and $f \in \Oc_P(V)$.
   Then $\mf_P(V)$ is the set of non-units of $\Oc_P(V)$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   We have by definition that $f \in \mf_P(V)$ if, and only if
   $f(P)=0$. Suppose now that $f \in \Oc_P(V)$ is a unit. Then there is

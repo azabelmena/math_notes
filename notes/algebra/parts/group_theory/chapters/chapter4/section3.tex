@@ -30,13 +30,13 @@
   if $T=gS\inv{g}$ for some $g \in G$.
 \end{definition}
 
-\begin{lemma}\label{lemma_4.3.1}
+\begin{proposition}\label{proposition_4.3.1}
   The number of conjugates of a subset $S$ of a group  $G$ is the indexs of
   the normalizer of $S$ in $G$; i.e.  $[G:N(S)]$. In particular, the number of
   conjugates of an element $s \in G$ is  $[G:C(s)]$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
-  By the corollary to lemma \ref{lemma_4.1.4}, we have that $S$ has  $[G:\stab{S}]$
+  By the corollary to proposition \ref{proposition_4.1.4}, we have that $S$ has  $[G:\stab{S}]$
   conjugates. Notice then that $\stab{S}=\{g \in G : gS\inv{g}=S\}=N(S)$, by
   definition. Moreover, notice that $N(\{s\})=C(s)$ for any $s \in G$.
 \end{proof}
@@ -105,7 +105,7 @@
 
 Consider now, the conjugation of symmetric groups. We then have the following.
 
-\begin{lemma}\label{lemma_4.3.4}
+\begin{proposition}\label{proposition_4.3.4}
   let $s,t \in S_n$ be permutations where $s$ has cycle decomposition
   \begin{equation*}
     s=(a_1 \ a_2 \ \dots \ a_{k_1})(b_1 \ b_2 \ \dots \ b_{k_2})\dots
@@ -114,7 +114,7 @@ Consider now, the conjugation of symmetric groups. We then have the following.
   \begin{equation*}
     ts\inv{t}=(t(a_1) \ \dots \ t(a_{k_1}))(t(b_1) \ \dots \ t(b_{k_2}))\dots
   \end{equation*}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   If $s:i \xrightarrow{} j$, then $ts\inv{t}:t(i) \xrightarrow{} t(j)$. So if
   the pair $(i,j)$ appears in the cycle decomposition of $s$, the pair
@@ -132,12 +132,12 @@ Consider now, the conjugation of symmetric groups. We then have the following.
   sequence of positive integers whose sum is $n$.
 \end{definition}
 
-\begin{lemma}\label{lemma_4.3.5}
+\begin{proposition}\label{proposition_4.3.5}
   Two elements of $S_n$ are conjugates if and only if they have the same cycle
   type.
-\end{lemma}
+\end{proposition}
 \begin{proof}
-  By lemma \ref{lemma_4.3.4}, two conjugate permutations have the same cycle type.
+  By proposition \ref{proposition_4.3.4}, two conjugate permutations have the same cycle type.
   Now suppose that permutations $s_1,s_2 \in S_n$ have the same cycle tipe.
   Order $s_1$ and $s_2$ in cycles of non-decreasing lenght (including
   $1$-cycles). Then $s_1$ and $s_2$ is just a list of integers from $1$ to
@@ -165,9 +165,9 @@ Consider now, the conjugation of symmetric groups. We then have the following.
   and $ts_1\inv{t}=s_2$.
 \end{example}
 
-\begin{lemma}\label{lemma_4.3.6}
+\begin{proposition}\label{proposition_4.3.6}
   Normal subgroups of a group are unions of conjugacy classes of the group.
-\end{lemma}
+\end{proposition}
 
 \begin{theorem}\label{theorem_4.3.7}
   The alternating group $A_5$ of order $60$ is simple.
@@ -195,7 +195,7 @@ Consider now, the conjugation of symmetric groups. We then have the following.
   \begin{align*}
     1  &&  12  &&  12  &&  15  &&  20  \\
   \end{align*}
-  Suppose now, that $H \unlhd A_5$, then by lemma \ref{lemma_4.3.6}, $H$ is the
+  Suppose now, that $H \unlhd A_5$, then by proposition \ref{proposition_4.3.6}, $H$ is the
   union of conjugacy classes of  $A_5$. Then $|H||60$ and $|H|$ is
   the sum of elements of subsets of the multiset $\{1, 12, 12, 15, 20\}$.
   Therefore the only options are that $|H|=60$ or $|H|=1$; that is,

@@ -19,11 +19,11 @@ identity $1 \neq 0$.
   $\inv{f}(\bf)$, and denote it $\bc^c$.
 \end{definition}
 
-\begin{lemma}\label{lemma_5.6.2}
+\begin{proposition}\label{proposition_5.6.2}
     Let $f:R \xrightarrow{} S$ a ring homomorphism, and $\bf$ and ideal of
     $\bf$. Then $\bf$ is an ideal of $R$. Moreover, if $\bf$ is prime in $S$,
     then  $\bf^c$ is prime in $R$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Let $x \in \bf^c$. Then  $f(x) \in \bf$, so that $-f(x)=f(-x) \in
     \bf$, which puts $-x \in \bf^c$; similarly, we get $x+y \in \bf^c$ whenever
@@ -43,7 +43,7 @@ identity $1 \neq 0$.
     If $\af$ is prime in $R$,  $\af^e=Sf(\af)$ need not be prime in $S$.
 \end{example}
 
-\begin{lemma}\label{lemma_5.6.3}
+\begin{proposition}\label{proposition_5.6.3}
     Let $f:R \xrightarrow{} S$ be a ring homomorphism, with $f=\i \circ \pi$,
     where  $\pi$ is onto and  $\i$ is 1--1. Then there exists a 1--1
     correspondece between the ideals $f(R)$ and the ideals of $R$ containing
@@ -55,7 +55,7 @@ identity $1 \neq 0$.
         \arrow["\iota"', from=2-1, to=2-2]
         \arrow["{f=\iota \circ \pi}", from=1-1, to=2-2]
       \end{tikzcd}\]
-\end{lemma}
+\end{proposition}
 
 \begin{example}\label{example_1.22}
     Consider the map $\Z \xrightarrow{} \Z[i]$ where $i^2=-1$. R prime ideal
@@ -71,7 +71,7 @@ identity $1 \neq 0$.
         \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{lemma_5.6.4}
+\begin{proposition}\label{proposition_5.6.4}
     Let $f:R \xrightarrow{} S$ be a ring homomorphism. Then the following are
     true for ideals $\af$ and  $\bf$ of  $R$ and  $S$, respectively.
     \begin{enumerate}
@@ -88,7 +88,7 @@ identity $1 \neq 0$.
             Moreover, there exists a 1--1 correspondence of $C$ onto $E$  given
             by the map $\af \xrightarrow{} \af^e$.
     \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{proof}
     First, consider $\af$ in  $R$. Then  $\af^e=Sf(\af)$, so that if $x \in
     \af$, then  $f(x) \in f(\af)$, that is $x \in \af^{ec}$. Similarly, we
@@ -106,7 +106,7 @@ identity $1 \neq 0$.
     argument to prove the result for $E$.
 \end{proof}
 
-\begin{lemma}\label{lemma_5.6.5}
+\begin{proposition}\label{proposition_5.6.5}
     If $\af_1,\af_2$ are ideals of $R$ and  $\bf_1,\bf_2$ are ideals of $S$,
     then the following are true.
     \begin{enumerate}
@@ -125,7 +125,7 @@ identity $1 \neq 0$.
         \item[(5)] $(\sqrt{\af})^e \subseteq \sqrt{\af^e}$ and
             $(\sqrt{\bf})^c=\sqrt{\bf^c}$.
     \end{enumerate}
-\end{lemma}
+\end{proposition}
 \begin{corollary}
   Let $C$ be the set of all contracted ideals and $E$ the set of all extended
   ideals. Then $C$ is closed under the ideal operations of intersections,

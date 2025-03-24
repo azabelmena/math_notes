@@ -26,10 +26,10 @@ We can immediately define a special fiber for any homomorphisms.
   \end{equation}
 \end{definition}
 
-\begin{lemma}\label{lemma_3.1.1}
+\begin{proposition}\label{proposition_3.1.1}
   $\phi:G \rightarrow H$ is a $1-1$ homomorphism if and only if
   $\ker{\phi}=\langle e \rangle$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   We have that $\phi(e)=e'$, thus since $\phi$ is $1-1$, we have $\phi(a)=e'$
   implies $a=e$.
@@ -39,10 +39,10 @@ We can immediately define a special fiber for any homomorphisms.
   $a\inv{b}=e$. That is, $a=b$.
 \end{proof}
 
-\begin{lemma}\label{lemma_3.1.2}
+\begin{proposition}\label{proposition_3.1.2}
   Let $G$ and  $H$ be groups and let  $\phi:G \rightarrow H$ be a homomorphism
   of $G$ into  $H$. Then $\ker{\phi} \leq G$, and $\phi(G) \leq H$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   We have that $\phi(e)=e'$ and for any $a,b \in \ker{\phi}$, that
   $\phi(ab)=\phi(a)\phi(b)=e'$, and that $\phi(\inv{a})=\inv{\phi(a)}=e'$.
@@ -88,12 +88,12 @@ This motivates the following results.
   under elements of $K$.
 \end{definition}
 
-\begin{lemma}\label{lemma_3.1.4}
+\begin{proposition}\label{proposition_3.1.4}
   Let $\phi$ be a homomorphism defined on a group  $G$ with  $\ker{\phi}=K$.
   Then for any fiber $\inv{\phi(a)} \in \faktor{G}{K}$, $a \in K$. we have
   for any $u \in \inv{\phi}(a)$, that $\inv{\phi}(a)=\{uk : k \in K\}$ and
   $\inv{\phi}(a)=\{ku : k \in K\}$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $uK=\{uk : k \in K\}$. Then since $\phi(u)=a$, for any $k \in K$, we
   have  $\phi(uk)=\phi(u)\phi(k)=ae=a$, making $uk \in \inv {\phi}(a)$. On the
@@ -109,12 +109,12 @@ This motivates the following results.
   $gH=\{gh : h \in h\}$ and $Hg=\{hg : h \in h\}$, respectively.
 \end{definition}
 
-\begin{lemma}\label{lemma_3.1.5}
+\begin{proposition}\label{proposition_3.1.5}
   Let $G$ and  $H$ be groups and  $\phi:G \rightarrow H$ a homomorphism with
   kernel $K$. Then for any  $g \in G$,  $gK=Kg$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
-  By the previous lemma \ref{3.1.4}, if $a \in gK$ then  $a \in \inv{\phi}(g)$,
+  By the previous proposition \ref{3.1.4}, if $a \in gK$ then  $a \in \inv{\phi}(g)$,
   which makes $a=kg$ for some  $k \in K$, thus  $a \in Kg$. Similarly, if  $b
   \in Kg$, then  $b \in gK$.
 \end{proof}
@@ -148,7 +148,7 @@ the following result.
   $\faktor{G}{K}$.
 \end{corollary}
 \begin{proof}
-  This follows directly from lemma \ref{3.1.4}. Since $\faktor{G}{K}$ is the
+  This follows directly from proposition \ref{3.1.4}. Since $\faktor{G}{K}$ is the
   set of all fiber $\inv{\phi}(a)$ Then notice that $\inv{\phi}(a)=aK=Ka$.
 \end{proof}
 

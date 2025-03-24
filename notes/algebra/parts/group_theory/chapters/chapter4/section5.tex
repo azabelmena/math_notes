@@ -16,10 +16,10 @@
   $G$.
 \end{definition}
 
-\begin{lemma}\label{lemma_4.5.1}
+\begin{proposition}\label{proposition_4.5.1}
   Let $P \in \Syl{(p,G)}$ be a $p$-Sylow of a group  $G$. If  $Q$ is a
   $p$-group of  $G$, then  $Q \cap N(P)=Q \cap P$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
   Let $H=Q \cap N(P)$, since $P \leq N(P)$, we have $Q \cap P \leq H$. Now, by
   definition, $H \leq Q$. Since $H \leq N(P)$, $PH$ is a group, and  $PH \leq
@@ -33,7 +33,7 @@
   So $P=PH$ making $H \leq P$. Therefore $H=Q \cap P$.
 \end{proof}
 
-\begin{theorem}[Sylow's Theorems]\label{lemma_4.5.2}
+\begin{theorem}[Sylow's Theorems]\label{proposition_4.5.2}
   Let $G$ be a group of order  $p^rm$, where  $p$ is a prime and  $p \nmid m$
   for  $m,r \in \Z^+$. Then the following statements are true.
   \begin{enumerate}
@@ -85,9 +85,9 @@
   \begin{equation*}
     r=\sum_{i=1}^s{|\Oc(P_i)|}
   \end{equation*}
-  Then by the corollary to lemma \ref{4.1.4}, $|\Oc(P_i)|=[G:N_Q(P_i)]$ where
+  Then by the corollary to proposition \ref{4.1.4}, $|\Oc(P_i)|=[G:N_Q(P_i)]$ where
   $N_Q(P_i)$ is the normalizer of $P_i$ in $Q$. Then $N_Q(P_i)=Q \cap N(P_i)=Q
-  \cap P_i$ by lemma \ref{4.5.1}; and we get $|\Oc(P_i)|=[G:P_i \cap Q]$ for
+  \cap P_i$ by proposition \ref{4.5.1}; and we get $|\Oc(P_i)|=[G:P_i \cap Q]$ for
   all $1 \leq i \leq s$.
 
   Now take $Q=P_1=gP\inv{g}$ for some $g \in G$. Then  $|\Oc(P_1)|=1$, now
@@ -112,7 +112,7 @@
   f $P$ is $p$-Sylow in $G$, then  $[G:N(P)]=n_p(G)$ and $n_p(G)|m$.
 \end{corollary}
 \begin{proof}
-  By lemma \ref{4.3.1} $n_p=|\Syl{(p,G)}|=[G:N(P)]$ for all $P \in
+  By proposition \ref{4.3.1} $n_p=|\Syl{(p,G)}|=[G:N(P)]$ for all $P \in
   \Syl{(p,G)}$.
 \end{proof}
 \begin{corollary}
