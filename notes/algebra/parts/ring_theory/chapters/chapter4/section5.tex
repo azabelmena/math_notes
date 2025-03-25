@@ -194,3 +194,20 @@
 \begin{proof}
   This is immediate from proposition \ref{proposition_8.5.5}.
 \end{proof}
+
+\begin{proposition}\label{proposition_8.5.8}
+  Every algebraically closed field is infinite.
+\end{proposition}
+\begin{proof}
+  Let $K$ be an algebraically closed field. Suppose also that $K$ were finite,
+  and let  $k=\{a_1, \dots, a_n\}$. Let $f(x) \in K[x]$ be the following
+  polynomial
+  \begin{equation*}
+    f(x)=(x-a_1) \dots (x-a_n)+1
+  \end{equation*}
+  Then $f$ has no roots at in $k$. Since $K$ is algebraically closed,
+  there must be an element $a \in K$ for which $a$ is a root of $f$, i.e,
+  $f(a)=0$. This forces $a=a_i$  for some $1 \leq i \leq n$. Since
+  $f(a_i) \neq 0$, this forces $a \neq a_i$ for all $i$, so that
+  $K=\{a_1, \dots, a_n,a\}$, which contradicts the finiteness of $K$.
+\end{proof}

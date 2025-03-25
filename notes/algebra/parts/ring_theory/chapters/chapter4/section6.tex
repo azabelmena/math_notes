@@ -54,13 +54,22 @@
   Let $F$ be a field, and let $f(x),g(x) \in F[x]$. Then the following
   are true:
   \begin{enumerate}
-    \item[(1)] $D{(f+g(x))}=D{f(x)}+D{g(x)}$.
+    \item[(1)] $D{(af+bg(x))}=aD{f(x)}+bD{g(x)}$ for $a,b \in F$.
 
     \item[(2)] $D{(fg(x))}=g(x)D{f(x)}+f(x)D{g(x)}$.
+
+    \item[(3)] If $D{f(x)}=0$, then $f(x)$ is constant.
   \end{enumerate}
 \end{proposition}
 \begin{proof}
-  This follows directly from the definition of the derivative.
+  Both (1) and (2) follow directly from the definition of the
+  derivative. Now, suppose that $f(x)=a_nx^n+\dots+a_2x^2+a_1x+a_0$,
+  and suppose that $D{f(x)}=0$. Then
+  \begin{equation*}
+    na_nx^{n-1}+\dots+2a_2x+a_1=0
+  \end{equation*}
+  which implies that $a_1=a_2=\dots=a_n=0$, hence $f(x)=a_0$ which
+  makes $f(x)$ constant.
 \end{proof}
 
 \begin{proposition}\label{proposition_8.6.2}
@@ -295,7 +304,37 @@
 
     \item[(3)] $(x^{p^2}-t)(x^p-t)$ is inseperable over $\F_p(t)$,
       since it is the product of inseperable polynomials. However,
-      observe that there is no ppolynomial $f(x) \in \F_p(t)[x]$ for
+      observe that there is no polynomial $f(x) \in \F_p(t)[x]$ for
       which $(x^{p^2}-t)(x^p-t)=f(x^{p^k})$ for some $k \geq 0$.
   \end{enumerate}
 \end{example}
+
+We finish this section by noting some more properties of the
+derivative of polynomials.
+
+\begin{proposition}\label{proposition_8.6.8}
+  Let $F$ be a field. Then for $f(x), g(x) \in F[x]$ the following
+  hold:
+  \begin{enumerate}
+    \item[(1)] For any $m \in \Z^+$ $D{f(x)^n}=nf(x)^{n-1}D{f(x)}$
+
+    \item[(2)] $D{f(g(x))}=(D{f})(g(x))D{g(x)}$
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  Observe $f(x)^n=f(x)f(x)^{n-1}$, so
+  $D{f(x)^n}=f(x)D{f(x)^{n-1}}+f(x)^{n-1}D{f(x)}$. By repeated use of
+  the product rule, we get the result.
+
+  Now, let $f(x)=a_nx^n+\dots_a_2x^2+a_1x+a_0$. Then
+  \begin{equation*}
+    f(g(x))=a_ng(x)^n+\dots+a_2g(x)^2+a_1g(x)+a_0
+  \end{equation*}
+  Then
+  \begin{align*}
+    D{f(g(x))} &= \sum_{i=0}^{n}{a_iD{g(x)^i}} \\
+    &= \sum_{i=0}^n{ia_ig(x)^{i-1}D{g(x)}} \\
+    &= (na_ng(x)^{n-1}+\dots+a_2g(x)+a_1)D{g(x)} \\
+    &= (D{f})(g(x))D{g(x)} \\
+  \end{align*}
+\end{proof}

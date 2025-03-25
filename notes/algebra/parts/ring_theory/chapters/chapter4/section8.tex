@@ -1,0 +1,215 @@
+\section{Multivariate Polynomials over Fields}
+
+\begin{proposition}\label{proposition_8.8.1}
+  Let $F$ be a field, and let $f \in F[x_1, \dots, x_n]$. Then for some $a_1,
+  \dots, a_n \in F$,
+  \begin{equation*}
+    f(x_1,\dots,x_n)=\sum{\l_{(i)}(x_1-a_1)^{i_1} \dots (x_n-a_n)^{i_n}}
+  \end{equation*}
+\end{proposition}
+\begin{proof}
+  Consider the monomials $x_1^{i_1} \dots x_n^{i_n}$ of $f$, and recall that
+  $x_1^{i_1} \dots x_n^{i_n} \in F[x_1, \dots, x_{n-1}][x_n]$. Suppose that
+  $a_1$ is a root of $x_1^{i_1} \dots x_n^{i_n}$, and that it factors into,
+  say $f(x_1, \dots, x_n)=\l_1(x_1-a_1)^{i_1} x_2^{i_2} \dots x_n^{i_n}$.
+  Supposing then that $a_2, \dots, a_n$ are all roots, we can obtain the
+  factorization $\l_{(i)}(x_1-a_1)^{i_1} \dots (x_n-a_n)^{i_n}$ (this
+  factorization is independent of the ordering of $a_1, \dots, a_n$ since one
+  can always permute the roots of a polynomial). This gives us the required
+  result.
+\end{proof}
+\begin{corollary}
+  If $f(a_1, \dots, a_n)=0$ then $f(x_1, \dots, x_n)=\sum{(x_i-a_i)g_i(x_1,
+  \dots, x_n)}$ For some $g_i \in F[x_1, \dots, x_n]$ not necessarily unique.
+\end{corollary}
+\begin{proof}
+  Observe the monomials $(x_1-a_1)^{i_1} \dots
+  (x_n-a_n)^{i_n}=(x_j-a_j)((x_1-a_1)^{i_1} \dots (x_j-a_j)^{i_j-1} \dots
+  (x_n-a_n)^{i_n})=(x_j-a_i)g_j(x_1, \dots, x_n)$.
+\end{proof}
+
+\begin{theorem}\label{theorem_8.8.2}
+  Let $F$ be a field, and $\af$ a proper ideal in $k[x_1, \dots,
+  x_n]$. Then the canonical map $\pi:F[x_1, \dots, x_n] \xrightarrow{}
+  \faktor{F[x_1, \dots, x_n]}{\af}$ restricts to a homomorphism from
+  $F$ into $\faktor{F[x_1, \dots, x_n]}{\af}$.
+\end{theorem}
+\begin{proof}
+  For any $c \in F$, consider the map $\phi(c)=c+\sum{0x_1^{d_1} \dots
+  x_n^{d_n}}$ in $F[x_1, \dots, x_n]$. Then $\phi:F \xrightarrow{}
+  F[x_1, \dots, x_n]$ defines a field homomorphism. Now observe that
+  $\pi \circ \phi(c)=(c+\sum{0x_1^{d_1} \dots x_n^{d_n}}) \mod{\af}
+  \equiv c \mod{\af}$. Indeed, we observe that $\pi \circ \phi$ is a
+  homormophism, and that $\pi|_F=\pi \circ \phi$.
+\end{proof}
+\begin{corollary}
+  $\faktor{F[x_1, \dots, x_n]}{\af}$ contains $F$ as a subfield. In
+  particular, $\faktor{F[x_1, \dots, x_n]}{\af}$ is a vector space
+  over $F$.
+\end{corollary}
+\begin{proof}
+  Observe that $\pi \circ \phi$ is a field homomorphism, and hence
+  1--1 by proposition \ref{proposition_8.1.4}. The vector field
+  axioms follow.
+\end{proof}
+
+\begin{definition}
+  Let $F$ be a field, and let $f(x_1, \dots ,x_n) \in F[x_1, \dots, x_n]$
+  be written as:
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum_{m=0}^d{f_mx_i^{m}}
+  \end{equation*}
+  where $f_m(x_1, \dots, x_{i-1},x_{i+1}, \dots x_n) \in F[x_1, \dots,
+  x_{i-1},x_{i+1}, \dots, x_n]$. We define the \textbf{derivative} of
+  $f(x_1, \dots, x_n)$ with respect to $x_i$ to be the polynomial
+  $D_{x_i}{f(x_1, \dots, x_n)} \in F[x_1, \dots, x_n]$ of the form:
+  \begin{equation*}
+    D_{x_i}{f(x_1, \dots, x_n)}=\sum_{m=0}^{d-1}{mf_mx_i^{m-1}}
+  \end{equation*}
+\end{definition}
+
+\begin{proposition}\label{proposition_8.8.3}
+  Let $F$ be a field. Then the following hold for all $f(x_1, \dots,
+  x_n), g(x_1, \dots, x_n) \in F[x_1, \dots, x_n]$:
+  \begin{enumerate}
+    \item[(1)] $D_{x_i}{(af(x_1, \dots, x_n)+bg(x_1, \dots, x_n))}=
+      aD_{x_i}{f(x_1, \dots, x_n)}+bD_{x_i}{g(x_1, \dots, x_n)}$.
+
+    \item[(2)] $D_{x_i}{(f(x_1, \dots, x_n)g(x_1, \dots, x_n))}=
+      f(x_1, \dots, x_n)D_{x_i}{g(x_1, \dots, x_n)}+
+      g(x_1, \dots, x_n)D_{x_i}{g(x_1, \dots, x_n)}$.
+
+    \item If $D_{x_i}{f(x_1, \dots, x_n)}=0$ for all $1 \leq i \leq n$
+      then $f(x_1, \dots, x_n)$ is constant.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  Set $S=R[x_1, \dots, x_{i-1},x_{i+1}, \dots, x_n]$. Then $R[x_1,
+  \dots, x_n]=S[x_i]$ and $f(x_1, \dots, x_n) \in S[x_i]$ is a
+  polynomial in $x_i$ with coefficients being polynomials in $S$.
+  Hence $D_{x_i}{f(x_1, \dots, x_n)}=D{f(x_i)}$ in $S[x_i]$, so that
+  (1) and (2) follows from proposition \ref{proposition_8.6.1}. Now,
+  suppose for some $1 \leq i \leq n$ that $D_{x_i}{f(x_1, \dots,
+  x_n)}=0$, and write
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum_{m=0}^{d}{f_mx_i^m}
+  \end{equation*}
+  where $f_m(x_1, \dots, x_{i-1},x_{i+1}, \dots, x_n) \in S$. Then
+  $f_m(x_1, \dots, x_{i-1},x_{i+1}, \dots, x_n)=0$ for all $1 \leq m
+  \leq d$, where $d$ is the degree of  $f$ as a polynomial in
+  $S[x_i]$. This makes $f(x_1, \dots, x_n)$ constant in $x_i$. Hence
+  if $D_{x_i}{f(x_1, \dots, x_n)}=0$ for all $1 \leq i \leq n$ then
+  $f(x_1, \dots, x_n)$ is constant in all $x_i$; therefore $f(x_1,
+  \dots, x_n)$ must be a constant polynomial.
+\end{proof}
+\begin{corollary}
+  The following are also true:
+  \begin{enumerate}
+    \item[(1)] For any $k \in \Z^+$, $D_{x_i}{f(x_1, \dots,
+      x_n)^k}=kf(x_1, \dots, x_n)^{k-1}D_{x_i}{f(x_1, \dots, x_n)}$
+
+    \item[(2)] If $g_1(x), \dots, g_n(x) \in F[x]$, then
+      \begin{equation*}
+        D{f(g_1(x), \dots, g_n(x))}=
+        \sum_{i=1}^n{(D_{x_i}{f})(g_1(x), \dots, g_n(x))D{g_i(x)}}
+      \end{equation*}
+  \end{enumerate}
+\end{corollary}
+\begin{proof}
+  (1) follows immediately from the above proposition. Now, observe for
+  $g_1(x), \dots, g_n(x) \in F[x]$:
+  \begin{equation*}
+    f(g_1(x), \dots, g_n(x))=
+    \sum_{m=0}^d{f_m^gg_i(x)^m}
+  \end{equation*}
+  where $f_m^g=f_m(g_1(x), \dots, g_{i-1}(x),g_{i+1}(x), \dots.
+  g_n(x)) \in F[x]$.
+
+  Indeed, observe that $f(g_1(x), \dots, g_n(x)) \in F[x]$ so that $d=n$.
+  Take then $m=i$. Then we have
+  \begin{align*}
+    D{f(g_1(x), \dots, g_n(x))}=
+    \sum_{i=1}^n{if_i^gg_i(x)^{i-1}D{g_i(x)}}
+    =\sum_{i=1}^n{(D_{x_i}{f})(g_1(x), \dots, g_n(x))D{g_i(x)}}
+  \end{align*}
+  as required.
+\end{proof}
+\begin{corollary}
+  If
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum{a_dx^d}
+  \end{equation*}
+  where $d=(d_1, \dots, d_n)$ and $x^d=x_1^{d_1} \dots x_n^{d_n}$
+  then:
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum{d_ia_dx_1^{d_1} \dots x_i^{d_i-1} \dots x_n^{d_n}}
+  \end{equation*}
+\end{corollary}
+\begin{proof}
+  This follows directly from definition by expanding the coefficient
+  terms in $S=F[x_1, \dots, x_{i-1},x_{i+1}, \dots, x_n]$.
+\end{proof}
+
+\begin{proposition}\label{proposition_8.8.4}
+  Let $F$ be a field. Then for any $f(x_1, \dots, x_n) \in F[x_1,
+  \dots, x_n]$:
+  \begin{equation*}
+    D_{x_j}{(D_{x_i}{f(x_1, \dots, x_n)})}=
+    D_{x_i}{(D_{x_j}{f(x_1, \dots, x_n)})}
+  \end{equation*}
+\end{proposition}
+\begin{proof}
+  Let now $S=F[x_1, \dots, x_{i-1},x_{i+1}, \dots x_{j-1},x_{j+1},
+  \dots,x_n]$, and consider $f(x_1, \dots, x_n) \in S[x_i,x_j]$. Then
+  $f(x_1, \dots, x_n)$ has the form:
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum_{l,m=0}^{d_1,d_2}{f_{l,m}x_i^{l}x_j^m}
+  \end{equation*}
+  Where $f_{l,m}(x_1, \dots, x_{i-1},x_{i+1}, \dots x_{j-1},x_{j+1},
+  \dots,x_n) \in S$
+  Then
+  \begin{equation*}
+    D_{x_i}{f(x_1, \dots, x_n)}=
+    \sum_{l=1m=0}^{d_1,d_2}{lf_{l,m}x_i^{l-1}x_j^{m}}
+  \end{equation*}
+  so that:
+  \begin{equation*}
+    D_{x_j}{(D_{x_i}{f(x_1, \dots, x_n)})}=
+    \sum_{l=1m=1}^{d_1,d_2}{lmf_{l,m}x_i^{l-1}x_j^{m-1}}
+  \end{equation*}
+  Likewise, reversing the order of $D_{x_i}$ and $D_{x_j}$, we get:
+  \begin{equation*}
+    D_{x_j}{f(x_1, \dots, x_n)}=
+    \sum_{l=0m=1}^{d_1,d_2}{mf_{l,m}x_i^{l}x_j^{m-1}}
+  \end{equation*}
+  so that:
+  \begin{equation*}
+    D_{x_i}{(D_{x_j}{f(x_1, \dots, x_n)})}=
+    \sum_{l=1m=1}^{d_1,d_2}{lmf_{l,m}x_i^{l-1}x_j^{m-1}}
+  \end{equation*}
+  which gives us the required result.
+\end{proof}
+
+\begin{theorem}[Euler's Theorem]\label{theorem_8.8.5}
+  Let $F$ be a field. If  $f(x_1, \dots, x_n)$ is a form of degree $m$
+  over $F$, then:
+  \begin{equation*}
+    mf(x_1, \dots, x_n)=\sum_{i=1}^n{x_iD_{x_i}{f(x_1, \dots, x_n)}}
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  Let $d=(d_1, \dots, d_n)$, and take $x^d=x_1^{d_1} \dots x_n^{d_n}$.
+  Then
+  \begin{equation*}
+    x_iD_{x_i}{f(x_1, \dots, x_n)}=\sum{d_ia_dx^d}
+  \end{equation*}
+  so that: $x_iD_{x_i}{f(x_1, \dots, x_n)}=d_if(x_1, \dots, x_n)$.
+  Since $f(x_1, \dots, x_n)$ is a form of degree $m$,
+  $d_1+\dots+d_n=m$. Then we get
+  \begin{align*}
+    \sum_{i=1}^n{x_iD_{x_i}{f(x_1, \dots, x_n)}} &=  \sum_{i=1}^n{d_if(x_1, \dots, x_n)}\\
+    &= (d_1+\dots+d_n)f(x_1, \dots, x_n) \\
+    &= mf(x_1, \dots, x_n) \\
+  \end{align*}
+  and we are done.
+\end{proof}
