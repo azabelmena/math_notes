@@ -25,6 +25,61 @@
   axioms follow.
 \end{proof}
 
+\begin{proposition}\label{proposition_8.8.2}
+  Let $F$ be a field, and $a_1, \dots, a_n \in F$. Then for any
+  $f(x_1, \dots, x_n) \in F[x_1, \dots, x_n]$:
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum{\l_d(x_1-a_1)^{d_1} \dots (x_n-a_n)^{d_n}}
+  \end{equation*}
+  In particular, $F[x_1, \dots, x_n] \simeq F[x_1-a_1, \dots,
+  x_n-a_n]$.
+\end{proposition}
+\begin{proof}
+  Define the map $x_i \xrightarrow{} x_{i}+a_i$. Then observe that
+  this map is a homomorphism. Now, let $f(x_1, \dots, x_n) \in
+  F[x_1-a_1, \dots, x_n-a_n]$. Then
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum{\l_d(x_1-a_1)^{d_1} \dots (x_n-a_n)^{d_n}}
+  \end{equation*}
+  so that:
+  \begin{equation*}
+    f(x_1+a_1, \dots, x_n+a_n)=\sum{\l_dx_1^{d_1} \dots x_n^{d_n}}
+  \end{equation*}
+  so that $f(x_1+a_1, \dots, x_n+a_n) \in F[x_1, \dots, x_n]$. That is,
+  the map $x_i \xrightarrow{} x_i+a_i$ extends to a map from
+  $F[x_1-a_1, \dots, x_n-a_n]$ onto $F[x_1, \dots, x_n]$. This
+  completes the proof.
+\end{proof}
+
+\begin{proposition}\label{proposition_8.8.3}
+  Let $F$ be a field, and $a_1, \dots, a_n \in F$. If $f(x_1, \dots,
+  x_n) \in F[x_1, \dots, x_n]$ such that $f(a_1, \dots, a_n)=0$, then:
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum_{i=1}^n{(x_i-a_i)g_i(x_1, \dots, x_n)}
+  \end{equation*}
+  where $g_i(x_1, \dots, x_n) \in F[x_1, \dots, x_n]$ are not
+  necessarily unique.
+\end{proposition}
+\begin{proof}
+  Define the map $\phi:F[x_1, \dots, x_n] \xrightarrow{} F$ by
+  $\phi:f(x_1, \dots, x_n) \xrightarrow{} f(a_1, \dots, a_n)$. Then
+  then $\phi$ is a homomorphsim from $F[x_1, \dots, x_n]$ onto $F$
+  with kernel $(x_1-a_1, \dots, x_n-a_n)$. Indeed, if $f(a_1, \dots,
+  a_n)=0$, then $f(x_1, \dots, x_n) \in (x_1-a_1, \dots, x_n-a_n)$.
+\end{proof}
+\begin{corollary}
+  $(x_1-a_1, \dots, x_n-a_n)$ is a maximal ideal in $F[x_1, \dots, x_n]$.
+\end{corollary}
+\begin{proof}
+  Since $\ker{\phi}=(x_1-a_1, \dots, x_n-a_n)$; by the first isomorphism
+  theorem we have:
+  \begin{equation*}
+    \faktor{F[x_1, \dots, x_n]}{\ker{\phi}} \simeq F
+  \end{equation*}
+  which makes $(x_1-a_1, \dots, x_n-a_n)$ maximal in $F[x_1, \dots,
+  x_n]$.
+\end{proof}
+
 \begin{definition}
   Let $F$ be a field, and let $f(x_1, \dots ,x_n) \in F[x_1, \dots, x_n]$
   be written as:
@@ -40,7 +95,7 @@
   \end{equation*}
 \end{definition}
 
-\begin{proposition}\label{proposition_8.8.2}
+\begin{proposition}\label{proposition_8.8.4}
   Let $F$ be a field. Then the following hold for all $f(x_1, \dots,
   x_n), g(x_1, \dots, x_n) \in F[x_1, \dots, x_n]$:
   \begin{enumerate}
@@ -122,7 +177,7 @@
   terms in $S=F[x_1, \dots, x_{i-1},x_{i+1}, \dots, x_n]$.
 \end{proof}
 
-\begin{proposition}\label{proposition_8.8.3}
+\begin{proposition}\label{proposition_8.8.5}
   Let $F$ be a field. Then for any $f(x_1, \dots, x_n) \in F[x_1,
   \dots, x_n]$:
   \begin{equation*}
@@ -162,7 +217,7 @@
   which gives us the required result.
 \end{proof}
 
-\begin{theorem}[Euler's Theorem]\label{theorem_8.8.4}
+\begin{theorem}[Euler's Theorem]\label{theorem_8.8.6}
   Let $F$ be a field. If  $f(x_1, \dots, x_n)$ is a form of degree $m$
   over $F$, then:
   \begin{equation*}
@@ -185,23 +240,3 @@
   \end{align*}
   and we are done.
 \end{proof}
-
-\begin{theorem}\label{theorem_8.8.5}
-  Let $F$ be a field, and let $f(x_1, \dots, x_n) \in F[x_1, \dots, x_n]$.
-  Then for some $a_1, \dots, a_n \in F$:
-  \begin{equation*}
-    f(x_1,\dots,x_n)=\sum{\l_{(i)}(x_1-a_1)^{i_1} \dots (x_n-a_n)^{i_n}}
-  \end{equation*}
-\end{theorem}
-\begin{corollary}
-  If $f(a_1, \dots, a_n)=0$ then
-  \begin{equation*}
-    f(x_1, \dots, x_n)=\sum_{i=1}^n{(x-a_i)g_i(x_1, \dots, x_n)}
-  \end{equation*}
-   For some $g_i(x_1, \dots, x_n) \in F[x_1, \dots, x_n]$ not
-   necessarily unique.
-\end{corollary}
-\begin{proof.g}
-  If $f(a_1, \dots, a_n)=0$, then $f(x_1, \dots, x_n) \in (x_1-a_1,
-  \dots, x_n-a_n)$ by above.
-\end{proof.g}
