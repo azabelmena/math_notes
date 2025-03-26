@@ -98,6 +98,31 @@
 
     \item[(4)] $\Z[\sqrt{-5}]$ is another example of an integral domain that
       is not a UFD.
+
+    \item[(5)] Let $R$ be a UFD, and let $k$ be the field of fractions
+      of $R$. Then, letting $\sim$ the equivalence relation:
+      \begin{equation*}
+        (a,b) \sim (c,d) \text{ if, and only if } ad-bc=0
+      \end{equation*}
+      by construction
+      \begin{equation*}
+        k \simeq \faktor{(R \times (\com{R}{\{0\}))}}{\sim}
+      \end{equation*}
+      Then for every $z \in k$, there exist $a,b \in R$ with $b \neq
+      0$ for which $z=\frac{a}{b}$. Indeed, observe that
+      $z=\frac{a}{b}$ if, and only if $bz=a$ in $R$. Now, let
+      $d=(a,b)$ the greatest common divisor of $a$ and $b$ in $R$.
+      Then $a=da'$ and $b=db'$. Then:
+      \begin{equation*}
+        z=\frac{a}{b}=\frac{da'}{db'}
+      \end{equation*}
+      Then we have $(db')z=d(b'z)=da'$. By cancellation, $b'z=a'$ so
+      that:
+      \begin{equation*}
+        z=\frac{a'}{b'} \text{ where } (a',b')=1
+      \end{equation*}
+      Lastly, observe that since $R$ is a UFD, and $(a',b')=1$ by
+      definition this representation of $z$ is unique up to units.
   \end{enumerate}
 \end{example}
 
