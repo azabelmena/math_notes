@@ -118,6 +118,42 @@
         pq(x,y,z)=2x^2y^5z^9+1x^4y^4z^4+1x^2y^2z^5+14x^4y
       \end{equation*}
       of degrees $\deg{(p+q)}=9$ and $\deg{pq}=16$, still.
+
+    \item[(4)] Let $R$ be an integral domain. Then if $f(x_1, \dots,
+      x_n), g(x_1, \dots, x_n)$ are forms of degree $r$ and $s$,
+      respectively, over $R$ then $fg(x_1, \dots, x_n)$ is a form of
+      degree $r+s$ over $R$. Indeed every monomial term of $f(x_1,
+      \dots, x_n)$ is of the form $a_dx_1^{d_1} \dots x_n^{d_n}$ and
+      every monomial term of $g(x_1, \dots, x_n)$ is of the form
+      $b_cx_1^{c_1} \dots x_n^{c_n}$ (where $d=(d_1, \dots, d_n)$ and
+      $c=(c_1, \dots, c_n)$). Then every monomial term of $fg(x_1,
+      \dots, x_n)$ is of the form $t_ex_1^{e_1} \dots x_n^{e_n}$,
+      where $e=(e_1, \dots, e_n)$. Now by the multiplication,
+      $e_i=d_i+c_i$ for all $1 \leq i \leq n$. Now, since $f(x_1,
+      \dots, x_n)$ is a form of degree $r$ and  $g(x_1, \dots, x_n)$
+      is a form of degree $s$, then each monomial term of $fg(x_1,
+      \dots, x_n)$ has degree $e_1+\dots+e_n=(d_1+c_1)+\dots+(d_n+c_n)=
+      (d_1+\dots+d_n)+(c_1+\dots+c_n)=r+s$; which makes $fg(x_1,
+      \dots, x_n)$ a from of degree $r+s$.
+
+    \item[(5)] Again, let $R$ be an integral domain, and let $f(x_1,
+      \dots, x_n)$ be a form of degree $r$ over $R$. Suppose $f(x_1,
+      \dots, x_n)$ has a factor $g(x_1, \dots, x_n)$. Then
+      \begin{equation*}
+        f(x_1, \dots, x_n)=g(x_1, \dots, x_n)h(x_1, \dots, x_n)
+      \end{equation*}
+      indeed, let $g(x_1, \dots, x_n)$ and $h(x_1, \dots, x_n)$ have
+      monomial terms of the form $a_dx_1^{d_1} \dots x_n^{d_n}$ and
+      $b_cx_1^{c_1} \dots x_n^{c_n}$. Then $f(x_1, \dots, x_n)=
+      gh(x_1, \dots, x_n)$ have monomial terms of the form $t_ex_1^{e_1} \dots x_n^{e_n}$ where
+      each $e_i=d_i+c_i$. Observe then $e_1+\dots+e_n=
+      (d_1+\dots+d_n)+(c_1+\dots+c_n)=r$ for all monomial terms. Now,
+      if $g(x_1, \dots, x_n)$ were not a form, then there is some
+      monomial term of $g(x_1, \dots, x_n)$ for which
+      $(d_1+\dots+d_n)+(c_1+\dots+c_n) \neq r$, which contradicts that
+      $f(x_1, \dots, x_n)$ is a form. Therefore we must have that
+      $g(x_1, \dots, x_n)$ (and respectively $h(x_1, \dots, x_n)$)
+      must be forms over $R$.
   \end{enumerate}
 \end{example}
 
