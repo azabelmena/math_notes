@@ -172,83 +172,83 @@
 \end{proof}
 
 \begin{example}\label{label_7.3}
-\begin{enumerate}
-\item[(1)] Consider the ideals $(x)$ and $(x,y)$ in $\Q[x,y]$. We have
-that $(x)$ is a prime ideal in $\Q[x,y]$, since $\Q[x,y] \simeq
-\Q[y,x]=\Q[y][x]$. Moreover, let $fg \in (x,y)$ so that
-$fg(x,y)=xyr(x,y)$ for some $r \in \Q[x,y]$. Then $xy|fg$ which
-makes  $xy|f$ or  $xy|g$, so that $f \in (x,y)$ or $g \in (x,y)$.
-This makes $(x,y)$ a prime ideal. Notice, however, that $(x)
-\subseteq (x,y)$, so that $(x)$ is not maximal. $(x,y)$, however is
-a maximal ideal in $\Q[x,y]$.
+  \begin{enumerate}
+    \item[(1)] Consider the ideals $(x)$ and $(x,y)$ in $\Q[x,y]$. We have
+      that $(x)$ is a prime ideal in $\Q[x,y]$, since $\Q[x,y] \simeq
+      \Q[y,x]=\Q[y][x]$. Moreover, let $fg \in (x,y)$ so that
+      $fg(x,y)=xyr(x,y)$ for some $r \in \Q[x,y]$. Then $xy|fg$ which
+      makes  $xy|f$ or  $xy|g$, so that $f \in (x,y)$ or $g \in (x,y)$.
+      This makes $(x,y)$ a prime ideal. Notice, however, that $(x)
+      \subseteq (x,y)$, so that $(x)$ is not maximal. $(x,y)$, however is
+      a maximal ideal in $\Q[x,y]$.
 
-\item[(2)] Notice that $(x,y)$ is a prime ideal in $\Z[x,y]$, since
-$\Z[x,y]$ is a subring of $\Q[x,y]$, and $(x,y)$ is prime in
-$\Q[x,y]$. Similarly, $(2,x,y)$ is prime in $\Z[x,y]$. Notice
-however that $(x,y) \subseteq (2,x,y)$ so that $(x,y)$ is not
-maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
+    \item[(2)] Notice that $(x,y)$ is a prime ideal in $\Z[x,y]$, since
+      $\Z[x,y]$ is a subring of $\Q[x,y]$, and $(x,y)$ is prime in
+      $\Q[x,y]$. Similarly, $(2,x,y)$ is prime in $\Z[x,y]$. Notice
+      however that $(x,y) \subseteq (2,x,y)$ so that $(x,y)$ is not
+      maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
 
-\item[(3)] Notice that $(x,y)$ is not a principle ideal in $\Q[x,y]$.
-  Indeed, suppose there is an $f(x,y) \in \Q[x,y]$ for which
-  $(x,y)=(f)$. Then $x \in (f)$ and $y \in (f)$, so that $f \divides
-  x$ and  $f \divides y$. Hence $f \divides (x+y)$, so
-  $x+y=f(x,y)g(x,y)$ for some $g \in \Q[x,y]$ not a unit. Now,
-  $\deg{f} \leq 1$, and since $g$ is not a unit, $\deg{g}=1$, which
-  makes $\deg{f}=0$. Therefore $f(x,y)$ is a unit in $\Q[x,y]$ so that
-  $(f)=(1)=\Q[x,y]$ which is impossible.
-\end{enumerate}
+    \item[(3)] Notice that $(x,y)$ is not a principle ideal in $\Q[x,y]$.
+      Indeed, suppose there is an $f(x,y) \in \Q[x,y]$ for which
+      $(x,y)=(f)$. Then $x \in (f)$ and $y \in (f)$, so that $f \divides
+      x$ and  $f \divides y$. Hence $f \divides (x+y)$, so
+      $x+y=f(x,y)g(x,y)$ for some $g \in \Q[x,y]$ not a unit. Now,
+      $\deg{f} \leq 1$, and since $g$ is not a unit, $\deg{g}=1$, which
+      makes $\deg{f}=0$. Therefore $f(x,y)$ is a unit in $\Q[x,y]$ so that
+      $(f)=(1)=\Q[x,y]$ which is impossible.
+  \end{enumerate}
 \end{example}
 
 \begin{proposition}\label{proposition_7.1.4}
-    Let $k$ be an infinite field, and suppose  $f \in k[x_1, \dots, x_n]$ is a
-    polynomial such that $f(a_1,\dots,a_n)=0$ for all $a_1, \dots, a_n \in k$.
-    Then $f$ must be the zero polynomial.
+  Let $k$ be an infinite field, and suppose  $f \in k[x_1, \dots, x_n]$ is a
+  polynomial such that $f(a_1,\dots,a_n)=0$ for all $a_1, \dots, a_n \in k$.
+  Then $f$ must be the zero polynomial.
 \end{proposition}
 \begin{proof}
-    Observe that
-    \begin{equation*}
-        f(x_1, \dots, x_n)=\sum{f_i(x_1,\dots,x_{n-1})x_n^i}
-    \end{equation*}
-    where $f \in k[x_1, \dots, x_{n-1}]$. Now, for $n=1$, if we have  $f \in
-    k[x_1]$, then if $f(a_1)=0$ for all $a_1 \in k$, then $f(x_1)=0$ in $k$.
-    Suppose now that the the polynomial $f(x_1,\dots,x_n)$ satisfies
-    \begin{equation*}
-        f(a_1, \dots, a_n)=0 \text{ for all } a_1,\dots,a_n \in k
-    \end{equation*}
-    and consider a the polynomial $f$ as a polynomial in $k[x_1, \dots,
-    x_n,x_{n+1}] \simeq k[x_1,\dots,x_n][x_{n+1}]$, then we have
-    \begin{equation*}
-        f(x_1,\dots, x_n, x_{n+1})=\sum{f_i(x_1, \dots, x_n)x_{n+1}^i}
-    \end{equation*}
-    Now, if $f(a_1, \dots, a_n,a_{n+1})=0$ for all $a_1, \dots, a_n,a_{n+1} \in
-    k$, we have that
-    \begin{equation*}
-        f(a_1,\dots, a_n, a_{n+1})=\sum{f_i(a_1, \dots, a_n)a_{n+1}^i}=0
-    \end{equation*}
-    Now, $f$ has finitely many roots when considered as a polynomial in $k
-    [x_1, \dots, x_n]$, and if $ a_1, \dots, a_n$ are roots of $f_i$, by
-    hypothesis, $f_i=0$ for each  $i$, so that
-    \begin{equation*}
-        f(a_1,\dots, a_n, a_{n+1})=\sum{f_i(a_1, \dots,
-        a_n)a_{n+1}^i}=\sum{0a_{n+1}^i}=0
-    \end{equation*}
-    which makes $f(x_1, \dots, x_{n+1})=0$ in $k[x_1, \dots, x_{n+1}]$.
+  Observe that
+  \begin{equation*}
+    f(x_1, \dots, x_n)=\sum{f_i(x_1,\dots,x_{n-1})x_n^i}
+  \end{equation*}
+  where $f \in k[x_1, \dots, x_{n-1}]$. Now, for $n=1$, if we have  $f \in
+  k[x_1]$, then if $f(a_1)=0$ for all $a_1 \in k$, then $f(x_1)=0$ in $k$.
+  Suppose now that the the polynomial $f(x_1,\dots,x_n)$ satisfies
+  \begin{equation*}
+    f(a_1, \dots, a_n)=0 \text{ for all } a_1,\dots,a_n \in k
+  \end{equation*}
+  and consider a the polynomial $f$ as a polynomial in $k[x_1, \dots,
+  x_n,x_{n+1}] \simeq k[x_1,\dots,x_n][x_{n+1}]$, then we have
+  \begin{equation*}
+    f(x_1,\dots, x_n, x_{n+1})=\sum{f_i(x_1, \dots, x_n)x_{n+1}^i}
+  \end{equation*}
+  Now, if $f(a_1, \dots, a_n,a_{n+1})=0$ for all $a_1, \dots, a_n,a_{n+1} \in
+  k$, we have that
+  \begin{equation*}
+    f(a_1,\dots, a_n, a_{n+1})=\sum{f_i(a_1, \dots, a_n)a_{n+1}^i}=0
+  \end{equation*}
+  Now, $f$ has finitely many roots when considered as a polynomial in $k
+  [x_1, \dots, x_n]$, and if $ a_1, \dots, a_n$ are roots of $f_i$, by
+  hypothesis, $f_i=0$ for each  $i$, so that
+  \begin{equation*}
+    f(a_1,\dots, a_n, a_{n+1})=\sum{f_i(a_1, \dots,
+    a_n)a_{n+1}^i}=\sum{0a_{n+1}^i}=0
+  \end{equation*}
+  which makes $f(x_1, \dots, x_{n+1})=0$ in $k[x_1, \dots, x_{n+1}]$.
 \end{proof}
 
 \begin{proposition}\label{proposition_7.1.5}
-    If $k$ is a field, then there exist infinitely many monic irreducible
-    polynomials in $k[x]$.
+  If $k$ is a field, then there exist infinitely many monic irreducible
+  polynomials in $k[x]$.
 \end{proposition}
 \begin{proof}
-    Suppose that there exist finitely many monic irreducible polynomials in
-    $k[x]$, and let $p_1, \dots, p_n$ an enumeration of all of them. Consider
-    the polynomial
-    \begin{equation*}
-        p(x)=p_1(x) \dots p_n(x)+1
-    \end{equation*}
-    Then for every $p_i$, we have that  $p \equiv 1 \mod{p_i}$ so that no $p_i$
-    divides  $p$.  Since ech  $p_i$ is monic and irreducible, this makes  $p$
-    irreducible, contradiction the given enumeration.
+  Suppose that there exist finitely many monic irreducible polynomials in
+  $k[x]$, and let $p_1, \dots, p_n$ an enumeration of all of them. Consider
+  the polynomial
+  \begin{equation*}
+    p(x)=p_1(x) \dots p_n(x)+1
+  \end{equation*}
+  Then for every $p_i$, we have that  $p \equiv 1 \mod{p_i}$ so that no $p_i$
+  divides  $p$.  Since ech  $p_i$ is monic and irreducible, this makes  $p$
+  irreducible, contradiction the given enumeration.
 \end{proof}
 
 \begin{theorem}\label{theorem_7.1.6}
@@ -264,16 +264,16 @@ maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
   g(x_1, \dots, x_n) \in R[x_1, \dots, x_n]$ we have:
   \begin{align*}
     \Phi(f(x_1, \dots, x_n)+g(x_1, \dots, x_n)) &= \Phi((f+g)(x_1, \dots, x_n)) \\
-    &= (f+g)(s_1, \dots, s_n) \\
-    &= f(s_1, \dots, s_n)+g(s_1, \dots, s_n) \\
-    &= \Phi(f(x_1, \dots, x_n))+\Phi(g(x_1, \dots, x_n)) \\
+                                                &= (f+g)(s_1, \dots, s_n) \\
+                                                &= f(s_1, \dots, s_n)+g(s_1, \dots, s_n) \\
+                                                &= \Phi(f(x_1, \dots, x_n))+\Phi(g(x_1, \dots, x_n)) \\
   \end{align*}
   and
   \begin{align*}
     \Phi(f(x_1, \dots, x_n)g(x_1, \dots, x_n)) &= \Phi((fg)(x_1, \dots, x_n)) \\
-    &= (fg)(s_1, \dots, s_n) \\
-    &= f(s_1, \dots, s_n)g(s_1, \dots, s_n) \\
-    &= \Phi(f(x_1, \dots, x_n))\Phi(g(x_1, \dots, x_n)) \\
+                                               &= (fg)(s_1, \dots, s_n) \\
+                                               &= f(s_1, \dots, s_n)g(s_1, \dots, s_n) \\
+                                               &= \Phi(f(x_1, \dots, x_n))\Phi(g(x_1, \dots, x_n)) \\
   \end{align*}
   moreover, setting $m_i(x_1, \dots, x_n)=x_i$, we have for all $1
   \leq i \leq n$ $\Phi(x_i)=\Phi(m_i(x_1, \dots, x_n))=m_i(s_1, \dots,
@@ -307,4 +307,46 @@ maximal in $\Z[x,y]$; $(2,x,y)$ is maximal in $\Z[x,y]$.
   \dots, x_n]$, $\Phi-\Psi(f(x_1, \dots, x_n))=0$. That is,
   $\Phi(f(x_1, \dots, x_n))=\Psi(f(x_1, \dots, x_n))$, and we are
   done.
+\end{proof}
+
+\begin{proposition}\label{proposition_7.1.7}
+  Let $k$ be a field. Then the rings $k[x]$ and $k[x_1, \dots, x_n]$
+  are Noetherian rings.
+\end{proposition}
+\begin{proof}
+  We have that $k$ is Noetherian, so by Hilbert's basis theorem,
+  $k[x]$ is Noetherian as well. It follows that $k[x_1, \dots, x_n]$
+  must also be Noetherian by observing that $k[x_1, \dots,
+  x_n]=(k[x_1, \dots, x_{n_1}])[x_n]$ and applying the above argument
+  recursively.
+\end{proof}
+\begin{corollary}
+  If $\af$ is an ideal in $k[x_1, \dots, x_n]$ generated by a set
+  $S$, then $\af$ is generated by finitely many polynomials in $S$.
+\end{corollary}
+\begin{proof}
+  Since $k$ is a field, $k[x_1, \dots, x_n]$ is Noetherian, and
+  $\af=(f_1, \dots, f_n)$ where $f_i(x_1, \dots ,x_n) \in k[x_1,
+  \dots, x_n]$. Likewise, since $\af=(S)$ is finitely generated, $S$
+  is finite. Then since $(f_1, \dots, f_n)=(S)$, $f_i \in S$ for all
+  $1 \leq i \leq n$ so that
+  \begin{equation*}
+    f_i(x)=r_1g_{i,1}(n_1, \dots, x_n)+\dots+r_ng_{i,m}(n_1, \dots, x_n)
+  \end{equation*}
+  and so $\af=(f_1, \dots, f_n)=(g_{1,1}, \dots ,g_{1,m}, \dots,
+  g_{n,1}, \dots g_{n,m})$.
+\end{proof}
+
+\begin{example}\label{example_5.24}
+  The multivariate polynomial ring $\Z[x_1, x_2, \dots]$ is not
+  Noetherian, since the ideal $(x_1, x_2, \dots)$ is not finitely
+  generated.
+\end{example}
+
+\begin{proposition}\label{proposition_7.1.8}
+  Let $k$ be a field and $\af$ an ideal of $k[x_1, \dots, x_n]$. Any ring
+  of the form $\faktor{k[x_1, \dots, x_n]}{\af}$ is a Noetherian ring.
+\end{proposition}
+\begin{proof}
+  This is a corollary to theorem \ref{theorem_5.9.5}.
 \end{proof}
