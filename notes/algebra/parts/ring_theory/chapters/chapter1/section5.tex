@@ -397,42 +397,42 @@
 \begin{definition}
   If $\af$ is an ideal, we define its \textbf{radical} to be
   \begin{equation*}
-    \sqrt{\af}=\{x \in R : x^n \in \af \text{ for some } n \in \Z^+\}
+    \rad{\af}=\{x \in R : x^n \in \af \text{ for some } n \in \Z^+\}
   \end{equation*}
 \end{definition}
 
 \begin{proposition}\label{proposition_5.5.13}
-  If $\af$ is an ideal, then so is $\sqrt{\af}$.
+  If $\af$ is an ideal, then so is $\rad{\af}$.
 \end{proposition}
 \begin{proof}
   Take the natural map $\pi:R \xrightarrow{} \faktor{R}{\af}$. Then
-  $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{R}{\af}})$.
+  $\rad{\af}=\inv{\pi}(\Nil{\faktor{R}{\af}})$.
 \end{proof}
 
 \begin{proposition}\label{proposition_5.5.14}
   The following are true for any ideals $\af$ and  $\bf$.
   \begin{enumerate}
-    \item[(1)] $\af \subseteq \sqrt{\af}$.
+    \item[(1)] $\af \subseteq \rad{\af}$.
 
-    \item[(2)] $\sqrt{\sqrt{\af}}=\sqrt{\af}$.
+    \item[(2)] $\rad{\rad{\af}}=\rad{\af}$.
 
-    \item[(3)] $\sqrt{\af\bf}=\sqrt{\af \cap \bf}=\sqrt{\af} \cap \sqrt{\bf.}$
+    \item[(3)] $\rad{\af\bf}=\rad{\af \cap \bf}=\rad{\af} \cap \rad{\bf.}$
 
-    \item[(4)] $\sqrt{\af}=(1)$ if, and only if $\af=(1)$.
+    \item[(4)] $\rad{\af}=(1)$ if, and only if $\af=(1)$.
 
-    \item[(5)] $\sqrt{\af+\bf}=\sqrt{\sqrt{\af}+\sqrt{\bf}}$.
+    \item[(5)] $\rad{\af+\bf}=\rad{\rad{\af}+\rad{\bf}}$.
 
-    \item[(6)] If $\pf$ is a prime ideal, then $\sqrt{\pf^n}=\pf$ for any $n \in
+    \item[(6)] If $\pf$ is a prime ideal, then $\rad{\pf^n}=\pf$ for any $n \in
       \Z^+$.
   \end{enumerate}
 \end{proposition}
 
 \begin{proposition}\label{proposition_5.5.15}
-  If $\af$ is an ideal, then $\sqrt{\af}$ is the intersection of all prime
+  If $\af$ is an ideal, then $\rad{\af}$ is the intersection of all prime
   ideals containing $\af$.
 \end{proposition}
 \begin{proof}
-  $\sqrt{\af}=\inv{\pi}(\Nil{\faktor{R}{\af}})=\inv{\pi}(\bigcap{\pf_\a})=
+  $\rad{\af}=\inv{\pi}(\Nil{\faktor{R}{\af}})=\inv{\pi}(\bigcap{\pf_\a})=
   \bigcap{\inv{\pi}\pf_\a}$, and  $\inv{\pi}(\pf_\a)$ is a prime ideal
   containing $\af$.
 \end{proof}
