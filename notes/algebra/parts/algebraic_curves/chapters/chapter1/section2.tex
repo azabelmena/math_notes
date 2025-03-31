@@ -1,176 +1,148 @@
-\section{Ideals of Algebraic Sets}\label{section_1.3}
-
-\begin{proposition}\label{1.3.1}
-    Let $k$ be a field, and  $X \times \A^n(k)$. Consider the set $I(X)=\{f \in
-    k[x_1, \dots, x_n] : f(P)=0 \text{ for all } P \in X\}$. Then $I(X)$ forms
-    an ideal of $k[x_1, \dots, x_n]$.
-\end{proposition}
-\begin{proof}
-    Let $f,g \in I(X)$. Then for all $P \in X$,  $f(P)=0$, and $g(P)=0$, so that
-    $f+g(P)=f(P)+g(P)=0$. Moreover, $-f(P)=0$ as well. So $I$ is a subgroup of
-    $k[x_1, \dots, x_n]$ under addition. Now, take $f \in I(X)$ and $g \in
-    k[x_1, \dots, x_n]$. Then $fg(P)=0$ for all $P \in X$ which makes  $I(X)$
-    into an ideal.
-\end{proof}
+\section{Ideals of Algebraic Sets}\label{section_1.2}
 
 \begin{definition}
-    Let $k$ be a field and  $X \subseteq \A^n(k)$. We define the \textbf{ideal}
-    of $X$ to be the ideal $I(X)=\{f \in k[x_1, \dots, x_n] : f(P)=0 \text{ for
-    all } P \in X\}$ of $k[x_1, \dots, x_n]$.
+  Let $k$ be a field. We define the  \textbf{ideal} of a set $X
+  \subseteq \A^n(k)$ to be the set:
+  \begin{equation*}
+    \Ic(X)=\{ f \in k[x_1, \dots, x_n] : f(P)=0 \text{ for all } P \in X \}
+  \end{equation*}
+  That is, $\Ic(X)$ is the set of all polynomials over $k$ which
+  vanish on $X$.
 \end{definition}
 
-\begin{proposition}\label{1.3.2}
-    Let $k$ be a field. The following are true for all $X,Y \subseteq \A^n(k)$
-    and for all $S \subseteq k[x_1, \dots, x_n]$.
-    \begin{enumerate}
-        \item[(1)] If $X \subseteq Y$, then $I(Y) \subseteq I(X)$.
+\begin{proposition}\label{proposition_10.2.1}
+  Let $k$ be a field. The following are true:
+  \begin{enumerate}
+    \item[(1)] For any $X \subseteq \A^n(k)$ $\Ic(X)$ is a radical
+      ideal in $k[x_1, \dots, x_n]$.
 
-        \item[(2)] $I(\emptyset)=k[x_1, \dots, x_n]$ and $I(\A^n(k))=(0)$.
+    \item[(2)] If $X \subseteq Y$ in $\A^n(k)$ then $\Ic(Y) \subseteq
+      \Ic(X)$ in $k[x_1, \dots, x_n]$.
 
-        \item[(3)] $S \subseteq I(V(S))$ and $X \subseteq V(I(X))$.
+    \item[(3)] $\Ic(\0)=k[x_1, \dots, x_n]$ and if $k$ is an infinite
+      field then $\Ic(\A^n(k))=(0)$. Moreover, for any $a_1, \dots,
+      a_n \in k$:
+      \begin{equation*}
+        \Ic(\{a_1, \dots, a_n\})=(x_1-a_1, \dots, x_n-a_n)
+      \end{equation*}
 
-        \item[(4)] $V(I(V(S)))=V(S)$ and $I(V(I(X)))=I(X)$.
-    \end{enumerate}
+    \item[(4)] For any set of polynomials $S$ over $k$:
+      \begin{equation*}
+        S \subseteq \Ic(V(S)) \text{ and } V(S)=V(\Ic(V(S)))
+      \end{equation*}
+
+    \item[(5)] For any set of $X$ of points in $\A^n(k)$ :
+      \begin{equation*}
+        X \subseteq V(\Ic(X)) \text{ and } \Ic(X)=\Ic(V(\Ic(X)))
+      \end{equation*}
+  \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Let $X,Y \subseteq \A^n(k)$, wiht $X \subseteq Y$. Let $f \in I(Y)$, then
-    for all $P \in Y$, $f(P)=0$. Now, since $P \in X$, we get for all $P \in X$
-    $f(P)=0$ so that $f \in I(X)$.
+  Let $X \subseteq \A^n(k)$. Observe first that $\Ic(X)$ is an ideal.
+  Now, we have by proposition \ref{proposition_5.5.14} that
+  $\Ic(X) \subseteq \rad{\Ic(X)}$. Now, let $f(x_1, \dots, x_n) \in
+  \rad{\Ic(X)}$. Then for some $n \in \Z^+$, we have $f(x_1, \dots,
+  x_n)^n \in \Ic(X)$, so that for every $P \in X$, $f(P)^n=0$. But
+  that makes $f(P)=0$, so that $f(x_1, \dots, x_n) \in \Ic(X)$.
+  Hence $\rad{\Ic(X)} \subseteq \Ic(X)$.
 
-    Observe now that the polynomial $1(x_1, \dots, x_n)=1$ has no points in
-    $\A^n(k)$ as roots, so that $I(\emptyset)=k[x_1, \dots, x_n]$. Likewise, for
-    the polynomial $0(x_1, \dots, x_n)=0$, every point in $\A^n(k)$ is a root,
-    so that $I(\A^n(k))=(0)$.
+  Now, statements (2) and (3) follow directly from proposition
+  \ref{proposition_10.1.2} (generalized to any set of points). Indeed
+  suppose $X \subseteq Y$ in $\A^n(k)$, and let $f(x_1, \dots, x_n)
+  \in \Ic(Y)$. Then for any point $P \in Y$, $f(P)=0$. Hence by
+  inclusion, $f(Q)=0$ for any point $Q \in X$, so $f(x_1, \dots, x_n)
+  \in \Ic(X)$. Observe also that since $k[x_1, \dots, x_n]=(1)$, which
+  vanishes on no set of $\A^n(k)$, that $\Ic(\0)=(1)$. Now, let $k$ be
+  infinite, then the zero polynomial $0(x_1, \dots, x_n)$ vanishes on
+  all $\A^n(k)$ so that $\Ic(\A^n(k))=(0)$. Indeed, if $k$ were a
+  finite field with $q$ elements, then $\Ic(\A^n(k))$ cannot be the
+  trivial ideal since every subset of $\A^n(k)$ is algebraic in this
+  case.
 
-    For the third assertion, let $S \subseteq k[x_1, \dots, x_n]$. If $f \in V(S)$,
-    then for every  $P \in V(S)$, $f(P)=0$, by definition. This makes $S
-    \subseteq I(V(S))$. Likewise, if $X \subseteq \A^n(k)$ and $P \in X$, then
-    for all $f \in I(X)$, $f(P)=0$, so that $P \in V(I(X))$.
+  Now, let $S \subseteq k[x_1, \dots, x_n]$. Then for any $f(x_1,
+  \dots, x_n) \in S$ and any $P \in V(S)$ $f(P)=0$ so that $f \in
+  \Ic(V(S))$. Now, let $X=V(S)$ and $\af=\Ic(X)$. Let $P \in X$ so
+  that for any $f \in \af$, $f(P)=0$. Then $P \in V(\af)$. This gives
+  $V(S) \subseteq V(\Ic(V(S)))$. Now, (letting again $X=V(S)$ and
+  $\af=\Ic(X)$), let $P \in V(X)$. Then for any $f \in \af$, $f(P)=0$.
+  But $\af=\Ic(X)$ and $X=V(S)$, so that $f$ vanishes on $V(S)$. This
+  puts $P \in V(S)$ and we get the reverse inclusion. That is:
+  $V(S)=V(\Ic(V(S)))$.
 
-    Lastly, let $P \in V(S)$, and $f \in I(V(S))$. By definition, $f(P)=0$ so
-    that $V(S) \subseteq V(I(V(S)))$. Conversely, let $P \in V(I(V(S)))$ then
-    for every $f \in I(V(S))$, $f(P)=0$, which puts $P \in V(S)$ so that
-    $V(I(V(S))) \subseteq V(S)$. Likewise, by similar reasoning we conclude that
-    $I(V(I(X)))=I(X)$.
+  Now, reversing the arguments from statement (4) gives the resulting
+  proofs for statement (5). Indeed, let $P \in X$, then for any
+  $f \in \Ic(X)$, $f(P)=0$ so that $P \in V(\Ic(X))$. This puts
+  $X \subseteq V(\Ic(X))$. Now, let $\af=\Ic(X)$. Then for any
+  $f \in \af$, $f(P)=0$ for all $P \in X$. This puts $\af \subseteq
+  \Ic(V(\af))$. Likewise for any $f \in \Ic(V(\af))$, $f(P)=0$ for
+  any $P \in V(\af)$, so that $f \in \af$, and we get the resuilting
+  equality.
 \end{proof}
-\begin{corollary}
-    If $k$ is an infinite field, then for any  $a_1, \dots, a_n \in k$, $I(a_1,
-    \dots, a_n)=(x_1-a_1, \dots, x_n-a_n)$.
-\end{corollary}
-\begin{proof}
-    Let $f \in I(a_1, \dots, a_n)$. Since $k$ is infinite, and  $f(a_1, \dots,
-    a_n)=0$,
-    \begin{equation*}
-        f(x_1, \dots, x_n)=\sum{g_i(x_1, \dots, x_n)(x_i-a_i)}
-    \end{equation*}
-    so $f \in (x_1-a_1, \dots, x_n-a_n)$. Conversely, if $f \in (x_1-a_1, \dots,
-    x_n-a_n)$, we observe that $f \in I(a_1, \dots, a_n)$.
-\end{proof}
 
-\begin{definition}
-    Let $\af$ be an ideal of a ring  $R$. We define the  \textbf{radical} of
-    $\af$
-    to be the set
-    \begin{equation*}
-        \sqrt{\af}=\{a \in R : a^n \in \af, \text{ for some } n \in \Z^+\}
-    \end{equation*}
-    We call $I$ a \textbf{radical ideal} if $I=\sqrt{I}$.
-\end{definition}
-
-\begin{proposition}\label{1.3.3}
-    Let $R$ be a ring, and $\af$ an ideal of $R$. Then $\sqrt{\af}$ is also an
-    ideal of $R$.
+\begin{proposition}
+  Let $V$ and $W$ be algebraic sets in $\A^n$. Then $V=W$ if, and only
+  if  $\Ic(V)=\Ic(W)$.
 \end{proposition}
 \begin{proof}
-    Let $a,b \in \sqrt{\af}$, then $a^m \in \af$ and $b^n \in \af$ for some $m,n
-    \in \Z^+$. Now, observe that
-    \begin{equation*}
-        (a+b)^{m+n}=a^{m+n}+\sum_{i=1}^{m+n-2}{{m+n \choose
-        i}a^{i}b^{m+n-i}}+b^{m+n}
-    \end{equation*}
-    Now, $a^{m+n}=a^ma^n \in \af$ and $b^{m+n}=b^nb^m \in \af$ by the ideal
-    properties of $\af$. Moreover, notice if $i \geq n$, then $a^ib^{m+n-i} \in
-    \af$; on the otherhand, if $m \leq m+n-i$, then $a^ib^{m-n-i} \in \af$. This
-    makes each $a^ib^{m-n-i} \in \af$, and that $(a+b)^{m+n} \in \af$. Also
-    observe that if $a^n \in \af$, then $(-a)^n=-(a^n) \in \af$. So that
-    $\sqrt{\af}$ is an additive subgroup of $R$.
-
-    Lastly, suppose that if $a \in \sqrt{R}$, and $r \in R$, then we have
-    $(ra)^n=r^na^n \in \af$ for some $n \in \Z^+$. Thus $ra \in \sqrt{\af}$. This
-    makes $\sqrt{\af}$ an ideal of $R$.
-\end{proof}
-\begin{corollary}
-    $\sqrt{\af}$ is a radical ideal of $R$.
-\end{corollary}
-\begin{proof}
-    Observe that $\sqrt{\af} \subseteq \sqrt{\sqrt{\af}}$. Now, let $a \in
-    \sqrt{\sqrt{\af}}$, then $a^n \in \sqrt{\af}$ for some $n \in \Z^+$, so that
-    $(a^n)^m=a^{mn} \in \af$ for some $m \in \Z^+$. This makes $a \in
-    \sqrt{\af}$. So $\sqrt{\sqrt{\af}} \subseteq \sqrt{\af}$. This makes
-    $\sqrt{\af}$ radical.
+  If $V=W$, then  $V \subseteq W$ so that $\Ic(W) \subseteq \Ic(V)$,
+  and $W \subseteq V$ so that $\Ic(V) \subseteq \Ic(W)$. Conversely,
+  suppose that $\Ic(V)=\Ic(W)$. Let $S$ and $T$ be sets of
+  polynomials and let $\af=(S)$ and $\bf=(T)$ such that
+  $V=V(\af)$ and $W=V(\bf)$. Then $\Ic(V(\af)) \subseteq \Ic(V(\bf))$,
+  so that $V(\Ic(V(\bf)))=V(\bf) \subseteq V(\af)=V(\Ic(V(\af)))$,
+  and $\Ic(V(\bf)) \subseteq \Ic(V(\af))$ so that $V(\Ic(\af))=
+  V(\af) \subseteq V(\bf)=V(\Ic(V(\bf)))$. That is, $V \subseteq W$
+  and $W \subseteq V$.
 \end{proof}
 
-\begin{proposition}\label{1.3.4}
-    Any prime ideal in a ring $R$ is radical.
-\end{proposition}
-\begin{proof}
-    Let $\pf$ be a prime ideal. We have that $\pf \subseteq \sqrt{\pf}$. Now, let
-    $a \in \sqrt{\pf}$. Then for some $n \in \Z^+$, we have that $a^n \in \pf$.
-    Since $\pf$ is prime, either $a \in \pf$ or $a^{n-1} \in \pf$. If $a \in
-    \pf$, we are done; otherwise we have $a^{n-1}=aa^{n-2} \in \pf$. Repeating
-    this process recursively, we obtain that $a \in \pf$, so that
-    $\pf=\sqrt{\pf}$.
-\end{proof}
+\begin{example}\label{example_10.4}
+  Let $k$ be any field unless otherwise specified.
+  \begin{enumerate}
+    \item[(1)] Let $V$ be algerbaic in $\A^n$, and let $P \in
+      \com{\A^n}{V}$, and let $W=V \cup \{P\}$. Observe that $V
+      \subseteq W$ so that $\Ic(W) \subseteq \Ic(V)$. Now, suppose the
+      reverse inclusion holds, that is for any $f \in \Ic(V)$,
+      $f(Q)=0$ for all $Q \in W$. Then $f(P)=0$. But $P \notin V$
+      which contradicts that $f$ vanishes on all $V$; indeed we have
+      implied that $V=V \cup \{P\}$. Therefore, there is a polynomial
+      $f(x_1, \dots, x_n)$ over $k$ for which $f(Q)=0$ for all $Q \in
+      V$ but $f(P) \neq 0$. Indeed, define the polynomial $g(x_1,
+      \dots, x_n)$ by
+      \begin{equation*}
+        g(x_1, \dots, x_n)=\inv{(f(P))}f(x_1, \dots, x_n)
+      \end{equation*}
+      then $g \in \Ic(V)$, and $g(P)=1$.
 
-\begin{proposition}\label{1.3.5}
-    Let $k$ be a field, then for any $X \subseteq \A^n(k)$, $I(X)$ is a radical
-    ideal.
-\end{proposition}
-\begin{proof}
-    For any $f \in I(X)$, notice that $f^n(P)=f(f^{n-1}(P))=\dots=
-    \underbrace{f(f(\dotsf(P)))}_{n\text{ times}}$
-\end{proof}
+    \item[(2)] By above, if $P_1, \dots, P_r \in \com{\A^n}{V}$. Fix
+      $j$ so $\Ic(V \cup \{P_j : i \neq j\}) \subseteq \Ic(V)$.
+      Hence there are polynomials $f_1, \dots, f_r \in \Iv(V)$ for which
+      $f_i(P_j)=0$ for all $i \neq j$ but $f_i(P_i)=1$.
 
-\begin{example}\label{example_1.8}
-    Observe that $\faktor{\R[x]}{(x^2+1)} \simeq \C$ is a field, so that
-    $(x^2+1)$ is a maximal ideal, hence a prime ideal, and hence, a radical
-    ideal. Observe also that $V(x^2+1)=\emptyset$, so that $I(V(x^2+1))=\R[x]$.
-    Therefore, $(x^2+1)$ is not the ideal of any nonempty set of $\A^1(\R)$.
+      Now, let $P_1, P_2 \notin V$, and define:
+      \begin{equation*}
+        f(x_1, \dots, x_n)=a_1f_1(x_1, \dots, x_n)+a_2f_2(x_1, \dots,
+        x_n)
+      \end{equation*}
+      where $f_1, f_2 \in \Ic(V)$ such that $f_1(P_2)=0$ and
+      $f_1(P_1)=1$ and $f_2(P_1)=0$ and $f_2(P_2)=1$. Then
+      $f(P_1)=f_1(P_1)=1$ and $f(P_2)=f_2(P_2)=1$.
+
+    \item[(3)] Recall that the ideal $(x^2+1)$ is maximal in $\R[x]$,
+      hence it is prime and hence radical in $\R[x]$. However
+      $(x^2+1)$ is not the ideal of any set in $\A^1(\R)$, since the
+      equation $x^2-1=0$ has no real solutions.
+  \end{enumerate}
 \end{example}
 
-\begin{proposition}\label{1.3.6}
-    If $X$ and $Y$ are algebraic sets in $\A^n(k)$, then $I(X)=I(Y)$ if, and
-    only if $X=Y$.
+\begin{proposition}\label{proposition_10.2.3}
+  Let $k$ be a field, and let $\af$ an ideal in $k[x_1, \dots, x_n]$.
+  Then $V(\af)=V(\rad{\af})$ and $\rad{\af} \subseteq \Ic(V(\af))$.
 \end{proposition}
 \begin{proof}
-    If $X=Y$, then we can observe that $I(X)=I(Y)$. Conversely, suppose that
-    $I(X)=I(Y)$, and let $f \in I(X)$. Then for all $P \in X$, we have $f(P)=0$.
-    Since $I(X)=I(Y)$, we must have that $P \in Y$ so that $X \subseteq Y$. In
-    similar fashion, we get that $Y \subseteq X$.
-\end{proof}
-
-\begin{theorem}\label{1.3.7}
-    Let $k$ be a field. The ideal $(x_1-a_1, \dots, x_n-a_n)$ of
-    $k[x_1, \dots, x_n]$ is a maximal ideal of $k[x_1, \dots, x_n]$ and the
-    natural map
-    \begin{equation*}
-        k \xrightarrow{} \faktor{k[x_1, \dots, x_n]}{(x_1-a_1, \dots, x_n-a_n)}
-    \end{equation*}
-    defines an isomorphism.
-\end{theorem}
-\begin{proof}
-    Define the map $\phi:k[x_1, \dots, k_n] \xrightarrow{} k$ defined by the
-    rule $f(x_1, \dots, x_n) \xrightarrow{} f(a_1, \dots, a_n)$ where $a_1,
-    \dots, a_n \in k$. Then notice that $\ker{\phi}=(x_1-a_1, \dots ,x_n-a_n)$.
-    Now, consider $f(x_1, \dots, x_n)=1+0x_1+\dots+0x_n \in k[x_1, \dots, x_n]$.
-    Then $f(a_1,\dots,a_n)=1+0a_1+\dots+0a_n=1 \in \phi(k[x_1, \dots, x_n])$. So
-    that $\phi$ is onto. By the first isomorphism theorem for ring
-    homomorphisms, we get
-    \begin{equation*}
-        \faktor{k[x_1, \dots, x_n]}{(x_1-a_1, \dots, x_n-a_n)} \simeq k
-    \end{equation*}
-    So that $(x_1-a_1, \dots, x_n-a_n)$ is a maximal ideal. Notice also that
-    $\Phi=\pi \circ \phi$ where $\pi:k \xrightarrow{}
-    \faktor{k[x_1, \dots, x_n]}{(x_1-a_1, \dots, x_n-a_n)}$ is the natural map.
-    So $\pi$ defines the isomorphism.
+  We have that $\af \subseteq \rad{\af}$, so that $V(\rad{\af})
+  \subseteq V(\af)$. Now, let $P \in V(\rad{\af})$, then for any $f
+  \in \rad{\af}$, $f(P)=0$. By definition, for some $n \in \Z^+$, $f^n
+  \in \af$. Let $g=f^n$. Since  $f(P)=0$ then $(f(P))^n=g(P)=0$ so
+  that $P \in V(\af)$. Indeed, this also shows that if $f \in
+  \rad{\af}$, then $f \in \Ic(V(\af))$.
 \end{proof}
