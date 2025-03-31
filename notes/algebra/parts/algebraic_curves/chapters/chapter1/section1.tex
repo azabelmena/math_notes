@@ -192,19 +192,14 @@
        point-set, and hence it must be algebraic. Therefore every
        element of $\A^n(\F_q)$ is algebraic.
 
-     \item[(4)] Consider $\Q[x]$, and for any $n \in \Z^+$ let $a_n
-       \in \Q$ and take $f_n(x)=x-a_n$. Then $V(f_n)=\{a_n\}$ so
-       $V(f_n)$ is algebraic. However
+     \item[(4)] For any $n \in \Z^+$, define $f_n(x)=x-n$ in $\Q[x]$.
+       Then $V(f_n)=\{a_n\}$ in $\A^1(\Q)$, and we get the collection
+       $\{V(f_n)\}_{n \in \Z^+}$ of algerbaic sets. However, observe
+       that
        \begin{equation*}
-         \bigcup_{n=1}^\infty{V(f_i)}=\{a_n\}_{n=1}^\infty
+         \bigcap_{n \in \Z^+}{V(f_n)}=\Z^+
        \end{equation*}
-       is not algebraic. Indeed, let $V=\bigcup_{n=1}^\infty{V(f_i)}$.
-       Then $V$ is infinite. Now suppose that $V=V(\af)$ for some
-       ideal $\af$. Since $\Q[x]$ is a P.I.D., $\af=(f)$ for some
-       polynomial of $f(x) \in \Q[x]$ $\deg{f}=n$. Then $f(x)$ has
-       at-most $n$ roots in $\Q$ so that $|V| \leq n$. This
-       contradicts that $V$ is infinite. Therefore $V$ cannot be
-       algebraic.
+       which is infinite in $\A^1(\Q)$, and hence cannot be algerbaic.
   \end{enumerate}
 \end{example}
 
@@ -225,13 +220,19 @@
 
     \item[(2)] Let $X=\{(\cos{t}, \sin{t}) \in \R^2 : t \in \R\}$.
       Take $f(x,y)=x^2+y^2-1$. Then if $f(x,y)=0$ we get $x^2+y^2=1$
-      which defines the unit circle in $\R^2$. Indeed,
+      which defines the unit circle $S^1$ in $\R^2$. Indeed,
       $X=V(x^2+y^2-1)$.
 
     \item[(3)] Let $X$ be the set of all points in $\R^2$ whose polar
-      coordinates, of the form $(r, \th)$ satisfy $r=\sin{\th}$.
-      Indeed, let $(x,y) \in X$. Then $x^2+y^2=r^2=\sin^2{\th}$.
-      Define the $f(x,y)=x^2+y^2-\sin^2{\th}$. Then $X=V(f)$.
+      coordinates of the form $(r,\th)$ satisfy $r=\sin{\th}$. Indeed,
+      let $(x,y) \in X$. Then
+      \begin{align*}
+        x^2+y^2 &= r^2 \\
+        &= r\sin{\th} \\
+        &= y \\
+      \end{align*}
+      that is: if $(x,y) \in X$ then $x^2+y^2-y=0$. Indeed define
+      $f(x,y)=x^2+y^2-y$ in $\R[x,y]$. Then $X=V(f)$.
 
     \item[(4)] Let $k$ be any field, and choose $a,b \in k$. Define
       $f(x,y)=y-(ax+b)$. Then if $f(x,y)=0$ then $y=ax+b$. Conversely,
@@ -275,12 +276,108 @@
   This makes $L \cap C=V(g)$. Since $V(g) \subseteq \A^1(k)$ and
   $\deg{g}=n$ we have that $V(g)$ contains no more than $n$ points.
 \end{proof}
+\begin{corollary}
+  If $k$ is an algebraically closed field, then $L$ intersects $C$ at
+  exactly $n$ points.
+\end{corollary}
 
 \begin{example}
-  The following sets are not algebraic.
   \begin{enumerate}
     \item[(1)] Let $C=\{(x,y) \in \R^2 : y=\sin{x}\}$. Let $L$ be the
       line defined by $f(x,y)=y-\frac{1}{2}$. Then $L \not\subseteq
-      C$, and $L$ intersects $C$ at infinitely many points.
+      C$, and $L$ intersects $C$ at infinitely many points. Hence $C$
+      is not an algebraic set in $\R^2$.
+
+    \item[(2)] Let $X=\{(z,w) \in \A^2(\C) : |z|^2+|w|^2=1\}$, and
+      suppose there were an $f(z,w) \in \C[z,w]$ for which $X=V(f)$.
+      Define $g(z) \in \C[z]$ by $g(z)=f(z,0)$. Then $g(z)$ has
+      finitely many roots, and $V(g)$ is finite in $\A^1(\C)$. Now,
+      observe the point $P=(Z,0)$ in $X$ where $|Z|^2=1$. Then
+      $g(Z)=f(Z,0)=0$ so that $Z \in V(g)$. However, letting $Z=X+iY$,
+      observe that $|Z|^2=X^2+Y^2$ so that if $Z \in V(g)$, then
+      $X^2+Y^2=1$, and so $Z \in S^1 \subseteq \A^1(\C)$. There are
+      infinitely many such $Z$ which contradicts the finiteness of
+      $V(g)$. Therefore $X$ cannot be algerbaic.
+
+    \item[(4)] Let $X=\{(z,w) \in \A^2(\C): |z|^2+|w|^2=1\}$ as
+      before. Let $z=x+iy$ and $w=u+iv$, and define
+      $f(x,y,u,v)=(x^2+y^2)+(u^2+v^2)-1$ in $\R[x,y,u,v]$. Then
+      $X=V(f)$, which makes $X$ algebraic in $\A^4(\R)$. Comparing
+      this example to the previous, observe that since $\R^2 \simeq
+      \C$, then $\A^4(\R) \simeq \A^2(\C)$. Now, $X$ is algerbaic in
+      $\A^4(\R)$ but not in $\A^2(\C)$. Hence the isomoprphism of the
+      spaces is not sufficient to determine whether a given set is
+      algerbaic in on or the other.
+
+    \item[(5)] Let $C=\{(\cos{t}, \sin{t}, t) \in \R^3 : t \in \R\}$
+      and suppose there is an $f(x,y,z) \in \R[x,y,z]$ for which
+      $C=V(f)$. Define $g(x)=f(\cos{(x+2\pi)}, \sin{(x+2\pi), x+2\pi})$
+      in $R[x]$. Then if $t \in V(g)$, we get  $g(t)=
+      f(\cos{(t+2\pi)}, \sin{(t+2\pi)}, t+2\pi)=f(\cos{t}, \sin{t},
+      t+2\pi)$ and $(\cos{t+2\pi}, \sin{t+2\pi}, t+2\pi) \in C$.
+      However there are infinitely such $t$ for which
+      $\cos{t+2\pi}=\cos{t}$ and $\sin{t+2\pi}=\sin{t}$, which
+      contradicts that $V(g)$ must be finite in $\A^1(\R)$. Therefore,
+      $C$ cannot be algebraic.
+
+    \item[(6)] Let $k$ be an algerbaically closed field, and let $f(x)
+      \in k[x]$ be a non-constant polynomial. Then $V(f)$ has finitely
+      many points in $\A^1(k)$; in fact $|V(f)|=\deg{f}$. It follows
+      that $\com{\A^1(k)}{V(f)}$ is infinite. This holds for any
+      non-constant polynomial $f(x) \in k[x]$, since $k[x]$ is a PID.
+
+      Now, let $f(x_1, \dots, x_n) \in k[x_1, \dots, x_n]$ for $n>1$.
+      Then we get
+      \begin{equation*}
+        f(x_1, \dots, x_n)=\sum_{i=1}^d{f_ix_n^i} \text{ where }
+        f_i \in k[x_1, \dots, x_{n-1}]
+      \end{equation*}
+      is a polynomial of degree $d$ in $k[x_1, \dots, x_{n-1}][x_n]$,
+      and hence has at-most $d$ roots in $\A^1(k)$. This makes $V(f)$
+      finite in $\A^1(k)$ so that $\com{\A^n(k)}{V(f)}$ is infinite.
+
+    \item[(7)] Let $k$ be an algerbaically closed field, and let
+      $f(x,y) \in k[x,y]$. Then
+      \begin{equation*}
+        f(x,y)=\sum_{i=1}^d{f_i(x)y^i}
+      \end{equation*}
+      where $f_i(x) \in k[x]$. Now, since $k$ is algebraically closed,
+      it is infinite. Hence, fix some $a \in k$, then
+      \begin{equation*}
+        f(a,y)=\sum_{i=1}^d{f_i(a)y^i}
+      \end{equation*}
+      and $f(a,y) \in k[y]$ has exacly $d$ roots in $k$. However, this
+      holds for infinitely many $a \in k$ so that $f(x,y)$ must have
+      innfinitely many roots in $k$. Hence $V(f)$ must be infinite in
+      $\A^2(k)$. Indeed, observe that for any $n>2$ and $f(x_1, \dots,
+      x_n) \in k[x_1, \dots, x_n]$ that $V(f)$ is infinite in
+      $\A^n(k)$. We get
+      \begin{equation*}
+        f(x_1, \dots, x_n)=\sum{f_ix^{d_1}y^{d_2}}
+      \end{equation*}
+      where $f_i \in k[x_1, \dots, x_{n-2}]$ and $x=x_{n-1}$. Fixing
+      $P \in \A^{n-2}(k)$, we get $f(P,x,y) \in k[x,y]$ must have
+      infinitely many roots, for infinitely many points $P$.
+
+    \item[(8)] Let $S \subseteq k[x_1, \dots, x_n]$, and let $\af=(S)$
+      the ideal generated by $S$. Then foor any $f \in S$ the ideal
+      $(f) \subseteq \af$ so $V(\af) \subseteq V(f)$ and
+      $\com{\A^n(k)}{V(f)}$ is infinite. But $\com{\A^n(k)}{V(f)}
+      \subseteq \com{\A^n(k)}{V(\af)}$. Therefore, the complement of
+      any algerbaic set in $\A^n(k)$ is infinite.
   \end{enumerate}
 \end{example}
+
+\begin{defintion}
+  Let $k$ be a field, and $V \subseteq \A^m(k)$ and $W \subseteq
+  \A^n(k)$. We define the \textbf{product} of $V$ and $W$ to be the
+  set $VW \subseteq \A^{m+n}(k)$ by:
+  \begin{equation*}
+    VW=\{(P,Q) : P \in \A^m(k) \text{ and } Q \in \A^n(k)\}
+  \end{equation*}
+\end{defintion}
+
+\begin{proposition}\label{proposition_10.1.4}
+  If $V \subseteq \A^m$ and $W \subseteq \A^n$ are algerbaic sets,
+  then the product $VW$ is algebraic in $\A^{m+n}$.
+\end{proposition}
