@@ -67,26 +67,28 @@
       $a=y^2$ so that $f(x,y)=x^2(x-1)^2+a$. Let $z=x(x-1)$, then
       $f(x,y)=z^2+a$ which is irreducible in $\R[z]$, and hence must
       also be irreducible over $\R[x]$. Therefore $f(x,y)$ is
-      irreducible in $\R[x,y]$.
+      irreducible in $\R[x,y]$. However, notice that the only points
+      in $V(y^2+x^2(x-1)^2)$ are the points $(0,0)$ and $(1,0)$. This
+      makes $V(y^2+x^2(x-1)^2)$ reducible in $\A^2(\R)$
 
-      However, $f(x,y)=y^2-x^2(x-1)^2$ is not prime in $\R[x,y]$.
-      Indeed, over $\C[x,y]$, $f(x,y)=(x^2-x-iy)(x^2-x+iy)$ so that
-      $(x^2-x-iy)(x^2-x+iy) \in (f)$ but $(x^2-x \pm iy) \notin (f)$.
-      That is $V(y^2+x^2(x-1)^2)$ is reducible in $\R[x,y]$. Indeed:
+    \item[(5)] Let $f(x,y)=y^2+x^2(x-1)^2$ in $\C[x,y]$. Observe that
       \begin{equation*}
-        V(y^2+x^2(x-1)^2)=\{(0,0)\} \cup \{(1,0)\}
+        f(x,y)=(x^2-x-iy)(x^2-x+iy)
       \end{equation*}
-      in $\R^2$ and
+      so that $V(y^2+x^2(x-1)^2)$ is also reducible in $\C[x,y]$, and:
       \begin{equation*}
         V(y^2+x^2(x-1)^2)=V(x^2-x-iy) \cup V(x^2-x+iy)
       \end{equation*}
-      in $\A^1(\C)$.
+      Now, the componennts $V(x^2-x-iy)$ and $V(x^2-x+iy)$ are
+      irreducible components, since $x^2-x \pm y$ is irreducible over
+       $\C$, and $(x^2-x-iy)$ and $(x^2-x+iy)$ are prime ideals in
+       $\C[x,y]$ (since $\C$ is algebraically closed).
 
-    \item[(5)] Let $k$ be an infinite field. Then $\A^n(k)=(0)$ which
+    \item[(6)] Let $k$ be an infinite field. Then $\A^n(k)=(0)$ which
       is prime in $k[x_1, \dots, x_n]$ since $k[x_1, \dots, x_n]$ is
       an integral domain. This makes $\A^n(k)$ irreducible.
 
-    \item[(6)] For any finite field $\F_q$,  $\A^n(\F_q)$ is
+    \item[(7)] For any finite field $\F_q$,  $\A^n(\F_q)$ is
       reducible. Indeed, $\A^n(\F_q)$ is the finite disjoint union of
       $q$ points. Similarly, any algebraic set of $\F_q$ must also be
       reducible.
