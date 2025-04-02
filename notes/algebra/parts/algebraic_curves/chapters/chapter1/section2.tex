@@ -1,4 +1,4 @@
-\section{Ideals of Algebraic Sets}\label{section_1.2}
+\section{Ideals of Algebraic Sets}\label{section_10.2}
 
 \begin{definition}
   Let $k$ be a field. We define the  \textbf{ideal} of a set $X
@@ -130,7 +130,7 @@
     \item[(3)] Recall that the ideal $(x^2+1)$ is maximal in $\R[x]$,
       hence it is prime and hence radical in $\R[x]$. However
       $(x^2+1)$ is not the ideal of any set in $\A^1(\R)$, since the
-      equation $x^2-1=0$ has no real solutions.
+      equation $x^2+1=0$ has no real solutions.
   \end{enumerate}
 \end{example}
 
@@ -140,9 +140,9 @@
 \end{proposition}
 \begin{proof}
   We have that $\af \subseteq \rad{\af}$, so that $V(\rad{\af})
-  \subseteq V(\af)$. Now, let $P \in V(\rad{\af})$, then for any $f
-  \in \rad{\af}$, $f(P)=0$. By definition, for some $n \in \Z^+$, $f^n
-  \in \af$. Let $g=f^n$. Since  $f(P)=0$ then $(f(P))^n=g(P)=0$ so
-  that $P \in V(\af)$. Indeed, this also shows that if $f \in
-  \rad{\af}$, then $f \in \Ic(V(\af))$.
+  \subseteq V(\af)$.  Now, let $P \in V(\af)$, then for any $f \in
+  \rad{\af}$, $g=f^n \in \af$ for some $n \in \Z^+$. Then
+  $g(P)=(f(P))^n=0$, so that $f(P)=0$ which puts
+  $P \in V(\rad{\af})$. Indeed, this also puts $\rad{\af}
+  \subseteq \Ic(V(\af))$.
 \end{proof}

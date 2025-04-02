@@ -1,172 +1,164 @@
-\section{Irreducible Components}\label{section_1.5}
+\section{Irreducible Components}\label{section_10.3}
 
 \begin{definition}
-    Let $k$ be a field. We call an algebraic set $X \subseteq \A^n(k)$
-    \textbf{reducible} if it can be written as the union of two algebraic sets;
-    that is, there exist $X_1,X_2 \subseteq \A^n(k)$ such that $X=X_1 \cup X_2$.
-    We call an algebraic set \textbf{irreducible} if it is not reducible.
+  Let $k$ be a field. We call an algebraic set $X \subseteq \A^n(k)$
+  \textbf{reducible} if it can be written as the union of two algebraic sets;
+  that is, there exist $X_1,X_2 \subseteq \A^n(k)$ such that $X=X_1 \cup X_2$.
+  We call an algebraic set \textbf{irreducible} if it is not reducible.
 \end{definition}
 
-\begin{example}\label{example_1.11}
-    \begin{enumerate}
-        \item[(1)] The algebraic sets defined by the equations $y^2=x^3-x$,
-            $y^2=x^3+x^2$, and $z^2=x^2+y^2$ in $\A^2(\R)$ and $\A^3(\R)$,
-            respecively, are irreducible.
-
-        \item[(2)] The algebraic set described by the equation
-            $y^2-xy-x^2y+x^2=0$ is reducible in $\A^2(\R)$.
-    \end{enumerate}
-\end{example}
-
-\begin{proposition}\label{1.5.1}
-    An algebraic set is irreducible if, and only if its ideal is prime.
+\begin{proposition}\label{proposition_10.3.1}
+  An algebraic set is irreducible if, and only if its ideal is prime.
 \end{proposition}
 \begin{proof}
-    Let $k$ be a field, and  $X \subseteq \A^n(k)$. Suppose that the ideal
-    $I(X)$ is not prime. Let $f_1f_2 \in I(X)$, but $f_1,f_2 \not\in I(X)$.
-    Then
-    \begin{equation*}
-        X=(X \cap V(f_1)) \cup (X \cap V(f_2))
-    \end{equation*}
-    and $X \cap V(f_1) \subseteq X$ and $X \cap V(f_2) \subseteq X$. This makes
-    $X$ reducible, by definition.
+  Let $X \subseteq \A^n$. Suppose that the ideal $I(X)$ is not prime.
+  Let $f_1f_2 \in I(X)$, but $f_1,f_2 \not\in I(X)$. Then:
+  \begin{equation*}
+    X=(X \cap V(f_1)) \cup (X \cap V(f_2))
+  \end{equation*}
+  and $X \cap V(f_1) \subseteq X$ and $X \cap V(f_2) \subseteq X$. This makes
+  $X$ reducible, by definition.
 
-    Conversely, suppose that $X$ is reducible, and that $X=X_1 \cup X_2$ for
-    $X_1, X_2 \subseteq \A^n(k)$. Then $I(X) \subseteq I(X_1)$ and $I(X)
-    \subseteq I(X_2)$. Let $f_1 \in I(X_1)$ and $f_2 \in I(X_2)$, but $f_1,f_2
-    \not\in I(X)$. Then $f_1f_2 \in I(X)$, but $f_1,f_2 \not\in I(X)$, so that
-    $I(X)$ is not prime.
+  Conversely, suppose that $X$ is reducible, and that $X=X_1 \cup X_2$ for
+  $X_1, X_2 \subseteq \A^n(k)$. Then $I(X) \subseteq I(X_1)$ and $I(X)
+  \subseteq I(X_2)$. Let $f_1 \in I(X_1)$ and $f_2 \in I(X_2)$, but $f_1,f_2
+  \not\in I(X)$. Then $f_1f_2 \in I(X)$, but $f_1,f_2 \not\in I(X)$, so that
+  $I(X)$ is not prime.
 \end{proof}
 
-\begin{example}\label{example_1.12}
-    \begin{enumerate}
-        \item[(1)] Consider the polynomial $f(z,w)=w-z^2$ in $\C[z,w]$, and let
-            $g \in I(V(f))$. Then for every point $P \in V(f)$, $g(P)=0$.
-            Moreover, by the division theorem for polynomials, there
-            are polynomials $q,r \in
-            (\C[z])[w]$ for which
-            \begin{equation*}
-                g(z,w)=f(z,w)q(z,w)+r(z,w) \text{ where } r=0 \text{ or }
-                \deg_w{r} < \deg_w{f}
-            \end{equation*}
-            Notice that the degree of $r$ in  $w$,  $\deg_w{r}=0$ so that $r \in
-            \C[z]$. Now, since $g(P)=f(P)q(P)+r(P)=r(P)=0$, and $r$ is a
-            polynomial only in $z$, then $r(z,w)=r(z)=0$. That is
-            $g(z,w)=f(z,w)q(z,w)$ so that $g \in (f)$. This makes $I(V(f))=(f)$.
-            Lastly, notice that $\faktor{\C[z,w]}{(f)} \simeq \C[z]$ which is an
-            integral domain. This makes $(f)$ a prime ideal, and hence the
-            algebraic set $V(w-z^2)$ is irreducible.
+\begin{example}\label{example_10.5}
+  \begin{enumerate}
+    \item[(1)] The algerbraic set $V(y-x^2)$ is irreducible in
+      $\A^2(\C)$. Let $\phi$ be the homomorphism from $\C[x,y]$ onto
+      $\C[x]$ defined by the rules:
+      \begin{align*}
+        x & \xrightarrow{} x \\
+        y & \xrightarrow{} y^2 \\
+      \end{align*}
+      then $\ker{\phi}=(x-y^2)$ and by the first isomoprhism theorem
+      we get
+      \begin{equation*}
+        \faktor{\C[x,y]}{(y-x^2)} \simeq \C[x]
+      \end{equation*}
+      which makes $(y-x^2)$ a prime ideal. Indeed,
+      $\Ic((V(y-x^2)))=(y-x^2)$.
 
-        \item[(2)] Let $f(z,w)=w^4-z^2$ and $g(z,w)=w^4-z^2w^2+zw^2-z^2$. Then
-            observe that
-            \begin{align*}
-                V(f,g)  &= V(f) \cap V(g) \\
-                        &=  (V(w^2-z) \cup V(w^2+z)) \cap
-                                (V(w+z) \cup V(w-z) \cup V(w^2+z)) \\
-                        &= V(w^2+z) \\
-            \end{align*}
+    \item[(3)] The set $V(y^4-x^2, y^4-x^2y^2+xy^2-x^3)$ is reducible
+      in $\A^2(\C)$. We have
+      \begin{equation*}
+        V(y^4-x^2, y^4-x^2y^2+xy^2-x^3)=
+        V(y^4-x^2) \cap V(y^4-x^2y^2+xy^2-x^3)
+      \end{equation*}
+      Now, $y^4-x^2=(y^2-x)(y^2+x)$ and $y^4-x^2y^2+xy^2-x^3=
+      y^2(y^2-x^2)+x(y^2-x^2)=(y^2+x)(y^2-x^2)=(y^2+x)(y-x)(y+x)$. So
+      \begin{equation*}
+        V(y^4-x^2, y^4-x^2y^2+xy^2-x^3)=
+        V(y^2-x) \cup V(y^2+X) \cup V(y-x) \cup V(y-x)
+      \end{equation*}
+      Observe also that eaach of these components are irreducible.
 
-        \item[(3)] Consider the polynomial $f(x,y)=y^2+x^2(x-1)^2$. $f$ factors
-            into
-            \begin{equation*}
-                f(x,y)=(x^2-x-iy)(x^2-x+iy)
-            \end{equation*}
-            in $\C[x,y]$, where $i^2=-1$. This makes $f$ irreducible in $\R[x,y]$.
-            However, notice that $f(x,y)=0$ only at the points $(1,0)$ and
-            $(0,0)$, so that $|V(f)|=2$. This makes $V(f)$ reducible as an
-            algebraic set in $\A^2(\R)$.
-    \end{enumerate}
+    \item[(4)] We recall that an irreducible element in an integral
+      domain need not be prime. Indeed, $\R[x,y]$ is not a PID, so
+      proposition \ref{proposition_6.3.2} fails to hold.
+
+      Let $f(x,y)=y^2+x^2(x-1)^2$ in $\R[x,y]$. Viewing $f(x,y)$ as a
+      polynomial in $y$, set $x^2(x-1)^2=a$, then $f(x,y)=y^2+a$ has
+      no real roots, and so is irreducible in $\R[y]$. Now, set
+      $a=y^2$ so that $f(x,y)=x^2(x-1)^2+a$. Let $z=x(x-1)$, then
+      $f(x,y)=z^2+a$ which is irreducible in $\R[z]$, and hence must
+      also be irreducible over $\R[x]$. Therefore $f(x,y)$ is
+      irreducible in $\R[x,y]$.
+
+      However, $f(x,y)=y^2-x^2(x-1)^2$ is not prime in $\R[x,y]$.
+      Indeed, over $\C[x,y]$, $f(x,y)=(x^2-x-iy)(x^2-x+iy)$ so that
+      $(x^2-x-iy)(x^2-x+iy) \in (f)$ but $(x^2-x \pm iy) \notin (f)$.
+      That is $V(y^2+x^2(x-1)^2)$ is reducible in $\R[x,y]$. Indeed:
+      \begin{equation*}
+        V(y^2+x^2(x-1)^2)=\{(0,0)\} \cup \{(1,0)\}
+      \end{equation*}
+      in $\R^2$ and
+      \begin{equation*}
+        V(y^2+x^2(x-1)^2)=V(x^2-x-iy) \cup V(x^2-x+iy)
+      \end{equation*}
+      in $\A^1(\C)$.
+
+    \item[(5)] Let $k$ be an infinite field. Then $\A^n(k)=(0)$ which
+      is prime in $k[x_1, \dots, x_n]$ since $k[x_1, \dots, x_n]$ is
+      an integral domain. This makes $\A^n(k)$ irreducible.
+
+    \item[(6)] For any finite field $\F_q$,  $\A^n(\F_q)$ is
+      reducible. Indeed, $\A^n(\F_q)$ is the finite disjoint union of
+      $q$ points. Similarly, any algebraic set of $\F_q$ must also be
+      reducible.
+  \end{enumerate}
 \end{example}
 
-\begin{example}\label{example_1.13}
-    \begin{enumerate}
-        \item[(1)] Let $k$ be a finite field. Then very subset of $\A^n(k)$ is
-            an algebraic set, and so we can partition $\A^n(k)=X \cup Y$, where
-            $X$ and $Y$ are algebraic, and  $X \neq \A^n(k)$ and $Y \neq
-            \A^n(k)$. This makes $\A^n(k)$ reducible. One can also observe that
-            the ideal $(0)$ is not prime in $k[x_1, \dots, x_n]$ for finite
-            fields.
-
-        \item[(2)] Now, suppose that $k$ is an infinite field. Then the ideal
-            $(0)$ is prime in $k[x_1, \dots, x_n]$, so that $I(\A^n(k))=(0)$ is
-            prime. This makes $\A^n(k)$ irreducible.
-    \end{enumerate}
-\end{example}
-
-\begin{proposition}\label{1.5.2}
-    Any collection of algebraic sets has a minimal member.
+\begin{proposition}\label{proposition_10.3.2}
+  Any non-empty collection of algebraic sets has a minimal member.
 \end{proposition}
 \begin{proof}
-    If $\{X_\a\}$ is a collection of algebraic sets in $\A^n$, then by theorem
-    \ref{1.4.2} the collection of ideals $\{I(X_\a)\}$ has a maximal member.
-    Choose such a maximal member $I(X_{\a_0})$, then the corresponding algebraic
-    set $X_{\a_0}$ is a minimal member of the collection $\{X_\a\}$.
+  Let $k$ be the underlying field, and let $\{X_\a\}$ be a non-empty
+  collection of algerbaic sets in $\A^n$, ordered by inclusion. then
+  the collections of ideals $\{\Ic(X_\a)\}$ is ordered under the
+  reverse inclusion by proposition \ref{proposition_10.2.1}. Now
+  since $k[x_1, \dots, x_n]$ is a Noetherian ring, and $\{\Ic(X_\a)\}$
+  is non-empty, then by theorem \ref{theorem_5.9.2} $\{\Ic(X_\a)\}$
+  has a maximal member. Therefore, $\{X_\a\}$ must have a minimal
+  member.
 \end{proof}
 
-\begin{theorem}\label{1.5.3}
-    Any algebraic set can be uniquely expressed as the disjoint union of
-    irreducible algebraic sets. That is; for any algebraic set $X \subseteq
-    \A^n$, there exist unique pairwise disjoint $X_1, \dots, X_m \subseteq \A^n$
-    for which
-    \begin{equation*}
-        X=X_1 \cup \dots \cup X_m
-    \end{equation*}
+\begin{theorem}\label{theorem_10.3.3}
+  Any algebraic set can be uniquely expressed as the disjoint union of
+  irreducible algebraic sets.
 \end{theorem}
 \begin{proof}
-    We first show that such a decomposition exists for every algebraic set in
-    $\A^n$. Let  $\Sc$ be the collection of all algebraic sets which cannot be
-    expressed as a (not necessarily disjoint) union of (not necessarily unique)
-    irreducible algebraic sets. Let $X$ be a minimal element of $\Sc$. Then
-    $X$ is not irreducible. Hence there exist $X_1, X_2 \subseteq \A^n$ for
-    which $X=X_1 \cup X_2$; suppose further that $X_1,X_2 \subseteq X$. By the
-    minimality of $X$,  $X_1, X_2 \not\in \Sc$, so that
-    \begin{equation*}
-        X_i=\bigcup_{j=1}^{m_i}{X_{ij}}
-    \end{equation*}
-    where each $X_{ij}$ is irreducible. This makes
-    \begin{equation*}
-        X=\bigcup_{i=1,j=1}^{m,m_i}{X_{ij}}
-    \end{equation*}
-    which contradicts that $X \in \Sc$. Therefore $\Sc$ must be empty, and every
-    algebraic set can be expressed as the union of irreducible algebraic sets.
+  We first show that such a decomposition exists for every algebraic set in
+  $\A^n$. Let  $\Sc$ be the collection of all algebraic sets which cannot be
+  expressed as a (not necessarily disjoint) union of (not necessarily unique)
+  irreducible algebraic sets. Let $X$ be a minimal element of $\Sc$. Then
+  $X$ is not irreducible. Hence there exist $X_1, X_2 \subseteq \A^n$ for
+  which $X=X_1 \cup X_2$; suppose further that $X_1,X_2 \subseteq X$. By the
+  minimality of $X$,  $X_1, X_2 \not\in \Sc$, so that
+  \begin{equation*}
+    X_i=\bigcup_{j=1}^{m_i}{X_{ij}}
+  \end{equation*}
+  where each $X_{ij}$ is irreducible. This makes
+  \begin{equation*}
+    X=\bigcup_{i=1,j=1}^{m,m_i}{X_{ij}}
+  \end{equation*}
+  which contradicts that $X \in \Sc$. Therefore $\Sc$ must be empty, and every
+  algebraic set can be expressed as the union of irreducible algebraic sets.
 
-    Now, take  $X=X_1 \cup \dots X_m$, where each $X_i$ is irreducible, and
-    discard all those $X_i$ for which  $X_i \subseteq X_j$ for all $i \neq j$.
-    This makes $X$ a disjoint union. Now, suppose that  $X=Y_1 \cup \dots Y_r$.
-    Then
-    \begin{equation*}
-        X_i=\bigcup_{j=1}^r{(Y_j \cap X_i)}
-    \end{equation*}
-    so that $X_i \subseteq Y_j$ for some $j$. Similarly, we get that  $Y_j
-    \subseteq X_k$ for some $k$. Thus $X_i \subseteq X_k$, but since $X$ is
-    already a disjoint union, this makes  $i=k$ so that $X_i=Y_j$ and $m=r$.
-    Thus the decomposition of $X$ into mutually disjoint irreducible algebraic
-    sets is unique.
+  Now, take  $X=X_1 \cup \dots X_m$, where each $X_i$ is irreducible, and
+  discard all those $X_i$ for which  $X_i \subseteq X_j$ for all $i \neq j$.
+  This makes $X$ a disjoint union. Now, suppose that  $X=Y_1 \cup \dots Y_r$.
+  Then
+  \begin{equation*}
+    X_i=\bigcup_{j=1}^r{(Y_j \cap X_i)}
+  \end{equation*}
+  so that $X_i \subseteq Y_j$ for some $j$. Similarly, we get that  $Y_j
+  \subseteq X_k$ for some $k$. Thus $X_i \subseteq X_k$, but since $X$ is
+  already a disjoint union, this makes  $i=k$ so that $X_i=Y_j$ and $m=r$.
+  Thus the decomposition of $X$ into mutually disjoint irreducible algebraic
+  sets is unique.
 \end{proof}
 \begin{corollary}
-    If $X,Y \in \A^n$ are algebraic such that $X \subseteq Y$, then each
-    irreducible component of $X$ is contained in an irreducible component of
-    $Y$.
+  If $X,Y \in \A^n$ are algebraic such that $X \subseteq Y$, then each
+  irreducible component of $X$ is contained in an irreducible component of
+  $Y$.
 \end{corollary}
 \begin{proof}
-    Let
-    \begin{align*}
-        X   &= \bigcup_{i=1}^m{X_i} \\
-        Y   &= \bigcup_{j=1}^n{Y_j} \\
-    \end{align*}
-    where $X_i$ and $Y_j$ are the irreducible components of  $X$ and  $Y$,
-    respectively for all  $1 \leq i \leq m$ and $1 \leq j \leq n$. Now, consider
-    the collection $\Sc$ of all irreducible components of $X$ not contained in
-    an irreducible component of $Y$ Then $\Sc$ has a minimal member  $X'$, such
-    that for every $1 \leq j \leq n$, $X' \not\subseteq Y_j$, then $X'
-    \not\subseteq Y$. Now, since $X'$ is an irreducible component, we get  $X'
-    \subseteq X \subseteq Y$, which is a contradicion. This makes $\Sc$ the
-    emptyset.
+  Let
+  \begin{equation*}
+    X=\bigcup_{i=1}^r{X_j} \text{ and } Y=\bigcup_{j=1}^l{Y_j}
+  \end{equation*}
+  the decompositions of $X$ and $Y$ where $\{X_i\}_{i=1}^r$ and
+  $\{Y_j\}_{j=1}^l$ are the irreducible components of $X$ and $Y$,
+  resepectivel and where  $X \subseteq Y$. Let $\Sc$ the collection of
+  all irreducible components of  $X$ not contained in an irreducible
+  component of $Y$. Then by proposition \ref{proposition_10.3.2},
+  $\Sc$ has a minimal member $X'$. Then $X' \not\subseteq Y_j$ for any
+  $1 \leq j \leq l$, so $X \not\subseteq Y$. But $X' \subseteq X
+  \subseteq Y$ which contradicts the assumption. Therefore no such
+  $X'$ exists and $\Sc$ must be empty.
 \end{proof}
-
-\begin{definition}
-    Let $k$ be a field, and $X \subseteq \A^n(k)$ an algebraic set. Let $X=X_1
-    \cup \dots X_m$ the decomposition of $X$ into the union of pairwise disjoint
-    irreducible algebraic sets. We call each $X_i$ an \textbf{irreducible
-    component} of $X$.
-\end{definition}
