@@ -1,12 +1,45 @@
 \section{Categories and Functors}\label{section_1.1}
 
 \begin{definition}
-  A \textbf{category} $\Cc$ is a collection of \textbf{objects},
-  denoted $\obj{\Cc}$ together with a collection of sets of
-  \textbf{morphisms} between pairs of objects, denoted $\Mor{\Cc}$,
-  such that the following data is satisfied:
+  A \textit{category} $\Cc$ is a collection of \textit{objects},
+  denoted $\obk{\Cc}$ together with a collection of sets
+  between pairs objects, denoted $\Mor{(a,b)}$ given $a,b \in
+  \obj{\Cc}$, such that the following data is given:
   \begin{enumerate}
-    \item[(1)] For any objects $A,B,C \in \obj{\Cc}$, and
-      $\Mor{(A,B)}, \Mor{(B,C)}, \Mor{(A,C)} \in \Mor{\Cc}$
+    \item[(1)] For any objects $a,b,c \in \obj{\Cc}$, there exist
+      \textit{composition maps}
+      \begin{equation*}
+        \circ:\Mor{(b,c)} \times \Mor{(a,b)} \xrightarrow{} \Mor{(a,c)}
+      \end{equation*}
+      associating to each pair of
+      morphisms $(g,f)$ a morphism $g \circ f$, called the
+      \textit{composition} of the morphism $g$ with the morphism $f$.
+
+    \item[(2)] For any objects $a,b,c,d \in \obj{\Cc}$, and for any
+      morphisms $f \in \Mor{(a,b)}$, $g \in \Mor{(b,c)}$, and $h \in
+      \Mor{(c,d)}$, the compositions between morphisms associate
+      wherever they exist. That is:
+      \begin{equation*}
+        h \circ (g \circ f)=(h \circ g) \circ f
+      \end{equation*}
+      whenever either $h \circ (g \circ f)$ or $(h \circ g) \circ f$
+      exists as a morphism in $\Cc$.
+
+    \item[(3)] For any object $a \in \obj{\Cc}$, there is a morphism
+      $\id_a \in \Mor{(a,a)}$, called the \textit{identity morphism},
+      such that for any objects $b,c \in \obj{\Cc}$ and morphisms $f
+      \in \Mor{(a,b)}$ and $g \in \Mor{(c,a)}$ the following holds:
+      \begin{equation*}
+        f \circ \id_a=f \text{ and } \id_a \circ g=g
+      \end{equation*}
   \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  Let $\Cc$ be a category. We call objects $a,b \in \Cc$
+  \textit{isomorphic} provided there exists morphisms $f \in
+  \Mor{(a,b)}$ and $g \in \Mor{b,a}$ such that:
+  \begin{equation*}
+    g \circ f=\id_a \text{ and } f \circ g=\id_b
+  \end{equation*}
 \end{definition}
