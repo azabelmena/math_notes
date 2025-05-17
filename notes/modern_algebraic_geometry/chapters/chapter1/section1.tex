@@ -2,9 +2,10 @@
 
 \begin{definition}
   A \textit{category} $\Cc$ is a collection of \textit{objects},
-  denoted $\obk{\Cc}$ together with a collection of sets
-  between pairs objects, denoted $\Mor{(a,b)}$ given $a,b \in
-  \obj{\Cc}$, such that the following data is given:
+  denoted $\obj{\Cc}$ together with a collection of sets of
+  \textit{morphisms} between pairs objects, each denoted by
+  $\Mor{(a,b)}$ for any pair $a,b \in \obj{\Cc}$, such that the
+  following data is given:
   \begin{enumerate}
     \item[(1)] For any objects $a,b,c \in \obj{\Cc}$, there exist
       \textit{composition maps}
@@ -42,12 +43,15 @@
 \end{definition}
 
 \begin{definition}
-  Let $\Cc$ be a category. We call objects $a,b \in \Cc$
-  \textit{isomorphic} provided there exists morphisms $f \in
-  \Mor{(a,b)}$ and $g \in \Mor{(b,a)}$ such that:
+  Let $\Cc$ be a category, and let $a,b \in \obj{\Cc}$ be objects. We
+  call a morphism $f:a \xrightarrow{} b$ an \textit{isomorphism}
+  between $a$ and $b$ provided there exists a morphism $g:b
+  \xrightarrow{} a$ such that:
   \begin{equation*}
     g \circ f=\id_a \text{ and } f \circ g=\id_b
   \end{equation*}
+  If such an isomorphism exists between $a$ and $b$, then we call $a$
+  and $b$ \textit{isomorphic}.
 \end{definition}
 
 \begin{lemma}\label{lemma_1.1.1}
