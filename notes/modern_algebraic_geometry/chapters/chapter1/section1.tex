@@ -1,13 +1,13 @@
 \section{Categories and Functors}\label{section_1.1}
 
 \begin{definition}
-  A \textit{category} $\Cc$ is a collection of \textit{objects},
-  denoted $\obj{\Cc}$ together with a collection of sets of
+  A \textit{category} $\Cs$ is a collection of \textit{objects},
+  denoted $\obj{\Cs}$ together with a collection of sets of
   \textit{morphisms} between pairs objects, each denoted by
-  $\Mor{(a,b)}$ for any pair $a,b \in \obj{\Cc}$, such that the
+  $\Mor{(a,b)}$ for any pair $a,b \in \obj{\Cs}$, such that the
   following data is given:
   \begin{enumerate}
-    \item[(1)] For any objects $a,b,c \in \obj{\Cc}$, there exist
+    \item[(1)] For any objects $a,b,c \in \obj{\Cs}$, there exist
       \textit{composition maps}
       \begin{equation*}
         \circ:\Mor{(b,c)} \times \Mor{(a,b)} \xrightarrow{} \Mor{(a,c)}
@@ -16,7 +16,7 @@
       morphisms $(g,f)$ a morphism $g \circ f$, called the
       \textit{composition} of the morphism $g$ with the morphism $f$.
 
-    \item[(2)] For any objects $a,b,c,d \in \obj{\Cc}$, and for any
+    \item[(2)] For any objects $a,b,c,d \in \obj{\Cs}$, and for any
       morphisms $f \in \Mor{(a,b)}$, $g \in \Mor{(b,c)}$, and $h \in
       \Mor{(c,d)}$, the compositions between morphisms associate
       wherever they exist. That is:
@@ -24,26 +24,26 @@
         h \circ (g \circ f)=(h \circ g) \circ f
       \end{equation*}
       whenever either $h \circ (g \circ f)$ or $(h \circ g) \circ f$
-      exists as a morphism in $\Cc$.
+      exists as a morphism in $\Cs$.
 
-    \item[(3)] For any object $a \in \obj{\Cc}$, there is a morphism
+    \item[(3)] For any object $a \in \obj{\Cs}$, there is a morphism
       $\id_a \in \Mor{(a,a)}$, called the \textit{identity morphism},
-      such that for any objects $b,c \in \obj{\Cc}$ and morphisms $f
+      such that for any objects $b,c \in \obj{\Cs}$ and morphisms $f
       \in \Mor{(a,b)}$ and $g \in \Mor{(c,a)}$ the following holds:
       \begin{equation*}
         f \circ \id_a=f \text{ and } \id_a \circ g=g
       \end{equation*}
   \end{enumerate}
   We usually denote the collection of objects of the category
-  $\Cc$ by $\Cc$ itself, instead of $\obj{\Cc}$. Given objects
-  $a,b \in \Cc$, we can denote a morphism $f$ between $a$ and $b$
+  $\Cs$ by $\Cs$ itself, instead of $\obj{\Cs}$. Given objects
+  $a,b \in \Cs$, we can denote a morphism $f$ between $a$ and $b$
   by $f:a \xrightarrow{} b$ instead of $f \in \Mor{(a,b)}$. We
-  denote the collection of all morphisms of the category $\Cc$ by
-  $\Mor{\Cc}$.
+  denote the collection of all morphisms of the category $\Cs$ by
+  $\Mor{\Cs}$.
 \end{definition}
 
 \begin{definition}
-  Let $\Cc$ be a category, and let $a,b \in \obj{\Cc}$ be objects. We
+  Let $\Cs$ be a category, and let $a,b \in \obj{\Cs}$ be objects. We
   call a morphism $f:a \xrightarrow{} b$ an \textit{isomorphism}
   between $a$ and $b$ provided there exists a morphism $g:b
   \xrightarrow{} a$ such that:
@@ -55,7 +55,7 @@
 \end{definition}
 
 \begin{lemma}\label{lemma_1.1.1}
-  Let $\Cc$ be a category, and let $a,b \in \Cc$ be objects. If $f:a
+  Let $\Cs$ be a category, and let $a,b \in \Cs$ be objects. If $f:a
   \xrightarrow{} b$ is an isomorphism, then there exists a unique
   morphism $g:b \xrightarrow{} a$ such that:
   \begin{equation*}
@@ -66,11 +66,11 @@
 
 \begin{example}\label{example_1.1}
   \begin{enumerate}
-    \item[(1)] Consider the collection $\Cc$ whose objects are defined
+    \item[(1)] Consider the collection $\Cs$ whose objects are defined
       to be sets, and whose moprhisms are defined to be functions
-      between sets. That is, any set $A$ is an object of $\Cc$ and
+      between sets. That is, any set $A$ is an object of $\Cs$ and
       given any sets $A$ and $B$, a function $f:A \xrightarrow{} B$ is
-      a morphism of $\Cc$. Define the composition of morphisms,
+      a morphism of $\Cs$. Define the composition of morphisms,
       $\circ$, to be the usual function composition of functions
       between sets. Then such compositions are guaranteed to exist,
       moreover they are associative. Indeed, let $A,B,C,D$ be sets
@@ -90,7 +90,7 @@
         f \circ \id_A(x)=f(\id_A(x))=f(x) \text{ and }
         \id_A \circ g(y)=\id_A(g(y))=g(y)
       \end{equation*}
-      So $\Cc$ defines a category on sets. Indeed we denote this
+      So $\Cs$ defines a category on sets. Indeed we denote this
       category by $\Set$.
 
       The isomorphisms of the category $\Set$ are those functions
@@ -99,55 +99,55 @@
       \xrightarrow{} A$ for which $g \circ f=\id_A$, which makes $f$
       injective (or 1--1), and $f \circ g=\id_B$, which makes $f$
       surjective (or onto). Therefore $f$ must be a bijection between
-       $A$ and $B$.
+      $A$ and $B$.
 
-     \item[(2)] Fix a field $k$. We denote the category $\Vec_k$ to be
-       the category having as objects vector spaces over $k$, and
-       havin as morphisms linear tranformations between vector spaces
-       over $k$. The isomorphisms of $\Vec_k$ are linear operators.
+    \item[(2)] Fix a field $k$. We denote the category $\Vec_k$ to be
+      the category having as objects vector spaces over $k$, and
+      havin as morphisms linear tranformations between vector spaces
+      over $k$. The isomorphisms of $\Vec_k$ are linear operators.
 
-     \item[(3)] We define a \textit{groupoid} to be a category in
-       which every morphism is an isomorphism. We define a
-       \textit{monoid} to be a category having only one objects.
+    \item[(3)] We define a \textit{groupoid} to be a category in
+      which every morphism is an isomorphism. We define a
+      \textit{monoid} to be a category having only one objects.
 
-       We claim that any group $G$ is a groupoid which is also a
-       monoid; that is, it is a groupoid having only one obeject.
-       Indeed, define the category $\Gc$ having as its only object the group
-       $G$, i.e. $\obj{\Gc}=\{G\}$. Define the morphisms of $\Gc$ to
-       be the elements of $G$; i.e. $\Mor{\Gc}=G$, and write the
-       elements of $G$ as $x:G \xrightarrow{} G$. Define the
-       composition of morphisms of $\Gc$ to be the group operation
-       $\cdot:G \times G \xrightarrow{} G$ taking $(x,y)
-       \xrightarrow{} xy$. By the axiom of closure for groups, and the
-       associative law for groups, the compositions $xy$ exist in
-       $\Gc$, and we have for any morphisms $x,y,z:G \xrightarrow{}
-       G$:
-       \begin{equation*}
-         x(yz)=(xy)z
-       \end{equation*}
-       Observing the identity law for groups, the identity morphism of $G$ is the
-       identity element $e:G
-       \xrightarrow{} G$, for wich given any element $x:G
-       \xrightarrow{} G$, we get:
-       \begin{equation*}
-         xe=x \text{ and } ex=x
-       \end{equation*}
-       This makes $\Gc$ a category, having  $\obj{\Gc}=\{G\}$ and
-       $\Mor{\Gc}=G$; moreover, since $\Gc$ has only one object, $\Gc$
-       is a monoid.
+      We claim that any group $G$ is a groupoid which is also a
+      monoid; that is, it is a groupoid having only one obeject.
+      Indeed, define the category $\Gs$ having as its only object the group
+      $G$, i.e. $\obj{\Gs}=\{G\}$. Define the morphisms of $\Gs$ to
+      be the elements of $G$; i.e. $\Mor{\Gs}=G$, and write the
+      elements of $G$ as $x:G \xrightarrow{} G$. Define the
+      composition of morphisms of $\Gs$ to be the group operation
+      $\cdot:G \times G \xrightarrow{} G$ taking $(x,y)
+      \xrightarrow{} xy$. By the axiom of closure for groups, and the
+      associative law for groups, the compositions $xy$ exist in
+      $\Gs$, and we have for any morphisms $x,y,z:G \xrightarrow{}
+      G$:
+      \begin{equation*}
+        x(yz)=(xy)z
+      \end{equation*}
+      Observing the identity law for groups, the identity morphism of $G$ is the
+      identity element $e:G
+      \xrightarrow{} G$, for wich given any element $x:G
+      \xrightarrow{} G$, we get:
+      \begin{equation*}
+        xe=x \text{ and } ex=x
+      \end{equation*}
+      This makes $\Gs$ a category, having  $\obj{\Gs}=\{G\}$ and
+      $\Mor{\Gs}=G$; moreover, since $\Gs$ has only one object, $\Gs$
+      is a monoid.
 
-       Lastly, observe the inverse law for groups; given an element
-       $a:G \xrightarrow{} G$, there is an element $b:G \xrightarrow{}
-       G$ such that
-       \begin{equation*}
-         ab=e \text{ and } ba=e
-       \end{equation*}
-       Which makes $a$ an isomorphism of $\Gc$ (moreover, the
-       corresponding element $b:G \xrightarrow{} G$ is also an
-       isomorphsm and is unique by lemma \ref{lemma_1.1.1}). This
-       makes every morphism of $\Gc$ an isomorphism, and hence $\Gc$ is
-       a groupoid. Since $\obj{\Gc}=\{G\}$ and $\Mor{\Gc}=G$, we
-       simply associate $\Gc$ with $G$ itself, so that $G$ is a
-       groupoid with only one element.
+      Lastly, observe the inverse law for groups; given an element
+      $a:G \xrightarrow{} G$, there is an element $b:G \xrightarrow{}
+      G$ such that
+      \begin{equation*}
+        ab=e \text{ and } ba=e
+      \end{equation*}
+      Which makes $a$ an isomorphism of $\Gs$ (moreover, the
+      corresponding element $b:G \xrightarrow{} G$ is also an
+      isomorphsm and is unique by lemma \ref{lemma_1.1.1}). This
+      makes every morphism of $\Gs$ an isomorphism, and hence $\Gs$ is
+      a groupoid. Since $\obj{\Gs}=\{G\}$ and $\Mor{\Gs}=G$, we
+      simply associate $\Gs$ with $G$ itself, so that $G$ is a
+      groupoid with only one element.
   \end{enumerate}
 \end{example}
