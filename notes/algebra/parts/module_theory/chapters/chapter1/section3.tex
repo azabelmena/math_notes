@@ -1,178 +1,204 @@
-\section{Factor Modules}
+\section{Module Homomorphisms}
 
-Here we refer to left $R$-modules as simply  $R$-modules, unless
-otherwise specified. The same theory can be done for right
-$R$-modules by using the action  $M \times R \xrightarrow{} M$.
+\begin{definition}
+  Let $R$ be a ring, and $M$ and  $N$  $R$-modules. An
+  \textbf{$R$-module homomorphism} of $M$ to $N$ is a map such that
+  for all $x,y \in M$, and $r \in R$:
+  \begin{enumerate}
+    \item[(1)] $\phi(x+y)=\phi(x)+\phi(y)$.
 
-\begin{theorem}\label{theorem_4.3.1}
-  Let $R$ be a ring, and $M$ an $R$-module and $N$ a submodule of
-  $M$. Then the factor group  $\faktor{M}{N}$ is an $R$-modules unuder
-  the action
+    \item[(2)] $\phi(rx)=r\phi(x)$.
+  \end{enumerate}
+  If $\phi$ is a 1--1 map of $M$ onto $N$, then we call  $\phi$ an
+  \textbf{$R$-module isomorphism}, and we write $M \simeq N$. We
+  denote the set of all $R$-module homomorphisms of  $M \xrightarrow{}
+  N$ by $\Hom_R{(M,N)}$.
+\end{definition}
+
+\begin{definition}
+  Let $R$ be a ring, and $M$ and $N$ be $R$-modules, and let $\phi \in
+  \Hom_R{(M,N)}$. We define the \textbf{kernel} of $\phi$ to be the
+  set
   \begin{equation*}
-    \begin{aligned}
-      R \times \faktor{M}{N} & \xrightarrow{} \faktor{M}{N}  \\
-      (r,x+N) & \xrightarrow{} r(x+N)=rx+N
-    \end{aligned}
+    \ker{\phi}=\{ x \in M : \phi(x)=0 \}
   \end{equation*}
-  Moreover, the map
+  We define the \textbf{image} of $\phi$ to simply be
+  $\im{\phi}=\phi(M)$.
+\end{definition}
+
+\begin{proposition}\label{label_4.2.1}
+  Let $M$ and $N$ be $R$-modules, and let  $\phi \in \Hom_R{(M,N)}$.
+  Then $\ker{\phi}$ and $\im{\phi}$ are submodules
+  of $M$ and $N$ respectively.
+\end{proposition}
+\begin{proof}
+  We have $\phi(0)=\phi(0x)=0\phi(x)=0$. This shows that $\ker{\phi}$
+  and $\im{\phi}$ are both nonempty. Fix some $r \in R$. Now,
+  let $x,y \in \ker{\phi}$. Then:
   \begin{equation*}
-    \begin{aligned}
-      \pi:  & M \xrightarrow{} \faktor{M}{N}  \\
-          & x \xrightarrow{} x+N  \\
-    \end{aligned}
+    \phi(x-ry)=\phi(x)-r\phi(y)=0-r0=0
   \end{equation*}
-  is an $R$-module homomorphism with kernel  $\ker{\pi}=N$.
+  so $x-ry \in \ker{\phi}$. Likewise, suppose that $x', y' \in
+  \im{\phi}$. Then $x'=\phi(x)$ and $y'=\phi(y)$ for some $x,y \in M$.
+  Since $M$ is a module, we have $x-ry \in M$. Observe:
+  \begin{equation*}
+    x'-ry'=\phi(x)-r\phi(y)=\phi(x-ry)
+  \end{equation*}
+  which puts $x'-ry' \in \im{\phi}$ and we are done.
+\end{proof}
+
+\begin{example}\label{example_4.3}
+  \begin{enumerate}
+    \item[(1)] Consider the $\Z$-module homomorphism  $\phi:x
+      \xrightarrow{} 2x$ of $\Z \xrightarrow{} \Z$. Observe that
+      $\phi:1 \xrightarrow{} 2 \cdot 1=2$, so that $\phi$ does not
+      preserve identities. Hence  $\phi$ is not a ring homomorphism of
+       $\Z \xrightarrow{} \Z$.
+
+       Likewise, let $k$ be a field, and consider the $k[x]$-module
+       homomorphism $\phi:f(x) \xrightarrow{} f(x^2)$ of $k[x]
+       \xrightarrow{} k[x]$. Observe:
+       \begin{equation*}
+         x^2=\phi(x)=\phi(1x)=x\phi(1)=x(1^2)=x
+       \end{equation*}
+       which shows that $\phi$ is not a ring homomorphism of  $k[x]
+       \xrightarrow{} k[x]$.
+
+     \item[(2)] For any ring $R$, the projection map $\pi_i:R^n
+       \xrightarrow{} R$ defined by $\pi_i:(x_1, \dots, x_n)
+       \xrightarrow{} x_i$, where $1 \leq i \leq n$, is an $R$-module
+       homomorphism of the free module $R^n$ onto $R$ (indeed we can
+       verify that $\im{\phi}=R$). $\pi_i$ is not 1--1, so it does not
+       define an isomorphism between $R^n$ and $R$ as  $R$-modules.
+
+     \item[(3)] If $R$ is a field, then the  $R$-module homomorphisms
+       are just linear transformations over  $R$, by definition.
+
+     \item[(4)] Let $\phi:M \xrightarrow{} N$ be a $\Z$-module
+       homomorphism (i.e. $\phi \in \Hom_\Z{(M,N)}$). Since $M$ and
+       $N$ are $\Z$-modules, they are (identified with) Abelian
+       groups (whose operation is written additively). Let $n \in \Z^+$.
+       Observe that
+       $\phi(\underbrace{x+\dots+x}_{n-\text{times}})=\phi(nx)=n\phi(x)$
+       so that commutativity of the action $R \times M \xrightarrow{}
+       M$ under $\phi$ is subsumed by the first property. That is,
+       $\phi$ is reduced to a group homomorphism of $M \xrightarrow{}
+       N$ as Abelian groups.
+
+     \item[(5)] Let $R$ be a ring, and $I$ an ideal of $R$. Let  $M$
+       and  $N$ be  $R$-modules annihilated by  $I$. Then by example
+       \ref{example_4.1}(5), any $R$-module homomorphism of $M
+       \xrightarrow{} N$ can be made into an $(\faktor{R}{I})$-module
+       homomorphism of $M \xrightarrow{} N$, as
+       $(\faktor{R}{I})$-modules.
+
+     \item[(6)] Consider the above example. If $A$ is an Abelian
+       group, and  $p \in \Z^+$ is a prime for which $px=0$ for all
+       $x \in A$, then $A$ is annihilated by the ideal $p\Z$. Then any
+       group homomorphism of $A \xrightarrow{} A$ is a
+       $(\faktor{\Z}{p\Z})$-module homomorphism. That is, group
+       homomorphisms between the same Abelian group are linear
+       transformations over the field $\F_p$.
+  \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{theorem_4.2.2}
+  Let $M$, and $N$ be $R$-modules. Then a map $\phi:M \xrightarrow{}
+  N$ is an $R$-module homomorphism if, and only if for every  $x,y \in
+  M$ and $r \in R$:
+  \begin{equation*}
+    \phi(rx+y)=r\phi(x)+r\phi(y)
+  \end{equation*}
 \end{theorem}
 \begin{proof}
-  Since $M$ is an Abelian group, and  $N$ a subgroup of  $M$,  $N$ is
-  normal in  $M$, and hence the set $\faktor{M}{N}$ is indeed
-  the factor group of $M$ modulo  $N$. Moreover,  $\faktor{M}{N}$ is
-  also an Abelian group.
+  If $\phi \in \Hom_R{(M,N)}$, then by definition,
+  $\phi(rx+y)=r\phi(x)+\phi(y)$. Suppose now the converse is true.
+  Choose $r=1$, so that $\phi(x+y)=\phi(x)+\phi(y)$, and choose $y=0$
+  so that $\phi(rx)=r\phi(x)$.
+\end{proof}
 
-  Now, the action $(r,x+N) \xrightarrow{} rx+N$ is a well defined
-  action. Let $x+N=y+N$, so that  $x-y \in N$, and hence $r(x-y)=rx-ry
-  \in N$. That is $rx+N=ry+N$. Lastly, we observe that the action
-  $(r,x+N) \xrightarrow{} rx+N$ is compatible with the action $(r,x)
-  \xrightarrow{} rx$ of $M$, so that  $\faktor{M}{N}$ can be made into
-  a left $R$-module.
+\begin{theorem}\label{theorem_4.2.3}
+  Let $M$ and $N$ be $R$-modules. Then $\Hom_R{(M,N)}$ is an Abelian
+  group under function addition. Moreover if $R$ is commutative, then
+   $\Hom_R{(M,N)}$ is a left $R$-module under the action given by:
+  \begin{equation*}
+    (r\phi)(m)=r(\phi(m)) \text{ for all } r \in R \text{ and } m \in M
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  That $\Hom_R{(M,N)}$ is an Abelian group under $+$ (of functions)
+  can be seen by observing that the elements are just functions. Now,
+  suppose that $R$ is commutative, and define the action $R \times
+  \Hom_R{(M,N)} \xrightarrow{} \Hom_R{(M,N)}$ by $(r,\phi)
+  \xrightarrow{} r\phi$. Take $m,n \in M$, and denote $m=\phi(x)$ and
+  $n=\phi(y)$. Let $r,s \in R$. Then by the $R$-module axioms on $N$,
+  we get
+  \begin{enumerate}
+    \item[(1)] $r(m+n)=rm+rn$
 
-  Now, define
-  \begin{aligned}
-    \pi:  & M \xrightarrow{} \faktor{M}{N}  \\
-    \pi:  & x \xrightarrow{} x+N \\
-  \end{aligned}
-  and take $r \in R$, and $x,y \in M$. Then
-  \begin{align*}
-    \pi(rx+y) &=  (rx+y)+N  \\
-              &= (rx+N)+(y+N) \\
-              &= r(x+N)+(y+N) \\
-              &= r\pi(x)+\pi(y)
-  \end{align*}
-  so that $\pi$ is an $R$-module homomorphism of $M$ into
-  $\faktor{M}{N}$. Moreover, we observe that $\ker{\pi}=N$.
+    \item[(2)] $(r+s)m=rm+sm$
+
+    \item[(3)] $(rs)m=r(sm)$
+  \end{enumerate}
+  which makes $\Hom_R{(M,N)}$ into a left $R$-module, since $m$ and
+  $n$ are just images under $\phi$.
 \end{proof}
 \begin{corollary}
-  $\im{\pi}=\faktor{M}{N}$. That is, $\pi$ is onto.
+  If $R$ is a commutative ring with identity, then $\Hom_R{(M,N)}$ is
+  a unital left $R$-module.
 \end{corollary}
 
-\begin{definition}
-  Let $M$ be an  $R$-module, and  $N$ a submodule of  $M$. We define
-  the  \textbf{factor module} of $M$  \textbf{modulo} $N$ to be the
-   $R$-module  $\faktor{M}{N}$ whose action is defined by
-   \begin{equation}
-     \begin{aligned}
-       R \times \faktor{M}{N} \xrightarrow{} \faktor{M}{N}  \\
-       (r,x+N)  \xrightarrow{} rx+N \\
-     \end{aligned}
-   \end{equation}
-\end{definition}
-
-\begin{definition}
-  Let $A$ and  $B$ be submodules of an  $R$-module  $M$. We define the
-   \textbf{sum} of $A$ and $B$ to be the set:
-   \begin{equation*}
-     A+B=\{ a+b : a \in A \text{ and } b \in B \}
-   \end{equation*}
-\end{definition}
-
-\begin{proposition}\label{proposition_4.3.2}
-  Let $A$ and  $B$ be submodules of an  $R$-module  $M$. Then the sum
-  $A+B$ is a submodule of $M$; in fact, it is the smallest submodule
-  of  $M$ containing both  $A$ and  $B$.
-\end{proposition}
-
-\begin{theorem}[The First Isomorphism Theorem]\label{theorem_4.3.3}
-  Let $M$ and  $N$ be  $R$-modules, and let  $\phi \in \Hom_R{(M,N)}$.
-  Then
-  \begin{equation*}
-    \faktor{M}{\ker{\phi}} \simeq \im{\phi}
-  \end{equation*}
-  and the following diagram commutes
+\begin{theorem}\label{theorem_4.2.4}
+  Let $M$, $N$, and $L$ be  $R$-modules. If  $\phi \in \Hom_R{(L,M)}$
+  and $\psi \in \Hom_R{(M,N)}$, then $\psi \circ \phi \in
+  \Hom_R{(L,N)}$. That is, the following diagram commutes:
   \[\begin{tikzcd}
-    M & {\im{\phi}} \\
-      & {\factor{M}{\ker{\phi}}}
+    L & M \\
+      & N
       \arrow["\phi", from=1-1, to=1-2]
-      \arrow["{\pi:x \xrightarrow{} x+\ker{\phi}}"', from=1-1, to=2-2]
-      \arrow[from=1-2, to=2-2]
+      \arrow["{\psi \circ \phi}"', from=1-1, to=2-2]
+      \arrow["\psi", from=1-2, to=2-2]
   \end{tikzcd}\]
 \end{theorem}
 \begin{proof}
-  Since $\phi \in \Hom_R{(M,N)}$, $\phi$ is a group homomorphism of
-  $M \xrightarrow{} N$ (as Abelian groups). So the proof of this
-  theorem follows from the first isomorphism theorem for groups.
+  Let $\phi \in \Hom_r{(L,M)}$ and $\psi \in \Hom_R{(M,N)}$. Then for
+  $r \in R$, and $x,y \in L$:
+  \begin{align*}
+    \psi \circ \phi(rx+y) &=  \psi(\phi(rx+y))  \\
+      &=  \psi(r\phi(x)+\phi(y))  \\
+      &=  r\psi(\phi(x))+\psi(\phi(y))  \\
+      &= r(\psi \circ \phi)(x)+\psi \circ \phi(y)
+  \end{align*}
+  which puts $\psi \circ \phi \in \Hom_R{(L,N)}$.
 \end{proof}
 
-\begin{theorem}[The Second Isomorphism Theorem]\label{theorem_4.3.4}
-  Let $M$ be an  $R$-module, and  $A$ and  $B$ be submodules of  $M$.
-  Then
-  \begin{equation*}
-    \faktor{(A+B)}{B} \simeq \faktor{A}{(A \cap B)}
-  \end{equation*}
-  and we have the following lattice structure
-  \[\begin{tikzcd}
-  & M \\
-  & {A+B} \\
-    A && B \\
-      & {A \cap B} \\
-      & {(0)}
-      \arrow[no head, from=1-2, to=2-2]
-      \arrow[no head, from=2-2, to=3-1]
-      \arrow[no head, from=2-2, to=3-3]
-      \arrow[no head, from=3-1, to=4-2]
-      \arrow[no head, from=3-3, to=4-2]
-      \arrow[no head, from=4-2, to=5-2]
-  \end{tikzcd}\]
+\begin{theorem}\label{theorem_4.2.5}
+  Let $M$ be an  $R$-module.  $\Hom_R{(M,M)}$ is a ring with identity
+  under function addition and function composition. Moreover, if $R$
+  is commutative, then $\Hom_R{(M,M)}$ is an $R$-algebra.
 \end{theorem}
 \begin{proof}
-  Observe first that $B \subseteq A+B$ is a submodule of $A+B$, so
-  that $\faktor{A+B}{B}$ is an $R$-module. Now consider the map
-  \begin{aligned}
-    \phi: & A \xrightarrow{} \faktor{(A+B)}{B}  \\
-          & a \xrightarrow{} a+B
-  \end{aligned}
-  Since $A$ and $\faktor{(A+B)}{B}$ are $R$-modules, $\phi$ is an
-  $R$-module homomorphism, moreover  $\phi$ is onto, that is,
-  $\im{\phi}=\faktor{(A+B)}{B}$. Now, let $a \in \ker{\phi}$, so that
-  $\phi(a)=0$, that is $a+B=B$ so that $a \in B$. Since $a \in A$ this
-  puts $a \in A \cap B$. Conversely, if $a \in A \cap B$, then
-  $\phi(a)=a+B=B$. So $\ker{\phi}=A \cap B$. By the first isomorphism
-  theorem (theorem \ref{theorem_4.3.3}), we get the result. We also
-  observe that the result follows directly from the second isomorphism
-  theorem for groups.
+  Since $\Hom_R{(M,M)}$ consists of $R$-module homomorphism whose
+  domains and codomains coincide, functio composition is a well
+  defined operation in this set. Now, $\Hom_R{(M,M)}$ is an Abelina
+  group under $+$ by \ref{theorem_4.2.3}, and the ring operations
+  follow by observing the usual rules of $\circ$.
+
+  Now, suppose that $R$ is a commutative ring, then again by theorem
+  \ref{theorem_4.2.3}, $R$ is made into an $R$-module under the action
+  $(r,\phi) \xrightarrow{} r\phi$. Defining $r\phi=\phi r$, we make
+  $\Hom_R{(M,M)}$ into an $R$-algebra.
 \end{proof}
 
-\begin{theorem}[The Third Isomorphism Theorem]\label{theorem_4.3.5}
-  Let $M$ be an  $R$-modiles, and  $A$ and  $B$ be submodules of  $M$
-  with  $A \subseteq B$. Then
-  \begin{equation*}
-    \faktor{(\faktor{M}{A})}{(\faktor{B}{A})} \simeq \faktor{M}{B}
-  \end{equation*}
-\end{theorem}
-\begin{proof}
-  Observer that since $\faktor{M}{A}$ and $\faktor{B}{A}$ are factor
-  groups, and that $A \subseteq B$, then $\faktor{B}{A} \subseteq
-  \faktor{M}{A}$ (as $R$-modules). Define the map
-  \begin{aligned}
-    \phi: & \faktor{M}{A} \xrightarrow{} \faktor{M}{B}  \\
-          & x+A \xrightarrow{} x+B  \\
-  \end{aligned}
-  Then $\im{\phi}=\faktor{M}{B}$ is onto. Now, let $a \in \ker{\phi}$,
-  then $\phi(a)=B$, and since $a \in \faktor{M}{A}$, $a=x+A$, so that
-   $\phi(x+A)=(x+A)+B=x+(A+B)=x+B=B$, since $A \subseteq B$. That is,
-   $x \in B$ This makes $a \in \faktor{B}{A}$. By the first
-   isomoprphism theorem (again theorem \ref{theorem_4.3.3}) we get the
-   desired result.
-\end{proof}
+\begin{definition}
+  Let $M$ be an  $R$-module. The ring  $\Hom_R{(M,M)}$ is called the
+  \textbf{endomorphism ring} of $M$ over $R$, and is denoted
+  $\End_R{M}$, or simply just $\End{M}$.
+\end{definition}
 
-\begin{theorem}[The Fourth Isomorphism Theorem]\label{theorem_4.3.6}
-  Let $M$ be an  $R$-module, and $N$ a submodule of  $M$. There is a
-  1--1 correspondence between the submodules of  $M$ containing  $N$,
-  and the submodules of  $\faktor{M}{N}$, given by
-  \begin{equation*}
-    A \xrightarrow{} \faktor{A}{N}
-  \end{equation*}
-\end{theorem}
-\begin{proof}
-  The third isomorphism theorem (theorem \ref{theorem_4.3.5}), and
-  the rule $A \xrightarrow{} \faktor{A}{N}$ establishes the proof.
-\end{proof}
+\begin{proposition}\label{proposition_4.2.6}
+  Let $R$ be a commutative ring. Then there is a natural map on
+  $\End_R{M}$ defined by $r \xrightarrow{} rI$, where $I$ is an ideal
+  of $R$. Moreover if $R$ has identity, then  $\End_R{M}$ is an
+  $R$-algebra.
+\end{proposition}

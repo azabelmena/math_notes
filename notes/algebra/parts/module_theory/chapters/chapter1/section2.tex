@@ -1,204 +1,57 @@
-\section{Module Homomorphisms}
+\section{Algebras over Commutative Rings}
 
 \begin{definition}
-  Let $R$ be a ring, and $M$ and  $N$  $R$-modules. An
-  \textbf{$R$-module homomorphism} of $M$ to $N$ is a map such that
-  for all $x,y \in M$, and $r \in R$:
-  \begin{enumerate}
-    \item[(1)] $\phi(x+y)=\phi(x)+\phi(y)$.
+  Let $R$ be a commutative ring with identity. An
+  \textit{$R$-algebra} (or \textit{algebra over $R$}) is a ring $A$
+  with identity together with a ring homomorphism  $f:R
+  \xrightarrow{} A$ (taking $1_R \xrightarrow{} 1_A$) such that the
+  subring $f(R)$ is contained in the center of $A$.
+\end{definition}
 
-    \item[(2)] $\phi(rx)=r\phi(x)$.
+\begin{lemma}\label{lemma_9.2.1}
+  Let $R$ be a commutative ring with identity. If $A$ is an
+  $R$-algebra, then $A$ is a unital $R$-module under the action:
+  \begin{align*}
+    R \times A  & \xrightarrow{} A  \\
+    (r,a)   & \xrightarrow{} ra=f(r)a \\
+  \end{align*}
+\end{lemma}
+
+\begin{definition}
+  Let $R$ be a commutative ring with identity. If $A$ and $B$ are
+  $R$-algebras, and \textit{$R$-algebra homomorphism} is a ring
+  homomorphism $\phi:A \xrightarrow{} B$ such that for every $r \in
+  R$ and $a \in A$:
+  \begin{enumerate}
+    \item[(1)] $\phi(1_A)=1_B$.
+
+    \item[(2)] $\phi(ra)=r\phi(a)$.
   \end{enumerate}
-  If $\phi$ is a 1--1 map of $M$ onto $N$, then we call  $\phi$ an
-  \textbf{$R$-module isomorphism}, and we write $M \simeq N$. We
-  denote the set of all $R$-module homomorphisms of  $M \xrightarrow{}
-  N$ by $\Hom_R{(M,N)}$.
+  We call $\phi$ an  \textit{$R$-algebra isomorphism} provided
+  $\phi$ is a ring isomorphism, and we call $A$ and $B$
+  \textit{isomorphic} and write $A \simeq B$.
 \end{definition}
 
-\begin{definition}
-  Let $R$ be a ring, and $M$ and $N$ be $R$-modules, and let $\phi \in
-  \Hom_R{(M,N)}$. We define the \textbf{kernel} of $\phi$ to be the
-  set
-  \begin{equation*}
-    \ker{\phi}=\{ x \in M : \phi(x)=0 \}
-  \end{equation*}
-  We define the \textbf{image} of $\phi$ to simply be
-  $\im{\phi}=\phi(M)$.
-\end{definition}
-
-\begin{proposition}\label{label_4.2.1}
-  Let $M$ and $N$ be $R$-modules, and let  $\phi \in \Hom_R{(M,N)}$.
-  Then $\ker{\phi}$ and $\im{\phi}$ are submodules
-  of $M$ and $N$ respectively.
-\end{proposition}
-\begin{proof}
-  We have $\phi(0)=\phi(0x)=0\phi(x)=0$. This shows that $\ker{\phi}$
-  and $\im{\phi}$ are both nonempty. Fix some $r \in R$. Now,
-  let $x,y \in \ker{\phi}$. Then:
-  \begin{equation*}
-    \phi(x-ry)=\phi(x)-r\phi(y)=0-r0=0
-  \end{equation*}
-  so $x-ry \in \ker{\phi}$. Likewise, suppose that $x', y' \in
-  \im{\phi}$. Then $x'=\phi(x)$ and $y'=\phi(y)$ for some $x,y \in M$.
-  Since $M$ is a module, we have $x-ry \in M$. Observe:
-  \begin{equation*}
-    x'-ry'=\phi(x)-r\phi(y)=\phi(x-ry)
-  \end{equation*}
-  which puts $x'-ry' \in \im{\phi}$ and we are done.
-\end{proof}
-
-\begin{example}\label{example_4.3}
+\begin{example}\label{example_9.5}
+  Let $R$ be any commutative ring with identity, and let $f$ denote
+  any ring homomorphism from $R$ to a given ring $A$  (not
+  necessarily an $R$-algebra).
   \begin{enumerate}
-    \item[(1)] Consider the $\Z$-module homomorphism  $\phi:x
-      \xrightarrow{} 2x$ of $\Z \xrightarrow{} \Z$. Observe that
-      $\phi:1 \xrightarrow{} 2 \cdot 1=2$, so that $\phi$ does not
-      preserve identities. Hence  $\phi$ is not a ring homomorphism of
-       $\Z \xrightarrow{} \Z$.
+    \item[(1)] Any ring $A$ with identity is a $\Z$-algebra.
 
-       Likewise, let $k$ be a field, and consider the $k[x]$-module
-       homomorphism $\phi:f(x) \xrightarrow{} f(x^2)$ of $k[x]
-       \xrightarrow{} k[x]$. Observe:
-       \begin{equation*}
-         x^2=\phi(x)=\phi(1x)=x\phi(1)=x(1^2)=x
-       \end{equation*}
-       which shows that $\phi$ is not a ring homomorphism of  $k[x]
-       \xrightarrow{} k[x]$.
+    \item[(2)] For any ring $A$ with identity, if $f(R) \subseteq
+      Z(A)$ is a subring containing $1_A$, then $A$ can be made into
+      an $R$-algebra.
 
-     \item[(2)] For any ring $R$, the projection map $\pi_i:R^n
-       \xrightarrow{} R$ defined by $\pi_i:(x_1, \dots, x_n)
-       \xrightarrow{} x_i$, where $1 \leq i \leq n$, is an $R$-module
-       homomorphism of the free module $R^n$ onto $R$ (indeed we can
-       verify that $\im{\phi}=R$). $\pi_i$ is not 1--1, so it does not
-       define an isomorphism between $R^n$ and $R$ as  $R$-modules.
+    \item[(3)] The polynomial ring $R[x]$ is an $R$-algebra as is
+      the multivariate polynomial ring $R[x_1, \dots, x_n]$.
 
-     \item[(3)] If $R$ is a field, then the  $R$-module homomorphisms
-       are just linear transformations over  $R$, by definition.
+    \item[(4)] For a finite group $G$, the group ring $RG$ is an
+      $R$-algebra.
 
-     \item[(4)] Let $\phi:M \xrightarrow{} N$ be a $\Z$-module
-       homomorphism (i.e. $\phi \in \Hom_\Z{(M,N)}$). Since $M$ and
-       $N$ are $\Z$-modules, they are (identified with) Abelian
-       groups (whose operation is written additively). Let $n \in \Z^+$.
-       Observe that
-       $\phi(\underbrace{x+\dots+x}_{n-\text{times}})=\phi(nx)=n\phi(x)$
-       so that commutativity of the action $R \times M \xrightarrow{}
-       M$ under $\phi$ is subsumed by the first property. That is,
-       $\phi$ is reduced to a group homomorphism of $M \xrightarrow{}
-       N$ as Abelian groups.
-
-     \item[(5)] Let $R$ be a ring, and $I$ an ideal of $R$. Let  $M$
-       and  $N$ be  $R$-modules annihilated by  $I$. Then by example
-       \ref{example_4.1}(5), any $R$-module homomorphism of $M
-       \xrightarrow{} N$ can be made into an $(\faktor{R}{I})$-module
-       homomorphism of $M \xrightarrow{} N$, as
-       $(\faktor{R}{I})$-modules.
-
-     \item[(6)] Consider the above example. If $A$ is an Abelian
-       group, and  $p \in \Z^+$ is a prime for which $px=0$ for all
-       $x \in A$, then $A$ is annihilated by the ideal $p\Z$. Then any
-       group homomorphism of $A \xrightarrow{} A$ is a
-       $(\faktor{\Z}{p\Z})$-module homomorphism. That is, group
-       homomorphisms between the same Abelian group are linear
-       transformations over the field $\F_p$.
+    \item[(5)] For any $R$-algebra $A$, its $R$-module structure
+      depends only on the subring $f(R)$. Hence, up to ring
+      homomorphism, every $R$-algebra $A$ arises from a subring
+      contained in its center containing $1_A$.
   \end{enumerate}
 \end{example}
-
-\begin{theorem}\label{theorem_4.2.2}
-  Let $M$, and $N$ be $R$-modules. Then a map $\phi:M \xrightarrow{}
-  N$ is an $R$-module homomorphism if, and only if for every  $x,y \in
-  M$ and $r \in R$:
-  \begin{equation*}
-    \phi(rx+y)=r\phi(x)+r\phi(y)
-  \end{equation*}
-\end{theorem}
-\begin{proof}
-  If $\phi \in \Hom_R{(M,N)}$, then by definition,
-  $\phi(rx+y)=r\phi(x)+\phi(y)$. Suppose now the converse is true.
-  Choose $r=1$, so that $\phi(x+y)=\phi(x)+\phi(y)$, and choose $y=0$
-  so that $\phi(rx)=r\phi(x)$.
-\end{proof}
-
-\begin{theorem}\label{theorem_4.2.3}
-  Let $M$ and $N$ be $R$-modules. Then $\Hom_R{(M,N)}$ is an Abelian
-  group under function addition. Moreover if $R$ is commutative, then
-   $\Hom_R{(M,N)}$ is a left $R$-module under the action given by:
-  \begin{equation*}
-    (r\phi)(m)=r(\phi(m)) \text{ for all } r \in R \text{ and } m \in M
-  \end{equation*}
-\end{theorem}
-\begin{proof}
-  That $\Hom_R{(M,N)}$ is an Abelian group under $+$ (of functions)
-  can be seen by observing that the elements are just functions. Now,
-  suppose that $R$ is commutative, and define the action $R \times
-  \Hom_R{(M,N)} \xrightarrow{} \Hom_R{(M,N)}$ by $(r,\phi)
-  \xrightarrow{} r\phi$. Take $m,n \in M$, and denote $m=\phi(x)$ and
-  $n=\phi(y)$. Let $r,s \in R$. Then by the $R$-module axioms on $N$,
-  we get
-  \begin{enumerate}
-    \item[(1)] $r(m+n)=rm+rn$
-
-    \item[(2)] $(r+s)m=rm+sm$
-
-    \item[(3)] $(rs)m=r(sm)$
-  \end{enumerate}
-  which makes $\Hom_R{(M,N)}$ into a left $R$-module, since $m$ and
-  $n$ are just images under $\phi$.
-\end{proof}
-\begin{corollary}
-  If $R$ is a commutative ring with identity, then $\Hom_R{(M,N)}$ is
-  a unital left $R$-module.
-\end{corollary}
-
-\begin{theorem}\label{theorem_4.2.4}
-  Let $M$, $N$, and $L$ be  $R$-modules. If  $\phi \in \Hom_R{(L,M)}$
-  and $\psi \in \Hom_R{(M,N)}$, then $\psi \circ \phi \in
-  \Hom_R{(L,N)}$. That is, the following diagram commutes:
-  \[\begin{tikzcd}
-    L & M \\
-      & N
-      \arrow["\phi", from=1-1, to=1-2]
-      \arrow["{\psi \circ \phi}"', from=1-1, to=2-2]
-      \arrow["\psi", from=1-2, to=2-2]
-  \end{tikzcd}\]
-\end{theorem}
-\begin{proof}
-  Let $\phi \in \Hom_r{(L,M)}$ and $\psi \in \Hom_R{(M,N)}$. Then for
-  $r \in R$, and $x,y \in L$:
-  \begin{align*}
-    \psi \circ \phi(rx+y) &=  \psi(\phi(rx+y))  \\
-      &=  \psi(r\phi(x)+\phi(y))  \\
-      &=  r\psi(\phi(x))+\psi(\phi(y))  \\
-      &= r(\psi \circ \phi)(x)+\psi \circ \phi(y)
-  \end{align*}
-  which puts $\psi \circ \phi \in \Hom_R{(L,N)}$.
-\end{proof}
-
-\begin{theorem}\label{theorem_4.2.5}
-  Let $M$ be an  $R$-module.  $\Hom_R{(M,M)}$ is a ring with identity
-  under function addition and function composition. Moreover, if $R$
-  is commutative, then $\Hom_R{(M,M)}$ is an $R$-algebra.
-\end{theorem}
-\begin{proof}
-  Since $\Hom_R{(M,M)}$ consists of $R$-module homomorphism whose
-  domains and codomains coincide, functio composition is a well
-  defined operation in this set. Now, $\Hom_R{(M,M)}$ is an Abelina
-  group under $+$ by \ref{theorem_4.2.3}, and the ring operations
-  follow by observing the usual rules of $\circ$.
-
-  Now, suppose that $R$ is a commutative ring, then again by theorem
-  \ref{theorem_4.2.3}, $R$ is made into an $R$-module under the action
-  $(r,\phi) \xrightarrow{} r\phi$. Defining $r\phi=\phi r$, we make
-  $\Hom_R{(M,M)}$ into an $R$-algebra.
-\end{proof}
-
-\begin{definition}
-  Let $M$ be an  $R$-module. The ring  $\Hom_R{(M,M)}$ is called the
-  \textbf{endomorphism ring} of $M$ over $R$, and is denoted
-  $\End_R{M}$, or simply just $\End{M}$.
-\end{definition}
-
-\begin{proposition}\label{proposition_4.2.6}
-  Let $R$ be a commutative ring. Then there is a natural map on
-  $\End_R{M}$ defined by $r \xrightarrow{} rI$, where $I$ is an ideal
-  of $R$. Moreover if $R$ has identity, then  $\End_R{M}$ is an
-  $R$-algebra.
-\end{proposition}
