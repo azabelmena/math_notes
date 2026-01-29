@@ -16,7 +16,7 @@
    ideal in $k[x_1, \dots, x_n]$, so that $\af=(x_1-a_1, \dots, x_n-a_n)$,
    and $V(\af)=\{(a_1, \dots, a_n)\}$. Now, if $\bf$ is any other
    ideal in $k[x_1,\dots,x_n]$, then $\bf$ is contained in a maximal
-   ideal, say $\af$, so $V(\af) \subseteq v(\bf)$, and $V(\bf)$
+   ideal, say $\af$, so $V(\af) \subseteq V(\bf)$, and $V(\bf)$
    contains at-least one point.
 \end{proof}
 
@@ -161,3 +161,72 @@
   \end{equation*}
   generates the vector space $K$, and makes it finite dimensional.
 \end{proof}
+
+\begin{example}\label{example_10.7}
+  Consider the field $\R$ which is not algebraically
+  closed. Let $f(x)=x^2+1$ over $\R$. Then $(f)$ is a proper
+  ideal in $\R[x]$, but $V(f)=\0$, which violates the
+  weak Nullstellensatz.
+
+  In general, the weak Nullstellensatz does not hold if the
+  field $k$ is not algebraically closed. By consequence, neither
+  does Hilbert's Nullstellensatz, or any of its corollaries.
+  Observe:
+  \begin{equation*}
+    \Ic(V(f))=\Ic(\0)=\R[x] \neq \sqrt{(f)}=(f)
+  \end{equation*}
+  Now, since $\faktor{\R[x]}{(f)} \simeq \C$, $(f)$ is a maximal
+  ideal, hence it is prime, and hence it must be a radical ideal,
+  and $\Ic(V(f)) \neq (f)$. $V(f)$ is also not irreducible since
+  it is empty.
+
+  Finally, observe that $\R$ is a finite dimensional vector
+  space over itself of dimension $\dim{\R}=1$. Now, take
+  $f(x,y)=x^2+y^2-1$. Then:
+  \begin{equation*}
+    \faktor{\R[x,y]}{(f(x,y))} \simeq  \faktor{\R[x,y]}{(y^2-1)}
+    \simeq \R
+  \end{equation*}
+  we observe that $|V(f)|=4 \neq 1$. This breaks proposition
+  \ref{proposition_10.5.3}.
+\end{example}
+
+\begin{example}\label{example_10.8}
+  \begin{enumerate}
+    \item[(1)] Take $f(x,y)=x^2+y^2-1$ and $g(x,z)=x^2+z^2-1$ in
+      $\C[x,y,z]$. Then $V(f,g)=V(f) \cap V(g)=V(h)$, where
+      $h(y,z)=y^2-z^2$. Now $h(y,z)=(y-z)(y+z)$. So:
+      \begin{equation*}
+        V(f,g)=V(y-z) \cup V(y+z)
+      \end{equation*}
+      in $\A^3(\C)$.
+
+    \item[(2)] Let $V=V(x^3-z,x^2-y)$ the twisted cubic in
+      $\A^3(\C)$. Observe that:
+      \begin{equation*}
+        \faktor{\C[x,y,z]}{(x^3-z,x^2-y)} \simeq
+        \faktor{\C[x,y,z]}{(xy-z)} \simeq \C
+      \end{equation*}
+      so that $(x^3-z,x^2-y)$ is a maximal ideal in $\C[x,y,z]$, and
+      hence a prime ideal, and hence a radical ideal in $\C[x,y,z]$.
+      This makes $V(x^3-z,x^2-y)$ irreducible in $\A^3(\C)$.
+
+    \item[(3)] Let $k$ be an algebraically closed field, and take
+      $f(x,y)=y^2-x(x-1)(x-\l)$ for any $\l \in k$. Observe:
+      \begin{equation*}
+        \faktor{k[x,y]}{(f)} \simeq
+        \faktor{k[x]}{(x(x-1)(x-\l))} \simeq k
+      \end{equation*}
+      This makes $(f)$ maximal, and hence a radical ideal in
+      $k[x,y]$. Therefore $V(y-x(x-1)(x-\l))$ is irreducible in
+      $\A^2(k)$.
+
+    \item[(4)] Let $\af=(y^2-x^2,y^2+x^2) \subseteq \C[x,y]$. Then:
+      \begin{equation*}
+        \faktor{\C[x,y]}{\af} \simeq \faktor{\C[x]}{(x^2)}=\C
+      \end{equation*}
+      so $\dim_\C{\faktor{\C[x,y]}{\af}}=1$. Moreover, observe that
+      $|V(\af)|=1$ since $P=(0,0)$ is the only point on the curves
+      $y^2-x^2$ and $y^2+x^2$.
+  \end{enumerate}
+\end{example}
