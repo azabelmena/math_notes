@@ -3,7 +3,7 @@
 
 \begin{definition}
   Let $F$ be a field. We call the roots of the polynomial $x^n-1$ over
-  $F$ the \textbf{n}-th roots of unity over $F$. If  $\xi$ is an
+  $F$ the \textbf{$n$-th roots of unity} over $F$. If  $\xi$ is an
   $n$-th root of unity over $F$, we call the splitting field $F(\xi)$
   of $x^n-1$ over $F$ the \textbf{cyclotomic field} of $n$-th roots of
   unity over $F$.
@@ -66,7 +66,7 @@
 \end{corollary}
 \begin{proof}
   Since $\xi^n \equiv \xi^{0 \mod{n}} \equiv 1$, we have every non identity
-  power of $\xi$ has exponenct coprime to  $n$. That is there are $\phi(n)$
+  power of $\xi$ has exponent coprime to  $n$. That is there are $\phi(n)$
   such distinct powers of$\xi$.
 \end{proof}
 \begin{corollary}
@@ -74,7 +74,7 @@
 \end{corollary}
 \begin{proof}
   Notice that if $d|n$, then $d=mn$ for some  $m \in \Z^+$. Then $\xi^d=1$
-  implies  $(\xi^d)=\xi^{dm}=\xi^n=1$.
+  implies  $(\xi^d)m=\xi^{dm}=\xi^n=1$.
 \end{proof}
 
 \begin{definition}
@@ -103,7 +103,7 @@
   Now, grouping those factors where $\xi^d=1$ for some  $d|n$, then we have
   \begin{equation*}
     x^n-1=\prod_{\xi \in \Xi_d}{(x-\xi)}\prod_{\xi \in \Xi_n}{(x-\xi)}=
-    \prod{d|n}{\prod_{\xi \in \Xi_n}{(x-\xi)}}=\prod_{d|n}{\Phi_n(x)}
+    \prod_{d|n}{\prod_{\xi \in \Xi_n}{(x-\xi)}}=\prod_{d|n}{\Phi_n(x)}
   \end{equation*}
   that is,
   \begin{equation*}
