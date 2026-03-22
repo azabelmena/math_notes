@@ -18,7 +18,7 @@ enableRobotsTXT = true
     identifier = "home"
     name       = "Home"
     url        = "https://azabelmena.xyz"
-    weight     = 20
+    weight     = 10
 
 [markup]
   [markup.highlight]

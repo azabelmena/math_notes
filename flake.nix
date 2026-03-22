@@ -12,8 +12,8 @@
   in
   {
     devShells.${system} = {
-      research = pkgs.mkShell{
-        name = "research";
+      notes = pkgs.mkShell{
+        name = "notes";
 
         nativeBuildInputs = with pkgs; [
           go
