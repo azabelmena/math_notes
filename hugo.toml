@@ -1,6 +1,6 @@
 baseURL = 'https://cv.azabelmena.xyz'
 languageCode = 'en-us'
-title = "Research"
+title = "Notes"
 copyright = 'Alec S. Zabel-Mena'
 enableRobotsTXT = true
 
