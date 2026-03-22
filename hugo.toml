@@ -1,0 +1,57 @@
+baseURL = 'https://cv.azabelmena.xyz'
+languageCode = 'en-us'
+title = "Research"
+copyright = 'Alec S. Zabel-Mena'
+enableRobotsTXT = true
+
+[module]
+  [[module.imports]]
+    path = "github.com/michenriksen/hugo-theme-til"
+
+[outputs]
+  home = ['html']
+  section = ['html', 'rss', 'json']
+  page = ['html']
+
+[menus]
+  [[menu.main]]
+    identifier = "home"
+    name       = "Home"
+    url        = "https://azabelmena.xyz"
+    weight     = 10
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    style = 'tokyonight-night'
+
+    [markup.goldmark]
+        [markup.goldmark.extensions]
+            [markup.goldmark.extensions.passthrough]
+                enable = true
+                [markup.goldmark.extensions.passthrough.delimiters]
+                    block = [['\[', '\]']]
+                    inline = [['\(', '\)']]
+
+
+[params]
+  math=true
+  dateFormat = ':date_long'
+
+  showGraph = false
+
+  [params.author]
+    name = 'Alec S. Zabel-Mena'
+    email = 'alec.zabel@upr.edu'
+
+  [params.footer]
+    creativeCommonsLicense = 'by_nc'
+
+    showCreativeCommonsIcons = true
+
+    showThemeCredit = true
+
+  [params.robotstxt]
+    blockCC = true
+
+    blockAI = true
