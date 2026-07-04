@@ -1,5 +1,7 @@
 \section{Coordinate Rings and Polynomial Maps}\label{section_2.1}
 
+\subsection*{Coordinate Rings}
+
 \begin{definition}
   We call an irreducible affine algebraic set in $\A^n(k)$ an
   \textit{affine variety}.
@@ -180,3 +182,213 @@ $V$ by observing the coordinate ring $k[V]$.
   \in Y$ for all $0 \leq i \leq n-1$. This makes $Y$ a generating
   set of $k[V]$ as a module over $k[x]$.
 \end{example}
+
+\subsection*{Polynomial Maps}
+
+\begin{definition}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
+  varieties. A function $\phi:V \xrightarrow{} W$ is called a
+  \textbf{polynomial map} if there exist polynomials $t_1(x_1,
+  \dots, x_n), \dots, t_m(x_1, \dots, x_n) \in k[x_1, \dots, x_n]$
+  such that:
+  \begin{equation}
+    \phi(P)=(t_1(P), \dots, t_m(P)) \text{ for all } P \in V
+  \end{equation}
+\end{definition}
+
+We have the following immediate proposition and its corollory which
+illustrate the interest in polynomial maps:
+
+\begin{proposition}\label{proposition_11.1.5}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
+  varieties. Any function $\phi:V \xrightarrow{} W$ induces a
+  homomorphism $\Phi$ between the set of all functions from $W$ to
+  $k$ and the set of all functions from $V$ to $k$; where if $f:W
+  \xrightarrow{} k$ is such a function, then:
+  \begin{equation*}
+    \Phi(f)=f \circ \phi
+  \end{equation*}
+  That is, the following diagram commutes:
+  \[\begin{tikzcd}
+    V & W \\
+      & k
+      \arrow["\phi", from=1-1, to=1-2]
+      \arrow["{\Phi(f)}"', from=1-1, to=2-2]
+      \arrow["f", from=1-2, to=2-2]
+  \end{tikzcd}\]
+\end{proposition}
+\begin{proof}
+  Let $\phi:V \xrightarrow{} W$ be any function, and define $\Phi$
+  by the rule:
+   \begin{equation*}
+     \Phi(f)=f \circ \phi
+  \end{equation*}
+  for any function $f:W \xrightarrow{} k$. Now, let $f,g:W
+  \xrightarrow{} k$ be functions, then
+  \begin{equation*}
+    \Phi(f+g)=(f+g) \circ \phi=(f \circ \phi)+(g \circ \phi)=\Phi(f)+\Phi(g)
+  \end{equation*}
+  Likewise, $\Phi(fg)=\Phi(f)\Phi(g)$. So $\Phi$ is a homomorphism
+  as required. Moreover, $\Phi$ is well defined as a homomorphism,
+  for if $f$ takes $W \xrightarrow{} k$, and $\phi$ takes $W
+  \xrightarrow{} W$, then $\Phi(f)=f \circ \phi$ takes $V
+  \xrightarrow{} k$.
+\end{proof}
+\begin{corollary}
+  If $\phi:V \xrightarrow{} W$ is a polynomial map, then $\Phi(k[W])
+  \subseteq \Phi(k[V])$, and $\Phi$ restricts to a homomorphism from
+   $k[W] \xrightarrow{} k[V]$.
+\end{corollary}
+\begin{proof}
+  Let $f \in k[W]$, and let $\phi:V \xrightarrow{} W$ be a
+  polynomial map with induced homomorphism $\Phi$ as defined above.
+  We first observe that the coordinate rings $k[V]$ and $k[W]$ can
+  be seen as subrings of the ring of functions from $V
+  \xrightarrow{} k$ (respectively from $W \xrightarrow{} k$). Hence
+  the domain of $\Phi(f)$ as a function is $k[V]$.
+  Fix a point $P \in V$, since $\phi$ is a polynomial map, there
+  exist $t_1(x_1, \dots, x_n), \dots, t_m(x_1, \dots, x_n) \in
+  k[x_1, \dots, x_n]$ such that
+  \begin{equation*}
+    \Phi(f)(P)=f(\phi(P))=f(t_1(P), \dots, t_m(P))=
+    f(t_1, \dots, t_m)(P)
+  \end{equation*}
+  Now, since $P \in V$, then $f \circ \phi \in k[V]$.
+\end{proof}
+
+\begin{proposition}\label{proposition_11.1.6}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
+  varieties. There exists a natural $1-1$ correspondence between the
+  polynomial maps  $\phi:V \xrightarrow{} W$ and the induced
+  homomorphisms $\Phi:k[W] \xrightarrow{} k[V]$. Moreover, any such
+  polynomial maps is the restriction of a polynomial map from
+  $\A^n(k) \xrightarrow{} \A^m(k)$.
+\end{proposition}
+\begin{proof}
+  Suppos that $\a:k[W] \xrightarrow{} k[V]$ is a homomorphism, and
+  choose $t_i(x_1, \dots, x_n) \in k[x_1, \dots, x_n]$ such that:
+  \begin{equation*}
+    \a(x_i \mod{I(W)})=t_i(x_1, \dots, x_n) \mod{I(V)}
+    \text{ for all } 1 \leq i \leq m
+  \end{equation*}
+  Let $t=(t_1, \dots, t_m)$, then $t:\A^n(k) \xrightarrow{} \A^m(k)$
+  is a polynomial map inducing the homomorphism $T:k[x_1, \dots, x_m]
+  \xrightarrow{} k[x_1, \dots, x_n]$, by proposition
+  \ref{proposition_11.1.5} above. Moreover, $T(I(W)) \subseteq
+  I(V)$, which puts $t(V) \subseteq W$. Hence, $t$ restricts to a
+  polynomial map  $\phi:V \xrightarrow{} W$. Inducing the
+  homomorphism on $\phi$ using proposition \ref{proposition_11.1.5}
+  again, we get $\Phi=\a$.
+\end{proof}
+
+\begin{proposition}\label{proposition_11.5.7}
+  Let $V \subseteq \A^n(k)$, $W \subseteq \A^m(k)$, and $Z \subseteq
+  \A^l(k)$ be affine varieties, and let $\phi:V \xrightarrow{} W$
+  and $\psi:W \xrightarrow{} Z$ be polynomial maps. Then then the
+  composition $\psi \circ \phi:V \xrightarrow{} Z$ is also a
+  polynomial map. Moreover, the induced homomorphism of the
+  composition is the compostion of induced homomorphisms; in
+  particular, it is $\Phi \circ \Psi$.
+\end{proposition}
+\begin{proof}
+  Since $\phi$ and  $\psi$ are polynomial maps, there exist
+  $t_1(x_1, \dots, x_n), \dots, t_m(x_1, \dots, x_n) \in k[x_1,
+  \dots, x_n]$ and there exist $s_1(x_1, \dots, x_m), \dots,
+  s_l(x_1, \dots, x_m) \in k[x_1, \dots, x_m]$ such that for any $P
+  \in V$ and $Q \in W$:
+  \begin{equation*}
+    \phi(P)=(t_1(P), \dots, t_m(P)) \text{ and }
+    \psi(Q)=(s_1(Q), \dots, s_l(Q))
+  \end{equation*}
+  Now, since $P \in V$ and $\phi(P) \in W$, let $Q=\phi(Q)$, since
+  $P \in V$ is arbitrary, this holds for any $Q \in W$. Then we
+  have:
+  \begin{align*}
+    \psi(Q) &=  (s_1(Q), \dots, s_l(Q)) \\
+     &= (s_1(\phi(P)), \dots, s_l(\phi(P))) \\
+     &= (s_1(t_1(P), ..., t_m(P)), \dots, s_l(t_1(P), ..., t_m(P))) \\
+     &= (s_1(t_1(P), ..., t_m(P)), \dots, s_l(t_1(P), ..., t_m(P))) \\
+  \end{align*}
+  Letting $t=(t_1, \dots, t_m)$, we get
+  \begin{equation*}
+    \psi(Q)=(s_1(t(P)), \dots, s_l(t(P)))=
+    (s_1 \circ t(P), \dots, s_l \circ t(P))
+  \end{equation*}
+  label $r_i=s_i \circ t$ for all  $1 \leq i \leq l$, then each $r_i \in
+  k[x_1, \dots, x_m]$, and we have:
+  \begin{equation*}
+    \psi(Q)=\psi(\phi(P))=(r_1(P), \dots, r_l(P))
+  \end{equation*}
+  which makes $\psi \circ \phi$ a polynomial map.
+
+  Now, let $\Phi:k[W] \xrightarrow{} k[V]$ and $\Psi:k[Z]
+  \xrightarrow{} k[W]$ be the induced homomorphisms of $\phi$ and
+  $\psi$ respectively, and let $f \in k[Z]$. Then we have:
+  \begin{equation*}
+    \Phi \circ \Psi(f)=\Phi(\Psi(f))=\Phi(f \circ \psi)=
+    (f \circ \psi) \circ \phi=f \circ (\psi \circ \phi)
+  \end{equation*}
+  moreover, $\Phi \circ \Psi$ takes $k[Z] \xrightarrow{} k[V]$. Now,
+  suppose that $\a:k[Z] \xrightarrow{} k[V]$ is another induced
+  homomorphism of $\psi \circ \phi$. Then:
+  \begin{equation*}
+    \a(f)=f \circ (\psi \circ \phi)= (f \circ \psi) \circ \phi=
+    \Phi(f \circ \psi)=\Phi(\Psi(f))=\Phi \circ \Psi(f)
+  \end{equation*}
+\end{proof}
+
+\begin{proposition}\label{proposition_11.1.8}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
+  varieties. Let $\phi:V \xrightarrow{} W$ be a polynomial map of $V$
+  onto $W$. Then if $X \subseteq W$ is algebraic, then
+  $\inv{\phi}(X) \subseteq V$ is also algebraic. Moreover, if
+  $\inv{\phi}(X)$ is an affine subvariety of $V$, then $X$ is an
+  affine subvariety of $W$.
+\end{proposition}
+\begin{proof}
+  Since $\phi:V \xrightarrow{} W$ is onto, for every $Q \in W$,
+  there exists a $P \in V$ such that $Q=\phi(P)=(t_1, \dots,
+  t_m)(P)$. Now, let $X \subseteq W$ be algebraic, the $X=V(f_1,
+  \dots, f_r)$ for some polynomials $f_1, \dots, f_r \in k[x_1,
+  \dots, x_m]$, so for very $Q \in X$ $f_i(Q)=0$ for all $1 \leq i
+  \leq r$. Now, we have that $Q=\phi(P)$ for some $P \in V$, so that
+  $f_i(Q)=f_i(\phi(P))=f_i \circ \phi(P)=\Phi(f_i)(P)=0$, where
+  $\Phi:k[W] \xrightarrow{} k[V]$ is the induced homomorphism. This
+  puts $\Phi(f_i) \in k[V]$. This makes $\inv{\phi}(X)=V(\Phi(f_1),
+  \dots, \Phi(f_r))$.
+
+  Now, suppose that $\inv{\phi}(X)$ is an affine subvariety of $V$,
+  then  $I(\inv{\phi}(X))$ is prime in $V$. Let $fg \in I(X)$, so
+  that for all $Q \in X$ $fg(Q)=0$. Now, $Q=\phi(P)$ for some $P \in
+  V$ so that $fg(Q)=fg \circ
+  \phi(P)=\Phi(fg)(P)=(\Phi(f)\Phi(g))(P)=0$. Now, since
+  $\inv{\phi}(X)$ is prime, this makes either $\Phi(f)(P)=(f \circ
+  \phi)(P)=0$ or $\Phi(g)=(g \circ \phi)(P)=0$, so either $\Phi(f)
+  \in \inv{\phi}(X)$ or $\phi(g) \in \inv{\phi}(X)$. This makes
+  either $f \in I(X)$ or $g \in I(X)$, which makes $I(X)$ a prime
+  ideal in $W$. Therefore $X$ must also be an affine subvariety of
+  $W$.
+\end{proof}
+
+\begin{example}\label{example_11.2}
+  \begin{enumerate}
+    \item[(1)] Consider the twisted cubic $V=V(x^3-z,x^2-y)=\{(t,
+      t^2, t^3) : t \in k\}$. Since $V$ is an irreducible algebraic
+      set in $k$, it is by definition an affine variety.
+
+    \item[(2)] Let $V=V(xz-y^2, yz-x^3, z^2-x^2y)$ an affine variety
+      over $\C$. Observe that $y^2-x^4,z^3-x^5, z^4-y^5 \in I(V)$ so
+      that $I(V)=(y^2-x^4, z^3-x^5, z^4-y^5)$, which is a prime
+      ideal, so that $V$ is an affine variety \textcolor{red}{This
+      is probably wrong}.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  We call a polynomial map $\phi:V \xrightarrow{} W$ an
+  \textit{isomoprhism} between $V$ and $W$ if there exists a
+  polynomial map $\psi:W \xrightarrow{} V$ such that:
+  \begin{equation*}
+    \phi \circ \psi=\id_W \text{ and } \psi \circ \phi=\id_V
+  \end{equation*}
+\end{definition}
