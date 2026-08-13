@@ -1,0 +1,164 @@
+\section{Convergent Power Series}
+
+\begin{definition}
+    For a sequence $\{a_n\}$ of points of $\C$, the series
+    $\sum_{n=0}^\infty{a_n}$ is said to \textbf{converge} to a point $z \in \C$
+    if for all $\e>0$, there is an  $N \in \Z^+$ such that  $|s_m-z|<\e$,
+    whenever $m \geq N$; where
+    \begin{equation*}
+        s_m=\sum_{n=0}^m={a_n}
+    \end{equation*}
+    is the \textbf{$n$-th partial sum}. Se say that the series $\sum{a_n}$
+    \textbf{converges absolutely} if the series $\sum{|a_k|}$ converges.
+\end{definition}
+
+\begin{lemma}\label{3.1.1}
+    Let $\{a_n\}$ a sequence of points in $\C$. If the series  $\sum{a_n}$
+    converges absolutely, then it converges.
+\end{lemma}
+\begin{proof}
+    Let $\e>0$ and put  $z_n=a_0+a_1+\dots+a_n$. Since the series $\sum{|a_n|}$
+    converges, there is an $N \in \Z^+$ such that
+    $\sum_{n=N}^\infty{|a_n|}<\e$. Tus, if $m>k \geq N$, we have
+    \begin{equation*}
+        |z_m-z_k|=\Big{|} \sum_{n=k+1}^m{|a_n|} \Big{|} \leq \sum_{n=k+1}^m{|a_n|}
+        \leq \sum_{n=N}^m{|a_n|}<\e
+    \end{equation*}
+    This makes $\{z_n\}$ a Cauchy sequence in $\C$, si that  $\{z_n\}
+    \xrightarrow{} z$. Therefore $\sum{a_n}=z$.
+\end{proof}
+
+\begin{definition}
+    Let $\{a_n\}$ a sequence of points of $\C$. A  \textbf{power series} about a
+    point $z_0 \in \C$ is a series of the form
+    \begin{equation*}
+        \sum{a_n(z-z_0)^n}
+    \end{equation*}
+    We say the power series is \textbf{convergent}, if the series converges.
+\end{definition}
+
+\begin{example}\label{example_3.1}
+    The \textbf{geometric series} $\sum{z^n}$ is a power series. Notice that
+    \begin{equation*}
+        1-z^{n+1}=(1-z)(1+z+\dots+z^n)
+    \end{equation*}
+    so that
+    \begin{equation*}
+        1+z+\dots+z^n=\frac{1-z^{n+1}}{1-z}
+    \end{equation*}
+    Now, when $|z|<1$,  $z^n \xrightarrow{} 0$ and the series
+    \begin{equation*}
+        \sum{z^n}=\frac{1}{1-z}
+    \end{equation*}
+    When $|z|>1$, the series diverges.
+\end{example}
+
+\begin{theorem}\label{3.1.2}
+    Let $S=\sum{a_n(z-z_0)^n}$ be a power series, and define $R$ such tht  $0
+    \leq R \leq \infty$ by
+    \begin{equation*}
+        \frac{1}{R}=\limsup{\sqrt[n]{|a_n|}}
+    \end{equation*}
+    Then the following hold
+    \begin{enumerate}
+        \item[(1)] If $|z-z_0|<R$, then $S$ converges absolutely.
+
+        \item[(2)] If $|z-a|>R$, then  $S$ diverges.
+
+        \item[(3)] If $r$ is such that $0,r<R$, then  $S$ converges uniformly on
+            the open ball $B(z_0,r)$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Suppose without loss of generality, that $z_0=0$. If $|z|<R$, then there
+    exists an  $r$ with  $|z|<r<R$ and hence an  $N \in \Z^+$ such that
+    $\sqrt[n]{|a_n|}=\frac{1}{r}$ for all $n \geq N$; since
+    $\frac{1}{r}<\frac{1}{R}$. Then we get
+    \begin{equation*}
+        |a_n|<\frac{1}{r^n}
+    \end{equation*}
+    and so $|a_nz^n|<(\frac{|z|}{r})^n$. Hence, the tail,
+    $\sum_{n=N}^\infty{a_nz^n}$ is dominated by the sum
+    $\sum{(\frac{|z|}{r})^n}$, and since $\frac{|z|}{r}<1$, we get that $S$
+    converges absolutely for all  $|z|<R$; i.e. the ball $B(0,R)$.
+
+    Now, suppose that $r<R$ and choose a  $r<\p<R$ as above. Take $N \in \Z^+$
+    such that  $|a_n|<\frac{1}{\p^n}$ for all $n \geq N$. Then if  $|z| \leq r$,
+     $|a_z^n| \leq (\frac{z}{\p})^n$ and $\frac{r}{\p}<1$. By the Weierstrass
+     $M$-test, we get that the series $S$ converges uniformly on the ball
+     $B(0,r)$.
+
+     Now, let $|z|>R$ and choose an  $r$ with  $|z|>r>R$ so that
+     $\frac{1}{r}<\frac{1}{R}$. Then $\limsip{\sqrt[n]{|a_n|}}$ gives infinitely
+     many integers $n$ with  $\frac{1}{r}<\sqrt[n]{|a_n|}$. Hence
+     \begin{equation*}
+         |a_nz^n|>\Big{(} \frac{|z|}{r} \Big{)}^n
+     \end{equation*}
+     and since $\frac{|z|}{r}>1$, the terms become unbounded, making $S$
+     diverge.
+\end{proof}
+
+\begin{definition}
+    We define the \textbf{radius of convergence} of a power series
+    $\sum{a_n(z_-z_0)^n}$ to be a number $R$ such that  $0 \leq R \leq \infty$
+    and the following hold
+    \begin{enumerate}
+        \item[(1)] If $|z-z_0|<R$, then $S$ converges absolutely.
+
+        \item[(2)] If $|z-a|>R$, then  $S$ diverges.
+
+        \item[(3)] If $r$ is such that $0,r<R$, then  $S$ converges uniformly on
+            the open ball $B(z_0,r)$.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}\label{3.1.3}
+    If $\sum{a_n(z-z_0)^n}$ is a power series with radius of convergence $R>0$,
+    then
+    \begin{equation*}
+        R=\lim_{n \xrightarrow{} \infty}\Big{|} \frac{a_n}{a_{n+1}} \Big{|}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Without loss of generality, let $z_0=0$ and take
+    $\a=\lim{|\frac{a_n}{a_{n+1}}|}$, and suppose that this limit does indeed
+    exist. Suppose that $|z|<r<\a$ and take  $N \in \Z^+$ such that
+    $r<|\frac{a_n}{a_{n+1}}|$ for all $n \geq N$. Take  $B=|a_N|r^N$. Then
+    $|a_{N+1}r^{N+1}=|a_{N+1}|rr^N<|a_N|r^N=B$. That
+    $|a_{N+2}|r^{N+2}=|a_{N+2}|rr^{N+2}<|a_{N+1}|r^{N+1}<B$. By induction we get
+    $|a_n|r^N \leq B$ for all  $n \geq N$. Then
+    $|a_nz^n|=|a_nr^n|\frac{|z|^n}{r}$ for all $n \geq N$. Since  $|z|<r$, we
+    get that the series  $\sum{|a_nz^n|}$ is dominated by a convergent series
+    and hence is convergent itself.
+
+    Now, if $|z|>r>\a$. then $|a_n|<r|
+    a_{n+1}|$ for all $n \geq N$, for some  $N \in \Z^+$. We find that
+    \begin{equation*}
+        |a_nr^n| \geq B=|a_Nr^N|
+    \end{equation*}
+    so we get
+    \begin{equation*}
+        |a_nz^n| \geq B\frac{|z|^n}{|r|^n}
+    \end{equation*}
+    and $B\frac{|z|^n}{|r|^n} \xrightarrow{} \infty$ as $n \xrightarrow{}
+    \infty$. Therefore the series $\sum{a_nz^n}$ diverges so that $R \leq \a$.
+    THis makes  $R=\a$ and we are done.
+\end{proof}
+
+\begin{example}\label{example_3.2}
+    The \textbf{exponential series} defined by
+    \begin{equation*}
+        \exp{z}=\sum{\frac{z^n}{n!}}
+    \end{equation*}
+    converges on all $\C$ and has radius of convergence  $R=\infty$.
+\end{example}
+
+\begin{lemma}\label{3.1.4}
+    LEt $\sum{a_n(z-z_0)^n}$ and $\sum{b_n(z-z_0)^n}$ be convergent power series
+    with radi of convergence  greater than some $r>0$. Let
+    $c_n=\sum_{k=0}^n{a_kb_{n-k}}$. THen the series
+    \begin{equation*}
+        \sum{(a_n+b_n)(z-z_0)^n} \text{ and } \sum{c_n(z-z_0)^n}
+    \end{equation*}
+    are convergent power series with radi of convergent greater than $r$.
+\end{lemma}

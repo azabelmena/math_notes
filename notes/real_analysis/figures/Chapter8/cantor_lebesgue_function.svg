@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="cantor_lebesgue_function.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="3.1714366"
+     inkscape:cx="322.56675"
+     inkscape:cy="387.83686"
+     inkscape:window-width="1888"
+     inkscape:window-height="1008"
+     inkscape:window-x="13"
+     inkscape:window-y="53"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.499999"
+       d="m 58.815279,78.602109 v 48.620841 l 57.462011,0"
+       id="path238" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.499999"
+       d="m 61.655311,121.65673 h 8.492744"
+       id="path240" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.499999"
+       d="M 70.148055,117.47077 H 80.1695"
+       id="path242" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.499999"
+       d="m 80.169498,114.63231 h 2.333797"
+       id="path248" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.499999"
+       d="M 82.503295,112.40665 H 96.902502"
+       id="path250" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.499999"
+       d="m 96.902502,108.69295 h 2.333236"
+       id="path252" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.499999"
+       d="M 99.235738,106.00163 H 109.60595"
+       id="path256" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.499999"
+       d="m 109.60595,102.37146 h 3.86573"
+       id="path258" />
+  </g>
+</svg>
