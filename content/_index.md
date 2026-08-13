@@ -37,9 +37,7 @@ math_notes/
 │       │   ├── figures/
 │       │   │   └── chapter#/
 │       │   │       └── <figure_name>.<svg/eps/pdf>
-│       │   ├── <subject>.bbl
-│       │   ├── <subject>.tex
-│       │   ├── quiver.sty
+│       │   ├── main.tex
 │       └── references.tex
 ├── .gitignore
 ├── LICENSE
@@ -47,8 +45,8 @@ math_notes/
 ```
 
 You can open your favorit LaTeX editor in the `subject/` directory to compile
-the pdfs, or you can run the `latexmk -pdf <subject.tex>` terminal command the
-same directory. The main files will always be names `<subject>.tex`. To clean up
+the pdfs, or you can run the `latexmk -pdf main.tex` terminal command the
+same directory. The main files will always be names `main.tex`. To clean up
 any extraneous files, just run the cleaning command in your favorite LaTeX
 editor, or `latexmk -c` in the terminal.
 
@@ -65,5 +63,7 @@ editor, or `latexmk -c` in the terminal.
 ## Topology
 
 ## Real and Complex Analysis
+
+## Matroid Theory
 
 ## Other Mathematics notes
