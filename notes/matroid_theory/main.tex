@@ -1,12 +1,17 @@
 \documentclass[12pt, twoside]{book}
 
-\usepackage[margin=1in]{geometry}
+\usepackage[a4paper, margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage{verbatim}
-\usepackage{amsmath,amsfonts,amsthm,amssymb,graphicx,mathtools,hyperref,mathrsfs}
-\usepackage{quiver}
-\usepackage{faktor}
-%\usepackage{wrapfig}
+\usepackage{fontenc}
+\usepackage{spectral}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb}
+\usepackage{mathtools, mathrsfs}
+\usepackage{quiver, faktor, xfrac}
+
+\usepackage{graphicx}\graphicspath{ { ./figures/ } }
+\usepackage{hyperref}
+
 \input{../../library/fonts/BlackboardBold}
 \input{../../library/fonts/MathCalligraphy}
 \input{../../library/fonts/MathScript}
@@ -15,7 +20,11 @@
 \input{../../library/styles}
 
 \title{Matroid Theory}
-\author{Alec Zabel-Mena \\ Text - Oxley, James, Matroid Theory \cite{oxley}}
+\author{
+  Alec S. Zabel-Mena, B.S. \\
+  Texts --- J.G. Oxley, Matroid Theory \cite{oxley2011} \\
+        --- D.J.A Welsh, Matroid Theory \cite{welsh2010}
+}
 \date{\today}
 
 \begin{document}
@@ -28,6 +37,6 @@
 \nocite{*}
 
 \bibliography{references.bib}
-\bibliographystyle{ieeetr}
+\bibliographystyle{plain}
 
 \end{document}
