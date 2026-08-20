@@ -1,0 +1,44 @@
+\documentclass[12pt, twoside]{book}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fontenc}
+\usepackage{spectral}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb}
+\usepackage{mathtools, mathrsfs}
+\usepackage{quiver, faktor, xfrac}
+
+\usepackage{graphicx}\graphicspath{ { ./figures/ } }
+\usepackage{hyperref}
+
+\input{../../../library/fonts/BlackboardBold}
+\input{../../../library/fonts/MathCalligraphy}
+\input{../../../library/fonts/MathScript}
+\input{../../../library/definitions}
+\input{../../../library/greek}
+\input{../../../library/styles}
+
+\title{Differential Geometry}
+\author{
+  Alec S. Zabel-Mena, B.S. \\
+  Texts --- Chris J. Isham, Modern Differential Geometry for
+  Physicists \cite{isham1999} \\
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\input{chapters/chapter1/chapter1.tex}
+
+\nocite{*}
+
+\bibliography{references.bib}
+\bibliographystyle{plain}
+
+\end{document}
