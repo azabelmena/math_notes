@@ -379,8 +379,7 @@ illustrate the interest in polynomial maps:
     \item[(2)] Let $V=V(xz-y^2, yz-x^3, z^2-x^2y)$ an affine variety
       over $\C$. Observe that $y^2-x^4,z^3-x^5, z^4-y^5 \in I(V)$ so
       that $I(V)=(y^2-x^4, z^3-x^5, z^4-y^5)$, which is a prime
-      ideal, so that $V$ is an affine variety \textcolor{red}{This
-      is probably wrong}.
+      ideal, so that $V$ is an affine variety.
   \end{enumerate}
 \end{example}
 
@@ -391,4 +390,47 @@ illustrate the interest in polynomial maps:
   \begin{equation*}
     \phi \circ \psi=\id_W \text{ and } \psi \circ \phi=\id_V
   \end{equation*}
+  We call the varieties $V$ and $W$ \textit{isomorphic} if there
+  exists an isomorphism between $V$ and $W$, and we write $V \simeq
+  W$.
 \end{definition}
+
+\begin{proposition}\label{proposition_11.1.9}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
+  varieties. Then $V \simeq W$ if and only if $k[V] \simeq k[W]$.
+\end{proposition}
+\begin{proof}
+  Suppose that $V \simeq W$, then there exists an isomorphism
+  $\phi:V \xrightarrow{} W$. Then the induced homomorphism $\Phi:k[W]
+  \xrightarrow{} k[V]$ must also be an isomorphism (use propostion
+  \ref{proposition_11.1.7}); so that $k[V] \simeq k[W]$.
+
+  Conversely suppose that $k[V] \simeq k[W]$ via the isomorphism
+  $\Phi:k[W] \xrightarrow{} k[V]$. Then by propositon
+  \ref{propositon_11.1.5}, $\Phi$ is induced by a polynomial map
+  $\phi:V \xrightarrow{} W$. There is also a polynomial map $\psi:W
+  \xrightarrow{} V$ inducing $\Psi=\inv{\Phi}:k[V]
+  \xrightarrow{} k[W]$. Now
+  \begin{equation*}
+    \Phi \circ \Psi=\id_{k[V]} \text{ and } \Psi \circ \Phi=\id_{k[W]}
+  \end{equation*}
+  so the comopisitions of the corresponding polynomial maps give:
+  \begin{equation*}
+    \phi \circ \psi=\id_W \text{ and } \psi \circ \phi=\id_V
+  \end{equation*}
+  which makes $\phi$ the required isomorphism.
+\end{proof}
+
+\begin{proposition}\label{proposition_11.1.10}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
+  varieties, let $\phi:V \xrightarrow{} W$ a polynomial map, and let
+  $V' \subseteq V$ and $W' \subseteq W$ subvarieties. If $\phi(V')
+  \subseteq W'$ the the following are true:
+  \begin{enumerate}
+    \item[(1)] $\Phi(I_V(W)) \subseteq I_V(W)$, where $\Phi$ is the
+      induced homomorphism of $\phi$.
+
+    \item[(2)] $\phi$ restricts to a polynomial map $\phi':V'
+      \xrightarrow{} W'$.
+  \end{enumerate}
+\end{proposition}
