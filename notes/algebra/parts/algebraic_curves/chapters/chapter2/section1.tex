@@ -58,9 +58,9 @@
 \end{proof}
 \begin{corollary}
   Let $f(x_1, \dots, x_n) \in k[x_1, \dots, x_n]$, and consider the
-  map $f \xrightarrow{} F$ sending $f(x_1, \dots, x_n)$ to its associated
-  polynomial function $F$. This map is a ring homomorphism, and has
-  as its kernel $I(V)$.
+  map $f \xrightarrow{} F$ sending $f(x_1, \dots, x_n)$ to its
+  associated polynomial function $F$. This map is a ring
+  homomorphism, with kernel $I(V)$.
 \end{corollary}
 \begin{proof}
   Define the map $\phi:f \xrightarrow{} F$ where $f(x_1, \dots, x_n)
@@ -147,15 +147,20 @@ $V$ by observing the coordinate ring $k[V]$.
   \end{enumerate}
 \end{proposition}
 \begin{proof}
-  Suppose that $V=\{P\}$ for some point $P \in \A^n(k)$. Then $I(V)$
-  is a maximal ideal, which makes $k[V]$ into a field. It follows
-  then that $k[V] \simeq k$. The converse of this argument also
-  follows.
+  Let $P \in \A^n(k)$ be a point; by the corollories to proposition
+  \ref{proposition_11.1.2}, $V=\{P\}$ if and only if $I(V)$ is a
+  maximal ideal, and $I(V)$ is a maximal ideal if and only if $k[V]$
+  is a field. Hence $V=\{P\}$ if and only if $k[V] \simeq k$, since
+  $k \subseteq k[V]$.
 
-  Now, we also have that if $V=\{P\}$, then $V$ is a finite set of
-  points, and  $\dim_k{k[V]}$ is finite by proposition
-  \ref{proposition_10.5.3}. Now, if $k[V] \simeq k$, then
-  $\dim_k{k[V]}=\dim_k{k}=1$. This completes the proof.
+  By proposition \ref{proposition_10.5.3}, $V$ is a finite set of
+  points if and only if $k[V]$ is a finite-dimensional vector space
+  over $k$. If $V=\{P\}$, then certainly, $\dim_k{k[V]}$ is finite.
+  Conversly, suppose that $\dim_k{k[V]}$ is finite. Then $V=\{P_1,
+  \dots, P_r\}$, so that $V$ decomposes as the union of algebraic
+  sets $V_{P_i}=\{P_i\}$ (see (3) of example \ref{example_10.1}). Since
+  $V$ is a variety, by definition $V$ is irreducible so $V=V_{P_i}$
+  for some fixed $i$. This makes $V$ a point.
 \end{proof}
 
 \begin{example}\label{example_11.1}
