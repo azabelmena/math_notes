@@ -426,16 +426,98 @@ illustrate the interest in polynomial maps:
   which makes $\phi$ the required isomorphism.
 \end{proof}
 
-\begin{proposition}\label{proposition_11.1.10}
-  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
-  varieties, let $\phi:V \xrightarrow{} W$ a polynomial map, and let
-  $V' \subseteq V$ and $W' \subseteq W$ subvarieties. If $\phi(V')
-  \subseteq W'$ the the following are true:
+\begin{example}\label{example_11.3}
+  Fix $k$, and let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$
+  be affine varieties for the following examples.
   \begin{enumerate}
-    \item[(1)] $\Phi(I_V(W)) \subseteq I_V(W)$, where $\Phi$ is the
-      induced homomorphism of $\phi$.
+    \item[(1)] Let $n \geq r$, and define the following map
+      \begin{equation*}
+        \begin{split}
+          \pi_r:\A^n(k) & \xrightarrow{} \A^r(k)  \\
+          (a_1, \dots, a_n) & \xrightarrow{} (a_1, \dots, a_r)  \\
+        \end{split}
+      \end{equation*}
+      Then $\pi_r$ is a polynomial map. Define for each $1 \leq i
+      \leq r$, $p_i(x_1, \dots, x_n) \in k[x_1, \dots, x_n]$ by
+      $p_i(x_1, \dots, x_n)=x_i$. Take $P=(a_1, \dots, a_n) \in
+      \A^n(k)$,. Then
+      \begin{equation*}
+        \pi_r(P)=(a_1, \dots, a_r)=(p_1(P), \dots, p_r(P))
+      \end{equation*}
+      We observe that $pi_r(\A^n(k))=\A^r(k)$, so that it is onto.
+      However, $\pi_r$ is not 1--1. We call the polynomial map
+      $\pi_r$ the \textit{projection map} on $\A^n(k)$.
 
-    \item[(2)] $\phi$ restricts to a polynomial map $\phi':V'
-      \xrightarrow{} W'$.
+    \item[(2)] Let $f(x_1, \dots, x_n) \in k[V]$. We define the
+      \textit{graph} of $f(x_1, \dots, x_n)$ to be:
+      \begin{equation*}
+        \Gc{f}=\{(P, f(P)) \in \A^{n+1}(k) : P \in V\}
+      \end{equation*}
+      Observe that $\Gc{f}$ is an algebraic set in $\A^n(k)$. Now, define
+      the map:
+      \begin{equation*}
+        \begin{split}
+          \t_f:\A^n(k) &  \xrightarrow{} \A^{n+1}(k)  \\
+          P &  \xrightarrow{} (P,f(P))
+        \end{split}
+      \end{equation*}
+      By definition, $\t_f$ is a polynomial map, and
+      $\t_f(V)=\Gc{f}$. Now, $\inv{\t}(\Gc{f})=V$, which is
+      irreducible by definition. So by propositon
+      \ref{proposition_11.1.8} $\Gf{f}$ is also irreducible, and
+      hence an affine variety in $\A^{n+1}(k)$. Moreover, $\Gf{f}
+      \simeq V$. Consider the projection map $\pi_n:\Gf{f}
+      \xrightarrow{} V$. Fix $P \in V$, then
+      \begin{equation*}
+        \begin{split}
+          \pi_n \circ \t_f(P) &=  \pi_n(\t_f(P))=\pi_n(P,f(P))=P  \\
+          \t_f \circ \pi_n(P,f(P))  &=  \t_f(\pi_n(P,f(P)))=
+                                \t_f(P)=(P,f(P))  \\
+        \end{split}
+      \end{equation*}
+      so
+      \begin{equation*}
+        \pi_n \circ \t_f=\id_V \text{ and } \t_f \circ \pi_n=\id_{\Gc{f}}
+      \end{equation*}
+      which makes $\t_f:V \xrightarrow{} \G{f}$ the required
+      isomorphism.
   \end{enumerate}
-\end{proposition}
+\end{example}
+
+\begin{example}\label{example_11.4}
+  \begin{enumerate}
+    \item[(1)] Define the map $\phi:\A^1(k) \xrightarrow{} \A^2(k)$
+      by $\phi:t \xrightarrow{} (t^2,t^3)$. Now,
+      $\phi(\A^1(k))=V=V(y^2-x^3)$. Let $t \in \ker{\phi}$. Then
+      $\phi(t)=(t^2,t^3)=0$, so that $t=0$. Hence
+      $\ker{\phi}=\{0\}$, and $\phi$ is 1--1 taking $\A^1(k)$ onto
+      $V$. However, $\phi$ is not a polynomial map. Observe the
+      induced homomorphism $\Phi:k[V] \xrightarrow{} k[t]$ gives:
+      \begin{equation*}
+        \Phi(k[V])=k[t^2,t^3] \subseteq k[t]
+      \end{equation*}
+      so $\Phi$ is not onto.
+
+    \item[(2)] Define $\phi:\A^1(k) \xrightarrow{} \A^2(k)$ by
+      $\phi(t)=(t^2-1,t^2(t+1))$. Then
+      $\phi(\A^1(k))=V=V(y^2-x^3(x+1))$. Now, $\phi(0)=0$ if, and
+      only if $t=\pm{1}$. So $\ker{\phi}=\{\pm{1}\}$.
+
+    \item[(3)] Define $\a:k[x,y,z] \xrightarrow{} k[t]$ by
+      $\a(x)=t^9$, $\a(y)=t^6$, and $\a(z)=t^5$. Define the map:
+      \begin{equation*}
+        \begin{split}
+          \phi:\A^1(k) &  \xrightarrow{} \A^3(k) \\
+          t & \xrightarrow{} (t^9, t^6, t^4)  \\
+        \end{split}
+      \end{equation*}
+      Then by definition, $\phi(t)=(\a(x), \a(y), \a(z))$, and
+      $\phi$ is a polynomial map on $\A^1(k)$. We denote induced
+      homomorphism of $\phi$ by $\a^*$. Now, observe that
+      $\phi(\A^1(k))=V=V(x^2-y^3, y^2-z^3)$, and that $\phi(t)=0$ if
+      and only if $t=0$, so $\ker{\phi}=0$. This makes $\phi$ 1--1
+      and onto between  $\A^1(k)$ and $V$. However, $\phi$ is not a
+      isomorphism, since $\a^*(k[V])=k[t^9,t^6,t^4] \subseteq k[t]$.
+      $\a^*$ fails to be onto.
+  \end{enumeroate}
+\end{example}
