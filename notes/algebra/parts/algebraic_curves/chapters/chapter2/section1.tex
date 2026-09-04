@@ -207,65 +207,73 @@ illustrate the interest in polynomial maps:
 \begin{proposition}\label{proposition_11.1.5}
   Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
   varieties. Any function $\phi:V \xrightarrow{} W$ induces a
-  homomorphism $\Phi$ between the set of all functions from $W$ to
+  homomorphism $\phi^*$ between the set of all functions from $W$ to
   $k$ and the set of all functions from $V$ to $k$; where if $f:W
   \xrightarrow{} k$ is such a function, then:
   \begin{equation*}
-    \Phi(f)=f \circ \phi
+    \phi^*(f)=f \circ \phi
   \end{equation*}
   That is, the following diagram commutes:
   \[\begin{tikzcd}
     V & W \\
       & k
       \arrow["\phi", from=1-1, to=1-2]
-      \arrow["{\Phi(f)}"', from=1-1, to=2-2]
+      \arrow["{\phi^*(f)}"', from=1-1, to=2-2]
       \arrow["f", from=1-2, to=2-2]
   \end{tikzcd}\]
 \end{proposition}
 \begin{proof}
-  Let $\phi:V \xrightarrow{} W$ be any function, and define $\Phi$
+  Let $\phi:V \xrightarrow{} W$ be any function, and define $\phi^*$
   by the rule:
    \begin{equation*}
-     \Phi(f)=f \circ \phi
+     \phi^*(f)=f \circ \phi
   \end{equation*}
   for any function $f:W \xrightarrow{} k$. Now, let $f,g:W
   \xrightarrow{} k$ be functions, then
   \begin{equation*}
-    \Phi(f+g)=(f+g) \circ \phi=(f \circ \phi)+(g \circ \phi)=\Phi(f)+\Phi(g)
+    \phi^*(f+g)=(f+g) \circ \phi=(f \circ \phi)+(g \circ \phi)=\phi^*(f)+\phi^*(g)
   \end{equation*}
-  Likewise, $\Phi(fg)=\Phi(f)\Phi(g)$. So $\Phi$ is a homomorphism
-  as required. Moreover, $\Phi$ is well defined as a homomorphism,
+  Likewise, $\phi^*(fg)=\phi^*(f)\phi^*(g)$. So $\phi^*$ is a homomorphism
+  as required. Moreover, $\phi^*$ is well defined as a homomorphism,
   for if $f$ takes $W \xrightarrow{} k$, and $\phi$ takes $W
-  \xrightarrow{} W$, then $\Phi(f)=f \circ \phi$ takes $V
+  \xrightarrow{} W$, then $\phi^*(f)=f \circ \phi$ takes $V
   \xrightarrow{} k$.
 \end{proof}
 \begin{corollary}
-  If $\phi:V \xrightarrow{} W$ is a polynomial map, then $\Phi(k[W])
-  \subseteq \Phi(k[V])$, and $\Phi$ restricts to a homomorphism from
+  If $\phi:V \xrightarrow{} W$ is a polynomial map, then $\phi^*(k[W])
+  \subseteq \phi^*(k[V])$, and $\phi^*$ restricts to a homomorphism from
    $k[W] \xrightarrow{} k[V]$.
 \end{corollary}
 \begin{proof}
   Let $f \in k[W]$, and let $\phi:V \xrightarrow{} W$ be a
-  polynomial map with induced homomorphism $\Phi$ as defined above.
+  polynomial map with pullback $\phi^*$ as defined above.
   We first observe that the coordinate rings $k[V]$ and $k[W]$ can
   be seen as subrings of the ring of functions from $V
   \xrightarrow{} k$ (respectively from $W \xrightarrow{} k$). Hence
-  the domain of $\Phi(f)$ as a function is $k[V]$.
+  the domain of $\phi^*(f)$ as a function is $k[V]$.
   Fix a point $P \in V$, since $\phi$ is a polynomial map, there
   exist $t_1(x_1, \dots, x_n), \dots, t_m(x_1, \dots, x_n) \in
   k[x_1, \dots, x_n]$ such that
   \begin{equation*}
-    \Phi(f)(P)=f(\phi(P))=f(t_1(P), \dots, t_m(P))=
+    \phi^*(f)(P)=f(\phi(P))=f(t_1(P), \dots, t_m(P))=
     f(t_1, \dots, t_m)(P)
   \end{equation*}
   Now, since $P \in V$, then $f \circ \phi \in k[V]$.
 \end{proof}
 
+\begin{definition}
+  Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
+  varieties, and let $\phi:V \xrightarrow{} W$ be a polynomial map.
+  We define the \textit{pullback} of $\phi$ to be the homomorphism
+  $\phi^*:k[W] \xrightarrow{} k[V]$ induced by $\phi$ as in
+  proposition \ref{proposition_11.1.5}.
+\end{definition}
+
 \begin{proposition}\label{proposition_11.1.6}
   Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
   varieties. There exists a natural $1-1$ correspondence between the
   polynomial maps  $\phi:V \xrightarrow{} W$ and the induced
-  homomorphisms $\Phi:k[W] \xrightarrow{} k[V]$. Moreover, any such
+  homomorphisms $\phi^*:k[W] \xrightarrow{} k[V]$. Moreover, any such
   polynomial maps is the restriction of a polynomial map from
   $\A^n(k) \xrightarrow{} \A^m(k)$.
 \end{proposition}
@@ -283,7 +291,7 @@ illustrate the interest in polynomial maps:
   I(V)$, which puts $t(V) \subseteq W$. Hence, $t$ restricts to a
   polynomial map  $\phi:V \xrightarrow{} W$. Inducing the
   homomorphism on $\phi$ using proposition \ref{proposition_11.1.5}
-  again, we get $\Phi=\a$.
+  again, we get $\phi^*=\a$.
 \end{proof}
 
 \begin{proposition}\label{proposition_11.1.7}
@@ -291,9 +299,9 @@ illustrate the interest in polynomial maps:
   \Z^l(k)$ be affine varieties, and let $\phi:V \xrightarrow{} W$
   and $\psi:W \xrightarrow{} Z$ be polynomial maps. Then the
   composition $\psi \circ \phi:V \xrightarrow{} Z$ is also a
-  polynomial map. Moreover, if $\Phi$ and $\Psi$ are the induced
-  homomorphisms of $\phi$ and $\psi$ respectively, then $\Phi \circ
-  \Psi$ is the induced homomorphism of $\psi \circ \phi$.
+  polynomial map. Moreover, if $\phi^*$ and $\psi^*$ are the
+  pullbacks of $\phi$ and $\psi$ respectively, then $\phi^* \circ
+  \psi^*$ is the pullback of $\psi \circ \phi$.
 \end{proposition}
 \begin{proof}
   Since $\phi$ and  $\psi$ are polynomial maps, there exist
@@ -326,19 +334,20 @@ illustrate the interest in polynomial maps:
   \end{equation*}
   which makes $\psi \circ \phi$ a polynomial map.
 
-  Now, let $\Phi:k[W] \xrightarrow{} k[V]$ and $\Psi:k[Z]
-  \xrightarrow{} k[W]$ be the induced homomorphisms of $\phi$ and
-  $\psi$ respectively, and let $f \in k[Z]$. Then we have:
+  Now, let $\phi^*:k[W] \xrightarrow{} k[V]$ and $\psi^*:k[Z]
+  \xrightarrow{} k[W]$ be the pullbacks of $\phi$ and $\psi$
+  respectively, and let $f \in k[Z]$. Then we have:
   \begin{equation*}
-    \Phi \circ \Psi(f)=\Phi(\Psi(f))=\Phi(f \circ \psi)=
-    (f \circ \psi) \circ \phi=f \circ (\psi \circ \phi)
+    (\psi \circ \phi)^*(f)=f \circ (\psi \circ \phi)= (f \circ \psi)
+    \circ \phi=\phi^*(f \circ \psi)=\phi^*(\psi^*(f))=\phi^* \circ
+    \psi^*(f)
   \end{equation*}
-  moreover, $\Phi \circ \Psi$ takes $k[Z] \xrightarrow{} k[V]$. Now,
-  suppose that $\a:k[Z] \xrightarrow{} k[V]$ is another induced
-  homomorphism of $\psi \circ \phi$. Then:
+  moreover, $\phi^* \circ \psi^*$ takes $k[Z] \xrightarrow{} k[V]$. Now,
+  suppose that $\a:k[Z] \xrightarrow{} k[V]$ is another pullback of
+  $\psi \circ \phi$. Then:
   \begin{equation*}
     \a(f)=f \circ (\psi \circ \phi)= (f \circ \psi) \circ \phi=
-    \Phi(f \circ \psi)=\Phi(\Psi(f))=\Phi \circ \Psi(f)
+    \phi^*(f \circ \psi)=\phi^*(\psi^*(f))=\phi^* \circ \psi^*(f)
   \end{equation*}
 \end{proof}
 
@@ -357,18 +366,18 @@ illustrate the interest in polynomial maps:
   \dots, f_r)$ for some polynomials $f_1, \dots, f_r \in k[x_1,
   \dots, x_m]$, so for very $Q \in X$ $f_i(Q)=0$ for all $1 \leq i
   \leq r$. Now, we have that $Q=\phi(P)$ for some $P \in V$, so that
-  $f_i(Q)=f_i(\phi(P))=f_i \circ \phi(P)=\Phi(f_i)(P)=0$, where
-  $\Phi:k[W] \xrightarrow{} k[V]$ is the induced homomorphism. This
-  puts $\Phi(f_i) \in k[V]$. This makes $\inv{\phi}(X)=V(\Phi(f_1),
-  \dots, \Phi(f_r))$.
+  $f_i(Q)=f_i(\phi(P))=f_i \circ \phi(P)=\phi^*(f_i)(P)=0$, where
+  $\phi^*:k[W] \xrightarrow{} k[V]$ is the pullback. This
+  puts $\phi^*(f_i) \in k[V]$. This makes $\inv{\phi}(X)=V(\phi^*(f_1),
+  \dots, \phi^*(f_r))$.
 
   Now, suppose that $\inv{\phi}(X)$ is an affine subvariety of $V$,
   then  $I(\inv{\phi}(X))$ is prime in $V$. Let $fg \in I(X)$, so
   that for all $Q \in X$ $fg(Q)=0$. Now, $Q=\phi(P)$ for some $P \in
   V$ so that $fg(Q)=fg \circ
-  \phi(P)=\Phi(fg)(P)=(\Phi(f)\Phi(g))(P)=0$. Now, since
-  $\inv{\phi}(X)$ is prime, this makes either $\Phi(f)(P)=(f \circ
-  \phi)(P)=0$ or $\Phi(g)=(g \circ \phi)(P)=0$, so either $\Phi(f)
+  \phi(P)=\phi^*(fg)(P)=(\phi^*(f)\phi^*(g))(P)=0$. Now, since
+  $\inv{\phi}(X)$ is prime, this makes either $\phi^*(f)(P)=(f \circ
+  \phi)(P)=0$ or $\phi^*(g)=(g \circ \phi)(P)=0$, so either $\phi^*(f)
   \in \inv{\phi}(X)$ or $\phi(g) \in \inv{\phi}(X)$. This makes
   either $f \in I(X)$ or $g \in I(X)$, which makes $I(X)$ a prime
   ideal in $W$. Therefore $X$ must also be an affine subvariety of
@@ -406,18 +415,19 @@ illustrate the interest in polynomial maps:
 \end{proposition}
 \begin{proof}
   Suppose that $V \simeq W$, then there exists an isomorphism
-  $\phi:V \xrightarrow{} W$. Then the induced homomorphism $\Phi:k[W]
+  $\phi:V \xrightarrow{} W$. Then the pullback $\phi^*:k[W]
   \xrightarrow{} k[V]$ must also be an isomorphism (use propostion
   \ref{proposition_11.1.7}); so that $k[V] \simeq k[W]$.
 
   Conversely suppose that $k[V] \simeq k[W]$ via the isomorphism
-  $\Phi:k[W] \xrightarrow{} k[V]$. Then by propositon
-  \ref{propositon_11.1.5}, $\Phi$ is induced by a polynomial map
+  $\phi^*:k[W] \xrightarrow{} k[V]$. Then by propositon
+  \ref{proposition_11.1.5}, $\phi^*$ is induced by a polynomial map
   $\phi:V \xrightarrow{} W$. There is also a polynomial map $\psi:W
-  \xrightarrow{} V$ inducing $\Psi=\inv{\Phi}:k[V]
+  \xrightarrow{} V$ inducing $\psi^*=\inv{\phi^*}:k[V]
   \xrightarrow{} k[W]$. Now
   \begin{equation*}
-    \Phi \circ \Psi=\id_{k[V]} \text{ and } \Psi \circ \Phi=\id_{k[W]}
+    \phi^* \circ \psi^*=\id_{k[V]} \text{ and }
+    \psi^* \circ \phi^*=\id_{k[W]}
   \end{equation*}
   so the comopisitions of the corresponding polynomial maps give:
   \begin{equation*}
@@ -492,11 +502,11 @@ illustrate the interest in polynomial maps:
       $\phi(t)=(t^2,t^3)=0$, so that $t=0$. Hence
       $\ker{\phi}=\{0\}$, and $\phi$ is 1--1 taking $\A^1(k)$ onto
       $V$. However, $\phi$ is not a polynomial map. Observe the
-      induced homomorphism $\Phi:k[V] \xrightarrow{} k[t]$ gives:
+      pullback $\phi^*:k[V] \xrightarrow{} k[t]$ gives:
       \begin{equation*}
-        \Phi(k[V])=k[t^2,t^3] \subseteq k[t]
+        \phi^*(k[V])=k[t^2,t^3] \subseteq k[t]
       \end{equation*}
-      so $\Phi$ is not onto.
+      so $\phi^*$ is not onto.
 
     \item[(2)] Define $\phi:\A^1(k) \xrightarrow{} \A^2(k)$ by
       $\phi(t)=(t^2-1,t^2(t+1))$. Then
@@ -512,8 +522,8 @@ illustrate the interest in polynomial maps:
         \end{split}
       \end{equation*}
       Then by definition, $\phi(t)=(\a(x), \a(y), \a(z))$, and
-      $\phi$ is a polynomial map on $\A^1(k)$. We denote induced
-      homomorphism of $\phi$ by $\a^*$. Now, observe that
+      $\phi$ is a polynomial map on $\A^1(k)$. We denote the
+      pullback of $\phi$ by $\a^*$. Now, observe that
       $\phi(\A^1(k))=V=V(x^2-y^3, y^2-z^3)$, and that $\phi(t)=0$ if
       and only if $t=0$, so $\ker{\phi}=0$. This makes $\phi$ 1--1
       and onto between  $\A^1(k)$ and $V$. However, $\phi$ is not a
