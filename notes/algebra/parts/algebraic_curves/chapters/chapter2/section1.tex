@@ -193,11 +193,11 @@ $V$ by observing the coordinate ring $k[V]$.
 \begin{definition}
   Let $V \subseteq \A^n(k)$ and $W \subseteq \A^m(k)$ be affine
   varieties. A function $\phi:V \xrightarrow{} W$ is called a
-  \textbf{polynomial map} if there exist polynomials $t_1(x_1,
-  \dots, x_n), \dots, t_m(x_1, \dots, x_n) \in k[x_1, \dots, x_n]$
+  \textbf{polynomial map} if there exist polynomials $\phi_1(x_1,
+  \dots, x_n), \dots, \phi_m(x_1, \dots, x_n) \in k[x_1, \dots, x_n]$
   such that:
   \begin{equation}
-    \phi(P)=(t_1(P), \dots, t_m(P)) \text{ for all } P \in V
+    \phi(P)=(\phi_1(P), \dots, \phi_m(P)) \text{ for all } P \in V
   \end{equation}
 \end{definition}
 
@@ -304,33 +304,37 @@ illustrate the interest in polynomial maps:
   \psi^*$ is the pullback of $\psi \circ \phi$.
 \end{proposition}
 \begin{proof}
-  Since $\phi$ and  $\psi$ are polynomial maps, there exist
-  $t_1(x_1, \dots, x_n), \dots, t_m(x_1, \dots, x_n) \in k[x_1,
-  \dots, x_n]$ and there exist $s_1(x_1, \dots, x_m), \dots,
-  s_l(x_1, \dots, x_m) \in k[x_1, \dots, x_m]$ such that for any $P
-  \in V$ and $Q \in W$:
+  Since $\phi$ and $\psi$ are polynomial maps, there exist
+  $\phi_1(x_1, \dots, x_n), \dots, \phi_m(x_1, \dots, x_n) \in
+  k[x_1, \dots, x_n]$ and there exist $\psi_1(x_1, \dots, x_m),
+  \dots, \psi_l(x_1, \dots, x_m) \in k[x_1, \dots, x_m]$ such that
+  for any $P \in V$ and $Q \in W$:
   \begin{equation*}
-    \phi(P)=(t_1(P), \dots, t_m(P)) \text{ and }
-    \psi(Q)=(s_1(Q), \dots, s_l(Q))
+    \phi(P)=(\phi_1(P), \dots, \phi_m(P)) \text{ and }
+    \psi(Q)=(\psi_1(Q), \dots, \psi_l(Q))
   \end{equation*}
   Now, since $P \in V$ and $\phi(P) \in W$, let $Q=\phi(Q)$, since
   $P \in V$ is arbitrary, this holds for any $Q \in W$. Then we
   have:
-  \begin{align*}
-    \psi(Q) &=  (s_1(Q), \dots, s_l(Q)) \\
-     &= (s_1(\phi(P)), \dots, s_l(\phi(P))) \\
-     &= (s_1(t_1(P), ..., t_m(P)), \dots, s_l(t_1(P), ..., t_m(P))) \\
-     &= (s_1(t_1(P), ..., t_m(P)), \dots, s_l(t_1(P), ..., t_m(P))) \\
-  \end{align*}
-  Letting $t=(t_1, \dots, t_m)$, we get
   \begin{equation*}
-    \psi(Q)=(s_1(t(P)), \dots, s_l(t(P)))=
-    (s_1 \circ t(P), \dots, s_l \circ t(P))
+    \begin{split}
+    \psi(Q) &=  (\psi_1(Q), \dots, \psi_l(Q)) \\
+     &= (\psi_1(\phi(P)), \dots, \psi_l(\phi(P))) \\
+     &= (\psi_1(\phi_1(P), ..., \phi_m(P)), \dots,
+          \psi_l(\phi_1(P), ..., \phi_m(P))) \\
+     &= (\psi_1(\phi_1(P), ..., \phi_m(P)), \dots,
+          \psi_l(\phi_1(P), ..., \phi_m(P)))
+    \end{split}
   \end{equation*}
-  label $r_i=s_i \circ t$ for all  $1 \leq i \leq l$, then each $r_i \in
-  k[x_1, \dots, x_m]$, and we have:
+  Hence, we get:
   \begin{equation*}
-    \psi(Q)=\psi(\phi(P))=(r_1(P), \dots, r_l(P))
+    \psi(Q)=(\psi_1(t(P)), \dots, \psi_l(t(P)))=
+    (\psi_1 \circ \phi(P), \dots, \psi_l \circ \phi(P))
+  \end{equation*}
+  label $\p_i=\psi_i \circ \phi$ for all  $1 \leq i \leq l$, then each
+  $\p_i \in k[x_1, \dots, x_m]$, and we have:
+  \begin{equation*}
+    \psi(Q)=\psi(\phi(P))=(\p_1(P), \dots, \p_l(P))
   \end{equation*}
   which makes $\psi \circ \phi$ a polynomial map.
 
