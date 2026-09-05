@@ -1,1 +1,147 @@
 \section{Affine Changes of Coordinates}
+
+Let $\phi=(\phi_1, \dots, \phi_m):\A^n(k) \xrightarrow{} \A^m(k)$ be
+a polynomial map, and let $f \in k[x_1, \dots, x_n]$. We define:
+\begin{equation*}
+  f^\phi=\phi^*(f)=f \circ \phi
+\end{equation*}
+
+If $\af \subseteq k[x_1, \dots, x_m]$ is an ideal, and $V \subseteq
+\A^m(k)$ is an algebraic set, we define the sets:
+\begin{equation*}
+  \af^\phi=\{f^\phi : f \in \af \} \text{ and }
+  V^\phi=\inv{\phi}(V)=V(I^\phi), \text{ where } I=I(V)
+\end{equation*}
+Observe that $I^\phi \subseteq k[x_1, \dots, x_n]$ and $V^\phi
+\subseteq \A^n(k)$.
+
+\begin{proposition}\label{proposition_11.2.1}
+  Let $\af \subseteq k[x_1, \dots, x_n]$ be an ideal, and let
+  $\phi:\A^n(k) \xrightarrow{} \A^n(k)$ be a polynomial map.
+  Then the set $\af^\phi$ is an ideal in $k[x_1, \dots, x_n]$.
+\end{proposition}
+\begin{proof}
+  Take $F,G \in \af^\phi$. Then $F=f^\phi$ and $G=g^\phi$ for
+  $f,g \in \af$. Observe:
+  \begin{equation*}
+    \begin{split}
+      F+G &=  f^\phi+g^\phi=\phi^*(f)+\phi^*(g)  \\
+          &=  (f \circ \phi)+(g \circ \phi) \\
+          &=  (f+g) \circ \phi=\phi^*(f+g)  \\
+          &= (f+g)^*
+    \end{split}
+  \end{equation*}
+  So $F+G \in \af^\phi$. Likewise by similar reasoning; let $r \in
+  k[x_1, \dots, x_m]$, then:
+  \begin{equation*}
+    \begin{split}
+      rF  &=  rf^\phi=r\phi^\ast(f) \\
+          &=  r(f \circ \phi)=(rf) \circ \phi=\phi^\ast(rf) \\
+          &= (rf)^\phi
+    \end{split}
+  \end{equation*}
+  so $rF \in \af^\phi$.
+\end{proof}
+\begin{corollary}
+  $\af$ is a prime ideal if and only if $\af^\phi$ is a prime ideal.
+\end{corollary}
+
+\begin{proposition}\label{proposition_11.2.2}
+  Let $V \subseteq \A^m(k)$ be an algebraic set, and let
+  $\phi:\A^n(k) \xrightarrow{} \A^m(k)$ be a polynomial map. Then
+  $V^\phi$ is an algebraic set in $\A^n(k)$.
+\end{proposition}
+\begin{proof}
+  We have $V=V(\af)$ for some ideal $\af \subseteq k[x_1, \dots,
+  x_n]$. Take $\bf=I(V)$, then by definition, $V^\phi=V(\bf^\phi)$,
+  where $\bf^\phi=\{f^\phi : f \in \bf\}$. But $f \in \bf$ implies
+  that $f \in \af$. This makes $V^\phi$ algebraic in $\A^n(k)$.
+\end{proof}
+\begin{corollary}
+  Let $f \in k[x_1, \dots, x_m]$ such that $f^\phi$ is a
+  non-constant polynomial. If $V$ is the hypersurface of $f$, then
+  $V^\phi$ is the hypersurface of $f^\phi$.
+\end{corollary}
+\begin{proof}
+  We have $V=V(f)$, so $I(V)=(f)$. By the above proposition, we get
+  $V^\phi=V(f^\phi)$.
+\end{proof}
+\begin{corollary}
+  $V$ is an affine variety if and only if $V^\phi$ is an affine
+  variety.
+\end{corollary}
+\begin{proof}
+  Let $V=V(\af)$. By the corollary to proposition \ref{proposition_11.2.1},
+  $\af$ is a prime ideal if and only if $\af^\phi$ is a prime ideal.
+  Combining this with the preceeding corollary, we are done.
+\end{proof}
+
+\begin{defintion}
+  An \textit{affine change of coordinates} on $\A^n(k)$ is a
+  polynomial map $u=(u_1, \dots, u_n):\A^n(k) \xrightarrow{}
+  \A^n(k)$ such that $u$ is 1--1 taking $\A^n(k)$ onto itself, and
+  $\deg{u_i}=1$ for all $1 \leq i \leq n$.
+\end{defintion}
+
+\begin{proposition}\label{proposition_11.2.3}
+  Let $u=(u_1, \dots, u_n)$ be a polynomial map on $\A^n(k)$. If:
+  \begin{equation}\label{equation_11.2}
+    u_i=\sum_{j=1}^n{a_{ij}(x_j)}+a_{i0}
+  \end{equation}
+  Then $u=u_t \circ u_l$ where:
+  \begin{equation}\label{equation_11.3}
+    u_{t_i}=x_i+a_{i0} \text{ and } u_{l_i}=\sum_{j=1}^n{a_{ij}x_j}
+  \end{equation}
+\end{proposition}
+
+\begin{definition}
+  We call a polynomial map $u_l$ defined as in equation
+  \ref{equation_11.3} a \textit{linear map}. We call a polynomial
+  map as define in equation \ref{equation_11.3} a
+  \textit{translation}.
+\end{definition}
+
+\begin{proposition}\label{equation_11.2.4}
+  Let $u$ be a polynomial map on $\A^n(k)$. If $u=u_t \circ u_t$,
+  where $u_t$ is a translation, and $u_l$ is a linear map, then $u$
+  is 1--1 and onto if, and only if $u_l$ is invertible as a linear
+  transformation on  $\A^n(k)$ as a vector space.
+\end{proposition}
+\begin{proof}
+  Since $u_t$ is 1--1 and onto by definition (take
+  $\inv{u_{t_i}}=y_i-a_{i0}$), we observe only $u_l$. By definition
+  $u_l$ is a linear transformation on $\A^n(k)$, and has the
+  associated matrix:
+  \begin{equation*}
+    U_l=
+    \begin{pmatrix}
+      a_{11} & \dots &  a_{1n}  \\
+      \vdots  & \ddots  & \vdots  \\
+      a_{n1} & \dots &  a_{nn}  \\
+    \end{pmatrix}
+  \end{equation*}
+  So $u_l$ is invertible if and only if $U_l$ is an invertible
+  matrix.
+\end{proof}
+
+\begin{proposition}\label{proposition_11.2.5}
+  Let $u,v:\A^n(k) \xrightarrow{} \A^n(k)$ be affine changes of
+  coordinates. Then $u \circ v$ and $\inv{u}$ are also affine
+  changes of coordinates.
+\end{proposition}
+\begin{proof}
+  Let $u=(u_1, \dots, u_n)$ and $v=(v_1, \dots, v_n)$. Then:
+  \begin{equation*}
+    u \circ v=(u_1 \circ v, \dots, u_n \circ v)
+  \end{equation*}
+  Now, $\deg{v_i}=1$ for all $1 \leq i \leq n$, so $\deg{u_j \circ
+  v}=1$ for all $1 \leq j \leq n$. Moreover, since $u$ and $v$ are
+  1--1 and onto, so is $u \circ v$.
+
+  Now, we observe that since $u$ is 1--1 and onto, then $\inv{u}$
+  exists, and $\inv{u}=(\inv{u_1}, \dots, \inv{u_n})$. Moreover
+  $\deg{\inv{u_i}}=1$.
+\end{proof}
+\begin{corollary}
+  Affine changes of coordinates define automorphisms of $\A^n(k)$.
+\end{corollary}
