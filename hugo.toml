@@ -1,4 +1,4 @@
-baseURL = 'https://cv.azabelmena.xyz'
+baseURL = 'https://notes.azabelmena.xyz'
 languageCode = 'en-us'
 title = "Notes"
 copyright = 'Alec S. Zabel-Mena'
@@ -6,7 +6,7 @@ enableRobotsTXT = true
 
 [module]
   [[module.imports]]
-    path = "github.com/michenriksen/hugo-theme-til"
+    path = "github.com/azabelmena/hugo-theme-til"
 
 [outputs]
   home = ['html']

@@ -1,6 +1,6 @@
 +++
+date = '2026-09-22T14:42:53-04:00'
 title = 'Mathematics Notes'
-date = 2023-12-12T21:22:14-04:00
 +++
 
 # [Mathematics Notes](https://github.com/azabelmena/math_notes)
