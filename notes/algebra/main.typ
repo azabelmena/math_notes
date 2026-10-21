@@ -8,6 +8,9 @@
   titlepage: true,
 )
 
+#set text(
+  font: "Spectral"
+)
 
 #frontmatter()
 #outline()
@@ -17,14 +20,11 @@
 = Part I: Group Theory<sec:part1>
 #include("parts/group_theory/chapter1/chapter1.typ")
 
-
 = Part II: Rings and Fields<sec:part2>
 #lorem(50)
-#include("parts/group_theory/chapter1/chapter1.typ")
 
 = Part III: Module Theory<sec:part2>
 #lorem(50)
-#include("parts/group_theory/chapter1/chapter1.typ")
 
 #backmatter()
 #bibliography("ref.bib")
