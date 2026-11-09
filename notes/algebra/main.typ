@@ -1,7 +1,7 @@
 #import "@preview/quire:0.1.0": *
-#import "@preview/theorion:0.6.0": *
+#import "@preview/ctheorems:2.0.0": *
 
-#set-qed-symbol[#smallcaps("qed.")]
+#show: thm-rules.with(qed-symbol: [#smallcaps("qed.")])
 
 #show: quire.with(
   title: [Algebra],
@@ -30,10 +30,5 @@
 #include( "parts/group_theory/chapter1/chapter1.typ" )
 
 see @part1.
-
-#pagebreak()
-
-`#smallcaps[qed.]` $==>$ #smallcaps[qed.] vs.
-#proof()[`#set-qed-symbol[#smallcaps("qed.")]` $==>$]
 
 #bibliography(full: true, "ref.bib")
