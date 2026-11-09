@@ -85,23 +85,47 @@
 #remark[
   Instead of stating $(G, ast)$ as a group, we will often just say
   that $G$ is a group under $ast$; or that $G$ is a group.
-  A _group_ is non-empty set $G$ together with a binary operation
-  $*:G times G -> G$ such that:
-  + For all $a, b in G$, $a * b in G$.
-  + For all $a,b,c in G$, $(a * b) * c = a * (b * c)$.
-  + There exists an element $e in G$ such that for every $a in G$,
-    $a * e = e * a = a$.
-  + For each $a in G$, there exist an element $b in G$ such that $a
-    * b = b * a=e$, where $e$ is as above.
-]<definition1.1.1>
-
-#proposition[
-  If $G$ is a group, then the identity and inverse elements to
-  elements are unique.
-]<proposition1.1.2>
-#proof[
-  Let $G$ be a group, and let $e, f in G$ be identity elements of
-  $G$. Then $e * f = e$ and $f * e = f$, but $e = e * f = f * e =
-  f$. Now, fix an element $a in G$, and let $b, c in G$ be inverse
-  elements to $a$. Then $c = c * (a * b) = (c * a) * b=b$.
 ]
+
+#example[
+  + Let $G={e}$ of one element forms a group under any operation,
+    and is called the _trivial group_; we denote it by
+    $G=cyclic(e)$. We also observe that the empty-set $emptyset$ is
+    not a group, as any group admits an identity element. Therefore
+    the trivial group $cyclic(e)$ is the smallest possible group.
+
+  + The sets $ZZ$, $QQ$, and $RR$ are all groups under the usual
+    addition. Here the identity element is $0$, and $-a$ is the
+    inverse of $a$. $CC$ is a group under the complex addition, with
+    $0=0+i 0$ the identity and $-a-i b$ the invers of $a+i b$.
+
+  + $QQ$ and $RR$ are groups under the usual multiplication, with
+    identity $1$ and inverse $inv(a)=1/a$.
+
+    $ZZ$ is not a group under multiplication, as if $n in ZZ$, then
+    the fraction $1/n notin ZZ$.
+
+    $CC$ is a group under complex multiplication. The identity is
+    given by $1=1+i 0$, and the inverse to the element $a+i b$ is
+    the element $a/(a^2+b^2)-i b/(a^2+b^2)$.
+
+  + Consider the set of integers modulo $n$, $quotient(ZZ, n ZZ)$.
+    Since $+$ is a binary operation on $quotient(ZZ, n ZZ)$, closure
+    is guaranteed, $quotient(ZZ, n ZZ)$ also inherits the
+    associativity (see @example1.1.3(5)).
+
+    Notice that $n equiv 0 mod n$ by definition, so for any $a in
+    ZZ$, $a+n mod n=a+0 mod n=a mod n$ and $n+a mod n=0+a mod n=a
+    mod n$. Likewise, $n-a mod n = 0-a mod n = -a mod n$, and
+    $a+(-a) mod n = a+(n-a) mod n = n+(a-a) mod n = n mod n = 0 mod
+    n$, and $-a+a mod n = (n-a)+a mod n = n+(-a + a) mod n = n mod n
+    = 0 mod n$. So $quotient(ZZ, n ZZ)$ is a group under addition
+    modulo $n$, $+_n$, with identity element $0 mod n$ and inverse
+    elements $-a mod n$.
+]<example1.1.7>
+
+#definition[
+  We call a group $G$ under a binary operation $ast$ _Abelian_ if
+  for every $a,b in G$:
+      $ a ast b = b ast a $
+]<definition1.1.8>
