@@ -8,7 +8,7 @@
 #set-qed-symbol[#smallcaps(text(font: serif_font, "qed."))]
 
 #show: quire.with(
-  title: [Real Analysis],
+  title: [Complex Analysis],
   authors: (name: "Alec S. Zabel-Mena", affiliation: [UPR-RP]),
   lang: "en",
   top-level: "part",
@@ -28,8 +28,6 @@
   ),
 )
 
-#part([The Lebesgue Theory of Measure and Integration], label: <part1>)
-
-#include( "parts/lebesgue/chapter1/chapter1.typ" )
+#include( "chapters/chapter1/chapter1.typ" )
 
 #bibliography(full: true, "ref.bib")
