@@ -2,7 +2,10 @@
 #import "@preview/theorion:0.6.0": *
 #import "./lib.typ" : *
 
-#set-qed-symbol[#smallcaps(text(font: "Spectral", "qed."))]
+#let serif_font = "Spectral";
+#let sans_font = "SpectralSC";
+
+#set-qed-symbol[#smallcaps(text(font: serif_font, "qed."))]
 
 #show: quire.with(
   title: [Algebra],
@@ -15,8 +18,8 @@
   institution: [],
   license: [This work is licensed under CC BY 4.0.],
   fonts: (
-    serif: "Spectral",
-    sans: "SpectralSC",
+    serif: serif_font,
+    sans: sans_font,
   ),
   strong: "bold",
   colors: (
