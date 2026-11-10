@@ -11,7 +11,7 @@
   title: [Matroid Theory],
   authors: (name: "Alec S. Zabel-Mena", affiliation: [UPR-RP]),
   lang: "en",
-  top-level: "part",
+  top-level: "chapter",
   output: "digital",
   paper: "a4",
   kicker: [Notes],
