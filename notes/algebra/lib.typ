@@ -4,7 +4,8 @@
 #let cdot = math.dot.c
 #let inv(a) = [$#a^(-1)$]
 
-#let cyclic(a) = [$chevron.l #a chevron.r$]
+#let cyclic(a) = [$lr(chevron.l #a chevron.r)$]
+#let inner(u,v) = [$lr(chevron.l #u, #v chevron.r)$]
 
 #let quotient(x,y) = math.frac(x, y, style:"skewed")
 
