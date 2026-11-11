@@ -5,3 +5,4 @@
 #let inv(a) = [$#a^(-1)$]
 
 #let com(A,B) = [$#A  backslash #B$]
+#let span = [span]
