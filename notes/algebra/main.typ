@@ -28,6 +28,8 @@
   ),
 )
 
+#set enum( numbering: "(1)" )
+
 #part([Group Theory], label: <part1>)
 
 #include( "parts/group_theory/chapter1/chapter1.typ" )
