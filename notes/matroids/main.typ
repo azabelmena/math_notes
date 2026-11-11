@@ -28,6 +28,8 @@
   ),
 )
 
+#set enum( numbering: "(1)" )
+
 #include( "chapters/chapter1/chapter1.typ" )
 
 #bibliography(full: true, "ref.bib")
