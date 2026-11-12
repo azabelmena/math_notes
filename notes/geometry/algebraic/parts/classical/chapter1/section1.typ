@@ -45,7 +45,7 @@
 
 #definition[
   Let $k$ be a field. We call a subset $X cc AA^n (k)$ an _affine
-  algebraic set_ (or just an _affine_ set) if $X=V(S)$ fo some $S cc
+  algebraic set_ (or just an _algebraic set_) if $X=V(S)$ fo some $S cc
   k[x_1, ..., x_n]$.
 ]<definition1.1.5>
 
@@ -68,7 +68,7 @@
     Then $V(f g)=V(f) union V(g)$. Moreover, if $af$ and
     $bf$ are ideals in $k[x_1, ..., x_n]$, then:
     $ V(af bf) = V(af) union V(bf) $
-    Moreover, finite unions of affine affine sets are affine.
+    Moreover, finite unions of algebraic sets are algebraic.
 
   + $V(0)=AA^(n)(k)$, anad $V(1)=emptyset$. Moreover, $V(x_1-a_1,
     ..., x_n-a_n)={(a_1, ..., a_n)}$, for any $a_1, ..., a_n in k$.
@@ -77,7 +77,7 @@
   + Let $af=(S)$, and let $P in V(af)$. Since $S cc
     af$, for any $f(x_1, ..., x_n) in S$, $f(P)=0$, so that $P
     in inter.big(V(f))=V(S)$, and $V(af) cc V(S)$. On the
-    other hand, let $f(x_1, ..., x_n) in af$, and $P in V(S)$.
+    otherhand, let $f(x_1, ..., x_n) in af$, and $P in V(S)$.
     Bu supposition, there is a collection ${f_alpha} cc S$ such
     that:
     $
@@ -110,9 +110,9 @@
     Now, let $af, bf cc k[x_1, ..., x_n]$ be ideal, and let $P in
     V(af) union V(bf)$. Then for any $f in af$, or for any $g in bf$,
     either $f(P)=0$, or $g(P)=0$. This puts $P in V(af bf)$. Indeed,
-    if ${af_i}_i^r$ is a family of ideals, and $af=product_(i=1)^r
-    af_i$, it follows from the above that
-    $ V(af) = union.big_(i=1)^r V(af_i) $
+    if ${af_(i)}_i^r$ is a family of ideals, and $af=product_(i=1)^r
+    af_(i)$, it follows from the above that
+    $ V(af) = union.big_(i=1)^r V(af_(i)) $
 
   + Observe first that $V(0) cc AA^(n)(k)$. Now, let $P in
     AA^(n)(k)$ have the coordinates $P=(a_1, ..., a_n)$. Then:
@@ -133,4 +133,247 @@
     $
     so that $x_1=a_1, ..., x_n=a_n$, which makes $P=(a_1, ...,
     a_n)$. Since $P$ was arbitrary, $V(x_1-a_1, ..., x_n-a_n)={P}$.
+]
+
+#example[
++ The following curves in figure ?? define algebraic sets over $RR$:
+  #figure(
+    image( width: 50%, "../../../figures/hyperplanes.svg" ),
+    caption: [Affine algebraic sets in $AA^(2)(RR)$ and $AA^(3)(RR)$]
+  )<figure1.1.1>
+
++ Let $k$ be any field, and let $X cc AA^(1)(k)$ be an algebraic
+  set. Then $X=V(S)$ for some set $S cc k[x]$. Observe
+  now that for any $f(x) in S$ with $deg f=n$, that $f(x)$ has at
+  most $n$ roots in $k$. Then $|V(f)| <= k$. Now, since:
+  $ V(S) = inter.big_(f in S) V(S) $ $|X|=|V(S)|$ is finite in
+  $AA^(1)(k)$. Since $AA^(1)(k)=V(0)$ by @proposition1.1.6, the
+  algebraic sets of $AA^(1)(k)$ are those finite point-sets and
+  $A^(1)(k)$ itself.
+
++ Let $k$ be any field, and let $X cc AA^(n)(k)$ be a finite
+  point-set. Then $X={P_1, ..., P_r}$. Now, let $P_i=(a_(i 1), ...,
+  a_(i n)$; then $V(P_i)={P_i}$, so
+  $ X = union.big_(i=1)^r V(x_1-a_(i 1), ..., x_n-a_(i n)) $
+  which is an affine algebraic set by proposition
+  @proposition1.1.6.
+
++ Consider the finite field $FF_q$. Then the affine space
+  $AA^(n)(FF_q)$ has exactly $q^n$ points. Hence if $X cc
+  AA^(n)(FF_q)$, then $|X|<q^n$, which makes $X$ a finite-point set,
+  and hence an algebraic set. Therefore, every subset of $AA^(n)(FF_q)$
+  is an affine algebraic set.
+
++ For any $n in ZZ^+$, define $f_n(x)=x-n in QQ[x]$. Then
+  $V(f_n)={a_n} cc AA^(1)(QQ)$, and we obtain the collection:
+  ${V(f_n)}_(n in ZZ^+)$ of affine algebraic sets. However, observe
+  that:
+  $ inter.big_(n in ZZ^+) V(f_n) = ZZ^+ $
+  which is infinite in $AA^(1)(QQ)$, and hence cannot be an
+  algebraic set.
+]<example1.1.7>
+
+#example[
+  The following sets are algerbaic:
+  + The set $X={(t,t^2,t^3) in AA^(3)(k) : t in k}$. Take
+    $f(x,y,z)=x^3-z$ and $g(x,y,z)=x^2-y$. Then:
+    $
+      f(t,t^2,t^3)  &=  t^3-t^3=0 \
+      g(t,t^2,t^3)  &=  t^2-t^2=0 \
+    $
+    so $X cc V(f,g)$. On the otherhand, if $P in V(f,g)$, and
+    $
+      f(P)  &=  a_1^3-a_3=0 \
+      g(P)  &=  a_1^2-a_2=0 \
+    $
+    so $P=(a_1, a_1^2, a_a^3)$, which makes $V(f,g) cc X$. We call
+    the affine algebraic set
+    $ V(x^3-z, x^2-y) = {(t,t^2,t^3) in AA^(3)(k) : t in k} $
+    the _twisted cubic_ on $k$.
+
+  + Let $X={(cos t, sin t) in RR^2 : t in RR}$. Take
+    $f(x,y)=x^2+y^2-1$. Then if $f(x,y)=0$, we get $x^2+y^2=1$,
+    which defines the circle $S^1 cc RR^2$ and we get
+    $X=V(x^2+y^2-1)$.
+
+  + Let $X$ be the set of all points in $RR^2$ whose polar
+    coordinates of the form $(r, theta)$ statisfy $r=sin theta$. Let
+    $(x,y) in X$, then:
+    $
+      x^2+y^2 =  r^2 = r sin theta = y
+    $
+    Then $x^2+y^2-y=0$. Define $f(x,y)=x^2+y^2-y in RR[x,y]$, then
+    $X=V(f)$.
+
+  + Let $k$ be any field, and choose $a,b in k$. Define $f(x,y)=y-(a
+    x+b)$. Then if $f(x,y)=0$, $y=a x+b$. Conversely, if
+    $P=(a_1,a_2)$ such that $a_1=inv(a)(a_2-b)$, we get:
+    $f(P) = a_2-(a(inv(a)(a_2-b))+b) = a_2-a_2 = 0$, so that:
+    $ V(y-(a x + b)) = { (a_1,a_2) in AA^(2)(k) : a_1=inv(a)(a_2-b) } $
+    By describing $V(y-(a x + b))$, we have characterized all the
+    points for which $y=a x + b$. In $AA^(2)(RR)=RR^2$, this algebraic
+    set characterizes a line.
+]<example1.1.8>
+
+#definition[
+  Let $k$ be a field. We call the zero-locus of a non-constant
+  polynomial $f(x_1, ..., x_n) in k[x_1, ..., x_n]$ the
+  _hypersurface_ defined by the equation $f(x_1, ..., x_n)=0$. A
+  hypersurface of degree $1$ is called a _hyperplane_. We call a
+  hypersurface in $AA^(2)(k)$ an _affine plane curve_, and we call a
+  hyperplane in $AA^(2)(k)$ a _line_.
+]<definition1.1.9>
+
+#theorem[
+  Let $k$ be a field, and let $C cc AA^(2)(k)$ be an affine plane
+  curce defined by a polynomial of degree $n$. If $L cc AA^(2)(k)$
+  is a line such that $L cc.not C$, then $L$ intersects $C$ at no
+  more than $n$ points.
+]<theorem1.1.10>
+#proof[
+  Observe that if $L cc C$, then $L inter C=C$,a nd $L$ intersects
+  $C$ at every point of $C$. Now, by definition, since $L$ is a
+  line, $L=V(y-(a x + b))$ for some $a,b in k$. Take $g(x,y)=f(x,a x
+  + b)$ in $k[x]$. Let $P in L inter C$, with the coordinates
+    $P=(x,y)$. Then $f(P)=f(x,y)=0$, and $y-(a x + b)=0$, so that
+    $g(P)=g(x,y)=f(x, a x + b)=0$. This puts $P in V(g)$.
+    Conversely, let $x in V(g)$, then $g(x)=f(x, a x + b)=0$. Take
+    $y=a x + b$ for some $a,b in k$. Then $P=(x,y) in L inter C$.
+    This makes $L inter C=V(g)$. Now, since $g in k[x]$, and $deg
+    g=n$, we have $g(x)$ has no more than $n$ roots in $k$, and
+    hence $|V(g)| = |L inter C| <= n$.
+]
+#corollary[
+  If $k$ is an algebraically closed field, then $L$ intersects $C$
+  at exactly $n$ points.
+]<corollary1.1.11>
+
+#example[
+  The following sets are _not_ algebraic:
+
+  + Let $C={(x,y) in RR^2 : y = sin x}$. Let $L$ be the line defined
+    by $f(x,y)=y-frac(1,2)$. Then $L cc.not C$,and $L$ intersects
+    $C$ at infinitely many points. Therefore, $C$ cannot be
+    algebraic in $RR^2$.
+
+  + Let $X = { (z,w) in CC^2 : |z|^2+|w|^2=1 }$, and suppose there
+    were an $f(z,w) in CC[z,w]$ for which $X=V(f)$. Define
+    $g(z)=f(z,0)$. Then $g(z)$ has finitely many roots and $V(g)$ is
+    finite in $CC$. Now, observe the points $P=(Z,0) in X$, where
+    $|Z|^2=1$. Then $g(Z)=f(Z,0)=0$ so that $Z in V(g)$. Letting
+    $Z=X + i Y$, observe that $|Z|^2=X^2+Y^2$. If $Z in V(g)$, then
+    $X^2+Y^2=1$, which makes $Z in S^1 cc CC$. Now, there are
+    infinitely many such $Z$ for which this holds, which contradicts
+    the finiteness of $V(g)$. Therefore, $X$ cannot be algebraic in
+    $CC^2$.
+
+  + Let $X$ be the set as in the above example, and let $z = x + i
+    y$ and $w = u + i v$, and define
+    $f(x,y,u,v)=(x^2+y^2)+(u^2+v^2)-1 in RR[x,y,u,v]$. Then
+    $X=V(f)$, wich makes $X$ algebrai in $RR^4$. Comparing this
+    example to the previous one, observe that since $RR^2 tilde.eq
+    CC$, then $RR^4 tilde.eq CC^2$. Now, $X$ is algebraic in $RR^4$,
+    but it is not algebraic in $CC^2$. Hence the algebraic isomorphism
+    of the spaces is not sufficient to determine whether a given set
+    is algebraic or not in one or the other.
+
+  + Let $C = { (cos t, sin t, t) in RR^3 : t in RR }$, and suppose
+    there is a polynomial $f(x,y,z) in RR[x,y,z]$ for which
+    $C=V(f)$. Define:
+    $ g(x) = f( cos(x+2pi), sin(x+2pi), x+2pi ) $
+    Then if $t in V(g)$, we get $g(t) = f(cos(t+2pi),
+    sin(t+2pi),t+2pi)=f(cos t, sin t, t+2pi) in C$. However, there
+    are infinitely many $t in RR$ for which $cos t = cos(t+2pi)$ and
+    $sin t = sin(t+2pi)$, which contradicts that $V(g)$ must be
+    finite in $RR$, so $C$ is not algebraic.
+
+  + Let $k$ be an algebraically closed field, and let $f(x) in k[x]$
+    be a non-constant polynomial. then $V(f)$ has finitely many
+    points in $k$; in fact, $|V(f)| = deg f$. It follows that
+    $com(k, V(f))$ is infinite. This holds for any non-constant
+    polynomial in $k[x]$. Now let:
+    $
+    f(x_1, ..., x_n) = sum_(i=1)^d f_(i)(x_1, ... ,x_(n-1))x_n^i
+    $
+    where $f_(i)(x_1, ..., x_(n-1)) in k[x_1, ..., x_(n-1)]$. Then
+    $f(x_1, ..., x_n)$ is a polynomial of degree $d$ in $k[x_1, ...,
+    x_(n-1)][x_n]$, and hence has at most $d$ roots in $k$. This
+    makes $V(f)$ finite in $k$, so that $com(AA^(n)(k), V(f))$ is
+    infinite.
+
+  + Let $k$ be an algebraically closed field, and let $f(x,y) in
+    k[x,y]$. Then $ f(x,y) = sum_(i=1)^d f_(i)(x)y^i $, where
+    $f_(i)(x) in k[x]$. Since $k$ is algebraically closed, it is
+    infinite. Fix $a in k$, then: $ f(a,y) = sum_(i=1)^d f_(i)(a)y^i
+    $ and $f(a,y) in k[y]$ has exactly $d$ roots. However, this
+    holds for infinitely many $a in k$, so that $f(x,y)$ must have
+    infinitely many roots in $k$. Hence, $V(f)$ must be infinite in
+    $AA^(2)(k)$.
+
+    Indeed, observe that for any $n>2$, and $f(x_1, ..., x_n) in
+    k[x_1, ..., x_n]$, that:
+    $
+    f(x_1, ..., x_n) = sum_(i=1)^d  f_(i)(x_1, .., x_(n-1))x^(d_1)y^(d_2)
+    $
+    where $f_i(x_1, ..., x_(n-2)) in k[x_1, ..., x_(n-2)]$, and
+    $x=x_(n-1)$ and $y=x_n$. Fixing $P in AA^(n-2)(k)$, we get
+    $f(P,x,y) in k[x,y]$ must have infintely many roots for
+    infinitely many points $P$.
+
+  + Let $S cc k[x_1, ..., x_n]$, and let $af=(S)$ be the ideal
+    generated by $S$. Then for any $f in S$, the ideal $(f) cc af$,
+    so $V(af) cc V(f)$, and $com(AA^(n)(k), V(f))$ is infinite. But
+    $com(AA^(n)(k), V(f)) cc com(AA^(n)(k), V(af))$. Therefore, the
+    complement of any algebraic set in $AA^(n)(k)$ is infinite.
+]<example1.1.12>
+
+#proposition[
+  If $X cc AA^(m)(k)$ and $Y cc AA^(n)(k)$ are algebraic sets, then
+  the cartesian product $X times Y cc AA^(m+n)(k)$ is an algerbaic
+  affine set as well.
+]<proposition1.1.13>
+#proof[
+  Let $S cc k[x_1, ..., x_m]$ and $T cc k[x_1, ..., x_n]$. Let
+  $af=(S)$ and $bf=(T)$ be the ideals generated by $S$ and by $T$,
+  respectively. Take $X=V(af)$ and $Y=V(bf)$. Now, $af=(f_1, ...,
+  f_r)$, and $bf=(g_1, ..., g_s)$. So let:
+  $
+  f(x_1, ..., x_m)  &=  \ & p_1(x_1, ..., x_m)f_1(x_1, ..., x_m)+...
+             +p_(r)(x_1, ..., x_m)f_(r)(x_1, ..., x_m)
+  $<equation1.1.5>
+  and
+  $
+  g(y_1, ..., y_n)  &= \ & q_1(y_1, ..., y_n)g_1(y_1, ..., y_n)+...
+             +q_(s)(y_1, ..., y_n)g_(s)(y_1, ..., y_n)
+  $<equation1.1.6>
+  and define $ h(x,y) = p(x)f(x)+q(y)g(y) $ where $x=(x_1, ...,
+  x_m)$ and $y=(y_1, ..., y_n)$. Let $cf$ be the ideal generated by
+  all $h(x,y)$, and let $R in X times Y$. Then $R=(P,Q)$ where $P in
+  X$ and $Q in Y$. The for some $p in k[x_1, ... , x_m]$ and $q in
+  k[y_1, ..., y_n]$: $ h(R) = p(P)f(P)+q(Q)g(Q) = 0 $ Since
+  $X=V(af)$ and $Y=V(bf)$, this puts $X times Y cc V(cf)$.
+  Conversely, let $R in V(cf)$. Recall that $cf=(h_1, ..., h_t)$,
+  since $k[x,y]$ is a Noetherian ring. Let $R=(P,Q)$. Then for any
+  $h(x,y)$ we have:
+  $ h(R)=l_1(R)h_1(R)+...+l_(t)(R)h_(t)(R) $
+  so that $h_i(R)=0$ for all $1 <= i <= t$. Recall that
+  $ h_(i)(x,y) = p_(i)(x)f_(i)(x)+q_(i)(y)g_i(x) $
+  where $f_(i)(x)$ and $g_(i)(y)$ are as in @equation1.1.5 and
+  @equation1.1.6, respectively. Hence $f_(i)(P)=0$ and $g_(i)(Q)=0$,
+  which puts $P in X$ and $Y in Y$. Therefore, $V(cf) cc X times Y$
+  and we are done.
+]
+
+#theorem[
+  Any affine algebraic set is the intersection of a finite number of
+  hypersurfaces.
+]<theorem1.1.14>
+#proof[
+  Let $k$ be the given field, and let $S cc k[x_1, ..., x_n]$ by
+  any set of polynomials, and let $af=(S)$ be the ideal generated by
+  $S$. Since $k[x_1, ..., x_n]$ is a Noetherian ring, $af=(f_1, ...,
+  f_r)$ for some $f_1, ..., f_r in S$. By @proposition1.1.6(1),
+  $V(S)=V(af)$, and by @proposition1.1.6(2), we get the required
+  intersection:
+  $ V(af) = inter.big_(i=1)^r V(f_i) $
 ]
