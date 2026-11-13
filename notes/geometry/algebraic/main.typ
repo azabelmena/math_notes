@@ -1,11 +1,12 @@
 #import "@preview/quire:0.1.0" : *
 #import "@preview/theorion:0.6.0": *
+#import "@preview/cetz:0.5.3" : *
 #import "./lib.typ" : *
 
 #let serif_font = "Spectral";
 #let sans_font = "SpectralSC";
 
-#set-qed-symbol[#smallcaps(text(font: serif_font, "qed."))]
+#set-qed-symbol[#smallcaps(text(10pt, font: serif_font, "qed."))]
 
 #show: quire.with(
   title: [Algebraic Geoemtry],
