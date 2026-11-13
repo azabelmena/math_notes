@@ -1,4 +1,5 @@
 #import "@preview/quire:0.1.0": *
+#import "@preview/cetz:0.5.3" : *
 #import "../../../lib.typ" : *
 
 === Affine $n$-Space and Algebraic Sets <section1.1>
@@ -136,9 +137,9 @@
 ]
 
 #example[
-+ The following curves in figure ?? define algebraic sets over $RR$:
++ The following curves in @figure1.1.1 define algebraic sets over $RR$:
   #figure(
-    image( width: 50%, "../../../figures/hyperplanes.svg" ),
+    include( "../../../figures/hyprplanes.typ" ),
     caption: [Affine algebraic sets in $AA^(2)(RR)$ and $AA^(3)(RR)$]
   )<figure1.1.1>
 
