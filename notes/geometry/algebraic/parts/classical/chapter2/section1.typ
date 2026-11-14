@@ -14,7 +14,7 @@
 #definition[
   We define the _coordinate ring_ of an affine variety $V cc
   AA^(n)(k)$ to be the following quotient ring:
-  $ k[V] = quotient(k[x_1, ..., x_n], Ic(V)) $
+  $ k[V] = quotient(k[x_1, ..., x_n], I(V)) $
 ]<definition2.1.2>
 
 #definition[

@@ -22,12 +22,12 @@
 
 #theorem[Hilbert's Nullstellensatz][
   Let $k$ be an algebraically closed field, and let $af$ be an ideal
-  of $k[x_1, ..., x_n]$. Then $Ic(V(af))=sqrt(af)$.
+  of $k[x_1, ..., x_n]$. Then $I(V(af))=sqrt(af)$.
 ]<theorem1.5.2>
 #proof[
-  By @proposition1.2.5, $sqrt(af) cc Ic(V(af))$. Since every ideal
+  By @proposition1.2.5, $sqrt(af) cc I(V(af))$. Since every ideal
   in $k[x_1, ..., x_n]$ is finitely generated, let $af=(f_1, ...,
-  f_r)$, and take $g in Ic(V(f_1, ..., f_r))$. Now, let $bf=(f_1,
+  f_r)$, and take $g in I(V(f_1, ..., f_r))$. Now, let $bf=(f_1,
   ..., f_r, x_(n+1)g-1)$. Then for any $P in V(f_1, ..., f_r)$,
   $g(P)=0$, so that $x_(n+1)g-1 != 0$. This makes $V(bf)=emptyset$.
   Therefore, by the _Weak Nullstellensatz_ (@proposition1.5.1), $1
@@ -40,25 +40,25 @@
   that $g in sqrt(af)$.
 ]
 #corollary[
-  If $af$ is a radical ideal, then $Ic(V(af)) = af$. Moreover, there
+  If $af$ is a radical ideal, then $I(V(af)) = af$. Moreover, there
   exists a 1-1 correspondence between radical ideals and affine
   algebraic sets.
 ]<corollary1.5.3>
 #proof[
   Define the map:
   $
-    I: 2^(AA^(n)(k)) & --> 2^(k[x_1, ..., x_n])  \
-      V(S)  & --> Ic(V(S))
+    Ic: 2^(AA^(n)(k)) & --> 2^(k[x_1, ..., x_n])  \
+      V(S)  & --> I(V(S))
   $
   where $S$ is the generating set of $V(S)$. Then $Ic$ maps
-  algebraic sets $V(S)$ to their ideals $Ic(V(S))$. Moreover, this
+  algebraic sets $V(S)$ to their ideals $I(V(S))$. Moreover, this
   map is a 1-1 correspondence between algebraic sets and their
   ideals by @proposition1.2.3. Now, let $af=(S)$ so $V(S)=V(af)$. By
-  Hilbert's Nullstellensatz (@theorem1.5.2), $Ic(V(af))=sqrt(af)$.
+  Hilbert's Nullstellensatz (@theorem1.5.2), $I(V(af))=sqrt(af)$.
   So the map $Ic$ defines a 1-1 correspondence between the affine
   algebraic set $V(af)$ and the radical ideal $sqrt(af)$. Lastly, if
   $af$ is radical in $k[x_1, ..., x_n]$, then by Hilbert's
-  Nullstellensatz again, $Ic(V(af))=sqrt(af)=af$.
+  Nullstellensatz again, $I(V(af))=sqrt(af)=af$.
 ]
 #corollary[
   If $af$ is a prime ideal, then $V(af)$ is irreducible. Moreover,
@@ -67,12 +67,12 @@
   points.
 ]<corollary1.5.4>
 #proof[
-  Consider again the above map $Ic:V(af) -> Ic(V(af))$ from
-  @corollary1.5.3. If $V(af)$ is irreducible, then $Ic(V(af))$ is a
+  Consider again the above map $Ic:V(af) -> I(V(af))$ from
+  @corollary1.5.3. If $V(af)$ is irreducible, then $I(V(af))$ is a
   prime ideal. Since $Ic$ is an injection, we get 1-1 correspondence
   between irreducible algebraic sets and prime ideals. Moreover, the
   algebraic set $V={(a_1, ..., a_n)}$ corresponds to the ideal
-  $ Ic(V)=sqrt((x_1-a_1, ..., x_n-a_n))=(x_1-a_1, ..., x_n-a_n) $
+  $ I(V)=sqrt((x_1-a_1, ..., x_n-a_n))=(x_1-a_1, ..., x_n-a_n) $
   which is a maximal ideal.
 ]
 #corollary[
@@ -95,8 +95,8 @@
   of generality that $V(f_i)=V_i$. Then since each $f_i$ is
   irreducible, we get $V(f_i) cc.not V(f_j)$ for any $i != j$, and
   we get the required decomposition. Lastly, suppose that $f$ is an
-  irreducible polynomial in $k[x_1, ..., x_n]$, then $Ic(V(f))$ is
-  prime, so $Ic(V(f))=(f)$.
+  irreducible polynomial in $k[x_1, ..., x_n]$, then $I(V(f))$ is
+  prime, so $I(V(f))=(f)$.
 ]
 
 #proposition[
@@ -121,7 +121,7 @@
 
   Now suppose that $V(af)={P_1, ..., P_r}$. Take $P_i=(a_(i 1), ...,
   a_(i n))$, and define: $ f_j(x_1, ..., x_n) = product_(i=1)^(r)(x_j-a_(i j)) $
-  then $f_j in Ic(V(af))$, so that for sufficiently large $N in
+  then $f_j in I(V(af))$, so that for sufficiently large $N in
   ZZ^+$, $f_j^N in af$ for all $1 <= j <= r$. Take $g_j equiv f_j
   mod af$, then $g_j^N = 0$ for all $1 <= j <= r$. Take $y_i equiv
   x_i mod af$. Then $y_i^(r N)$ is a linear combination of the set
@@ -138,10 +138,10 @@
 
   By consequence, Hilbert's Nullstellensatz also only holds for
   algebraically closed fields. Observe:
-  $ Ic(V(f)) = Ic(emptyset) = RR[x] != sqrt((f)) = (f) $
+  $ I(V(f)) = I(emptyset) = RR[x] != sqrt((f)) = (f) $
   Now, since $quotient(RR[x],(f)) tilde.eq CC$, $(f)$ is a maximal
   ideal, hence it is prime, and hence it must be radical, but
-  $Ic(V(f)) != (f)$.
+  $I(V(f)) != (f)$.
 
   Finally observe that $RR$ is a finite dimensional vector space
   over itself of dimension $dim RR=1$. Now, take $f(x,y)=x^2-y^2+1$.

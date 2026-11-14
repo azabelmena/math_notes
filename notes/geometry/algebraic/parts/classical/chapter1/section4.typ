@@ -26,16 +26,16 @@ We now observe the case of algebraic sets in $AA^2$ for any field.
 ]
 #corollary[
   If $f(x,y)$ is irreducible in $k[x,y]$, and $V(f)$ is infinite,
-  then $Ic(V(f))=(f)$ and $V(f)$ is irreducible.
+  then $I(V(f))=(f)$ and $V(f)$ is irreducible.
 ]<corollary1.4.2>
 #proof[
-  Let $g(x,y) in Ic(V(f))$. Since $V(f)$ is infinite, $g|f$ so $g in
+  Let $g(x,y) in I(V(f))$. Since $V(f)$ is infinite, $g|f$ so $g in
   (f)$. Now, since $f(x,y)$ is irreducible, $(f)$ is prime so that
   $V(f)$ is irreducible by @proposition1.3.2.
 ]
 #corollary[
   If $k$ is algebraically closed, and $f(x,y)$ is irreducible, then
-  $Ic(V(f))=(f)$, and $V(f)$ is irreducible.
+  $I(V(f))=(f)$, and $V(f)$ is irreducible.
 ]<corollary1.4.3>
 #proof[
   Since $k$ is algbebraically closed, $V(f)$ is infinite and the
@@ -48,18 +48,18 @@ We now observe the case of algebraic sets in $AA^2$ for any field.
 ]<corollary1.4.4>
 #proof[
   Let $V cc AA^(2)(k)$ be an irreducible algebraic set. If
-  $Ic(V)=(0)$, or $Ic(V)=k[x,y]$, then $V=AA^(2)(k)$ or
-  $V=emptyset$. Now, if $Ic(V)$ contains a non-constant polynomial
-  $f(x,y)$, since $Ic(V)$ is prime, any irreducible factor of
-  $f(x,y)$ is contained in $Ic(V)$ and we can assume that $f(x,y)$
-  is irreducible. Then $Ic(V)=(f)$. Lastly, if $P in AA^(2)(k)$ is a
+  $I(V)=(0)$, or $I(V)=k[x,y]$, then $V=AA^(2)(k)$ or
+  $V=emptyset$. Now, if $I(V)$ contains a non-constant polynomial
+  $f(x,y)$, since $I(V)$ is prime, any irreducible factor of
+  $f(x,y)$ is contained in $I(V)$ and we can assume that $f(x,y)$
+  is irreducible. Then $I(V)=(f)$. Lastly, if $P in AA^(2)(k)$ is a
   point, then ${P}$ is irreducible by definition.
 ]
 #corollary[
   If $k$ is algebraically closed, and $f(x,y) in k[x,y]$ has the
   factorization: $ f(x,y) = f_1(x,y)^(n_1) ... f_r(x,y)^(n_r)$ into
   irreducible factors, then: $ V(f) = V(f_1) union ... union V(f_r) $
-  where each $V(f_i)$ is irreducible. Moreover, $Ic(V)=(f_1, ..., f_r)$.
+  where each $V(f_i)$ is irreducible. Moreover, $I(V)=(f_1, ..., f_r)$.
 ]<corollary>
 #proof[
   Since each $f_i(x,y)$ is irreducible, no $f_i(x,y)$ divides any
@@ -70,11 +70,11 @@ We now observe the case of algebraic sets in $AA^2$ for any field.
   irreduceible algebraic sets.
 
   Now:
-  $  Ic(V(f)) = inter.big_(i=1)^(r)Ic(V(f_i)) = inter.big_(i=1)^(r)(f_i)  $
+  $  I(V(f)) = inter.big_(i=1)^(r)I(V(f_i)) = inter.big_(i=1)^(r)(f_i)  $
 
   Now any polynomial divisible by $f_(i)(x,y)$ is also divisible by
   $f_1(x,y), ..., f_(r)(x,y)$. So:
-  $  Ic(V(f)) = inter.big_(i=1)^(r)(f_i) = (f_1, ..., f_r) $
+  $  I(V(f)) = inter.big_(i=1)^(r)(f_i) = (f_1, ..., f_r) $
 ]
 
 #example[
@@ -82,7 +82,7 @@ We now observe the case of algebraic sets in $AA^2$ for any field.
     suppose there is a point $(a,b) in RR^2$ for which $a^2=-b^2-1$.
     Then $a^2=-(b^2+1)$. Now, there are no such $a in RR$ for which
     this equation holds for all $b in RR$, hence $(a,b) notin V(f)$.
-    Hence $V(x^2+y^2+1)=emptyset$, and $Ic(V(x^2+y^2+1))=RR[x,y]$.
+    Hence $V(x^2+y^2+1)=emptyset$, and $I(V(x^2+y^2+1))=RR[x,y]$.
 
   + Since $RR$ is infinite, by @corollary1.4.4, the only irreducible
     algebraic sets of $RR^2$ are $RR^2$ itself, $emptyset$, points,

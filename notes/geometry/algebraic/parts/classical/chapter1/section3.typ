@@ -16,16 +16,16 @@
   prime.
 ]<proposition1.3.2>
 #proof[
-  Let $X cc AA^n$. Suppose the ideal $Ic(X)$ is not prime, and let
-  $f_1f_2 in Ic(X)$, but $f_1, f_2 notin Ic(X)$. Then:
+  Let $X cc AA^n$. Suppose the ideal $I(X)$ is not prime, and let
+  $f_1f_2 in I(X)$, but $f_1, f_2 notin I(X)$. Then:
   $ X=(X inter V(f_1)) union (X inter V(f_2))$
   and $X inter V(f_1) cc X$ and $X inter V(f_2) cc X$. This makes
   $X$ reducible by definition.
 
   Conversely, suppose that $X=X_1 union X_2$, for some $X_1, X_2 cc
-  AA^n$. Then $Ic(X) cc Ic(X_1)$ and $Ic(X) cc Ic(X_2)$. Let $f_1 in
-  Ic(X_1)$ and $f_2  in Ic(X_2)$, and suppose that $f_1, f_2 notin
-  Ic(X)$. Then $f_1f_2 in Ic(Z)$, which means that $Ic(X)$ is not
+  AA^n$. Then $I(X) cc I(X_1)$ and $I(X) cc I(X_2)$. Let $f_1 in
+  I(X_1)$ and $f_2  in I(X_2)$, and suppose that $f_1, f_2 notin
+  I(X)$. Then $f_1f_2 in I(Z)$, which means that $I(X)$ is not
   a prime ideal.
 ]
 
@@ -40,7 +40,7 @@
     then $ker phi=(x-y^2)$, and by the first isomorphism theorem for
     rings we get: $ quotient( CC[x,y], (y-z^2) ) tilde.eq CC[x] $
     This makes $(y-x^2)$ a prime ideal, and so $V(y-x^2)$ is
-    irreducible. Moreover; $Ic(V(y-x^2))=(y-x^2)$.
+    irreducible. Moreover; $I(V(y-x^2))=(y-x^2)$.
 
   + The set $V(y^4-x^2, y^4-x^2y^2+x y^2-x^3)$ is reducible in
     $AA^(2)(CC)$. We have:
@@ -98,9 +98,9 @@
 #proof[
   Let $k$ be the underlying field, and let ${X_alpha}$ be a
   non-empty collection of algebraic sets in $AA^(n)(k)$, ordered by
-  inclusion. Then the collection of ideals ${Ic(X_alpha)}$ is
+  inclusion. Then the collection of ideals ${I(X_alpha)}$ is
   ordered by the reverse inclusion by @proposition1.2.2(2). Since
-  $k[x_1, ..., x_n]$ is a Noetherian ring, ${Ic(X_alpha)}$ has a
+  $k[x_1, ..., x_n]$ is a Noetherian ring, ${I(X_alpha)}$ has a
   maximal member, and therefore, the collection ${X_alpha}$ must
   have a minimal member.
 ]
