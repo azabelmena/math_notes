@@ -34,5 +34,6 @@
 #part([Classical Algebraic Geometry], label: <part1>)
 
 #include( "parts/classical/chapter1/chapter1.typ" )
+#include( "parts/classical/chapter2/chapter2.typ" )
 
 #bibliography(full: true, "ref.bib")
