@@ -1,7 +1,7 @@
 #import "@preview/quire:0.1.0": *
 #import "../../../lib.typ" : *
 
-=== Affine Algebraic Subsets of the Plane <section1.3>
+=== Affine Algebraic Subsets of the Plane <section1.4>
 
 We now observe the case of algebraic sets in $AA^2$ for any field.
 
