@@ -29,7 +29,7 @@
   ),
 )
 
-#set enum( numbering: "(1)" )
+#set enum( numbering: "(1).(i).(a)" )
 
 #part([Classical Algebraic Geometry], label: <part1>)
 
