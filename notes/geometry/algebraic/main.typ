@@ -9,7 +9,7 @@
 #set-qed-symbol[#smallcaps(text(10pt, font: serif_font, "qed."))]
 
 #show: quire.with(
-  title: [Algebraic Geoemtry],
+  title: [Algebraic Geometry],
   authors: (name: "Alec S. Zabel-Mena", affiliation: [UPR-RP]),
   lang: "en",
   top-level: "part",
